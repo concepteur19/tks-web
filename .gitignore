@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+.output/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Tests and reports
+coverage/
+playwright-report/
+test-results/
+.lighthouseci/
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Spec Kit machine-local state (see .specify/.gitignore)
