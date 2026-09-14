@@ -20,7 +20,7 @@ Complexité : S (< 1 jour), M (1 à 3 jours), L (> 3 jours), XL (projet à part)
 | Bouton WhatsApp permanent (header + flottant mobile) | P0 | **MVP** | S | Numéro WhatsApp | CTA principal |
 | Section « À propos » | — | **MVP** (section de l'accueil, pas de page dédiée) | S | Texte client | Positionnement ; une page séparée n'apporte rien en V1 |
 | Catalogue Transport (liste, catégories, cartes) | P0 | **MVP** | M | Données services | Pôle P0 |
-| Catalogue Tourisme / activités | P0 | **MVP** | M | Données, photos | Axe stratégique du CDC (§6) ; l'audio suggère de le lancer en premier, à confirmer (question A3) |
+| Catalogue Tourisme / activités | P0 | **MVP** | M | Données, photos | Axe stratégique du CDC (§6) ; même priorité que Transport et Livraison, confirmé par le client (A3) |
 | Catalogue Livraison | P0 | **MVP** | S | Données | Pôle P0, peu de fiches |
 | Filtres par catégorie dans un pôle | croquis | **MVP** | S | Catégories | Simple, améliore la découverte |
 | Fiche détail prestation (photos, descriptions, prix, durée, capacité, conditions) | P0 | **MVP** | M | Données, photos | Page SEO par service, point d'ajout |
@@ -41,10 +41,12 @@ Complexité : S (< 1 jour), M (1 à 3 jours), L (> 3 jours), XL (projet à part)
 | Mobile-first, accessibilité, performance | §13 | **MVP** | transverse | — | Exigence explicite |
 | Champs de qualification par service (date, heure, départ, destination, durée…) | §5, §10 | **V2** | M | UX à concevoir | Alourdit le panier ; en V1 ces détails se donnent dans la conversation WhatsApp |
 | Formulaire livraison structuré (retrait, destination, colis…) | §10 | **V2** | M | idem | idem |
-| Formules / Packs (contenu, prix, sélection, personnalisation) | P1 | **V2** | M | Packs définis par le client | Aucun pack n'existe encore ; le modèle réserve `Pack` |
-| Hébergements partenaires (hôtels, villas, appartements) | §6 | **V2** | M | Partenaires signés, photos | Aucun partenaire connu ; s'intègre comme une catégorie du pôle Tourisme |
+| Formules / Packs (contenu, prix, sélection, personnalisation) | P1 | **V2** | M | Packs définis par le client | Contenus et prix pas arrêtés, V2 confirmée par le client (B6) ; le modèle réserve `Pack` |
+| Hébergements partenaires (hôtels, villas, appartements) | §6 | **V2** | M | Partenaires signés, photos | V2 confirmée par le client (B5), le temps de structurer partenariats et tarifs ; catégorie du pôle Tourisme |
 | Analytics (trafic, clics WhatsApp) | §18 | **V2** | S | Choix outil, consentement | Utile pour mesurer la conversion, pas nécessaire pour livrer |
-| Multilingue (FR / EN) | — | **V2** | M | Traductions | Non demandé ; chaînes UI centralisées dès la V1 pour ne pas fermer la porte |
+| Multilingue (FR / EN) | — | **V2** (priorité haute) | M | Traductions | Cible prioritaire = expatriés et touristes étrangers (client A2) ; français seul en V1 (F7), chaînes UI centralisées dès la V1 |
+| Affichage secondaire en euros | — | **V2** | S | Taux de conversion à fixer | FCFA seul en V1, euro « plus tard » (client C5) |
+| FAQ | — | **V2** | S | 5 questions fréquentes | « Oui à terme, pas prioritaire » (client F6) |
 | Administration du catalogue (services, prix, photos, packs, partenaires) | P1 | **V3** | L | CMS headless ou backend + auth | Le CDC veut ne plus dépendre du développeur : un CMS headless (git-based ou hébergé) répond au besoin. Les données en fichiers de la V1 migrent facilement |
 | Consultation des demandes reçues | §12 | **V3** | L | Backend, stockage | Nécessite de capter les demandes ailleurs que dans WhatsApp |
 | Gestion des partenaires / prestataires | P2 | **V3** | L | Backend | idem |
@@ -55,8 +57,8 @@ Complexité : S (< 1 jour), M (1 à 3 jours), L (> 3 jours), XL (projet à part)
 | Notifications | §15 | **Future** | L | Backend | idem |
 | Espace partenaires | §15 | **Future** | XL | Backend | idem |
 | Plateforme de conciergerie | §15 | **Future** | XL | Tout ce qui précède | Vision long terme |
-| Notes et avis clients | croquis | **Hors scope** | M | Source d'avis | Aucune donnée ; afficher de faux avis nuit à la crédibilité |
-| Vidéo hero | croquis | **Hors scope** | S | Contenu vidéo | Contenu absent, coût performance |
+| Témoignages / avis clients | croquis | **V2** | M | Témoignages réels | « Quand il y en aura assez de réels, non bloquant » (client F5) ; jamais de faux avis |
+| Vidéo hero | croquis, client G4 | **Hors scope tant qu'aucune vidéo n'est fournie** | S | Vidéo courte et légère fournie par le client | Le client la cite parmi les indispensables ; si une vidéo arrive avant le design, elle est intégrée en fond de hero avec image de repli et `prefers-reduced-motion` respecté |
 | Backend, base de données, authentification | — | **Hors scope MVP** | — | — | Décision de cadrage |
 
 ## Périmètre MVP en une page

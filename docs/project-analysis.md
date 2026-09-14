@@ -18,7 +18,7 @@ Le site demandé n'est pas un site vitrine classique : c'est une **vitrine comme
 
 Parcours cible du cahier des charges : *Découvrir → sélectionner → composer → obtenir une estimation → envoyer une demande → échange avec TKS → confirmation.*
 
-Le vocal du client (complément d'information, pas une source de référence : voir [audio-transcript.md](./audio-transcript.md)) formule le besoin ressenti en une phrase : **choisir des activités par catégorie, récapituler, écrire sur WhatsApp**. Il évoque aussi, avec un « peut-être », l'envie de lancer le **tourisme** en premier ; c'est une hypothèse à confirmer (question A3), pas une décision.
+Le vocal du client (complément d'information, pas une source de référence : voir [audio-transcript.md](./audio-transcript.md)) formule le besoin ressenti en une phrase : **choisir des activités par catégorie, récapituler, écrire sur WhatsApp**. Il évoquait aussi, avec un « peut-être », l'envie de lancer le **tourisme** en premier. Le client a depuis confirmé que **les trois pôles sont tous importants** (question A3) : aucun n'est prioritaire.
 
 ## 3. Synthèse du cahier des charges
 
@@ -79,17 +79,18 @@ Le croquis (généré par ChatGPT) montre 9 écrans. Il est utile pour comprendr
 | Hébergements | Non mentionnés | Dans le pôle Tourisme | V2, aucun partenaire connu |
 | Formulaire de contact | Non mentionné | « WhatsApp, formulaire et coordonnées » | V1 : coordonnées + WhatsApp. Formulaire en V2 si le client le juge indispensable (question client) |
 
-## 6. Ce que l'on ne sait pas encore
+## 6. Ce que l'on sait, et ce qui reste ouvert
 
-Voir [client-questions.md](./client-questions.md) pour le questionnaire complet. Les inconnues bloquantes pour l'implémentation :
+Le client a répondu au questionnaire le 2026-09-14 : voir [client-answers.md](./client-answers.md). Résolu : les trois pôles ont la même priorité, objectif (demandes WhatsApp), cible (expatriés et touristes étrangers d'abord, puis Douala / Yaoundé), liste des services et catégories, statuts de disponibilité, modes de prix et unités par pôle, mention sous le total, dates et voyageurs recommandés mais non bloquants, numéro WhatsApp unique, format du message, contenu de la page Contact, packs et hébergements en V2, direction de design.
 
-1. Numéro WhatsApp officiel.
-2. Liste réelle des services avec leur mode de prix (fixe / à partir de / sur devis), montant, unité.
-3. Règle de quantité par service (unités ou personnes).
-4. Photos et logo.
-5. Charte graphique (le design Figma la fixera).
+Reste ouvert :
 
-Aucune de ces inconnues ne bloque la phase de fondation technique (spec 001) ni les specs fonctionnelles, qui travaillent sur des données d'exemple clairement marquées.
+1. **Tarifs service par service** (montant, mode, unité) : promis, non reçus.
+2. Pour chaque service transport, quantité en véhicules ou en jours.
+3. Logo HD, photos et droits : promis, à recevoir progressivement.
+4. Nom de domaine, e-mail professionnel, téléphone et réseaux sociaux.
+
+Aucun de ces points ne bloque les specs 001 à 006, qui travaillent sur des données d'exemple marquées. Ils bloquent la mise en ligne.
 
 ## 7. Documents liés
 

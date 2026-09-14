@@ -203,6 +203,7 @@ Format : Context / Decision / Alternatives considered / Consequences / Status. T
 | Sujet | Dépend de | Échéance |
 |---|---|---|
 | Nom de domaine et DNS | Question F8 | Avant mise en ligne |
-| Analytics (Plausible, Umami, aucun) | Question G/A1 | V2 |
-| Formulaire de contact (Cloudflare Function, Formspree) | Question F4 / D3 | V2 |
+| Analytics (Plausible, Umami, aucun) | Objectif = demandes WhatsApp (client A1) : mesurer le clic devient utile | V2 |
+| Formulaire de contact (Cloudflare Function, Formspree) | Client D3 : formulaires détaillés en V2 | V2 |
+| Vidéo de hero | Fourniture d'une vidéo courte par le client (G4) | V1 si reçue avant le design, sinon V2 |
 | Radix Primitives pour le drawer | Complexité réelle du drawer Figma | Spec 004 |

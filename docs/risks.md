@@ -7,12 +7,12 @@ Impact et probabilité : Faible / Moyen / Élevé.
 | # | Risque | Impact | Probabilité | Mitigation |
 |---|---|---|---|---|
 | R1 | **Prix non fournis ou instables** : le client ne sait pas fixer ses tarifs, ou les change souvent | Élevé (le total estimatif est le cœur du produit) | Élevé | Trois modes de prix dont « sur devis » ; le site fonctionne avec 100 % de sur devis ; catalogue en fichiers modifiables en minutes ; question C1/C2 marquée bloquante |
-| R2 | **Numéro WhatsApp non validé** ou changé après mise en ligne | Élevé | Moyen | Variable de build unique ; redéploiement en 3 minutes ; question E1 bloquante |
+| R2 | **Numéro WhatsApp changé** après mise en ligne | Élevé | Faible | Numéro reçu (+237 697 13 53 88, E1) ; variable de build unique ; redéploiement en 3 minutes |
 | R3 | **Contenu manquant** (photos, textes, logo) retardant la mise en ligne | Élevé | Élevé | Placeholders clairement marqués ; livraison technique possible avant le contenu final ; liste de contenu attendu dans le questionnaire |
 | R4 | **Design Figma en retard** ou livré sans variables | Moyen | Moyen | Design system structurel prêt ; développement avec tokens placeholders ; procédure Figma → tokens documentée |
 | R5 | **Dépendance à WhatsApp** : message trop long, application absente, changement du format `wa.me` | Moyen | Faible | Troncature contrôlée ; repli sur WhatsApp Web ; page Contact avec numéro cliquable ; test manuel à chaque release |
 | R6 | **Attente d'un backoffice dès la V1** par le client (P1 dans le CDC) | Moyen | Moyen | Expliquer dès le kick-off le compromis fichiers → CMS V3 ; montrer la rapidité d'un changement de prix |
-| R7 | **Scope creep** : packs, hébergements, formulaires détaillés demandés en cours de route | Moyen | Élevé | Tableau de scope validé ; toute demande passe par une nouvelle spec ; roadmap explicite |
+| R7 | **Scope creep** : packs, hébergements, formulaires détaillés, vidéo d'accueil demandés en cours de route (le client cite packs et vidéo parmi ses indispensables, G4) | Moyen | Élevé | Tableau de scope validé ; V2 confirmée par le client pour packs et hébergements (B5, B6) ; toute demande passe par une nouvelle spec |
 | R8 | **localStorage bloqué** (navigation privée, iOS Safari en mode restreint) | Faible | Faible | Mode mémoire dégradé, bandeau d'information |
 | R9 | **Performance des images** : photos lourdes fournies par le client | Moyen | Élevé | Optimisation au build (AVIF/WebP, tailles), budgets Lighthouse en CI |
 | R10 | **Hébergement et domaine non décidés** à la livraison | Moyen | Moyen | Cloudflare Pages en `pages.dev` immédiatement ; domaine branché plus tard sans redéploiement |

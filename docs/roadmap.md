@@ -33,7 +33,9 @@ Déclencheur : le MVP tourne, TKS a stabilisé son catalogue et observe les dema
 | Champs de qualification par service (dates, départ, destination, colis) | Les conversations WhatsApp montrent que les mêmes questions reviennent |
 | Formulaire de contact (Cloudflare Function ou service tiers) | Des visiteurs ne veulent pas passer par WhatsApp |
 | Analytics de conversion (Plausible ou Umami) | TKS veut mesurer les clics et les pages performantes |
-| Version anglaise | Des demandes arrivent en anglais |
+| Version anglaise | **Première candidate V2** : la cible prioritaire est expatriés et touristes étrangers (client A2) |
+| Affichage secondaire en euros | Même cible ; « plus tard » selon le client (C5) |
+| FAQ et témoignages réels | Assez de questions récurrentes et de témoignages (client F5, F6) |
 | Ajout rapide depuis les cartes | Le design Figma le prévoit, les données de sélection le confirment utile |
 
 ## V3 — Contenu géré par TKS

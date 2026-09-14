@@ -2,7 +2,7 @@
 
 **Statut** : draft · **Date** : 2026-09-13
 
-Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (voir [../specs/README.md](../specs/README.md)). Chaque exigence a au moins un critère d'acceptation Given / When / Then. Les points marqués `[À CONFIRMER]` dépendent d'une réponse client (référence vers [client-questions.md](./client-questions.md)).
+Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (voir [../specs/README.md](../specs/README.md)). Chaque exigence a au moins un critère d'acceptation Given / When / Then. Les références client entre parenthèses (ex. « client D2 ») renvoient aux réponses de Franck du 2026-09-14 dans [client-answers.md](./client-answers.md).
 
 ---
 
@@ -11,7 +11,7 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 **FR-LAND-1** Le site expose les routes : `/` (accueil), `/transport`, `/tourisme`, `/livraison`, `/services/<slug>` (fiche), `/sejour` (Mon séjour), `/contact`.
 - Given un visiteur, When il ouvre une route, Then la page se rend sans JavaScript pour tout le contenu statique.
 
-**FR-LAND-2** L'accueil présente : identité TKS® et signature « Kribi is a feeling », un hero avec visuel et deux CTA (« Découvrir nos services », « Planifier mon séjour »), les trois pôles avec lien, une section « Pourquoi choisir TKS », une section d'expériences mises en avant (services `featured`), une section « À propos », un pied de page avec coordonnées.
+**FR-LAND-2** L'accueil présente : identité TKS® et signature « Kribi is a feeling », un hero avec visuel et deux CTA (« Découvrir nos services », « Planifier mon séjour »), les trois pôles avec lien, une section « Pourquoi choisir TKS », une section d'expériences mises en avant (services `featured`), une section « À propos », un pied de page avec coordonnées. Le message du hero et de l'accueil exprime « je vais à Kribi, TKS m'aide à organiser mon expérience », jamais une offre de location de véhicules seule ; peu de texte, beaucoup de photos (client, vision finale et G4).
 - Given l'accueil, When le visiteur clique un pôle, Then il arrive sur la page du pôle.
 
 **FR-LAND-3** Une navigation persistante contient les liens vers les pôles, Mon séjour (avec badge du nombre de lignes) et un bouton WhatsApp.
@@ -35,13 +35,13 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 **FR-CAT-3** Une carte de service affiche : image, titre, description courte, étiquette de prix (voir FR-EST-1), badge « Disponibilité à confirmer » si `on_request`, lien vers la fiche.
 
-**FR-CAT-4** La fiche `/services/<slug>` affiche : galerie (1 à N images), titre, description longue, prix, durée, capacité, conditions (inclus / non inclus / à savoir), sélecteur de quantité conforme à la règle du service, bouton « Ajouter à mon séjour », bouton « Demander un devis » (ouvre WhatsApp avec ce service seul).
+**FR-CAT-4** La fiche `/services/<slug>` affiche : galerie (1 à N images), titre, description longue, prix, durée, capacité, conditions (inclus / non inclus / à savoir), sélecteur de quantité conforme à la règle du service, bouton « Ajouter à mon séjour », bouton « Demander ce service » (ouvre WhatsApp avec ce service seul, client B1).
 
 **FR-CAT-5** Un service `disabled` n'apparaît nulle part et sa route renvoie une 404.
 
 **FR-CAT-6** Chaque page de pôle contient un bloc « Besoin d'un service spécifique ? » avec CTA WhatsApp générique.
 
-**FR-CAT-7** La page Livraison peut, à défaut de fiches détaillées, présenter les types de livraison comme cartes ajoutables directement, avec un prix `quote` par défaut `[À CONFIRMER C1]`.
+**FR-CAT-7** La page Livraison peut, à défaut de fiches détaillées, présenter les types de livraison comme cartes ajoutables directement, avec un prix `quote` par défaut tant que les tarifs livraison ne sont pas fournis (client C2 : une livraison tarifée à la distance ou au colis reste sur devis).
 
 ---
 
@@ -68,7 +68,8 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 **FR-SEL-9** La page `/sejour` affiche l'état vide avec un CTA vers Tourisme quand la sélection est vide.
 
-**FR-SEL-10** La page `/sejour` propose deux champs optionnels : dates de séjour (texte libre ou sélecteur, `[À CONFIRMER D2]`) et nombre de voyageurs. Ils sont persistés avec la sélection.
+**FR-SEL-10** La page `/sejour` propose deux champs optionnels : dates de séjour (texte libre) et nombre de voyageurs, persistés avec la sélection. Si la sélection contient au moins un service du pôle tourisme et que l'un de ces champs est vide, un rappel non bloquant s'affiche près du CTA WhatsApp (« Ajoute tes dates et le nombre de voyageurs pour une réponse plus rapide »). L'envoi reste toujours possible (client D2 : recommandé, jamais bloquant).
+- Given une sélection tourisme sans dates, When le visiteur ouvre `/sejour`, Then le rappel est visible et le CTA WhatsApp reste actif.
 
 **FR-SEL-11** Sur desktop, un panneau latéral offre un récap court (lignes, total, CTA) accessible depuis la navigation. Sur mobile, la page `/sejour` est le récap.
 
@@ -83,7 +84,7 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 **FR-EST-3** Le total estimatif = somme des montants de lignes non nuls. Le nombre de lignes `quote` est affiché à côté : « + 2 prestations sur devis ».
 - Given fixed 70 000 × 1, from 15 000 × 2, quote × 1, When calcul, Then total 100 000, quoteCount 1, hasFromPrices true.
 
-**FR-EST-4** Si au moins une ligne est `from`, le total porte le libellé « Total estimatif » et la mention « Prix indicatif, sous réserve de disponibilité et de confirmation par TKS. » `[À CONFIRMER C4]`. Si toutes les lignes sont `fixed`, le libellé est « Total indicatif » avec la même mention (TKS garde la main sur le prix final, §16 du CDC).
+**FR-EST-4** Si au moins une ligne est `from`, le total porte le libellé « Total estimatif » et la mention « Prix indicatif, sous réserve de disponibilité et de confirmation par TKS. » (validée par le client, C4). Si toutes les lignes sont `fixed`, le libellé est « Total indicatif » avec la même mention (TKS garde la main sur le prix final, §16 du CDC).
 
 **FR-EST-5** Si toutes les lignes sont `quote`, aucun montant n'est affiché : « Total : sur devis (N prestations) ».
 
@@ -95,19 +96,19 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 ## WA — Conversion WhatsApp (spec 006)
 
-**FR-WA-1** Le numéro WhatsApp est une variable de configuration au build (`PUBLIC_WHATSAPP_NUMBER`, format international sans `+`). `[À CONFIRMER E1]`
+**FR-WA-1** Le numéro WhatsApp est une variable de configuration au build (`PUBLIC_WHATSAPP_NUMBER`, format international sans `+`). Valeur de production : `237697135388`, numéro unique pour les trois pôles (client E1, E2).
 
 **FR-WA-2** Le lien est de la forme `https://wa.me/<numéro>?text=<message URL-encodé>` et s'ouvre dans un nouvel onglet avec `rel="noopener"`.
 
-**FR-WA-3** Le message récapitulatif contient, dans l'ordre : salutation et intention (« organiser un séjour à Kribi » ou « une livraison » selon les pôles présents), dates et voyageurs s'ils sont renseignés, la liste des lignes (titre × quantité, montant ou « sur devis »), le total estimatif avec le nombre de lignes sur devis, une formule de clôture. `[À CONFIRMER E3]`
+**FR-WA-3** Le message récapitulatif contient, dans l'ordre : salutation et intention (« organiser un séjour à Kribi » ou « une livraison » selon les pôles présents), dates et voyageurs s'ils sont renseignés, la liste des lignes (titre × quantité, montant ou « sur devis »), le total estimatif avec le nombre de lignes sur devis, une formule de clôture. (format validé par le client, E3)
 
 **FR-WA-4** Le message est produit par une fonction pure à partir de la sélection et du catalogue, couverte à 100 % par des tests, avec un test de non-régression sur un exemple complet.
 
 **FR-WA-5** Si le message encodé dépasse 1 800 caractères, les lignes sont tronquées à partir de la fin avec « … et N autres prestations », le total restant exact.
 
-**FR-WA-6** Le bouton « Demander un devis » d'une fiche génère un message pour ce seul service, sans toucher à la sélection.
+**FR-WA-6** Le bouton « Demander ce service » d'une fiche génère un message pour ce seul service, sans toucher à la sélection. Sur `/sejour`, « Demander un devis » et « Contacter TKS sur WhatsApp » ouvrent le même récapitulatif avec une phrase d'introduction différente (client D4).
 
-**FR-WA-7** La page `/contact` affiche le numéro WhatsApp cliquable, la zone d'intervention, les réseaux sociaux si fournis, et le CTA WhatsApp générique. Aucun formulaire en V1. `[À CONFIRMER F4]`
+**FR-WA-7** La page `/contact` affiche le numéro WhatsApp cliquable, le téléphone s'il est différent, l'e-mail professionnel, « Kribi, Cameroun », les réseaux sociaux TKS, et le CTA WhatsApp générique. Pas d'horaires, aucun formulaire en V1 (client F4). Les valeurs manquantes (téléphone, e-mail, réseaux) sont simplement omises tant qu'elles ne sont pas fournies.
 
 ---
 

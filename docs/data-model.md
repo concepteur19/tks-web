@@ -54,7 +54,11 @@ Les trois pôles sont fixes dans le code (ils structurent les routes). Leurs lib
 ### `Pricing` (union discriminée)
 
 ```ts
-type PriceUnit = 'per_unit' | 'per_person' | 'per_day' | 'per_hour' | 'per_trip' | 'per_parcel';
+type PriceUnit =
+  | 'per_trip' | 'per_hour' | 'per_day'      // transport : course/trajet, heure, jour (client C2)
+  | 'per_person' | 'per_group'               // tourisme : par personne ou par groupe (client C2)
+  | 'per_delivery'                           // livraison : par livraison/course ; à la distance ou au colis ⇒ quote
+  | 'per_unit';                              // générique
 
 type Pricing =
   | { kind: 'fixed'; amount: number; unit: PriceUnit }   // « 70 000 FCFA / course »
@@ -64,7 +68,8 @@ type Pricing =
 
 Règles :
 - `amount` est un entier strictement positif.
-- L'unité pilote le libellé affiché (`/ personne`, `/ jour`…) et doit être cohérente avec `QuantityRule.mode` (validation au build : `per_person` ⇒ `mode = 'persons'`).
+- L'unité pilote le libellé affiché (`/ personne`, `/ jour`…) et doit être cohérente avec `QuantityRule.mode` (validation au build : `per_person` ⇒ `mode = 'persons'` ; `per_group` ⇒ `mode = 'none'` ou `units` avec label « groupes »).
+- Une tarification dépendant de la distance ou des caractéristiques du colis n'est pas modélisée : le service est `quote` (client C2, C3).
 
 ### `QuantityRule`
 
@@ -76,6 +81,8 @@ type QuantityRule =
 ```
 
 Règles : `1 ≤ min ≤ default ≤ max ≤ 50`.
+
+Transport (client D1) : **une seule dimension de quantité par service**, choisie dans les données : `units` avec `label: "véhicules"` pour les courses et transferts, `label: "jours"` pour les locations. Un service qui aurait besoin des deux (véhicules × jours) est modélisé en `quote` en V1 ; le croisement est un candidat V2.
 
 ### `Pack` (réservé V2)
 
@@ -188,7 +195,8 @@ Selection 1 ──── n SelectedService ─────┘
 | R8 | Montants entiers XAF, formatés « 100 000 FCFA » | formatage |
 | R9 | Message WhatsApp ≤ 1 800 caractères encodés, troncature par lignes entières | whatsapp |
 | R10 | Sélection de plus de 30 jours purgée | store (hydratation) |
-| R11 | `unit: 'per_person'` ⇒ `quantity.mode = 'persons'` | validation du catalogue au build |
+| R11 | `unit: 'per_person'` ⇒ `quantity.mode = 'persons'` ; `per_group` ⇒ `none` ou `units` | validation du catalogue au build |
+| R12 | Dates et voyageurs ne sont jamais obligatoires ; un rappel s'affiche si la sélection contient du tourisme et qu'ils manquent | page Mon séjour (client D2) |
 
 ## 8. Exemple de fichier de service
 

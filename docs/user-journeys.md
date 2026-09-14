@@ -16,7 +16,7 @@ Feedback d'ajout (toast + badge compteur dans la nav)
 Mon séjour
    ↓  récapitulatif, ajustement des quantités, suppression
 Estimation (total indicatif + lignes sur devis)
-   ↓  date de séjour et voyageurs (optionnels)
+   ↓  date de séjour et voyageurs (optionnels ; rappel non bloquant si la sélection contient du tourisme)
 CTA « Demander un devis par WhatsApp »
    ↓  ouverture de WhatsApp avec le message prérempli
 Conversation WhatsApp avec TKS (hors site)
@@ -54,6 +54,7 @@ Conversation WhatsApp avec TKS (hors site)
 | **Quantité au maximum** | Stepper à `max` | Bouton + désactivé, aide « Maximum N » ; pour un groupe plus grand, invitation à préciser sur WhatsApp |
 | **Stockage local indisponible** | Navigation privée stricte, quota, erreur | Mode dégradé : sélection en mémoire pour la session, bandeau discret « Votre sélection ne sera pas conservée après fermeture » |
 | **Message WhatsApp trop long** | Sélection très grande | Le message est tronqué proprement (lignes complètes), suivi de « … et N autres prestations ». Le total reste exact |
+| **Dates ou voyageurs manquants avec du tourisme** | Au moins une ligne du pôle tourisme, champ vide | Rappel discret près du CTA (« Ajoute tes dates et le nombre de voyageurs pour une réponse plus rapide »). Le CTA reste actif ; le message WhatsApp omet les champs vides (client D2) |
 
 ## 4. États d'affichage par support
 

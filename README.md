@@ -6,7 +6,7 @@ Site vitrine interactif pour TKS® (Kribi, Cameroun) : transport, tourisme, livr
 
 ## État du projet
 
-**Phase : Discovery terminée, en attente de validation client.** Aucun code applicatif n'est encore écrit. Le projet est piloté par des spécifications versionnées (Specification-Driven Development avec [Spec Kit](https://github.com/github/spec-kit)).
+**Phase : Discovery terminée, réponses client reçues le 2026-09-14.** Restent attendus : tarifs par service, logo, photos, domaine. Aucun code applicatif n'est encore écrit. Le projet est piloté par des spécifications versionnées (Specification-Driven Development avec [Spec Kit](https://github.com/github/spec-kit)).
 
 ## Où lire quoi
 
@@ -14,7 +14,8 @@ Site vitrine interactif pour TKS® (Kribi, Cameroun) : transport, tourisme, livr
 |---|---|
 | Comprendre le client et le besoin | [docs/project-analysis.md](docs/project-analysis.md) |
 | Ce qui est dans le MVP, et ce qui n'y est pas | [docs/product-scope.md](docs/product-scope.md) |
-| Questions à poser au client | [docs/client-questions.md](docs/client-questions.md) |
+| Questions posées au client | [docs/client-questions.md](docs/client-questions.md) |
+| Réponses du client et décisions qui en découlent | [docs/client-answers.md](docs/client-answers.md) |
 | Parcours et états de l'interface | [docs/user-journeys.md](docs/user-journeys.md) |
 | Exigences fonctionnelles `FR-xxx` | [docs/functional-requirements.md](docs/functional-requirements.md) |
 | Exigences techniques `TR-xxx` | [docs/technical-requirements.md](docs/technical-requirements.md) |

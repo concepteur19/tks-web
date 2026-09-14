@@ -33,7 +33,7 @@
 Ce que l'on comprend du vocal (interprétation, à valider avec le client) :
 
 1. Le site affiche les services, **organisés par catégorie**.
-2. Le **tourisme** semble être la catégorie qu'il a envie de lancer en premier (« c'est *peut-être* par rapport au tourisme que j'ai envie de lancer »).
+2. Le **tourisme** semble être la catégorie qu'il a envie de lancer en premier (« c'est *peut-être* par rapport au tourisme que j'ai envie de lancer »). *Écarté depuis : les trois pôles sont tous importants (réponse A3).*
 3. Le visiteur choisit plusieurs activités (« telle, telle, telle activité »).
 4. À la fin, le site **récapitule** les activités choisies.
 5. Le site propose au visiteur de **lui écrire sur WhatsApp directement** avec cette sélection.
@@ -47,7 +47,7 @@ Ce que l'on comprend du vocal (interprétation, à valider avec le client) :
 |---|---|---|---|
 | Interaction sélection → récap → WhatsApp | Oui (§8, §11) | Décrit spontanément | Cohérent entre les deux sources : renforce la priorité MVP |
 | Catégories de services | 3 pôles + sous-catégories | Mentionné vaguement | Cohérent |
-| Pôle prioritaire | Les 3 pôles en P0 | « peut-être par rapport au tourisme que j'ai envie de lancer » | **Hypothèse** : le mot « peut-être » et le P0 des trois pôles dans le CDC imposent de confirmer (question A3). En attendant, on ne réduit pas Transport et Livraison |
+| Pôle prioritaire | Les 3 pôles en P0 | « peut-être par rapport au tourisme que j'ai envie de lancer » | **Écarté** : le client a confirmé le 2026-09-14 que les trois pôles sont tous importants (question A3). L'idée du vocal n'est pas retenue |
 | Prix, packs, admin, hébergements | Détaillés | Non mentionnés | Aucune conclusion à tirer d'une absence dans un vocal d'une minute |
 
 Aucune contradiction avec le PDF. L'audio donne surtout une formulation courte du besoin ressenti par le client : **« choisir des activités, récapituler, écrire sur WhatsApp »**, utile pour garder le cap sur la conversion.

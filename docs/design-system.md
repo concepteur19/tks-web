@@ -4,9 +4,18 @@
 
 ## 1. Positionnement
 
-Le design final sera produit dans **Figma**. Ce document ne définit pas l'apparence du site ; il définit **la structure qui recevra le design** : tokens, composants, variantes, états, accessibilité. Les valeurs indiquées sont des placeholders issus du croquis, toutes marquées `[PLACEHOLDER]`, et seront remplacées par les valeurs Figma.
+Le design final sera produit dans **Figma** : le développeur génère plusieurs propositions responsives avec les outils d'IA de Figma (abonnement premium), les soumet au client, puis affine la direction retenue. Les réponses du bloc G du questionnaire client alimentent ces générations (logo, charte, références, ambiance). Ce document ne définit pas l'apparence du site ; il définit **la structure qui recevra le design** : tokens, composants, variantes, états, accessibilité. Les valeurs indiquées sont des placeholders issus du croquis, toutes marquées `[PLACEHOLDER]`, et seront remplacées par les valeurs Figma.
 
 Règle : **aucune valeur brute dans les composants**. Toute couleur, taille, espacement, rayon ou durée passe par un token.
+
+### Direction reçue du client (réponses G1 à G7, 2026-09-14)
+
+- **Palette** : à explorer autour de la mer, la nature, le soleil, l'expérience touristique. Le bleu marine / vert / blanc du croquis n'est pas une charte ; le noir / blanc / or vu sur certains supports n'est pas officiel non plus.
+- **Identité fixe** : le logo TKS® et la signature « Kribi is a feeling ».
+- **Style** : simplicité, belles photos, « premium accessible », navigation claire, mobile d'abord, cartes de services modernes, peu de texte.
+- **Ambiance** : nature + mer + chaleureuse + moderne + professionnelle. À éviter : froid, administratif, « simple site de transport ».
+- **Écrans indispensables** : grande image (ou vidéo si fournie) d'accueil, trois pôles, cartes de services avec photo et prix, « Ajouter à mon séjour », Mon séjour, demande de devis, WhatsApp toujours accessible.
+- **Process** : 2 ou 3 propositions Figma distinctes, puis choix d'une direction et affinage. Franck valide seul et veut du temps pour un retour précis.
 
 ## 2. Implémentation des tokens
 
