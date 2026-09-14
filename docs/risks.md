@@ -8,7 +8,7 @@ Impact et probabilité : Faible / Moyen / Élevé.
 |---|---|---|---|---|
 | R1 | **Prix non fournis ou instables** : le client ne sait pas fixer ses tarifs, ou les change souvent | Élevé (le total estimatif est le cœur du produit) | Élevé | Trois modes de prix dont « sur devis » ; le site fonctionne avec 100 % de sur devis ; catalogue en fichiers modifiables en minutes ; question C1/C2 marquée bloquante |
 | R2 | **Numéro WhatsApp changé** après mise en ligne | Élevé | Faible | Numéro reçu (+237 697 13 53 88, E1) ; variable de build unique ; redéploiement en 3 minutes |
-| R3 | **Contenu manquant** (photos, textes, logo) retardant la mise en ligne | Élevé | Élevé | Placeholders clairement marqués ; livraison technique possible avant le contenu final ; liste de contenu attendu dans le questionnaire |
+| R3 | **Contenu manquant** (photos, textes, logo) retardant la mise en ligne | Élevé | Élevé | Placeholders clairement marqués ; livraison technique possible avant le contenu final ; suivi élément par élément dans `content-tracker.md` au fil des envois de Franck |
 | R4 | **Design Figma en retard** ou livré sans variables | Moyen | Moyen | Design system structurel prêt ; développement avec tokens placeholders ; procédure Figma → tokens documentée |
 | R5 | **Dépendance à WhatsApp** : message trop long, application absente, changement du format `wa.me` | Moyen | Faible | Troncature contrôlée ; repli sur WhatsApp Web ; page Contact avec numéro cliquable ; test manuel à chaque release |
 | R6 | **Attente d'un backoffice dès la V1** par le client (P1 dans le CDC) | Moyen | Moyen | Expliquer dès le kick-off le compromis fichiers → CMS V3 ; montrer la rapidité d'un changement de prix |
@@ -22,6 +22,8 @@ Impact et probabilité : Faible / Moyen / Élevé.
 | R14 | **SEO local faible** faute de contenu et de domaine | Moyen | Moyen | JSON-LD LocalBusiness, une URL par service, textes orientés « Kribi » ; Google Business Profile recommandé au client |
 | R15 | **Faux avis / prix trompeurs** si les placeholders restent en prod | Élevé | Faible | Vérification pré-release : aucun `[PLACEHOLDER]` dans le build (test automatisé sur `dist/`) |
 | R16 | **Coût client mal cadré** (le CDC demande coût et calendrier) | Moyen | Moyen | Le tableau de scope et la roadmap servent de base au chiffrage ; hors périmètre de ce document |
+| R17 | **Traduction anglaise en retard ou de qualité inégale** | Moyen | Moyen | Repli sur le français en aperçu, build de production bloqué si un texte manque, relecture par Zobel avant chaque release, statut EN suivi dans `content-tracker.md` |
+| R18 | **Contenu doublé à maintenir** : chaque changement de texte doit être fait dans les deux langues | Moyen | Élevé | Un seul fichier par service avec les champs `{ fr, en }` côte à côte ; commit de contenu toujours bilingue ; contrôle au build |
 
 ## Suivi
 

@@ -22,6 +22,8 @@ CTA « Demander un devis par WhatsApp »
 Conversation WhatsApp avec TKS (hors site)
 ```
 
+Le parcours est identique en français et en anglais ; seules les URL et les textes changent.
+
 **Objectif de conversion** : maximiser le nombre de messages WhatsApp envoyés avec une sélection non vide. Chaque écran doit offrir un chemin en une action vers l'écran suivant.
 
 ## 2. Parcours secondaires
@@ -31,6 +33,7 @@ Conversation WhatsApp avec TKS (hors site)
 | Arrivée directe sur une fiche (SEO, lien partagé) | `/services/chutes-de-la-lobe` | Le visiteur comprend TKS grâce au layout (nav, bandeau), peut ajouter au séjour et remonter vers le pôle |
 | Livraison seule | Accueil → Livraison → fiche → ajouter → WhatsApp | Même mécanique ; le message dit « je souhaite une livraison » plutôt que « organiser un séjour » |
 | Contact direct sans sélection | Bouton WhatsApp flottant ou page Contact | WhatsApp s'ouvre avec un message générique « Bonjour TKS, je souhaite des informations. » |
+| Changement de langue | Sélecteur FR / EN dans la navigation | Page équivalente dans l'autre langue ; sélection, dates et voyageurs conservés ; le message WhatsApp suit la nouvelle langue |
 | Retour après fermeture du navigateur | Toute page | La sélection est restaurée depuis le stockage local ; le badge de la nav reflète le nombre de lignes |
 | Ajout rapide depuis une carte (sans ouvrir la fiche) | Page pôle | Ajout avec quantité par défaut ; possible en V1 si le design Figma le prévoit, sinon uniquement depuis la fiche |
 | Modification depuis le message WhatsApp | WhatsApp | Le visiteur peut éditer le texte avant envoi ; le site n'a pas de contrôle après l'ouverture de WhatsApp |
@@ -55,6 +58,7 @@ Conversation WhatsApp avec TKS (hors site)
 | **Stockage local indisponible** | Navigation privée stricte, quota, erreur | Mode dégradé : sélection en mémoire pour la session, bandeau discret « Votre sélection ne sera pas conservée après fermeture » |
 | **Message WhatsApp trop long** | Sélection très grande | Le message est tronqué proprement (lignes complètes), suivi de « … et N autres prestations ». Le total reste exact |
 | **Dates ou voyageurs manquants avec du tourisme** | Au moins une ligne du pôle tourisme, champ vide | Rappel discret près du CTA (« Ajoute tes dates et le nombre de voyageurs pour une réponse plus rapide »). Le CTA reste actif ; le message WhatsApp omet les champs vides (client D2) |
+| **Traduction anglaise manquante** | Texte `en` absent d'un service ou d'une page | En aperçu : le texte français s'affiche. En production : impossible, le build échoue |
 
 ## 4. États d'affichage par support
 
@@ -78,6 +82,7 @@ Conversation WhatsApp avec TKS (hors site)
 - Les changements de total et les toasts sont annoncés via une région `aria-live="polite"`.
 - Les steppers sont des groupes avec boutons libellés « Diminuer » / « Augmenter » et un champ numérique.
 - Les badges de prix ont un texte explicite (« à partir de 25 000 francs CFA par personne »), pas uniquement une abréviation visuelle.
+- `<html lang>` correspond à la langue de la page ; le sélecteur signale la langue courante avec `aria-current`, et chaque lien porte `lang` et `hreflang`.
 
 ## Documents liés
 

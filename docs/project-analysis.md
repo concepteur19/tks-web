@@ -78,6 +78,7 @@ Le croquis (généré par ChatGPT) montre 9 écrans. Il est utile pour comprendr
 | Packs | Non mentionnés | P1 | V2, le modèle de données réserve la place |
 | Hébergements | Non mentionnés | Dans le pôle Tourisme | V2, aucun partenaire connu |
 | Formulaire de contact | Non mentionné | « WhatsApp, formulaire et coordonnées » | V1 : coordonnées + WhatsApp. Formulaire en V2 si le client le juge indispensable (question client) |
+| Langues | Non mentionné | Non mentionné ; Franck proposait le français seul en V1 (F7) | **FR / EN dès la V1**, décision de Zobel liée à la cible A2 (ADR-013) |
 
 ## 6. Ce que l'on sait, et ce qui reste ouvert
 

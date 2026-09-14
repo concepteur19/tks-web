@@ -9,8 +9,21 @@
 - La **sélection** est dynamique, persistée dans le navigateur, validée au chargement par un schéma dédié.
 - La sélection ne copie jamais un prix : elle référence un service par identifiant et le prix est recalculé depuis le catalogue courant. Un changement de tarif se répercute immédiatement, et aucun prix périmé n'est envoyé à TKS.
 - Les montants sont des **entiers en francs CFA** (`XAF`, pas de centimes).
+- Les textes du catalogue sont **localisés** : `fr` obligatoire, `en` exigé au build de production. Les prix, quantités, statuts et identifiants ne le sont jamais (ADR-013).
 
 ## 2. Entités du catalogue
+
+### `Locale` et `LocalizedString`
+
+```ts
+type Locale = 'fr' | 'en';
+
+// `en` est optionnel dans le schéma pour accepter le contenu livré au fil de l'eau.
+// Le contrôle du build de production exige `en` partout (ADR-013).
+type LocalizedString = { fr: string; en?: string };
+```
+
+`localize(value, locale)` renvoie `value[locale]`, ou `value.fr` avec un avertissement quand la traduction manque.
 
 ### `Pole`
 
@@ -26,30 +39,30 @@ Les trois pôles sont fixes dans le code (ils structurent les routes). Leurs lib
 |---|---|---|---|
 | `id` | `string` (slug) | oui | Identifiant stable, ex. `aventure` |
 | `pole` | `Pole` | oui | Pôle parent |
-| `name` | `string` | oui | Libellé affiché, ex. « Aventure » |
-| `description` | `string` | non | Une phrase pour l'onglet ou l'en-tête |
+| `name` | `LocalizedString` | oui | Libellé affiché, ex. `{ fr: "Aventure", en: "Adventure" }` |
+| `description` | `LocalizedString` | non | Une phrase pour l'onglet ou l'en-tête |
 | `order` | `number` | oui | Ordre d'affichage dans le pôle |
 
 ### `Service`
 
 | Champ | Type | Obligatoire | Description |
 |---|---|---|---|
-| `id` | `string` (slug) | oui | Identifiant stable = nom de fichier, ex. `chutes-de-la-lobe`. Sert de clé dans la sélection |
-| `title` | `string` | oui | Nom affiché |
+| `id` | `string` (slug) | oui | Identifiant stable = nom de fichier, ex. `chutes-de-la-lobe`. Sert de clé dans la sélection et de slug d'URL, identique en français et en anglais |
+| `title` | `LocalizedString` | oui | Nom affiché |
 | `pole` | `Pole` | oui | Pôle |
 | `categoryId` | `string` | oui | Référence vers `ServiceCategory.id` (vérifiée au build) |
-| `shortDescription` | `string` (≤ 160 car.) | oui | Carte + meta description |
-| `description` | `string` (markdown) | oui | Fiche |
-| `images` | `Image[]` (≥ 1) | oui | `{ src, alt }`, la première est l'image principale |
+| `shortDescription` | `LocalizedString` (≤ 160 car. par langue) | oui | Carte + meta description |
+| `description` | `LocalizedString` (markdown) | oui | Fiche |
+| `images` | `Image[]` (≥ 1) | oui | `{ src, alt: LocalizedString }`, la première est l'image principale |
 | `pricing` | `Pricing` | oui | Voir ci-dessous |
 | `quantity` | `QuantityRule` | oui | Voir ci-dessous |
-| `duration` | `string` | non | Texte libre, ex. « 3 à 4 heures » |
+| `duration` | `LocalizedString` | non | Texte libre, ex. `{ fr: "3 à 4 heures", en: "3 to 4 hours" }` |
 | `capacity` | `{ min?: number; max?: number }` | non | Nombre de personnes |
-| `conditions` | `{ included?: string[]; excluded?: string[]; notes?: string[] }` | non | Inclus / non inclus / à savoir |
+| `conditions` | `{ included?: LocalizedString[]; excluded?: LocalizedString[]; notes?: LocalizedString[] }` | non | Inclus / non inclus / à savoir |
 | `availability` | `'available' \| 'on_request' \| 'disabled'` | oui (défaut `available`) | `on_request` = badge « à confirmer » ; `disabled` = invisible et purgé de la sélection |
 | `featured` | `boolean` | non (défaut `false`) | Mis en avant sur l'accueil |
 | `order` | `number` | non (défaut 100) | Ordre dans la catégorie |
-| `seo` | `{ title?: string; description?: string }` | non | Surcharge des métadonnées |
+| `seo` | `{ title?: LocalizedString; description?: LocalizedString }` | non | Surcharge des métadonnées |
 
 ### `Pricing` (union discriminée)
 
@@ -76,13 +89,13 @@ Règles :
 ```ts
 type QuantityRule =
   | { mode: 'none' }                                            // pas de quantité, 1 seule ligne possible
-  | { mode: 'units';   min: number; max: number; default: number; label: string }   // ex. label « véhicules », « colis »
+  | { mode: 'units';   min: number; max: number; default: number; label: LocalizedString }   // ex. { fr: "véhicules", en: "vehicles" }
   | { mode: 'persons'; min: number; max: number; default: number };                 // nombre de personnes
 ```
 
 Règles : `1 ≤ min ≤ default ≤ max ≤ 50`.
 
-Transport (client D1) : **une seule dimension de quantité par service**, choisie dans les données : `units` avec `label: "véhicules"` pour les courses et transferts, `label: "jours"` pour les locations. Un service qui aurait besoin des deux (véhicules × jours) est modélisé en `quote` en V1 ; le croisement est un candidat V2.
+Transport (client D1) : **une seule dimension de quantité par service**, choisie dans les données : `units` avec le libellé `{ fr: "véhicules", en: "vehicles" }` pour les courses et transferts, `{ fr: "jours", en: "days" }` pour les locations. Un service qui aurait besoin des deux (véhicules × jours) est modélisé en `quote` en V1 ; le croisement est un candidat V2.
 
 ### `Pack` (réservé V2)
 
@@ -134,7 +147,7 @@ Ces événements alimentent les toasts et le futur `trackEvent`.
 | Champ | Type | Description |
 |---|---|---|
 | `serviceId` | `string` | |
-| `title` | `string` | Copié du catalogue au moment du calcul |
+| `title` | `LocalizedString` | Copié du catalogue ; la langue est choisie à l'affichage et dans le message |
 | `quantity` | `number` | |
 | `pricingKind` | `'fixed' \| 'from' \| 'quote'` | |
 | `unit` | `PriceUnit \| null` | |
@@ -166,8 +179,9 @@ Fonction : `computeEstimate(selection: Selection, catalog: ReadonlyMap<string, S
 | `omittedCount` | `number` | Lignes omises |
 
 Fonctions :
-- `buildSelectionMessage(estimate: PriceEstimate, stay: Selection['stay'], options: { intent: 'stay' | 'delivery' | 'mixed' }): string`
-- `buildSingleServiceMessage(service: Service, quantity: number): string`
+- `buildSelectionMessage(estimate: PriceEstimate, stay: Selection['stay'], options: { intent: 'stay' | 'delivery' | 'mixed'; locale: Locale }): string`
+- `buildSingleServiceMessage(service: Service, quantity: number, locale: Locale): string`
+- `formatPrice(amount: number, locale: Locale): string` : « 100 000 FCFA » ou « 100,000 FCFA »
 - `buildWhatsAppUrl(number: string, text: string, maxLength = 1800): WhatsAppMessage`
 
 ## 6. Relations
@@ -197,27 +211,37 @@ Selection 1 ──── n SelectedService ─────┘
 | R10 | Sélection de plus de 30 jours purgée | store (hydratation) |
 | R11 | `unit: 'per_person'` ⇒ `quantity.mode = 'persons'` ; `per_group` ⇒ `none` ou `units` | validation du catalogue au build |
 | R12 | Dates et voyageurs ne sont jamais obligatoires ; un rappel s'affiche si la sélection contient du tourisme et qu'ils manquent | page Mon séjour (client D2) |
+| R13 | Prix, quantités, statuts et identifiants ne sont jamais localisés ; seuls les textes le sont | schéma du catalogue (ADR-013) |
+| R14 | Texte `en` manquant : repli sur `fr` en développement et en aperçu, échec du build de production | contrôle au build (ADR-013) |
 
 ## 8. Exemple de fichier de service
 
-`src/content/services/excursion-en-pirogue.json`
+`src/content/services/chutes-de-la-lobe.json`
 
 ```json
 {
-  "title": "Excursion en pirogue",
+  "title": { "fr": "Chutes de la Lobé", "en": "Lobé Waterfalls" },
   "pole": "tourisme",
   "categoryId": "nature",
-  "shortDescription": "Remontez la Lobé en pirogue jusqu'au village pygmée, entre mangrove et chutes.",
-  "description": "…",
-  "images": [{ "src": "./images/pirogue-1.jpg", "alt": "Pirogue sur la rivière Lobé" }],
-  "pricing": { "kind": "from", "amount": 15000, "unit": "per_person" },
+  "shortDescription": {
+    "fr": "L'une des rares chutes au monde qui se jettent directement dans la mer.",
+    "en": "One of the few waterfalls in the world that flow straight into the sea."
+  },
+  "description": { "fr": "…", "en": "…" },
+  "images": [
+    {
+      "src": "./images/lobe-1.jpg",
+      "alt": { "fr": "Les chutes de la Lobé se jetant dans l'océan", "en": "The Lobé waterfalls flowing into the ocean" }
+    }
+  ],
+  "pricing": { "kind": "from", "amount": 25000, "unit": "per_person" },
   "quantity": { "mode": "persons", "min": 1, "max": 10, "default": 2 },
-  "duration": "2 à 3 heures",
+  "duration": { "fr": "3 à 4 heures", "en": "3 to 4 hours" },
   "capacity": { "max": 10 },
   "conditions": {
-    "included": ["Piroguier", "Gilets de sauvetage"],
-    "excluded": ["Repas"],
-    "notes": ["Départ le matin de préférence", "Prévoir des chaussures fermées"]
+    "included": [{ "fr": "Guide local", "en": "Local guide" }],
+    "excluded": [{ "fr": "Repas", "en": "Meals" }],
+    "notes": [{ "fr": "Prévoir des chaussures fermées", "en": "Wear closed shoes" }]
   },
   "availability": "available",
   "featured": true,
@@ -225,4 +249,4 @@ Selection 1 ──── n SelectedService ─────┘
 }
 ```
 
-Les valeurs sont des **placeholders** en attendant les réponses B1, C1, C2 du questionnaire client.
+Les valeurs sont des **placeholders** en attendant les tarifs, photos et textes de Franck, suivis dans [content-tracker.md](./content-tracker.md). Le prix, la quantité et le statut ne sont écrits qu'une fois, quelle que soit la langue.

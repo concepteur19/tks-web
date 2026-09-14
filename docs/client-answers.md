@@ -91,7 +91,7 @@ TKS doit progressivement devenir un point d'entrée pour découvrir et organiser
 | Réf. | Décision | Document mis à jour |
 |---|---|---|
 | A1 | Objectif de conversion confirmé : le message WhatsApp est le KPI | product-scope, roadmap |
-| A2 | Cible d'abord **expatriés et touristes étrangers** : la version anglaise remonte en tête de la V2 ; l'euro en affichage secondaire est un candidat V2 | roadmap, product-scope |
+| A2 | Cible d'abord **expatriés et touristes étrangers** : le site est bilingue FR / EN dès la V1 (décision de Zobel, ADR-013) ; l'euro en affichage secondaire est un candidat V2 | roadmap, product-scope, technical-decisions |
 | A3 | **Transport, Tourisme et Livraison ont le même niveau de priorité** au lancement. Aucun pôle n'est réduit ; le design, le contenu et les specs traitent les trois à égalité. L'idée « tourisme d'abord » du vocal est abandonnée | product-scope, project-analysis, audio-transcript |
 | A4, F3, vision | Message d'accueil : « organiser mon expérience à Kribi », pas « louer une voiture ». Le hero et la section « Pourquoi TKS » portent ce message ; peu de texte | functional-requirements (FR-LAND-2), design-system |
 | B1 | Liste des services validée, y compris « chauffeur privé ». Une fiche = photo, description, prix, infos importantes, bouton « Demander ce service » | functional-requirements (FR-CAT-4) |
@@ -106,19 +106,13 @@ TKS doit progressivement devenir un point d'entrée pour découvrir et organiser
 | E1, E2 | `PUBLIC_WHATSAPP_NUMBER=237697135388` | functional-requirements (FR-WA-1) |
 | F4 | Contact : WhatsApp, téléphone, e-mail pro, Kribi, réseaux sociaux ; pas d'horaires | functional-requirements (FR-WA-7) |
 | F5, F6 | Témoignages et FAQ : V2, non bloquants | product-scope |
-| F7 | Français V1, chaînes centralisées pour l'anglais | inchangé (déjà prévu) |
+| F7 | Franck proposait le français seul en V1. **Remplacé par la décision de Zobel du 2026-09-14 : FR / EN dès la V1**, à cause de la cible A2. Traduction anglaise faite par Zobel avec IA puis relecture | technical-decisions (ADR-013), product-scope, functional-requirements |
 | G1, G5 | Direction palette pour Figma : mer, nature, soleil ; éviter froid, administratif, « site de transport » ; noir/or exclus | design-system |
 | G4 | Vidéo d'accueil possible **si** Franck fournit une vidéo courte et légère ; sinon image. Reste hors scope tant qu'aucune vidéo n'est fournie | product-scope |
 | G7 | 2 ou 3 propositions Figma, puis affinage | design-system |
 
 ## 3. Points encore ouverts
 
-| Réf. | Point | Pourquoi ça compte | Hypothèse maintenue |
-|---|---|---|---|
-| C1, C2 | **Tarifs service par service** (montant, mode, unité) | Sans eux, tout est « sur devis » ou placeholder | Placeholders marqués, remplacés dès réception |
-| D1 | Pour chaque service transport : quantité en véhicules ou en jours ? | Détermine le libellé du sélecteur | Transferts et courses : véhicules ; locations : jours |
-| F1, F2 | Logo HD, photos et droits | Figma et mise en ligne | Placeholders |
-| F8 | Nom de domaine et e-mails | Mise en ligne, SEO | `pages.dev` en attendant |
-| F4 | Téléphone (si différent du WhatsApp), e-mail pro, liens réseaux sociaux | Page Contact | WhatsApp seul affiché |
+Tout ce que Franck doit encore envoyer, et l'état de la traduction anglaise, est suivi élément par élément dans [content-tracker.md](./content-tracker.md) : tarifs, quantités en transport, logo, photos, textes, domaine, coordonnées.
 
 Ces points ne bloquent pas les specs 001 à 006 : ils bloquent la **mise en ligne**.

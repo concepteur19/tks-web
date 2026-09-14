@@ -16,6 +16,7 @@ Règle : **aucune valeur brute dans les composants**. Toute couleur, taille, esp
 - **Ambiance** : nature + mer + chaleureuse + moderne + professionnelle. À éviter : froid, administratif, « simple site de transport ».
 - **Écrans indispensables** : grande image (ou vidéo si fournie) d'accueil, trois pôles, cartes de services avec photo et prix, « Ajouter à mon séjour », Mon séjour, demande de devis, WhatsApp toujours accessible.
 - **Process** : 2 ou 3 propositions Figma distinctes, puis choix d'une direction et affinage. Franck valide seul et veut du temps pour un retour précis.
+- **Langues** : site bilingue FR / EN, sélecteur de langue visible dans la navigation.
 
 ## 2. Implémentation des tokens
 
@@ -102,6 +103,7 @@ Procédure « Figma → code » : (1) exporter les variables Figma (plugin Varia
 | `SelectionDrawer` | React | desktop | ouvert / fermé | `role="dialog"`, `aria-modal`, piège de focus, Échap |
 | `Toast` / `Toaster` | React | success, info, warning ; avec action « Annuler » | visible, disparition | `role="status"`, pas de focus volé |
 | `WhatsAppButton` | Astro | nav, flottant, inline, CTA principal | — | `aria-label="Contacter TKS sur WhatsApp"` |
+| `LanguageSwitcher` | Astro | nav desktop, menu mobile | langue courante | Liens « Français » / « English » avec `lang`, `hreflang` et `aria-current` sur la langue active |
 | `Section` | Astro | default, muted, brand | — | `<section aria-labelledby>` |
 | `Footer` | Astro | — | — | `<footer>`, liens groupés |
 | `EmptyState` | React | séjour vide | — | — |
@@ -110,6 +112,7 @@ Procédure « Figma → code » : (1) exporter les variables Figma (plugin Varia
 
 - Contraste texte ≥ 4.5:1, éléments d'interface ≥ 3:1 (vérifié sur les tokens).
 - Cibles tactiles ≥ 44 × 44 px sur mobile.
+- Prévoir environ 30 % de longueur de texte en plus : aucun libellé ne doit casser la mise en page, ni en français ni en anglais.
 - Focus visible partout, jamais supprimé sans remplacement.
 - `prefers-reduced-motion` : toutes les transitions passent à 0 ms.
 - Aucune information portée uniquement par la couleur (badge « sur devis » a un texte).
@@ -121,7 +124,8 @@ Mobile-first. Trois paliers de mise en page : `< md` (1 colonne, nav en menu, CT
 
 ## 7. Ce que le design Figma devra fournir
 
-- Les écrans : Accueil, page pôle (avec onglets), fiche, Mon séjour (vide, plein, sur devis), Contact, 404, en mobile et desktop.
+- Les écrans : Accueil, page pôle (avec onglets), fiche, Mon séjour (vide, plein, sur devis), Contact, 404, en mobile et desktop. Au moins l'accueil et une fiche aussi en anglais.
+- Le sélecteur de langue FR / EN, dans la navigation mobile et desktop.
 - Les composants ci-dessus avec leurs variantes et états.
 - Les variables (couleurs, typo, espacement, rayons) nommées de façon sémantique.
 - Le logo en SVG et une image de hero libre de droits.

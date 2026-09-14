@@ -1,14 +1,14 @@
 # Exigences fonctionnelles — MVP
 
-**Statut** : draft · **Date** : 2026-09-13
+**Statut** : draft · **Date** : 2026-09-13 · **Mis à jour** : 2026-09-14 (FR / EN)
 
-Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (voir [../specs/README.md](../specs/README.md)). Chaque exigence a au moins un critère d'acceptation Given / When / Then. Les références client entre parenthèses (ex. « client D2 ») renvoient aux réponses de Franck du 2026-09-14 dans [client-answers.md](./client-answers.md).
+Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (voir [../specs/README.md](../specs/README.md)). Chaque exigence a au moins un critère d'acceptation Given / When / Then. Les références client entre parenthèses (ex. « client D2 ») renvoient aux réponses de Franck du 2026-09-14 dans [client-answers.md](./client-answers.md). Toutes les exigences s'appliquent aux deux langues ; les routes citées sont les routes françaises, leurs équivalents anglais sont définis par FR-I18N-1.
 
 ---
 
 ## LAND — Landing / structure du site (spec 002)
 
-**FR-LAND-1** Le site expose les routes : `/` (accueil), `/transport`, `/tourisme`, `/livraison`, `/services/<slug>` (fiche), `/sejour` (Mon séjour), `/contact`.
+**FR-LAND-1** Le site expose les routes : `/` (accueil), `/transport`, `/tourisme`, `/livraison`, `/services/<slug>` (fiche), `/sejour` (Mon séjour), `/contact`. En anglais : `/en/`, `/en/transport`, `/en/tourism`, `/en/delivery`, `/en/services/<slug>`, `/en/my-trip`, `/en/contact` (FR-I18N-1).
 - Given un visiteur, When il ouvre une route, Then la page se rend sans JavaScript pour tout le contenu statique.
 
 **FR-LAND-2** L'accueil présente : identité TKS® et signature « Kribi is a feeling », un hero avec visuel et deux CTA (« Découvrir nos services », « Planifier mon séjour »), les trois pôles avec lien, une section « Pourquoi choisir TKS », une section d'expériences mises en avant (services `featured`), une section « À propos », un pied de page avec coordonnées. Le message du hero et de l'accueil exprime « je vais à Kribi, TKS m'aide à organiser mon expérience », jamais une offre de location de véhicules seule ; peu de texte, beaucoup de photos (client, vision finale et G4).
@@ -19,9 +19,43 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 **FR-LAND-4** Sur mobile, un bouton WhatsApp flottant est visible sur toutes les pages sauf `/sejour`.
 
-**FR-LAND-5** Le bouton WhatsApp sans sélection ouvre un message générique : « Bonjour TKS, je souhaite des informations sur vos services. »
+**FR-LAND-5** Le bouton WhatsApp sans sélection ouvre un message générique : « Bonjour TKS, je souhaite des informations sur vos services. » En anglais : « Hello TKS, I would like some information about your services. »
 
-**FR-LAND-6** Toutes les chaînes d'interface sont centralisées dans un fichier unique pour permettre une traduction ultérieure.
+---
+
+## I18N — Français et anglais (spec 001, puis toutes les features)
+
+**FR-I18N-1** Le site existe en français, langue par défaut servie sans préfixe, et en anglais sous `/en/`. Les slugs des pages sont traduits ; les slugs des fiches services sont identiques dans les deux langues.
+
+| Page | Français | Anglais |
+|---|---|---|
+| Accueil | `/` | `/en/` |
+| Transport | `/transport` | `/en/transport` |
+| Tourisme | `/tourisme` | `/en/tourism` |
+| Livraison | `/livraison` | `/en/delivery` |
+| Mon séjour | `/sejour` | `/en/my-trip` |
+| Contact | `/contact` | `/en/contact` |
+| Fiche | `/services/<slug>` | `/en/services/<slug>` |
+
+- Given `/tourisme`, When le visiteur choisit « English », Then il arrive sur `/en/tourism`.
+
+**FR-I18N-2** Un sélecteur de langue est visible dans la navigation de toutes les pages, sur mobile et sur desktop. Il mène à la page équivalente dans l'autre langue. Aucune détection automatique, aucune redirection.
+- Given `/en/services/jet-ski`, When le visiteur choisit « Français », Then il arrive sur `/services/jet-ski`.
+
+**FR-I18N-3** Chaque page déclare `<html lang>`, des liens `hreflang` fr, en et x-default (x-default pointe vers le français), une URL canonique propre à sa langue, `og:locale` et `og:locale:alternate`.
+
+**FR-I18N-4** Aucun texte visible n'est écrit en dur dans un composant. Les chaînes d'interface sont dans les dictionnaires ; les textes de contenu sont dans les fichiers de contenu, en français et en anglais.
+
+**FR-I18N-5** La sélection Mon séjour est commune aux deux langues : changer de langue conserve les lignes, les quantités, les dates et le nombre de voyageurs.
+- Given 2 lignes sur `/sejour`, When le visiteur choisit « English », Then `/en/my-trip` affiche les 2 mêmes lignes avec les libellés anglais.
+
+**FR-I18N-6** Le message WhatsApp est rédigé dans la langue de la page d'où il part : introduction, libellés, titres des services, total et formule de clôture.
+- Given `/en/my-trip` avec une sélection, When le visiteur clique sur WhatsApp, Then le message commence par « Hello TKS » et liste les titres anglais.
+
+**FR-I18N-7** Les montants sont formatés selon la langue : « 100 000 FCFA » en français, « 100,000 FCFA » en anglais.
+
+**FR-I18N-8** Si un texte anglais manque, le texte français s'affiche en développement et en aperçu, avec un avertissement au build. Le build de production échoue en listant les textes manquants.
+- Given un service sans `title.en`, When on lance le build de production, Then il échoue en nommant le fichier et le champ.
 
 ---
 
@@ -88,7 +122,7 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 **FR-EST-5** Si toutes les lignes sont `quote`, aucun montant n'est affiché : « Total : sur devis (N prestations) ».
 
-**FR-EST-6** Les montants sont en francs CFA (`XAF`), entiers, formatés avec séparateur de milliers espace insécable et suffixe « FCFA » (« 100 000 FCFA »).
+**FR-EST-6** Les montants sont en francs CFA (`XAF`), entiers, formatés selon la langue avec le suffixe « FCFA » : « 100 000 FCFA » en français, « 100,000 FCFA » en anglais (FR-I18N-7).
 
 **FR-EST-7** Le calcul est une fonction pure, sans dépendance à l'interface, couverte à 100 % par des tests unitaires.
 
@@ -100,7 +134,7 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 **FR-WA-2** Le lien est de la forme `https://wa.me/<numéro>?text=<message URL-encodé>` et s'ouvre dans un nouvel onglet avec `rel="noopener"`.
 
-**FR-WA-3** Le message récapitulatif contient, dans l'ordre : salutation et intention (« organiser un séjour à Kribi » ou « une livraison » selon les pôles présents), dates et voyageurs s'ils sont renseignés, la liste des lignes (titre × quantité, montant ou « sur devis »), le total estimatif avec le nombre de lignes sur devis, une formule de clôture. (format validé par le client, E3)
+**FR-WA-3** Le message récapitulatif contient, dans l'ordre : salutation et intention (« organiser un séjour à Kribi » ou « une livraison » selon les pôles présents), dates et voyageurs s'ils sont renseignés, la liste des lignes (titre × quantité, montant ou « sur devis »), le total estimatif avec le nombre de lignes sur devis, une formule de clôture (format validé par le client, E3). Deux gabarits existent, français et anglais, avec la même structure (FR-I18N-6).
 
 **FR-WA-4** Le message est produit par une fonction pure à partir de la sélection et du catalogue, couverte à 100 % par des tests, avec un test de non-régression sur un exemple complet.
 
@@ -114,11 +148,11 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 ## SEO — Référencement, performance, accessibilité (transverse, spec 002 + 003)
 
-**FR-SEO-1** Chaque page a un `title` et une `meta description` uniques, des balises Open Graph avec image, une URL canonique.
+**FR-SEO-1** Chaque page, dans chaque langue, a un `title` et une `meta description` uniques, des balises Open Graph avec image, une URL canonique.
 
-**FR-SEO-2** Un `sitemap.xml` et un `robots.txt` sont générés au build.
+**FR-SEO-2** Un `sitemap.xml` listant les deux langues avec leurs alternates, et un `robots.txt`, sont générés au build.
 
-**FR-SEO-3** L'accueil expose un JSON-LD `LocalBusiness` (nom, zone, téléphone) ; chaque fiche expose un JSON-LD `Service` ou `TouristAttraction` avec `offers` quand le prix est `fixed` ou `from`.
+**FR-SEO-3** L'accueil expose un JSON-LD `LocalBusiness` (nom, zone, téléphone) ; chaque fiche expose un JSON-LD `Service` ou `TouristAttraction` avec `offers` quand le prix est `fixed` ou `from`. Le JSON-LD porte `inLanguage` selon la langue de la page.
 
 **FR-SEO-4** Les images du catalogue sont optimisées au build (formats modernes, tailles responsives, lazy loading hors hero).
 
@@ -145,3 +179,5 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 | Stockage indisponible | FR-SEL-7 |
 | Message trop long | FR-WA-5 |
 | Mobile / desktop | FR-LAND-3, FR-LAND-4, FR-SEL-11 |
+| Changement de langue | FR-I18N-2, FR-I18N-5 |
+| Traduction anglaise manquante | FR-I18N-8 |

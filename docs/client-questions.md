@@ -3,7 +3,7 @@
 **Pour** : Franck (TKS®)
 **De** : Zobel
 **Date** : 2026-09-13
-**Réponses** : reçues le 2026-09-14, voir [client-answers.md](./client-answers.md). Restent ouverts : tarifs par service (C1, C2), quantité par service transport (D1), logo et photos (F1, F2), coordonnées détaillées (F4), domaine (F8).
+**Réponses** : reçues le 2026-09-14, voir [client-answers.md](./client-answers.md). Ce qui reste attendu est suivi dans [content-tracker.md](./content-tracker.md).
 
 Salut Franck. Avant de coder la première version du site, j'ai besoin que tu tranches quelques points. Réponds directement sous chaque question, même en deux mots. Les questions marquées ⭐ sont celles sans lesquelles je ne peux pas mettre le site en ligne.
 

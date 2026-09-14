@@ -1,6 +1,6 @@
 # TKS Web Constitution
 
-Site vitrine interactif de TKS® (Kribi, Cameroun) : découvrir des services, en sélectionner plusieurs, obtenir une estimation, envoyer la demande sur WhatsApp. Cette constitution fixe les principes que toute spec, tout plan et toute tâche doivent respecter.
+Site vitrine interactif et bilingue (français / anglais) de TKS® (Kribi, Cameroun) : découvrir des services, en sélectionner plusieurs, obtenir une estimation, envoyer la demande sur WhatsApp. Cette constitution fixe les principes que toute spec, tout plan et toute tâche doivent respecter.
 
 ## Core Principles
 
@@ -14,7 +14,7 @@ Aucune implémentation ne commence sans une spec validée (`specs/00X-*/spec.md`
 La sélection, l'estimation et la génération du message WhatsApp sont des fonctions TypeScript pures, sans React ni DOM, couvertes à 100 % par des tests unitaires. L'interface ne fait qu'afficher leurs résultats. Toute règle métier vit dans `src/features/*/` et dans `docs/data-model.md`.
 
 ### IV. Content is data, not code
-Le catalogue (services, catégories, textes du site) vit dans `src/content/` sous forme de fichiers validés par un schéma au build. Modifier un prix ou une description ne touche jamais un composant. Les chaînes d'interface sont centralisées. Aucun placeholder (`[PLACEHOLDER]`) ne doit atteindre la production : le build de release le vérifie.
+Le catalogue (services, catégories, textes du site) vit dans `src/content/` sous forme de fichiers validés par un schéma au build. Modifier un prix ou une description ne touche jamais un composant. Les chaînes d'interface sont centralisées dans des dictionnaires typés. Tout texte visible existe en français et en anglais ; aucun texte n'est écrit en dur dans un composant. Aucun placeholder (`[PLACEHOLDER]`) ni texte anglais manquant ne doit atteindre la production : le build de release le vérifie.
 
 ### V. Mobile-first, accessible, fast
 Chaque écran est conçu pour 360 px d'abord. Navigation clavier complète, WCAG 2.2 AA, `prefers-reduced-motion` respecté. Budgets : Lighthouse ≥ 90 sur les quatre catégories, JavaScript ≤ 50 kB gzip sur une page de contenu. Le HTML est complet sans JavaScript ; seule la sélection en dépend.
@@ -27,9 +27,9 @@ La production est un déploiement statique (Cloudflare Pages). Docker sert au de
 
 ## Constraints
 
-- Stack : Astro 5 (statique) + îlots React 19, TypeScript strict, Tailwind CSS v4, nanostores, Zod, Vitest, Playwright. Tout écart exige un ADR dans `docs/technical-decisions.md`.
+- Stack : Astro 5 (statique) + îlots React 19, i18n natif Astro (français sans préfixe, anglais sous `/en/`) avec dictionnaires typés sans librairie, TypeScript strict, Tailwind CSS v4, nanostores, Zod, Vitest, Playwright. Tout écart exige un ADR dans `docs/technical-decisions.md`.
 - Node 22 LTS, npm avec lockfile.
-- Langue : documentation et specs en français ; code, identifiants, commits en anglais (Conventional Commits).
+- Langue : documentation et specs en français ; code, identifiants, commits en anglais (Conventional Commits). Le site, lui, est bilingue français / anglais.
 - Toute variable d'environnement est `PUBLIC_*` et injectée au build. Aucun secret applicatif.
 
 ## Development Workflow
@@ -45,4 +45,4 @@ La production est un déploiement statique (Cloudflare Pages). Docker sert au de
 
 Cette constitution prime sur toute autre pratique. Un amendement est une PR qui modifie ce fichier, incrémente la version et explique le changement dans `docs/technical-decisions.md`. Chaque plan vérifie la conformité aux principes I à VII ; toute violation est justifiée dans la section Complexity Tracking du plan.
 
-**Version**: 1.0.0 | **Ratified**: 2026-09-13 | **Last Amended**: 2026-09-13
+**Version**: 1.1.0 | **Ratified**: 2026-09-13 | **Last Amended**: 2026-09-14

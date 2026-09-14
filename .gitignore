@@ -29,4 +29,20 @@ Thumbs.db
 *.log
 npm-debug.log*
 
+# Raw client media: originals stay local or on a shared drive,
+# optimized copies go to src/assets (see docs/content-tracker.md)
+Elements/incoming/**/*.jpg
+Elements/incoming/**/*.JPG
+Elements/incoming/**/*.jpeg
+Elements/incoming/**/*.JPEG
+Elements/incoming/**/*.png
+Elements/incoming/**/*.PNG
+Elements/incoming/**/*.heic
+Elements/incoming/**/*.HEIC
+Elements/incoming/**/*.webp
+Elements/incoming/**/*.mp4
+Elements/incoming/**/*.MP4
+Elements/incoming/**/*.mov
+Elements/incoming/**/*.MOV
+
 # Spec Kit machine-local state (see .specify/.gitignore)

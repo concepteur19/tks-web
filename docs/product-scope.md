@@ -44,7 +44,7 @@ Complexité : S (< 1 jour), M (1 à 3 jours), L (> 3 jours), XL (projet à part)
 | Formules / Packs (contenu, prix, sélection, personnalisation) | P1 | **V2** | M | Packs définis par le client | Contenus et prix pas arrêtés, V2 confirmée par le client (B6) ; le modèle réserve `Pack` |
 | Hébergements partenaires (hôtels, villas, appartements) | §6 | **V2** | M | Partenaires signés, photos | V2 confirmée par le client (B5), le temps de structurer partenariats et tarifs ; catégorie du pôle Tourisme |
 | Analytics (trafic, clics WhatsApp) | §18 | **V2** | S | Choix outil, consentement | Utile pour mesurer la conversion, pas nécessaire pour livrer |
-| Multilingue (FR / EN) | — | **V2** (priorité haute) | M | Traductions | Cible prioritaire = expatriés et touristes étrangers (client A2) ; français seul en V1 (F7), chaînes UI centralisées dès la V1 |
+| Site bilingue FR / EN (i18n) | — | **MVP** | M | Traductions EN faites par Zobel (IA puis relecture) | Cible prioritaire = expatriés et touristes étrangers (client A2). Décision de Zobel du 2026-09-14, qui remplace la réponse F7 de Franck. Voir ADR-013 |
 | Affichage secondaire en euros | — | **V2** | S | Taux de conversion à fixer | FCFA seul en V1, euro « plus tard » (client C5) |
 | FAQ | — | **V2** | S | 5 questions fréquentes | « Oui à terme, pas prioritaire » (client F6) |
 | Administration du catalogue (services, prix, photos, packs, partenaires) | P1 | **V3** | L | CMS headless ou backend + auth | Le CDC veut ne plus dépendre du développeur : un CMS headless (git-based ou hébergé) répond au besoin. Les données en fichiers de la V1 migrent facilement |
@@ -75,8 +75,9 @@ Le visiteur peut :
 8. Renseigner optionnellement une date de séjour et un nombre de voyageurs.
 9. Envoyer le tout à TKS via WhatsApp, avec un message prérempli.
 10. Contacter TKS à tout moment via le bouton WhatsApp permanent ou la page Contact.
+11. Consulter tout le site en français ou en anglais, et changer de langue sans perdre sa sélection.
 
-Le site est mobile-first, accessible, rapide, indexable, et son catalogue est modifiable en éditant des fichiers de données sans toucher aux composants.
+Le site est bilingue français / anglais, mobile-first, accessible, rapide, indexable, et son catalogue est modifiable en éditant des fichiers de données sans toucher aux composants.
 
 ## Pourquoi Packs et Administration sortent du MVP
 

@@ -70,7 +70,7 @@ Format : Context / Decision / Alternatives considered / Consequences / Status. T
 
 **Consequences.** En V1, le développeur reste dans la boucle des changements de catalogue, avec un délai de quelques minutes. La V3 remplace le loader par un CMS sans toucher aux composants.
 
-**Status.** Accepted.
+**Status.** Accepted. Amendé par ADR-013 : champs textuels localisés.
 
 ---
 
@@ -86,7 +86,7 @@ Format : Context / Decision / Alternatives considered / Consequences / Status. T
 
 **Consequences.** Le site ne sait pas si le message a été envoyé. La mesure de conversion se limite au clic (analytics V2). Le visiteur peut modifier le message avant envoi, ce qui est souhaitable.
 
-**Status.** Accepted.
+**Status.** Accepted. Amendé par ADR-013 : message rédigé dans la langue du visiteur.
 
 ---
 
@@ -172,7 +172,7 @@ Format : Context / Decision / Alternatives considered / Consequences / Status. T
 
 **Context.** Le brief initial parlait de « landing page interactive » ; le CDC et le croquis décrivent 8 rubriques et des fiches détail.
 
-**Decision.** Site multi-pages léger : `/`, `/transport`, `/tourisme`, `/livraison`, `/services/<slug>`, `/sejour`, `/contact`. « À propos » est une section de l'accueil. « Formules » est reporté en V2.
+**Decision.** Site multi-pages léger : `/`, `/transport`, `/tourisme`, `/livraison`, `/services/<slug>`, `/sejour`, `/contact`. Équivalents anglais sous `/en/` (ADR-013). « À propos » est une section de l'accueil. « Formules » est reporté en V2.
 
 **Alternatives considered.**
 - *One-page avec ancres et drawer* : plus simple, mais une seule URL indexable, pas de fiche par service, moins fidèle au croquis.
@@ -195,6 +195,34 @@ Format : Context / Decision / Alternatives considered / Consequences / Status. T
 **Consequences.** Un peu de cérémonie par feature, compensée par des tâches claires et des critères d'acceptation testables.
 
 **Status.** Accepted.
+
+---
+
+## ADR-013 — Internationalisation : français et anglais dès la V1
+
+**Context.** La cible prioritaire est composée d'expatriés et de touristes étrangers (client A2). Franck proposait le français seul en V1 (F7) ; Zobel a décidé le 2026-09-14 de livrer l'anglais dès la première version. Le site est statique, son contenu arrive au fil de l'eau, et les textes anglais sont produits par Zobel avec une IA puis relus.
+
+**Decision.**
+- Routage i18n natif Astro : `locales: ['fr', 'en']`, `defaultLocale: 'fr'`, `prefixDefaultLocale: false`. Le français est servi sans préfixe, l'anglais sous `/en/`.
+- Slugs de pages traduits (`/tourisme` et `/en/tourism`, `/livraison` et `/en/delivery`, `/sejour` et `/en/my-trip`), définis dans une table de routes unique `src/i18n/routes.ts`. Le sélecteur de langue, les `hreflang` et le sitemap lisent cette table. Les fiches services gardent le même slug dans les deux langues.
+- Chaînes d'interface dans des dictionnaires TypeScript sans librairie : `src/i18n/fr.ts` fait référence, `src/i18n/en.ts` est vérifié par `satisfies Dictionary`, donc une clé manquante casse la compilation. Un helper `t()` gère les paramètres et les pluriels avec `Intl.PluralRules`.
+- Les îlots React reçoivent la langue et uniquement les chaînes dont ils ont besoin.
+- Contenu : un seul fichier par service, dont les champs textuels sont des objets `{ fr, en }`. Prix, quantités, statuts et identifiants ne sont jamais dupliqués.
+- Texte anglais manquant : repli sur le français avec avertissement en développement et en aperçu ; échec du build de production avec la liste des textes manquants.
+- Montants formatés avec `Intl.NumberFormat` selon la langue, suffixe FCFA dans les deux langues.
+- La sélection stockée est indépendante de la langue ; le message WhatsApp est rédigé dans la langue de la page.
+- Aucune détection de langue : ni redirection, ni bandeau. Un sélecteur FR / EN est visible dans la navigation.
+
+**Alternatives considered.**
+- *Paraglide JS* : typé et compilé, très bon, mais une dépendance et un outillage de plus pour une centaine de chaînes.
+- *i18next ou astro-i18next* : lourd côté navigateur, intégration Astro peu maintenue.
+- *Un fichier de contenu par langue* : risque de prix ou de statuts divergents entre les deux versions.
+- *Préfixe `/fr/` pour le français* : redirection de la racine et URL plus longues, sans bénéfice pour la langue par défaut.
+- *Détection de la langue du navigateur* : script sur toutes les pages ou fonction serveur, et risque pour l'indexation.
+
+**Consequences.** Chaque texte existe deux fois et doit être traduit à chaque livraison de contenu, ce que suit [content-tracker.md](./content-tracker.md). Les tests couvrent les deux langues. Le design Figma doit prévoir le sélecteur et des libellés plus longs. La constitution passe en version 1.1.0.
+
+**Status.** Accepted (2026-09-14). Amende ADR-004 et ADR-005.
 
 ---
 

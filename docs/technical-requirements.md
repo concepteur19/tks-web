@@ -11,6 +11,7 @@
 | TR-3 | Le catalogue est stocké dans des fichiers de données versionnés dans le dépôt, validés par un schéma au build | Le catalogue évolue sans toucher aux composants (CDC §5) ; migration CMS facilitée |
 | TR-4 | Toute configuration spécifique à un environnement passe par des variables `PUBLIC_*` injectées au build (numéro WhatsApp, URL du site) | Pas de secret côté client ; un seul build par environnement |
 | TR-5 | Node.js 22 LTS, gestionnaire de paquets npm avec lockfile commité | Version présente localement, LTS jusqu'en 2027 |
+| TR-6 | Site bilingue français / anglais dès la V1 | Cible prioritaire étrangère (client A2), ADR-013 |
 
 ## 2. Qualité du code
 
@@ -49,9 +50,18 @@
 |---|---|
 | TR-40 | HTML sémantique (`header`, `nav`, `main`, `article`, `section`, `footer`), un seul `h1` par page |
 | TR-41 | Métadonnées par page centralisées dans le layout, générées depuis les données du catalogue pour les fiches |
-| TR-42 | `sitemap.xml`, `robots.txt`, canonical, Open Graph, Twitter Card |
+| TR-42 | `sitemap.xml` avec les deux langues, `robots.txt`, canonical par langue, `hreflang` fr / en / x-default, Open Graph, Twitter Card |
 | TR-43 | JSON-LD `LocalBusiness` et `Service` / `TouristAttraction` |
-| TR-44 | URLs stables en français, en minuscules, sans accents (`/services/chutes-de-la-lobe`) |
+| TR-44 | URLs stables en minuscules, sans accents ; slugs de pages traduits en anglais, slugs de fiches identiques (`/services/chutes-de-la-lobe`, `/en/services/chutes-de-la-lobe`) |
+
+## 5 bis. Internationalisation
+
+| Réf. | Exigence |
+|---|---|
+| TR-45 | Dictionnaires TypeScript typés : `en.ts` doit satisfaire le type de `fr.ts`, une clé manquante casse la compilation |
+| TR-46 | Aucun texte visible en dur : règle ESLint `react/jsx-no-literals` dans les îlots React, revue de code pour les composants Astro |
+| TR-47 | Contrôle au build : en production, tout champ localisé sans `en` fait échouer le build avec la liste des manques ; en développement et en aperçu, simple avertissement |
+| TR-48 | Un îlot ne reçoit que les chaînes de la langue de la page ; aucun dictionnaire complet n'est envoyé au navigateur |
 
 ## 6. Compatibilité
 
