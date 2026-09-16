@@ -23,6 +23,7 @@ Impact et probabilité : Faible / Moyen / Élevé.
 | R15 | **Faux avis / prix trompeurs** si les placeholders restent en prod | Élevé | Faible | Vérification pré-release : aucun `[PLACEHOLDER]` dans le build (test automatisé sur `dist/`) |
 | R16 | **Coût client mal cadré** (le CDC demande coût et calendrier) | Moyen | Moyen | Le tableau de scope et la roadmap servent de base au chiffrage ; hors périmètre de ce document |
 | R17 | **Traduction anglaise en retard ou de qualité inégale** | Moyen | Moyen | Repli sur le français en aperçu, build de production bloqué si un texte manque, relecture par Zobel avant chaque release, statut EN suivi dans `content-tracker.md` |
+| R19 | **Quantités à deux dimensions** plus complexes à concevoir et à tester que prévu | Moyen | Moyen | Deux dimensions au maximum, dont une seule durée ; cohérence unité / dimensions vérifiée au build ; tests dédiés sur le calcul et la fusion |
 | R18 | **Contenu doublé à maintenir** : chaque changement de texte doit être fait dans les deux langues | Moyen | Élevé | Un seul fichier par service avec les champs `{ fr, en }` côte à côte ; commit de contenu toujours bilingue ; contrôle au build |
 
 ## Suivi

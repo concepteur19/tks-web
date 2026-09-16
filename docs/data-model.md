@@ -67,11 +67,16 @@ Les trois pôles sont fixes dans le code (ils structurent les routes). Leurs lib
 ### `Pricing` (union discriminée)
 
 ```ts
+// Liste arrêtée avec le client le 2026-09-16 : l'unité est choisie service par service.
 type PriceUnit =
-  | 'per_trip' | 'per_hour' | 'per_day'      // transport : course/trajet, heure, jour (client C2)
-  | 'per_person' | 'per_group'               // tourisme : par personne ou par groupe (client C2)
-  | 'per_delivery'                           // livraison : par livraison/course ; à la distance ou au colis ⇒ quote
-  | 'per_unit';                              // générique
+  | 'per_person'      // par personne
+  | 'per_group'       // forfait pour le groupe
+  | 'per_equipment'   // par équipement : jet-ski, quad, cheval
+  | 'per_hour'        // par heure
+  | 'per_day'         // par jour
+  | 'per_trip'        // par course ou par trajet
+  | 'per_delivery'    // par livraison
+  | 'per_service';    // par prestation, forfait
 
 type Pricing =
   | { kind: 'fixed'; amount: number; unit: PriceUnit }   // « 70 000 FCFA / course »
@@ -81,21 +86,42 @@ type Pricing =
 
 Règles :
 - `amount` est un entier strictement positif.
-- L'unité pilote le libellé affiché (`/ personne`, `/ jour`…) et doit être cohérente avec `QuantityRule.mode` (validation au build : `per_person` ⇒ `mode = 'persons'` ; `per_group` ⇒ `mode = 'none'` ou `units` avec label « groupes »).
-- Une tarification dépendant de la distance ou des caractéristiques du colis n'est pas modélisée : le service est `quote` (client C2, C3).
+- L'unité nomme le prix affiché (`/ personne`, `/ jour`, `/ course`…) et doit être cohérente avec les dimensions de quantité, ce que le build vérifie : `per_person` exige une dimension `persons` ; `per_day` une dimension `days` ; `per_hour` une dimension `hours` ; `per_equipment` une dimension `units` ; `per_group`, `per_service`, `per_trip` et `per_delivery` acceptent zéro ou une dimension `units`.
+- Une tarification qui dépend de la distance, du nombre d'enfants, de la période ou d'un prestataire n'est pas modélisée : le service est `quote`. C'est le cas du transport professionnel et du transport scolaire (client C2, C3 et compléments du 2026-09-16).
 
-### `QuantityRule`
+### `QuantityRule` et ses dimensions
+
+Franck refuse une unité imposée à tout un pôle, et certains services se comptent sur deux axes à la fois, par exemple « 2 véhicules pendant 3 jours » (réponses du 2026-09-16). Un service porte donc de zéro à deux **dimensions** de quantité.
 
 ```ts
-type QuantityRule =
-  | { mode: 'none' }                                            // pas de quantité, 1 seule ligne possible
-  | { mode: 'units';   min: number; max: number; default: number; label: LocalizedString }   // ex. { fr: "véhicules", en: "vehicles" }
-  | { mode: 'persons'; min: number; max: number; default: number };                 // nombre de personnes
+type QuantityDimension =
+  | { kind: 'persons'; min: number; max: number; default: number }
+  | { kind: 'units';   label: LocalizedString; min: number; max: number; default: number }  // véhicules, colis, équipements, groupes
+  | { kind: 'days';    min: number; max: number; default: number }
+  | { kind: 'hours';   min: number; max: number; default: number };
+
+type QuantityRule = { dimensions: QuantityDimension[] };   // 0, 1 ou 2 dimensions
 ```
 
-Règles : `1 ≤ min ≤ default ≤ max ≤ 50`.
+Règles :
+- `1 ≤ min ≤ default ≤ max ≤ 50` pour chaque dimension.
+- Zéro, une ou deux dimensions. Au plus une dimension de durée (`days` ou `hours`), et jamais deux fois le même `kind`.
+- Sans dimension, le service s'ajoute tel quel : forfait, prestation, ou service sur devis.
+- Le montant d'une ligne est le prix unitaire multiplié par **toutes** les dimensions : « location avec chauffeur, 2 véhicules × 3 jours » vaut le prix du jour × 6.
 
-Transport (client D1) : **une seule dimension de quantité par service**, choisie dans les données : `units` avec le libellé `{ fr: "véhicules", en: "vehicles" }` pour les courses et transferts, `{ fr: "jours", en: "days" }` pour les locations. Un service qui aurait besoin des deux (véhicules × jours) est modélisé en `quote` en V1 ; le croisement est un candidat V2.
+Correspondance demandée par le client pour le transport :
+
+| Service | `pricing.unit` | Dimensions |
+|---|---|---|
+| Courses à Kribi | `per_trip` | aucune, ou `units` « courses » |
+| Location avec chauffeur | `per_day` ou `per_hour` | `units` « véhicules » + `days` ou `hours` |
+| Chauffeur privé | `per_hour` ou `per_day` | `hours` ou `days` |
+| Transferts | `per_trip` | `units` « véhicules » |
+| Transport professionnel | `quote` | aucune |
+| Transport scolaire | `quote` | aucune |
+| Location sans chauffeur | `per_day` | `units` « véhicules » + `days` |
+
+Tourisme : `per_person` avec une dimension `persons` ; `per_group` ou `per_service` sans dimension ; `per_equipment` avec une dimension `units` « équipements », éventuellement combinée à `hours` ou `days`. Livraison : `per_delivery` avec une dimension `units` « colis », ou `quote` quand le prix dépend de la distance.
 
 ### `Pack` (réservé V2)
 
@@ -112,7 +138,7 @@ Un hébergement sera un `Service` du pôle `tourisme`, catégorie `hebergement`,
 | Champ | Type | Description |
 |---|---|---|
 | `serviceId` | `string` | Référence vers `Service.id` |
-| `quantity` | `number` | Entier ≥ 1, borné par la règle du service |
+| `quantities` | `number[]` | Une valeur par dimension de la règle du service, dans le même ordre. Tableau vide si le service n'a pas de dimension |
 | `addedAt` | `string` (ISO 8601) | Ordre d'affichage et purge éventuelle |
 
 ### `Selection`
@@ -130,9 +156,9 @@ Clé de stockage : `tks.selection.v1`.
 
 ```ts
 type SelectionEvent =
-  | { type: 'added'; serviceId: string; quantity: number }
-  | { type: 'merged'; serviceId: string; quantity: number; capped: boolean }
-  | { type: 'updated'; serviceId: string; quantity: number }
+  | { type: 'added'; serviceId: string; quantities: number[] }
+  | { type: 'merged'; serviceId: string; quantities: number[]; capped: boolean }
+  | { type: 'updated'; serviceId: string; quantities: number[] }
   | { type: 'removed'; serviceId: string }
   | { type: 'cleared' }
   | { type: 'purged'; serviceIds: string[] };   // services disparus au chargement
@@ -148,11 +174,12 @@ Ces événements alimentent les toasts et le futur `trackEvent`.
 |---|---|---|
 | `serviceId` | `string` | |
 | `title` | `LocalizedString` | Copié du catalogue ; la langue est choisie à l'affichage et dans le message |
-| `quantity` | `number` | |
+| `quantities` | `number[]` | Valeurs choisies, dans l'ordre des dimensions |
+| `dimensions` | `{ kind: QuantityDimension['kind']; label: LocalizedString }[]` | Libellés, pour afficher « 2 véhicules × 3 jours » |
 | `pricingKind` | `'fixed' \| 'from' \| 'quote'` | |
 | `unit` | `PriceUnit \| null` | |
 | `unitAmount` | `number \| null` | `null` si `quote` |
-| `lineAmount` | `number \| null` | `unitAmount × quantity`, `null` si `quote` |
+| `lineAmount` | `number \| null` | `unitAmount ×` produit des `quantities`, `null` si `quote` |
 
 ### `PriceEstimate`
 
@@ -180,7 +207,7 @@ Fonction : `computeEstimate(selection: Selection, catalog: ReadonlyMap<string, S
 
 Fonctions :
 - `buildSelectionMessage(estimate: PriceEstimate, stay: Selection['stay'], options: { intent: 'stay' | 'delivery' | 'mixed'; locale: Locale }): string`
-- `buildSingleServiceMessage(service: Service, quantity: number, locale: Locale): string`
+- `buildSingleServiceMessage(service: Service, quantities: number[], locale: Locale): string`
 - `formatPrice(amount: number, locale: Locale): string` : « 100 000 FCFA » ou « 100,000 FCFA »
 - `buildWhatsAppUrl(number: string, text: string, maxLength = 1800): WhatsAppMessage`
 
@@ -199,9 +226,9 @@ Selection 1 ──── n SelectedService ─────┘
 
 | # | Règle | Où elle vit |
 |---|---|---|
-| R1 | Un service n'apparaît qu'une fois dans la sélection ; un nouvel ajout fusionne les quantités | store de sélection |
-| R2 | La quantité est bornée par `min` / `max` de la règle du service ; un dépassement est plafonné et signalé (`capped`) | store |
-| R3 | `mode: 'none'` ⇒ quantité fixe 1, fusion sans changement | store |
+| R1 | Un service n'apparaît qu'une fois dans la sélection. Un nouvel ajout met à jour la ligne : les dimensions `persons` et `units` s'additionnent, les dimensions de durée (`days`, `hours`) prennent la nouvelle valeur, car une durée ne s'additionne pas | store de sélection |
+| R2 | Chaque dimension est bornée par ses `min` / `max` ; un dépassement est plafonné et signalé (`capped`) | store |
+| R3 | Service sans dimension ⇒ une seule ligne, aucun sélecteur, un nouvel ajout ne change rien | store |
 | R4 | Un service absent ou `disabled` est purgé au chargement | store (hydratation) |
 | R5 | Le prix n'est jamais persisté ; il est recalculé depuis le catalogue | estimation |
 | R6 | `quote` ⇒ hors total, compté séparément | estimation |
@@ -209,10 +236,11 @@ Selection 1 ──── n SelectedService ─────┘
 | R8 | Montants entiers XAF, formatés « 100 000 FCFA » | formatage |
 | R9 | Message WhatsApp ≤ 1 800 caractères encodés, troncature par lignes entières | whatsapp |
 | R10 | Sélection de plus de 30 jours purgée | store (hydratation) |
-| R11 | `unit: 'per_person'` ⇒ `quantity.mode = 'persons'` ; `per_group` ⇒ `none` ou `units` | validation du catalogue au build |
+| R11 | L'unité de prix doit être cohérente avec les dimensions déclarées (voir `QuantityRule`) | validation du catalogue au build |
 | R12 | Dates et voyageurs ne sont jamais obligatoires ; un rappel s'affiche si la sélection contient du tourisme et qu'ils manquent | page Mon séjour (client D2) |
 | R13 | Prix, quantités, statuts et identifiants ne sont jamais localisés ; seuls les textes le sont | schéma du catalogue (ADR-013) |
 | R14 | Texte `en` manquant : repli sur `fr` en développement et en aperçu, échec du build de production | contrôle au build (ADR-013) |
+| R15 | Au plus deux dimensions par service, dont au plus une durée ; le montant d'une ligne multiplie le prix unitaire par toutes les dimensions | schéma du catalogue et estimation (client, 2026-09-16) |
 
 ## 8. Exemple de fichier de service
 
@@ -222,7 +250,7 @@ Selection 1 ──── n SelectedService ─────┘
 {
   "title": { "fr": "Chutes de la Lobé", "en": "Lobé Waterfalls" },
   "pole": "tourisme",
-  "categoryId": "nature",
+  "categoryId": "nature-decouverte",
   "shortDescription": {
     "fr": "L'une des rares chutes au monde qui se jettent directement dans la mer.",
     "en": "One of the few waterfalls in the world that flow straight into the sea."
@@ -235,7 +263,7 @@ Selection 1 ──── n SelectedService ─────┘
     }
   ],
   "pricing": { "kind": "from", "amount": 25000, "unit": "per_person" },
-  "quantity": { "mode": "persons", "min": 1, "max": 10, "default": 2 },
+  "quantity": { "dimensions": [{ "kind": "persons", "min": 1, "max": 10, "default": 2 }] },
   "duration": { "fr": "3 à 4 heures", "en": "3 to 4 hours" },
   "capacity": { "max": 10 },
   "conditions": {
@@ -249,4 +277,25 @@ Selection 1 ──── n SelectedService ─────┘
 }
 ```
 
-Les valeurs sont des **placeholders** en attendant les tarifs, photos et textes de Franck, suivis dans [content-tracker.md](./content-tracker.md). Le prix, la quantité et le statut ne sont écrits qu'une fois, quelle que soit la langue.
+Un service à deux dimensions, `src/content/services/location-avec-chauffeur.json` :
+
+```json
+{
+  "title": { "fr": "Location avec chauffeur", "en": "Car with driver" },
+  "pole": "transport",
+  "categoryId": "location-avec-chauffeur",
+  "pricing": { "kind": "from", "amount": 50000, "unit": "per_day" },
+  "quantity": {
+    "dimensions": [
+      { "kind": "units", "label": { "fr": "véhicules", "en": "vehicles" }, "min": 1, "max": 5, "default": 1 },
+      { "kind": "days", "min": 1, "max": 30, "default": 1 }
+    ]
+  },
+  "availability": "available",
+  "order": 20
+}
+```
+
+Une sélection de 2 véhicules pendant 3 jours donne une ligne à 50 000 × 2 × 3 = 300 000 FCFA, affichée « à partir de », puisque le prix est de type `from`.
+
+Les valeurs sont des **placeholders** en attendant les tarifs, photos et textes de Franck, suivis dans [content-tracker.md](./content-tracker.md). Le prix, les quantités et le statut ne sont écrits qu'une fois, quelle que soit la langue.

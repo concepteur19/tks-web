@@ -28,7 +28,7 @@ Complexité : S (< 1 jour), M (1 à 3 jours), L (> 3 jours), XL (projet à part)
 | Mention « tarif indicatif, TKS confirme le prix final » | §7 | **MVP** | S | — | Protection commerciale |
 | Catalogue évolutif sans modification de code | §5 | **MVP** (données en fichiers JSON/MD versionnés) | S | — | Le développeur édite des fichiers de données, pas des composants. Vrai « sans code » = V3 |
 | Mon séjour : ajouter / retirer | P0 | **MVP** | M | — | Cœur du produit |
-| Mon séjour : quantité ou nombre de personnes | P0 | **MVP** | S | Règle par service | Cœur du produit |
+| Mon séjour : quantités par dimension (personnes, véhicules, colis, jours, heures) | P0 | **MVP** | M | Règles définies service par service (client D1, complété le 2026-09-16) | Cœur du produit ; jusqu'à deux dimensions par service, par exemple véhicules × jours |
 | Mon séjour : persistance locale (retour après fermeture) | — | **MVP** | S | localStorage | Sans elle, la sélection multi-pages est perdue |
 | Mon séjour : récapitulatif + total estimatif | P0 | **MVP** | M | Prix | Cœur du produit |
 | Mon séjour : identification des lignes « sur devis » | P0 | **MVP** | S | — | Règle métier |

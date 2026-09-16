@@ -18,8 +18,8 @@ Les réponses sont reprises telles quelles (section 1), puis traduites en décis
 
 ### B. Services
 
-- **B1 — Services au lancement** : Transport : courses/déplacements à Kribi, location avec chauffeur, chauffeur privé, transferts, transport professionnel, transport scolaire, location sans chauffeur. Tourisme : Chutes de la Lobé, jacuzzi naturel, jet-ski, quad, balade à cheval, croisière, feux de plage, découverte de Kribi et autres activités. Livraison : colis, commandes, domicile, courses, professionnelle. Chaque service doit avoir photo, description, prix, informations importantes et possibilité de demander le service.
-- **B2 — Catégories** : validées telles que proposées.
+- **B1 — Services au lancement** : Transport : courses/déplacements à Kribi, location avec chauffeur, chauffeur privé, transferts, transport professionnel, transport scolaire, location sans chauffeur. Tourisme : Chutes de la Lobé, jacuzzi naturel, jet-ski, quad, balade à cheval, croisière, feux de plage, découverte de Kribi et autres activités. Livraison : colis, commandes, domicile, courses, professionnelle. Chaque service doit avoir photo, description, prix, informations importantes et possibilité de demander le service. Précisé le 2026-09-16 : l'excursion en pirogue est gardée, et il n'y aura pas de catégorie « autres activités » en V1 (voir §1 bis).
+- **B2 — Catégories** : validées, avec une correction du 2026-09-16 pour le tourisme : trois catégories, Nature / Découverte, Aventure, Détente. « Découverte de Kribi » rejoint Nature / Découverte et la catégorie Culture disparaît.
 - **B3 — Compatibilité** : pas de règles complexes en V1. Le client sélectionne plusieurs activités ; TKS vérifie cohérence, horaires et disponibilités via WhatsApp.
 - **B4 — Disponibilité** : certaines activités dépendent des prestataires, de la météo, de la période. Prévoir les statuts Disponible, Sur demande et Désactivé.
 - **B5 — Hébergements** : dans la vision globale, mais plutôt en V2, le temps de structurer partenariats, tarifs et disponibilités.
@@ -28,7 +28,7 @@ Les réponses sont reprises telles quelles (section 1), puis traduites en décis
 ### C. Prix
 
 - **C1 — Affichage** : selon le service : prix fixe, à partir de, ou sur devis. Les tarifs variables doivent être clairement présentés comme indicatifs.
-- **C2 — Unité** : Transport : course, heure, jour ou trajet. Tourisme : personne ou groupe selon le tarif. Livraison : livraison/course, éventuellement selon distance ou caractéristiques du colis.
+- **C2 — Unité** : Transport : course, heure, jour ou trajet. Tourisme : personne ou groupe selon le tarif. Livraison : livraison/course, éventuellement selon distance ou caractéristiques du colis. Précisé le 2026-09-16 : l'unité est définie service par service, pas par pôle, et la liste des unités s'élargit (voir §1 bis).
 - **C3 — Dégressivité** : V1 simple, pas de système complexe. Calcul des quantités lorsque pertinent, puis ajustement par TKS dans WhatsApp.
 - **C4 — Texte sous le total** : « Prix indicatif, sous réserve de disponibilité et de confirmation par TKS. »
 - **C5 — Devise** : FCFA uniquement en V1. L'euro pourra être ajouté plus tard.
@@ -36,7 +36,7 @@ Les réponses sont reprises telles quelles (section 1), puis traduites en décis
 
 ### D. Parcours client
 
-- **D1 — Quantités** : activités : nombre de personnes. Transport : véhicules et/ou jours selon le service. Livraison : nombre de colis si pertinent. Système simple.
+- **D1 — Quantités** : activités : nombre de personnes. Transport : véhicules et/ou jours selon le service. Livraison : nombre de colis si pertinent. Système simple. Précisé le 2026-09-16 : certains services de transport ont bien **deux** dimensions, par exemple véhicules et jours (voir §1 bis).
 - **D2 — Dates et voyageurs** : très importants pour un séjour touristique, mais ne pas bloquer une simple demande d'information ou de service. Fortement recommandés pour un séjour.
 - **D3 — Détails** : en V1, formulaires simples ; détails obtenus dans WhatsApp. Formulaires détaillés en V2.
 - **D4 — Devis / WhatsApp** : les deux ouvrent WhatsApp avec le récapitulatif, avec une introduction différente.
@@ -86,6 +86,46 @@ TKS doit progressivement devenir un point d'entrée pour découvrir et organiser
 - Nom de domaine
 - Tarifs définitifs service par service
 
+## 1 bis. Compléments du 2026-09-16
+
+Franck a répondu aux quatre questions restées ouvertes.
+
+### Excursion en pirogue
+
+Gardée. Elle fait partie des activités du lancement, dans le pôle Tourisme, catégorie Nature / Découverte.
+
+### Pas de catégorie « autres activités » en V1
+
+Seules les activités réellement proposables sont affichées. D'autres seront ajoutées plus tard dans les données.
+
+| Catégorie | Activités |
+|---|---|
+| Nature / Découverte | Chutes de la Lobé, Jacuzzi naturel, Excursion en pirogue, Découverte de Kribi |
+| Aventure | Jet-ski, Quad, Balade à cheval |
+| Détente | Croisière, Feux de plage |
+
+### Quantité en transport : l'unité dépend du service, pas du pôle
+
+| Service | Demande de Franck |
+|---|---|
+| Courses à Kribi | par course |
+| Location avec chauffeur | par véhicule et durée, heure ou jour |
+| Chauffeur privé | par heure ou par jour selon la prestation |
+| Transferts | par trajet, avec possibilité de préciser le nombre de véhicules |
+| Transport professionnel | sur devis, véhicule et durée précisés si nécessaire |
+| Transport scolaire | sur devis, selon le nombre d'enfants, le trajet et la période |
+| Location sans chauffeur | par véhicule et nombre de jours |
+
+Ses mots : « je ne veux pas qu'on impose une seule unité à tout le pôle Transport ».
+
+### Tarification du tourisme : à la personne ou au groupe
+
+Le système doit gérer les deux, car cela dépend de l'activité et du prestataire. Les unités à prévoir sont : par personne, par groupe, par équipement, par heure, par jour, par prestation, et sur devis.
+
+Exemples donnés : jacuzzi naturel, croisière en haute mer et pirogue tarifée individuellement sont à la personne. Certaines excursions en pirogue, le bateau, la chaloupe, certaines prestations de campement et les feux de plage selon la formule sont au groupe. Pour le jet-ski, le quad et la balade à cheval, l'unité dépendra du tarif réellement appliqué.
+
+Bateau, chaloupe et prestations de campement sont cités comme exemples de tarification au groupe, mais ne figurent pas dans la liste de lancement. À confirmer, suivi dans [content-tracker.md](./content-tracker.md).
+
 ## 2. Ce que ça change dans le projet
 
 | Réf. | Décision | Document mis à jour |
@@ -94,13 +134,14 @@ TKS doit progressivement devenir un point d'entrée pour découvrir et organiser
 | A2 | Cible d'abord **expatriés et touristes étrangers** : le site est bilingue FR / EN dès la V1 (décision de Zobel, ADR-013) ; l'euro en affichage secondaire est un candidat V2 | roadmap, product-scope, technical-decisions |
 | A3 | **Transport, Tourisme et Livraison ont le même niveau de priorité** au lancement. Aucun pôle n'est réduit ; le design, le contenu et les specs traitent les trois à égalité. L'idée « tourisme d'abord » du vocal est abandonnée | product-scope, project-analysis, audio-transcript |
 | A4, F3, vision | Message d'accueil : « organiser mon expérience à Kribi », pas « louer une voiture ». Le hero et la section « Pourquoi TKS » portent ce message ; peu de texte | functional-requirements (FR-LAND-2), design-system |
-| B1 | Liste des services validée, y compris « chauffeur privé ». Une fiche = photo, description, prix, infos importantes, bouton « Demander ce service » | functional-requirements (FR-CAT-4) |
+| B1 | Liste des services validée, y compris « chauffeur privé » et l'excursion en pirogue (2026-09-16). Une fiche = photo, description, prix, infos importantes, bouton « Demander ce service » | functional-requirements (FR-CAT-4), content-tracker |
+| B2 (2026-09-16) | Tourisme : trois catégories, `nature-decouverte`, `aventure`, `detente`. Aucune catégorie « autres activités » | content-tracker, data-model |
 | B4 | Trois statuts confirmés : `available`, `on_request`, `disabled` | data-model (inchangé) |
 | B5, B6 | Hébergements et packs confirmés en V2 | product-scope, roadmap |
 | C1, C4 | Trois modes de prix confirmés ; mention sous le total validée | functional-requirements (FR-EST-4) |
-| C2 | Unités : transport `per_trip`, `per_hour`, `per_day` ; tourisme `per_person` ou `per_group` ; livraison `per_delivery`. Une livraison tarifée à la distance est `quote` | data-model |
+| C2 | Unités définies **service par service**, jamais par pôle. Liste complète : `per_person`, `per_group`, `per_equipment`, `per_hour`, `per_day`, `per_trip`, `per_delivery`, `per_service`, plus le mode `quote`. Une livraison tarifée à la distance, le transport professionnel et le transport scolaire restent `quote` (2026-09-16) | data-model (Pricing) |
 | C3 | Prix linéaire confirmé | data-model (R5) |
-| D1 | Transport : la quantité est soit des véhicules, soit des jours, **selon le service** (une seule dimension par service, libellé configurable) | data-model (QuantityRule.label) |
+| D1 | **Révisé le 2026-09-16** : un service porte de zéro à **deux** dimensions de quantité (personnes, unités comme véhicules ou colis, jours, heures). Le montant d'une ligne multiplie le prix unitaire par toutes les dimensions, par exemple 2 véhicules × 3 jours | data-model (QuantityRule), functional-requirements (FR-SEL-1, FR-EST-2) |
 | D2 | Dates et voyageurs **recommandés mais non bloquants** : rappel visible avant l'envoi si la sélection contient du tourisme, jamais de blocage | functional-requirements (FR-SEL-10), user-journeys |
 | D4, E3 | Format du message validé ; deux intros (« devis » / « contact ») | functional-requirements (FR-WA-3, FR-WA-6) |
 | E1, E2 | `PUBLIC_WHATSAPP_NUMBER=237697135388` | functional-requirements (FR-WA-1) |

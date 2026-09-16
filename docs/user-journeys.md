@@ -43,10 +43,10 @@ Le parcours est identique en français et en anglais ; seules les URL et les tex
 | État | Déclencheur | Comportement attendu |
 |---|---|---|
 | **Vide** | Première visite, ou après « Vider » | Page Mon séjour : illustration + texte « Votre séjour est vide » + CTA vers Tourisme. Badge nav masqué. CTA WhatsApp générique disponible |
-| **Une ligne** | Premier ajout | Toast « Ajouté à mon séjour » avec lien « Voir ». Badge nav = 1. Total = prix × quantité ou « sur devis » |
+| **Une ligne** | Premier ajout | Toast « Ajouté à mon séjour » avec lien « Voir ». Badge nav = 1. Total = prix × quantités de la ligne, ou « sur devis » |
 | **Plusieurs lignes** | Ajouts successifs | Lignes triées par ordre d'ajout, groupées visuellement par pôle si le design le prévoit |
-| **Doublon** | Ajout d'un service déjà présent | Pas de nouvelle ligne : la quantité de la ligne existante est incrémentée de la quantité demandée, dans la limite du maximum. Toast « Quantité mise à jour » |
-| **Quantité modifiée** | Stepper +/− ou saisie | Recalcul immédiat de la ligne et du total. Bornes min / max du service respectées ; le bouton − à la valeur min supprime la ligne après confirmation légère (ou passe à 0 puis retire, selon design) |
+| **Doublon** | Ajout d'un service déjà présent | Pas de nouvelle ligne : les personnes et les unités s'additionnent dans la limite du maximum, les durées prennent la nouvelle valeur. Toast « Quantité mise à jour » |
+| **Quantité modifiée** | Stepper +/− ou saisie, sur chaque dimension | Recalcul immédiat de la ligne, produit de ses dimensions, et du total. Bornes min / max du service respectées ; le bouton − à la valeur min supprime la ligne après confirmation légère (ou passe à 0 puis retire, selon design) |
 | **Suppression** | Icône corbeille | Ligne retirée, total recalculé, toast avec « Annuler » pendant 5 s |
 | **Vider** | Lien « Vider mon séjour » | Confirmation, puis état Vide |
 | **Ligne sur devis** | Service `pricing.kind = quote` | Ligne affichée avec badge « Sur devis », pas de montant. Comptée dans « + N prestation(s) sur devis » sous le total |

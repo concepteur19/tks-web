@@ -20,6 +20,8 @@ Tester en priorité ce qui fait la valeur du produit : **la sélection, l'estima
 
 ### `features/estimation`
 - `fixed × n`, `from × n`, `quote` → montants de ligne.
+- Deux dimensions : prix de 50 000 / jour, 2 véhicules, 3 jours → montant de ligne 300 000.
+- Service sans dimension : montant = prix unitaire.
 - Total avec mélange fixed / from / quote ; `hasFromPrices`, `quoteCount`, `isQuoteOnly`.
 - Sélection vide → total 0, `isQuoteOnly` true.
 - Service manquant dans le catalogue → ligne ignorée (et signalée).
@@ -37,7 +39,8 @@ Tester en priorité ce qui fait la valeur du produit : **la sélection, l'estima
 
 ### `features/selection` (store)
 - add, merge avec plafonnement (`capped`), update, remove, clear.
-- `mode: 'none'` : pas de duplication, quantité fixe.
+- Fusion : les personnes et les unités s'additionnent, les jours et les heures sont remplacés par la nouvelle valeur.
+- Service sans dimension : pas de duplication, aucune quantité à choisir.
 - Hydratation : schéma valide, version inconnue → reset, JSON corrompu → reset, sélection > 30 jours → reset, service `disabled` → purgé avec événement.
 - Persistance indisponible (mock `localStorage` qui lève) → mode mémoire, aucun crash.
 
@@ -47,7 +50,7 @@ Tester en priorité ce qui fait la valeur du produit : **la sélection, l'estima
 - `localize()` : repli sur `fr` et avertissement quand `en` manque.
 
 ### `content/config`
-- Schéma `Service` : `per_person` sans `mode: 'persons'` → erreur ; `min > max` → erreur ; `images` vide → erreur.
+- Schéma `Service` : `per_person` sans dimension `persons` → erreur ; trois dimensions ou deux durées → erreur ; `min > max` → erreur ; `images` vide → erreur.
 - `categoryId` inconnu → erreur au build (test d'intégration).
 - `title.en` absent → build de développement réussi avec avertissement, build de production en échec (test d'intégration).
 
@@ -55,7 +58,7 @@ Tester en priorité ce qui fait la valeur du produit : **la sélection, l'estima
 
 | Composant | Cas |
 |---|---|
-| `QuantityStepper` | bornes min/max, saisie clavier, libellés accessibles, `aria-live` |
+| `QuantityStepper` | bornes min/max, saisie clavier, libellés accessibles, `aria-live`, deux dimensions côte à côte |
 | `AddToStay` | ajout, feedback, quantité par défaut |
 | `SelectionLine` | modification, suppression, badge sur devis |
 | `EstimateSummary` | 4 états (estimatif, indicatif, sur devis uniquement, vide) |

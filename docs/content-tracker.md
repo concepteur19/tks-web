@@ -51,46 +51,50 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 
 Pour chaque service, Franck doit fournir : le tarif avec son mode et son unité, des photos, une description, les informations importantes. Le fichier de destination est `src/content/services/<fichier>.json`, les photos vont dans `src/assets/services/<fichier>/`.
 
-Pour la quantité, ce qui est déjà acquis vient de sa réponse D1 : personnes pour les activités, colis pour la livraison. Pour le transport, la dimension reste à confirmer service par service.
+Les unités et les dimensions de quantité ont été arrêtées avec Franck le 2026-09-16, service par service. Elles figurent dans les tableaux ci-dessous et dans [data-model.md](./data-model.md). Ce qui manque encore, ce sont les montants.
 
 ### Transport
 
-| Service | Fichier | Tarif | Quantité | Photos | Texte FR | Texte EN |
-|---|---|---|---|---|---|---|
-| Courses / déplacements à Kribi | `courses-kribi` | ⏳ | ⏳ véhicules ? | ⏳ | ⏳ | ⏳ |
-| Location avec chauffeur | `location-avec-chauffeur` | ⏳ | ⏳ jours ? | ⏳ | ⏳ | ⏳ |
-| Chauffeur privé | `chauffeur-prive` | ⏳ | ⏳ heures ou jours ? | ⏳ | ⏳ | ⏳ |
-| Transferts | `transferts` | ⏳ | ⏳ véhicules ? | ⏳ | ⏳ | ⏳ |
-| Transport professionnel | `transport-professionnel` | ⏳ sur devis ? | ⏳ | ⏳ | ⏳ | ⏳ |
-| Transport scolaire | `transport-scolaire` | ⏳ sur devis ? | ⏳ | ⏳ | ⏳ | ⏳ |
-| Location sans chauffeur | `location-sans-chauffeur` | ⏳ | ⏳ jours ? | ⏳ | ⏳ | ⏳ |
+| Service | Fichier | Unité | Dimensions | Montant | Photos | Texte FR | Texte EN |
+|---|---|---|---|---|---|---|---|
+| Courses / déplacements à Kribi | `courses-kribi` | ✅ par course | ✅ aucune ou courses | ⏳ | ⏳ | ⏳ | ⏳ |
+| Location avec chauffeur | `location-avec-chauffeur` | ✅ par jour ou par heure | ✅ véhicules + durée | ⏳ | ⏳ | ⏳ | ⏳ |
+| Chauffeur privé | `chauffeur-prive` | ✅ par heure ou par jour | ✅ heures ou jours | ⏳ | ⏳ | ⏳ | ⏳ |
+| Transferts | `transferts` | ✅ par trajet | ✅ véhicules | ⏳ | ⏳ | ⏳ | ⏳ |
+| Transport professionnel | `transport-professionnel` | ✅ sur devis | ✅ aucune | — | ⏳ | ⏳ | ⏳ |
+| Transport scolaire | `transport-scolaire` | ✅ sur devis | ✅ aucune | — | ⏳ | ⏳ | ⏳ |
+| Location sans chauffeur | `location-sans-chauffeur` | ✅ par jour | ✅ véhicules + jours | ⏳ | ⏳ | ⏳ | ⏳ |
 
 ### Tourisme
 
-| Activité | Fichier | Tarif | Quantité | Photos | Texte FR | Texte EN |
-|---|---|---|---|---|---|---|
-| Chutes de la Lobé | `chutes-de-la-lobe` | ⏳ | ✅ personnes | ⏳ | ⏳ | ⏳ |
-| Jacuzzi naturel | `jacuzzi-naturel` | ⏳ | ✅ personnes | ⏳ | ⏳ | ⏳ |
-| Jet-ski | `jet-ski` | ⏳ | ✅ personnes | ⏳ | ⏳ | ⏳ |
-| Quad | `quad` | ⏳ | ✅ personnes | ⏳ | ⏳ | ⏳ |
-| Balade à cheval | `balade-a-cheval` | ⏳ | ✅ personnes | ⏳ | ⏳ | ⏳ |
-| Croisière | `croisiere` | ⏳ | ✅ personnes | ⏳ | ⏳ | ⏳ |
-| Feux de plage | `feux-de-plage` | ⏳ | ✅ personnes | ⏳ | ⏳ | ⏳ |
-| Découverte de Kribi | `decouverte-de-kribi` | ⏳ | ✅ personnes | ⏳ | ⏳ | ⏳ |
+Trois catégories arrêtées le 2026-09-16 : Nature / Découverte, Aventure, Détente. Pas de catégorie « autres activités » en V1.
+
+| Activité | Fichier | Catégorie | Unité | Montant | Photos | Texte FR | Texte EN |
+|---|---|---|---|---|---|---|---|
+| Chutes de la Lobé | `chutes-de-la-lobe` | Nature / Découverte | ⏳ personne ou groupe | ⏳ | ⏳ | ⏳ | ⏳ |
+| Jacuzzi naturel | `jacuzzi-naturel` | Nature / Découverte | ✅ par personne | ⏳ | ⏳ | ⏳ | ⏳ |
+| Excursion en pirogue | `excursion-en-pirogue` | Nature / Découverte | ⏳ personne ou groupe selon la formule | ⏳ | ⏳ | ⏳ | ⏳ |
+| Découverte de Kribi | `decouverte-de-kribi` | Nature / Découverte | ⏳ personne ou groupe | ⏳ | ⏳ | ⏳ | ⏳ |
+| Jet-ski | `jet-ski` | Aventure | ⏳ équipement, heure ou personne | ⏳ | ⏳ | ⏳ | ⏳ |
+| Quad | `quad` | Aventure | ⏳ équipement, heure ou personne | ⏳ | ⏳ | ⏳ | ⏳ |
+| Balade à cheval | `balade-a-cheval` | Aventure | ⏳ équipement, heure ou personne | ⏳ | ⏳ | ⏳ | ⏳ |
+| Croisière | `croisiere` | Détente | ✅ par personne | ⏳ | ⏳ | ⏳ | ⏳ |
+| Feux de plage | `feux-de-plage` | Détente | ⏳ groupe ou personne selon la formule | ⏳ | ⏳ | ⏳ | ⏳ |
 
 ### Livraison
 
-| Service | Fichier | Tarif | Quantité | Photos | Texte FR | Texte EN |
-|---|---|---|---|---|---|---|
-| Colis | `livraison-colis` | ⏳ sur devis si distance | ✅ colis | ⏳ | ⏳ | ⏳ |
-| Commandes | `livraison-commandes` | ⏳ | ✅ colis | ⏳ | ⏳ | ⏳ |
-| Domicile | `livraison-domicile` | ⏳ | ✅ colis | ⏳ | ⏳ | ⏳ |
-| Courses | `livraison-courses` | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ |
-| Professionnelle | `livraison-professionnelle` | ⏳ sur devis ? | ⏳ | ⏳ | ⏳ | ⏳ |
+| Service | Fichier | Unité | Dimensions | Montant | Photos | Texte FR | Texte EN |
+|---|---|---|---|---|---|---|---|
+| Colis | `livraison-colis` | ⏳ livraison, ou sur devis si distance | ✅ colis | ⏳ | ⏳ | ⏳ | ⏳ |
+| Commandes | `livraison-commandes` | ⏳ | ✅ colis | ⏳ | ⏳ | ⏳ | ⏳ |
+| Domicile | `livraison-domicile` | ⏳ | ✅ colis | ⏳ | ⏳ | ⏳ | ⏳ |
+| Courses | `livraison-courses` | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ |
+| Professionnelle | `livraison-professionnelle` | ⏳ sur devis ? | ✅ aucune | — | ⏳ | ⏳ | ⏳ |
 
 ## À redemander à Franck
 
-- **Excursion en pirogue** : elle figure dans le cahier des charges et le croquis, mais pas dans sa liste B1. On la garde ?
-- **« Autres activités »** : sa réponse B1 les mentionne sans les nommer. Lesquelles ?
-- **Quantité en transport** : pour chaque service, on compte en véhicules, en jours ou en heures ?
-- **Tarifs par groupe** : quelles activités sont vendues au groupe plutôt qu'à la personne ?
+- **Montants** : le tarif de chaque service, avec son mode (prix fixe, à partir de, sur devis). C'est ce qui manque le plus.
+- **Unité par activité** : pour le jet-ski, le quad, la balade à cheval, les chutes de la Lobé, la découverte de Kribi, la pirogue et les feux de plage, l'unité dépend du tarif réellement appliqué. À figer une fois les prix connus.
+- **Bateau, chaloupe, prestations de campement** : cités le 2026-09-16 comme exemples de tarification au groupe, mais absents de la liste de lancement. Ce sont de nouveaux services à ajouter, ou des variantes d'activités existantes ?
+
+Réglé le 2026-09-16 : l'excursion en pirogue est gardée, il n'y a pas de catégorie « autres activités », et les dimensions de quantité sont définies service par service.

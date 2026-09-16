@@ -96,7 +96,7 @@ Procédure « Figma → code » : (1) exporter les variables Figma (plugin Varia
 | `Badge` | Astro | `info`, `warning` (« à confirmer »), `quote` | — | — |
 | `CategoryTabs` | Astro + JS minimal ou React | onglets | sélectionné | `role="tablist"` ou liens filtrants avec `aria-current` |
 | `Gallery` | Astro | 1 image, N images | — | Miniatures = boutons, image principale `alt` |
-| `QuantityStepper` | React | `units`, `persons` | min atteint, max atteint, disabled | Groupe avec label, boutons « Diminuer » / « Augmenter », `inputmode="numeric"` |
+| `QuantityStepper` | React | `persons`, `units`, `days`, `hours` ; un à deux steppers côte à côte sur une fiche | min atteint, max atteint, disabled | Groupe avec label, boutons « Diminuer » / « Augmenter », `inputmode="numeric"` |
 | `AddToStay` | React | fiche, carte (V1 optionnel) | idle, ajouté (feedback) | Annonce via `aria-live` |
 | `SelectionLine` | React | avec prix, sur devis | édition quantité, suppression | Bouton supprimer nommé « Retirer <titre> » |
 | `EstimateSummary` | React | estimatif, indicatif, sur devis uniquement, vide | — | `aria-live="polite"` sur le total |

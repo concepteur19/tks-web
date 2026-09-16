@@ -69,7 +69,7 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 **FR-CAT-3** Une carte de service affiche : image, titre, description courte, étiquette de prix (voir FR-EST-1), badge « Disponibilité à confirmer » si `on_request`, lien vers la fiche.
 
-**FR-CAT-4** La fiche `/services/<slug>` affiche : galerie (1 à N images), titre, description longue, prix, durée, capacité, conditions (inclus / non inclus / à savoir), sélecteur de quantité conforme à la règle du service, bouton « Ajouter à mon séjour », bouton « Demander ce service » (ouvre WhatsApp avec ce service seul, client B1).
+**FR-CAT-4** La fiche `/services/<slug>` affiche : galerie (1 à N images), titre, description longue, prix, durée, capacité, conditions (inclus / non inclus / à savoir), un sélecteur par dimension de quantité du service, par exemple véhicules et jours (client D1, complété le 2026-09-16), bouton « Ajouter à mon séjour », bouton « Demander ce service » (ouvre WhatsApp avec ce service seul, client B1).
 
 **FR-CAT-5** Un service `disabled` n'apparaît nulle part et sa route renvoie une 404.
 
@@ -81,15 +81,17 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 ## SEL — Sélection « Mon séjour » (spec 004)
 
-**FR-SEL-1** Le visiteur peut ajouter un service à la sélection avec une quantité comprise entre `min` et `max` de sa règle.
-- Given quantité 2 sur la fiche « Excursion en pirogue », When « Ajouter », Then la sélection contient une ligne pirogue × 2.
+**FR-SEL-1** Le visiteur peut ajouter un service à la sélection en renseignant chacune de ses dimensions de quantité, chacune bornée par ses `min` et `max`. Un service sans dimension s'ajoute tel quel.
+- Given quantité 2 sur la fiche « Excursion en pirogue », When « Ajouter », Then la sélection contient une ligne pirogue × 2 personnes.
+- Given 2 véhicules et 3 jours sur « Location avec chauffeur », When « Ajouter », Then la ligne porte 2 véhicules × 3 jours et son montant vaut le prix du jour × 6.
 
-**FR-SEL-2** Ajouter un service déjà présent incrémente sa quantité au lieu de créer une ligne, dans la limite de `max`.
-- Given pirogue × 2 (max 10), When ajout de 3, Then pirogue × 5. Given pirogue × 9, When ajout de 3, Then pirogue × 10 et message « Maximum atteint ».
+**FR-SEL-2** Ajouter un service déjà présent met à jour sa ligne au lieu d'en créer une seconde : les dimensions `persons` et `units` s'additionnent dans la limite de leur `max`, les dimensions de durée prennent la nouvelle valeur.
+- Given pirogue × 2 personnes (max 10), When ajout de 3, Then pirogue × 5. Given pirogue × 9, When ajout de 3, Then pirogue × 10 et message « Maximum atteint ».
+- Given location 1 véhicule × 2 jours, When ajout de 1 véhicule × 5 jours, Then la ligne porte 2 véhicules × 5 jours.
 
 **FR-SEL-3** Le visiteur peut modifier la quantité d'une ligne (stepper et saisie), la retirer, et vider toute la sélection après confirmation.
 
-**FR-SEL-4** Les services dont la règle de quantité est `none` s'ajoutent avec quantité 1 sans stepper et ne peuvent pas être dupliqués.
+**FR-SEL-4** Les services sans dimension de quantité, forfaits et prestations sur devis, s'ajoutent tels quels, sans sélecteur, et ne peuvent pas être dupliqués.
 
 **FR-SEL-5** La sélection persiste dans le stockage local du navigateur et est restaurée au chargement, avec un numéro de version de schéma permettant une migration.
 - Given une sélection, When le navigateur est fermé puis rouvert, Then la sélection est identique.
@@ -111,9 +113,10 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 ## EST — Estimation (spec 005)
 
-**FR-EST-1** Le prix d'un service est de l'un des trois types : `fixed` (« 70 000 FCFA »), `from` (« à partir de 25 000 FCFA »), `quote` (« Sur devis »). L'unité est affichée quand elle est pertinente (« / personne », « / jour », « / course », « / colis »).
+**FR-EST-1** Le prix d'un service est de l'un des trois types : `fixed` (« 70 000 FCFA »), `from` (« à partir de 25 000 FCFA »), `quote` (« Sur devis »). L'unité est affichée quand elle est pertinente : « / personne », « / groupe », « / équipement », « / heure », « / jour », « / course », « / livraison », « / prestation » (client C2, complété le 2026-09-16).
 
-**FR-EST-2** Le montant d'une ligne = montant unitaire × quantité pour `fixed` et `from` ; nul pour `quote`.
+**FR-EST-2** Le montant d'une ligne = montant unitaire × produit des quantités de toutes ses dimensions, pour `fixed` et `from` ; nul pour `quote`.
+- Given un prix de 50 000 / jour, 2 véhicules et 3 jours, When calcul, Then le montant de la ligne vaut 300 000.
 
 **FR-EST-3** Le total estimatif = somme des montants de lignes non nuls. Le nombre de lignes `quote` est affiché à côté : « + 2 prestations sur devis ».
 - Given fixed 70 000 × 1, from 15 000 × 2, quote × 1, When calcul, Then total 100 000, quoteCount 1, hasFromPrices true.
@@ -134,7 +137,7 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 **FR-WA-2** Le lien est de la forme `https://wa.me/<numéro>?text=<message URL-encodé>` et s'ouvre dans un nouvel onglet avec `rel="noopener"`.
 
-**FR-WA-3** Le message récapitulatif contient, dans l'ordre : salutation et intention (« organiser un séjour à Kribi » ou « une livraison » selon les pôles présents), dates et voyageurs s'ils sont renseignés, la liste des lignes (titre × quantité, montant ou « sur devis »), le total estimatif avec le nombre de lignes sur devis, une formule de clôture (format validé par le client, E3). Deux gabarits existent, français et anglais, avec la même structure (FR-I18N-6).
+**FR-WA-3** Le message récapitulatif contient, dans l'ordre : salutation et intention (« organiser un séjour à Kribi » ou « une livraison » selon les pôles présents), dates et voyageurs s'ils sont renseignés, la liste des lignes (titre, quantités avec leurs libellés comme « 2 véhicules × 3 jours », montant ou « sur devis »), le total estimatif avec le nombre de lignes sur devis, une formule de clôture (format validé par le client, E3). Deux gabarits existent, français et anglais, avec la même structure (FR-I18N-6).
 
 **FR-WA-4** Le message est produit par une fonction pure à partir de la sélection et du catalogue, couverte à 100 % par des tests, avec un test de non-régression sur un exemple complet.
 
