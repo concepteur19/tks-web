@@ -24,6 +24,7 @@ Site vitrine interactif et bilingue (français / anglais) pour TKS® (Kribi, Cam
 | Modèle de données TypeScript | [docs/data-model.md](docs/data-model.md) |
 | Tokens et composants (Figma → code) | [docs/design-system.md](docs/design-system.md) |
 | Prompts pour générer les maquettes à proposer au client | [docs/design-prompts.md](docs/design-prompts.md) |
+| Briefs autonomes à téléverser dans un générateur d'interfaces | [docs/design-briefs/](docs/design-briefs/) |
 | Décisions (ADR) | [docs/technical-decisions.md](docs/technical-decisions.md) |
 | Docker, CI/CD, Kubernetes, exercices | [docs/devops.md](docs/devops.md) |
 | Tests | [docs/testing-strategy.md](docs/testing-strategy.md) |

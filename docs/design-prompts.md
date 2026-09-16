@@ -4,6 +4,8 @@
 
 Ces prompts servent à générer les maquettes à présenter à Franck, dans Figma (Make ou First Draft) ou dans un autre générateur d'interfaces. Ils traduisent le cahier des charges, les réponses du client et les exigences `FR-*` en instructions directement utilisables.
 
+Pour les outils qui acceptent un fichier en entrée, les briefs autonomes prêts à téléverser sont dans [design-briefs/](./design-briefs/), un par direction. Ce fichier-ci reste le document de travail et ne se téléverse pas.
+
 ## Comment s'en servir
 
 1. Choisir une **direction artistique** dans la section 4. En générer une par direction, sans changer le reste du prompt, pour que Franck compare des styles et non des contenus différents.
