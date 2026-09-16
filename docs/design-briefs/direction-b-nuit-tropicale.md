@@ -19,6 +19,8 @@ L'objectif unique est la conversion : que le visiteur écrive à TKS sur WhatsAp
 ## 3. Contraintes non négociables
 
 - Conception pour téléphone d'abord, écran de 390 × 844 pixels.
+- La maquette est un instantané à une largeur donnée, mais le site final sera adaptatif, de 360 pixels à un grand écran. Conçois donc une mise en page capable de se réorganiser : colonnes qui s'empilent, largeurs proportionnelles plutôt que valeurs fixes, images qui se recadrent, libellés qui peuvent revenir à la ligne. Sur ordinateur, la grille passera à deux puis trois colonnes, la navigation s'ouvrira en entier et le panier deviendra un panneau latéral.
+- Évite donc tout ce qui ne tient qu'à cette largeur précise : élément positionné en absolu pour combler un vide, grille rigide, texte incrusté dans une image, bloc dont la hauteur est figée.
 - Interface en français.
 - Un sélecteur de langue « FR | EN » visible dans la navigation, car le site existera aussi en anglais.
 - Un bouton WhatsApp vert accessible en permanence : bouton flottant en bas à droite sur téléphone, dans la navigation sur ordinateur.

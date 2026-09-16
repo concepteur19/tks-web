@@ -42,6 +42,11 @@ de Douala et Yaoundé qui viennent en week-end. Usage très majoritairement mobi
 
 Contraintes non négociables :
 - Mobile d'abord : écran 390 × 844. Version desktop 1440 × 1024 ensuite.
+- La maquette est un instantané, mais le site final sera adaptatif de 360 px à un
+  grand écran : mise en page qui se réorganise, colonnes qui s'empilent, largeurs
+  proportionnelles, images qui se recadrent, libellés qui peuvent revenir à la
+  ligne. Pas d'élément positionné en absolu pour combler un vide, pas de grille
+  rigide, pas de texte incrusté dans une image, pas de hauteur figée.
 - Interface en français. Un sélecteur de langue « FR | EN » visible dans la
   navigation, car le site sera aussi en anglais.
 - Un bouton WhatsApp vert accessible en permanence : dans la navigation sur
