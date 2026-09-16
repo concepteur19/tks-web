@@ -15,7 +15,7 @@ Règle : **aucune valeur brute dans les composants**. Toute couleur, taille, esp
 - **Style** : simplicité, belles photos, « premium accessible », navigation claire, mobile d'abord, cartes de services modernes, peu de texte.
 - **Ambiance** : nature + mer + chaleureuse + moderne + professionnelle. À éviter : froid, administratif, « simple site de transport ».
 - **Écrans indispensables** : grande image (ou vidéo si fournie) d'accueil, trois pôles, cartes de services avec photo et prix, « Ajouter à mon séjour », Mon séjour, demande de devis, WhatsApp toujours accessible.
-- **Process** : 2 ou 3 propositions Figma distinctes, puis choix d'une direction et affinage. Franck valide seul et veut du temps pour un retour précis.
+- **Process** : 2 ou 3 propositions Figma distinctes, puis choix d'une direction et affinage. Franck valide seul et veut du temps pour un retour précis. Les prompts de génération sont dans [design-prompts.md](./design-prompts.md).
 - **Langues** : site bilingue FR / EN, sélecteur de langue visible dans la navigation.
 
 ## 2. Implémentation des tokens
