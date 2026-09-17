@@ -42,7 +42,7 @@ Un **site statique multi-pages** (une dizaine de routes plus une fiche par servi
 | Tests | Vitest + Testing Library + Playwright + axe | Voir [testing-strategy.md](./testing-strategy.md) | 010 |
 | Qualité | ESLint (ts, astro, react, jsx-a11y) + Prettier (plugin astro, tailwind) + Husky/lint-staged | Pré-commit et CI | — |
 | CI/CD | GitHub Actions | Lint, test, build, Lighthouse, déploiement, image Docker | 009 |
-| Hébergement | Cloudflare, Worker d'assets statiques | Prod, aperçus par branche | 007 |
+| Hébergement | Cloudflare Pages | Prod, aperçus par PR | 007 |
 | Conteneurs | Docker (nginx) + kind | Dev reproductible, CI, labo Kubernetes | 006, 008 |
 
 ## 4. Arborescence

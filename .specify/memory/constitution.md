@@ -23,7 +23,7 @@ Chaque écran est conçu pour 360 px d'abord. Navigation clavier complète, WCAG
 Aucune valeur brute de couleur, taille, espacement ou durée dans les composants. Tout passe par `src/styles/tokens.css`. Le design system (`docs/design-system.md`) décrit la structure ; Figma fournit les valeurs.
 
 ### VII. DevOps for learning, isolated from production
-La production est un déploiement statique servi par Cloudflare. Docker sert au dev, à la CI et au labo. Kubernetes vit dans `k8s/` et dans une spec dédiée, jamais dans le chemin de production. Ce qui est pédagogique est marqué comme tel dans `docs/devops.md`.
+La production est un déploiement statique (Cloudflare Pages). Docker sert au dev, à la CI et au labo. Kubernetes vit dans `k8s/` et dans une spec dédiée, jamais dans le chemin de production. Ce qui est pédagogique est marqué comme tel dans `docs/devops.md`.
 
 ## Constraints
 
@@ -45,4 +45,4 @@ La production est un déploiement statique servi par Cloudflare. Docker sert au 
 
 Cette constitution prime sur toute autre pratique. Un amendement est une PR qui modifie ce fichier, incrémente la version et explique le changement dans `docs/technical-decisions.md`. Chaque plan vérifie la conformité aux principes I à VII ; toute violation est justifiée dans la section Complexity Tracking du plan.
 
-**Version**: 1.1.1 | **Ratified**: 2026-09-13 | **Last Amended**: 2026-09-17
+**Version**: 1.1.0 | **Ratified**: 2026-09-13 | **Last Amended**: 2026-09-14

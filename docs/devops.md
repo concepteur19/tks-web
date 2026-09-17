@@ -8,7 +8,7 @@
 |---|---|---|
 | **Git + GitHub Actions** | Indispensable : qualité automatisée, déploiement sans intervention | Pipelines, secrets, artefacts, matrices |
 | **Docker** | Utile : build reproductible, image servie identique en local, en CI et sur un VPS de repli | Dockerfile multi-stage, layers, healthcheck, réseau, compose |
-| **Cloudflare (Worker d'assets statiques)** | Indispensable : prod gratuite, CDN, HTTPS, aperçus | Déploiement continu, en-têtes, redirections |
+| **Cloudflare Pages** | Indispensable : prod gratuite, CDN, HTTPS, aperçus | Déploiement continu, en-têtes, redirections |
 | **Kubernetes** | **Aucune** en production pour un site statique | Deployments, Services, probes, rolling updates, Kustomize, Ingress |
 
 Verdict honnête : Kubernetes n'entre pas dans le chemin de production. Il vit dans un cluster local `kind` comme **laboratoire**, avec des manifests écrits comme pour une vraie prod afin que l'apprentissage soit transférable.
@@ -21,9 +21,9 @@ Developer ── git push ──► GitHub
                             ├──► ci.yml (push, PR)
                             │      lint → typecheck → unit → build → e2e → Lighthouse CI
                             │
-                            ├──► Cloudflare (intégration Git, Worker d'assets)
-                            │      branche → aperçu https://<branche>-tks-web.zobel-tchomgui.workers.dev
-                            │      main    → production https://tks-web.zobel-tchomgui.workers.dev
+                            ├──► Cloudflare Pages (intégration Git)
+                            │      PR  → aperçu https://<hash>.tks-web.pages.dev
+                            │      main → production https://tks-kribi.com
                             │
                             └──► docker.yml (tag v*)
                                    build multi-arch → push ghcr.io/<owner>/tks-web:<tag>,latest
@@ -37,8 +37,8 @@ Developer ── git push ──► GitHub
 | Environnement | Où | Source | Variables |
 |---|---|---|---|
 | `dev` | Poste local, `npm run dev` ou `docker compose up dev` | branche courante | `.env` local (non commité), `PUBLIC_WHATSAPP_NUMBER` factice |
-| `preview` | Cloudflare | chaque branche poussée | Variables d'environnement « Preview » |
-| `production` | Cloudflare | `main` | Variables d'environnement « Production » |
+| `preview` | Cloudflare Pages | chaque PR | Variables Pages « Preview » |
+| `production` | Cloudflare Pages | `main` | Variables Pages « Production » |
 | `lab` | kind local | image GHCR ou build local | ConfigMap |
 
 ### Variables et secrets
@@ -48,7 +48,7 @@ Le site est statique : toute variable `PUBLIC_*` est **injectée au build** et d
 ### Versioning et rollback
 
 - Conventional Commits ; SemVer ; tag `vX.Y.Z` sur `main` déclenche l'image Docker.
-- Rollback prod : redéployer une version précédente depuis le tableau de bord Cloudflare, ou `git revert` puis push.
+- Rollback prod : « Rollback to this deployment » dans Cloudflare Pages, ou `git revert` + push.
 - Rollback labo : `kubectl rollout undo deployment/tks-web`.
 
 ## 3. Docker
@@ -107,7 +107,7 @@ Prérequis (phase 001) : Docker Desktop, `kind`, `kubectl`, `kustomize` (inclus 
 | Élément | Production-ready | Pédagogique uniquement | Note |
 |---|---|---|---|
 | `ci.yml` | ✔ | | Bloque les merges |
-| Cloudflare, Worker d'assets | ✔ | | Prod réelle |
+| Cloudflare Pages | ✔ | | Prod réelle |
 | `Dockerfile`, `nginx.conf` | ✔ | | Utilisable sur un VPS tel quel |
 | `compose.yml` dev | ✔ | | Environnement reproductible |
 | Image sur GHCR | ✔ | | Artefact versionné |
@@ -151,7 +151,7 @@ Chaque exercice a un objectif, des commandes, et une question d'observation. Ils
 |---|---|
 | GitHub (dépôt privé, Actions 2 000 min/mois) | 0 € |
 | GHCR (images) | 0 € (limites généreuses pour un dépôt) |
-| Cloudflare, offre gratuite | 0 € |
+| Cloudflare Pages | 0 € |
 | Nom de domaine `.com` | ≈ 10 €/an |
 | kind, Docker Desktop (usage personnel) | 0 € |
 

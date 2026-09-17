@@ -37,7 +37,7 @@ Les éléments bruts fournis par le client sont dans `Elements/` (cahier des cha
 
 ## Stack retenue
 
-Astro 5 (statique) + îlots React 19 · FR / EN (i18n natif Astro) · TypeScript strict · Tailwind CSS v4 avec tokens · nanostores · Zod · Vitest + Playwright · Docker (nginx) · GitHub Actions · Cloudflare en production · Kubernetes (kind) en laboratoire local.
+Astro 5 (statique) + îlots React 19 · FR / EN (i18n natif Astro) · TypeScript strict · Tailwind CSS v4 avec tokens · nanostores · Zod · Vitest + Playwright · Docker (nginx) · GitHub Actions · Cloudflare Pages en production · Kubernetes (kind) en laboratoire local.
 
 ## Prochaine étape
 
