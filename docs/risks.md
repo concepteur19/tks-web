@@ -15,7 +15,7 @@ Impact et probabilité : Faible / Moyen / Élevé.
 | R7 | **Scope creep** : packs, hébergements, formulaires détaillés, vidéo d'accueil demandés en cours de route (le client cite packs et vidéo parmi ses indispensables, G4) | Moyen | Élevé | Tableau de scope validé ; V2 confirmée par le client pour packs et hébergements (B5, B6) ; toute demande passe par une nouvelle spec |
 | R8 | **localStorage bloqué** (navigation privée, iOS Safari en mode restreint) | Faible | Faible | Mode mémoire dégradé, bandeau d'information |
 | R9 | **Performance des images** : photos lourdes fournies par le client | Moyen | Élevé | Optimisation au build (AVIF/WebP, tailles), budgets Lighthouse en CI |
-| R10 | **Hébergement et domaine non décidés** à la livraison | Moyen | Moyen | Cloudflare Pages en `pages.dev` immédiatement ; domaine branché plus tard sans redéploiement |
+| R10 | **Hébergement et domaine non décidés** à la livraison | Moyen | Moyen | adresse `workers.dev` disponible immédiatement ; domaine branché plus tard sans reconstruction |
 | R11 | **Maintenance du catalogue par le développeur** en V1 : goulot d'étranglement | Moyen | Moyen | Format JSON simple et documenté ; PR de contenu ; migration CMS git-based en V3 |
 | R12 | **Complexité DevOps** qui déborde sur le produit | Moyen | Moyen | Kubernetes isolé dans `k8s/` et une spec dédiée (007), hors chemin de prod ; time-box des exercices |
 | R13 | **Deux syntaxes (Astro + React)** ralentissent le développement | Faible | Moyen | Règle simple : contenu = Astro, interaction = React ; îlots peu nombreux et listés |

@@ -5,7 +5,7 @@
 | Variable | Obligatoire | Format attendu | Exemple | Conséquence si absente ou invalide |
 |---|---|---|---|---|
 | `PUBLIC_WHATSAPP_NUMBER` | Oui | 8 à 15 chiffres, sans `+`, sans espace | `237697135388` | Le build échoue immédiatement |
-| `PUBLIC_SITE_URL` | Oui | Adresse absolue avec protocole, sans barre oblique finale | `https://tks-web.pages.dev` | Le build échoue immédiatement |
+| `PUBLIC_SITE_URL` | Oui | Adresse absolue avec protocole, sans barre oblique finale | `https://tks-web.zobel-tchomgui.workers.dev` | Le build échoue immédiatement |
 
 Règles :
 

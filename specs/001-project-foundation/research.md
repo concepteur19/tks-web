@@ -44,9 +44,9 @@ Les choix de stack sont déjà tranchés par les ADR du projet. Cette phase ne t
 
 ## 6. Publication et aperçus
 
-**Décision** : relier Cloudflare Pages au dépôt GitHub par l'intégration Git du tableau de bord. La chaîne d'intégration GitHub Actions vérifie la qualité, elle ne déploie pas.
+**Décision** : relier le projet Cloudflare au dépôt GitHub par l'intégration Git du tableau de bord. Le projet est un Worker servant des assets statiques, déclaré par un `wrangler.jsonc` versionné qui pointe vers `dist/` et renvoie la page 404 la plus proche pour une adresse inconnue. La chaîne d'intégration GitHub Actions vérifie la qualité, elle ne déploie pas.
 
-**Rationale** : aucun jeton ni secret à stocker, aperçu automatique par proposition de modification, retour arrière en un clic. ADR-007 et ADR-009.
+**Rationale** : aucun jeton ni secret à stocker, aperçu automatique par branche, retour arrière depuis le tableau de bord. ADR-007, amendé le 2026-09-17, et ADR-009.
 
 **Alternatives considérées** : déploiement depuis GitHub Actions avec un jeton d'API, rejeté pour cette feature : un secret de plus à gérer sans bénéfice. Réversible plus tard si le besoin apparaît.
 

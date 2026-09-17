@@ -106,20 +106,22 @@ Format : Context / Decision / Alternatives considered / Consequences / Status. T
 
 ---
 
-## ADR-007 — Hébergement de production : Cloudflare Pages
+## ADR-007 — Hébergement de production : Cloudflare
 
 **Context.** Site statique, client au Cameroun, budget serré, besoin d'HTTPS, de CDN et de déploiement automatique.
 
-**Decision.** Cloudflare Pages connecté au dépôt GitHub : déploiement de `main` en production, aperçu par pull request, en-têtes de sécurité via `_headers`, redirections via `_redirects`. Nom de domaine géré chez Cloudflare (DNS gratuit).
+**Decision.** Hébergement Cloudflare connecté au dépôt GitHub : déploiement de `main` en production, aperçu par branche, en-têtes de sécurité et redirections déclarés dans le dépôt. Nom de domaine géré chez Cloudflare (DNS gratuit).
 
 **Alternatives considered.**
 - *Netlify / Vercel* : équivalents ; Cloudflare a la meilleure couverture CDN en Afrique et pas de limite de bande passante sur l'offre gratuite.
 - *VPS + Docker* : plus d'apprentissage en prod, mais maintenance, sécurité et coût à la charge du développeur ; conservé comme repli documenté.
 - *Kubernetes managé* : surdimensionné, coût mensuel injustifié pour un site statique.
 
-**Consequences.** Dépendance à un fournisseur, mais l'artefact `dist/` est portable et l'image Docker existe. Le formulaire de contact V2 pourra utiliser une Cloudflare Function.
+**Consequences.** Dépendance à un fournisseur, mais l'artefact `dist/` est portable et l'image Docker existe. Le formulaire de contact V2 pourra s'appuyer sur une fonction Cloudflare.
 
-**Status.** Accepted.
+**Amendement du 2026-09-17.** Le projet Cloudflare a été créé en **Worker avec assets statiques**, et non en projet Pages. Les deux servent le même dossier `dist/`, avec déploiement continu depuis Git et aperçus par branche. On garde le Worker : il est déjà créé, ses adresses de production et d'aperçu existent, et c'est la voie que Cloudflare fait évoluer pour les sites statiques. Conséquence concrète : un fichier `wrangler.jsonc` versionné déclare le dossier d'assets et le traitement des adresses inconnues, là où Pages n'aurait rien demandé. Adresse de production : `https://tks-web.zobel-tchomgui.workers.dev`. Aperçus : `https://<branche>-tks-web.zobel-tchomgui.workers.dev`.
+
+**Status.** Accepted, amendé le 2026-09-17.
 
 ---
 

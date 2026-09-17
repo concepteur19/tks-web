@@ -20,7 +20,7 @@ Les choix structurants viennent de [technical-decisions.md](../../docs/technical
 
 **Testing**: Vitest et Testing Library pour les unités et les composants, Playwright et axe pour les parcours, Lighthouse CI pour les budgets
 
-**Target Platform**: Navigateurs modernes, mobile d'abord à partir de 360 px. Hébergement statique Cloudflare Pages, image nginx en complément
+**Target Platform**: Navigateurs modernes, mobile d'abord à partir de 360 px. Hébergement statique Cloudflare par Worker d'assets, image nginx en complément
 
 **Project Type**: Site statique multi-pages avec quelques îlots interactifs
 
@@ -112,6 +112,7 @@ tests/
 docker/                             # Dockerfile, nginx.conf, compose.yml  (US4)
 .github/workflows/ci.yml
 astro.config.mjs
+wrangler.jsonc                       # dossier d'assets, traitement des adresses inconnues
 ```
 
 **Structure Decision**: structure d'un projet unique, conforme à [architecture.md](../../docs/architecture.md). Les dossiers `features/`, prévus pour la sélection, l'estimation et WhatsApp, ne sont pas créés ici : ils appartiennent aux features 004 à 006.
