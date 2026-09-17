@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { t } from '../i18n/t.ts';
+import type { Locale } from '../i18n/types.ts';
+import { env } from '../lib/env.ts';
+import { buildSeo } from '../lib/seo.ts';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const { locale, title, description, noindex = false } = Astro.props;
+const seo = buildSeo({
+  path: Astro.url.pathname,
+  locale,
+  title,
+  description: description ?? t(locale, 'site.description'),
+  siteUrl: env.siteUrl,
+  noindex,
+});
+const pageTitle = `${title} · ${t(locale, 'site.name')}`;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={seo.description} />
+    <link rel="canonical" href={seo.canonical} />
+    {seo.alternates.map((alternate) => (
+      <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+    ))}
+    {seo.noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={seo.description} />
+    <meta property="og:url" content={seo.canonical} />
+    <meta property="og:locale" content={seo.ogLocale} />
+    {seo.ogLocaleAlternate.map((value) => (
+      <meta property="og:locale:alternate" content={value} />
+    ))}
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a class="skip-link" href="#main">{t(locale, 'nav.skipToContent')}</a>
+    <Nav locale={locale} />
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <WhatsAppButton locale={locale} />
+  </body>
+</html>

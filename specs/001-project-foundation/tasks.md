@@ -29,12 +29,12 @@ Projet unique, racine du dépôt. Code dans `src/`, tests dans `tests/`, contene
 
 **Objectif** : un projet qui démarre et se construit, sans contenu.
 
-- [ ] T001 Initialiser le projet Astro 5 en sortie statique à la racine : `package.json`, `astro.config.mjs` (`output: 'static'`), `tsconfig.json`
-- [ ] T002 [P] Ajouter les dépendances décidées par les ADR dans `package.json` : `astro`, `@astrojs/react`, `react`, `react-dom`, `@astrojs/sitemap`, `tailwindcss`, `@tailwindcss/vite`, `zod`
-- [ ] T003 [P] Activer le typage strict dans `tsconfig.json` : `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`
-- [ ] T004 [P] Créer `.env.example` avec `PUBLIC_WHATSAPP_NUMBER` et `PUBLIC_SITE_URL`, valeurs d'exemple et commentaires, conformément à [contracts/env.md](./contracts/env.md)
-- [ ] T005 Déclarer les scripts npm dans `package.json` : `dev`, `build`, `build:prod`, `preview`, `check`, `check:i18n`, `tokens:check`, `test`, `test:e2e`
-- [ ] T006 [P] Brancher Tailwind v4 via `@tailwindcss/vite` dans `astro.config.mjs` et créer `src/styles/global.css` qui importe `src/styles/tokens.css`
+- [X] T001 Initialiser le projet Astro 5 en sortie statique à la racine : `package.json`, `astro.config.mjs` (`output: 'static'`), `tsconfig.json`
+- [X] T002 [P] Ajouter les dépendances décidées par les ADR dans `package.json` : `astro`, `@astrojs/react`, `react`, `react-dom`, `@astrojs/sitemap`, `tailwindcss`, `@tailwindcss/vite`, `zod`
+- [X] T003 [P] Activer le typage strict dans `tsconfig.json` : `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`
+- [X] T004 [P] Créer `.env.example` avec `PUBLIC_WHATSAPP_NUMBER` et `PUBLIC_SITE_URL`, valeurs d'exemple et commentaires, conformément à [contracts/env.md](./contracts/env.md)
+- [X] T005 Déclarer les scripts npm dans `package.json` : `dev`, `build`, `build:prod`, `preview`, `check`, `check:i18n`, `test`, `test:e2e`. Le script `tokens:check` est déclaré avec T040, en même temps que le contrôle qu'il exécute
+- [X] T006 [P] Brancher Tailwind v4 via `@tailwindcss/vite` dans `astro.config.mjs` et créer `src/styles/global.css` qui importe `src/styles/tokens.css`
 
 ---
 
@@ -42,15 +42,15 @@ Projet unique, racine du dépôt. Code dans `src/`, tests dans `tests/`, contene
 
 **⚠️ À terminer avant toute user story.**
 
-- [ ] T007 Déclarer le schéma des variables d'environnement dans `astro.config.mjs` et exposer un accès typé dans `src/lib/env.ts` : `PUBLIC_WHATSAPP_NUMBER` en 8 à 15 chiffres sans `+`, `PUBLIC_SITE_URL` en adresse absolue avec protocole et sans barre oblique finale, échec du build si absente ou invalide
-- [ ] T008 [P] Créer `src/i18n/types.ts` : `LOCALES = ['fr','en']`, `Locale`, `DEFAULT_LOCALE = 'fr'`, `LocalizedString = { fr: string; en?: string }`, type `Dictionary`
-- [ ] T009 Créer `src/i18n/routes.ts` avec la table `ROUTES` des 7 clés reprises telles quelles de [contracts/routes.md](./contracts/routes.md), plus `getRoutePath(key, locale)`, `getAlternatePath(path, locale)` et `getLocaleFromPath(path)`
-- [ ] T010 [P] Créer `src/i18n/fr.ts` comme dictionnaire de référence et `src/i18n/en.ts` typé `satisfies Dictionary`, pour que toute clé manquante casse la compilation
-- [ ] T011 Créer `src/i18n/t.ts` : `t(locale, key, params?)` avec interpolation et pluriels via `Intl.PluralRules`, et `localize(value, locale)` qui replie sur `fr` en émettant un avertissement hors production
-- [ ] T012 [P] Créer `src/styles/tokens.css` avec la structure `@theme` et les valeurs provisoires marquées `[PLACEHOLDER]` de [docs/design-system.md](../../docs/design-system.md), plus les `z-index` nommés
-- [ ] T013 Créer `src/layouts/BaseLayout.astro` : déclaration de langue, titre, description, adresse canonique, liens alternatifs `fr` / `en` / défaut, `og:locale`, lien d'évitement vers le contenu, emplacements pour la navigation et le pied de page
-- [ ] T014 [P] Configurer Vitest dans `vitest.config.ts` avec la configuration Vite fournie par Astro, deux projets, unités et composants, et `tests/setup/`
-- [ ] T015 [P] Configurer Playwright dans `playwright.config.ts` sur le site construit et prévisualisé, projets `desktop-chromium` et `mobile-webkit`
+- [X] T007 Déclarer le schéma des variables d'environnement dans `astro.config.mjs` et exposer un accès typé dans `src/lib/env.ts` : `PUBLIC_WHATSAPP_NUMBER` en 8 à 15 chiffres sans `+`, `PUBLIC_SITE_URL` en adresse absolue avec protocole et sans barre oblique finale, échec du build si absente ou invalide
+- [X] T008 [P] Créer `src/i18n/types.ts` : `LOCALES = ['fr','en']`, `Locale`, `DEFAULT_LOCALE = 'fr'`, `LocalizedString = { fr: string; en?: string }`, type `Dictionary`
+- [X] T009 Créer `src/i18n/routes.ts` avec la table `ROUTES` des 7 clés reprises telles quelles de [contracts/routes.md](./contracts/routes.md), plus `getRoutePath(key, locale)`, `getAlternatePath(path, locale)` et `getLocaleFromPath(path)`
+- [X] T010 [P] Créer `src/i18n/fr.ts` comme dictionnaire de référence et `src/i18n/en.ts` typé `satisfies Dictionary`, pour que toute clé manquante casse la compilation
+- [X] T011 Créer `src/i18n/t.ts` : `t(locale, key, params?)` avec interpolation et pluriels via `Intl.PluralRules`, et `localize(value, locale)` qui replie sur `fr` en émettant un avertissement hors production
+- [X] T012 [P] Créer `src/styles/tokens.css` avec la structure `@theme` et les valeurs provisoires marquées `[PLACEHOLDER]` de [docs/design-system.md](../../docs/design-system.md), plus les `z-index` nommés
+- [X] T013 Créer `src/layouts/BaseLayout.astro` : déclaration de langue, titre, description, adresse canonique, liens alternatifs `fr` / `en` / défaut, `og:locale`, lien d'évitement vers le contenu, emplacements pour la navigation et le pied de page
+- [X] T014 [P] Configurer Vitest dans `vitest.config.ts` avec la configuration Vite fournie par Astro, deux projets, unités et composants, et `tests/setup/`
+- [X] T015 [P] Configurer Playwright dans `playwright.config.ts` sur le site construit et prévisualisé, projets `desktop-chromium` et `mobile-webkit`
 
 **Point de contrôle** : `npm run build` réussit, les stories peuvent démarrer.
 
@@ -64,20 +64,20 @@ Projet unique, racine du dépôt. Code dans `src/`, tests dans `tests/`, contene
 
 ### Tests de la story
 
-- [ ] T016 [P] [US1] Tests unitaires de la table de routes dans `tests/unit/routes.test.ts` : chaque clé a un chemin par langue, aucun doublon dans une même langue, aller-retour français vers anglais vers français identique
-- [ ] T017 [P] [US1] Tests unitaires de la traduction dans `tests/unit/i18n.test.ts` : interpolation, pluriels à 0, 1 et plusieurs dans les deux langues, repli sur le français avec avertissement quand l'anglais manque
-- [ ] T018 [P] [US1] Test de composant du sélecteur de langue dans `tests/component/language-switcher.test.ts` : langue active signalée, attributs de langue et de lien alternatif présents, aucune violation axe
-- [ ] T019 [US1] Test de parcours dans `tests/e2e/skeleton.spec.ts` : accueil français, bascule vers `/en/`, retour, page d'erreur dans chaque langue, rendu sans JavaScript, absence de défilement horizontal à 360 px
+- [X] T016 [P] [US1] Tests unitaires de la table de routes dans `tests/unit/routes.test.ts` : chaque clé a un chemin par langue, aucun doublon dans une même langue, aller-retour français vers anglais vers français identique
+- [X] T017 [P] [US1] Tests unitaires de la traduction dans `tests/unit/i18n.test.ts` : interpolation, pluriels à 0, 1 et plusieurs dans les deux langues, repli sur le français avec avertissement quand l'anglais manque
+- [X] T018 [P] [US1] Test de composant du sélecteur de langue dans `tests/component/language-switcher.test.ts` : langue active signalée, attributs de langue et de lien alternatif présents, aucune violation axe
+- [X] T019 [US1] Test de parcours dans `tests/e2e/skeleton.spec.ts` : accueil français, bascule vers `/en/`, retour, page d'erreur dans chaque langue, rendu sans JavaScript, absence de défilement horizontal à 360 px
 
 ### Implémentation de la story
 
-- [ ] T020 [US1] Créer `src/components/LanguageSwitcher.astro` qui lit `src/i18n/routes.ts` et rend un lien vers la page équivalente, sans détection ni redirection
-- [ ] T021 [P] [US1] Créer `src/components/Nav.astro` et `src/components/Footer.astro`, textes issus des dictionnaires, sans lien vers les pages non encore livrées
-- [ ] T022 [P] [US1] Créer `src/components/WhatsAppButton.astro` : lien `wa.me` construit depuis `src/lib/env.ts`, message générique traduit, `rel="noopener"`, nom accessible
-- [ ] T023 [US1] Créer `src/pages/index.astro` et `src/pages/en/index.astro` : identité TKS®, signature, phrase d'attente, aucun contenu client inventé
-- [ ] T024 [P] [US1] Créer `src/pages/404.astro` et `src/pages/en/404.astro`, chacune dans sa langue avec un retour vers l'accueil
-- [ ] T025 [US1] Créer `src/lib/seo.ts` qui produit titre, description, adresse canonique, liens alternatifs et balises de partage à partir de `PUBLIC_SITE_URL`, puis le brancher dans `src/layouts/BaseLayout.astro`
-- [ ] T026 [US1] Configurer `@astrojs/sitemap` en mode deux langues dans `astro.config.mjs` et créer `public/robots.txt`
+- [X] T020 [US1] Créer `src/components/LanguageSwitcher.astro` qui lit `src/i18n/routes.ts` et rend un lien vers la page équivalente, sans détection ni redirection
+- [X] T021 [P] [US1] Créer `src/components/Nav.astro` et `src/components/Footer.astro`, textes issus des dictionnaires, sans lien vers les pages non encore livrées
+- [X] T022 [P] [US1] Créer `src/components/WhatsAppButton.astro` : lien `wa.me` construit depuis `src/lib/env.ts`, message générique traduit, `rel="noopener"`, nom accessible
+- [X] T023 [US1] Créer `src/pages/index.astro` et `src/pages/en/index.astro` : identité TKS®, signature, phrase d'attente, aucun contenu client inventé
+- [X] T024 [P] [US1] Créer `src/pages/404.astro` et `src/pages/en/404.astro`, chacune dans sa langue avec un retour vers l'accueil
+- [X] T025 [US1] Créer `src/lib/seo.ts` qui produit titre, description, adresse canonique, liens alternatifs et balises de partage à partir de `PUBLIC_SITE_URL`, puis le brancher dans `src/layouts/BaseLayout.astro`
+- [X] T026 [US1] Configurer `@astrojs/sitemap` en mode deux langues dans `astro.config.mjs` et créer `public/robots.txt`
 
 **Point de contrôle** : la story 1 est vérifiable seule, en local et en ligne.
 
@@ -123,7 +123,7 @@ Projet unique, racine du dépôt. Code dans `src/`, tests dans `tests/`, contene
 - [ ] T037 [US3] Créer `src/content/config.ts` : collections `categories` et `services`, schémas Zod avec champs localisés et règles de [contracts/content-schema.md](./contracts/content-schema.md), dont l'accord entre `pricing.unit` et `quantity.dimensions`, au plus deux dimensions et au plus une durée
 - [ ] T038 [P] [US3] Créer le contenu d'exemple `src/content/categories/nature-decouverte.json` et `src/content/services/excursion-en-pirogue.json`, tous deux marqués provisoires et référencés dans [docs/content-tracker.md](../../docs/content-tracker.md)
 - [ ] T039 [US3] Écrire `scripts/check-i18n.ts` : parcours des dictionnaires et des fichiers de contenu, avertissement hors production, échec en production avec la liste des champs manquants, puis le brancher dans le script `build:prod` de `package.json`
-- [ ] T040 [US3] Compléter `src/styles/tokens.css` avec toutes les catégories de [docs/design-system.md](../../docs/design-system.md) et écrire `scripts/check-tokens.ts` qui vérifie les contrastes au niveau AA
+- [ ] T040 [US3] Compléter `src/styles/tokens.css` avec toutes les catégories de [docs/design-system.md](../../docs/design-system.md), écrire `scripts/check-tokens.ts` qui vérifie les contrastes au niveau AA, et déclarer le script `tokens:check` dans `package.json`
 - [ ] T041 [P] [US3] Créer la page de démonstration `src/pages/dev/ui.astro` listant couleurs, typographies, espacements et composants, exclue du plan du site, de l'indexation et du build de production
 - [ ] T042 [US3] Ajouter un test d'intégration dans `tests/unit/build-guards.test.ts` : avec une fiche d'essai privée de sa traduction anglaise, `build:prod` échoue ; avec une variable d'environnement vide, le build échoue aussi
 
