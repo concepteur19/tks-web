@@ -8,7 +8,7 @@ Ce guide sert à deux choses : lancer le projet, et prouver que la feature est l
 
 | Outil | Version | Nécessaire pour |
 |---|---|---|
-| Node.js | 22 LTS | Tout |
+| Node.js | 22 LTS, version épinglée dans `.nvmrc` | Tout. Le contrôle des traductions utilise le retrait de types natif, disponible à partir de Node 22.6 |
 | npm | fourni avec Node | Tout |
 | Git | — | Tout |
 | Docker Desktop | récent | Uniquement l'histoire 4 |
