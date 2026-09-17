@@ -16,6 +16,12 @@ Règle : **aucune valeur brute dans les composants**. Toute couleur, taille, esp
 - **Ambiance** : nature + mer + chaleureuse + moderne + professionnelle. À éviter : froid, administratif, « simple site de transport ».
 - **Écrans indispensables** : grande image (ou vidéo si fournie) d'accueil, trois pôles, cartes de services avec photo et prix, « Ajouter à mon séjour », Mon séjour, demande de devis, WhatsApp toujours accessible.
 - **Process** : 2 ou 3 propositions Figma distinctes, puis choix d'une direction et affinage. Franck valide seul et veut du temps pour un retour précis. Les prompts de génération sont dans [design-prompts.md](./design-prompts.md).
+
+### Direction retenue : C « Soleil et vie locale » (choix de Franck, 2026-09-17)
+
+Chaleureuse, colorée, ancrée dans la vie locale : terracotta et orange soleil pour la marque, crème pour les fonds, turquoise en accent secondaire, le vert restant réservé au bouton WhatsApp. Cartes aux angles francs, blocs de couleur pleine, photographies cadrées serré sur les gens et les scènes de vie. Brief complet : [design-briefs/direction-c-soleil-et-vie-locale.md](./design-briefs/direction-c-soleil-et-vie-locale.md).
+
+Franck peut encore demander des ajustements sur cette direction. Les valeurs de couleur et de typographie définitives remplaceront les `[PLACEHOLDER]` de la partie 2 une fois la maquette affinée.
 - **Langues** : site bilingue FR / EN, sélecteur de langue visible dans la navigation.
 
 ## 2. Implémentation des tokens

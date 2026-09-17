@@ -8,6 +8,8 @@ Trois fichiers, un par direction artistique. Chacun est **autonome** : contexte,
 | [direction-b-nuit-tropicale.md](./direction-b-nuit-tropicale.md) | Sombre et premium, vert forêt, doré |
 | [direction-c-soleil-et-vie-locale.md](./direction-c-soleil-et-vie-locale.md) | Chaleureux, terracotta, turquoise |
 
+**Franck a choisi la direction C le 2026-09-17.** Les briefs A et B restent dans le dépôt comme trace de ce qui lui a été proposé. La suite du travail de design se fait avec le brief C, et les écrans restants sont décrits en partie 3 de [../design-prompts.md](../design-prompts.md).
+
 Les trois fichiers décrivent **exactement le même contenu**. Seule la partie 5 change. C'est voulu : Franck doit comparer des styles, pas trois sites différents.
 
 Ne téléverse jamais [../design-prompts.md](../design-prompts.md) dans l'outil. Ce fichier est notre document de travail : il contient les trois directions à la fois et des consignes qui ne s'adressent pas au générateur.
