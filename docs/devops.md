@@ -22,8 +22,9 @@ Developer ── git push ──► GitHub
                             │      lint → typecheck → unit → build → e2e → Lighthouse CI
                             │
                             ├──► Cloudflare Pages (intégration Git)
-                            │      PR  → aperçu https://<hash>.tks-web.pages.dev
-                            │      main → production https://tks-kribi.com
+                            │      PR  → aperçu https://<hash>.tks-web-1h2.pages.dev
+                            │      main → production https://tks-web-1h2.pages.dev
+                            │               puis le domaine de TKS quand il sera acheté
                             │
                             └──► docker.yml (tag v*)
                                    build multi-arch → push ghcr.io/<owner>/tks-web:<tag>,latest
