@@ -45,4 +45,10 @@ Elements/incoming/**/*.MP4
 Elements/incoming/**/*.mov
 Elements/incoming/**/*.MOV
 
+# Clés SSH et secrets, au cas où ils atterriraient ici par erreur
+id_*
+*.pem
+*_key
+*_key.pub
+
 # Spec Kit machine-local state (see .specify/.gitignore)
