@@ -42,7 +42,7 @@ Projet unique, racine du dépôt. Code dans `src/`, tests dans `tests/`, contene
 
 **⚠️ À terminer avant toute user story.**
 
-- [X] T007 Déclarer le schéma des variables d'environnement dans `astro.config.mjs` et exposer un accès typé dans `src/lib/env.ts` : `PUBLIC_WHATSAPP_NUMBER` en 8 à 15 chiffres sans `+`, `PUBLIC_SITE_URL` en adresse absolue avec protocole et sans barre oblique finale, échec du build si absente ou invalide
+- [X] T007 Déclarer le schéma des variables d'environnement dans `astro.config.mjs`, résoudre les valeurs dans `config/resolve-env.mjs` et exposer un accès typé dans `src/lib/env.ts` : `PUBLIC_WHATSAPP_NUMBER` en 8 à 15 chiffres sans `+`, `PUBLIC_SITE_URL` en adresse absolue avec protocole et sans barre oblique finale, échec du build si la valeur est invalide, repli documenté si elle est absente
 - [X] T008 [P] Créer `src/i18n/types.ts` : `LOCALES = ['fr','en']`, `Locale`, `DEFAULT_LOCALE = 'fr'`, `LocalizedString = { fr: string; en?: string }`, type `Dictionary`
 - [X] T009 Créer `src/i18n/routes.ts` avec la table `ROUTES` des 7 clés reprises telles quelles de [contracts/routes.md](./contracts/routes.md), plus `getRoutePath(key, locale)`, `getAlternatePath(path, locale)` et `getLocaleFromPath(path)`
 - [X] T010 [P] Créer `src/i18n/fr.ts` comme dictionnaire de référence et `src/i18n/en.ts` typé `satisfies Dictionary`, pour que toute clé manquante casse la compilation

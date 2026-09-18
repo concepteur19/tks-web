@@ -88,7 +88,7 @@ Le développeur lance le projet avec une seule commande, en local ou dans un con
 ### Edge Cases
 
 - Texte anglais manquant : repli sur le français hors production, échec de construction en production.
-- Variable d'environnement absente ou mal formée, par exemple le numéro WhatsApp : la construction échoue immédiatement avec un message explicite, plutôt que de publier un lien cassé.
+- Variable d'environnement mal formée, par exemple un numéro WhatsApp contenant des espaces : la construction échoue immédiatement avec un message explicite, plutôt que de publier un lien cassé. Une variable simplement absente déclenche le repli documenté, et la construction se poursuit.
 - Deux pages qui revendiqueraient la même adresse dans une langue : la construction échoue.
 - Fichier de contenu invalide, mal formé ou référençant une catégorie inconnue : la construction échoue en nommant le fichier.
 - Absence de l'outil de conteneurisation sur le poste : les histoires 1 à 3 restent réalisables et vérifiables.
@@ -106,7 +106,7 @@ Le développeur lance le projet avec une seule commande, en local ou dans un con
 - **FR-005**: Le système DOIT afficher le texte français en remplacement d'un texte anglais manquant hors production, et DOIT refuser de construire la version de production dans ce cas, en listant les manques.
 - **FR-006**: Le catalogue DOIT être décrit par un schéma qui valide chaque fiche de service et chaque catégorie au moment de la construction, y compris la cohérence entre l'unité de prix et les dimensions de quantité définies dans [data-model.md](../../docs/data-model.md).
 - **FR-007**: Toutes les valeurs de style, couleurs, typographies, espacements, rayons, durées, DOIVENT être définies à un seul endroit et consommées par l'interface, sans valeur brute dans les composants.
-- **FR-008**: La configuration propre à un environnement, numéro WhatsApp et adresse publique du site, DOIT être validée au moment de la construction et échouer explicitement si elle est absente ou mal formée.
+- **FR-008**: La configuration propre à un environnement, numéro WhatsApp et adresse publique du site, DOIT être résolue et validée au moment de la construction : une valeur mal formée fait échouer la construction avec un message explicite, une valeur absente est remplacée par un repli documenté, l'adresse fournie par l'hébergeur d'abord, puis une valeur du dépôt.
 - **FR-009**: Le contenu principal de chaque page DOIT rester lisible et navigable sans JavaScript.
 - **FR-010**: Une adresse inexistante DOIT produire une page d'erreur dans la langue de l'adresse, avec un retour vers l'accueil.
 - **FR-011**: Une vérification automatique DOIT s'exécuter à chaque proposition de modification et couvrir le style de code, le typage, les tests, la construction du site et un audit de performance et d'accessibilité.

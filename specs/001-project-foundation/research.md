@@ -22,9 +22,9 @@ Les choix de stack sont déjà tranchés par les ADR du projet. Cette phase ne t
 
 ## 3. Variables d'environnement
 
-**Décision** : utiliser le schéma de variables intégré à Astro 5 pour déclarer `PUBLIC_WHATSAPP_NUMBER` et `PUBLIC_SITE_URL`, avec un accès typé depuis `src/lib/env.ts`. Le build échoue si une variable manque ou ne respecte pas son format, le numéro devant être une suite de chiffres sans préfixe international.
+**Décision** : utiliser le schéma de variables intégré à Astro 5 pour déclarer `PUBLIC_WHATSAPP_NUMBER` et `PUBLIC_SITE_URL`, avec un accès typé depuis `src/lib/env.ts` et une résolution en amont dans `config/resolve-env.mjs`. Une valeur mal formée fait échouer le build. Une valeur absente retombe sur l'adresse que l'hébergeur expose à chaque construction, puis sur une valeur du dépôt.
 
-**Rationale** : pas de dépendance supplémentaire, erreur au build plutôt qu'un lien WhatsApp cassé en production. Ces valeurs sont publiques par nature, elles finissent dans le HTML : aucun secret n'est en jeu.
+**Rationale** : pas de dépendance supplémentaire, erreur au build plutôt qu'un lien WhatsApp cassé en production. Ces valeurs sont publiques par nature, elles finissent dans le HTML : aucun secret n'est en jeu, ce qui rend le repli acceptable. Le repli a été ajouté le 2026-09-18, après qu'une variable oubliée sur l'environnement d'aperçu a bloqué toute la chaîne de publication.
 
 **Alternatives considérées** : validation maison avec Zod, équivalente mais redondante avec ce qu'offre déjà le framework.
 

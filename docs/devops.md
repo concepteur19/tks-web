@@ -44,7 +44,7 @@ Developer ── git push ──► GitHub
 
 ### Variables et secrets
 
-Le site est statique : toute variable `PUBLIC_*` est **injectée au build** et devient publique dans le HTML. Il n'y a donc **aucun secret applicatif**. Les seuls secrets sont ceux de la chaîne : `GITHUB_TOKEN` (fourni) pour GHCR. La distinction build-time / run-time est un point d'apprentissage clé : changer le numéro WhatsApp exige un nouveau build, pas un redémarrage de conteneur.
+Le site est statique : toute variable `PUBLIC_*` est **injectée au build** et devient publique dans le HTML. Chez l'hébergeur, ce sont donc des variables de construction : une variable d'exécution n'atteindrait jamais des pages déjà générées. Il n'y a donc **aucun secret applicatif**. Les seuls secrets sont ceux de la chaîne : `GITHUB_TOKEN` (fourni) pour GHCR. La distinction build-time / run-time est un point d'apprentissage clé : changer le numéro WhatsApp exige un nouveau build, pas un redémarrage de conteneur.
 
 ### Versioning et rollback
 

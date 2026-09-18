@@ -62,7 +62,7 @@ Ce point 5 est aussi à revérifier une fois en ligne, car c'est l'hébergeur qu
 
 1. Retirer un champ obligatoire de la fiche d'exemple, lancer `npm run build` : la construction échoue en nommant le fichier et le champ.
 2. Donner à la fiche une unité `per_person` sans dimension `persons` : la construction échoue en expliquant l'incohérence.
-3. Vider `PUBLIC_WHATSAPP_NUMBER` dans `.env`, lancer `npm run build` : la construction échoue immédiatement.
+3. Donner à `PUBLIC_SITE_URL` une valeur mal formée dans `.env`, par exemple `pas-une-adresse`, lancer `npm run build` : la construction échoue immédiatement. Retirer complètement la variable : la construction se poursuit avec le repli documenté.
 4. Changer la couleur de marque dans `src/styles/tokens.css`, ouvrir la page de démonstration des tokens : toute l'interface suit.
 5. Chercher un texte visible dans les composants : il ne s'y trouve pas, il vit dans les dictionnaires.
 
