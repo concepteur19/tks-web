@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Une seule exécution par branche : un nouveau push annule la précédente.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Valeurs publiques, jamais des secrets. Elles finissent dans le HTML.
+  PUBLIC_SITE_URL: https://tks-web-1h2.pages.dev
+  PUBLIC_WHATSAPP_NUMBER: '237697135388'
+
+jobs:
+  quality:
+    name: Style, types et tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Style de code
+        run: npm run lint
+      - name: Formatage
+        run: npm run format:check
+      - name: Types
+        run: npm run typecheck
+      - name: Tests unitaires et de composants
+        run: npm run test
+      - name: Construction de production
+        run: npm run build:prod
+      - name: Budget JavaScript
+        run: npm run check:bundle
+      - name: Conserver le site construit
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 3
+
+  e2e:
+    name: Parcours de bout en bout
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Installer les navigateurs
+        run: npx playwright install --with-deps chromium webkit
+      - name: Parcours
+        run: npm run test:e2e
+      - name: Conserver le rapport en cas d'échec
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 7
+
+  lighthouse:
+    name: Performance et accessibilité
+    runs-on: ubuntu-latest
+    needs: quality
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Récupérer le site construit
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - name: Audit
+        run: npm run lighthouse
+      - name: Conserver les rapports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse
+          path: .lighthouseci
+          retention-days: 7

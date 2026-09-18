@@ -1,0 +1,44 @@
+---
+import { getAlternatePath } from '../i18n/routes.ts';
+import { t } from '../i18n/t.ts';
+import { LOCALES, type Locale } from '../i18n/types.ts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const currentPath = Astro.url.pathname;
+const links = LOCALES.map((code) => ({
+  code,
+  href: code === locale ? currentPath : getAlternatePath(currentPath, code),
+  label: t(locale, code === 'fr' ? 'language.fr' : 'language.en'),
+  isCurrent: code === locale,
+}));
+---
+
+<nav aria-label={t(locale, 'nav.language')} class="flex items-center gap-1 text-sm">
+  {links.map((link, index) => (
+    <>
+      {index > 0 && (
+        <span aria-hidden="true" class="text-fg-muted">
+          |
+        </span>
+      )}
+      <a
+        href={link.href}
+        lang={link.code}
+        hreflang={link.code}
+        aria-current={link.isCurrent ? 'true' : undefined}
+        data-locale={link.code}
+        class:list={[
+          'min-h-11 inline-flex items-center px-2 rounded-sm',
+          link.isCurrent ? 'font-semibold text-fg' : 'text-fg-muted underline',
+        ]}
+      >
+        {link.code.toUpperCase()}
+        <span class="sr-only"> — {link.label}</span>
+      </a>
+    </>
+  ))}
+</nav>

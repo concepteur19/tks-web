@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+@import './tokens.css';
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+}
+
+/* Lien d'évitement : visible uniquement au clavier */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: var(--z-toast);
+  padding: 0.75rem 1rem;
+  background-color: var(--color-brand);
+  color: var(--color-brand-contrast);
+  border-radius: 0 0 var(--radius-md) 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

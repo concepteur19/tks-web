@@ -1,0 +1,51 @@
+/* Design tokens TKS — voir docs/design-system.md
+   Les valeurs marquées [PLACEHOLDER] seront remplacées par celles de la
+   direction C « Soleil et vie locale », une fois la maquette affinée.
+   Règle : aucune valeur brute dans les composants, tout passe par un token. */
+
+@theme {
+  /* Couleurs sémantiques, jamais des noms de teintes */
+  --color-brand: #a8431f; /* [PLACEHOLDER] terracotta, direction C — 5.8:1 sur le fond crème */
+  --color-brand-contrast: #fffaf3;
+  --color-accent: #186962; /* [PLACEHOLDER] turquoise profond, direction C — 6.2:1 sur le fond crème */
+  --color-whatsapp: #25d366; /* vert WhatsApp, valeur imposée par la marque */
+  --color-whatsapp-contrast: #ffffff;
+  --color-bg: #fffaf3; /* [PLACEHOLDER] crème */
+  --color-bg-muted: #f5ece1;
+  --color-fg: #1c1917;
+  --color-fg-muted: #57534e;
+  --color-border: #e3d7c8;
+  --color-success: #15803d;
+  --color-warning: #b45309;
+  --color-danger: #b91c1c;
+  --color-info: #1d4ed8;
+
+  /* Typographie [PLACEHOLDER] : pile système tant que la police n'est pas choisie */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-script: 'Brush Script MT', cursive;
+
+  /* Rayons */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-card: 0.75rem;
+  --radius-pill: 9999px;
+
+  /* Ombres */
+  --shadow-card: 0 1px 2px rgb(28 25 23 / 0.08), 0 4px 12px rgb(28 25 23 / 0.06);
+  --shadow-drawer: 0 0 0 1px rgb(28 25 23 / 0.06), -8px 0 24px rgb(28 25 23 / 0.12);
+
+  /* Mouvement */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+}
+
+/* z-index nommés, hors @theme */
+:root {
+  --z-fab: 30;
+  --z-nav: 40;
+  --z-drawer: 50;
+  --z-toast: 60;
+}

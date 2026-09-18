@@ -22,8 +22,9 @@ Developer ── git push ──► GitHub
                             │      lint → typecheck → unit → build → e2e → Lighthouse CI
                             │
                             ├──► Cloudflare Pages (intégration Git)
-                            │      PR  → aperçu https://<hash>.tks-web.pages.dev
-                            │      main → production https://tks-kribi.com
+                            │      PR  → aperçu https://<hash>.tks-web-1h2.pages.dev
+                            │      main → production https://tks-web-1h2.pages.dev
+                            │               puis le domaine de TKS quand il sera acheté
                             │
                             └──► docker.yml (tag v*)
                                    build multi-arch → push ghcr.io/<owner>/tks-web:<tag>,latest
@@ -43,7 +44,18 @@ Developer ── git push ──► GitHub
 
 ### Variables et secrets
 
-Le site est statique : toute variable `PUBLIC_*` est **injectée au build** et devient publique dans le HTML. Il n'y a donc **aucun secret applicatif**. Les seuls secrets sont ceux de la chaîne : `GITHUB_TOKEN` (fourni) pour GHCR. La distinction build-time / run-time est un point d'apprentissage clé : changer le numéro WhatsApp exige un nouveau build, pas un redémarrage de conteneur.
+Le site est statique : toute variable `PUBLIC_*` est **injectée au build** et devient publique dans le HTML. Chez l'hébergeur, ce sont donc des variables de construction : une variable d'exécution n'atteindrait jamais des pages déjà générées. Il n'y a donc **aucun secret applicatif**. Les seuls secrets sont ceux de la chaîne : `GITHUB_TOKEN` (fourni) pour GHCR. La distinction build-time / run-time est un point d'apprentissage clé : changer le numéro WhatsApp exige un nouveau build, pas un redémarrage de conteneur.
+
+### Protection de la branche principale
+
+La branche `main` ne se modifie que par proposition de modification. Réglage à faire une fois, dans les paramètres du dépôt, section des règles de branche :
+
+- Exiger une proposition de modification avant toute fusion.
+- Exiger que les vérifications `Style, types et tests`, `Parcours de bout en bout` et `Performance et accessibilité` soient au vert.
+- Exiger que la branche soit à jour avec `main` avant fusion.
+- Interdire l'envoi direct, y compris pour l'administrateur.
+
+La chaîne d'intégration est déclarée dans `.github/workflows/ci.yml`. Elle vérifie le style, le formatage, les types, les tests, la construction de production, le budget JavaScript, les parcours sur deux navigateurs, puis les audits de performance et d'accessibilité. Elle ne déploie rien : la publication reste faite par l'hébergeur depuis Git.
 
 ### Versioning et rollback
 

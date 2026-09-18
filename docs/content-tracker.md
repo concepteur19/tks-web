@@ -35,7 +35,7 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 |---|---|---|---|---|---|---|
 | Logo TKS® haute résolution, SVG idéalement | global | ⏳ | — | | `src/assets/brand/logo.svg` | Oui |
 | Numéro WhatsApp | global | ✅ +237 697 13 53 88 | — | 2026-09-14 | variable `PUBLIC_WHATSAPP_NUMBER` | — |
-| Nom de domaine | global | ⏳ | — | | variable `PUBLIC_SITE_URL`, DNS Cloudflare | Oui |
+| Nom de domaine | global | ⏳ | — | | variable `PUBLIC_SITE_URL`, DNS Cloudflare. Adresse provisoire en service : `https://tks-web-1h2.pages.dev` | Oui |
 | Photos d'accueil | accueil | ⏳ | ⏳ textes alternatifs | | `src/assets/home/` | Oui |
 | Vidéo d'accueil courte et légère | accueil | ⏳ optionnelle | — | | `src/assets/home/` | Non |
 | Photos de bandeau des trois pôles | transport, tourisme, livraison | ⏳ | ⏳ textes alternatifs | | `src/assets/poles/` | Oui |

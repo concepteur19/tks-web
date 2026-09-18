@@ -1,0 +1,25 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { getRoutePath } from '../i18n/routes.ts';
+import { t } from '../i18n/t.ts';
+import type { Locale } from '../i18n/types.ts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<header class="sticky top-0 bg-bg border-b border-border" style="z-index: var(--z-nav)">
+  <nav
+    aria-label={t(locale, 'nav.label')}
+    class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3"
+  >
+    <a href={getRoutePath('home', locale)} class="min-h-11 inline-flex items-center">
+      <span class="font-display text-xl font-bold text-brand">{t(locale, 'site.name')}</span>
+      <span class="sr-only"> — {t(locale, 'site.tagline')}</span>
+    </a>
+    <LanguageSwitcher locale={locale} />
+  </nav>
+</header>
