@@ -50,7 +50,9 @@ const pageTitle = `${title} · ${t(locale, 'site.name')}`;
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body class="min-h-screen flex flex-col">
-    <a class="skip-link" href="#main">{t(locale, 'nav.skipToContent')}</a>
+    <a class="skip-link" href="#main">
+      {t(locale, 'nav.skipToContent')}
+    </a>
     <Nav locale={locale} />
     <main id="main" class="flex-1">
       <slot />

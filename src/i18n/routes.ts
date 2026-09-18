@@ -5,13 +5,7 @@ import { DEFAULT_LOCALE, isLocale, LOCALES, type Locale } from './types.ts';
  * alternatifs et du plan du site. Voir contracts/routes.md.
  */
 export type RouteKey =
-  | 'home'
-  | 'transport'
-  | 'tourism'
-  | 'delivery'
-  | 'stay'
-  | 'contact'
-  | 'notFound';
+  'home' | 'transport' | 'tourism' | 'delivery' | 'stay' | 'contact' | 'notFound';
 
 export const ROUTES: Record<RouteKey, Record<Locale, string>> = {
   home: { fr: '/', en: '/en/' },

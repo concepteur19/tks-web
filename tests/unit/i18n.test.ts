@@ -9,7 +9,7 @@ afterEach(() => {
 });
 
 describe('dictionnaires', () => {
-  it("couvre en anglais toutes les clés du français", () => {
+  it('couvre en anglais toutes les clés du français', () => {
     expect(Object.keys(en).sort()).toEqual(Object.keys(fr).sort());
   });
 

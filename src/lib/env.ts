@@ -34,7 +34,7 @@ function readSiteUrl(): string {
   try {
     parsed = new URL(value);
   } catch {
-    return fail('PUBLIC_SITE_URL', "doit être une adresse absolue, protocole compris");
+    return fail('PUBLIC_SITE_URL', 'doit être une adresse absolue, protocole compris');
   }
   if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
     fail('PUBLIC_SITE_URL', 'doit utiliser http ou https');

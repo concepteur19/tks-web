@@ -5,9 +5,9 @@
 
 @theme {
   /* Couleurs sémantiques, jamais des noms de teintes */
-  --color-brand: #b8502d; /* [PLACEHOLDER] terracotta, direction C */
+  --color-brand: #a8431f; /* [PLACEHOLDER] terracotta, direction C — 5.8:1 sur le fond crème */
   --color-brand-contrast: #fffaf3;
-  --color-accent: #1f7a72; /* [PLACEHOLDER] turquoise profond, direction C */
+  --color-accent: #186962; /* [PLACEHOLDER] turquoise profond, direction C — 6.2:1 sur le fond crème */
   --color-whatsapp: #25d366; /* vert WhatsApp, valeur imposée par la marque */
   --color-whatsapp-contrast: #ffffff;
   --color-bg: #fffaf3; /* [PLACEHOLDER] crème */
@@ -21,9 +21,9 @@
   --color-info: #1d4ed8;
 
   /* Typographie [PLACEHOLDER] : pile système tant que la police n'est pas choisie */
-  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-script: "Brush Script MT", cursive;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-script: 'Brush Script MT', cursive;
 
   /* Rayons */
   --radius-sm: 0.25rem;

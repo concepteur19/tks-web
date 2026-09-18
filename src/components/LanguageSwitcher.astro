@@ -20,7 +20,11 @@ const links = LOCALES.map((code) => ({
 <nav aria-label={t(locale, 'nav.language')} class="flex items-center gap-1 text-sm">
   {links.map((link, index) => (
     <>
-      {index > 0 && <span aria-hidden="true" class="text-fg-muted">|</span>}
+      {index > 0 && (
+        <span aria-hidden="true" class="text-fg-muted">
+          |
+        </span>
+      )}
       <a
         href={link.href}
         lang={link.code}

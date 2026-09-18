@@ -91,17 +91,17 @@ Projet unique, racine du dépôt. Code dans `src/`, tests dans `tests/`, contene
 
 ### Tests de la story
 
-- [ ] T027 [P] [US2] Ajouter l'outillage d'accessibilité aux tests de composants dans `tests/setup/axe.ts` et un test d'accessibilité de l'accueil dans `tests/component/home.a11y.test.ts`
+- [X] T027 [P] [US2] Ajouter l'outillage d'accessibilité aux tests de composants dans `tests/setup/axe.ts` et un test d'accessibilité de l'accueil dans `tests/component/home.a11y.test.ts`
 
 ### Implémentation de la story
 
-- [ ] T028 [P] [US2] Configurer ESLint dans `eslint.config.js` : TypeScript, Astro, React, `jsx-a11y`, et la règle interdisant les textes en dur dans les îlots
-- [ ] T029 [P] [US2] Configurer Prettier dans `.prettierrc` avec les greffons Astro et Tailwind, plus `.prettierignore`
-- [ ] T030 [US2] Installer le contrôle de pré-commit dans `.husky/pre-commit` et `package.json` via lint-staged, sur les fichiers modifiés uniquement
-- [ ] T031 [US2] Créer `.github/workflows/ci.yml` : installation, lint, contrôle de types, tests unitaires et de composants, `npm run build:prod`, parcours Playwright, et dépôt des rapports en artefacts
-- [ ] T032 [US2] Ajouter Lighthouse CI dans `lighthouserc.json` et son étape dans `.github/workflows/ci.yml`, sur `/` et `/en/`, seuils de 90 sur les quatre catégories
-- [ ] T033 [P] [US2] Ajouter le contrôle de taille des scripts dans `package.json` et sa configuration, avec les seuils de [docs/technical-requirements.md](../../docs/technical-requirements.md)
-- [ ] T034 [US2] Documenter dans [docs/devops.md](../../docs/devops.md) la protection de la branche principale et la vérification requise avant fusion
+- [X] T028 [P] [US2] Configurer ESLint dans `eslint.config.js` : TypeScript, Astro, React, `jsx-a11y`, et la règle interdisant les textes en dur dans les îlots
+- [X] T029 [P] [US2] Configurer Prettier dans `.prettierrc` avec les greffons Astro et Tailwind, plus `.prettierignore`
+- [X] T030 [US2] Installer le contrôle de pré-commit dans `.husky/pre-commit` et `package.json` via lint-staged, sur les fichiers modifiés uniquement
+- [X] T031 [US2] Créer `.github/workflows/ci.yml` : installation, lint, contrôle de types, tests unitaires et de composants, `npm run build:prod`, parcours Playwright, et dépôt des rapports en artefacts
+- [X] T032 [US2] Ajouter Lighthouse CI dans `lighthouserc.json` et son étape dans `.github/workflows/ci.yml`, sur `/` et `/en/`, seuils de 90 sur les quatre catégories
+- [X] T033 [P] [US2] Ajouter le contrôle de taille des scripts dans `scripts/check-bundle-size.mjs`, branché par `npm run check:bundle`, avec le seuil de 50 kB compressés de [docs/technical-requirements.md](../../docs/technical-requirements.md). Script maison plutôt qu'une dépendance : il ne mesure que les scripts réellement référencés par une page
+- [X] T034 [US2] Documenter dans [docs/devops.md](../../docs/devops.md) la protection de la branche principale et la vérification requise avant fusion
 
 **Point de contrôle** : une proposition de modification fautive est refusée automatiquement.
 

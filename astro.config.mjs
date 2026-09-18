@@ -18,9 +18,7 @@ process.env.PUBLIC_SITE_URL = siteUrl.value;
 process.env.PUBLIC_WHATSAPP_NUMBER = whatsappNumber.value;
 
 if (siteUrl.source !== 'explicit') {
-  console.info(
-    `[env] PUBLIC_SITE_URL non définie, repli sur ${siteUrl.value} (${siteUrl.source})`,
-  );
+  console.info(`[env] PUBLIC_SITE_URL non définie, repli sur ${siteUrl.value} (${siteUrl.source})`);
 }
 if (whatsappNumber.source !== 'explicit') {
   console.info('[env] PUBLIC_WHATSAPP_NUMBER non définie, repli sur la valeur du dépôt');

@@ -38,7 +38,9 @@ for (const issue of issues) {
 }
 
 if (isProduction) {
-  console.error(`[i18n] ${issues.length} traduction(s) manquante(s), build de production interrompu`);
+  console.error(
+    `[i18n] ${issues.length} traduction(s) manquante(s), build de production interrompu`,
+  );
   process.exit(1);
 }
 

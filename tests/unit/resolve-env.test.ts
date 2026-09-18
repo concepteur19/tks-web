@@ -6,7 +6,7 @@ import {
   resolveWhatsAppNumber,
 } from '../../config/resolve-env.mjs';
 
-describe("adresse du site", () => {
+describe('adresse du site', () => {
   it('préfère la variable explicite', () => {
     const result = resolveSiteUrl({
       PUBLIC_SITE_URL: 'https://tks-web-1h2.pages.dev',

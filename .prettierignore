@@ -1,0 +1,15 @@
+dist
+.astro
+node_modules
+package-lock.json
+playwright-report
+test-results
+Elements
+
+# Fichiers gérés par Spec Kit, laissés tels qu'il les écrit
+.specify
+
+# La documentation et les specs sont rédigées à la main, en français.
+# Les reformater produit un bruit énorme dans les diffs et casse l'alignement
+# voulu des tableaux. Le formatage automatique reste réservé au code.
+*.md
