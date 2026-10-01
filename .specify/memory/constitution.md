@@ -1,6 +1,8 @@
-# TKS Web Constitution
+# Kibreeze Web Constitution
 
-Site vitrine interactif et bilingue (français / anglais) de TKS® (Kribi, Cameroun) : découvrir des services, en sélectionner plusieurs, obtenir une estimation, envoyer la demande sur WhatsApp. Cette constitution fixe les principes que toute spec, tout plan et toute tâche doivent respecter.
+Site vitrine interactif et bilingue (français / anglais) de **Kibreeze** (Kribi, Cameroun), marque de tourisme et d'expériences de Breezy Groupe : découvrir des expériences, des hébergements et des formules, en sélectionner plusieurs, obtenir une estimation, envoyer la demande sur WhatsApp. Cette constitution fixe les principes que toute spec, tout plan et toute tâche doivent respecter.
+
+Le tourisme occupe 80 à 90 % du site. **TKS® est une section secondaire** de mobilité, jamais la tête d'affiche. **La livraison ne figure pas sur ce site** : elle appartient à Breezy Delivery, marque sœur. Toute spec qui remet une de ces trois règles en cause doit d'abord amender cette constitution.
 
 ## Core Principles
 
@@ -20,7 +22,7 @@ Le catalogue (services, catégories, textes du site) vit dans `src/content/` sou
 Chaque écran est conçu pour 360 px d'abord. Navigation clavier complète, WCAG 2.2 AA, `prefers-reduced-motion` respecté. Budgets : Lighthouse ≥ 90 sur les quatre catégories, JavaScript ≤ 50 kB gzip sur une page de contenu. Le HTML est complet sans JavaScript ; seule la sélection en dépend.
 
 ### VI. Design comes from Figma, through tokens
-Aucune valeur brute de couleur, taille, espacement ou durée dans les composants. Tout passe par `src/styles/tokens.css`. Le design system (`docs/design-system.md`) décrit la structure ; Figma fournit les valeurs.
+Aucune valeur brute de couleur, taille, espacement ou durée dans les composants. Tout passe par `src/styles/tokens.css`. Le design system (`docs/design-system.md`) décrit la structure ; Figma fournit les valeurs. Les maquettes sont **générées dans Google Stitch** à partir de `docs/design-briefs/kibreeze-brief.md`, puis importées dans Figma d'où les valeurs sont extraites via Dev Mode. L'outil de génération peut changer ; le passage obligé par les tokens, non.
 
 ### VII. DevOps for learning, isolated from production
 La production est un déploiement statique (Cloudflare Pages). Docker sert au dev, à la CI et au labo. Kubernetes vit dans `k8s/` et dans une spec dédiée, jamais dans le chemin de production. Ce qui est pédagogique est marqué comme tel dans `docs/devops.md`.
@@ -45,4 +47,4 @@ La production est un déploiement statique (Cloudflare Pages). Docker sert au de
 
 Cette constitution prime sur toute autre pratique. Un amendement est une PR qui modifie ce fichier, incrémente la version et explique le changement dans `docs/technical-decisions.md`. Chaque plan vérifie la conformité aux principes I à VII ; toute violation est justifiée dans la section Complexity Tracking du plan.
 
-**Version**: 1.1.0 | **Ratified**: 2026-09-13 | **Last Amended**: 2026-09-14
+**Version**: 2.0.0 | **Ratified**: 2026-09-13 | **Last Amended**: 2026-09-28

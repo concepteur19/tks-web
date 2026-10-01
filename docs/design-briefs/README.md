@@ -1,6 +1,10 @@
 # Briefs prêts à téléverser dans un générateur d'interfaces
 
-Trois fichiers, un par direction artistique. Chacun est **autonome** : contexte, contraintes, microcopie, direction, écrans à produire, interdits. C'est ce qu'on téléverse dans le formulaire de l'outil.
+> **Pour générer : [kibreeze-ecrans-stitch.md](./kibreeze-ecrans-stitch.md)** (depuis le 2026-09-28) — huit prompts détaillés, un par écran, avec les vrais tarifs du guide du 2026-09-26. C'est ce qu'on colle dans Stitch.
+>
+> **Référence marque et direction artistique : [kibreeze-brief.md](./kibreeze-brief.md)** — le fichier qu'on joint en pièce jointe à chaque conversation Stitch. Les trois briefs de direction ci-dessous décrivent l'ancien site TKS® à trois pôles et sont conservés comme trace : leur direction artistique C a été validée et reprise dans le brief Kibreeze, mais leur hiérarchie de page ne vaut plus.
+
+Chaque fichier est **autonome** : contexte, contraintes, microcopie, direction, écrans à produire, interdits. C'est ce qu'on téléverse dans le formulaire de l'outil.
 
 | Fichier | Direction |
 |---|---|
@@ -8,7 +12,9 @@ Trois fichiers, un par direction artistique. Chacun est **autonome** : contexte,
 | [direction-b-nuit-tropicale.md](./direction-b-nuit-tropicale.md) | Sombre et premium, vert forêt, doré |
 | [direction-c-soleil-et-vie-locale.md](./direction-c-soleil-et-vie-locale.md) | Chaleureux, terracotta, turquoise |
 
-**Franck a choisi la direction C le 2026-09-17.** Les briefs A et B restent dans le dépôt comme trace de ce qui lui a été proposé. La suite du travail de design se fait avec le brief C, et les écrans restants sont décrits en partie 3 de [../design-prompts.md](../design-prompts.md).
+**Franck a choisi la direction C le 2026-09-17.** Les briefs A et B restent dans le dépôt comme trace de ce qui lui a été proposé. La suite du travail de design se fait uniquement avec [direction-c-soleil-et-vie-locale.md](./direction-c-soleil-et-vie-locale.md), qui couvre maintenant les douze écrans (accueil, fiche pirogue, Mon séjour dans ses trois états, page pôle, fiche transport, contact, 404, menu mobile ouvert, deux écrans en anglais) en partie 6.
+
+**Outil de génération actuel : Google Stitch**, pas encore Figma (compte premium non souscrit). Le développeur génère dans Stitch, exporte, puis affine dans Figma avec ses outils IA disponibles sur le plan actuel. Stitch accepte le fichier `.md` en pièce jointe : voir la note en tête de [direction-c-soleil-et-vie-locale.md](./direction-c-soleil-et-vie-locale.md) pour préciser l'écran voulu à chaque requête.
 
 Les trois fichiers décrivent **exactement le même contenu**. Seule la partie 5 change. C'est voulu : Franck doit comparer des styles, pas trois sites différents.
 

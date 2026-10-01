@@ -235,3 +235,30 @@ Format : Context / Decision / Alternatives considered / Consequences / Status. T
 | Formulaire de contact (Cloudflare Function, Formspree) | Client D3 : formulaires détaillés en V2 | V2 |
 | Vidéo de hero | Fourniture d'une vidéo courte par le client (G4) | V1 si reçue avant le design, sinon V2 |
 | Radix Primitives pour le drawer | Complexité réelle du drawer Figma | Spec 004 |
+
+---
+
+## ADR-014 — Repositionnement Kibreeze et amendement de la constitution en 2.0.0
+
+**Date** : 2026-09-28 · **Statut** : accepté
+
+### Contexte
+
+Le 2026-09-25, Franck a transmis un repositionnement complet du produit : Kibreeze devient la marque principale, le tourisme occupe 80 à 90 % du site, TKS® est rétrogradé en section de mobilité secondaire, et la livraison sort entièrement du périmètre. On a appris à cette occasion que TKS, Kibreeze, iBreezy et Breezy Delivery sont quatre marques de **Breezy Groupe** : la livraison n'est donc pas supprimée, elle relève d'une marque sœur.
+
+La constitution 1.1.0 définissait le produit comme « le site vitrine de TKS® » et imposait, dans son principe VI, que le design vienne de Figma. Les deux étaient devenus faux : le produit avait changé, et les maquettes étaient générées dans Google Stitch depuis le 2026-09-18, faute d'abonnement Figma. Le projet violait donc sa propre constitution sans l'avoir vu.
+
+### Décision
+
+Amender la constitution en **2.0.0**, version majeure parce que le périmètre du produit change :
+
+1. Titre et description remplacés : le produit est le site de Kibreeze.
+2. Trois règles de périmètre inscrites dans la constitution elle-même — tourisme majoritaire, TKS secondaire, livraison absente — de sorte qu'une spec ne puisse pas les contredire sans amendement préalable.
+3. Principe VI précisé plutôt que remplacé : génération dans Stitch, extraction des valeurs via **Figma Dev Mode**, le passage obligé par les tokens restant intact. L'acquisition d'un dev seat Figma le 2026-09-28 rend ce principe de nouveau applicable.
+
+### Conséquences
+
+- `specs/README.md`, `docs/functional-requirements.md` et `docs/data-model.md` sont réécrits en conséquence (voir [audit-pivot-kibreeze.md](./audit-pivot-kibreeze.md) pour le périmètre complet).
+- Les documents d'archive — réponses client, transcriptions, briefs A/B/C, spec 001 livrée — ne sont pas réécrits mais marqués : ils sont la trace de ce qui a été décidé et livré à une date donnée.
+- Le nom du projet Cloudflare Pages reste `tks-web-1h2` tant que le domaine `kibreeze.com` n'est pas en service. Un projet Pages ne se renomme pas, il se recrée.
+- L'outil de génération de maquettes n'est plus inscrit dans la constitution comme un choix définitif : seule la discipline des tokens l'est.

@@ -25,23 +25,26 @@ type LocalizedString = { fr: string; en?: string };
 
 `localize(value, locale)` renvoie `value[locale]`, ou `value.fr` avec un avertissement quand la traduction manque.
 
-### `Pole`
+### `Section`
 
 ```ts
-type Pole = 'transport' | 'tourisme' | 'livraison';
+type Section = 'experience' | 'hebergement' | 'formule' | 'mobilite';
 ```
 
-Les trois pôles sont fixes dans le code (ils structurent les routes). Leurs libellés, descriptions et visuels sont dans un fichier de contenu `poles.json`.
+Remplace l'ancien `Pole = 'transport' | 'tourisme' | 'livraison'` depuis le pivot Kibreeze du 2026-09-25. Le site n'est plus organisé en trois pôles d'égale importance mais en un catalogue d'expériences dominant, deux rubriques complémentaires, et une section de mobilité secondaire. **La livraison n'est plus une section** : elle appartient à Breezy Delivery, marque sœur du groupe, et ne figure pas sur ce site.
+
+Les sections sont fixes dans le code (elles structurent les routes). Leurs libellés, descriptions et visuels sont dans un fichier de contenu `sections.json`.
 
 ### `ServiceCategory`
+
+Ne concerne que la section `experience`. Trois catégories, arrêtées le 2026-09-16 et inchangées par le pivot : `nature-decouverte`, `aventure`, `detente`.
 
 | Champ | Type | Obligatoire | Description |
 |---|---|---|---|
 | `id` | `string` (slug) | oui | Identifiant stable, ex. `aventure` |
-| `pole` | `Pole` | oui | Pôle parent |
 | `name` | `LocalizedString` | oui | Libellé affiché, ex. `{ fr: "Aventure", en: "Adventure" }` |
 | `description` | `LocalizedString` | non | Une phrase pour l'onglet ou l'en-tête |
-| `order` | `number` | oui | Ordre d'affichage dans le pôle |
+| `order` | `number` | oui | Ordre d'affichage dans le catalogue |
 
 ### `Service`
 
@@ -49,8 +52,9 @@ Les trois pôles sont fixes dans le code (ils structurent les routes). Leurs lib
 |---|---|---|---|
 | `id` | `string` (slug) | oui | Identifiant stable = nom de fichier, ex. `chutes-de-la-lobe`. Sert de clé dans la sélection et de slug d'URL, identique en français et en anglais |
 | `title` | `LocalizedString` | oui | Nom affiché |
-| `pole` | `Pole` | oui | Pôle |
-| `categoryId` | `string` | oui | Référence vers `ServiceCategory.id` (vérifiée au build) |
+| `section` | `Section` | oui | Section du site |
+| `categoryId` | `string` | oui si `section = 'experience'` | Référence vers `ServiceCategory.id` (vérifiée au build) |
+| `isOption` | `boolean` | non (défaut `false`) | Prestation qui s'ajoute à une autre plutôt que de se vendre seule : guide touristique, maître-nageur, musée d'art (client T7). N'apparaît pas dans la grille du catalogue, mais en cases à cocher sur les fiches |
 | `shortDescription` | `LocalizedString` (≤ 160 car. par langue) | oui | Carte + meta description |
 | `description` | `LocalizedString` (markdown) | oui | Fiche |
 | `images` | `Image[]` (≥ 1) | oui | `{ src, alt: LocalizedString }`, la première est l'image principale |
@@ -67,69 +71,129 @@ Les trois pôles sont fixes dans le code (ils structurent les routes). Leurs lib
 ### `Pricing` (union discriminée)
 
 ```ts
-// Liste arrêtée avec le client le 2026-09-16 : l'unité est choisie service par service.
+// Arrêtée le 2026-09-16, étendue par le guide tarifaire du 2026-09-26.
 type PriceUnit =
   | 'per_person'      // par personne
   | 'per_group'       // forfait pour le groupe
   | 'per_equipment'   // par équipement : jet-ski, quad, cheval
   | 'per_hour'        // par heure
   | 'per_day'         // par jour
+  | 'per_night'       // par nuit — hébergements
+  | 'per_session'     // par session — quad, jet-ski, kayak, paddle
   | 'per_trip'        // par course ou par trajet
-  | 'per_delivery'    // par livraison
   | 'per_service';    // par prestation, forfait
 
+type PriceTier = {
+  id: string;                    // 'individuel', 'couple', 'groupe'
+  label: LocalizedString;        // affiché au choix sur la fiche
+  pricing: Pricing;
+};
+
 type Pricing =
-  | { kind: 'fixed'; amount: number; unit: PriceUnit }   // « 70 000 FCFA / course »
-  | { kind: 'from';  amount: number; unit: PriceUnit }   // « à partir de 25 000 FCFA / personne »
-  | { kind: 'quote' };                                    // « Sur devis »
+  | { kind: 'fixed'; amount: number; unit: PriceUnit; maxCapacity?: number }
+  | { kind: 'from';  amount: number; unit: PriceUnit; maxCapacity?: number }
+  | { kind: 'quote' };
 ```
+
+`per_delivery` est retirée avec le périmètre livraison.
 
 Règles :
 - `amount` est un entier strictement positif.
-- L'unité nomme le prix affiché (`/ personne`, `/ jour`, `/ course`…) et doit être cohérente avec les dimensions de quantité, ce que le build vérifie : `per_person` exige une dimension `persons` ; `per_day` une dimension `days` ; `per_hour` une dimension `hours` ; `per_equipment` une dimension `units` ; `per_group`, `per_service`, `per_trip` et `per_delivery` acceptent zéro ou une dimension `units`.
-- Une tarification qui dépend de la distance, du nombre d'enfants, de la période ou d'un prestataire n'est pas modélisée : le service est `quote`. C'est le cas du transport professionnel et du transport scolaire (client C2, C3 et compléments du 2026-09-16).
+- L'unité nomme le prix affiché et doit être cohérente avec les dimensions de quantité, ce que le build vérifie : `per_person` exige une dimension `persons` ; `per_day` une dimension `days` ; `per_night` une dimension `nights` ; `per_hour` une dimension `hours` ; `per_equipment` une dimension `units` ; `per_group`, `per_service`, `per_session` et `per_trip` acceptent zéro ou une dimension `units`.
+- Une tarification qui dépend de la distance, du nombre d'enfants, de la période ou d'un prestataire n'est pas modélisée : le service est `quote`.
+
+**`maxCapacity` — capacité d'un prix de groupe** (nouveau, client T6). Un forfait de groupe vaut jusqu'à un nombre de personnes donné. Au-delà, le service bascule sur `quote` au lieu de multiplier le forfait, parce que Franck traite ces cas à la main. L'excursion en pirogue vaut 35 000 pour 8 personnes maximum ; une demande pour 10 part en devis. Le champ n'a de sens qu'avec `per_group`.
+
+**`PriceTier` — plusieurs tarifs pour un même service** (nouveau, client T3). Certains services proposent des tarifs alternatifs que le visiteur choisit, sans être des services distincts. Le campement Bagyeli en porte trois : individuel 7 500 `per_person`, couple 20 000 `per_group`, groupe `quote`. Un service porte soit un `pricing`, soit un tableau `tiers`, jamais les deux. Une ligne de sélection mémorise le `tierId` retenu.
+
+**Une fourchette de prix n'est pas modélisée.** Le bateau de plaisance, annoncé « 100 000 – 120 000 FCFA / heure selon le type de bateau », est `quote` (client T2). Un panier a besoin d'un nombre pour calculer un total ; une fourchette n'en est pas un.
 
 ### `QuantityRule` et ses dimensions
 
-Franck refuse une unité imposée à tout un pôle, et certains services se comptent sur deux axes à la fois, par exemple « 2 véhicules pendant 3 jours » (réponses du 2026-09-16). Un service porte donc de zéro à deux **dimensions** de quantité.
+Franck refuse une unité imposée à toute une section, et certains services se comptent sur deux axes à la fois, par exemple « 2 véhicules pendant 3 jours » (réponses du 2026-09-16). Un service porte donc de zéro à deux **dimensions** de quantité.
 
 ```ts
 type QuantityDimension =
   | { kind: 'persons'; min: number; max: number; default: number }
-  | { kind: 'units';   label: LocalizedString; min: number; max: number; default: number }  // véhicules, colis, équipements, groupes
+  | { kind: 'units';   label: LocalizedString; min: number; max: number; default: number }  // véhicules, équipements, sessions
   | { kind: 'days';    min: number; max: number; default: number }
+  | { kind: 'nights';  min: number; max: number; default: number }
   | { kind: 'hours';   min: number; max: number; default: number };
 
 type QuantityRule = { dimensions: QuantityDimension[] };   // 0, 1 ou 2 dimensions
 ```
 
+`nights` est distincte de `days` : en hébergement, trois nuits ne sont pas trois jours, et le visiteur raisonne en nuits. Les confondre produirait un total faux d'une unité.
+
 Règles :
 - `1 ≤ min ≤ default ≤ max ≤ 50` pour chaque dimension.
-- Zéro, une ou deux dimensions. Au plus une dimension de durée (`days` ou `hours`), et jamais deux fois le même `kind`.
+- Zéro, une ou deux dimensions. Au plus une dimension de durée (`days`, `nights` ou `hours`), et jamais deux fois le même `kind`.
 - Sans dimension, le service s'ajoute tel quel : forfait, prestation, ou service sur devis.
 - Le montant d'une ligne est le prix unitaire multiplié par **toutes** les dimensions : « location avec chauffeur, 2 véhicules × 3 jours » vaut le prix du jour × 6.
 
-Correspondance demandée par le client pour le transport :
+### Correspondance issue du guide tarifaire du 2026-09-26
 
-| Service | `pricing.unit` | Dimensions |
-|---|---|---|
-| Courses à Kribi | `per_trip` | aucune, ou `units` « courses » |
-| Location avec chauffeur | `per_day` ou `per_hour` | `units` « véhicules » + `days` ou `hours` |
-| Chauffeur privé | `per_hour` ou `per_day` | `hours` ou `days` |
-| Transferts | `per_trip` | `units` « véhicules » |
-| Transport professionnel | `quote` | aucune |
-| Transport scolaire | `quote` | aucune |
-| Location sans chauffeur | `per_day` | `units` « véhicules » + `days` |
+| Expérience | Prix | `unit` | Dimensions |
+|---|---|---|---|
+| Chutes de la Lobé, visite guidée | 5 000 | `per_person` | `persons` |
+| Excursion en pirogue | 35 000, 8 pers. max | `per_group` + `maxCapacity: 8` | aucune |
+| Excursion en chaloupe | 65 000, 8 pers. max | `per_group` + `maxCapacity: 8` | aucune |
+| Campement Bagyeli | 3 tarifs alternatifs | `tiers` | `persons` sur le tarif individuel |
+| Quad | 10 000 | `per_session` | `units` « sessions » |
+| Jet-ski | ⏳ non tranché (T1) | — | — |
+| Kayak | 10 000 | `per_person` | `persons` |
+| Paddle | 10 000 | `per_person` | `persons` |
+| Bateau de plaisance | fourchette → devis | `quote` | aucune |
+| Balade à cheval | 5 000, prix ferme | `per_person` | `persons` |
+| Jacuzzi naturel | 5 000 | `per_person` | `persons` |
+| Croisière en bateau | 25 000 | `per_person` | `persons` |
+| Feu de plage | 50 000 | `per_group` | aucune |
+| Musée d'art | 1 500 | `per_person` + `isOption` | `persons` |
+| Guide touristique | 5 000 | `per_service` + `isOption` | aucune |
+| Maître-nageur | 5 000 | `per_service` + `isOption` | aucune |
 
-Tourisme : `per_person` avec une dimension `persons` ; `per_group` ou `per_service` sans dimension ; `per_equipment` avec une dimension `units` « équipements », éventuellement combinée à `hours` ou `days`. Livraison : `per_delivery` avec une dimension `units` « colis », ou `quote` quand le prix dépend de la distance.
+Mobilité TKS® : ⏳ **aucun tarif n'a jamais été fourni**. Tous les services de mobilité sont `quote` jusqu'à nouvel ordre.
 
-### `Pack` (réservé V2)
+### `Package`
 
-`{ id, title, description, images, serviceIds: string[], pricing: Pricing, customizable: boolean }`. Un pack se sélectionne en ajoutant ses services à la sélection avec un marqueur d'origine ; non implémenté en V1.
+Quatre packages existent avec leurs prix (guide tarifaire, contrairement à la réponse M1 du 2026-09-25).
 
-### `Accommodation` (réservé V2)
+```ts
+type Package = {
+  id: string;
+  title: LocalizedString;
+  description: LocalizedString;
+  images: Image[];
+  serviceIds: string[];        // références vérifiées au build
+  pricing: Pricing;            // fixed, base de 2 personnes
+  basePersons: number;         // 2
+  maxPersons: number;          // 8, au-delà → quote
+};
+```
 
-Un hébergement sera un `Service` du pôle `tourisme`, catégorie `hebergement`, avec `unit: 'per_night'` ajouté à `PriceUnit` le moment venu.
+Découverte 100 000, Évasion 120 000, Aventure 150 000, Premium 300 000, tous pour 2 personnes. Un package s'ajoute à la sélection comme **une ligne unique** : ses expériences ne sont pas détaillées dans le récapitulatif ni dans le message WhatsApp. Si un `serviceId` référence une expérience absente du catalogue, le build échoue.
+
+⏳ Les packages incluant hébergement et transport (client R3, « les deux versions ») attendent leurs prix.
+
+### `AccommodationTier`
+
+Le modèle confirmé par Franck n'est pas un catalogue de logements nommés mais un choix **par type et par palier de budget** : le visiteur se positionne sur un budget, Kibreeze trouve ensuite le logement chez ses partenaires.
+
+```ts
+type AccommodationTier = {
+  id: string;                      // 'chambre-15000'
+  type: 'chambre' | 'studio' | 'appartement' | 'villa';
+  pricing: { kind: 'from'; amount: number; unit: 'per_night' };
+  capacity: { min: number; max: number };
+  included?: LocalizedString;      // varie selon le logement (client L2)
+  images: Image[];                 // représentatives du budget, jamais d'un logement identifiable
+  premium: boolean;                // true → section séparée, affichée après les paliers standards
+};
+```
+
+Grille validée le 2026-09-26 : chambre 15 000 ; studio 30 000 ; appartement 35 000, 50 000 et 100 000 ; villa 150 000 ; haut de gamme jusqu'à 300 000 en `premium`. La ligne à 5 000 a été retirée par le client, qui la jugeait incompatible avec le positionnement de la marque.
+
+Un palier s'ajoute à la sélection avec une dimension `nights`. Aucun nom d'établissement n'apparaît nulle part.
 
 ## 3. Entités de la sélection
 
@@ -206,7 +270,7 @@ Fonction : `computeEstimate(selection: Selection, catalog: ReadonlyMap<string, S
 | `omittedCount` | `number` | Lignes omises |
 
 Fonctions :
-- `buildSelectionMessage(estimate: PriceEstimate, stay: Selection['stay'], options: { intent: 'stay' | 'delivery' | 'mixed'; locale: Locale }): string`
+- `buildSelectionMessage(estimate: PriceEstimate, stay: Selection['stay'], options: { intent: 'stay' | 'single_service'; locale: Locale }): string`
 - `buildSingleServiceMessage(service: Service, quantities: number[], locale: Locale): string`
 - `formatPrice(amount: number, locale: Locale): string` : « 100 000 FCFA » ou « 100,000 FCFA »
 - `buildWhatsAppUrl(number: string, text: string, maxLength = 1800): WhatsAppMessage`
