@@ -11,7 +11,7 @@
  * src/lib/env.ts, qui fait échouer la construction sur une valeur invalide.
  */
 
-/** Numéro WhatsApp officiel de TKS, réponse E1 du questionnaire client. */
+/** Numéro WhatsApp officiel, réponse E1 du questionnaire client. */
 export const DEFAULT_WHATSAPP_NUMBER = '237697135388';
 
 /** Adresse utilisée quand rien d'autre n'est disponible, en développement. */

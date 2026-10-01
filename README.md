@@ -1,6 +1,6 @@
-# TKS® — Kribi is a feeling · site vitrine interactif
+# Kibreeze — Kribi is a feeling · site vitrine interactif
 
-Site vitrine interactif et bilingue (français / anglais) pour TKS® (Kribi, Cameroun) : transport, tourisme, livraison. Le visiteur découvre les services, en sélectionne plusieurs, consulte une estimation et envoie sa demande à TKS via WhatsApp.
+Site vitrine interactif et bilingue (français / anglais) pour Kibreeze (Kribi, Cameroun) : expériences, hébergements et formules, avec une section secondaire de mobilité TKS®. Le visiteur découvre les expériences, en sélectionne plusieurs, consulte une estimation et envoie sa demande via WhatsApp.
 
 > **Simple enough to ship. Structured enough to evolve. Real enough to learn.**
 

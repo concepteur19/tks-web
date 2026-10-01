@@ -52,7 +52,7 @@
 | TR-41 | Métadonnées par page centralisées dans le layout, générées depuis les données du catalogue pour les fiches |
 | TR-42 | `sitemap.xml` avec les deux langues, `robots.txt`, canonical par langue, `hreflang` fr / en / x-default, Open Graph, Twitter Card |
 | TR-43 | JSON-LD `LocalBusiness` et `Service` / `TouristAttraction` |
-| TR-44 | URLs stables en minuscules, sans accents ; slugs de pages traduits en anglais, slugs de fiches identiques (`/services/chutes-de-la-lobe`, `/en/services/chutes-de-la-lobe`) |
+| TR-44 | URLs stables en minuscules, sans accents ; slugs de pages traduits en anglais, slugs de fiches identiques (`/experiences/chutes-de-la-lobe`, `/en/experiences/chutes-de-la-lobe`) |
 
 ## 5 bis. Internationalisation
 

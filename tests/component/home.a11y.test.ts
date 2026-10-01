@@ -47,7 +47,7 @@ describe('accessibilité des éléments de page', () => {
   it('donne un nom accessible au lien de marque', async () => {
     const body = await renderToBody(Nav, 'fr');
     const brand = body.querySelector('header a');
-    expect(brand?.textContent).toContain('TKS®');
+    expect(brand?.textContent).toContain('Kibreeze');
     expect(brand?.textContent).toContain('Kribi is a feeling');
   });
 });

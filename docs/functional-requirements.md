@@ -45,7 +45,7 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 - Given `/experiences`, When le visiteur choisit « English », Then il arrive sur `/en/experiences`.
 
 **FR-I18N-2** Un sélecteur de langue est visible dans la navigation de toutes les pages, sur mobile et sur desktop. Il mène à la page équivalente dans l'autre langue. Aucune détection automatique, aucune redirection.
-- Given `/en/services/jet-ski`, When le visiteur choisit « Français », Then il arrive sur `/services/jet-ski`.
+- Given `/en/experiences/jet-ski`, When le visiteur choisit « Français », Then il arrive sur `/experiences/jet-ski`.
 
 **FR-I18N-3** Chaque page déclare `<html lang>`, des liens `hreflang` fr, en et x-default (x-default pointe vers le français), une URL canonique propre à sa langue, `og:locale` et `og:locale:alternate`.
 
@@ -74,7 +74,7 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 **FR-CAT-3** Une carte de service affiche : image, titre, description courte, étiquette de prix (voir FR-EST-1), badge « Disponibilité à confirmer » si `on_request`, lien vers la fiche.
 
-**FR-CAT-4** La fiche `/services/<slug>` affiche : galerie (1 à N images), titre, description longue, prix, durée, capacité, conditions (inclus / non inclus / à savoir), un sélecteur par dimension de quantité du service, par exemple véhicules et jours (client D1, complété le 2026-09-16), bouton « Ajouter à mon séjour », bouton « Demander ce service » (ouvre WhatsApp avec ce service seul, client B1).
+**FR-CAT-4** La fiche `/experiences/<slug>` affiche : galerie (1 à N images), titre, description longue, prix, durée, capacité, conditions (inclus / non inclus / à savoir), un sélecteur par dimension de quantité du service, par exemple véhicules et jours (client D1, complété le 2026-09-16), bouton « Ajouter à mon séjour », bouton « Demander ce service » (ouvre WhatsApp avec ce service seul, client B1).
 
 **FR-CAT-5** Un service `disabled` n'apparaît nulle part et sa route renvoie une 404.
 
