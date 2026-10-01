@@ -51,3 +51,59 @@ Ce que l'on comprend du vocal (interprétation, à valider avec le client) :
 | Prix, packs, admin, hébergements | Détaillés | Non mentionnés | Aucune conclusion à tirer d'une absence dans un vocal d'une minute |
 
 Aucune contradiction avec le PDF. L'audio donne surtout une formulation courte du besoin ressenti par le client : **« choisir des activités, récapituler, écrire sur WhatsApp »**, utile pour garder le cap sur la conversion.
+
+---
+
+# Transcription — Audio WhatsApp du 2026-09-25 (hébergements)
+
+**Source** : `Elements/WhatsApp Audio 2026-09-25 at 13.29.15.opus` (101 s, français)
+**Méthode** : transcription automatique locale (faster-whisper, modèle `medium`, `language=fr`, `beam_size=5`, VAD activé)
+**Date de transcription** : 2026-09-25
+**Statut** : transcription automatique, **à relire**. Français familier camerounais ; « c'est pas chaud » signifie « ce n'est pas un problème ».
+**Contexte** : réponse de Franck aux questions L1 à L4 de [client-questions-kibreeze.md](./client-questions-kibreeze.md), sur les hébergements. Ne porte **pas** sur les formules / packs (question M1), qui restent sans réponse.
+
+## Texte brut (horodaté)
+
+```text
+[00:00] Généralement, les prix ne sont pas très éloignés, tu vois.
+[00:02] C'est vrai qu'il y a les plus luxueux et les moins luxueux.
+[00:04] On peut trouver une chambre de 5 000 comme une chambre de 20 000, tu vois.
+[00:09] On peut trouver un appartement de 35 000 comme un appartement de 50 000,
+[00:13] 100 000, même 200 000.
+[00:15] On peut trouver même une villa de 150 000 comme une villa de 200 000, 250 000, 300 000, tu vois ce que je veux dire.
+[00:23] Maintenant, ce qu'il y a, c'est qu'il y a quand même des prix qui sont quand même...
+[00:30] Il y a quand même des prix standards que tu peux trouver en moyenne.
+[00:33] Donc, avec ce que nous sommes proposés, on dit par exemple que...
+[00:35] Chambre de 15 000.
+[00:37] Là, maintenant, dans mes répertoires, maintenant, ils cherchent les chambres qui peuvent sortir à 15 000, je mets sur ça.
+[00:42] Chambre de 10 000.
+[00:43] Ils cherchent maintenant, en fonction de mes partenaires, les chambres qui sont disponibles pour les types là.
+[00:48] Je mets là-bas.
+[00:49] C'est pas chaud un peu.
+[00:51] Donc, c'est un peu ça qu'on peut faire pour notre site.
+[00:53] Là, à la partie, le logement là, on peut proposer des appartements, des chambres et des trucs en fonction des prix là.
+[01:03] Maintenant, les prix standards, maintenant, on peut faire une catégorie avec les prix un peu plus élevés, comme ça c'est pas chaud un peu.
+[01:14] Parce que le client peut se retrouver, il doit déjà penser, s'imaginer déjà avec son budget, quand il tombe sous l'eau, il doit commencer à dire qu'il va me contacter.
+[01:27] Donc, quand il voit, il va dire que non, la chambre, c'est plus sur 10 000, d'accord, il y a peut-être 6 000, tout, tout, tout, vraiment tout ce qu'il y a conclu dans ça.
+[01:34] Et il choisit directement.
+[01:36] Donc, on peut mettre des prix standards et après, maintenant, on peut faire d'autres propositions de trucs un peu plus élevés.
+```
+
+## Ce que ça veut dire pour le site
+
+Le modèle d'hébergement de Franck **n'est pas un catalogue de logements nommés**. C'est un catalogue de **types de logement à des prix repères**. Le visiteur choisit « une chambre autour de 10 000 FCFA » ; Franck cherche ensuite dans son répertoire de partenaires un logement disponible à ce prix.
+
+Fourchettes citées, par nuit :
+
+| Type | Fourchette citée | Prix repères cités |
+|---|---|---|
+| Chambre | 5 000 à 20 000 FCFA | 10 000, 15 000 |
+| Appartement | 35 000 à 200 000 FCFA | 35 000, 50 000, 100 000 |
+| Villa | 150 000 à 300 000 FCFA | 150 000, 200 000, 250 000, 300 000 |
+
+Deux intentions explicites :
+
+1. **Afficher d'abord les prix standards**, puis une catégorie séparée pour le haut de gamme. Motif donné : ne pas faire fuir le visiteur avec un prix élevé en premier.
+2. **Permettre au visiteur de se situer avec son budget** avant de contacter. C'est le déclencheur de conversion qu'il décrit : « il s'imagine déjà avec son budget… et il choisit directement ».
+
+⚠️ Comme tout matériel informel, ces éléments sont des **hypothèses à confirmer** : les montants cités sont des exemples parlés, pas une grille validée. Voir les questions ajoutées en section L de [client-questions-kibreeze.md](./client-questions-kibreeze.md).
