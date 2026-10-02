@@ -32,7 +32,7 @@ Le classeur [questions-kibreeze-franck.xlsx](./questions-kibreeze-franck.xlsx) e
 |---|---|---|
 | K1 nom de domaine | Infra (section D de l'audit), mise en ligne | Adresse provisoire |
 | K2 logo vectoriel et version officielle | Barre du haut, favicon | Version PNG à plat redessinée |
-| K2 bis rouge du logo #A4021F | Tokens, tous les écrans | Rouge du logo |
+| K2 bis rouge du logo #8C0120 | Tokens, tous les écrans | Rouge du logo |
 | L1 grille des hébergements | Écran 6, feature 005 | « Sur devis » partout |
 | L2 photos des hébergements | Écran 6, feature 005 | Photos d'illustration |
 | M1 formules (au moins deux) | Écran 7, feature 005 | Rubrique retirée de la barre à onglets |

@@ -29,7 +29,7 @@ Ne téléverse jamais [../design-prompts.md](../design-prompts.md) dans l'outil.
 | Code | Rien. Le code du site n'est pas écrit |
 | Images | Facultatif : deux à quatre photos de Kribi en référence d'ambiance. Aucune photo de TKS n'est encore disponible |
 | Polices | Rien. TKS n'a pas de charte typographique |
-| Logo | Rien pour l'instant. Le logo haute définition est encore attendu, le texte « TKS® » suffit |
+| Logo | Pour Kibreeze, les PNG de [assets/](./assets/), selon l'écran : voir « Logos à joindre » dans [kibreeze-ecrans-stitch.md](./kibreeze-ecrans-stitch.md). Ce tableau date des trois directions TKS®, où aucun logo n'existait encore |
 | Dépôt GitHub | Non. Le dépôt ne contient que de la documentation, il n'aiderait pas et ajouterait du bruit |
 | Site web | Non. TKS n'a pas encore de site |
 | Instructions supplémentaires | La phrase qui cible un seul écran, voir ci-dessous |

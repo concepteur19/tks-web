@@ -4,7 +4,7 @@
 
 Ce document est un brief de conception d'interface. Génère les écrans décrits en partie 7, dans la direction artistique de la partie 6, en respectant les parties 4 et 5 à la lettre.
 
-Stitch accepte ce fichier `.md` en pièce jointe mais ne produit qu'un écran par requête : joins le fichier, puis précise dans le message l'écran voulu (numéro et nom de la partie 7). Une conversation Stitch par écran. Demande d'abord le mobile ; une fois l'écran validé, redemande dans la même conversation la version ordinateur 1440 × 1024, en gardant le style et les contenus.
+Stitch accepte ce fichier `.md` en pièce jointe mais ne produit qu'un écran par requête : joins le fichier et les logos de l'écran (liste dans [kibreeze-ecrans-stitch.md](./kibreeze-ecrans-stitch.md), section « Logos à joindre »), puis précise dans le message l'écran voulu (numéro et nom de la partie 7). Une conversation Stitch par écran. Demande d'abord le mobile ; une fois l'écran validé, redemande dans la même conversation la version ordinateur 1440 × 1024, en gardant le style et les contenus.
 
 La direction artistique de la partie 6 est **déjà validée par le client** : elle est reprise telle quelle des maquettes approuvées le 2026-09-17. Ce qui change dans ce brief, c'est la marque, la hiérarchie de la page et le périmètre, pas le style.
 
@@ -72,8 +72,9 @@ Trois précisions qui structurent tout le reste :
 
 Chaleureuse, colorée, ancrée dans la vie locale.
 
-- Couleurs : le **rouge du logo Kibreeze** (#A4021F) comme couleur de marque, un crème (#FFFAF3) pour les fonds, un terracotta (#A8431F) en accent chaud secondaire, un turquoise profond (#186962) en accent froid. Le vert est réservé au seul bouton WhatsApp. Le rouge est celui du logo réel : ne le remplace pas par un rouge plus vif ni par un orange.
-- Le logo Kibreeze est un hexagone contenant un visage souriant, avec une pointe de bulle de discussion en bas, accompagné du mot « Kibreeze » en sans-serif gras arrondi. Utilise-le à plat, en aplat de couleur : jamais de dégradé brillant, jamais d'effet de relief ou de halo, même si on te fournit une version brillante.
+- Couleurs : le **rouge du logo Kibreeze** (#8C0120) comme couleur de marque, un crème (#FFFAF3) pour les fonds, un terracotta (#A8431F) en accent chaud secondaire, un turquoise profond (#186962) en accent froid. Le vert est réservé au seul bouton WhatsApp. Le rouge est celui du logo réel : ne le remplace pas par un rouge plus vif ni par un orange.
+- Le logo Kibreeze est un hexagone ouvert contenant un visage souriant, avec une pointe de bulle de discussion en bas à gauche, accompagné du mot « Kibreeze » en lettres grasses arrondies, le K entaillé en biais. Il est **fourni en pièce jointe** en trois formes : logo complet (symbole au-dessus du nom), logo-texte seul, symbole seul. Place le fichier joint tel quel : ne le redessine pas et n'écris jamais « Kibreeze » dans une police à sa place. Rouge #8C0120 sur fond clair, crème #FFFAF3 sur photo ou fond sombre, jamais de dégradé, de relief, d'ombre ou de halo.
+- Le logo TKS® est fourni à part, lettres seules, en noir. Il reste toujours plus discret que celui de Kibreeze.
 - Typographies : un sans-serif au caractère marqué pour les titres, un sans-serif simple pour le texte courant, et une écriture manuscrite fine uniquement pour la signature « Kribi is a feeling ».
 - Formes : cartes aux angles francs, blocs de couleur pleine, photographies cadrées serré sur les gens et les scènes de vie, petits motifs discrets en séparateurs. Rayons de coin nuls ou très légers seulement, jamais de boutons en forme de pilule.
 - Sensation visée : accueil, proximité, énergie locale, envie de partir.
@@ -85,8 +86,8 @@ Chaleureuse, colorée, ancrée dans la vie locale.
 
 C'est l'écran le plus important du site et celui qui change le plus. De haut en bas :
 
-1. Barre du haut fixe : logo « Kibreeze » à gauche, sélecteur « FR | EN », icône WhatsApp verte.
-2. **Hero immersif plein écran** : grande photographie de Kribi au soleil couchant, mer et végétation, assombrie juste ce qu'il faut pour la lisibilité. Dessus : le nom « KIBREEZE », la signature manuscrite « Kribi is a feeling », le titre « Découvrez Kribi autrement », et la phrase « Des expériences, des excursions et des séjours pensés pour vous faire vivre Kribi autrement. » Deux boutons : « Découvrir les expériences » en plein, « Planifier mon séjour » en contour. Le hero doit faire ressentir en une seconde : mer, nature, détente, aventure.
+1. Barre du haut fixe : logo-texte Kibreeze rouge à gauche, sélecteur « FR | EN », icône WhatsApp verte.
+2. **Hero immersif plein écran** : grande photographie de Kribi au soleil couchant, mer et végétation, assombrie juste ce qu'il faut pour la lisibilité. Dessus : le logo-texte Kibreeze en crème, la signature manuscrite « Kribi is a feeling », le titre « Découvrez Kribi autrement », et la phrase « Des expériences, des excursions et des séjours pensés pour vous faire vivre Kribi autrement. » Deux boutons : « Découvrir les expériences » en plein, « Planifier mon séjour » en contour. Le hero doit faire ressentir en une seconde : mer, nature, détente, aventure.
 3. **Les trois catégories d'expériences**, en cartes visuelles plein format avec une photo forte chacune : « Nature / Découverte », « Aventure », « Détente ». Une phrase courte par carte, et le nombre d'activités.
 4. **« Nos expériences à ne pas manquer »** : carrousel horizontal de quatre activités avec grande photo, nom, prix « À partir de X FCFA » et bouton « Ajouter à mon séjour ». Activités : Chutes de la Lobé, Excursion en pirogue, Jacuzzi naturel, Croisière.
 5. **Bande immersive « Kribi, c'est… »** : une large photographie en pleine largeur (plage ou chutes), avec trois ou quatre mots-clés discrets posés dessus — mer, forêt, chutes, pirogue. Peu de texte, beaucoup d'image. C'est un moment de respiration visuelle, pas une section d'information.
@@ -95,7 +96,7 @@ C'est l'écran le plus important du site et celui qui change le plus. De haut en
 8. **TKS® — Mobilité**, section discrète et compacte, visuellement plus sobre que le reste : un bandeau ou une carte unique avec le logo TKS®, la mention « Mobilité & transport », une phrase « Location de véhicules, transferts et chauffeur privé pour compléter votre séjour », et un lien « Voir les services de mobilité ». Cette section ne doit jamais dominer l'écran ni ressembler aux cartes d'expériences.
 9. **Bloc « À propos de Kibreeze »** : une photo, trois phrases, lien « En savoir plus ».
 10. **Bloc de conversion sur fond de marque** : titre « Un séjour sur mesure ? », bouton « Contacter Kibreeze sur WhatsApp ».
-11. Pied de page : logo Kibreeze, signature, liens (Expériences, Hébergements, Formules, TKS® — Mobilité, À propos, Contact), « Kribi, Cameroun », icônes de réseaux sociaux.
+11. Pied de page : logo complet Kibreeze en crème, signature, liens (Expériences, Hébergements, Formules, TKS® — Mobilité, À propos, Contact), « Kribi, Cameroun », icônes de réseaux sociaux.
 12. Barre à onglets fixe en bas : Accueil (actif), Expériences, Hébergements, Formules, Mon séjour avec pastille à 0. Bouton WhatsApp flottant en bas à droite, au-dessus de la barre, sans la toucher.
 
 ### Écran 2 — Catalogue « Expériences »

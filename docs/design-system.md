@@ -22,7 +22,9 @@ Règle : **aucune valeur brute dans les composants**. Toute couleur, taille, esp
 
 Chaleureuse, colorée, ancrée dans la vie locale : crème pour les fonds, turquoise en accent froid, cartes aux angles francs, blocs de couleur pleine, photographies cadrées serré sur les gens et les scènes de vie. Cette direction est **conservée telle quelle** malgré le repositionnement Kibreeze : Franck a explicitement demandé à la garder.
 
-**Une seule valeur change** : la couleur de marque. Le logo Kibreeze fourni le 2026-09-25 est d'un rouge profond, prélevé sur le fichier à **#A4021F**. Le terracotta #A8431F qui servait de couleur de marque en devient l'accent chaud secondaire (`--color-brand-warm`). Ce n'est pas un arbitrage esthétique : une charte ne peut pas diverger du logo qu'elle accompagne, et le rouge du logo contraste mieux sur le crème (7,8:1 contre 5,8:1). À confirmer par Franck, question K2 bis de [client-questions-kibreeze.md](./client-questions-kibreeze.md).
+**Une seule valeur change** : la couleur de marque, alignée sur le rouge du logo Kibreeze, **#8C0120**. Le terracotta #A8431F qui servait de couleur de marque en devient l'accent chaud secondaire (`--color-brand-warm`). Ce n'est pas un arbitrage esthétique : une charte ne peut pas diverger du logo qu'elle accompagne, et le rouge du logo contraste mieux sur le crème (9,4:1 contre 5,8:1). Franck a validé l'alignement sur le logo (K4 de [client-answers.md](./client-answers.md)).
+
+Historique de la valeur : #A4021F avait d'abord été prélevé, le 2026-09-25, sur la version brillante du logo, dont les reflets éclaircissent le rouge. Franck a ensuite désigné la version **à plat** comme officielle. Ses fichiers à plat mesurent entre #870220 et #980021 selon l'export ; #8C0120, la valeur médiane, est retenue depuis le 2026-10-02 pour les logos de `src/assets/brand/`, les tokens et les prompts Stitch. Si le graphiste fournit une valeur de référence, elle remplace celle-ci dans ces trois endroits.
 
 Brief actif : [design-briefs/kibreeze-brief.md](./design-briefs/kibreeze-brief.md). L'ancien brief [direction-c-soleil-et-vie-locale.md](./design-briefs/direction-c-soleil-et-vie-locale.md) est périmé, conservé comme trace.
 
@@ -36,7 +38,7 @@ Tailwind CSS v4 lit les tokens depuis des custom properties CSS déclarées dans
 /* src/styles/tokens.css — extrait */
 @theme {
   /* Couleurs sémantiques, pas des noms de teintes */
-  --color-brand:          #A4021F; /* rouge du logo Kibreeze, prélevé sur le fichier fourni */
+  --color-brand:          #8C0120; /* rouge du logo officiel à plat, identique à src/assets/brand/ */
   --color-brand-contrast: #FFFAF3;
   --color-brand-warm:     #A8431F; /* terracotta, accent chaud secondaire */
   --color-accent:         #186962; /* turquoise profond, accent froid */

@@ -1,16 +1,29 @@
 # Kibreeze — les 8 écrans, prompts Stitch détaillés
 
-**Statut** : actif · **Date** : 2026-09-28 · Complète [kibreeze-brief.md](./kibreeze-brief.md), qui reste le document de référence sur la marque et la direction artistique.
+**Statut** : actif · **Date** : 2026-09-28, logos et rouge de marque mis à jour le 2026-10-02 · Complète [kibreeze-brief.md](./kibreeze-brief.md), qui reste le document de référence sur la marque et la direction artistique.
 
 Ce fichier contient huit prompts prêts à coller, un par écran. Ils sont volontairement longs : sur Stitch, la qualité du rendu est proportionnelle à la précision du brief. Un prompt vague produit une page de présentation générique ; un prompt qui nomme les contenus, les proportions et les interdits produit un écran exploitable.
 
 ## Mode d'emploi
 
 1. **Une conversation Stitch par écran.** Ne jamais demander deux écrans dans la même requête : Stitch dilue le style et abandonne des contraintes.
-2. **Joindre [kibreeze-brief.md](./kibreeze-brief.md)** en pièce jointe, puis coller le bloc commun ci-dessous, puis le prompt de l'écran.
+2. **Joindre [kibreeze-brief.md](./kibreeze-brief.md) et les logos de l'écran** (tableau ci-dessous) en pièces jointes, puis coller le bloc commun ci-dessous, puis le prompt de l'écran.
 3. **Générer le mobile d'abord** (390 × 844). Une fois l'écran validé, demander l'ordinateur dans la même conversation avec la phrase de la section « Version ordinateur ».
 4. **Générer dans l'ordre 1 à 8.** L'accueil fixe le style ; les suivants s'y réfèrent.
 5. Corriger par retouches ciblées (« garde tout, mais… »), jamais en relançant l'écran entier.
+
+### Logos à joindre
+
+Sans le fichier, Stitch invente un logo ou tape « Kibreeze » dans une police quelconque. Les PNG transparents de [assets/](./assets/) sont rendus depuis les SVG de production de `src/assets/brand/` : ce sont les seuls à joindre. Ne jamais joindre les PNG d'origine de Franck (fond blanc, versions brillantes ou floutées).
+
+| Fichier | Usage |
+|---|---|
+| [kibreeze-wordmark.png](./assets/kibreeze-wordmark.png) | Barre du haut, sur fond crème. **Tous les écrans** |
+| [kibreeze-wordmark-creme.png](./assets/kibreeze-wordmark-creme.png) | Hero de l'accueil, sur photo. Écran 1 |
+| [kibreeze-creme.png](./assets/kibreeze-creme.png) | Logo complet, symbole au-dessus du nom, pied de page sombre. Écran 1 |
+| [tks-mark.png](./assets/tks-mark.png) | Lettres « TKS® » seules, sans la signature. Écrans 1, 4, 5 et 8 |
+
+Les autres fichiers du dossier, [kibreeze.png](./assets/kibreeze.png) (logo complet rouge) et les deux symboles seuls, ne sont joints à aucun écran : ils servent aux retouches, et le symbole seul est réservé à l'icône du site. N'en mets pas un en décoration dans une page.
 
 Les montants viennent du **guide tarifaire du 2026-09-26**. Ce sont les vrais prix de Kibreeze, pas des exemples : ne pas les modifier. Seul le jet-ski est en attente d'arbitrage, il n'apparaît donc avec aucun montant.
 
@@ -37,8 +50,9 @@ vide, aucune hauteur figée, aucun texte incrusté dans une image.
 
 DIRECTION ARTISTIQUE
 Chaleureuse, ancrée dans la vie locale, premium mais accessible.
-- Rouge de marque #A4021F. Fonds crème #FFFAF3. Gris de texte #1C1917,
-  texte secondaire #57534E. Accent chaud terracotta #A8431F.
+- Rouge de marque #8C0120, exactement celui du logo, ni plus vif ni plus
+  orangé. Fonds crème #FFFAF3. Gris de texte #1C1917, texte secondaire
+  #57534E. Accent chaud terracotta #A8431F.
   Accent froid turquoise #186962, réservé aux badges d'information.
   Vert #25D366 réservé au seul bouton WhatsApp, nulle part ailleurs.
 - Angles francs. Rayons de coin de 0 à 4 pixels maximum sur les cartes, les
@@ -53,8 +67,27 @@ Chaleureuse, ancrée dans la vie locale, premium mais accessible.
   végétation. Peu de texte. Une maquette qui ressemble à une page de
   présentation textuelle est ratée, même si le contenu est juste.
 
+LOGOS, FOURNIS EN PIÈCES JOINTES
+- Le logo Kibreeze est fourni en image : un hexagone ouvert contenant un
+  visage souriant, avec une pointe de bulle de discussion en bas à gauche, et
+  le mot « Kibreeze » en lettres grasses arrondies, le K entaillé en biais.
+  Place les fichiers joints tels quels. Ne redessine jamais le logo, n'écris
+  jamais « Kibreeze » ou « KIBREEZE » dans une police à la place du logo, ne
+  le déforme pas, ne le recadre pas.
+- Deux couleurs seulement : rouge #8C0120 sur fond clair, crème #FFFAF3 sur
+  photo ou sur fond sombre. Jamais de dégradé, de relief, d'ombre ou de halo.
+  Jamais le logo rouge sur un fond rouge ou sur le gris très sombre du pied
+  de page : il y devient illisible.
+- Laisse autour du logo un espace vide au moins égal à la moitié de sa
+  hauteur : aucun texte ni bouton collé contre lui.
+- Le logo TKS® est fourni à part, lettres seules. Il reste noir ou gris très
+  sombre, toujours plus petit que le logo Kibreeze présent sur le même écran,
+  et n'apparaît que là où le prompt de l'écran le demande.
+
 NAVIGATION, IDENTIQUE SUR TOUS LES ÉCRANS
-- Barre du haut fixe : logo « Kibreeze » à gauche, sélecteur « FR | EN »,
+- Barre du haut fixe : à gauche le logo-texte Kibreeze rouge joint
+  (kibreeze-wordmark.png), environ 24 pixels de haut, sans le symbole
+  hexagonal ; au centre ou à droite le sélecteur « FR | EN », puis une
   petite icône WhatsApp verte. Rien d'autre. Pas d'icône panier ici, pas de
   menu hamburger, pas d'icône ressemblant à un compte utilisateur.
 - Barre à onglets fixe en bas, cinq destinations, toujours dans cet ordre :
@@ -101,7 +134,9 @@ L'écran le plus important. Il doit donner envie de venir à Kribi avant que le 
    droite, ciel orange et rose. Voile sombre dégradé du bas vers le haut pour
    la lisibilité, jamais uniforme.
    Dessus, alignés à gauche, ancrés dans le tiers bas :
-     - le mot « KIBREEZE » en capitales, très grand, blanc crème ;
+     - le logo-texte Kibreeze en version crème, joint
+       (kibreeze-wordmark-creme.png), grand, environ 56 pixels de haut, sans
+       le symbole hexagonal. Pas de mot « KIBREEZE » tapé en capitales ;
      - juste en dessous, « Kribi is a feeling » en écriture manuscrite fine ;
      - un titre « Découvrez Kribi autrement », gras, deux lignes maximum ;
      - une phrase en corps courant, trois lignes maximum : « Des expériences,
@@ -161,7 +196,8 @@ L'écran le plus important. Il doit donner envie de venir à Kribi avant que le 
 7. TKS® — MOBILITÉ. Section volontairement sobre et compacte, hauteur réduite,
    fond gris très clair, PAS de photographie en fond, PAS le traitement visuel
    des cartes d'expérience. Une seule ligne horizontale : à gauche le logo
-   TKS®, au centre « Mobilité & transport » puis « Location, transferts et
+   TKS® joint (tks-mark.png), noir, environ 20 pixels de haut, au centre
+   « Mobilité & transport » puis « Location, transferts et
    chauffeur privé pour compléter votre séjour », à droite un lien « Voir ».
    Cette section ne doit jamais attirer l'œil plus que les expériences.
 
@@ -179,7 +215,10 @@ L'écran le plus important. Il doit donner envie de venir à Kribi avant que le 
    « Contacter Kibreeze sur WhatsApp ».
 
 10. PIED DE PAGE, fond gris très sombre, texte crème.
-    Logo Kibreeze, signature manuscrite, puis trois colonnes de liens :
+    Le logo complet Kibreeze en version crème, joint (kibreeze-creme.png),
+    symbole au-dessus du nom, environ 72 pixels de haut ; jamais la version
+    rouge sur ce fond. Puis la signature manuscrite, puis trois colonnes de
+    liens :
     Expériences / Hébergements / Formules, puis Mobilité TKS® / À propos /
     Contact. En dessous « Kribi, Cameroun », les icônes de réseaux sociaux, et
     une ligne fine et discrète : « Kibreeze est une marque de Breezy Groupe,
@@ -331,8 +370,9 @@ Kayak, Paddle, Balade à cheval.
      - TKS® — Transfert Douala → Kribi — badge « Sur devis », aucun montant,
        AUCUN sélecteur de quantité, seule la corbeille apparaît sur cette
        ligne
-   La ligne TKS porte un petit logo TKS® pour montrer qu'elle vient d'une
-   autre marque.
+   La ligne TKS porte le logo TKS® joint (tks-mark.png), noir, environ 14
+   pixels de haut, juste avant le nom, pour montrer qu'elle vient d'une autre
+   marque.
 
 4. Encadré de total, fond crème soutenu, bordure fine :
    « Total estimatif » à gauche, « 110 000 FCFA » à droite en très grand
@@ -504,7 +544,9 @@ immersif. C'est une rubrique utilitaire qui complète un séjour, pas une
 vitrine d'expériences.
 
 1. Bandeau court et bas, 130 pixels seulement, fond gris très clair sans
-   photographie. À gauche le logo TKS®, à droite le titre « Mobilité &
+   photographie. À gauche le logo TKS® joint (tks-mark.png), noir, environ
+   22 pixels de haut, jamais plus grand que le logo Kibreeze de la barre du
+   haut. À droite le titre « Mobilité &
    transport » et la phrase « Location, transferts et chauffeur privé pour
    compléter votre séjour ».
 
@@ -541,7 +583,8 @@ Une fois chaque écran validé en mobile, demander dans la même conversation :
 Garde exactement le même style, les mêmes contenus et la même hiérarchie, mais
 adapte cet écran à un ordinateur de 1440 × 1024 :
 - la barre à onglets du bas disparaît, remplacée par une navigation complète
-  dans la barre du haut : Expériences, Hébergements, Formules, Mobilité, et à
+  dans la barre du haut : à gauche le même logo-texte Kibreeze joint, environ
+  28 pixels de haut, puis Expériences, Hébergements, Formules, Mobilité, et à
   droite le sélecteur FR | EN, une icône « Mon séjour » avec sa pastille, et le
   bouton WhatsApp ;
 - le contenu est limité à 1 200 pixels de large, centré, avec de larges marges ;
@@ -557,7 +600,10 @@ adapte cet écran à un ordinateur de 1440 × 1024 :
 
 ## Contrôle avant de montrer à Franck
 
-- Le rouge du logo, #A4021F, est bien la couleur de marque, et le vert n'apparaît que sur les boutons WhatsApp.
+- Le rouge du logo, #8C0120, est bien la couleur de marque, et le vert n'apparaît que sur les boutons WhatsApp.
+- Le logo est le fichier joint, pas une imitation : même tracé, K entaillé, hexagone ouvert avec sa pointe de bulle. Aucun « KIBREEZE » tapé en capitales dans le hero.
+- Logo rouge sur les fonds clairs, crème sur les photos, le pied de page et les fonds rouges. Jamais de dégradé, de relief ni de halo.
+- Le logo TKS® est noir, plus discret que celui de Kibreeze, et n'apparaît que sur les écrans 1, 4, 5 et 8.
 - Les angles sont francs partout, aucun bouton en pilule.
 - Aucun chevauchement en bas d'écran entre la barre de prix, la barre à onglets et le bouton flottant.
 - Les trois formes de prix apparaissent, et chaque montant porte son équivalent en euros.

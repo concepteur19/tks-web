@@ -5,7 +5,7 @@
 
 @theme {
   /* Couleurs sémantiques, jamais des noms de teintes */
-  --color-brand: #a4021f; /* rouge du logo Kibreeze, prélevé sur le fichier fourni — 7.8:1 sur le fond crème */
+  --color-brand: #8c0120; /* rouge du logo officiel à plat, identique à src/assets/brand/ — 9.4:1 sur le fond crème */
   --color-brand-contrast: #fffaf3;
   --color-brand-warm: #a8431f; /* terracotta de la direction C, rétrogradé en accent chaud secondaire — 5.8:1 sur le crème */
   --color-accent: #186962; /* [PLACEHOLDER] turquoise profond, direction C — 6.2:1 sur le fond crème */

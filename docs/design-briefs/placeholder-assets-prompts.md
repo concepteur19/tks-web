@@ -10,6 +10,8 @@ Outil recommandé : un générateur d'images à part (Midjourney, Ideogram, Goog
 
 ## 1. Logo provisoire « TKS° »
 
+> **Périmé depuis le 2026-10-02.** Les vrais logos sont arrivés, Kibreeze en SVG et TKS® en PNG HD : voir « Logos à joindre » dans [kibreeze-ecrans-stitch.md](./kibreeze-ecrans-stitch.md). Ne génère plus de logo provisoire. Le prompt ci-dessous reste comme trace.
+
 ```text
 Flat vector logotype for a travel and transport company, text mark reading
 "TKS" with a small superscript circle like a registered trademark symbol.
