@@ -4,7 +4,7 @@
 
 Ce document est un brief de conception d'interface. Génère les écrans décrits en partie 7, dans la direction artistique de la partie 6, en respectant les parties 4 et 5 à la lettre.
 
-Stitch accepte ce fichier `.md` en pièce jointe mais ne produit qu'un écran par requête : joins le fichier et les logos de l'écran (liste dans [kibreeze-ecrans-stitch.md](./kibreeze-ecrans-stitch.md), section « Logos à joindre »), puis précise dans le message l'écran voulu (numéro et nom de la partie 7). Une conversation Stitch par écran. Demande d'abord le mobile ; une fois l'écran validé, redemande dans la même conversation la version ordinateur 1440 × 1024, en gardant le style et les contenus.
+> **Ne plus joindre ce fichier à Stitch (2026-10-03).** Pour générer, utilise uniquement [kibreeze-ecrans-stitch.md](./kibreeze-ecrans-stitch.md) et les logos qu'il liste. Les contenus et les prix de la partie 7 datent d'avant le guide tarifaire du 2026-09-26, et la partie 8 interdit les prix en euros que les prompts exigent : joint aux prompts, ce brief donnait à Stitch des consignes contraires. Il reste la référence sur la marque, la hiérarchie et le périmètre, pour nous et pour Franck.
 
 La direction artistique de la partie 6 est **déjà validée par le client** : elle est reprise telle quelle des maquettes approuvées le 2026-09-17. Ce qui change dans ce brief, c'est la marque, la hiérarchie de la page et le périmètre, pas le style.
 

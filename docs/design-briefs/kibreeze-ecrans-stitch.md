@@ -1,16 +1,22 @@
 # Kibreeze — les 8 écrans, prompts Stitch détaillés
 
-**Statut** : actif · **Date** : 2026-09-28, logos et rouge de marque mis à jour le 2026-10-02 · Complète [kibreeze-brief.md](./kibreeze-brief.md), qui reste le document de référence sur la marque et la direction artistique.
+**Statut** : actif · **Date** : 2026-09-28, logos et rouge de marque mis à jour le 2026-10-02, prompts passés en anglais le 2026-10-03 · [kibreeze-brief.md](./kibreeze-brief.md) reste le document de référence sur la marque, pour nous ; il ne se joint plus à Stitch.
 
 Ce fichier contient huit prompts prêts à coller, un par écran. Ils sont volontairement longs : sur Stitch, la qualité du rendu est proportionnelle à la précision du brief. Un prompt vague produit une page de présentation générique ; un prompt qui nomme les contenus, les proportions et les interdits produit un écran exploitable.
+
+## Langue des prompts
+
+Depuis le 2026-10-03, **les consignes sont en anglais et les textes de l'interface restent en français**. Stitch suit mieux de longues consignes en anglais, mais l'interface du site est en français : chaque texte affiché à l'écran est donc écrit entre guillemets droits, en français, et le bloc commun dit explicitement à Stitch de les reproduire tels quels sans les traduire.
+
+Si Stitch sort malgré tout une interface en anglais, corrige par retouche : `Keep everything, but all on-screen text must be in French, exactly as quoted in the prompt.`
 
 ## Mode d'emploi
 
 1. **Une conversation Stitch par écran.** Ne jamais demander deux écrans dans la même requête : Stitch dilue le style et abandonne des contraintes.
-2. **Joindre [kibreeze-brief.md](./kibreeze-brief.md) et les logos de l'écran** (tableau ci-dessous) en pièces jointes, puis coller le bloc commun ci-dessous, puis le prompt de l'écran.
-3. **Générer le mobile d'abord** (390 × 844). Une fois l'écran validé, demander l'ordinateur dans la même conversation avec la phrase de la section « Version ordinateur ».
+2. **Joindre seulement les logos de l'écran** (tableau ci-dessous), puis coller le bloc commun, puis le prompt de l'écran. **Ne plus joindre [kibreeze-brief.md](./kibreeze-brief.md)** : sa partie 7 décrit les écrans avec d'anciens contenus et d'anciens prix, et sa partie 8 interdit les prix en euros que ces prompts exigent. Stitch recevait deux consignes contraires. Le bloc commun reprend tout ce dont il a besoin.
+3. **Générer le mobile d'abord** (390 × 844). Une fois l'écran validé, demander l'ordinateur dans la même conversation avec le prompt de la section « Version ordinateur ».
 4. **Générer dans l'ordre 1 à 8.** L'accueil fixe le style ; les suivants s'y réfèrent.
-5. Corriger par retouches ciblées (« garde tout, mais… »), jamais en relançant l'écran entier.
+5. Corriger par retouches ciblées, en anglais elles aussi (`Keep everything, but…`), jamais en relançant l'écran entier.
 
 ### Logos à joindre
 
@@ -32,91 +38,103 @@ Les montants viennent du **guide tarifaire du 2026-09-26**. Ce sont les vrais pr
 ## Bloc commun — à coller en tête de chaque écran
 
 ```text
-CONTEXTE
-Tu conçois une maquette d'interface pour Kibreeze, une marque de tourisme et
-d'expériences à Kribi, au Cameroun. Signature : « Kribi is a feeling ».
-Le visiteur découvre des expériences, en ajoute à un panier appelé « Mon séjour »,
-voit un total estimatif, puis envoie sa demande sur WhatsApp. Pas de paiement,
-pas de compte utilisateur, pas de réservation en ligne.
+LANGUAGE — READ FIRST
+These instructions are in English, but the interface is in FRENCH.
+Every piece of text in double quotes is on-screen copy: reproduce it exactly,
+in French, with its accents. Never translate it into English and never
+rephrase it. Any extra text you need that is not given here (a short
+description, a placeholder) must also be written in French.
+Single exception: the tagline "Kribi is a feeling" always stays in English.
 
-Public : d'abord des expatriés et des touristes étrangers, puis des Camerounais
-de Douala et Yaoundé en week-end. Usage très majoritairement sur téléphone.
+CONTEXT
+You are designing a UI mockup for Kibreeze, a tourism and experiences brand in
+Kribi, Cameroon. Tagline: "Kribi is a feeling".
+Visitors browse experiences, add them to a cart called "Mon séjour", see an
+estimated total, then send their request over WhatsApp. No payment, no user
+account, no online booking.
+
+Audience: first expats and foreign tourists, then Cameroonians from Douala and
+Yaoundé on a weekend trip. Almost all traffic comes from phones.
 
 FORMAT
-Téléphone, 390 × 844 pixels. Conçois une mise en page adaptative : colonnes qui
-s'empilent, largeurs proportionnelles, images qui se recadrent, libellés qui
-peuvent revenir à la ligne. Aucun élément positionné en absolu pour combler un
-vide, aucune hauteur figée, aucun texte incrusté dans une image.
+Phone, 390 × 844 px. Design a responsive layout: columns that stack,
+proportional widths, images that re-crop, labels that can wrap. No absolutely
+positioned element used to fill a gap, no fixed heights, no text baked into
+an image.
 
-DIRECTION ARTISTIQUE
-Chaleureuse, ancrée dans la vie locale, premium mais accessible.
-- Rouge de marque #8C0120, exactement celui du logo, ni plus vif ni plus
-  orangé. Fonds crème #FFFAF3. Gris de texte #1C1917, texte secondaire
-  #57534E. Accent chaud terracotta #A8431F.
-  Accent froid turquoise #186962, réservé aux badges d'information.
-  Vert #25D366 réservé au seul bouton WhatsApp, nulle part ailleurs.
-- Angles francs. Rayons de coin de 0 à 4 pixels maximum sur les cartes, les
-  images et les boutons. Aucun bouton en forme de pilule, aucun coin très
-  arrondi : c'est ce qui distingue cette marque d'un site de voyage générique.
-- Blocs de couleur pleine, aplats, aucun dégradé, aucune ombre portée marquée.
-- Titres en sans-serif gras au caractère affirmé, texte courant en sans-serif
-  simple et très lisible. Écriture manuscrite fine uniquement pour la signature
-  « Kribi is a feeling », nulle part ailleurs.
-- Grille d'espacement de 4 points. Gouttière latérale de 16 pixels minimum.
-- Photographies nombreuses et grandes, cadrées serré sur les gens, l'eau, la
-  végétation. Peu de texte. Une maquette qui ressemble à une page de
-  présentation textuelle est ratée, même si le contenu est juste.
+ART DIRECTION
+Warm, rooted in local life, premium yet approachable.
+- Brand red #8C0120, exactly the logo's red, never brighter and never more
+  orange. Cream backgrounds #FFFAF3. Text #1C1917, secondary text #57534E.
+  Warm accent: terracotta #A8431F.
+  Cool accent: deep teal #186962, reserved for information badges.
+  Green #25D366 reserved for WhatsApp buttons only, nowhere else.
+- Sharp corners. Corner radius 0 to 4 px maximum on cards, images and
+  buttons. No pill-shaped buttons, no heavily rounded corners: this is what
+  sets the brand apart from a generic travel website.
+- Solid color blocks, flat fills, no gradients, no heavy drop shadows. The
+  only gradients allowed are the dark overlays on photos described in the
+  screen prompts.
+- Headings in a bold sans-serif with character, body text in a plain, highly
+  readable sans-serif. A thin handwritten script ONLY for the tagline
+  "Kribi is a feeling", nowhere else.
+- 4 px spacing grid. Side gutter of at least 16 px.
+- Many large photographs, tightly framed on people, water and vegetation.
+  Little text. A mockup that looks like a text-heavy brochure page has
+  failed, even if its content is correct.
 
-LOGOS, FOURNIS EN PIÈCES JOINTES
-- Le logo Kibreeze est fourni en image : un hexagone ouvert contenant un
-  visage souriant, avec une pointe de bulle de discussion en bas à gauche, et
-  le mot « Kibreeze » en lettres grasses arrondies, le K entaillé en biais.
-  Place les fichiers joints tels quels. Ne redessine jamais le logo, n'écris
-  jamais « Kibreeze » ou « KIBREEZE » dans une police à la place du logo, ne
-  le déforme pas, ne le recadre pas.
-- Deux couleurs seulement : rouge #8C0120 sur fond clair, crème #FFFAF3 sur
-  photo ou sur fond sombre. Jamais de dégradé, de relief, d'ombre ou de halo.
-  Jamais le logo rouge sur un fond rouge ou sur le gris très sombre du pied
-  de page : il y devient illisible.
-- Laisse autour du logo un espace vide au moins égal à la moitié de sa
-  hauteur : aucun texte ni bouton collé contre lui.
-- Le logo TKS® est fourni à part, lettres seules. Il reste noir ou gris très
-  sombre, toujours plus petit que le logo Kibreeze présent sur le même écran,
-  et n'apparaît que là où le prompt de l'écran le demande.
+LOGOS, ATTACHED AS IMAGES
+- The Kibreeze logo is attached as image files: an open hexagon holding a
+  smiling face, with a speech-bubble tail at the bottom left, and the word
+  "Kibreeze" in bold rounded letters, the K cut by a slanted notch.
+  Place the attached files exactly as they are. Never redraw the logo, never
+  type "Kibreeze" or "KIBREEZE" in a font in its place, never stretch or
+  crop it.
+- Two colors only: red #8C0120 on light backgrounds, cream #FFFAF3 on photos
+  or dark backgrounds. Never a gradient, bevel, shadow or glow. Never the red
+  logo on a red background or on the very dark grey footer: it becomes
+  unreadable there.
+- Keep clear space around the logo of at least half its height: no text or
+  button touching it.
+- The TKS® logo is attached separately, letters only. It stays black or very
+  dark grey, always smaller than the Kibreeze logo on the same screen, and
+  appears only where the screen prompt asks for it.
 
-NAVIGATION, IDENTIQUE SUR TOUS LES ÉCRANS
-- Barre du haut fixe : à gauche le logo-texte Kibreeze rouge joint
-  (kibreeze-wordmark.png), environ 24 pixels de haut, sans le symbole
-  hexagonal ; au centre ou à droite le sélecteur « FR | EN », puis une
-  petite icône WhatsApp verte. Rien d'autre. Pas d'icône panier ici, pas de
-  menu hamburger, pas d'icône ressemblant à un compte utilisateur.
-- Barre à onglets fixe en bas, cinq destinations, toujours dans cet ordre :
-  Accueil, Expériences, Hébergements, Formules, Mon séjour. L'onglet
-  « Mon séjour » porte une pastille de comptage. L'onglet de la page courante
-  est actif, en rouge de marque.
-- Empilement en bas de l'écran, du contenu vers le bas : barre de prix fixe de
-  la page si elle en a une, puis la barre à onglets tout en bas. Le bouton
-  WhatsApp flottant n'existe QUE sur les pages sans barre de prix fixe, ancré
-  en bas à droite, avec au moins 16 pixels d'écart au-dessus de la barre à
-  onglets. Rien ne se chevauche jamais.
+NAVIGATION, IDENTICAL ON EVERY SCREEN
+- Fixed top bar: on the left, the attached red Kibreeze wordmark
+  (kibreeze-wordmark.png), about 24 px tall, without the hexagon symbol; in
+  the middle or on the right, the "FR | EN" language switch, then a small
+  green WhatsApp icon. Nothing else. No cart icon here, no hamburger menu, no
+  icon that could pass for a user account.
+- Fixed bottom tab bar, five destinations, always in this order:
+  "Accueil", "Expériences", "Hébergements", "Formules", "Mon séjour". The
+  "Mon séjour" tab carries a count badge. The current page's tab is active,
+  in brand red.
+- Stacking at the bottom of the screen, from the content downward: the
+  page's sticky price bar if it has one, then the tab bar at the very bottom.
+  The floating WhatsApp button exists ONLY on pages without a sticky price
+  bar, anchored bottom right, at least 16 px above the tab bar. Nothing ever
+  overlaps.
 
-RÈGLES DE PRIX
-Trois formes visuellement distinctes :
-  prix ferme « 25 000 FCFA », prix de départ « À partir de 15 000 FCFA »,
-  et un badge « Sur devis » sans montant.
-Devise FCFA, séparateur de milliers par une espace. Sous chaque prix, en petit
-gris, l'équivalent indicatif en euros : 1 000 FCFA ≈ 1,52 €.
+PRICING RULES
+Three visually distinct forms:
+  a fixed price "25 000 FCFA", a starting price "À partir de 15 000 FCFA",
+  and a "Sur devis" badge with no amount.
+Currency is FCFA, with a space as the thousands separator. Under each price,
+in small grey text, the indicative euro equivalent, in French number format:
+1 000 FCFA ≈ 1,52 €.
 
-ACCESSIBILITÉ
-Contraste WCAG AA. Zones tactiles d'au moins 44 pixels. Prévoir 30 % de
-longueur de texte en plus, les libellés seront traduits en anglais.
+ACCESSIBILITY
+WCAG AA contrast. Touch targets of at least 44 px. Leave room for 30% longer
+text: the labels will later be translated into English.
 
-INTERDITS ABSOLUS
-Pas de rubrique ni de mention de livraison. Pas d'avis, de notes ou d'étoiles.
-Pas de formulaire de contact. Pas de prix en dollars. Pas de paiement, pas de
-connexion, pas de bandeau de cookies. Pas de menu hamburger. Pas de promesse
-commerciale absente de ce brief : aucun délai de réponse garanti, aucune
-remise, aucun « meilleur prix ». Ne mets jamais TKS en tête d'affiche.
+STRICTLY FORBIDDEN
+No delivery section and no mention of delivery anywhere (the brand name
+"Breezy Delivery" in the footer line of screen 1 is the only exception). No
+reviews, ratings or stars. No contact form. No prices in dollars. No payment,
+no login, no cookie banner. No hamburger menu. No commercial promise that is
+not in this prompt: no guaranteed response time, no discount, no "best
+price". Never give TKS® top billing.
 ```
 
 ---
@@ -126,109 +144,109 @@ remise, aucun « meilleur prix ». Ne mets jamais TKS en tête d'affiche.
 L'écran le plus important. Il doit donner envie de venir à Kribi avant que le visiteur regarde un seul prix.
 
 ```text
-ÉCRAN 1 — ACCUEIL, page longue à faire défiler.
+SCREEN 1 — HOME ("Accueil"), a long scrolling page.
 
-1. HERO, plein écran, environ 85 % de la hauteur visible.
-   Photographie d'une plage de Kribi au soleil couchant : sable sombre et
-   humide au premier plan, vagues basses, cocotiers penchés en silhouette à
-   droite, ciel orange et rose. Voile sombre dégradé du bas vers le haut pour
-   la lisibilité, jamais uniforme.
-   Dessus, alignés à gauche, ancrés dans le tiers bas :
-     - le logo-texte Kibreeze en version crème, joint
-       (kibreeze-wordmark-creme.png), grand, environ 56 pixels de haut, sans
-       le symbole hexagonal. Pas de mot « KIBREEZE » tapé en capitales ;
-     - juste en dessous, « Kribi is a feeling » en écriture manuscrite fine ;
-     - un titre « Découvrez Kribi autrement », gras, deux lignes maximum ;
-     - une phrase en corps courant, trois lignes maximum : « Des expériences,
-       des excursions et des séjours pensés pour vous faire vivre Kribi
-       autrement. » ;
-     - deux boutons côte à côte, pleine largeur sur mobile, empilés si
-       nécessaire : « Découvrir les expériences » en aplat rouge de marque,
-       « Planifier mon séjour » en contour blanc sur fond transparent.
-   Un petit chevron animé en bas du hero invite à faire défiler.
+1. HERO, full screen, about 85% of the visible height.
+   Photograph of a Kribi beach at sunset: dark wet sand in the foreground, low
+   waves, leaning palm trees in silhouette on the right, orange and pink sky.
+   A dark overlay fading from bottom to top for readability, never uniform.
+   On top of it, left-aligned, anchored in the bottom third:
+     - the attached cream Kibreeze wordmark (kibreeze-wordmark-creme.png),
+       large, about 56 px tall, without the hexagon symbol. Do NOT type the
+       word "KIBREEZE" in capitals;
+     - right below it, "Kribi is a feeling" in a thin handwritten script;
+     - a heading "Découvrez Kribi autrement", bold, two lines maximum;
+     - one sentence of body text, three lines maximum: "Des expériences, des
+       excursions et des séjours pensés pour vous faire vivre Kribi
+       autrement.";
+     - two buttons side by side, full width on mobile, stacked if needed:
+       "Découvrir les expériences" as a solid brand-red button,
+       "Planifier mon séjour" as a white outline button on a transparent
+       background.
+   A small animated chevron at the bottom of the hero invites scrolling.
 
-2. LES TROIS CATÉGORIES, sur fond crème, titre de section « Nos expériences ».
-   Trois cartes empilées, chacune haute d'environ 200 pixels, photo en fond
-   couvrant toute la carte, voile sombre, texte en surimpression :
-     - « Nature & Découverte » — photo des chutes de la Lobé se jetant dans
-       l'océan — « 6 expériences »
-     - « Aventure » — photo d'un quad sur le sable ou d'un jet-ski en mouvement
-       — « 3 expériences »
-     - « Détente » — photo d'un feu de plage au crépuscule — « 3 expériences »
-   Chaque carte est entièrement cliquable, avec une flèche discrète à droite.
+2. THE THREE CATEGORIES, on a cream background, section title
+   "Nos expériences".
+   Three stacked cards, each about 200 px tall, a photo covering the whole
+   card, a dark overlay, text on top:
+     - "Nature & Découverte" — photo of the Lobé waterfalls pouring into the
+       ocean — "6 expériences"
+     - "Aventure" — photo of a quad bike on the sand or a jet ski in motion —
+       "3 expériences"
+     - "Détente" — photo of a beach bonfire at dusk — "3 expériences"
+   Each card is fully clickable, with a discreet arrow on the right.
 
-3. EXPÉRIENCES MISES EN AVANT, titre « À ne pas manquer ».
-   Carrousel horizontal, cartes de 280 pixels de large, débordant légèrement
-   du bord droit de l'écran pour signaler qu'on peut faire défiler.
-   Quatre cartes, photo en haut occupant les deux tiers de la carte, puis nom,
-   une ligne de description, prix, et un bouton « Ajouter à mon séjour » :
-     - Chutes de la Lobé — « La seule cascade au monde qui se jette dans
-       l'océan » — 5 000 FCFA / personne
-     - Excursion en pirogue — « Remontez la Lobé entre mangrove et forêt » —
-       35 000 FCFA / groupe
-     - Croisière en bateau — « Le coucher de soleil vu du large » —
-       25 000 FCFA / personne
-     - Campement Bagyeli — « À la rencontre du peuple de la forêt » —
-       7 500 FCFA / personne
+3. FEATURED EXPERIENCES, title "À ne pas manquer".
+   Horizontal carousel, cards 280 px wide, slightly overflowing the right
+   edge of the screen to signal that it scrolls.
+   Four cards: photo on top taking two thirds of the card, then the name, a
+   one-line description, the price, and an "Ajouter à mon séjour" button:
+     - "Chutes de la Lobé" — "La seule cascade au monde qui se jette dans
+       l'océan" — "5 000 FCFA / personne"
+     - "Excursion en pirogue" — "Remontez la Lobé entre mangrove et forêt" —
+       "35 000 FCFA / groupe"
+     - "Croisière en bateau" — "Le coucher de soleil vu du large" —
+       "25 000 FCFA / personne"
+     - "Campement Bagyeli" — "À la rencontre du peuple de la forêt" —
+       "7 500 FCFA / personne"
 
-4. BANDE IMMERSIVE, pleine largeur, sans marge latérale, hauteur 280 pixels.
-   Photographie large de la Lobé vue depuis une pirogue. Par-dessus, centrés,
-   quatre mots séparés par des points médians, en capitales espacées, blancs :
-   MER · FORÊT · CHUTES · PIROGUE. Aucun bouton, aucun autre texte. C'est une
-   respiration visuelle, pas une section d'information.
+4. IMMERSIVE STRIP, full bleed, no side margin, 280 px tall.
+   Wide photograph of the Lobé river seen from a dugout canoe. On top,
+   centered, four words separated by middle dots, in widely spaced capitals,
+   white: "MER · FORÊT · CHUTES · PIROGUE". No button, no other text. This is
+   a visual breathing space, not an information section.
 
-5. HÉBERGEMENTS, sur fond crème, titre « Où dormir à Kribi ».
-   Une phrase d'introduction : « Dites-nous votre budget, nous trouvons le
-   logement. » Puis trois cartes côte à côte en défilement horizontal :
-   « Chambre — à partir de 15 000 FCFA / nuit », « Studio — à partir de
-   30 000 FCFA / nuit », « Villa — à partir de 150 000 FCFA / nuit », chacune
-   avec une photo d'intérieur chaleureux. Lien « Voir tous les hébergements ».
+5. ACCOMMODATION, on a cream background, title "Où dormir à Kribi".
+   An intro sentence: "Dites-nous votre budget, nous trouvons le logement."
+   Then three cards side by side in a horizontal scroll:
+   "Chambre — à partir de 15 000 FCFA / nuit", "Studio — à partir de
+   30 000 FCFA / nuit", "Villa — à partir de 150 000 FCFA / nuit", each with
+   a photo of a warm interior. Link "Voir tous les hébergements".
 
-6. FORMULES, sur fond terracotta en aplat, texte crème pour contraster avec le
-   reste de la page. Titre « Des séjours déjà composés ». Deux cartes claires
-   posées sur ce fond :
-     - « Package Découverte » — « Chutes, pirogue, campement, musée, guide » —
-       100 000 FCFA / 2 personnes
-     - « Package Aventure » — « Chutes, pirogue, quad, jet-ski, kayak,
-       cheval » — 150 000 FCFA / 2 personnes
-   Lien « Voir les 4 formules ».
+6. PACKAGES, on a solid terracotta background, cream text, to contrast with
+   the rest of the page. Title "Des séjours déjà composés". Two light cards
+   sitting on that background:
+     - "Package Découverte" — "Chutes, pirogue, campement, musée, guide" —
+       "100 000 FCFA / 2 personnes"
+     - "Package Aventure" — "Chutes, pirogue, quad, jet-ski, kayak, cheval" —
+       "150 000 FCFA / 2 personnes"
+   Link "Voir les 4 formules".
 
-7. TKS® — MOBILITÉ. Section volontairement sobre et compacte, hauteur réduite,
-   fond gris très clair, PAS de photographie en fond, PAS le traitement visuel
-   des cartes d'expérience. Une seule ligne horizontale : à gauche le logo
-   TKS® joint (tks-mark.png), noir, environ 20 pixels de haut, au centre
-   « Mobilité & transport » puis « Location, transferts et
-   chauffeur privé pour compléter votre séjour », à droite un lien « Voir ».
-   Cette section ne doit jamais attirer l'œil plus que les expériences.
+7. TKS® — MOBILITY. A deliberately plain and compact section, reduced height,
+   very light grey background, NO background photo, NOT the visual treatment
+   of the experience cards. A single horizontal row: on the left the
+   attached TKS® logo (tks-mark.png), black, about 20 px tall; in the middle
+   "Mobilité & transport" then "Location, transferts et chauffeur privé pour
+   compléter votre séjour"; on the right a link "Voir".
+   This section must never draw more attention than the experiences.
 
-8. À PROPOS, fond crème, titre « Qui sommes-nous ».
-   Une grande photographie de Kribi — un paysage, pas une équipe. À côté ou en
-   dessous, ce texte exact, sans le reformuler :
-   « Nous sommes Kibreeze, une marque dédiée à la découverte et aux expériences
-   à Kribi. Nous voulons vous faire découvrir Kribi autrement, à travers ses
-   paysages, ses activités, ses excursions et des expériences adaptées à vos
-   envies. »
-   Lien « En savoir plus ».
+8. ABOUT, cream background, title "Qui sommes-nous".
+   A large photograph of Kribi — a landscape, not a team. Next to it or
+   below it, this exact text, without rephrasing it:
+   "Nous sommes Kibreeze, une marque dédiée à la découverte et aux
+   expériences à Kribi. Nous voulons vous faire découvrir Kribi autrement, à
+   travers ses paysages, ses activités, ses excursions et des expériences
+   adaptées à vos envies."
+   Link "En savoir plus".
 
-9. BLOC DE CONVERSION, fond rouge de marque en aplat, texte crème.
-   Titre « Un séjour sur mesure ? », une phrase, et un bouton vert WhatsApp
-   « Contacter Kibreeze sur WhatsApp ».
+9. CONVERSION BLOCK, solid brand-red background, cream text.
+   Title "Un séjour sur mesure ?", one sentence, and a green WhatsApp button
+   "Contacter Kibreeze sur WhatsApp".
 
-10. PIED DE PAGE, fond gris très sombre, texte crème.
-    Le logo complet Kibreeze en version crème, joint (kibreeze-creme.png),
-    symbole au-dessus du nom, environ 72 pixels de haut ; jamais la version
-    rouge sur ce fond. Puis la signature manuscrite, puis trois colonnes de
-    liens :
-    Expériences / Hébergements / Formules, puis Mobilité TKS® / À propos /
-    Contact. En dessous « Kribi, Cameroun », les icônes de réseaux sociaux, et
-    une ligne fine et discrète : « Kibreeze est une marque de Breezy Groupe,
-    avec TKS®, iBreezy et Breezy Delivery. »
+10. FOOTER, very dark grey background, cream text.
+    The attached full Kibreeze logo in cream (kibreeze-creme.png), symbol
+    above the name, about 72 px tall; never the red version on this
+    background. Then the handwritten tagline, then three columns of links:
+    "Expériences" / "Hébergements" / "Formules", then "Mobilité TKS®" /
+    "À propos" / "Contact". Below: "Kribi, Cameroun", the social media icons,
+    and a thin, discreet line: "Kibreeze est une marque de Breezy Groupe,
+    avec TKS®, iBreezy et Breezy Delivery."
 
-11. Bouton WhatsApp flottant vert en bas à droite, au-dessus de la barre à
-    onglets, sans la toucher. Barre à onglets avec « Accueil » actif et la
-    pastille de Mon séjour à 0.
+11. Green floating WhatsApp button at the bottom right, above the tab bar,
+    not touching it. Tab bar with "Accueil" active and the "Mon séjour" badge
+    at 0.
 
-Ajoute la mention « tarifs indicatifs » en petit dans un coin.
+Add the note "tarifs indicatifs" in small type in one corner.
 ```
 
 ---
@@ -236,45 +254,46 @@ Ajoute la mention « tarifs indicatifs » en petit dans un coin.
 ## Écran 2 — Expériences
 
 ```text
-ÉCRAN 2 — CATALOGUE « EXPÉRIENCES ».
+SCREEN 2 — "EXPÉRIENCES" CATALOG.
 
-1. Bandeau court, 220 pixels de haut : photographie des chutes de la Lobé,
-   voile sombre, titre « Expériences » et la phrase « Vivez Kribi autrement ».
+1. Short banner, 220 px tall: photograph of the Lobé waterfalls, dark
+   overlay, title "Expériences" and the sentence "Vivez Kribi autrement".
 
-2. Onglets de catégories en défilement horizontal, collants sous la barre du
-   haut quand on fait défiler : « Toutes » (actif), « Nature & Découverte »,
-   « Aventure », « Détente ». L'onglet actif est souligné d'un trait rouge
-   épais, pas d'une pilule colorée.
+2. Category tabs in a horizontal scroll, sticking under the top bar while
+   scrolling: "Toutes" (active), "Nature & Découverte", "Aventure",
+   "Détente". The active tab is underlined with a thick red line, not shown
+   as a colored pill.
 
-3. Grille d'expériences, une colonne sur mobile, cartes à photo dominante :
-   l'image occupe environ 60 % de la hauteur de la carte, cadrée serré.
-   Sous la photo : le nom en gras, une ligne de description, le prix, et un
-   bouton « Voir les détails » discret en contour.
-   Les douze cartes, dans cet ordre, avec ces prix exacts :
-     - Chutes de la Lobé — 5 000 FCFA / personne
-     - Excursion en pirogue — 35 000 FCFA / groupe — badge turquoise
-       « 8 personnes max »
-     - Excursion en chaloupe — 65 000 FCFA / groupe — badge « 8 personnes max »
-     - Campement Bagyeli — À partir de 7 500 FCFA / personne
-     - Jacuzzi naturel — 5 000 FCFA / personne
-     - Croisière en bateau — 25 000 FCFA / personne
-     - Feu de plage — 50 000 FCFA / groupe
-     - Quad — 10 000 FCFA / session
-     - Kayak — 10 000 FCFA / personne
-     - Paddle — 10 000 FCFA / personne
-     - Balade à cheval — 5 000 FCFA / personne
-     - Bateau de plaisance — badge « Sur devis », sans montant
-   Mets un badge « Disponibilité à confirmer » sur une seule carte, celle du
-   bateau de plaisance.
+3. Experience grid, one column on mobile, photo-led cards: the image takes
+   about 60% of the card height, tightly framed.
+   Below the photo: the name in bold, a one-line description, the price, and
+   a discreet outline button "Voir les détails".
+   The twelve cards, in this order, with these exact prices:
+     - "Chutes de la Lobé" — "5 000 FCFA / personne"
+     - "Excursion en pirogue" — "35 000 FCFA / groupe" — teal badge
+       "8 personnes max"
+     - "Excursion en chaloupe" — "65 000 FCFA / groupe" — badge
+       "8 personnes max"
+     - "Campement Bagyeli" — "À partir de 7 500 FCFA / personne"
+     - "Jacuzzi naturel" — "5 000 FCFA / personne"
+     - "Croisière en bateau" — "25 000 FCFA / personne"
+     - "Feu de plage" — "50 000 FCFA / groupe"
+     - "Quad" — "10 000 FCFA / session"
+     - "Kayak" — "10 000 FCFA / personne"
+     - "Paddle" — "10 000 FCFA / personne"
+     - "Balade à cheval" — "5 000 FCFA / personne"
+     - "Bateau de plaisance" — "Sur devis" badge, no amount
+   Put a "Disponibilité à confirmer" badge on one card only: the
+   "Bateau de plaisance" card.
 
-4. En bas, un bloc « Une envie particulière ? » avec un bouton vert
-   « Contacter Kibreeze sur WhatsApp ».
+4. At the bottom, a block "Une envie particulière ?" with a green button
+   "Contacter Kibreeze sur WhatsApp".
 
-5. Bouton WhatsApp flottant, barre à onglets avec « Expériences » actif.
+5. Floating WhatsApp button, tab bar with "Expériences" active.
 
-Génère ensuite, dans la même conversation, la variante où l'onglet
-« Aventure » est actif et où seules quatre cartes restent visibles : Quad,
-Kayak, Paddle, Balade à cheval.
+Then, in the same conversation, generate the variant where the "Aventure"
+tab is active and only four cards remain visible: "Quad", "Kayak", "Paddle",
+"Balade à cheval".
 ```
 
 ---
@@ -282,62 +301,60 @@ Kayak, Paddle, Balade à cheval.
 ## Écran 3 — Fiche d'une expérience
 
 ```text
-ÉCRAN 3 — FICHE « EXCURSION EN PIROGUE ».
+SCREEN 3 — DETAIL PAGE "EXCURSION EN PIROGUE".
 
-1. Fil d'Ariane discret : Expériences › Nature & Découverte › Excursion en
-   pirogue.
+1. Discreet breadcrumb: "Expériences › Nature & Découverte › Excursion en
+   pirogue".
 
-2. Galerie : une grande photographie de 280 pixels de haut montrant une pirogue
-   colorée sur la Lobé bordée de végétation dense, avec un compteur « 1 / 4 »
-   en surimpression dans le coin bas droit. Sous elle, trois miniatures
-   carrées de 72 pixels alignées à gauche.
+2. Gallery: one large photograph, 280 px tall, showing a colorful dugout
+   canoe on the Lobé river lined with dense vegetation, with a "1 / 4"
+   counter overlaid in the bottom right corner. Below it, three square
+   72 px thumbnails, left-aligned.
 
-3. Titre « Excursion en pirogue » en gras, avec sous lui un petit badge
-   turquoise « Nature & Découverte ».
+3. Title "Excursion en pirogue" in bold, with a small teal badge
+   "Nature & Découverte" below it.
 
-4. Bloc de prix, visuellement fort : « 35 000 FCFA » en très grand rouge de
-   marque, suivi de « / groupe » en plus petit gris, puis en dessous
-   « ≈ 53 € — montant indicatif » en gris clair, puis en petit
-   « Prix indicatif, sous réserve de disponibilité et de confirmation par
-   Kibreeze. » Enfin, sur sa propre ligne, un badge turquoise
-   « Jusqu'à 8 personnes — au-delà, sur devis ».
+4. Price block, visually strong: "35 000 FCFA" very large in brand red,
+   followed by "/ groupe" smaller in grey, then below "≈ 53 € — montant
+   indicatif" in light grey, then in small type "Prix indicatif, sous
+   réserve de disponibilité et de confirmation par Kibreeze." Finally, on
+   its own line, a teal badge "Jusqu'à 8 personnes — au-delà, sur devis".
 
-5. Ligne d'informations à trois colonnes, séparées par de fines lignes
-   verticales, chacune avec une icône fine au-dessus : « 2 à 3 heures » /
-   « 1 à 8 personnes » / « Embouchure de la Lobé ».
+5. A three-column info row, separated by thin vertical rules, each with a
+   thin icon above: "2 à 3 heures" / "1 à 8 personnes" /
+   "Embouchure de la Lobé".
 
-6. Description, deux paragraphes courts de trois lignes maximum chacun.
+6. Description: two short paragraphs, three lines maximum each, in French.
 
-7. Deux listes empilées, pas côte à côte, pour rester lisibles sur mobile :
-   « Ce qui est inclus » avec des coches vertes — pirogue et équipement de
-   sécurité, piroguier local, gilets de sauvetage, rafraîchissements — puis
-   « Ce qui n'est pas inclus » avec des croix grises — pourboires, dépenses
-   personnelles, transport jusqu'au point d'embarquement.
+7. Two stacked lists, not side by side, to stay readable on mobile:
+   "Ce qui est inclus" with green check marks — "Pirogue et équipement de
+   sécurité", "Piroguier local", "Gilets de sauvetage", "Rafraîchissements" —
+   then "Ce qui n'est pas inclus" with grey crosses — "Pourboires",
+   "Dépenses personnelles", "Transport jusqu'au point d'embarquement".
 
-8. AJOUTS FACULTATIFS, encadré sur fond crème plus soutenu, titre « Complétez
-   votre expérience ». Trois cases à cocher, décochées par défaut, chacune avec
-   son prix à droite :
-     - Guide touristique — 5 000 FCFA
-     - Maître-nageur — 5 000 FCFA
-     - Musée d'art — 1 500 FCFA / personne
-   Ces options ne sont pas des cartes, ce sont des lignes avec case à cocher.
+8. OPTIONAL ADD-ONS, a box on a deeper cream background, title "Complétez
+   votre expérience". Three checkboxes, unchecked by default, each with its
+   price on the right:
+     - "Guide touristique" — "5 000 FCFA"
+     - "Maître-nageur" — "5 000 FCFA"
+     - "Musée d'art" — "1 500 FCFA / personne"
+   These options are not cards: they are rows with a checkbox.
 
-9. Sélecteur de quantité : libellé « Nombre de personnes », un bouton moins
-   carré, la valeur 2 au centre, un bouton plus carré. Tous deux d'au moins
-   44 pixels.
+9. Quantity selector: label "Nombre de personnes", a square minus button,
+   the value 2 in the middle, a square plus button. Both buttons at least
+   44 px.
 
-10. Bande « Vous aimerez aussi » : trois cartes horizontales compactes —
-    Chutes de la Lobé 5 000 FCFA, Jacuzzi naturel 5 000 FCFA, Croisière
-    25 000 FCFA.
+10. "Vous aimerez aussi" strip: three compact horizontal cards —
+    "Chutes de la Lobé" "5 000 FCFA", "Jacuzzi naturel" "5 000 FCFA",
+    "Croisière" "25 000 FCFA".
 
-11. BARRE FIXE EN BAS, juste au-dessus de la barre à onglets, fond crème avec
-    une fine bordure supérieure : à gauche « Total » en petit gris et
-    « 35 000 FCFA » en gras au-dessus de « ≈ 53 € », à droite un bouton rouge
-    « Ajouter à mon séjour ». Sous le bouton, un lien discret souligné
-    « Demander ce service ».
-    PAS de bouton WhatsApp flottant sur cet écran : la barre fixe le remplace.
+11. STICKY BOTTOM BAR, right above the tab bar, cream background with a thin
+    top border: on the left "Total" in small grey and "35 000 FCFA" in bold
+    above "≈ 53 €"; on the right a red button "Ajouter à mon séjour". Below
+    the button, a discreet underlined link "Demander ce service".
+    NO floating WhatsApp button on this screen: the sticky bar replaces it.
 
-12. Barre à onglets avec « Expériences » actif.
+12. Tab bar with "Expériences" active.
 ```
 
 ---
@@ -345,51 +362,48 @@ Kayak, Paddle, Balade à cheval.
 ## Écran 4 — Mon séjour, état plein
 
 ```text
-ÉCRAN 4 — « MON SÉJOUR », PANIER REMPLI.
+SCREEN 4 — "MON SÉJOUR", FILLED CART.
 
-1. Titre « Mon séjour » en grand, sous-titre gris « 5 prestations
-   sélectionnées », et à droite un lien discret « Vider ».
+1. Large title "Mon séjour", grey subtitle "5 prestations sélectionnées",
+   and on the right a discreet link "Vider".
 
-2. Deux champs côte à côte, VIDES, avec leur libellé au-dessus et un texte
-   d'invite gris à l'intérieur : « Dates du séjour » / « Sélectionner » et
-   « Voyageurs » / « Combien ? ». Sous eux, une ligne turquoise discrète avec
-   une petite icône d'information : « Ajoute tes dates pour une réponse plus
-   rapide ». Ce rappel n'a de sens que parce que les champs sont vides : ne
-   les pré-remplis pas.
+2. Two fields side by side, EMPTY, each with its label above and grey
+   placeholder text inside: "Dates du séjour" / "Sélectionner" and
+   "Voyageurs" / "Combien ?". Below them, a discreet teal line with a small
+   info icon: "Ajoute tes dates pour une réponse plus rapide". This reminder
+   only makes sense because the fields are empty: do not pre-fill them.
 
-3. Liste des lignes sélectionnées. Chaque ligne est une carte horizontale de
-   96 pixels de haut : vignette photo carrée à gauche, au centre le nom en
-   gras puis la quantité en gris, à droite le prix en rouge et une petite
-   icône de corbeille en haut à droite. Sous le nom, un sélecteur de quantité
-   compact quand la ligne en accepte un.
-     - Excursion en pirogue — 1 groupe — 35 000 FCFA — avec sélecteur
-     - Chutes de la Lobé — 2 personnes — 10 000 FCFA — avec sélecteur
-     - Campement Bagyeli — tarif couple — 20 000 FCFA — avec sélecteur
-     - Hébergement, Chambre — 3 nuits — À partir de 45 000 FCFA — avec
-       sélecteur
-     - TKS® — Transfert Douala → Kribi — badge « Sur devis », aucun montant,
-       AUCUN sélecteur de quantité, seule la corbeille apparaît sur cette
-       ligne
-   La ligne TKS porte le logo TKS® joint (tks-mark.png), noir, environ 14
-   pixels de haut, juste avant le nom, pour montrer qu'elle vient d'une autre
-   marque.
+3. List of selected items. Each item is a horizontal card 96 px tall: a
+   square photo thumbnail on the left, in the middle the name in bold then
+   the quantity in grey, on the right the price in red and a small trash
+   icon in the top right corner. Below the name, a compact quantity selector
+   when the item accepts one.
+     - "Excursion en pirogue" — "1 groupe" — "35 000 FCFA" — with selector
+     - "Chutes de la Lobé" — "2 personnes" — "10 000 FCFA" — with selector
+     - "Campement Bagyeli" — "tarif couple" — "20 000 FCFA" — with selector
+     - "Hébergement, Chambre" — "3 nuits" — "À partir de 45 000 FCFA" —
+       with selector
+     - "TKS® — Transfert Douala → Kribi" — "Sur devis" badge, no amount,
+       NO quantity selector, only the trash icon on this item
+   The TKS item shows the attached TKS® logo (tks-mark.png), black, about
+   14 px tall, right before the name, to show it comes from another brand.
 
-4. Encadré de total, fond crème soutenu, bordure fine :
-   « Total estimatif » à gauche, « 110 000 FCFA » à droite en très grand
-   rouge, et sous le montant « ≈ 167 € — montant indicatif ».
-   En dessous, une ligne turquoise « + 1 prestation sur devis ».
-   Puis en petit gris : « Prix indicatif, sous réserve de disponibilité et de
-   confirmation par Kibreeze. »
+4. Total box, deeper cream background, thin border:
+   "Total estimatif" on the left, "110 000 FCFA" on the right, very large
+   and red, and under the amount "≈ 167 € — montant indicatif".
+   Below, a teal line "+ 1 prestation sur devis".
+   Then in small grey: "Prix indicatif, sous réserve de disponibilité et de
+   confirmation par Kibreeze."
 
-5. BARRE FIXE EN BAS, au-dessus de la barre à onglets : un bouton vert pleine
-   largeur « Demander un devis par WhatsApp », et sous lui un lien discret
-   « Continuer mes recherches ».
-   PAS de bouton WhatsApp flottant sur cet écran.
+5. STICKY BOTTOM BAR, above the tab bar: a full-width green button
+   "Demander un devis par WhatsApp", and below it a discreet link
+   "Continuer mes recherches".
+   NO floating WhatsApp button on this screen.
 
-6. Barre à onglets avec « Mon séjour » actif et la pastille à 5.
+6. Tab bar with "Mon séjour" active and its badge at 5.
 
-Cet écran montre le cœur du produit : on mélange dans un même séjour des
-expériences, un hébergement et une prestation de mobilité TKS®.
+This screen shows the heart of the product: a single trip mixes
+experiences, accommodation and a TKS® mobility service.
 ```
 
 ---
@@ -397,26 +411,26 @@ expériences, un hébergement et une prestation de mobilité TKS®.
 ## Écran 5 — Mon séjour, états vide et sur devis
 
 ```text
-ÉCRAN 5 — DEUX VARIANTES DE « MON SÉJOUR ».
+SCREEN 5 — TWO VARIANTS OF "MON SÉJOUR".
 
-VARIANTE A, séjour vide :
-Titre « Mon séjour ». Au centre de l'écran, une belle photographie carrée de
-Kribi aux angles francs — une plage au soleil couchant, pas une illustration
-abstraite ni un pictogramme. Sous elle, le titre « Votre séjour est vide »,
-une phrase « Ajoutez des expériences pour composer votre séjour à Kribi », et
-un bouton rouge « Découvrir les expériences ». Aucune liste, aucun total,
-aucune barre fixe en bas. Le bouton WhatsApp flottant est présent, puisqu'il
-n'y a pas de barre fixe. Pastille de la barre à onglets à 0.
+VARIANT A, empty cart:
+Title "Mon séjour". In the middle of the screen, a beautiful square
+photograph of Kribi with sharp corners — a beach at sunset, not an abstract
+illustration or an icon. Below it, the heading "Votre séjour est vide", the
+sentence "Ajoutez des expériences pour composer votre séjour à Kribi", and a
+red button "Découvrir les expériences". No list, no total, no sticky bar at
+the bottom. The floating WhatsApp button is present, since there is no
+sticky bar. Tab bar badge at 0.
 
-VARIANTE B, uniquement des prestations sur devis :
-Même structure que l'écran 4, mais deux lignes seulement, portant chacune le
-badge « Sur devis », sans montant et sans sélecteur de quantité :
-  - Bateau de plaisance — Sur devis
-  - TKS® — Transfert Douala → Kribi — Sur devis
-À la place de l'encadré de total, un encadré plus sobre avec la seule mention
-« Total : sur devis (2 prestations) », sans montant en euros.
-La barre fixe du bas garde le bouton vert « Demander un devis par WhatsApp ».
-Pastille à 2.
+VARIANT B, quote-only items:
+Same structure as screen 4, but only two items, each carrying the
+"Sur devis" badge, with no amount and no quantity selector:
+  - "Bateau de plaisance" — "Sur devis"
+  - "TKS® — Transfert Douala → Kribi" — "Sur devis"
+Instead of the total box, a plainer box with only the text
+"Total : sur devis (2 prestations)", with no euro amount.
+The sticky bottom bar keeps the green button "Demander un devis par
+WhatsApp". Badge at 2.
 ```
 
 ---
@@ -426,58 +440,58 @@ Pastille à 2.
 C'est l'écran le plus inhabituel du site : on ne vend pas un logement, on vend un budget. Il ne se devine pas, il doit être dessiné.
 
 ```text
-ÉCRAN 6 — HÉBERGEMENTS.
+SCREEN 6 — ACCOMMODATION ("HÉBERGEMENTS").
 
-1. Bandeau court de 200 pixels : photographie d'une terrasse ouverte sur la
-   mer au petit matin, voile sombre, titre « Hébergements » et la phrase
-   « Dites-nous votre budget, nous trouvons le logement ».
+1. Short banner, 200 px tall: photograph of a terrace opening onto the sea in
+   the early morning, dark overlay, title "Hébergements" and the sentence
+   "Dites-nous votre budget, nous trouvons le logement".
 
-2. Encadré d'explication sur fond crème soutenu, avec une fine bordure gauche
-   turquoise de 3 pixels. C'est la clé de compréhension de la page, il doit
-   être impossible à manquer :
-   « Choisissez le type de logement et le budget qui vous conviennent. Nous
+2. Explanation box on a deeper cream background, with a thin 3 px teal left
+   border. It is the key to understanding the page and must be impossible to
+   miss:
+   "Choisissez le type de logement et le budget qui vous conviennent. Nous
    cherchons ensuite la meilleure option disponible chez nos partenaires à
-   Kribi. »
+   Kribi."
 
-3. TROIS BLOCS DE TYPE, empilés, séparés par de larges espaces.
-   Chaque bloc commence par une photographie pleine largeur de 180 pixels —
-   un intérieur chaleureux, lumineux, jamais un hall d'hôtel impersonnel —
-   surmontée d'un petit texte en surimpression « photo d'illustration ».
-   Sous la photo, le nom du type en gras, la capacité en gris, puis les
-   paliers de budget sous forme de lignes cliquables, chacune avec son prix à
-   gauche et un bouton compact « Ajouter » à droite :
+3. FOUR ACCOMMODATION-TYPE BLOCKS, stacked, separated by generous spacing.
+   Each block starts with a full-width 180 px photograph — a warm, bright
+   interior, never an impersonal hotel lobby — with a small overlaid label
+   "photo d'illustration".
+   Below the photo, the type name in bold, the capacity in grey, then the
+   budget tiers as clickable rows, each with its price on the left and a
+   compact "Ajouter" button on the right:
 
-   CHAMBRE — 1 à 2 personnes
-     · À partir de 15 000 FCFA / nuit — ≈ 23 €
+   "CHAMBRE" — "1 à 2 personnes"
+     · "À partir de 15 000 FCFA / nuit" — "≈ 23 €"
 
-   STUDIO — 2 à 3 personnes
-     · À partir de 30 000 FCFA / nuit — ≈ 46 €
+   "STUDIO" — "2 à 3 personnes"
+     · "À partir de 30 000 FCFA / nuit" — "≈ 46 €"
 
-   APPARTEMENT — 2 à 6 personnes
-     · À partir de 35 000 FCFA / nuit — ≈ 53 €
-     · À partir de 50 000 FCFA / nuit — ≈ 76 €
-     · À partir de 100 000 FCFA / nuit — ≈ 152 €
+   "APPARTEMENT" — "2 à 6 personnes"
+     · "À partir de 35 000 FCFA / nuit" — "≈ 53 €"
+     · "À partir de 50 000 FCFA / nuit" — "≈ 76 €"
+     · "À partir de 100 000 FCFA / nuit" — "≈ 152 €"
 
-   VILLA — 6 à 12 personnes
-     · À partir de 150 000 FCFA / nuit — ≈ 228 €
+   "VILLA" — "6 à 12 personnes"
+     · "À partir de 150 000 FCFA / nuit" — "≈ 228 €"
 
-4. SECTION HAUT DE GAMME, nettement séparée par un large espace et un fond
-   différent, plus sombre et sobre. Elle vient APRÈS les paliers standards,
-   jamais avant : un montant élevé en tête de page ferait fuir le visiteur.
-   Titre « Plus grand, plus haut de gamme ? », phrase « Appartements et villas
-   d'exception, jusqu'à 300 000 FCFA la nuit », et un bouton vert
-   « Contacter Kibreeze sur WhatsApp ». Pas de bouton « Ajouter » ici.
+4. HIGH-END SECTION, clearly separated by wide spacing and a different,
+   darker and plainer background. It comes AFTER the standard tiers, never
+   before: a high amount at the top of the page would scare visitors away.
+   Title "Plus grand, plus haut de gamme ?", sentence "Appartements et villas
+   d'exception, jusqu'à 300 000 FCFA la nuit", and a green button
+   "Contacter Kibreeze sur WhatsApp". No "Ajouter" button here.
 
-5. Sous les paliers, en petit gris : « Prix indicatif, sous réserve de
-   disponibilité et de confirmation par Kibreeze. »
+5. Below the tiers, in small grey: "Prix indicatif, sous réserve de
+   disponibilité et de confirmation par Kibreeze."
 
-6. Bouton WhatsApp flottant, barre à onglets avec « Hébergements » actif.
+6. Floating WhatsApp button, tab bar with "Hébergements" active.
 
-Génère ensuite, dans la même conversation, l'état juste après un ajout : une
-bande de confirmation discrète qui glisse depuis le bas, au-dessus de la barre
-à onglets, avec le texte « Chambre, 15 000 FCFA / nuit — ajoutée à votre
-séjour » et un lien « Voir mon séjour ». Elle ne vole pas le focus et
-disparaît seule.
+Then, in the same conversation, generate the state right after an item is
+added: a discreet confirmation strip sliding up from the bottom, above the
+tab bar, with the text "Chambre, 15 000 FCFA / nuit — ajoutée à votre
+séjour" and a link "Voir mon séjour". It does not steal focus and disappears
+on its own.
 ```
 
 ---
@@ -485,48 +499,48 @@ disparaît seule.
 ## Écran 7 — Formules
 
 ```text
-ÉCRAN 7 — FORMULES.
+SCREEN 7 — PACKAGES ("FORMULES").
 
-1. Bandeau court de 200 pixels : photographie d'une plage au lever du jour,
-   titre « Formules » et la phrase « Des séjours déjà composés, ajustables
-   avec nous ».
+1. Short banner, 200 px tall: photograph of a beach at sunrise, title
+   "Formules" and the sentence "Des séjours déjà composés, ajustables avec
+   nous".
 
-2. Une ligne d'information sous le bandeau, centrée, en gris :
-   « Tous nos forfaits sont calculés sur une base de 2 personnes. »
+2. An info line below the banner, centered, in grey:
+   "Tous nos forfaits sont calculés sur une base de 2 personnes."
 
-3. QUATRE CARTES VERTICALES, empilées, séparées par 24 pixels.
-   Chaque carte : photographie pleine largeur de 160 pixels en haut, puis le
-   nom du package en gras, puis la liste de ce qu'il contient sous forme de
-   lignes courtes précédées d'une petite coche rouge, puis une fine ligne de
-   séparation, puis le prix en grand rouge avec « / 2 personnes » en petit
-   juste après, l'équivalent en euros en dessous, et enfin un bouton rouge
-   pleine largeur « Ajouter à mon séjour ».
+3. FOUR VERTICAL CARDS, stacked, 24 px apart.
+   Each card: a full-width 160 px photograph at the top, then the package
+   name in bold, then the list of what it includes as short lines preceded
+   by a small red check mark, then a thin divider, then the price large in
+   red with "/ 2 personnes" small right after it, the euro equivalent below,
+   and finally a full-width red button "Ajouter à mon séjour".
 
-   PACKAGE DÉCOUVERTE — 100 000 FCFA / 2 personnes — ≈ 152 €
-     Chutes de la Lobé · Excursion en pirogue · Campement Bagyeli ·
-     Musée d'art · Guide touristique
+   "PACKAGE DÉCOUVERTE" — "100 000 FCFA / 2 personnes" — "≈ 152 €"
+     "Chutes de la Lobé" · "Excursion en pirogue" · "Campement Bagyeli" ·
+     "Musée d'art" · "Guide touristique"
 
-   PACKAGE ÉVASION — 120 000 FCFA / 2 personnes — ≈ 182 €
-     Chutes de la Lobé · Excursion en pirogue · Kayak · Balade à cheval ·
-     Jacuzzi naturel
+   "PACKAGE ÉVASION" — "120 000 FCFA / 2 personnes" — "≈ 182 €"
+     "Chutes de la Lobé" · "Excursion en pirogue" · "Kayak" ·
+     "Balade à cheval" · "Jacuzzi naturel"
 
-   PACKAGE AVENTURE — 150 000 FCFA / 2 personnes — ≈ 228 €
-     Chutes de la Lobé · Excursion en pirogue · Quad · Jet-ski · Kayak ·
-     Balade à cheval
+   "PACKAGE AVENTURE" — "150 000 FCFA / 2 personnes" — "≈ 228 €"
+     "Chutes de la Lobé" · "Excursion en pirogue" · "Quad" · "Jet-ski" ·
+     "Kayak" · "Balade à cheval"
 
-   PACKAGE PREMIUM — 300 000 FCFA / 2 personnes — ≈ 456 €
-     Chutes de la Lobé · Excursion en chaloupe · Bateau de plaisance · Quad ·
-     Jet-ski · Kayak · Balade à cheval · Jacuzzi naturel
+   "PACKAGE PREMIUM" — "300 000 FCFA / 2 personnes" — "≈ 456 €"
+     "Chutes de la Lobé" · "Excursion en chaloupe" · "Bateau de plaisance" ·
+     "Quad" · "Jet-ski" · "Kayak" · "Balade à cheval" · "Jacuzzi naturel"
 
-   Distingue visuellement le Premium : une fine bordure rouge et un petit
-   badge « Le plus complet » en haut de la carte. Pas de couleur de fond
-   différente, pas d'effet doré.
+   Make the Premium card visually distinct: a thin red border and a small
+   "Le plus complet" badge at the top of the card. No different background
+   color, no gold effect.
 
-4. En bas, un encadré sur fond crème soutenu : « Groupes jusqu'à 8 personnes
-   sur demande » et « Chaque formule est ajustable : dites-nous ce que vous
-   voulez changer », avec un bouton vert « Contacter Kibreeze sur WhatsApp ».
+4. At the bottom, a box on a deeper cream background: "Groupes jusqu'à
+   8 personnes sur demande" and "Chaque formule est ajustable : dites-nous
+   ce que vous voulez changer", with a green button "Contacter Kibreeze sur
+   WhatsApp".
 
-5. Bouton WhatsApp flottant, barre à onglets avec « Formules » actif.
+5. Floating WhatsApp button, tab bar with "Formules" active.
 ```
 
 ---
@@ -536,41 +550,41 @@ disparaît seule.
 Écran délibérément sobre. S'il est aussi beau que les expériences, il est raté : il doit se lire comme une annexe utile.
 
 ```text
-ÉCRAN 8 — TKS® — MOBILITÉ.
+SCREEN 8 — TKS® — MOBILITY.
 
-Cet écran doit être visiblement plus sobre que le reste du site. Pas de
-photographie plein écran, pas de grandes cartes illustrées, pas de bandeau
-immersif. C'est une rubrique utilitaire qui complète un séjour, pas une
-vitrine d'expériences.
+This screen must look visibly plainer than the rest of the site. No
+full-screen photograph, no large illustrated cards, no immersive banner. It
+is a utility section that completes a trip, not a showcase of experiences.
 
-1. Bandeau court et bas, 130 pixels seulement, fond gris très clair sans
-   photographie. À gauche le logo TKS® joint (tks-mark.png), noir, environ
-   22 pixels de haut, jamais plus grand que le logo Kibreeze de la barre du
-   haut. À droite le titre « Mobilité &
-   transport » et la phrase « Location, transferts et chauffeur privé pour
-   compléter votre séjour ».
+1. Short, low banner, only 130 px tall, very light grey background, no
+   photograph. On the left the attached TKS® logo (tks-mark.png), black,
+   about 22 px tall, never larger than the Kibreeze logo in the top bar. On
+   the right the title "Mobilité & transport" and the sentence "Location,
+   transferts et chauffeur privé pour compléter votre séjour".
 
-2. Une phrase de rattachement, en gris, sous le bandeau : « TKS® est la marque
-   de mobilité de Breezy Groupe, aux côtés de Kibreeze. »
+2. A brand-affiliation sentence, in grey, below the banner: "TKS® est la
+   marque de mobilité de Breezy Groupe, aux côtés de Kibreeze."
 
-3. LISTE COMPACTE de cinq services, en lignes et non en cartes. Chaque ligne
-   fait 72 pixels de haut : une petite vignette carrée de 56 pixels à gauche,
-   le nom en gras au centre avec une ligne de description en gris dessous, et
-   à droite le badge « Sur devis » puis un chevron.
-     - Location de véhicules — « Berlines et 4x4, avec ou sans chauffeur »
-     - Location avec chauffeur — « Un véhicule et son chauffeur à la journée »
-     - Transferts — « Douala, Yaoundé, aéroport »
-     - Chauffeur privé — « À l'heure ou à la journée »
-     - Prestations professionnelles — « Transport d'équipes et d'entreprises »
-   Les cinq portent le badge « Sur devis » : aucun tarif de mobilité n'est
-   disponible. N'invente aucun montant.
+3. COMPACT LIST of five services, as rows, not cards. Each row is 72 px
+   tall: a small 56 px square thumbnail on the left, the name in bold in the
+   middle with a one-line grey description below it, and on the right the
+   "Sur devis" badge then a chevron.
+     - "Location de véhicules" — "Berlines et 4x4, avec ou sans chauffeur"
+     - "Location avec chauffeur" — "Un véhicule et son chauffeur à la
+       journée"
+     - "Transferts" — "Douala, Yaoundé, aéroport"
+     - "Chauffeur privé" — "À l'heure ou à la journée"
+     - "Prestations professionnelles" — "Transport d'équipes et
+       d'entreprises"
+   All five carry the "Sur devis" badge: no mobility prices exist yet. Do
+   not invent any amount.
 
-4. Un encadré sobre : « Besoin d'un transport sur mesure ? Dites-nous vos
-   dates et votre trajet, nous vous répondons avec un prix. » et un bouton
-   vert « Contacter Kibreeze sur WhatsApp ».
+4. A plain box: "Besoin d'un transport sur mesure ? Dites-nous vos dates et
+   votre trajet, nous vous répondons avec un prix." and a green button
+   "Contacter Kibreeze sur WhatsApp".
 
-5. Bouton WhatsApp flottant. Barre à onglets : aucun onglet n'est actif, cette
-   page n'en a pas. Garde la barre telle quelle, sans état actif.
+5. Floating WhatsApp button. Tab bar: no tab is active, this page has none.
+   Keep the bar as is, with no active state.
 ```
 
 ---
@@ -580,26 +594,27 @@ vitrine d'expériences.
 Une fois chaque écran validé en mobile, demander dans la même conversation :
 
 ```text
-Garde exactement le même style, les mêmes contenus et la même hiérarchie, mais
-adapte cet écran à un ordinateur de 1440 × 1024 :
-- la barre à onglets du bas disparaît, remplacée par une navigation complète
-  dans la barre du haut : à gauche le même logo-texte Kibreeze joint, environ
-  28 pixels de haut, puis Expériences, Hébergements, Formules, Mobilité, et à
-  droite le sélecteur FR | EN, une icône « Mon séjour » avec sa pastille, et le
-  bouton WhatsApp ;
-- le contenu est limité à 1 200 pixels de large, centré, avec de larges marges ;
-- les grilles de cartes passent à trois colonnes, les listes d'hébergement à
-  deux ;
-- sur la fiche, la galerie occupe la colonne de gauche et le bloc de prix avec
-  son bouton devient une carte fixe dans la colonne de droite ;
-- sur Mon séjour, le récapitulatif devient un panneau latéral droit qui reste
-  visible pendant le défilement ;
-- le hero de l'accueil garde son voile et son texte aligné à gauche, sans
-  s'étirer démesurément en hauteur.
+Keep exactly the same style, the same content and the same hierarchy, and
+keep all on-screen text in French, but adapt this screen to a 1440 × 1024
+desktop:
+- the bottom tab bar disappears, replaced by a full navigation in the top
+  bar: on the left the same attached Kibreeze wordmark, about 28 px tall,
+  then "Expériences", "Hébergements", "Formules", "Mobilité", and on the
+  right the "FR | EN" switch, a "Mon séjour" icon with its count badge, and
+  the WhatsApp button;
+- content is limited to 1 200 px wide, centered, with wide margins;
+- card grids switch to three columns, accommodation lists to two;
+- on the detail page, the gallery takes the left column and the price block
+  with its button becomes a sticky card in the right column;
+- on "Mon séjour", the summary becomes a right-hand side panel that stays
+  visible while scrolling;
+- the home hero keeps its overlay and its left-aligned text, without
+  stretching excessively in height.
 ```
 
 ## Contrôle avant de montrer à Franck
 
+- Tous les textes de l'interface sont en français, mot pour mot, sauf « Kribi is a feeling ».
 - Le rouge du logo, #8C0120, est bien la couleur de marque, et le vert n'apparaît que sur les boutons WhatsApp.
 - Le logo est le fichier joint, pas une imitation : même tracé, K entaillé, hexagone ouvert avec sa pointe de bulle. Aucun « KIBREEZE » tapé en capitales dans le hero.
 - Logo rouge sur les fonds clairs, crème sur les photos, le pied de page et les fonds rouges. Jamais de dégradé, de relief ni de halo.

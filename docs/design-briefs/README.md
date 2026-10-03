@@ -1,8 +1,8 @@
 # Briefs prêts à téléverser dans un générateur d'interfaces
 
-> **Pour générer : [kibreeze-ecrans-stitch.md](./kibreeze-ecrans-stitch.md)** (depuis le 2026-09-28) — huit prompts détaillés, un par écran, avec les vrais tarifs du guide du 2026-09-26. C'est ce qu'on colle dans Stitch.
+> **Pour générer : [kibreeze-ecrans-stitch.md](./kibreeze-ecrans-stitch.md)** (depuis le 2026-09-28) — huit prompts détaillés, un par écran, avec les vrais tarifs du guide du 2026-09-26. Depuis le 2026-10-03, les consignes sont en anglais et les textes de l'interface en français. C'est ce qu'on colle dans Stitch, avec les logos de [assets/](./assets/) et rien d'autre.
 >
-> **Référence marque et direction artistique : [kibreeze-brief.md](./kibreeze-brief.md)** — le fichier qu'on joint en pièce jointe à chaque conversation Stitch. Les trois briefs de direction ci-dessous décrivent l'ancien site TKS® à trois pôles et sont conservés comme trace : leur direction artistique C a été validée et reprise dans le brief Kibreeze, mais leur hiérarchie de page ne vaut plus.
+> **Référence marque et direction artistique : [kibreeze-brief.md](./kibreeze-brief.md)** — pour nous et pour Franck. Il ne se joint plus à Stitch : ses anciens contenus contredisaient les prompts. Les trois briefs de direction ci-dessous décrivent l'ancien site TKS® à trois pôles et sont conservés comme trace : leur direction artistique C a été validée et reprise dans le brief Kibreeze, mais leur hiérarchie de page ne vaut plus.
 
 Chaque fichier est **autonome** : contexte, contraintes, microcopie, direction, écrans à produire, interdits. C'est ce qu'on téléverse dans le formulaire de l'outil.
 
