@@ -5,19 +5,27 @@ import { DEFAULT_LOCALE, isLocale, LOCALES, type Locale } from './types.ts';
  * alternatifs et du plan du site. Voir contracts/routes.md.
  */
 export type RouteKey =
-  'home' | 'transport' | 'tourism' | 'delivery' | 'stay' | 'contact' | 'notFound';
+  | 'home'
+  | 'experiences'
+  | 'accommodation'
+  | 'packages'
+  | 'mobility'
+  | 'stay'
+  | 'contact'
+  | 'notFound';
 
 export const ROUTES: Record<RouteKey, Record<Locale, string>> = {
   home: { fr: '/', en: '/en/' },
-  transport: { fr: '/transport', en: '/en/transport' },
-  tourism: { fr: '/tourisme', en: '/en/tourism' },
-  delivery: { fr: '/livraison', en: '/en/delivery' },
+  experiences: { fr: '/experiences', en: '/en/experiences' },
+  accommodation: { fr: '/hebergements', en: '/en/accommodation' },
+  packages: { fr: '/formules', en: '/en/packages' },
+  mobility: { fr: '/mobilite', en: '/en/mobility' },
   stay: { fr: '/sejour', en: '/en/my-trip' },
   contact: { fr: '/contact', en: '/en/contact' },
   notFound: { fr: '/404', en: '/en/404' },
 };
 
-/** Routes réellement livrées par la feature 001. Les autres attendent 003 à 006. */
+/** Routes réellement livrées par la feature 001. Les autres attendent 002 à 006. */
 export const IMPLEMENTED_ROUTES: readonly RouteKey[] = ['home', 'notFound'];
 
 function normalize(path: string): string {

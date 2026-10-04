@@ -7,14 +7,15 @@ Les adresses sont un contrat public : elles sont partagées, indexées, et ne ch
 | Clé | Français | Anglais | Livrée par cette feature |
 |---|---|---|---|
 | `home` | `/` | `/en/` | Oui |
-| `transport` | `/transport` | `/en/transport` | Non, feature 003 |
-| `tourism` | `/tourisme` | `/en/tourism` | Non, feature 003 |
-| `delivery` | `/livraison` | `/en/delivery` | Non, feature 003 |
+| `experiences` | `/experiences` | `/en/experiences` | Non, feature 003 |
+| `accommodation` | `/hebergements` | `/en/accommodation` | Non, feature 005 |
+| `packages` | `/formules` | `/en/packages` | Non, feature 005 |
+| `mobility` | `/mobilite` | `/en/mobility` | Non, feature 006 |
 | `stay` | `/sejour` | `/en/my-trip` | Non, feature 004 |
-| `contact` | `/contact` | `/en/contact` | Non, feature 006 |
+| `contact` | `/contact` | `/en/contact` | Non, feature 002 |
 | `notFound` | `/404` | `/en/404` | Oui |
 
-Fiches de service, feature 003 : `/services/<slug>` et `/en/services/<slug>`, le slug étant identique dans les deux langues.
+Fiches d'expérience, feature 003 : `/experiences/<slug>` et `/en/experiences/<slug>`, le slug étant identique dans les deux langues.
 
 Règles :
 

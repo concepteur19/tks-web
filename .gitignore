@@ -30,7 +30,27 @@ Thumbs.db
 npm-debug.log*
 
 # Raw client media: originals stay local or on a shared drive,
-# optimized copies go to src/assets (see docs/content-tracker.md)
+# optimized copies go to src/assets (see docs/content-tracker.md).
+# Franck does not always drop files in incoming/, so the whole Elements
+# tree is ignored by extension, not just that one folder. The PDF brief
+# and the voice notes stay tracked: they are small and are the record of
+# what the client actually asked for.
+Elements/**/*.jpg
+Elements/**/*.JPG
+Elements/**/*.jpeg
+Elements/**/*.JPEG
+Elements/**/*.png
+Elements/**/*.PNG
+Elements/**/*.heic
+Elements/**/*.HEIC
+Elements/**/*.webp
+Elements/**/*.mp4
+Elements/**/*.MP4
+Elements/**/*.mov
+Elements/**/*.MOV
+Elements/**/*.svg
+Elements/**/*.ai
+
 Elements/incoming/**/*.jpg
 Elements/incoming/**/*.JPG
 Elements/incoming/**/*.jpeg

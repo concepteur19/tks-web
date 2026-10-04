@@ -2,10 +2,10 @@ import type { DictionaryShape } from './types.ts';
 
 /** Dictionnaire de référence. `en.ts` doit le couvrir entièrement. */
 export const fr = {
-  'site.name': 'TKS®',
+  'site.name': 'Kibreeze',
   'site.tagline': 'Kribi is a feeling',
   'site.description':
-    'TKS® vous accompagne à Kribi : transport, tourisme et livraison, avec un seul interlocuteur.',
+    'Kibreeze : des expériences, des excursions et des séjours pensés pour vous faire vivre Kribi autrement.',
 
   'nav.label': 'Navigation principale',
   'nav.skipToContent': 'Aller au contenu',
@@ -15,12 +15,14 @@ export const fr = {
   'language.en': 'English',
 
   'home.title': 'Découvrez Kribi autrement',
-  'home.subtitle': 'Transport • Tourisme • Livraison',
+  'home.subtitle':
+    'Des expériences, des excursions et des séjours pensés pour vous faire vivre Kribi autrement.',
   'home.intro':
     'Le site est en cours de construction. Les services, les tarifs et la composition de votre séjour arrivent très bientôt.',
 
-  'whatsapp.label': 'Contacter TKS sur WhatsApp',
-  'whatsapp.genericMessage': 'Bonjour TKS, je souhaite des informations sur vos services.',
+  'whatsapp.label': 'Contacter Kibreeze sur WhatsApp',
+  'whatsapp.genericMessage':
+    'Bonjour Kibreeze, je souhaite des informations sur vos expériences à Kribi.',
 
   'notFound.title': 'Page introuvable',
   'notFound.text': "Cette page n'existe pas ou a été déplacée.",

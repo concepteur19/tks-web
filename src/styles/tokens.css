@@ -1,12 +1,13 @@
-/* Design tokens TKS — voir docs/design-system.md
+/* Design tokens Kibreeze — voir docs/design-system.md
    Les valeurs marquées [PLACEHOLDER] seront remplacées par celles de la
    direction C « Soleil et vie locale », une fois la maquette affinée.
    Règle : aucune valeur brute dans les composants, tout passe par un token. */
 
 @theme {
   /* Couleurs sémantiques, jamais des noms de teintes */
-  --color-brand: #a8431f; /* [PLACEHOLDER] terracotta, direction C — 5.8:1 sur le fond crème */
+  --color-brand: #8c0120; /* rouge du logo officiel à plat, identique à src/assets/brand/ — 9.4:1 sur le fond crème */
   --color-brand-contrast: #fffaf3;
+  --color-brand-warm: #a8431f; /* terracotta de la direction C, rétrogradé en accent chaud secondaire — 5.8:1 sur le crème */
   --color-accent: #186962; /* [PLACEHOLDER] turquoise profond, direction C — 6.2:1 sur le fond crème */
   --color-whatsapp: #25d366; /* vert WhatsApp, valeur imposée par la marque */
   --color-whatsapp-contrast: #ffffff;
@@ -20,15 +21,41 @@
   --color-danger: #b91c1c;
   --color-info: #1d4ed8;
 
-  /* Typographie [PLACEHOLDER] : pile système tant que la police n'est pas choisie */
-  --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-script: 'Brush Script MT', cursive;
+  /* Typographie : écrans validés le 2026-10-04, voir src/styles/fonts.css */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-script: 'Caveat', cursive; /* uniquement « Kribi is a feeling » */
 
-  /* Rayons */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-card: 0.75rem;
+  /* Échelle de texte relevée sur les écrans validés : titre d'accueil mobile 36 px (4xl),
+     titres de section 28 à 30 px (3xl), corps 15 à 16 px (base), mentions 12 à 13 px (xs, sm) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* Espacement : grille de 4 px, Tailwind en dérive p-1 à p-96 */
+  --spacing: 0.25rem;
+
+  /* Points de rupture : mobile d'abord, ordinateur à partir de lg */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+
+  /* Rayons : angles francs, 4 px au plus (brief Stitch). Le cercle ne sert qu'au
+     bouton WhatsApp flottant et aux pastilles de compteur. */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-card: 0.25rem;
   --radius-pill: 9999px;
 
   /* Ombres */
@@ -42,8 +69,13 @@
   --duration-slow: 320ms;
 }
 
-/* z-index nommés, hors @theme */
+/* z-index nommés, hors @theme
+   Empilement bas d'écran mobile, du contenu vers le viewport :
+   z-tabbar / z-sticky-cta (adjacentes, jamais superposées entre elles)
+   < z-fab (bouton WhatsApp, toujours au-dessus) < z-nav < z-drawer < z-toast */
 :root {
+  --z-tabbar: 20;
+  --z-sticky-cta: 20;
   --z-fab: 30;
   --z-nav: 40;
   --z-drawer: 50;

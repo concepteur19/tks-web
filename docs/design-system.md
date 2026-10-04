@@ -4,7 +4,7 @@
 
 ## 1. Positionnement
 
-Le design final sera produit dans **Figma** : le développeur génère plusieurs propositions responsives avec les outils d'IA de Figma (abonnement premium), les soumet au client, puis affine la direction retenue. Les réponses du bloc G du questionnaire client alimentent ces générations (logo, charte, références, ambiance). Ce document ne définit pas l'apparence du site ; il définit **la structure qui recevra le design** : tokens, composants, variantes, états, accessibilité. Les valeurs indiquées sont des placeholders issus du croquis, toutes marquées `[PLACEHOLDER]`, et seront remplacées par les valeurs Figma.
+Le design final sera produit à partir de maquettes générées par IA, puis affinées : le développeur génère plusieurs propositions responsives, les soumet au client, puis affine la direction retenue. **Depuis le 2026-09-18, la génération se fait dans Google Stitch** (le développeur n'a pas encore de compte Figma premium) ; l'export Stitch est ensuite affiné avec les outils IA disponibles dans Figma. Les réponses du bloc G du questionnaire client alimentent ces générations (logo, charte, références, ambiance). Ce document ne définit pas l'apparence du site ; il définit **la structure qui recevra le design** : tokens, composants, variantes, états, accessibilité. Les valeurs indiquées sont des placeholders issus du croquis, toutes marquées `[PLACEHOLDER]`, et seront remplacées par les valeurs Figma.
 
 Règle : **aucune valeur brute dans les composants**. Toute couleur, taille, espacement, rayon ou durée passe par un token.
 
@@ -18,11 +18,17 @@ Règle : **aucune valeur brute dans les composants**. Toute couleur, taille, esp
 - **Process** : 2 ou 3 propositions Figma distinctes, puis choix d'une direction et affinage. Franck valide seul et veut du temps pour un retour précis. Les prompts de génération sont dans [design-prompts.md](./design-prompts.md).
 - **Langues** : site bilingue FR / EN, sélecteur de langue visible dans la navigation.
 
-### Direction retenue : C « Soleil et vie locale » (choix de Franck, 2026-09-17)
+### Direction retenue : C « Soleil et vie locale » (choix de Franck, 2026-09-17), recalée sur Kibreeze le 2026-09-25
 
-Chaleureuse, colorée, ancrée dans la vie locale : terracotta et orange soleil pour la marque, crème pour les fonds, turquoise en accent secondaire, le vert restant réservé au bouton WhatsApp. Cartes aux angles francs, blocs de couleur pleine, photographies cadrées serré sur les gens et les scènes de vie. Brief complet : [design-briefs/direction-c-soleil-et-vie-locale.md](./design-briefs/direction-c-soleil-et-vie-locale.md).
+Chaleureuse, colorée, ancrée dans la vie locale : crème pour les fonds, turquoise en accent froid, cartes aux angles francs, blocs de couleur pleine, photographies cadrées serré sur les gens et les scènes de vie. Cette direction est **conservée telle quelle** malgré le repositionnement Kibreeze : Franck a explicitement demandé à la garder.
 
-Franck peut encore demander des ajustements sur cette direction. Les valeurs de couleur et de typographie définitives remplaceront les `[PLACEHOLDER]` de la partie 2 une fois la maquette affinée.
+**Une seule valeur change** : la couleur de marque, alignée sur le rouge du logo Kibreeze, **#8C0120**. Le terracotta #A8431F qui servait de couleur de marque en devient l'accent chaud secondaire (`--color-brand-warm`). Ce n'est pas un arbitrage esthétique : une charte ne peut pas diverger du logo qu'elle accompagne, et le rouge du logo contraste mieux sur le crème (9,4:1 contre 5,8:1). Franck a validé l'alignement sur le logo (K4 de [client-answers.md](./client-answers.md)).
+
+Historique de la valeur : #A4021F avait d'abord été prélevé, le 2026-09-25, sur la version brillante du logo, dont les reflets éclaircissent le rouge. Franck a ensuite désigné la version **à plat** comme officielle. Ses fichiers à plat mesurent entre #870220 et #980021 selon l'export ; #8C0120, la valeur médiane, est retenue depuis le 2026-10-02 pour les logos de `src/assets/brand/`, les tokens et les prompts Stitch. Si le graphiste fournit une valeur de référence, elle remplace celle-ci dans ces trois endroits.
+
+Brief actif : [design-briefs/kibreeze-brief.md](./design-briefs/kibreeze-brief.md). L'ancien brief [direction-c-soleil-et-vie-locale.md](./design-briefs/direction-c-soleil-et-vie-locale.md) est périmé, conservé comme trace.
+
+Les typographies restent des `[PLACEHOLDER]` : aucune police n'a encore été choisie.
 
 ## 2. Implémentation des tokens
 
@@ -32,9 +38,11 @@ Tailwind CSS v4 lit les tokens depuis des custom properties CSS déclarées dans
 /* src/styles/tokens.css — extrait */
 @theme {
   /* Couleurs sémantiques, pas des noms de teintes */
-  --color-brand:          #0B2A4A; /* [PLACEHOLDER] marine du croquis */
-  --color-brand-contrast: #FFFFFF;
-  --color-accent:         #25D366; /* [PLACEHOLDER] vert WhatsApp, à distinguer d'un accent de marque */
+  --color-brand:          #8C0120; /* rouge du logo officiel à plat, identique à src/assets/brand/ */
+  --color-brand-contrast: #FFFAF3;
+  --color-brand-warm:     #A8431F; /* terracotta, accent chaud secondaire */
+  --color-accent:         #186962; /* turquoise profond, accent froid */
+  --color-whatsapp:       #25D366; /* vert WhatsApp, valeur imposée par la marque */
   --color-bg:             #FFFFFF;
   --color-bg-muted:       #F4F6F8;
   --color-fg:             #0F172A;
@@ -43,9 +51,9 @@ Tailwind CSS v4 lit les tokens depuis des custom properties CSS déclarées dans
   --color-success / --color-warning / --color-danger / --color-info
 
   /* Typographie */
-  --font-sans:    "Inter", system-ui, sans-serif;      /* [PLACEHOLDER] */
-  --font-display: "Inter", system-ui, sans-serif;      /* [PLACEHOLDER] titres */
-  --font-script:  "Caveat", cursive;                   /* [PLACEHOLDER] signature « Kribi is a feeling » */
+  --font-sans:    "Plus Jakarta Sans", system-ui, sans-serif; /* écrans validés le 2026-10-04, ADR-015 */
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif; /* titres, graisses 700 à 800 */
+  --font-script:  "Caveat", cursive;                          /* uniquement « Kribi is a feeling » */
   --text-xs … --text-5xl (échelle 1.25)
   --leading-tight / --leading-normal / --leading-relaxed
 
@@ -53,7 +61,7 @@ Tailwind CSS v4 lit les tokens depuis des custom properties CSS déclarées dans
   --spacing: 0.25rem;  /* Tailwind v4 dérive 1..96 */
 
   /* Rayons */
-  --radius-sm: 0.375rem; --radius-md: 0.75rem; --radius-card: 1rem; --radius-pill: 9999px;
+  --radius-sm: 0.125rem; --radius-md: 0.25rem; --radius-card: 0.25rem; --radius-pill: 9999px; /* angles francs, 4 px au plus ; cercle réservé au bouton WhatsApp et aux pastilles */
 
   /* Ombres */
   --shadow-card: …; --shadow-drawer: …;
@@ -93,7 +101,8 @@ Procédure « Figma → code » : (1) exporter les variables Figma (plugin Varia
 | Composant | Type | Variantes | États | A11y |
 |---|---|---|---|---|
 | `Button` | Astro + React (partagé via classes) | `primary`, `secondary`, `ghost`, `whatsapp` ; tailles `sm`, `md`, `lg` ; icône optionnelle | default, hover, focus-visible, active, disabled, loading | `<button>` ou `<a>` selon usage, nom accessible, focus visible ≥ 3:1 |
-| `Nav` | Astro | mobile (menu), desktop | ouvert / fermé | `<nav aria-label>`, bouton menu `aria-expanded`, Échap ferme |
+| `TopNav` | Astro | mobile (logo, FR/EN, WhatsApp), desktop (+ liens des trois pôles, À propos, Contact) | — | `<nav aria-label>` |
+| `BottomTabBar` | Astro | mobile uniquement, 5 destinations : Accueil, Transport, Tourisme, Livraison, Séjour | onglet actif, pastille 0 / n sur « Séjour » | `<nav aria-label="Navigation principale">`, `aria-current="page"` sur l'onglet actif, pastille annoncée via texte complet, pas seulement le chiffre |
 | `SelectionBadge` | React | avec / sans compteur | 0 (masqué), n | `aria-label="Mon séjour, 3 prestations"` |
 | `Hero` | Astro | accueil (plein), pôle (bandeau) | — | `h1` unique, image avec `alt` ou décorative |
 | `PoleCard` | Astro | transport, tourisme, livraison | hover, focus | Carte entièrement cliquable via lien étendu |
@@ -109,7 +118,7 @@ Procédure « Figma → code » : (1) exporter les variables Figma (plugin Varia
 | `SelectionDrawer` | React | desktop | ouvert / fermé | `role="dialog"`, `aria-modal`, piège de focus, Échap |
 | `Toast` / `Toaster` | React | success, info, warning ; avec action « Annuler » | visible, disparition | `role="status"`, pas de focus volé |
 | `WhatsAppButton` | Astro | nav, flottant, inline, CTA principal | — | `aria-label="Contacter TKS sur WhatsApp"` |
-| `LanguageSwitcher` | Astro | nav desktop, menu mobile | langue courante | Liens « Français » / « English » avec `lang`, `hreflang` et `aria-current` sur la langue active |
+| `LanguageSwitcher` | Astro | barre du haut, mobile et desktop | langue courante | Liens « Français » / « English » avec `lang`, `hreflang` et `aria-current` sur la langue active |
 | `Section` | Astro | default, muted, brand | — | `<section aria-labelledby>` |
 | `Footer` | Astro | — | — | `<footer>`, liens groupés |
 | `EmptyState` | React | séjour vide | — | — |

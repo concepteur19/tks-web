@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kibreeze - Hébergements (ajout confirmé)</title>
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#FFFAF3',
+              'cream-deep': '#F5ECE1',
+              red: '#8C0120',
+              'red-dark': '#700119',
+              teal: '#186962',
+              whatsapp: '#25D366',
+              dark: '#1C1917',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFFAF3;
+      color: #1C1917;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#FFFAF3] text-[#1C1917] flex justify-center min-h-screen">
+  <!-- Mobile Screen Container (390px) -->
+  <div class="w-full max-w-[390px] min-h-screen bg-[#FFFAF3] relative flex flex-col pb-32 shadow-xl border-x border-[#EADFD0]">
+
+    <!-- 1. Top bar -->
+    <header class="sticky top-0 z-40 bg-[#FFFAF3]/95 backdrop-blur-sm px-4 h-14 flex items-center justify-between border-b border-[#EADFD0]">
+      <!-- Left: Kibreeze wordmark -->
+      <a href="#" class="flex items-center">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVsmV4c3hCmuTC3xM8it8EVnYqF7zJite2lH7XNmhfF1a3KnGyZgS_5NpxhMA35ULLOCBbEbxI91jYmWg12E0kLbD27XM2qwaSGxUX6QR-bJBQTUtd3BRjoSlO1FMdjlRu9wYvCKD-jezo17iV6IRTw0mK8UH04dqcXDQvMnBHtCihGcAZYR6dl5GgwBVv4mUH-aGrsDYMqTklZEEiNWc8s9DVhxFY7XD1jPg-ZoUsnWUFBbmwBMSa9EPVflu7ivk6NWUst4usFZw" alt="Kibreeze" class="h-6 w-auto object-contain">
+      </a>
+      <!-- Right: FR | EN & WhatsApp -->
+      <div class="flex items-center space-x-3">
+        <div class="text-[13px] font-medium tracking-wide">
+          <span class="font-bold text-[#8C0120]">FR</span>
+          <span class="text-neutral-400 font-normal">| EN</span>
+        </div>
+        <a href="https://wa.me/" class="text-[#25D366] hover:opacity-80 transition-opacity flex items-center justify-center p-0.5" aria-label="WhatsApp">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"/>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content: Scrolled directly into CHAMBRE focus -->
+    <main class="flex-1">
+
+      <!-- 2. Explanation box (top of scrolled view) -->
+      <section class="p-4 pb-3">
+        <div class="bg-[#F5ECE1] rounded-[4px] border-l-[3px] border-[#186962] p-3.5 shadow-none">
+          <p class="text-[13px] leading-relaxed text-[#1C1917]/90 font-medium">
+            Choisissez le type de logement et le budget qui vous conviennent. Nous cherchons ensuite la meilleure option disponible chez nos partenaires à Kribi.
+          </p>
+        </div>
+      </section>
+
+      <!-- Accommodation Blocks -->
+      <section class="px-4 space-y-6">
+
+        <!-- Block 1: CHAMBRE (WITH ADDED TIER CONFIRMED) -->
+        <article class="bg-white rounded-[4px] border-2 border-[#186962]/40 shadow-sm overflow-hidden">
+          <!-- Photo with illustration tag -->
+          <div class="relative h-[180px] w-full bg-neutral-100 overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1U5CBaRqZSaL_A4oQ8bE49ohhmIDfhcQcdLcdndrvSIE5nL4FAeyUlgszULgAimjNR_DX5Vw7lNmvwaP9CejbxFHE_y5B8osI5d8I2yQt1zEbfxLkVRnfdd08a9t8UkNNkVxeAvnozhbP6fFA0MsDhDsLpIycJpj7wrxnIjtz7cAuHsJLd1Ef7IRvYu5fuUCrVya2l3qW3idrHyirhn8xIqFD0SdFTqhgZy4kfmtc4BB5iaqGPKJYnQn58" alt="Chambre d'hôte à Kribi" class="w-full h-full object-cover">
+            <span class="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[10px] tracking-wide px-2 py-0.5 rounded-[3px] font-normal uppercase">
+              photo d'illustration
+            </span>
+          </div>
+          <div class="p-4 bg-white">
+            <div class="flex items-baseline justify-between mb-3">
+              <h2 class="text-base font-bold text-[#1C1917] tracking-tight">CHAMBRE</h2>
+              <span class="text-xs text-neutral-500 font-normal">1 à 2 personnes</span>
+            </div>
+
+            <!-- Tiers with "Ajouté" button state -->
+            <div class="divide-y divide-neutral-100">
+              <div class="py-2.5 flex items-center justify-between first:pt-0 last:pb-0 bg-[#F5ECE1]/40 -mx-4 px-4 rounded-[4px]">
+                <div>
+                  <div class="text-sm font-bold text-[#8C0120]">
+                    À partir de 15 000 FCFA <span class="text-xs font-normal text-neutral-500">/ nuit</span>
+                  </div>
+                  <div class="text-[11px] text-neutral-400 font-normal mt-0.5">
+                    ≈ 22,80 €
+                  </div>
+                </div>
+                <!-- Added confirmation button state -->
+                <button type="button" class="min-h-[44px] min-w-[88px] px-3 py-2 text-xs font-semibold text-white bg-[#186962] rounded-[4px] shadow-xs flex items-center justify-center space-x-1 cursor-default">
+                  <span class="material-symbols-outlined text-[16px] text-white">check</span>
+                  <span>Ajouté</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Block 2: STUDIO -->
+        <article class="bg-white rounded-[4px] border border-[#EADFD0] overflow-hidden">
+          <div class="relative h-[180px] w-full bg-neutral-100 overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1WYXInt2lEANBbGz_-_nWPlpaHgODKDIwbeKOfFSxX_Ums5inXJ4F6pTcYEhhHJ5hczPf76UalTTkRoDHSTAhrTngRViBNRHROcZQGNTmvMC1bBNPXiofvkiIqpOQ1rwVWBcMyHNPfmF82i8P17NNqbXT52UOblhRbTm7lyWfLjDd1dJm31kYAbC4MN6ahzA0C4_scQKsIcc1C1BJEh4r0NnPHikp6ohxNZsz9RsFiCGCYr_xSMwJmkbW8" alt="Studio boutique à Kribi" class="w-full h-full object-cover">
+            <span class="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[10px] tracking-wide px-2 py-0.5 rounded-[3px] font-normal uppercase">
+              photo d'illustration
+            </span>
+          </div>
+          <div class="p-4">
+            <div class="flex items-baseline justify-between mb-3">
+              <h2 class="text-base font-bold text-[#1C1917] tracking-tight">STUDIO</h2>
+              <span class="text-xs text-neutral-500 font-normal">2 à 3 personnes</span>
+            </div>
+
+            <div class="divide-y divide-neutral-100">
+              <div class="py-2.5 flex items-center justify-between first:pt-0 last:pb-0">
+                <div>
+                  <div class="text-sm font-bold text-[#8C0120]">
+                    À partir de 30 000 FCFA <span class="text-xs font-normal text-neutral-500">/ nuit</span>
+                  </div>
+                  <div class="text-[11px] text-neutral-400 font-normal mt-0.5">
+                    ≈ 45,60 €
+                  </div>
+                </div>
+                <button type="button" class="min-h-[44px] min-w-[76px] px-3.5 py-2 text-xs font-semibold text-[#8C0120] border border-[#8C0120] rounded-[4px] hover:bg-[#8C0120]/5 transition-colors flex items-center justify-center">
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Block 3: APPARTEMENT -->
+        <article class="bg-white rounded-[4px] border border-[#EADFD0] overflow-hidden">
+          <div class="relative h-[180px] w-full bg-neutral-100 overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuClA_OTBwVARMkjMG3nl78ucXJRjjJgRTl5xix4BbDpac4CsrCfxjvpavkA_ichmHbYkQOYVKfBCiskKYq-d8AQpPho3zdKFVrKDSpp5T4_C7MnI0UbMP257EDVsnCfszi0H0RRSiO9uxH9b8NYZBidpGDb6xTVpJnZbqmAwFOLAyrwk-tYdQYGPGtTlHkdxWDH8Jh4Ai8NHZ9ik0yrU3WJt1uneYp1uAja0YoOS4iaGCXIg5_iYL8Q9YM_vaTnB2nq-JK9XptYoVg" alt="Appartement vue palmiers à Kribi" class="w-full h-full object-cover">
+            <span class="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[10px] tracking-wide px-2 py-0.5 rounded-[3px] font-normal uppercase">
+              photo d'illustration
+            </span>
+          </div>
+          <div class="p-4">
+            <div class="flex items-baseline justify-between mb-2">
+              <h2 class="text-base font-bold text-[#1C1917] tracking-tight">APPARTEMENT</h2>
+              <span class="text-xs text-neutral-500 font-normal">2 à 6 personnes</span>
+            </div>
+
+            <div class="divide-y divide-neutral-100">
+              <div class="py-2.5 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold text-[#8C0120]">
+                    À partir de 35 000 FCFA <span class="text-xs font-normal text-neutral-500">/ nuit</span>
+                  </div>
+                  <div class="text-[11px] text-neutral-400 font-normal mt-0.5">
+                    ≈ 53,20 €
+                  </div>
+                </div>
+                <button type="button" class="min-h-[44px] min-w-[76px] px-3.5 py-2 text-xs font-semibold text-[#8C0120] border border-[#8C0120] rounded-[4px] hover:bg-[#8C0120]/5 transition-colors flex items-center justify-center">
+                  Ajouter
+                </button>
+              </div>
+
+              <div class="py-2.5 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold text-[#8C0120]">
+                    À partir de 50 000 FCFA <span class="text-xs font-normal text-neutral-500">/ nuit</span>
+                  </div>
+                  <div class="text-[11px] text-neutral-400 font-normal mt-0.5">
+                    ≈ 76,00 €
+                  </div>
+                </div>
+                <button type="button" class="min-h-[44px] min-w-[76px] px-3.5 py-2 text-xs font-semibold text-[#8C0120] border border-[#8C0120] rounded-[4px] hover:bg-[#8C0120]/5 transition-colors flex items-center justify-center">
+                  Ajouter
+                </button>
+              </div>
+
+              <div class="py-2.5 flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-bold text-[#8C0120]">
+                    À partir de 100 000 FCFA <span class="text-xs font-normal text-neutral-500">/ nuit</span>
+                  </div>
+                  <div class="text-[11px] text-neutral-400 font-normal mt-0.5">
+                    ≈ 152,00 €
+                  </div>
+                </div>
+                <button type="button" class="min-h-[44px] min-w-[76px] px-3.5 py-2 text-xs font-semibold text-[#8C0120] border border-[#8C0120] rounded-[4px] hover:bg-[#8C0120]/5 transition-colors flex items-center justify-center">
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Block 4: VILLA -->
+        <article class="bg-white rounded-[4px] border border-[#EADFD0] overflow-hidden">
+          <div class="relative h-[180px] w-full bg-neutral-100 overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1UgaX3UNkG6vq1AQzGGKuOYoNv_WHv0c4muj5jqbzbTvA2YEbX8p0R7SN_YamcM62reiFym2A6mwNebv_FZ31W8bqi4_F1Of3kbF0nqkaUpNeCgeN417s7nyWJ6sv119RgqKkIa5EjBVGxej1I35OAH74Q7XwSfAkdUNJyB9YziM7lTXtHNbojrdPgyhH74_AXm5hUloJOVGPzOgOqcfxrCLTsVhQvjwMvweVFOa9PydyawrHWe9L7oSA" alt="Villa privée avec piscine à Kribi" class="w-full h-full object-cover">
+            <span class="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[10px] tracking-wide px-2 py-0.5 rounded-[3px] font-normal uppercase">
+              photo d'illustration
+            </span>
+          </div>
+          <div class="p-4">
+            <div class="flex items-baseline justify-between mb-3">
+              <h2 class="text-base font-bold text-[#1C1917] tracking-tight">VILLA</h2>
+              <span class="text-xs text-neutral-500 font-normal">6 à 12 personnes</span>
+            </div>
+
+            <div class="divide-y divide-neutral-100">
+              <div class="py-2.5 flex items-center justify-between first:pt-0 last:pb-0">
+                <div>
+                  <div class="text-sm font-bold text-[#8C0120]">
+                    À partir de 150 000 FCFA <span class="text-xs font-normal text-neutral-500">/ nuit</span>
+                  </div>
+                  <div class="text-[11px] text-neutral-400 font-normal mt-0.5">
+                    ≈ 228,00 €
+                  </div>
+                </div>
+                <button type="button" class="min-h-[44px] min-w-[76px] px-3.5 py-2 text-xs font-semibold text-[#8C0120] border border-[#8C0120] rounded-[4px] hover:bg-[#8C0120]/5 transition-colors flex items-center justify-center">
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Notice -->
+        <div class="pt-1 pb-2">
+          <p class="text-[11px] text-neutral-400 leading-normal text-center">
+            Prix indicatif, sous réserve de disponibilité et de confirmation par Kibreeze.
+          </p>
+        </div>
+
+      </section>
+
+      <!-- High-end section -->
+      <section class="mt-8 mx-4 p-5 bg-[#1C1917] text-[#FFFAF3] rounded-[4px]">
+        <h2 class="text-lg font-bold tracking-tight text-[#FFFAF3] mb-1.5">
+          Plus grand, plus haut de gamme ?
+        </h2>
+        <p class="text-xs text-[#FFFAF3]/80 leading-relaxed mb-4">
+          Appartements et villas d'exception, jusqu'à 300 000 FCFA la nuit
+        </p>
+        <a href="https://wa.me/" class="min-h-[44px] w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-[13px] px-4 py-2.5 rounded-[4px] flex items-center justify-center space-x-2 transition-colors">
+          <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"/>
+          </svg>
+          <span>Contacter Kibreeze sur WhatsApp</span>
+        </a>
+      </section>
+
+      <div class="h-8"></div>
+    </main>
+
+    <!-- Floating WhatsApp button (MOVED UP to bottom-[132px] so it is clearly above the confirmation strip) -->
+    <aside class="fixed z-50 bottom-[132px] max-w-[390px] w-full pointer-events-none px-4 flex justify-end transition-all">
+      <a href="https://wa.me/" class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] active:scale-95 transition-transform rounded-full flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.18)]" aria-label="Contacter sur WhatsApp">
+        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"/>
+        </svg>
+      </a>
+    </aside>
+
+    <!-- Confirmation strip (sliding right above bottom tab bar, bottom-[60px], #1C1917 bg, cream text, teal check icon) -->
+    <div class="fixed bottom-[60px] z-40 max-w-[390px] w-full bg-[#1C1917] text-[#FFFAF3] px-4 py-3 flex items-center justify-between border-t border-neutral-800 shadow-[0_-4px_16px_rgba(0,0,0,0.25)]">
+      <div class="flex items-center space-x-2.5 min-w-0 pr-2">
+        <span class="material-symbols-outlined text-[#186962] text-[20px] flex-shrink-0">check_circle</span>
+        <p class="text-[12px] font-medium leading-tight text-[#FFFAF3] truncate">
+          Chambre, 15 000 FCFA / nuit — ajoutée à votre séjour
+        </p>
+      </div>
+      <a href="#" class="text-[12px] font-semibold text-[#FFFAF3] underline underline-offset-2 hover:text-white flex-shrink-0 whitespace-nowrap ml-1">
+        Voir mon séjour
+      </a>
+    </div>
+
+    <!-- 6. Bottom Tab Bar (with badge 1 on Mon séjour) -->
+    <nav class="fixed bottom-0 z-40 max-w-[390px] w-full bg-[#FFFAF3] border-t border-[#EADFD0] h-[60px] flex items-center justify-around px-2">
+      <!-- Accueil -->
+      <a href="#" class="flex flex-col items-center justify-center flex-1 py-1 text-neutral-500 hover:text-[#8C0120] transition-colors">
+        <span class="material-symbols-outlined text-[22px]">home</span>
+        <span class="text-[10px] font-medium mt-0.5">Accueil</span>
+      </a>
+      <!-- Expériences -->
+      <a href="#" class="flex flex-col items-center justify-center flex-1 py-1 text-neutral-500 hover:text-[#8C0120] transition-colors">
+        <span class="material-symbols-outlined text-[22px]">explore</span>
+        <span class="text-[10px] font-medium mt-0.5">Expériences</span>
+      </a>
+      <!-- Hébergements (ACTIVE, brand red, filled) -->
+      <a href="#" class="flex flex-col items-center justify-center flex-1 py-1 text-[#8C0120]">
+        <span class="material-symbols-outlined fill text-[22px]">hotel</span>
+        <span class="text-[10px] font-bold mt-0.5">Hébergements</span>
+      </a>
+      <!-- Formules -->
+      <a href="#" class="flex flex-col items-center justify-center flex-1 py-1 text-neutral-500 hover:text-[#8C0120] transition-colors">
+        <span class="material-symbols-outlined text-[22px]">loyalty</span>
+        <span class="text-[10px] font-medium mt-0.5">Formules</span>
+      </a>
+      <!-- Mon séjour with badge 1 -->
+      <a href="#" class="flex flex-col items-center justify-center flex-1 py-1 text-neutral-500 hover:text-[#8C0120] transition-colors relative">
+        <div class="relative inline-flex items-center justify-center">
+          <span class="material-symbols-outlined text-[22px]">luggage</span>
+          <span class="absolute -top-1 -right-2 bg-[#8C0120] text-white text-[9px] font-bold h-3.5 min-w-[14px] px-1 flex items-center justify-center rounded-full leading-none shadow-xs">
+            1
+          </span>
+        </div>
+        <span class="text-[10px] font-medium mt-0.5">Mon séjour</span>
+      </a>
+    </nav>
+
+  </div>
+</body>
+</html>

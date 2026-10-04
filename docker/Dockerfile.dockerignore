@@ -1,0 +1,25 @@
+# Exclusions de la construction de docker/Dockerfile (fichier propre à ce Dockerfile, lu par BuildKit).
+# Le contexte est la racine du dépôt : un docker/.dockerignore serait ignoré.
+
+node_modules
+dist
+.astro
+.git
+.github
+.husky
+Elements
+playwright-report
+test-results
+coverage
+*.log
+
+# Fichiers d'environnement : les valeurs passent par --build-arg, jamais par un fichier copié
+.env
+.env.*
+!.env.example
+
+# Documentation et maquettes, inutiles à la construction
+docs
+specs
+.specify
+.claude

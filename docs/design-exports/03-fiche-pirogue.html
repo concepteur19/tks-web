@@ -1,0 +1,387 @@
+<!DOCTYPE html><html class="light" lang="fr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Kibreeze - Fiche Excursion en pirogue</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#594140",
+            "on-secondary-container": "#701f00",
+            "secondary-fixed-dim": "#ffb59d",
+            "tertiary-fixed": "#a7f0e7",
+            "on-tertiary-container": "#76beb5",
+            "surface-container-low": "#f8f3ec",
+            "error": "#ba1a1a",
+            "primary": "#620013",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#f5f0e9",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#400009",
+            "surface": "#fef9f2",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#910623",
+            "inverse-surface": "#32302c",
+            "on-surface": "#1d1c18",
+            "surface-container": "#f2ede6",
+            "outline": "#8d7070",
+            "on-background": "#1d1c18",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#ffdad9",
+            "primary-container": "#8c0120",
+            "on-tertiary-fixed-variant": "#00504a",
+            "surface-bright": "#fef9f2",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#004d47",
+            "surface-container-highest": "#e6e2db",
+            "tertiary": "#003430",
+            "inverse-primary": "#ffb3b3",
+            "outline-variant": "#e1bebe",
+            "surface-variant": "#e6e2db",
+            "tertiary-fixed-dim": "#8bd4cb",
+            "primary-fixed-dim": "#ffb3b3",
+            "background": "#fef9f2",
+            "surface-container-high": "#ece7e1",
+            "on-secondary-fixed": "#390b00",
+            "on-primary-container": "#ff9194",
+            "secondary-fixed": "#ffdbd0",
+            "secondary": "#a23f1b",
+            "on-secondary-fixed-variant": "#822804",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#00201d",
+            "surface-tint": "#b32738",
+            "surface-dim": "#ded9d3",
+            "secondary-container": "#fe835a"
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+</script>
+<style>
+    * {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined' !important;
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+</style>
+</head>
+<body class="bg-[#FEF9F2] text-[#1D1C18] antialiased flex justify-center min-h-screen">
+<!-- Mobile Viewport Container (390px adaptive height) -->
+<div class="w-full max-w-[390px] bg-[#FEF9F2] min-h-screen flex flex-col relative pb-36 shadow-none">
+<!-- 1. Fixed Top Bar -->
+<header class="fixed top-0 left-0 right-0 max-w-[390px] mx-auto z-50 bg-[#FEF9F2] h-14 px-4 flex items-center justify-between border-b border-[#E7DFD5]">
+<!-- Left: Kibreeze red wordmark logo -->
+<div class="flex items-center">
+<img alt="Kibreeze Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV7CDTp5WFsaLjQgmpIt8_SJ_i8bof7tzaYYzfUfjaOFCp6Q1MGxRyF8r6YvYvJ8o1S_6TAD0k0xBH-Q52NfbykGiTV-yKumoddGXD6G4dtvZM16kxgQUNLdFeCxP2YV-xknPCPw4st89biHvSwnX4RMI7GrnHCUG42joBcQbydTXddSt4se5ZWeYdGJfbV1rxomIgDt0IzOnUbRLVY8iFU5hfxL9yereG1paQOhPV_RDjnmx5sBYodOr_JzMb5IwPDipvAJNVt0E">
+</div>
+<!-- Right: Language toggle & WhatsApp icon -->
+<div class="flex items-center gap-3.5">
+<!-- Language toggle -->
+<span class="text-xs tracking-wider">
+<strong class="font-bold text-[#8C0120]">FR</strong><span class="text-[#78716C] font-normal"> | EN</span>
+</span>
+<!-- WhatsApp Icon in #25D366 -->
+<a aria-label="WhatsApp Concierge" class="text-[#25D366] flex items-center justify-center transition-opacity active:opacity-80" href="https://wa.me/">
+<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+<path d="M12.031 2c-5.518 0-9.998 4.478-9.998 9.996 0 1.761.459 3.479 1.332 5.001l-1.415 5.166 5.301-1.391c1.468.802 3.125 1.226 4.78 1.226 5.519 0 10-4.478 10-9.998 0-5.519-4.481-10-10-10zm0 18.283c-1.493 0-2.955-.401-4.229-1.16l-.303-.18-3.146.825.84-3.067-.198-.314c-.833-1.328-1.274-2.868-1.274-4.391 0-4.57 3.719-8.288 8.29-8.288 4.57 0 8.289 3.718 8.289 8.288 0 4.571-3.719 8.287-8.279 8.287zm4.542-6.208c-.248-.124-1.47-.725-1.698-.808-.228-.083-.394-.124-.56.124-.166.248-.642.808-.787.974-.145.166-.29.187-.538.062-.249-.124-1.049-.387-1.999-1.233-.739-.659-1.238-1.473-1.383-1.721-.145-.248-.015-.382.109-.505.112-.111.249-.29.373-.435.124-.145.166-.248.249-.414.083-.166.042-.311-.021-.435-.062-.124-.56-1.349-.768-1.849-.202-.487-.407-.421-.56-.429l-.477-.008c-.166 0-.435.062-.663.311-.228.249-.871.851-.871 2.074 0 1.223.892 2.406 1.016 2.572.124.166 1.755 2.68 4.251 3.757.594.256 1.058.41 1.42.525.597.189 1.14.162 1.569.098.479-.071 1.47-.601 1.678-1.182.207-.581.207-1.078.145-1.182-.062-.104-.228-.166-.476-.29z"></path>
+</svg>
+</a>
+</div>
+</header>
+<!-- Main Content Flow -->
+<main class="mt-14 px-4 pt-3 flex-1">
+<!-- 2. Breadcrumb -->
+<nav aria-label="Fil d'Ariane" class="py-1">
+<p class="text-xs text-[#57534E] truncate">
+      Expériences <span class="text-[#57534E]/60 mx-1">›</span> Nature &amp; Découverte <span class="text-[#57534E]/60 mx-1">›</span> <span class="text-[#1D1C18] font-medium">Excursion en pirogue</span>
+</p>
+</nav>
+<!-- 3. Photo Gallery -->
+<section class="mt-2">
+<!-- Main hero photo -->
+<div class="relative w-full h-[280px] rounded-[4px] overflow-hidden bg-[#E6E2DB]">
+<img alt="Excursion en pirogue sur la Lobé" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WMM9x14xmgofy7QyJymfwzueA8xmAqwj0dpZ7oRcwYb9cggAIyKTsi9n35AaTkxCYwNw_Xm_Ha7dUQXMBMtNmCRZi5OFHKz9UM_sBC2QxwuE6koME_QwfMdZM_5KSP24F2g666UKv62Z5vSo90Ly2h4hn-dYK7elQ31bYPxjt3Skyq9rrGEnE-DLH-W5--QEEDNe6Xnpo_XaUw9zyJw3p1y1BIa4LzePot0v-b6duKV2PSGaQ9xiBAaKM">
+<span class="absolute bottom-2.5 right-2.5 bg-black/60 text-white text-xs px-2 py-0.5 rounded-[4px] font-medium tracking-wide">
+        1 / 4
+      </span>
+</div>
+<!-- Thumbnails Row -->
+<div class="flex items-center gap-2 mt-2">
+<!-- Thumbnail 1 (Active) -->
+<button class="w-[72px] h-[72px] rounded-[4px] overflow-hidden border-2 border-[#8C0120] p-0 flex-shrink-0" type="button">
+<img alt="Pirogue dans la brume" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XPx0bQeiQ5fY0zF1wJGjQR57PUIQcg3v9zG7ezPQmGLznLgypOvy-HsN7fUQTTWj6HtKfA-b4LilE9GEAO5ThjIZML5CGm_-pAm1PFgRbas2Bo6uMmkl9oXO0nI_caCUBxFqHEvN_HXdwhfg3nSCzRUCG_AgqFE5L6YE47OzaCRNLN-bjkUq6YzaVdq33esW43Fp7E5dS5vOeLMbM3UFQLP106j1ZpE5vvd3YHSwDXJZECBxTsDFupnQ">
+</button>
+<!-- Thumbnail 2: Boatman paddling close-up -->
+<button class="w-[72px] h-[72px] rounded-[4px] overflow-hidden border border-[#E7DFD5] p-0 flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity" type="button">
+<img alt="Piroguier local pagayant sur la Lobé" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1X3YcXcvl2yPKDqru-4zVCTgheKRJr0pnbjG_HvIMSm3KHmUWYJLMcoYgxAi6j8gkN4vljCGy1_Fh1qvGeQpRB6pSo9J0F-DkPd1SldUAe4Cs0I0xNKtwI_q7bngHzUXQeAW0EBslLGKF2fC3qom4hNkqV7gmczV3DRqJxkJh32C3FvtMl6_sze64t4JXhE3UKt0NTVaWFrpl7wyYledYrBp1ivL66Cg5gykqsu6gvNs-S8Tpxiz3lTqQ">
+</button>
+<!-- Thumbnail 3: Lobé waterfalls -->
+<button class="w-[72px] h-[72px] rounded-[4px] overflow-hidden border border-[#E7DFD5] p-0 flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity" type="button">
+<img alt="Chutes de la Lobé" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WexY4fS_3NRuEyHlYcJo3nsdnOTvQDxPzzoUfa0led3TfDLCbdrg_m03kChlwy9PGrBOOWawKxJCIDle6xt4MOBH_vSy7L7w8hy7VMv7EM5gDOMxfsgrmejIprs--Lap_ad2Ucd3bPBa-iArHiaFcAuhvXldT8MmC7BTHe2319gwGAXiOvUBIYDEpMbtU5gVye-1nLYWQyi5teuWa-smyD_ldl8e8CFCikCPPbety74_InC0PPqwpMcnc">
+</button>
+</div>
+</section>
+<!-- 4. Title & Category -->
+<section class="mt-4">
+<h1 class="text-2xl font-bold text-[#1D1C18] leading-tight">Excursion en pirogue</h1>
+<div class="mt-1.5">
+<span class="inline-block bg-[#004D47]/10 text-[#004D47] font-semibold text-xs px-2.5 py-1 rounded-[4px]">
+        Nature &amp; Découverte
+      </span>
+</div>
+</section>
+<!-- 5. Price block -->
+<section class="mt-3.5">
+<div class="flex items-baseline gap-1.5">
+<span class="text-3xl font-bold text-[#8C0120] tracking-tight">35 000 FCFA</span>
+<span class="text-base font-normal text-[#57534E]">/ groupe</span>
+</div>
+<p class="text-xs text-[#57534E] mt-0.5">≈ 53,20 € — montant indicatif</p>
+<p class="text-[11px] text-[#78716C] mt-1 leading-snug">Prix indicatif, sous réserve de disponibilité et de confirmation par Kibreeze.</p>
+<div class="mt-2.5">
+<span class="inline-block bg-[#004D47]/10 text-[#004D47] text-xs font-medium px-2.5 py-1 rounded-[4px]">
+        Jusqu'à 8 personnes — au-delà, sur devis
+      </span>
+</div>
+</section>
+<!-- 6. Three-column info row -->
+<section class="border border-[#E7DFD5] bg-[#FFFFFF] rounded-[4px] my-4 py-3 flex items-center divide-x divide-[#E7DFD5]">
+<!-- Col 1 -->
+<div class="flex-1 flex flex-col items-center justify-center text-center gap-1 px-1">
+<span class="material-symbols-outlined text-[#8C0120] text-xl" data-icon="schedule">schedule</span>
+<span class="text-xs font-semibold text-[#1D1C18]">2 à 3 heures</span>
+</div>
+<!-- Col 2 -->
+<div class="flex-1 flex flex-col items-center justify-center text-center gap-1 px-1">
+<span class="material-symbols-outlined text-[#8C0120] text-xl" data-icon="group">group</span>
+<span class="text-xs font-semibold text-[#1D1C18]">1 à 8 personnes</span>
+</div>
+<!-- Col 3 -->
+<div class="flex-1 flex flex-col items-center justify-center text-center gap-1 px-1">
+<span class="material-symbols-outlined text-[#8C0120] text-xl" data-icon="location_on">location_on</span>
+<span class="text-xs font-semibold text-[#1D1C18] leading-tight">Embouchure de la Lobé</span>
+</div>
+</section>
+<!-- 7. Description -->
+<section class="space-y-2 text-[#57534E] text-sm leading-relaxed">
+<p class="">Glissez au fil de l'eau sur le cours majestueux de la Lobé, bercé par le rythme des pagaies traditionnelles et la sérénité des mangroves.</p>
+<p class="">Accompagné par un piroguier local expérimenté, vous découvrirez la richesse de la faune aquatique et les recoins sauvages de la forêt équatoriale.</p>
+</section>
+<!-- 8. Inclusions & Exclusions -->
+<section class="mt-5">
+<!-- Inclus -->
+<div>
+<h2 class="font-bold text-[#1D1C18] text-base mb-2.5">Ce qui est inclus</h2>
+<ul class="space-y-2 text-sm text-[#1D1C18]">
+<li class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-[#16A34A] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Pirogue et équipement de sécurité</span>
+</li>
+<li class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-[#16A34A] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Piroguier local</span>
+</li>
+<li class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-[#16A34A] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Gilets de sauvetage</span>
+</li>
+<li class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-[#16A34A] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Rafraîchissements</span>
+</li>
+</ul>
+</div>
+<!-- Non inclus -->
+<div class="mt-4">
+<h2 class="font-bold text-[#1D1C18] text-base mb-2.5">Ce qui n'est pas inclus</h2>
+<ul class="space-y-2 text-sm text-[#57534E]">
+<li class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-[#78716C] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Pourboires</span>
+</li>
+<li class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-[#78716C] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Dépenses personnelles</span>
+</li>
+<li class="flex items-center gap-2.5">
+<svg class="w-4 h-4 text-[#78716C] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Transport jusqu'au point d'embarquement</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- 9. Options box ("Complétez votre expérience") -->
+<section class="bg-[#F8F3EC] rounded-[4px] p-4 my-6 border border-[#E7DFD5]">
+<h2 class="font-bold text-[#1D1C18] text-base mb-2">Complétez votre expérience</h2>
+<div class="divide-y divide-[#E7DFD5]">
+<!-- Row 1 -->
+<label class="flex justify-between items-center py-2.5 cursor-pointer">
+<div class="flex items-center gap-2.5">
+<input class="w-[18px] h-[18px] rounded-[2px] border-[#8D7070] text-[#8C0120] focus:ring-0 focus:outline-none" type="checkbox">
+<span class="text-sm font-medium text-[#1D1C18]">Guide touristique</span>
+</div>
+<span class="font-semibold text-sm text-[#8C0120]">5 000 FCFA</span>
+</label>
+<!-- Row 2 -->
+<label class="flex justify-between items-center py-2.5 cursor-pointer">
+<div class="flex items-center gap-2.5">
+<input class="w-[18px] h-[18px] rounded-[2px] border-[#8D7070] text-[#8C0120] focus:ring-0 focus:outline-none" type="checkbox">
+<span class="text-sm font-medium text-[#1D1C18]">Maître-nageur</span>
+</div>
+<span class="font-semibold text-sm text-[#8C0120]">5 000 FCFA</span>
+</label>
+<!-- Row 3 -->
+<label class="flex justify-between items-center py-2.5 cursor-pointer">
+<div class="flex items-center gap-2.5">
+<input class="w-[18px] h-[18px] rounded-[2px] border-[#8D7070] text-[#8C0120] focus:ring-0 focus:outline-none" type="checkbox">
+<span class="text-sm font-medium text-[#1D1C18]">Musée d'art</span>
+</div>
+<span class="font-semibold text-sm text-[#8C0120]">1 500 FCFA / personne</span>
+</label>
+</div>
+</section>
+<!-- 10. Quantity selector -->
+<section class="my-4">
+<label class="block font-medium text-sm text-[#1D1C18] mb-2">Nombre de personnes</label>
+<div class="flex items-center gap-3">
+<button aria-label="Diminuer le nombre de personnes" class="w-11 h-11 min-w-[44px] min-h-[44px] border border-[#D6CCC2] bg-white rounded-[4px] text-lg font-bold flex items-center justify-center text-[#1D1C18] active:scale-95 transition-transform" type="button">
+        -
+      </button>
+<span class="font-bold text-lg px-3 text-[#1D1C18]">2</span>
+<button aria-label="Augmenter le nombre de personnes" class="w-11 h-11 min-w-[44px] min-h-[44px] border border-[#8C0120] text-[#8C0120] bg-white rounded-[4px] text-lg font-bold flex items-center justify-center active:scale-95 transition-transform" type="button">
+        +
+      </button>
+</div>
+</section>
+<!-- 11. 'Vous aimerez aussi' -->
+<section class="mt-6 mb-6">
+<h2 class="font-bold text-[#1D1C18] text-base mb-3">Vous aimerez aussi</h2>
+<!-- Card 1: Chutes de la Lobé -->
+<a class="block rounded-[4px] border border-[#E7DFD5] bg-white p-2.5 mb-2.5 transition hover:border-[#8C0120]/40" href="#">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Chutes de la Lobé" class="w-[60px] h-[60px] object-cover rounded-[3px] flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1WexY4fS_3NRuEyHlYcJo3nsdnOTvQDxPzzoUfa0led3TfDLCbdrg_m03kChlwy9PGrBOOWawKxJCIDle6xt4MOBH_vSy7L7w8hy7VMv7EM5gDOMxfsgrmejIprs--Lap_ad2Ucd3bPBa-iArHiaFcAuhvXldT8MmC7BTHe2319gwGAXiOvUBIYDEpMbtU5gVye-1nLYWQyi5teuWa-smyD_ldl8e8CFCikCPPbety74_InC0PPqwpMcnc">
+<div>
+<h3 class="font-semibold text-sm text-[#1D1C18]">Chutes de la Lobé</h3>
+<p class="text-[#8C0120] font-bold text-xs mt-0.5">5 000 FCFA</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#78716C] text-lg" data-icon="chevron_right">chevron_right</span>
+</div>
+</a>
+<!-- Card 2: Jacuzzi naturel -->
+<a class="block rounded-[4px] border border-[#E7DFD5] bg-white p-2.5 mb-2.5 transition hover:border-[#8C0120]/40" href="#">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Jacuzzi naturel" class="w-[60px] h-[60px] object-cover rounded-[3px] flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1Vu7r3bBxCp6G2rWY-ttmkYMIfJXdRBQto212LzX7GoHppSaSqHa1hRdGBGdsbolS1kxh0JCuzZ2UFt6V0DY5gwJcjivfvu_w4bROEw-QCGXP2pspu5uI5a9pGlFgNcmv99pc5Ijcvt0k8BUxtMds6qCFSkb0l6AI9P4tLdl9KAIVf6IIable9Sik4cOMZDnKPvdGO4hUsWHlUXe9K3rbiMz0Dei8C_tvQbiAXW-l1Cd__pmKMP5-GdGQw">
+<div>
+<h3 class="font-semibold text-sm text-[#1D1C18]">Jacuzzi naturel</h3>
+<p class="text-[#8C0120] font-bold text-xs mt-0.5">5 000 FCFA</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#78716C] text-lg" data-icon="chevron_right">chevron_right</span>
+</div>
+</a>
+<!-- Card 3: Croisière (Modern motor cruiser boat) -->
+<a class="block rounded-[4px] border border-[#E7DFD5] bg-white p-2.5 mb-2.5 transition hover:border-[#8C0120]/40" href="#">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Croisière en bateau" class="w-[60px] h-[60px] object-cover rounded-[3px] flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UqQK3fhVwwD0kgC1Hdif2B1YkztE01BVlZ4marMakQBsWyXGBIo33x-xY1oBKKLT-PHDohYW8T0Z380j-K0TH7X3OfibJg2EkOYIi62hYlZJWynjfnVZ0QRrTcwwpW7oCqOsLk96gczVfV8hA4KCZ7R_lvhIkF-txpCWsw871nC15D4yOigG6vT6o4My2-CHx3z8004wiCdfaxAMN8GcA97w1BoBZ0JZsbQD4TV0SkAKk06T1uPRPhc5c">
+<div>
+<h3 class="font-semibold text-sm text-[#1D1C18]">Croisière</h3>
+<p class="text-[#8C0120] font-bold text-xs mt-0.5">25 000 FCFA</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#78716C] text-lg" data-icon="chevron_right">chevron_right</span>
+</div>
+</a>
+</section>
+</main>
+<!-- 12. Sticky Bottom Action Bar -->
+<div class="fixed bottom-[58px] left-0 right-0 max-w-[390px] mx-auto z-40 bg-[#FEF9F2] border-t border-[#E7DFD5] px-4 py-2.5 flex items-center justify-between">
+<!-- Left side: Total -->
+<div class="flex flex-col">
+<span class="text-xs text-[#57534E]">Total</span>
+<span class="font-bold text-lg text-[#8C0120] leading-none mt-0.5">35 000 FCFA</span>
+<span class="text-xs text-[#57534E] mt-0.5">≈ 53,20 €</span>
+</div>
+<!-- Right side: CTA & Demander ce service -->
+<div class="flex flex-col items-center">
+<button class="bg-[#8C0120] hover:bg-[#6E0119] text-white font-semibold text-sm px-5 py-2.5 rounded-[4px] min-h-[44px] flex items-center justify-center active:scale-95 transition-all shadow-none" type="button">
+      Ajouter à mon séjour
+    </button>
+<button class="text-xs underline text-[#57534E] hover:text-[#1D1C18] mt-1 transition-colors" type="button">
+      Demander ce service
+    </button>
+</div>
+</div>
+<!-- 13. Bottom Tab Bar -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 bg-[#FEF9F2] border-t border-[#E7DFD5] flex justify-around py-1.5 h-[58px]">
+<!-- 1. Accueil (Inactive) -->
+<a class="flex flex-col items-center justify-center text-[#57534E] font-medium pt-1 pb-1 transition-colors hover:text-[#8C0120]" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="home">home</span>
+<span class="text-[11px] tracking-wider mt-0.5">Accueil</span>
+</a>
+<!-- 2. Expériences (ACTIVE -> text-[#8C0120] font-semibold) -->
+<a class="flex flex-col items-center justify-center text-[#8C0120] font-semibold pt-1 pb-1" href="#">
+<span class="material-symbols-outlined text-xl fill" data-icon="explore">explore</span>
+<span class="text-[11px] tracking-wider mt-0.5">Expériences</span>
+</a>
+<!-- 3. Hébergements (Inactive) -->
+<a class="flex flex-col items-center justify-center text-[#57534E] font-medium pt-1 pb-1 transition-colors hover:text-[#8C0120]" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="hotel">hotel</span>
+<span class="text-[11px] tracking-wider mt-0.5">Hébergements</span>
+</a>
+<!-- 4. Formules (Inactive) -->
+<a class="flex flex-col items-center justify-center text-[#57534E] font-medium pt-1 pb-1 transition-colors hover:text-[#8C0120]" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="loyalty">loyalty</span>
+<span class="text-[11px] tracking-wider mt-0.5">Formules</span>
+</a>
+<!-- 5. Mon séjour (Inactive, with luggage icon and '0' badge) -->
+<a class="flex flex-col items-center justify-center text-[#57534E] font-medium pt-1 pb-1 relative transition-colors hover:text-[#8C0120]" href="#">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" data-icon="luggage">luggage</span>
+<span class="absolute -top-1 -right-2 bg-[#8C0120] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+        0
+      </span>
+</div>
+<span class="text-[11px] tracking-wider mt-0.5">Mon séjour</span>
+</a>
+</nav>
+</div>
+
+
+</body></html>

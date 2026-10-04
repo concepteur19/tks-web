@@ -1,0 +1,9 @@
+{
+  "name": { "fr": "Nature & Découverte", "en": "Nature & Discovery" },
+  "description": {
+    "fr": "Cascades, rivière et forêt autour de Kribi",
+    "en": "Waterfalls, river and forest around Kribi"
+  },
+  "order": 10,
+  "provisional": true
+}

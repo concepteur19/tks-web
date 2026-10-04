@@ -33,12 +33,16 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 
 | Élément | Page | FR | EN | Reçu le | Destination | Bloque la mise en ligne |
 |---|---|---|---|---|---|---|
-| Logo TKS® haute résolution, SVG idéalement | global | ⏳ | — | | `src/assets/brand/logo.svg` | Oui |
+| Logo **Kibreeze**, vectoriel | global | ✅ 3 SVG reçus le 2026-10-02 (complet, logo-texte, symbole), version officielle = rouge à plat (K2). Ce sont des **vectorisations automatiques** des PNG, pas le fichier du graphiste : fond opaque et contre-formes peintes en gris. Nettoyés en tracé unique sur fond transparent, rouge unifié #8C0120. Bords légèrement irréguliers en très grand format : à remplacer si l'original du graphiste arrive | — | 2026-10-02 | `src/assets/brand/kibreeze.svg`, `kibreeze-wordmark.svg`, `kibreeze-symbol.svg` ; PNG pour Stitch dans `docs/design-briefs/assets/` | Non |
+| Logo TKS® haute résolution | section mobilité | 📝 PNG HD reçu. Le « SVG » reçu n'est qu'un PNG emballé dans un fichier `.svg`, sans tracé vectoriel. Version lettres seules, sans la signature, extraite pour Stitch : `docs/design-briefs/assets/tks-mark.png` | — | 2026-09-25 | `src/assets/brand/tks.svg` | Non (marque secondaire) |
 | Numéro WhatsApp | global | ✅ +237 697 13 53 88 | — | 2026-09-14 | variable `PUBLIC_WHATSAPP_NUMBER` | — |
 | Nom de domaine | global | ⏳ | — | | variable `PUBLIC_SITE_URL`, DNS Cloudflare. Adresse provisoire en service : `https://tks-web-1h2.pages.dev` | Oui |
-| Photos d'accueil | accueil | ⏳ | ⏳ textes alternatifs | | `src/assets/home/` | Oui |
-| Vidéo d'accueil courte et légère | accueil | ⏳ optionnelle | — | | `src/assets/home/` | Non |
-| Photos de bandeau des trois pôles | transport, tourisme, livraison | ⏳ | ⏳ textes alternatifs | | `src/assets/poles/` | Oui |
+| Photos (fonds global) | toutes pages | 📝 **113 photos reçues et triées** par activité, voir [photo-tri.md](./photo-tri.md). 🛑 **20 d'entre elles sont inutilisables** : Franck confirme le 2026-09-25 n'avoir **aucune autorisation** du photographe. Ni le retrait du filigrane ni un crédit ne règlent la question : il faut son accord, ou refaire les photos | ⏳ textes alternatifs | 2026-09-25 | `Elements/tri-par-activite/` → à optimiser vers `src/assets/` | Oui |
+| Photos d'hébergements (chambre, appartement, villa) | hébergements | ⏳ **aucune reçue**, et c'est le manque le plus bloquant : l'écran Hébergements en dépend entièrement (question L1) | ⏳ | | `src/assets/hebergements/` | Oui |
+| Photos de véhicules et de chauffeurs | TKS® mobilité | ⏳ **aucune reçue** | ⏳ | | `src/assets/mobilite/` | Oui |
+| Photo d'équipe Kibreeze | accueil, bloc À propos | ⏳ **aucune reçue** | — | | `src/assets/home/` | Non |
+| Vidéo d'accueil courte et légère | accueil | 📝 **17 vidéos reçues** (MOV et MP4), à visionner et à sélectionner, poids à vérifier | — | 2026-09-25 | `src/assets/home/` | Non |
+| Photos de bandeau des rubriques | expériences, hébergements, formules, TKS mobilité | ⏳ à choisir dans le lot reçu | ⏳ textes alternatifs | | `src/assets/sections/` | Oui |
 | Présentation courte de TKS | accueil | 📝 idée reçue (F3) | ⏳ | 2026-09-14 | `src/content/site/company.json` | Oui |
 | Texte « À propos » | accueil | 📝 idée reçue (F3) | ⏳ | 2026-09-14 | `src/content/site/company.json` | Oui |
 | Raisons de choisir TKS | accueil | 📝 réactivité, service local, expérience personnalisée, plusieurs services réunis (F3) | ⏳ | 2026-09-14 | `src/content/site/company.json` | Oui |
@@ -46,6 +50,15 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 | E-mail professionnel | contact | ⏳ | — | | `src/content/site/company.json` | Non |
 | Liens des réseaux sociaux | contact, pied de page | ⏳ | — | | `src/content/site/company.json` | Non |
 | Supports existants : Facebook, Instagram, flyers | inspiration design | ⏳ | — | | `Elements/incoming/` | Non |
+
+## Contenu d'exemple de la fondation
+
+Livré par la tâche T038 de la spec 001 pour prouver que les schémas acceptent un vrai contenu. Les deux fichiers portent `"provisional": true` : `npm run check:content` fait échouer la construction si une fiche provisoire n'est pas `disabled`. Ils seront remplacés par la feature 003.
+
+| Fichier | Rôle | État |
+|---|---|---|
+| `src/content/categories/nature-decouverte.json` | Catégorie Nature & Découverte, textes FR et EN | Provisoire, textes repris du brief validé |
+| `src/content/services/excursion-en-pirogue.json` | Fiche pirogue : 35 000 FCFA par groupe, 8 personnes max, guide tarifaire du 2026-09-26 | Provisoire, `disabled` faute de photo validée |
 
 ## Services
 

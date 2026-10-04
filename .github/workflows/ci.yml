@@ -32,6 +32,8 @@ jobs:
         run: npm run format:check
       - name: Types
         run: npm run typecheck
+      - name: Contrastes des tokens
+        run: npm run tokens:check
       - name: Tests unitaires et de composants
         run: npm run test
       - name: Construction de production

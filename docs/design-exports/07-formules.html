@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kibreeze - Formules</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols Outlined -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#8C0120',
+              cream: '#FFFAF3',
+              deeperCream: '#F5ECE1',
+              teal: '#186962',
+              whatsapp: '#25D366',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFFAF3;
+      color: #1c1917;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FFFAF3] text-stone-900 pb-24 relative select-none">
+
+  <!-- TOP BAR -->
+  <header class="sticky top-0 z-40 bg-[#FFFAF3]/95 backdrop-blur-sm border-b border-stone-200/60 px-4 h-14 flex items-center justify-between">
+    <!-- Kibreeze Wordmark -->
+    <a href="#" class="flex items-center min-h-[44px]">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3aZKc7CSDOuvsKMbz6BiutR-26UnShjbnwz1ISF1l2k6EwEOuSGzvPqoT-uh22IigZ7471pyCK134bdlj1PxZPvqcc5DZJJaY5sVn-8qEH4K_Xz3rstX2sh7dQtYTskZd95NUA07Xlm03g4NwnfgFVo1eOE31MLMG7WIML-gNUdKoCtnCS8pM8lZTQooRkMLB3Qp28qZxwg9WCamOrvWZC1yh8imgMvKkykkD84X4M-tWWErA-e0t1GmH4ShF7muXlzGMUy-p5sQ" alt="Kibreeze" class="h-6 w-auto object-contain" />
+    </a>
+    
+    <!-- Right Actions: Language Switch & WhatsApp Icon -->
+    <div class="flex items-center space-x-3">
+      <div class="text-xs font-semibold tracking-wide flex items-center min-h-[44px]">
+        <span class="text-[#8C0120] font-bold">FR</span>
+        <span class="text-stone-400 mx-1">|</span>
+        <span class="text-stone-400 font-medium">EN</span>
+      </div>
+      <a href="https://wa.me/" aria-label="WhatsApp" class="w-11 h-11 flex items-center justify-center text-[#25D366]">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- BANNER HERO (200 px) -->
+  <section class="relative h-[200px] w-full overflow-hidden bg-stone-900">
+    <img src="https://lh3.googleusercontent.com/aida/AEtjO1VfyvuEC6S82hzcA5cC63kSxzkPWAHiLONIY1Xg7WyRLoF5QbZgOE8uFbGq98qEwn28WbMydn2UAruxBqSL6z5DeA_mVPPDpKci2bCo_OKe1LKxN-3eWpwgqWtcfVZZu2zROJ7sho9vEKMqEB-GGxGdb2hT4QOcY2dMAacaYeFqgbnk4j9uMo0qLR0HrjiOmnwZmjGR5aNdrr68C2-b0H6pUIyahzjrKZFAfRBwMz789jLWUZteS7w2ZEA" alt="Plage de Kribi au lever du soleil" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/35 flex flex-col justify-end p-5 text-white">
+      <h1 class="text-2xl font-bold tracking-tight text-white mb-1">Formules</h1>
+      <p class="text-sm font-medium text-stone-200 leading-snug">Des séjours déjà composés, ajustables avec nous</p>
+    </div>
+  </section>
+
+  <!-- INFO LINE -->
+  <div class="px-4 py-4 text-center">
+    <p class="text-xs text-stone-500 font-medium">Tous nos forfaits sont calculés sur une base de 2 personnes.</p>
+  </div>
+
+  <!-- MAIN LIST: 4 CARDS (24 px gap) -->
+  <main class="px-4 flex flex-col space-y-6">
+
+    <!-- 1. PACKAGE DÉCOUVERTE -->
+    <article class="bg-white rounded-[4px] border border-stone-200/80 overflow-hidden shadow-sm">
+      <div class="relative h-[160px] w-full bg-stone-100">
+        <img src="https://lh3.googleusercontent.com/aida/AEtjO1WMM9x14xmgofy7QyJymfwzueA8xmAqwj0dpZ7oRcwYb9cggAIyKTsi9n35AaTkxCYwNw_Xm_Ha7dUQXMBMtNmCRZi5OFHKz9UM_sBC2QxwuE6koME_QwfMdZM_5KSP24F2g666UKv62Z5vSo90Ly2h4hn-dYK7elQ31bYPxjt3Skyq9rrGEnE-DLH-W5--QEEDNe6Xnpo_XaUw9zyJw3p1y1BIa4LzePot0v-b6duKV2PSGaQ9xiBAaKM" alt="Excursion en pirogue à Kribi" class="w-full h-full object-cover" />
+      </div>
+      <div class="p-4">
+        <h2 class="text-base font-bold text-stone-900 tracking-tight mb-3">PACKAGE DÉCOUVERTE</h2>
+        
+        <!-- Included list -->
+        <ul class="space-y-2 mb-4 text-sm text-stone-700">
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Chutes de la Lobé</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Excursion en pirogue</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Campement Bagyeli</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Musée d'art</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Guide touristique</span>
+          </li>
+        </ul>
+
+        <!-- Thin divider -->
+        <hr class="border-t border-stone-200/80 my-3" />
+
+        <!-- Price -->
+        <div class="mb-4">
+          <div class="flex items-baseline">
+            <span class="text-lg font-bold text-[#8C0120] tracking-tight">100 000 FCFA</span>
+            <span class="text-xs text-stone-500 font-medium ml-1.5">/ 2 personnes</span>
+          </div>
+          <div class="text-xs text-stone-500 font-medium mt-0.5">≈ 152,00 €</div>
+        </div>
+
+        <!-- Button -->
+        <button type="button" class="w-full h-11 bg-[#8C0120] text-white text-sm font-semibold rounded-[4px] hover:bg-[#72011a] active:opacity-90 transition-colors flex items-center justify-center">
+          Ajouter à mon séjour
+        </button>
+      </div>
+    </article>
+
+    <!-- 2. PACKAGE ÉVASION -->
+    <article class="bg-white rounded-[4px] border border-stone-200/80 overflow-hidden shadow-sm">
+      <div class="relative h-[160px] w-full bg-stone-100">
+        <img src="https://lh3.googleusercontent.com/aida/AEtjO1WEDn34imThVx8I9rY9zUxI7H2nrGDWf4_OxigJ-08oIBE_tVs-7NKRmPoDWTUEsd1m8VkYoCT4qZjbsX1wAKncnUf2vYcXFo_KyDNJdubAaZpUwzl1-8xnWX4bqNZ4_2rskcTzX77VxmB6jcYS4ELU-MRGkgTN7EoOUhPXUZ58ARiEqAU6Z61hGmMIwvQLbaDXPJdyZShuO7LRqsmHPF4A193mIwWc3HXaMuG9xxLLvon3y8KKTOcGuh4" alt="Balade à cheval sur la plage de Kribi" class="w-full h-full object-cover" />
+      </div>
+      <div class="p-4">
+        <h2 class="text-base font-bold text-stone-900 tracking-tight mb-3">PACKAGE ÉVASION</h2>
+        
+        <!-- Included list -->
+        <ul class="space-y-2 mb-4 text-sm text-stone-700">
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Chutes de la Lobé</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Excursion en pirogue</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Kayak</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Balade à cheval</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Jacuzzi naturel</span>
+          </li>
+        </ul>
+
+        <!-- Thin divider -->
+        <hr class="border-t border-stone-200/80 my-3" />
+
+        <!-- Price -->
+        <div class="mb-4">
+          <div class="flex items-baseline">
+            <span class="text-lg font-bold text-[#8C0120] tracking-tight">120 000 FCFA</span>
+            <span class="text-xs text-stone-500 font-medium ml-1.5">/ 2 personnes</span>
+          </div>
+          <div class="text-xs text-stone-500 font-medium mt-0.5">≈ 182,40 €</div>
+        </div>
+
+        <!-- Button -->
+        <button type="button" class="w-full h-11 bg-[#8C0120] text-white text-sm font-semibold rounded-[4px] hover:bg-[#72011a] active:opacity-90 transition-colors flex items-center justify-center">
+          Ajouter à mon séjour
+        </button>
+      </div>
+    </article>
+
+    <!-- 3. PACKAGE AVENTURE -->
+    <article class="bg-white rounded-[4px] border border-stone-200/80 overflow-hidden shadow-sm">
+      <div class="relative h-[160px] w-full bg-stone-100">
+        <img src="https://lh3.googleusercontent.com/aida/AEtjO1VOfWvyk0nS6Y9I6SteIOIcBMfRDXHBFVoPFuRiN9HAy0i0v0k2VChU5J5o2TGNbMiPN-50N-vayYXpJ8iTRWE4TAmufcY6LVEml5vIaYGb0yXFXrDjGjHh5WZ3SeRD23rZL1tsBezALpkjj2WptPI39w84rzxRpgRFPtixXv_cdqOafJR_-kGvJ9Ojh1_U76r295PFU-WbqpdCFL9LnvJ4RHris6LFfI62_NUTMlAC4VXEY-bU3wBaHbM" alt="Quad sur les plages de Kribi" class="w-full h-full object-cover" />
+      </div>
+      <div class="p-4">
+        <h2 class="text-base font-bold text-stone-900 tracking-tight mb-3">PACKAGE AVENTURE</h2>
+        
+        <!-- Included list -->
+        <ul class="space-y-2 mb-4 text-sm text-stone-700">
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Chutes de la Lobé</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Excursion en pirogue</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Quad</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Jet-ski</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Kayak</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Balade à cheval</span>
+          </li>
+        </ul>
+
+        <!-- Thin divider -->
+        <hr class="border-t border-stone-200/80 my-3" />
+
+        <!-- Price -->
+        <div class="mb-4">
+          <div class="flex items-baseline">
+            <span class="text-lg font-bold text-[#8C0120] tracking-tight">150 000 FCFA</span>
+            <span class="text-xs text-stone-500 font-medium ml-1.5">/ 2 personnes</span>
+          </div>
+          <div class="text-xs text-stone-500 font-medium mt-0.5">≈ 228,00 €</div>
+        </div>
+
+        <!-- Button -->
+        <button type="button" class="w-full h-11 bg-[#8C0120] text-white text-sm font-semibold rounded-[4px] hover:bg-[#72011a] active:opacity-90 transition-colors flex items-center justify-center">
+          Ajouter à mon séjour
+        </button>
+      </div>
+    </article>
+
+    <!-- 4. PACKAGE PREMIUM (Thin red border & "Le plus complet" badge) -->
+    <article class="bg-white rounded-[4px] border border-[#8C0120] overflow-hidden shadow-sm relative">
+      <div class="relative h-[160px] w-full bg-stone-100">
+        <img src="https://lh3.googleusercontent.com/aida/AEtjO1Wv-kCmb3xZr4wLJDfXVg35yD3qQ-8P7S0XHfks_dqTeQTP1dXry9wFzBFLtJBu0nUQNvMVUAGWgt-buUXMOYCXOfFTzhPeHpHrFcXhb83FgOIodpyIkMX41xIhZgd5zprBd1mCQ0rfAOLHazeZgirvpveniJIIWTlNTsTJrHS4Bi6NorxaJ_WP6QicyWpQFwPR5vScY-6Aj7zyzet1qbM7hYpAZ4EaZ4tl1m2vJ3a1yHrNnWiG11PKq_g" alt="Bateau de plaisance yacht au large de Kribi" class="w-full h-full object-cover" />
+        <!-- Badge "Le plus complet" at top of card -->
+        <div class="absolute top-2.5 right-2.5 bg-[#8C0120] text-white text-[11px] font-semibold tracking-wide px-2.5 py-1 rounded-[4px] shadow-sm">
+          Le plus complet
+        </div>
+      </div>
+      <div class="p-4">
+        <h2 class="text-base font-bold text-stone-900 tracking-tight mb-3">PACKAGE PREMIUM</h2>
+        
+        <!-- Included list -->
+        <ul class="space-y-2 mb-4 text-sm text-stone-700">
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Chutes de la Lobé</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Excursion en chaloupe</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Bateau de plaisance</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Quad</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Jet-ski</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Kayak</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Balade à cheval</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-[#8C0120] font-bold mr-2 text-sm leading-none">✓</span>
+            <span>Jacuzzi naturel</span>
+          </li>
+        </ul>
+
+        <!-- Thin divider -->
+        <hr class="border-t border-stone-200/80 my-3" />
+
+        <!-- Price -->
+        <div class="mb-4">
+          <div class="flex items-baseline">
+            <span class="text-lg font-bold text-[#8C0120] tracking-tight">300 000 FCFA</span>
+            <span class="text-xs text-stone-500 font-medium ml-1.5">/ 2 personnes</span>
+          </div>
+          <div class="text-xs text-stone-500 font-medium mt-0.5">≈ 456,00 €</div>
+        </div>
+
+        <!-- Button -->
+        <button type="button" class="w-full h-11 bg-[#8C0120] text-white text-sm font-semibold rounded-[4px] hover:bg-[#72011a] active:opacity-90 transition-colors flex items-center justify-center">
+          Ajouter à mon séjour
+        </button>
+      </div>
+    </article>
+
+    <!-- CUSTOM / GROUP BOX (#F5ECE1) -->
+    <section class="bg-[#F5ECE1] rounded-[4px] border border-stone-200/70 p-4 mt-6">
+      <h3 class="text-sm font-bold text-stone-900 tracking-tight mb-1">Groupes jusqu'à 8 personnes sur demande</h3>
+      <p class="text-xs text-stone-600 mb-4 leading-relaxed">Chaque formule est ajustable : dites-nous ce que vous voulez changer</p>
+      
+      <a href="https://wa.me/" class="w-full h-11 bg-[#25D366] text-white text-sm font-semibold rounded-[4px] hover:bg-[#20ba5a] active:opacity-90 transition-colors flex items-center justify-center space-x-2">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"/>
+        </svg>
+        <span>Contacter Kibreeze sur WhatsApp</span>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- FLOATING WHATSAPP BUTTON (56 px round, 16 px above bottom bar) -->
+  <a href="https://wa.me/" aria-label="Contacter sur WhatsApp" class="fixed right-4 bottom-20 z-40 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:brightness-105 active:scale-95 transition-all">
+    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"/>
+    </svg>
+  </a>
+
+  <!-- BOTTOM TAB BAR -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#FFFAF3] border-t border-stone-200/80 px-2 h-16 flex items-center justify-around">
+    <!-- Accueil -->
+    <a href="#" class="flex flex-col items-center justify-center flex-1 h-full text-stone-500 hover:text-stone-800 transition-colors">
+      <span class="material-symbols-outlined text-[22px]">home</span>
+      <span class="text-[10px] font-medium mt-1">Accueil</span>
+    </a>
+
+    <!-- Expériences -->
+    <a href="#" class="flex flex-col items-center justify-center flex-1 h-full text-stone-500 hover:text-stone-800 transition-colors">
+      <span class="material-symbols-outlined text-[22px]">explore</span>
+      <span class="text-[10px] font-medium mt-1">Expériences</span>
+    </a>
+
+    <!-- Hébergements -->
+    <a href="#" class="flex flex-col items-center justify-center flex-1 h-full text-stone-500 hover:text-stone-800 transition-colors">
+      <span class="material-symbols-outlined text-[22px]">hotel</span>
+      <span class="text-[10px] font-medium mt-1">Hébergements</span>
+    </a>
+
+    <!-- Formules (ACTIVE) -->
+    <a href="#" class="flex flex-col items-center justify-center flex-1 h-full text-[#8C0120] font-semibold">
+      <span class="material-symbols-outlined filled text-[22px] text-[#8C0120]">loyalty</span>
+      <span class="text-[10px] font-semibold mt-1">Formules</span>
+    </a>
+
+    <!-- Mon séjour (with count badge 0) -->
+    <a href="#" class="flex flex-col items-center justify-center flex-1 h-full text-stone-500 hover:text-stone-800 transition-colors relative">
+      <div class="relative">
+        <span class="material-symbols-outlined text-[22px]">luggage</span>
+        <span class="absolute -top-1 -right-2 bg-[#8C0120] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center leading-none">0</span>
+      </div>
+      <span class="text-[10px] font-medium mt-1">Mon séjour</span>
+    </a>
+  </nav>
+
+</body>
+</html>

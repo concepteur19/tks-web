@@ -1,0 +1,41 @@
+{
+  "title": { "fr": "Excursion en pirogue", "en": "Dugout canoe trip" },
+  "section": "experience",
+  "categoryId": "nature-decouverte",
+  "shortDescription": {
+    "fr": "Remontez la Lobé entre mangrove et forêt",
+    "en": "Paddle up the Lobé between mangrove and forest"
+  },
+  "description": {
+    "fr": "Glissez au fil de l'eau sur la Lobé, au rythme des pagaies d'un piroguier local, entre mangrove et forêt équatoriale.",
+    "en": "Glide along the Lobé to the rhythm of a local boatman's paddle, between mangrove and equatorial forest."
+  },
+  "images": [
+    {
+      "src": "excursion-en-pirogue/pirogue-lobe.jpg",
+      "alt": {
+        "fr": "Pirogue sur la Lobé bordée de végétation dense",
+        "en": "Dugout canoe on the Lobé river lined with dense vegetation"
+      }
+    }
+  ],
+  "pricing": { "kind": "fixed", "amount": 35000, "unit": "per_group", "maxCapacity": 8 },
+  "quantity": { "dimensions": [] },
+  "duration": { "fr": "2 à 3 heures", "en": "2 to 3 hours" },
+  "capacity": { "min": 1, "max": 8 },
+  "conditions": {
+    "included": [
+      { "fr": "Pirogue et équipement de sécurité", "en": "Canoe and safety equipment" },
+      { "fr": "Piroguier local", "en": "Local boatman" },
+      { "fr": "Gilets de sauvetage", "en": "Life jackets" },
+      { "fr": "Rafraîchissements", "en": "Refreshments" }
+    ],
+    "excluded": [
+      { "fr": "Pourboires", "en": "Tips" },
+      { "fr": "Dépenses personnelles", "en": "Personal expenses" },
+      { "fr": "Transport jusqu'au point d'embarquement", "en": "Transport to the boarding point" }
+    ]
+  },
+  "availability": "disabled",
+  "provisional": true
+}

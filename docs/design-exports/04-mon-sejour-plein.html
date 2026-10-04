@@ -1,0 +1,491 @@
+<!DOCTYPE html><html class="light" lang="fr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Kibreeze - Mon séjour (plein)</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#ffb3b3",
+            "surface-variant": "#e6e2db",
+            "outline-variant": "#e1bebe",
+            "on-secondary-fixed-variant": "#822804",
+            "on-primary-fixed": "#400009",
+            "primary-container": "#8c0120",
+            "on-surface": "#1d1c18",
+            "secondary-fixed-dim": "#ffb59d",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#390b00",
+            "tertiary-fixed-dim": "#8bd4cb",
+            "surface-bright": "#fef9f2",
+            "error": "#ba1a1a",
+            "primary-fixed-dim": "#ffb3b3",
+            "on-tertiary-fixed-variant": "#00504a",
+            "tertiary-container": "#004d47",
+            "on-background": "#1d1c18",
+            "secondary": "#a23f1b",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#e6e2db",
+            "on-secondary-container": "#701f00",
+            "on-primary-container": "#ff9194",
+            "secondary-fixed": "#ffdbd0",
+            "surface-tint": "#b32738",
+            "on-tertiary-fixed": "#00201d",
+            "on-tertiary-container": "#76beb5",
+            "surface-container-low": "#f8f3ec",
+            "on-primary": "#ffffff",
+            "surface": "#fef9f2",
+            "background": "#fef9f2",
+            "on-tertiary": "#ffffff",
+            "surface-container-high": "#ece7e1",
+            "outline": "#8d7070",
+            "primary-fixed": "#ffdad9",
+            "tertiary": "#003430",
+            "tertiary-fixed": "#a7f0e7",
+            "primary": "#620013",
+            "inverse-on-surface": "#f5f0e9",
+            "secondary-container": "#fe835a",
+            "on-error-container": "#93000a",
+            "surface-dim": "#ded9d3",
+            "inverse-surface": "#32302c",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#910623",
+            "surface-container": "#f2ede6",
+            "on-surface-variant": "#594140"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "display-hero-mobile": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-lg-mobile": [
+              "Plus Jakarta Sans"
+            ],
+            "title-md": [
+              "Plus Jakarta Sans"
+            ],
+            "label-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-md": [
+              "Plus Jakarta Sans"
+            ],
+            "body-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "label-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "display-hero": [
+              "Plus Jakarta Sans"
+            ],
+            "body-md": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "body-lg": [
+              "Plus Jakarta Sans"
+            ]
+          },
+          "fontSize": {
+            "display-hero-mobile": [
+              "36px",
+              {
+                "lineHeight": "44px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "headline-lg-mobile": [
+              "28px",
+              {
+                "lineHeight": "36px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "title-md": [
+              "18px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "500"
+              }
+            ],
+            "label-sm": [
+              "11px",
+              {
+                "lineHeight": "14px",
+                "letterSpacing": "0.08em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-md": [
+              "28px",
+              {
+                "lineHeight": "36px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "body-sm": [
+              "13px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ],
+            "label-lg": [
+              "14px",
+              {
+                "lineHeight": "18px",
+                "letterSpacing": "0.04em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-lg": [
+              "40px",
+              {
+                "lineHeight": "48px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "600"
+              }
+            ],
+            "display-hero": [
+              "56px",
+              {
+                "lineHeight": "64px",
+                "letterSpacing": "-0.03em",
+                "fontWeight": "700"
+              }
+            ],
+            "body-md": [
+              "15px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "headline-sm": [
+              "22px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "600"
+              }
+            ],
+            "body-lg": [
+              "18px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "400"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f2ede6;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .icon-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center text-[#1C1917] antialiased selection:bg-[#8C0120] selection:text-white">
+<!-- Mobile Viewport Container 390px -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#FFFAF3] shadow-md flex flex-col relative">
+<!-- 1. FIXED TOP BAR -->
+<header class="h-14 bg-[#FFFAF3] border-b border-[#E7DFD5] flex items-center justify-between px-4 sticky top-0 z-50">
+<!-- Left: Kibreeze red wordmark -->
+<div class="flex items-center">
+<img alt="Kibreeze" class="h-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwyZQahxJ5txvYT0uqlCYzt3y9Or6eaNmGGkD9ZjrktI1jwUfiygMSc42O3opaxdzjZ84lh6cVVL_xqynURxGtroxU3k57ofwW4zcLVEsDx3h7VIgNjUoCuUeYhX835D3eBs1vpI-1A-CH463cBvy2MzSroNn15toAeaugJUFj_LRlfj8vEU2NXYZznYDTxysIQTixHnThYQ-5CfF9NQEw0siCrQbX-2HWmvXU6dxPXQPFL4D6sECkOh82XyApNEWxx57LeF8f4R0">
+</div>
+<!-- Right: Language selector + WhatsApp Icon -->
+<div class="flex items-center space-x-3">
+<div class="flex items-center text-xs tracking-wider font-semibold">
+<span class="text-[#8C0120] font-bold">FR</span>
+<span class="mx-1 text-[#78716C]">|</span>
+<span class="text-[#78716C] hover:text-[#1C1917] cursor-pointer">EN</span>
+</div>
+<div class="flex items-center text-[#25D366]">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- 2. MAIN CONTENT SCROLLABLE -->
+<main class="flex-1 pb-44">
+<!-- Header Section -->
+<section class="px-4 pt-5 pb-3">
+<div class="flex items-baseline justify-between">
+<div>
+<h1 class="text-2xl font-bold tracking-tight text-[#1C1917] leading-none mb-1">Mon séjour</h1>
+<p class="text-sm text-[#78716C]">5 prestations sélectionnées</p>
+</div>
+<button class="text-sm text-[#78716C] underline hover:text-[#8C0120] transition-colors duration-150">
+            Vider
+          </button>
+</div>
+</section>
+<!-- Date & Travelers Section -->
+<section class="px-4 mb-5">
+<div class="grid grid-cols-2 gap-3">
+<!-- Dates du séjour -->
+<div>
+<label class="block text-xs font-semibold text-[#1C1917] mb-1">Dates du séjour</label>
+<div class="border border-[#D6CEC4] bg-white rounded-[4px] px-3 py-2.5 flex items-center justify-between cursor-pointer hover:border-[#8C0120] transition-colors">
+<span class="text-sm text-[#78716C]">Sélectionner</span>
+<span class="material-symbols-outlined text-[#78716C] text-lg leading-none" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+<!-- Voyageurs -->
+<div>
+<label class="block text-xs font-semibold text-[#1C1917] mb-1">Voyageurs</label>
+<div class="border border-[#D6CEC4] bg-white rounded-[4px] px-3 py-2.5 flex items-center justify-between cursor-pointer hover:border-[#8C0120] transition-colors">
+<span class="text-sm text-[#78716C]">Combien ?</span>
+<span class="material-symbols-outlined text-[#78716C] text-lg leading-none" data-icon="group">group</span>
+</div>
+</div>
+</div>
+<!-- Teal Info Line -->
+<div class="text-xs text-[#186962] flex items-center gap-1.5 mt-2 font-medium">
+<span class="material-symbols-outlined text-[15px] leading-none" data-icon="info">info</span>
+<span class="">Ajoute tes dates pour une réponse plus rapide</span>
+</div>
+</section>
+<!-- List of Selected Items -->
+<section class="px-4 space-y-3 mb-6">
+<!-- Item 1: Excursion en pirogue -->
+<div class="bg-white border border-[#E7DFD5] rounded-[4px] p-2.5 flex gap-3 relative min-h-[96px]">
+<img alt="Excursion en pirogue" class="w-20 h-20 rounded-[4px] object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1WMM9x14xmgofy7QyJymfwzueA8xmAqwj0dpZ7oRcwYb9cggAIyKTsi9n35AaTkxCYwNw_Xm_Ha7dUQXMBMtNmCRZi5OFHKz9UM_sBC2QxwuE6koME_QwfMdZM_5KSP24F2g666UKv62Z5vSo90Ly2h4hn-dYK7elQ31bYPxjt3Skyq9rrGEnE-DLH-W5--QEEDNe6Xnpo_XaUw9zyJw3p1y1BIa4LzePot0v-b6duKV2PSGaQ9xiBAaKM">
+<div class="flex-1 flex flex-col justify-between pr-6">
+<div>
+<h2 class="font-bold text-sm text-[#1C1917] leading-snug">Excursion en pirogue</h2>
+<p class="text-xs text-[#78716C] mb-1.5">1 groupe</p>
+</div>
+<!-- Quantity selector -->
+<div class="flex items-center gap-2">
+<button class="min-w-[44px] min-h-[44px] -m-2 p-2 flex items-center justify-center"><span class="w-6 h-6 border border-[#D6CEC4] rounded-[3px] flex items-center justify-center text-xs font-bold bg-[#FAF6F0] text-[#1C1917] hover:bg-[#E7DFD5] active:scale-95 transition-all">−</span></button>
+<span class="text-xs font-semibold text-[#1C1917] px-0.5">1</span>
+<button class="min-w-[44px] min-h-[44px] -m-2 p-2 flex items-center justify-center"><span class="w-6 h-6 border border-[#D6CEC4] rounded-[3px] flex items-center justify-center text-xs font-bold bg-[#FAF6F0] text-[#1C1917] hover:bg-[#E7DFD5] active:scale-95 transition-all">+</span></button>
+</div>
+</div>
+<!-- Absolute / End Align Actions -->
+<div class="flex flex-col justify-between items-end flex-shrink-0">
+<button aria-label="Supprimer" class="text-stone-400 hover:text-red-700 transition-colors">
+<span class="material-symbols-outlined text-[18px] leading-none" data-icon="delete_outline">delete_outline</span>
+</button>
+<span class="font-bold text-sm text-[#8C0120] whitespace-nowrap">35 000 FCFA</span>
+</div>
+</div>
+<!-- Item 2: Chutes de la Lobé -->
+<div class="bg-white border border-[#E7DFD5] rounded-[4px] p-2.5 flex gap-3 relative min-h-[96px]">
+<img alt="Chutes de la Lobé" class="w-20 h-20 rounded-[4px] object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1WexY4fS_3NRuEyHlYcJo3nsdnOTvQDxPzzoUfa0led3TfDLCbdrg_m03kChlwy9PGrBOOWawKxJCIDle6xt4MOBH_vSy7L7w8hy7VMv7EM5gDOMxfsgrmejIprs--Lap_ad2Ucd3bPBa-iArHiaFcAuhvXldT8MmC7BTHe2319gwGAXiOvUBIYDEpMbtU5gVye-1nLYWQyi5teuWa-smyD_ldl8e8CFCikCPPbety74_InC0PPqwpMcnc">
+<div class="flex-1 flex flex-col justify-between pr-6">
+<div>
+<h2 class="font-bold text-sm text-[#1C1917] leading-snug">Chutes de la Lobé</h2>
+<p class="text-xs text-[#78716C] mb-1.5">2 personnes</p>
+</div>
+<!-- Quantity selector -->
+<div class="flex items-center gap-2">
+<button class="min-w-[44px] min-h-[44px] -m-2 p-2 flex items-center justify-center"><span class="w-6 h-6 border border-[#D6CEC4] rounded-[3px] flex items-center justify-center text-xs font-bold bg-[#FAF6F0] text-[#1C1917] hover:bg-[#E7DFD5] active:scale-95 transition-all">−</span></button>
+<span class="text-xs font-semibold text-[#1C1917] px-0.5">2</span>
+<button class="min-w-[44px] min-h-[44px] -m-2 p-2 flex items-center justify-center"><span class="w-6 h-6 border border-[#D6CEC4] rounded-[3px] flex items-center justify-center text-xs font-bold bg-[#FAF6F0] text-[#1C1917] hover:bg-[#E7DFD5] active:scale-95 transition-all">+</span></button>
+</div>
+</div>
+<!-- Actions & Price -->
+<div class="flex flex-col justify-between items-end flex-shrink-0">
+<button aria-label="Supprimer" class="text-stone-400 hover:text-red-700 transition-colors">
+<span class="material-symbols-outlined text-[18px] leading-none" data-icon="delete_outline">delete_outline</span>
+</button>
+<span class="font-bold text-sm text-[#8C0120] whitespace-nowrap">10 000 FCFA</span>
+</div>
+</div>
+<!-- Item 3: Campement Bagyeli -->
+<div class="bg-white border border-[#E7DFD5] rounded-[4px] p-2.5 flex gap-3 relative min-h-[96px]">
+<img alt="Campement Bagyeli" class="w-20 h-20 rounded-[4px] object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1Wcgth4I3klI17z1AgJajp5w4XGO-76IxNNCsfj0aYCHwI51wkZuiVCjRMfRa59OmoXRLeeZiaizxQTW0_Q-nzkBQuGf0WZUj-X5P2-UicW3OOhTVsxUTm4fSK3wOFFY-IKfao1rp307hq9KWOPDjPdXBMP0S8gEagB5crT7vii6UrTNB1ucTGvrP9ihQ_Vi9wYnR5RB-JWvIUjXqPa9GzePCXvusgz7K_KSi8pSs2lvLaEjEpevfbmaPw">
+<div class="flex-1 flex flex-col justify-between pr-6">
+<div>
+<h2 class="font-bold text-sm text-[#1C1917] leading-snug">Campement Bagyeli</h2>
+<p class="text-xs text-[#78716C] mb-1.5">tarif couple</p>
+</div>
+<!-- Quantity selector -->
+<div class="flex items-center gap-2">
+<button class="min-w-[44px] min-h-[44px] -m-2 p-2 flex items-center justify-center"><span class="w-6 h-6 border border-[#D6CEC4] rounded-[3px] flex items-center justify-center text-xs font-bold bg-[#FAF6F0] text-[#1C1917] hover:bg-[#E7DFD5] active:scale-95 transition-all">−</span></button>
+<span class="text-xs font-semibold text-[#1C1917] px-0.5">1</span>
+<button class="min-w-[44px] min-h-[44px] -m-2 p-2 flex items-center justify-center"><span class="w-6 h-6 border border-[#D6CEC4] rounded-[3px] flex items-center justify-center text-xs font-bold bg-[#FAF6F0] text-[#1C1917] hover:bg-[#E7DFD5] active:scale-95 transition-all">+</span></button>
+</div>
+</div>
+<!-- Actions & Price -->
+<div class="flex flex-col justify-between items-end flex-shrink-0">
+<button aria-label="Supprimer" class="text-stone-400 hover:text-red-700 transition-colors">
+<span class="material-symbols-outlined text-[18px] leading-none" data-icon="delete_outline">delete_outline</span>
+</button>
+<span class="font-bold text-sm text-[#8C0120] whitespace-nowrap">20 000 FCFA</span>
+</div>
+</div>
+<!-- Item 4: Hébergement, Chambre -->
+<div class="bg-white border border-[#E7DFD5] rounded-[4px] p-2.5 flex gap-3 relative min-h-[96px]">
+<img alt="Hébergement, Chambre" class="w-20 h-20 rounded-[4px] object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1U5CBaRqZSaL_A4oQ8bE49ohhmIDfhcQcdLcdndrvSIE5nL4FAeyUlgszULgAimjNR_DX5Vw7lNmvwaP9CejbxFHE_y5B8osI5d8I2yQt1zEbfxLkVRnfdd08a9t8UkNNkVxeAvnozhbP6fFA0MsDhDsLpIycJpj7wrxnIjtz7cAuHsJLd1Ef7IRvYu5fuUCrVya2l3qW3idrHyirhn8xIqFD0SdFTqhgZy4kfmtc4BB5iaqGPKJYnQn58">
+<div class="flex-1 flex flex-col justify-between pr-6">
+<div>
+<h2 class="font-bold text-sm text-[#1C1917] leading-snug">Hébergement, Chambre</h2>
+<p class="text-xs text-[#78716C] mb-1.5">3 nuits</p>
+</div>
+<!-- Quantity selector -->
+<div class="flex items-center gap-2">
+<button class="min-w-[44px] min-h-[44px] -m-2 p-2 flex items-center justify-center"><span class="w-6 h-6 border border-[#D6CEC4] rounded-[3px] flex items-center justify-center text-xs font-bold bg-[#FAF6F0] text-[#1C1917] hover:bg-[#E7DFD5] active:scale-95 transition-all">−</span></button>
+<span class="text-xs font-semibold text-[#1C1917] px-0.5">3</span>
+<button class="min-w-[44px] min-h-[44px] -m-2 p-2 flex items-center justify-center"><span class="w-6 h-6 border border-[#D6CEC4] rounded-[3px] flex items-center justify-center text-xs font-bold bg-[#FAF6F0] text-[#1C1917] hover:bg-[#E7DFD5] active:scale-95 transition-all">+</span></button>
+</div>
+</div>
+<!-- Actions & Price -->
+<div class="flex flex-col justify-between items-end flex-shrink-0">
+<button aria-label="Supprimer" class="text-stone-400 hover:text-red-700 transition-colors">
+<span class="material-symbols-outlined text-[18px] leading-none" data-icon="delete_outline">delete_outline</span>
+</button>
+<div class="text-right">
+<span class="block font-bold text-xs text-[#8C0120] leading-tight">À partir de</span>
+<span class="block font-bold text-xs text-[#8C0120] leading-tight">45 000 FCFA</span>
+</div>
+</div>
+</div>
+<!-- Item 5: Transfert Douala -> Kribi -->
+<div class="bg-white border border-[#E7DFD5] rounded-[4px] p-2.5 flex gap-3 relative min-h-[96px]"><div class="w-20 h-20 rounded-[4px] bg-[#FAF6F0] border border-[#E7DFD5] flex items-center justify-center p-2 flex-shrink-0">
+<span class="material-symbols-outlined text-[#186962] text-3xl" data-icon="directions_car">directions_car</span>
+</div>
+<div class="flex-1 flex flex-col justify-between pr-6">
+<div>
+<div class="flex items-center flex-wrap gap-1.5 leading-snug">
+<img alt="TKS" class="h-3.5 object-contain inline-block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBQk6ivkkeomn6B3aafI-eOHInZ8Vg5G_RiVnfunqJEKtrK7zxH--RRbmYhNt7RvD9_GKe_6fVvD6mW8MnqjpBiyIWC7NYtSR-3-03bLRC1Ywz5I2MItTBYJeQuaA86mXD2Jxj8D_I7qi94wOnTH6KS1zcpujnVoV5SXetHTqw9rCPIozr5P3EBsfWZhX9KaxFJaKNeLwTWfCMyavCA_12CSy5wlvhMvgjLQb69aOTE3oLovbDWkVeHTyT9MgjkUZH-1TR7IfqN40">
+<h2 class="font-bold text-sm text-[#1C1917] inline">TKS® — Transfert Douala → Kribi</h2>
+</div>
+<div class="mt-1">
+<span class="bg-[#E3EFEF] text-[#186962] text-[11px] font-semibold px-2 py-0.5 rounded-[3px] inline-block">
+Sur devis
+</span>
+</div>
+</div>
+<div class="h-6"></div>
+</div>
+<div class="flex flex-col justify-between items-end flex-shrink-0">
+<button aria-label="Supprimer" class="text-stone-400 hover:text-red-700 transition-colors">
+<span class="material-symbols-outlined text-[18px] leading-none" data-icon="delete_outline">delete_outline</span>
+</button>
+</div></div>
+</section>
+<!-- Total Estimatif Box -->
+<section class="px-4 mb-6">
+<div class="bg-[#F5ECE1] border border-[#E2D5C3] rounded-[4px] p-4">
+<div class="flex items-baseline justify-between">
+<span class="text-base font-bold text-[#1C1917]">Total estimatif</span>
+<span class="text-2xl font-black text-[#8C0120] tracking-tight">110 000 FCFA</span>
+</div>
+<div class="text-right mt-0.5">
+<span class="text-xs text-[#78716C]">≈ 167,20 € — montant indicatif</span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-[#186962] font-semibold mt-3 pt-2.5 border-t border-[#E2D5C3]/60">
+<span class="material-symbols-outlined text-sm leading-none" data-icon="add_circle">add_circle</span>
+<span class="">+ 1 prestation sur devis</span>
+</div>
+<p class="text-[11px] text-[#78716C] mt-2 leading-relaxed">
+            Prix indicatif, sous réserve de disponibilité et de confirmation par Kibreeze.
+          </p>
+</div>
+</section>
+</main>
+<!-- 3. STICKY BOTTOM BAR (ACTION) -->
+<div class="fixed bottom-14 left-0 right-0 w-full max-w-[390px] mx-auto bg-white/95 backdrop-blur-sm border-t border-[#E7DFD5] p-3 z-40">
+<a class="bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.99] text-white font-bold py-3.5 px-4 rounded-[4px] flex items-center justify-center gap-2 text-sm w-full transition-all shadow-none" href="https://wa.me/" rel="noopener noreferrer" target="_blank">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path>
+</svg>
+<span class="">Demander un devis par WhatsApp</span>
+</a>
+<div class="text-center mt-2">
+<a class="text-xs text-[#78716C] underline hover:text-[#1C1917] transition-colors" href="#continuer">
+          Continuer mes recherches
+        </a>
+</div>
+</div>
+<!-- 4. BOTTOM TAB BAR -->
+<nav class="fixed bottom-0 left-0 right-0 w-full max-w-[390px] mx-auto bg-white border-t border-[#E7DFD5] h-14 flex items-center justify-around z-50 px-1">
+<!-- Accueil -->
+<a class="flex flex-col items-center justify-center text-[#78716C] hover:text-[#1C1917] transition-colors py-1 flex-1" href="#accueil">
+<span class="material-symbols-outlined text-xl mb-0.5" data-icon="home">home</span>
+<span class="text-[10px] font-medium leading-none">Accueil</span>
+</a>
+<!-- Expériences -->
+<a class="flex flex-col items-center justify-center text-[#78716C] hover:text-[#1C1917] transition-colors py-1 flex-1" href="#experiences">
+<span class="material-symbols-outlined text-xl mb-0.5" data-icon="explore">explore</span>
+<span class="text-[10px] font-medium leading-none">Expériences</span>
+</a>
+<!-- Hébergements -->
+<a class="flex flex-col items-center justify-center text-[#78716C] hover:text-[#1C1917] transition-colors py-1 flex-1" href="#hebergements">
+<span class="material-symbols-outlined text-xl mb-0.5" data-icon="hotel">hotel</span>
+<span class="text-[10px] font-medium leading-none">Hébergements</span>
+</a>
+<!-- Formules -->
+<a class="flex flex-col items-center justify-center text-[#78716C] hover:text-[#1C1917] transition-colors py-1 flex-1" href="#formules">
+<span class="material-symbols-outlined text-xl mb-0.5" data-icon="loyalty">loyalty</span>
+<span class="text-[10px] font-medium leading-none">Formules</span>
+</a>
+<!-- Mon séjour (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-[#8C0120] font-semibold py-1 flex-1 relative" href="#mon-sejour">
+<div class="relative inline-flex items-center justify-center">
+<span class="material-symbols-outlined text-xl mb-0.5 icon-fill text-[#8C0120]" data-icon="luggage" data-weight="fill" style="font-variation-settings: 'FILL' 1;">luggage</span>
+<!-- Notification count badge -->
+<span class="absolute -top-1.5 -right-2.5 w-4 h-4 bg-[#8C0120] text-white rounded-full text-[10px] font-bold flex items-center justify-center">
+            5
+          </span>
+</div>
+<span class="text-[10px] font-bold text-[#8C0120] leading-none">Mon séjour</span>
+</a>
+</nav>
+</div>
+
+
+
+
+</body></html>

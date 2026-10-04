@@ -46,13 +46,13 @@ describe('table des routes', () => {
 
   it('déduit la langue du chemin', () => {
     expect(getLocaleFromPath('/')).toBe('fr');
-    expect(getLocaleFromPath('/tourisme')).toBe('fr');
+    expect(getLocaleFromPath('/experiences')).toBe('fr');
     expect(getLocaleFromPath('/en/')).toBe('en');
-    expect(getLocaleFromPath('/en/tourism')).toBe('en');
+    expect(getLocaleFromPath('/en/experiences')).toBe('en');
   });
 
   it('tolère une barre oblique finale', () => {
-    expect(getRouteKeyFromPath('/tourisme/')).toBe('tourism');
+    expect(getRouteKeyFromPath('/hebergements/')).toBe('accommodation');
     expect(getAlternatePath('/en/my-trip/', 'fr')).toBe('/sejour');
   });
 

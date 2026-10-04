@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Kibreeze - TKS Mobilité</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#e1bebe",
+            "on-tertiary-container": "#76beb5",
+            "outline": "#8d7070",
+            "on-secondary-fixed": "#390b00",
+            "primary-fixed": "#ffdad9",
+            "surface-container-highest": "#e6e2db",
+            "secondary-container": "#fe835a",
+            "surface-bright": "#fef9f2",
+            "primary": "#8C0120",
+            "on-primary-container": "#ff9194",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#910623",
+            "surface-variant": "#e6e2db",
+            "inverse-on-surface": "#f5f0e9",
+            "surface-container-low": "#f8f3ec",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed-dim": "#8bd4cb",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#ffb59d",
+            "surface-dim": "#ded9d3",
+            "primary-fixed-dim": "#ffb3b3",
+            "on-error": "#ffffff",
+            "on-background": "#1d1c18",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#f2ede6",
+            "inverse-primary": "#ffb3b3",
+            "surface-container-high": "#ece7e1",
+            "surface-tint": "#b32738",
+            "on-surface-variant": "#594140",
+            "on-secondary-fixed-variant": "#822804",
+            "secondary-fixed": "#ffdbd0",
+            "tertiary-container": "#004d47",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#a7f0e7",
+            "secondary": "#a23f1b",
+            "inverse-surface": "#32302c",
+            "tertiary": "#003430",
+            "background": "#fef9f2",
+            "on-surface": "#1d1c18",
+            "on-secondary-container": "#701f00",
+            "surface": "#fef9f2",
+            "primary-container": "#8c0120",
+            "on-primary-fixed": "#400009",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#00504a",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#00201d"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FEF9F2;
+      color: #1C1917;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-[#FEF9F2] text-[#1C1917] flex justify-center min-h-screen">
+<!-- Outer Mobile Container: 390px Viewport Reference -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#FEF9F2] relative flex flex-col selection:bg-[#8C0120]/10 pb-32">
+<!-- Top Bar (Fixed) -->
+<header class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-14 bg-[#FEF9F2] border-b border-[#E5E0D8] z-40 px-4 flex items-center justify-between">
+<!-- Left: Kibreeze Wordmark Image -->
+<a aria-label="Kibreeze Accueil" class="flex items-center min-h-[44px] min-w-[44px] focus:outline-none" href="#">
+<img alt="Kibreeze" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDVDMtVDbbO795GFaOKDyMBzueg_YsXuObdQXE4NmGQIO3qozaz9-uvABoqBt6VWJpC42HS09yKAfMoleUTruhnCh3psSCtUbN91jnf0-5V0j9DwC_1VxzUBUd2mi9At8MG2r8XK1t7pSkTHGQsx89nRH4II0CgBq4-FLmnLfah0amcyapCzSb25s-aOVpvbF3ePtq4-x6BBZd7pcdU6IHVkAaKB0fqKR2RIw4udzGNPbgf26tcGShLXU-O6_-wUbdg4FdFt3Hfyg"/>
+</a>
+<!-- Right: FR | EN + WhatsApp Icon (Plain, No Background Box) -->
+<div class="flex items-center gap-3">
+<div class="flex items-center text-sm tracking-tight">
+<span class="text-[#8C0120] font-bold">FR</span>
+<span class="text-[#A8A29E] mx-1 text-xs">|</span>
+<span class="text-slate-500 font-medium">EN</span>
+</div>
+<!-- WhatsApp Icon Link -->
+<a aria-label="Contacter par WhatsApp" class="min-w-[44px] min-h-[44px] flex items-center justify-center hover:opacity-80 transition-opacity" href="https://wa.me/" rel="noopener noreferrer" target="_blank">
+<svg class="w-6 h-6 text-[#25D366]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"></path>
+</svg>
+</a>
+</div>
+</header>
+<!-- Space under fixed top bar -->
+<div class="h-14 w-full"></div>
+<!-- Low Banner: 130px tall, #F0EBE3 -->
+<section class="h-[130px] bg-[#F0EBE3] px-4 flex items-center gap-3.5 border-b border-[#E5E0D8]">
+<div class="flex-shrink-0">
+<img alt="TKS" class="h-[22px] w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbEIx_1gID0u4WwUZZcUxNwQwiSOFTObKXnXn7_Uyy95Z82RYLkfF7GXgLYG_Q9hkC-FMvDXhCSwksNKnqolrWmANYom7BhkSnx7AvcsBn32yhyi43FjJEK7U6BbFl8eQ3PJ9F0b5r4RzvlfPomLXdK7S01E-eXwjwoZcMKjk5EMoNyBEkbq-3ZpYFclWLsV_5GRBnfhcd4tVvtwJ-qb128g35j1HEpxqOmdH9Z4-8HTokOHTS2_CLimHUfnD9k3ieMyQpoOaY_WU"/>
+</div>
+<div class="flex-1 min-w-0">
+<h1 class="text-base font-bold text-neutral-900 leading-tight">Mobilité &amp; transport</h1>
+<p class="text-sm text-neutral-600 leading-snug mt-1">Location, transferts et chauffeur privé pour compléter votre séjour</p>
+</div>
+</section>
+<!-- Disclaimer / Sub-line -->
+<div class="px-4 py-3">
+<p class="text-xs text-neutral-500 leading-relaxed">
+      TKS® est la marque de mobilité de Breezy Groupe, aux côtés de Kibreeze.
+    </p>
+</div>
+<!-- Service Rows (Compact list, 72px tall each) -->
+<section aria-label="Services de mobilité" class="divide-y divide-[#EAE4DC] border-t border-b border-[#EAE4DC] bg-transparent"><!-- Row 1: Location de véhicules -->
+<a class="min-h-[72px] py-2.5 px-4 flex items-center gap-3 hover:bg-[#F5ECE1]/40 transition-colors focus:outline-none" href="#">
+<img alt="Location de véhicules" class="w-14 h-14 rounded-[4px] object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqiqrrWbGR4jKkhnTJFrIK6RKj9PpRYod4-O8IuhO7QW-DBFr9EsJBVjh13SDFWiXTbn0tqe4ZCFli2TVy_r13b8jBbbc8Cbf1tz2bD-jjiPmfktHmg2bv36SUhzp0vt9eUbakr7hSbvyPreXyGBfkDh3qwGEPgEjHhQ60FCgfpPg97sWOJUT4uMUsSWnQf9MWD_WE8_BRwhWwMhaIN9MxMjF7GjREvvTzSiM0je3OW4eMccvy7sJWhtpJdoGhMcdb1XDjp5qREOg"/>
+<div class="flex-1 min-w-0 pr-1">
+<h2 class="font-semibold text-neutral-900 text-sm leading-tight">Location de véhicules</h2>
+<p class="text-xs text-neutral-500 leading-snug mt-0.5">Berlines et 4×4, avec ou sans chauffeur</p>
+</div>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="inline-block bg-[#E6F4F1] text-[#0D6E6E] text-xs font-medium px-2 py-0.5 rounded-[4px]">
+          Sur devis
+        </span>
+<span class="material-symbols-outlined text-neutral-400 text-lg" data-icon="chevron_right">chevron_right</span>
+</div>
+</a>
+<!-- Row 2: Location avec chauffeur -->
+<a class="min-h-[72px] py-2.5 px-4 flex items-center gap-3 hover:bg-[#F5ECE1]/40 transition-colors focus:outline-none" href="#">
+<img alt="Location avec chauffeur" class="w-14 h-14 rounded-[4px] object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV-RQumWVMxwQZpPVhK7zbV6uO5R1SV--AZBYg3gD49ZzL96QbTk2vikbbhU3J2H2ildwNQxHomzTlGFam3DLwLOOdM5VxZ3LYtcpI-EARei-HIs7LjQrGygPfdXGDpq-dmhuWEVCBINVipp2xFuAlI4SNQtpVDUYa5cENNhPfRz9wTYX4_YQTp31cyGiXJvXyiwA_CiqCVnNGfxqLcEUdxsx4p6Bir5ZmYMIn8NFPC15pdWPTU1ft67OMAwqYg-ku2HWT3aegHHM"/>
+<div class="flex-1 min-w-0 pr-1">
+<h2 class="font-semibold text-neutral-900 text-sm leading-tight">Location avec chauffeur</h2>
+<p class="text-xs text-neutral-500 leading-snug mt-0.5">Un véhicule et son chauffeur à la journée ou au séjour</p>
+</div>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="inline-block bg-[#E6F4F1] text-[#0D6E6E] text-xs font-medium px-2 py-0.5 rounded-[4px]">
+          Sur devis
+        </span>
+<span class="material-symbols-outlined text-neutral-400 text-lg" data-icon="chevron_right">chevron_right</span>
+</div>
+</a>
+<!-- Row 3: Transferts -->
+<a class="min-h-[72px] py-2.5 px-4 flex items-center gap-3 hover:bg-[#F5ECE1]/40 transition-colors focus:outline-none" href="#">
+<img alt="Transferts" class="w-14 h-14 rounded-[4px] object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3GrmeKeWH2gouDwZAudSKGpP8UheBwZWP36oVDF4eKRUEhHfl38L0PgkSf__rZl-jZGhYmcPcVAEziHpzjj96AA--_r9YHBFf7TgJN91-SGdKoJ7z_pb-VGsmaVYW0kEJz91utoNFELmlerjWlIZeRLnaUag2zbnaByK6PLbmgiTrEiCHtVZL7Fkin3o5Rt0es0kU30aAz02nGXJ4FlNw2nr93YVKX2szwnAqyBYFA029wPCKV4mzGOg6h8VLTk-LJcha2KaW-gE"/>
+<div class="flex-1 min-w-0 pr-1">
+<h2 class="font-semibold text-neutral-900 text-sm leading-tight">Transferts</h2>
+<p class="text-xs text-neutral-500 leading-snug mt-0.5">Douala, Yaoundé, aéroport</p>
+</div>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="inline-block bg-[#E6F4F1] text-[#0D6E6E] text-xs font-medium px-2 py-0.5 rounded-[4px]">
+          Sur devis
+        </span>
+<span class="material-symbols-outlined text-neutral-400 text-lg" data-icon="chevron_right">chevron_right</span>
+</div>
+</a>
+<!-- Row 4: Chauffeur privé -->
+<a class="min-h-[72px] py-2.5 px-4 flex items-center gap-3 hover:bg-[#F5ECE1]/40 transition-colors focus:outline-none" href="#">
+<img alt="Chauffeur privé" class="w-14 h-14 rounded-[4px] object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpB9Bf215wqGQcvJiRlFo9WDg_nU0l2I5XLMRaUnoQXoVbGllVOtaZ6PcIDKJl2LEx4sFT-V-fuJK3hcZQCJ-PKTCZywbW1rgCNDuo9pSh2f5GiXY6uXcgBOAgtHW-3actDEh2n6Q_534_2pqecqpx0kiAyfYlRTXUIh2yLe-MyZts4RfG33LufUSeWdGkPM86BPCq_BlU2oGJ_VqCTEXBEVmGJFLvIgEdgOQSZEtqhXfm_ou4Y2j_l57b16lHPJlBEIlx0nmipMM"/>
+<div class="flex-1 min-w-0 pr-1">
+<h2 class="font-semibold text-neutral-900 text-sm leading-tight">Chauffeur privé</h2>
+<p class="text-xs text-neutral-500 leading-snug mt-0.5">À l'heure ou à la journée</p>
+</div>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="inline-block bg-[#E6F4F1] text-[#0D6E6E] text-xs font-medium px-2 py-0.5 rounded-[4px]">
+          Sur devis
+        </span>
+<span class="material-symbols-outlined text-neutral-400 text-lg" data-icon="chevron_right">chevron_right</span>
+</div>
+</a>
+<!-- Row 5: Prestations professionnelles -->
+<a class="min-h-[72px] py-2.5 px-4 flex items-center gap-3 hover:bg-[#F5ECE1]/40 transition-colors focus:outline-none" href="#">
+<img alt="Prestations professionnelles" class="w-14 h-14 rounded-[4px] object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCFZAW_cEi2RIiFq-XepfV2L69xlO7rYIo6XOzDP7o3Clv4CFTwp5FzYSdy6sp1hL7MIovRpT-bKaslM24zUM4YBbLjot6jbpmRZBkGA49QL5HeFfL1-fjQ75wjh1DKSNsLjYv7saP7iMo5LCRoJI6OkV5BG76e90xL9ooeyU_PnzWKbG9w74iKkPj3u8kHT_PFXGq0hJk3rDInH1oPcgExLKYPpjI0ec8tJisQyxQLlvrtEyDHzm90o2SEOKQ6nOSxkUbz0cGFwQ"/>
+<div class="flex-1 min-w-0 pr-1">
+<h2 class="font-semibold text-neutral-900 text-sm leading-tight">Prestations professionnelles</h2>
+<p class="text-xs text-neutral-500 leading-snug mt-0.5">Transport d'équipes et d'entreprises</p>
+</div>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="inline-block bg-[#E6F4F1] text-[#0D6E6E] text-xs font-medium px-2 py-0.5 rounded-[4px]">
+          Sur devis
+        </span>
+<span class="material-symbols-outlined text-neutral-400 text-lg" data-icon="chevron_right">chevron_right</span>
+</div>
+</a></section>
+<!-- Plain Contact Box on #F5ECE1 -->
+<section class="m-4 p-4 rounded-[4px] bg-[#F5ECE1] border border-[#E8DEC8]">
+<p class="text-sm text-neutral-800 leading-snug">
+      Besoin d'un transport sur mesure ? Dites-nous vos dates et votre trajet, nous vous répondons avec un prix.
+    </p>
+<a class="mt-3.5 w-full bg-[#25D366] hover:bg-[#20BA5A] active:scale-[0.99] text-white font-medium py-3 px-4 rounded-[4px] min-h-[44px] flex items-center justify-center gap-2 text-sm transition-all focus:outline-none" href="https://wa.me/" rel="noopener noreferrer" target="_blank">
+<svg class="w-5 h-5 text-white flex-shrink-0" fill="currentColor" viewbox="0 0 24 24">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"></path>
+</svg>
+<span>Contacter Kibreeze sur WhatsApp</span>
+</a>
+</section>
+<!-- Floating Round WhatsApp Button: 56px fully round, 16px above tab bar (fixed bottom-20 right-4) -->
+<a aria-label="Contacter sur WhatsApp" class="fixed bottom-20 right-4 z-40 w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] active:scale-95 text-white rounded-full flex items-center justify-center shadow-md transition-transform" href="https://wa.me/" rel="noopener noreferrer" target="_blank">
+<svg class="w-7 h-7 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"></path>
+</svg>
+</a>
+<!-- Bottom Navigation Bar (Fixed bottom-0, no active tab) -->
+<nav aria-label="Navigation principale" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-16 bg-[#FEF9F2] border-t border-[#E5E0D8] z-50 flex items-center justify-around px-2">
+<!-- Tab 1: Accueil -->
+<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-neutral-700 transition-colors min-h-[44px] min-w-[44px] px-1 py-1" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="home">home</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Accueil</span>
+</a>
+<!-- Tab 2: Expériences -->
+<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-neutral-700 transition-colors min-h-[44px] min-w-[44px] px-1 py-1" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="explore">explore</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Expériences</span>
+</a>
+<!-- Tab 3: Hébergements -->
+<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-neutral-700 transition-colors min-h-[44px] min-w-[44px] px-1 py-1" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="hotel">hotel</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Hébergements</span>
+</a>
+<!-- Tab 4: Formules -->
+<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-neutral-700 transition-colors min-h-[44px] min-w-[44px] px-1 py-1" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="loyalty">loyalty</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Formules</span>
+</a>
+<!-- Tab 5: Mon séjour (Inactive, badge 0) -->
+<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-neutral-700 transition-colors min-h-[44px] min-w-[44px] px-1 py-1 relative" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="luggage">luggage</span>
+<!-- Badge 0 in neutral grey circle -->
+<span class="absolute -top-1 -right-2 bg-neutral-400 text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center leading-none">
+          0
+        </span>
+</div>
+<span class="text-[11px] font-medium tracking-wide mt-1">Mon séjour</span>
+</a>
+</nav>
+</main>
+</body></html>

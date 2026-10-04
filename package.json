@@ -1,5 +1,5 @@
 {
-  "name": "tks-web",
+  "name": "kibreeze-web",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,11 +8,14 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "npm run check:content",
     "build": "astro build",
-    "build:prod": "npm run check:i18n && astro build",
+    "build:prod": "npm run check:i18n -- --production && npm run build",
     "preview": "astro preview",
-    "check": "npm run lint && npm run format:check && npm run typecheck && vitest run",
+    "check": "npm run lint && npm run format:check && npm run typecheck && npm run tokens:check && npm run check:content && vitest run",
     "check:i18n": "node --experimental-strip-types scripts/check-i18n.ts",
+    "check:content": "node --experimental-strip-types scripts/check-content.ts",
+    "tokens:check": "node --experimental-strip-types scripts/check-tokens.ts",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "lint": "eslint .",
