@@ -11,6 +11,8 @@ Deux pistes avancent **en parallèle** :
 
 Le code d'une feature ne démarre pas avant que ses écrans soient validés par Franck.
 
+> **État au 2026-10-04 : la piste design est terminée.** Les écrans 1 à 8 et les versions ordinateur de l'accueil et de la fiche sont validés par Franck et exportés dans [design-exports/](./design-exports/README.md) (D1 à D5). Les écrans secondaires 9 à 11 de D4 (Contact, 404, versions anglaises) n'ont pas été générés : ils se construisent directement dans le code à partir des écrans validés. Polices et rayons sont reportés dans les tokens (ADR-015). La suite est entièrement côté code : fin de la 001 (C3), puis 002.
+
 ```text
 Phase 0  Relance client (K1, L1, L2, M1, prix, photos)          ── en continu
 Phase 1  D: écrans 1-3        │ C: rebrand 001 + docs + constitution

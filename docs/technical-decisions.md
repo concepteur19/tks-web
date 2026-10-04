@@ -262,3 +262,27 @@ Amender la constitution en **2.0.0**, version majeure parce que le périmètre d
 - Les documents d'archive — réponses client, transcriptions, briefs A/B/C, spec 001 livrée — ne sont pas réécrits mais marqués : ils sont la trace de ce qui a été décidé et livré à une date donnée.
 - Le nom du projet Cloudflare Pages reste `tks-web-1h2` tant que le domaine `kibreeze.com` n'est pas en service. Un projet Pages ne se renomme pas, il se recrée.
 - L'outil de génération de maquettes n'est plus inscrit dans la constitution comme un choix définitif : seule la discipline des tokens l'est.
+
+---
+
+## ADR-015 — Polices auto-hébergées : Plus Jakarta Sans et Caveat
+
+**Date** : 2026-10-04 · **Statut** : accepté · Remplace la décision 5 de [specs/001-project-foundation/research.md](../specs/001-project-foundation/research.md), qui laissait la pile système en attendant la direction visuelle.
+
+### Contexte
+
+Les écrans validés par Franck le 2026-10-04 ([design-exports/](./design-exports/README.md)) utilisent **Plus Jakarta Sans** pour tout le texte et **Caveat** pour le slogan manuscrit « Kribi is a feeling ». TR-23 limite le site à deux familles, en sous-ensemble latin, avec `font-display: swap` et préchargement.
+
+### Décision
+
+- Les deux polices sont **auto-hébergées** dans `public/fonts/`, déclarées dans `src/styles/fonts.css` et préchargées par `BaseLayout.astro`. Pas d'appel à Google Fonts au chargement, et pas de dépendance npm.
+- **Plus Jakarta Sans** : fichier variable 400 à 800, sous-ensemble latin de Google Fonts (27 Ko).
+- **Caveat** : figée en graisse 400 et réduite aux seules lettres du slogan, qui est identique en français et en anglais (14 Ko au lieu de 75 Ko). Elle ne sert à rien d'autre : `--font-script` est réservé au slogan.
+
+### Conséquences
+
+- 41 Ko de polices préchargées sur chaque page, compatible avec le budget de performance.
+- Si le slogan change, il faut régénérer le sous-ensemble de Caveat, avec les commandes notées dans `src/styles/fonts.css`. Sinon les lettres manquantes s'affichent dans la police cursive du système.
+- Le signe « ≈ » des équivalents en euros n'est pas dans le sous-ensemble latin de Plus Jakarta Sans : il s'affiche dans la police du système. C'est acceptable pour un seul caractère.
+- Les deux polices sont sous licence SIL Open Font License 1.1, qui autorise l'auto-hébergement et le sous-ensemble.
+

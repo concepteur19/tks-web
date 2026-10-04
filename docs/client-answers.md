@@ -270,6 +270,21 @@ Quatre packages existent **avec leurs prix**, contrairement à sa première rép
 - **Jet-ski et quad** : voir T1 et T4 ci-dessus.
 - **Logo Kibreeze vectoriel** et logos des quatre marques du groupe.
 
+## 1 quinquies. Validation des écrans (2026-10-04)
+
+Franck a validé les écrans générés dans Stitch. L'information a été relayée par Zobel le 2026-10-04 ; il n'y a pas de message écrit de Franck à citer.
+
+**Écrans validés** : les 8 écrans mobiles du brief, avec leurs variantes, et les versions ordinateur de l'accueil et de la fiche, soit 13 écrans exportés dans [design-exports/](./design-exports/README.md). Les autres écrans ordinateur se déduisent des règles du brief, sans maquette.
+
+**Décisions prises pendant la génération, dans la même session :**
+
+- **Équivalents en euros** : toujours deux décimales, sans parenthèses, sur leur propre ligne (« ≈ 53,20 € »). Brief et FR-EUR-2 mis à jour.
+- **Polices** : Plus Jakarta Sans et Caveat, auto-hébergées (ADR-015).
+- **Angles** : 4 px au plus, cercle réservé au bouton WhatsApp flottant et aux pastilles de compteur.
+- **Logo WhatsApp** : tracé officiel, déjà utilisé par `src/components/WhatsAppButton.astro`.
+
+**Ce que la validation ne tranche pas** : les prix des hébergements affichés sur l'écran 6 viennent de la note vocale du 2026-09-25 et du brief. Franck ne les a pas confirmés comme une grille ferme (question L1). La validation porte sur le design, pas sur ces montants.
+
 ## 2. Ce que ça change dans le projet
 
 | Réf. | Décision | Document mis à jour |

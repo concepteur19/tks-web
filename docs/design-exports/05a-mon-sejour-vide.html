@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kibreeze - Mon séjour (vide) v3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#8C0120',
+            cream: '#FFFAF3',
+            whatsapp: '#25D366',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFFAF3;
+      color: #1A1A1A;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col justify-between bg-[#FFFAF3]">
+
+  <!-- Top App Bar -->
+  <header class="sticky top-0 z-30 bg-[#FFFAF3] border-b border-[#F0E9DF] px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO2g4SOlIhVLGu6DdUZkRv-Lgd6T93qgNOipPXd114cbEWkxQn3X8W2fKR5E1ap_u-2aFczrWCeV1nXSb0xorOHsMnX9nmZRpgfMPiPn8HONTp2wwDm5FkUhv1gNBceCN5fzcEXQQ6uVp4Jxs6nLUWdt5fsGIZiWrW1wwG7im4Tt5URBB2_5qXgd80h19PAOijUz6sGyx3C-DBO-p2Cm-GK3oeIWEiIUqFqcYMxQUeqBhUBCuuRWmF7fLX7lotFRIDVKa6Bi1UWVI" alt="Kibreeze" class="h-6 w-auto object-contain">
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="flex items-center text-sm font-medium">
+        <span class="text-[#8C0120] font-bold">FR</span>
+        <span class="text-[#9CA3AF] mx-1">|</span>
+        <span class="text-[#9CA3AF]">EN</span>
+      </div>
+      <a href="https://wa.me/" aria-label="WhatsApp Kibreeze" class="flex items-center justify-center min-w-[44px] min-h-[44px] text-[#25D366]">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 px-4 pt-6 pb-28 flex flex-col">
+    <!-- Title -->
+    <h1 class="text-[28px] font-bold text-[#1A1A1A] tracking-tight mb-8">
+      Mon séjour
+    </h1>
+
+    <!-- Empty State Center Content -->
+    <div class="flex-1 flex flex-col items-center justify-center text-center px-2">
+      <!-- Square Photograph of Kribi Beach at sunset with leaning palm trees, sharp corners -->
+      <div class="w-[280px] h-[280px] max-w-full overflow-hidden rounded-none shadow-sm mb-6">
+        <img src="https://lh3.googleusercontent.com/aida/AEtjO1VfyvuEC6S82hzcA5cC63kSxzkPWAHiLONIY1Xg7WyRLoF5QbZgOE8uFbGq98qEwn28WbMydn2UAruxBqSL6z5DeA_mVPPDpKci2bCo_OKe1LKxN-3eWpwgqWtcfVZZu2zROJ7sho9vEKMqEB-GGxGdb2hT4QOcY2dMAacaYeFqgbnk4j9uMo0qLR0HrjiOmnwZmjGR5aNdrr68C2-b0H6pUIyahzjrKZFAfRBwMz789jLWUZteS7w2ZEA" alt="Plage de Kribi au coucher du soleil" class="w-full h-full object-cover rounded-none">
+      </div>
+
+      <!-- Heading -->
+      <h2 class="text-[22px] font-bold text-[#1A1A1A] mb-2 leading-snug">
+        Votre séjour est vide
+      </h2>
+
+      <!-- Description -->
+      <p class="text-[15px] text-[#666666] mb-7 max-w-[280px] leading-relaxed">
+        Ajoutez des expériences pour composer votre séjour à Kribi
+      </p>
+
+      <!-- Action Button (Brand Red, max 4px radius, min 44px height, no pill) -->
+      <a href="#experiences" class="inline-flex items-center justify-center bg-[#8C0120] text-white font-semibold text-[15px] px-6 h-12 rounded-[4px] hover:bg-[#720119] active:scale-[0.98] transition-all min-h-[44px]">
+        Découvrir les expériences
+      </a>
+    </div>
+  </main>
+
+  <!-- Floating WhatsApp Button -->
+  <!-- 56x56 round circle, green #25D366, white 28px icon with official path, soft subtle shadow, 16px above bottom tab bar -->
+  <aside class="fixed right-4 bottom-[76px] z-40">
+    <a href="https://wa.me/" aria-label="Contacter sur WhatsApp" class="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:brightness-105 active:scale-95 transition-all">
+      <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"/>
+      </svg>
+    </a>
+  </aside>
+
+  <!-- Bottom Tab Navigation Bar -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#FFFAF3] border-t border-[#F0E9DF] h-[60px] flex items-center justify-around px-2">
+    <!-- Accueil -->
+    <a href="#accueil" class="flex flex-col items-center justify-center flex-1 py-1 text-[#666666] hover:text-[#1A1A1A] transition-colors min-h-[44px]">
+      <span class="material-symbols-outlined text-[24px]">home</span>
+      <span class="text-[10px] font-medium mt-0.5 tracking-tight">Accueil</span>
+    </a>
+
+    <!-- Expériences -->
+    <a href="#experiences" class="flex flex-col items-center justify-center flex-1 py-1 text-[#666666] hover:text-[#1A1A1A] transition-colors min-h-[44px]">
+      <span class="material-symbols-outlined text-[24px]">explore</span>
+      <span class="text-[10px] font-medium mt-0.5 tracking-tight">Expériences</span>
+    </a>
+
+    <!-- Hébergements -->
+    <a href="#hebergements" class="flex flex-col items-center justify-center flex-1 py-1 text-[#666666] hover:text-[#1A1A1A] transition-colors min-h-[44px]">
+      <span class="material-symbols-outlined text-[24px]">hotel</span>
+      <span class="text-[10px] font-medium mt-0.5 tracking-tight">Hébergements</span>
+    </a>
+
+    <!-- Formules -->
+    <a href="#formules" class="flex flex-col items-center justify-center flex-1 py-1 text-[#666666] hover:text-[#1A1A1A] transition-colors min-h-[44px]">
+      <span class="material-symbols-outlined text-[24px]">loyalty</span>
+      <span class="text-[10px] font-medium mt-0.5 tracking-tight">Formules</span>
+    </a>
+
+    <!-- Mon séjour (Active) -->
+    <a href="#sejour" class="flex flex-col items-center justify-center flex-1 py-1 text-[#8C0120] font-semibold transition-colors min-h-[44px] relative">
+      <div class="relative inline-flex items-center justify-center">
+        <span class="material-symbols-outlined fill text-[24px] text-[#8C0120]">luggage</span>
+        <span class="absolute -top-1 -right-2 bg-[#8C0120] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center border-2 border-[#FFFAF3]">0</span>
+      </div>
+      <span class="text-[10px] font-bold mt-0.5 tracking-tight text-[#8C0120]">Mon séjour</span>
+    </a>
+  </nav>
+
+</body>
+</html>

@@ -21,15 +21,16 @@
   --color-danger: #b91c1c;
   --color-info: #1d4ed8;
 
-  /* Typographie [PLACEHOLDER] : pile système tant que la police n'est pas choisie */
-  --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-script: 'Brush Script MT', cursive;
+  /* Typographie : écrans validés le 2026-10-04, voir src/styles/fonts.css */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-script: 'Caveat', cursive; /* uniquement « Kribi is a feeling » */
 
-  /* Rayons */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-card: 0.75rem;
+  /* Rayons : angles francs, 4 px au plus (brief Stitch). Le cercle ne sert qu'au
+     bouton WhatsApp flottant et aux pastilles de compteur. */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-card: 0.25rem;
   --radius-pill: 9999px;
 
   /* Ombres */

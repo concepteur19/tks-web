@@ -1,0 +1,422 @@
+<!DOCTYPE html><html lang="fr" class="h-full"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kibreeze - Fiche Excursion en pirogue (ordinateur)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surface: '#FFFAF3',
+            'surface-deep': '#F5ECE1',
+            brand: '#8C0120',
+            'brand-dark': '#6b0119',
+            tealbadge: '#186962',
+            whatsapp: '#25D366'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background-color: #FFFAF3;
+      color: #1C1917;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-[#FFFAF3]">
+
+  <!-- FIXED TOP NAVIGATION BAR DESKTOP -->
+  <header class="sticky top-0 z-50 bg-[#FFFAF3] border-b border-[#E8DFD5] w-full">
+    <div class="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Left: Logo & Main Navigation Links -->
+      <div class="flex items-center gap-10">
+        <a href="#" class="flex items-center">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLxu7KIVG3twt30iZyHzkILiXuqA6GtJshh-YzzdcsOygKsIrQ0MmFQUz9SuVYVF9guT3scF-TvG07puagXF34WL17RUirrBCvRBys9uoIHHNKyDtf5sl6gaHoOUypj7Ythg1cr3hnprh-9VETsglprsMbFqgeG76jzZDNjjaSj3FSGZ4QnEN4mRh_YGFUuLT-fQc0-Cb1vd9aQirAafAmMaWcpNSlUezOmymVuNSaAQ_4CxvrHTwc6yW1OP4PW5_e7NuhlWEsT30" alt="Kibreeze" class="h-7 w-auto object-contain">
+        </a>
+        <nav class="flex items-center gap-8 text-[15px] font-medium text-[#44403C]">
+          <a href="#" class="hover:text-[#8C0120] transition-colors py-2">Accueil</a>
+          <a href="#" class="text-[#8C0120] font-semibold py-2 border-b-2 border-[#8C0120]">Expériences</a>
+          <a href="#" class="hover:text-[#8C0120] transition-colors py-2">Hébergements</a>
+          <a href="#" class="hover:text-[#8C0120] transition-colors py-2">Formules</a>
+          <a href="#" class="hover:text-[#8C0120] transition-colors py-2">Mobilité</a>
+        </nav>
+      </div>
+
+      <!-- Right: Language Switch, Mon Séjour & WhatsApp -->
+      <div class="flex items-center gap-6">
+        <!-- Language Switch -->
+        <div class="text-[14px]">
+          <span class="font-bold text-[#8C0120]">FR</span>
+          <span class="text-[#A8A29E] mx-1">|</span>
+          <span class="text-[#78716C] hover:text-[#1C1917] cursor-pointer">EN</span>
+        </div>
+
+        <!-- Mon séjour Cart -->
+        <a href="#" class="flex items-center gap-2 text-[#44403C] hover:text-[#8C0120] transition-colors py-1.5 px-2">
+          <div class="relative flex items-center">
+            <span class="material-symbols-outlined text-[22px]">luggage</span>
+            <span class="absolute -top-1.5 -right-2 bg-[#8C0120] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+          </div>
+          <span class="text-[14px] font-medium ml-1">Mon séjour</span>
+        </a>
+
+        <!-- WhatsApp Button -->
+        <a href="#" class="flex items-center gap-2 bg-[#25D366] hover:bg-[#22bf5b] text-white px-4 py-2.5 rounded-[4px] font-semibold text-[14px] transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"></path>
+          </svg>
+          <span class="">WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER (1200px max, centered) -->
+  <main class="max-w-[1200px] w-full mx-auto px-6 py-8 flex-grow">
+
+    <!-- 1. BREADCRUMB -->
+    <nav class="text-[13px] text-[#78716C] mb-6 flex items-center gap-2">
+      <a href="#" class="hover:text-[#8C0120] transition-colors">Expériences</a>
+      <span class="">›</span>
+      <a href="#" class="hover:text-[#8C0120] transition-colors">Nature &amp; Découverte</a>
+      <span class="">›</span>
+      <span class="text-[#1C1917] font-medium">Excursion en pirogue</span>
+    </nav>
+
+    <!-- 2. TWO COLUMNS LAYOUT -->
+    <div class="grid grid-cols-12 gap-10 items-start">
+
+      <!-- LEFT COLUMN (~60% = 7 cols) -->
+      <section class="col-span-12 lg:col-span-7 flex flex-col gap-8">
+        
+        <!-- Gallery Section -->
+        <div class="flex flex-col gap-3">
+          <!-- Main Large Photo (480px tall) -->
+          <div class="relative w-full h-[480px] rounded-[4px] overflow-hidden bg-[#E8DFD5]">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1WMM9x14xmgofy7QyJymfwzueA8xmAqwj0dpZ7oRcwYb9cggAIyKTsi9n35AaTkxCYwNw_Xm_Ha7dUQXMBMtNmCRZi5OFHKz9UM_sBC2QxwuE6koME_QwfMdZM_5KSP24F2g666UKv62Z5vSo90Ly2h4hn-dYK7elQ31bYPxjt3Skyq9rrGEnE-DLH-W5--QEEDNe6Xnpo_XaUw9zyJw3p1y1BIa4LzePot0v-b6duKV2PSGaQ9xiBAaKM" alt="Excursion en pirogue traditionnelle sur la Lobé" class="w-full h-full object-cover">
+            <div class="absolute bottom-4 right-4 bg-black/70 text-white text-[12px] font-medium px-3 py-1 rounded-[4px]">
+              1 / 4
+            </div>
+          </div>
+
+          <!-- Thumbnails Row (3 thumbnails) -->
+          <div class="grid grid-cols-3 gap-3">
+            <div class="h-28 rounded-[4px] overflow-hidden border-2 border-[#8C0120] cursor-pointer">
+              <img src="https://lh3.googleusercontent.com/aida/AEtjO1XPx0bQeiQ5fY0zF1wJGjQR57PUIQcg3v9zG7ezPQmGLznLgypOvy-HsN7fUQTTWj6HtKfA-b4LilE9GEAO5ThjIZML5CGm_-pAm1PFgRbas2Bo6uMmkl9oXO0nI_caCUBxFqHEvN_HXdwhfg3nSCzRUCG_AgqFE5L6YE47OzaCRNLN-bjkUq6YzaVdq33esW43Fp7E5dS5vOeLMbM3UFQLP106j1ZpE5vvd3YHSwDXJZECBxTsDFupnQ" alt="Piroguier sur la Lobé" class="w-full h-full object-cover hover:scale-105 transition-transform">
+            </div>
+            <div class="h-28 rounded-[4px] overflow-hidden border border-[#E8DFD5] opacity-90 hover:opacity-100 cursor-pointer">
+              <img src="https://lh3.googleusercontent.com/aida/AEtjO1WexY4fS_3NRuEyHlYcJo3nsdnOTvQDxPzzoUfa0led3TfDLCbdrg_m03kChlwy9PGrBOOWawKxJCIDle6xt4MOBH_vSy7L7w8hy7VMv7EM5gDOMxfsgrmejIprs--Lap_ad2Ucd3bPBa-iArHiaFcAuhvXldT8MmC7BTHe2319gwGAXiOvUBIYDEpMbtU5gVye-1nLYWQyi5teuWa-smyD_ldl8e8CFCikCPPbety74_InC0PPqwpMcnc" alt="Chutes de la Lobé" class="w-full h-full object-cover hover:scale-105 transition-transform">
+            </div>
+            <div class="h-28 rounded-[4px] overflow-hidden border border-[#E8DFD5] opacity-90 hover:opacity-100 cursor-pointer">
+              <img src="https://lh3.googleusercontent.com/aida/AEtjO1Vu7r3bBxCp6G2rWY-ttmkYMIfJXdRBQto212LzX7GoHppSaSqHa1hRdGBGdsbolS1kxh0JCuzZ2UFt6V0DY5gwJcjivfvu_w4bROEw-QCGXP2pspu5uI5a9pGlFgNcmv99pc5Ijcvt0k8BUxtMds6qCFSkb0l6AI9P4tLdl9KAIVf6IIable9Sik4cOMZDnKPvdGO4hUsWHlUXe9K3rbiMz0Dei8C_tvQbiAXW-l1Cd__pmKMP5-GdGQw" alt="Jacuzzi naturel" class="w-full h-full object-cover hover:scale-105 transition-transform">
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Title & Badge -->
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center gap-3">
+            <span class="inline-block bg-[#186962]/10 text-[#186962] text-[12px] font-semibold px-2.5 py-1 rounded-[4px]">
+              Nature &amp; Découverte
+            </span>
+          </div>
+          <h1 class="text-[34px] font-bold text-[#1C1917] tracking-tight leading-tight">
+            Excursion en pirogue
+          </h1>
+        </div>
+
+        <!-- 3-Column Info Row with thin icons and thin rules -->
+        <div class="grid grid-cols-3 border border-[#E8DFD5] rounded-[4px] bg-white divide-x divide-[#E8DFD5] py-4 text-center">
+          <div class="flex flex-col items-center justify-center px-4">
+            <span class="material-symbols-outlined text-[#78716C] text-[24px] mb-1">schedule</span>
+            <span class="text-[14px] font-semibold text-[#1C1917]">2 à 3 heures</span>
+          </div>
+          <div class="flex flex-col items-center justify-center px-4">
+            <span class="material-symbols-outlined text-[#78716C] text-[24px] mb-1">groups</span>
+            <span class="text-[14px] font-semibold text-[#1C1917]">1 à 8 personnes</span>
+          </div>
+          <div class="flex flex-col items-center justify-center px-4">
+            <span class="material-symbols-outlined text-[#78716C] text-[24px] mb-1">location_on</span>
+            <span class="text-[14px] font-semibold text-[#1C1917]">Embouchure de la Lobé</span>
+          </div>
+        </div>
+
+        <!-- Description Paragraphs -->
+        <div class="space-y-4 text-[15px] leading-relaxed text-[#44403C]">
+          <p class="">
+            Glissez au fil de l'eau sur le cours majestueux de la Lobé, bercé par le rythme des pagaies traditionnelles et la sérénité des mangroves.
+          </p>
+          <p class="">
+            Accompagné par un piroguier local expérimenté, vous découvrirez la richesse de la faune aquatique et les recoins sauvages de la forêt équatoriale.
+          </p>
+        </div>
+
+        <!-- Inclus & Non Inclus Side by Side in Two Columns -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-[#E8DFD5]">
+          <!-- Ce qui est inclus -->
+          <div>
+            <h2 class="text-[17px] font-bold text-[#1C1917] mb-4">Ce qui est inclus</h2>
+            <ul class="space-y-3 text-[14px] text-[#44403C]">
+              <li class="flex items-start gap-2.5">
+                <span class="material-symbols-outlined text-[#25D366] text-[20px] shrink-0 mt-0.5">check</span>
+                <span class="">Pirogue et équipement de sécurité</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="material-symbols-outlined text-[#25D366] text-[20px] shrink-0 mt-0.5">check</span>
+                <span class="">Piroguier local</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="material-symbols-outlined text-[#25D366] text-[20px] shrink-0 mt-0.5">check</span>
+                <span class="">Gilets de sauvetage</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="material-symbols-outlined text-[#25D366] text-[20px] shrink-0 mt-0.5">check</span>
+                <span class="">Rafraîchissements</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Ce qui n'est pas inclus -->
+          <div>
+            <h2 class="text-[17px] font-bold text-[#1C1917] mb-4">Ce qui n'est pas inclus</h2>
+            <ul class="space-y-3 text-[14px] text-[#78716C]">
+              <li class="flex items-start gap-2.5">
+                <span class="material-symbols-outlined text-[#A8A29E] text-[20px] shrink-0 mt-0.5">close</span>
+                <span class="">Pourboires</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="material-symbols-outlined text-[#A8A29E] text-[20px] shrink-0 mt-0.5">close</span>
+                <span class="">Dépenses personnelles</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="material-symbols-outlined text-[#A8A29E] text-[20px] shrink-0 mt-0.5">close</span>
+                <span class="">Transport jusqu'au point d'embarquement</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- RIGHT COLUMN (~40% = 5 cols) - STICKY BOOKING CARD -->
+      <aside class="col-span-12 lg:col-span-5 lg:sticky lg:top-28">
+        <div class="bg-white border border-[#E8DFD5] rounded-[4px] p-7 flex flex-col gap-6 shadow-sm">
+          
+          <!-- Price Header -->
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-[32px] font-extrabold text-[#8C0120] tracking-tight">35 000 FCFA</span>
+              <span class="text-[16px] text-[#78716C] font-normal">/ groupe</span>
+            </div>
+            <div class="text-[14px] text-[#57534E] font-medium mt-1">
+              ≈ 53,20 € — montant indicatif
+            </div>
+            <p class="text-[12px] text-[#A8A29E] leading-normal mt-2">
+              Prix indicatif, sous réserve de disponibilité et de confirmation par Kibreeze.
+            </p>
+            <div class="mt-3">
+              <span class="inline-block bg-[#186962]/10 text-[#186962] text-[12px] font-semibold px-2.5 py-1 rounded-[4px]">
+                Jusqu'à 8 personnes — au-delà, sur devis
+              </span>
+            </div>
+          </div>
+
+          <div class="h-px bg-[#E8DFD5] w-full"></div>
+
+          <!-- Complétez votre expérience Box on deeper cream -->
+          <div class="bg-[#F5ECE1] p-4 rounded-[4px] flex flex-col gap-3">
+            <h3 class="text-[14px] font-bold text-[#1C1917]">Complétez votre expérience</h3>
+            <div class="flex flex-col gap-2.5">
+              
+              <!-- Option 1 -->
+              <label class="flex items-center justify-between cursor-pointer group">
+                <div class="flex items-center gap-2.5">
+                  <input type="checkbox" class="w-4 h-4 rounded-[3px] border-[#D6C7B7] text-[#8C0120] focus:ring-0 cursor-pointer accent-[#8C0120]">
+                  <span class="text-[13px] text-[#44403C] group-hover:text-[#1C1917]">Guide touristique</span>
+                </div>
+                <span class="text-[13px] font-bold text-[#8C0120]">5 000 FCFA</span>
+              </label>
+
+              <!-- Option 2 -->
+              <label class="flex items-center justify-between cursor-pointer group">
+                <div class="flex items-center gap-2.5">
+                  <input type="checkbox" class="w-4 h-4 rounded-[3px] border-[#D6C7B7] text-[#8C0120] focus:ring-0 cursor-pointer accent-[#8C0120]">
+                  <span class="text-[13px] text-[#44403C] group-hover:text-[#1C1917]">Maître-nageur</span>
+                </div>
+                <span class="text-[13px] font-bold text-[#8C0120]">5 000 FCFA</span>
+              </label>
+
+              <!-- Option 3 -->
+              <label class="flex items-center justify-between cursor-pointer group">
+                <div class="flex items-center gap-2.5">
+                  <input type="checkbox" class="w-4 h-4 rounded-[3px] border-[#D6C7B7] text-[#8C0120] focus:ring-0 cursor-pointer accent-[#8C0120]">
+                  <span class="text-[13px] text-[#44403C] group-hover:text-[#1C1917]">Musée d'art</span>
+                </div>
+                <span class="text-[13px] font-bold text-[#8C0120]">1 500 FCFA / personne</span>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Quantity Selector -->
+          <div class="flex items-center justify-between">
+            <span class="text-[14px] font-semibold text-[#1C1917]">Nombre de personnes</span>
+            <div class="flex items-center gap-2">
+              <button class="w-9 h-9 flex items-center justify-center border border-[#D6C7B7] rounded-[4px] text-[#44403C] hover:bg-[#F5ECE1] font-bold transition-colors">
+                −
+              </button>
+              <span class="w-7 text-center font-bold text-[15px] text-[#1C1917]">2</span>
+              <button class="w-9 h-9 flex items-center justify-center border border-[#8C0120] text-[#8C0120] rounded-[4px] hover:bg-[#8C0120]/5 font-bold transition-colors">
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="h-px bg-[#E8DFD5] w-full"></div>
+
+          <!-- Total Block -->
+          <div class="flex items-baseline justify-between">
+            <span class="text-[15px] font-medium text-[#44403C]">Total</span>
+            <div class="text-right">
+              <div class="text-[24px] font-bold text-[#8C0120]">35 000 FCFA</div>
+              <div class="text-[13px] text-[#78716C]">≈ 53,20 €</div>
+            </div>
+          </div>
+
+          <!-- Action CTA -->
+          <div class="flex flex-col items-center gap-3">
+            <button class="w-full bg-[#8C0120] hover:bg-[#6b0119] text-white py-3.5 px-6 rounded-[4px] font-semibold text-[15px] transition-colors text-center shadow-none">
+              Ajouter à mon séjour
+            </button>
+            <a href="#" class="text-[13px] text-[#78716C] underline hover:text-[#1C1917] transition-colors">
+              Demander ce service
+            </a>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- 3. VOUS AIMEREZ AUSSI (Full width row below the two columns) -->
+    <section class="mt-20 pt-10 border-t border-[#E8DFD5]">
+      <h2 class="text-[24px] font-bold text-[#1C1917] mb-8">Vous aimerez aussi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Suggestion Card 1: Chutes de la Lobé -->
+        <a href="#" class="group bg-white border border-[#E8DFD5] rounded-[4px] overflow-hidden flex flex-col hover:border-[#8C0120] transition-colors">
+          <div class="h-48 w-full overflow-hidden bg-[#E8DFD5]">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1WexY4fS_3NRuEyHlYcJo3nsdnOTvQDxPzzoUfa0led3TfDLCbdrg_m03kChlwy9PGrBOOWawKxJCIDle6xt4MOBH_vSy7L7w8hy7VMv7EM5gDOMxfsgrmejIprs--Lap_ad2Ucd3bPBa-iArHiaFcAuhvXldT8MmC7BTHe2319gwGAXiOvUBIYDEpMbtU5gVye-1nLYWQyi5teuWa-smyD_ldl8e8CFCikCPPbety74_InC0PPqwpMcnc" alt="Chutes de la Lobé" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-5 flex flex-col justify-between flex-grow">
+            <div>
+              <h3 class="text-[17px] font-bold text-[#1C1917] group-hover:text-[#8C0120] transition-colors">
+                Chutes de la Lobé
+              </h3>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#F5ECE1]">
+              <div class="text-[16px] font-bold text-[#8C0120]">5 000 FCFA</div>
+              <div class="text-[12px] text-[#78716C]">≈ 7,60 €</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Suggestion Card 2: Jacuzzi naturel -->
+        <a href="#" class="group bg-white border border-[#E8DFD5] rounded-[4px] overflow-hidden flex flex-col hover:border-[#8C0120] transition-colors">
+          <div class="h-48 w-full overflow-hidden bg-[#E8DFD5]">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1Vu7r3bBxCp6G2rWY-ttmkYMIfJXdRBQto212LzX7GoHppSaSqHa1hRdGBGdsbolS1kxh0JCuzZ2UFt6V0DY5gwJcjivfvu_w4bROEw-QCGXP2pspu5uI5a9pGlFgNcmv99pc5Ijcvt0k8BUxtMds6qCFSkb0l6AI9P4tLdl9KAIVf6IIable9Sik4cOMZDnKPvdGO4hUsWHlUXe9K3rbiMz0Dei8C_tvQbiAXW-l1Cd__pmKMP5-GdGQw" alt="Jacuzzi naturel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-5 flex flex-col justify-between flex-grow">
+            <div>
+              <h3 class="text-[17px] font-bold text-[#1C1917] group-hover:text-[#8C0120] transition-colors">
+                Jacuzzi naturel
+              </h3>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#F5ECE1]">
+              <div class="text-[16px] font-bold text-[#8C0120]">5 000 FCFA</div>
+              <div class="text-[12px] text-[#78716C]">≈ 7,60 €</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Suggestion Card 3: Croisière -->
+        <a href="#" class="group bg-white border border-[#E8DFD5] rounded-[4px] overflow-hidden flex flex-col hover:border-[#8C0120] transition-colors">
+          <div class="h-48 w-full overflow-hidden bg-[#E8DFD5]">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1UqQK3fhVwwD0kgC1Hdif2B1YkztE01BVlZ4marMakQBsWyXGBIo33x-xY1oBKKLT-PHDohYW8T0Z380j-K0TH7X3OfibJg2EkOYIi62hYlZJWynjfnVZ0QRrTcwwpW7oCqOsLk96gczVfV8hA4KCZ7R_lvhIkF-txpCWsw871nC15D4yOigG6vT6o4My2-CHx3z8004wiCdfaxAMN8GcA97w1BoBZ0JZsbQD4TV0SkAKk06T1uPRPhc5c" alt="Croisière" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-5 flex flex-col justify-between flex-grow">
+            <div>
+              <h3 class="text-[17px] font-bold text-[#1C1917] group-hover:text-[#8C0120] transition-colors">
+                Croisière
+              </h3>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#F5ECE1]">
+              <div class="text-[16px] font-bold text-[#8C0120]">25 000 FCFA</div>
+              <div class="text-[12px] text-[#78716C]">≈ 38,00 €</div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 4. FOOTER (Dark grey, cream text, matching homepage footer) -->
+  <footer class="bg-[#1C1917] text-[#FFFAF3] mt-24 pt-16 pb-12 border-t border-[#292524] w-full">
+    <div class="max-w-[1200px] mx-auto px-6">
+      
+      <!-- Top Row: Brand & Navigation Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-[#2E2A27]">
+        <!-- Col 1: Logo & Slogan -->
+        <div class="md:col-span-5 flex flex-col gap-4">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_dl3JmXWetWv4fe-_Na8bQW5rmB5WE_ukeD8L9cxB_jsihuisS9-7pMKBk4UuA3-z2QtyhrEWD6WHBUwzHZOwnesbPY0kURd6IMbrRHrSIBPDuX8Xn9SCr-5lRxUFf1Mk4GX2nhl_pcEcLZb1ncIoIv9Bm6D0SpuT7gzyQcw4qLfkpcQV3SHmDNQiYwjNDmtFf__TMndKAgNdoI72c27Wx8UIGeROPMTboYsKDS8_hVs7K2MPO2saKASxlqhDq4rirCLr4RZ5MYY" alt="Kibreeze" class="h-14 w-auto object-contain self-start">
+          <p class="text-[14px] text-[#A8A29E] max-w-sm mt-2 leading-relaxed">Kribi is a feeling.</p>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="md:col-span-3 flex flex-col gap-3">
+          <h4 class="text-[14px] font-bold tracking-wider uppercase text-[#E7E5E4] mb-1">Explorer</h4>
+          <a href="#" class="text-[14px] text-[#D6D3D1] hover:text-[#FFFAF3] transition-colors">Expériences</a>
+          <a href="#" class="text-[14px] text-[#D6D3D1] hover:text-[#FFFAF3] transition-colors">Hébergements</a>
+          <a href="#" class="text-[14px] text-[#D6D3D1] hover:text-[#FFFAF3] transition-colors">Formules</a>
+        </div>
+
+        <!-- Col 3: Services & Location -->
+        <div class="md:col-span-4 flex flex-col gap-3">
+          <h4 class="text-[14px] font-bold tracking-wider uppercase text-[#E7E5E4] mb-1">Informations</h4>
+          <a href="#" class="text-[14px] text-[#D6D3D1] hover:text-[#FFFAF3] transition-colors">Mobilité TKS®</a>
+          <a href="#" class="text-[14px] text-[#D6D3D1] hover:text-[#FFFAF3] transition-colors">À propos</a>
+          <a href="#" class="text-[14px] text-[#D6D3D1] hover:text-[#FFFAF3] transition-colors">Contact</a>
+          <p class="text-[14px] text-[#A8A29E] mt-3">Kribi, Cameroun</p>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Legal notice -->
+      
+
+    </div>
+  </footer>
+
+
+
+
+
+</body></html>

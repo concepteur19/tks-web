@@ -1,0 +1,576 @@
+<!DOCTYPE html><html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kibreeze - Accueil (ordinateur)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Caveat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            script: ['"Caveat"', 'cursive'],
+          },
+          colors: {
+            brand: {
+              red: '#8C0120',
+              cream: '#FFFAF3',
+              creamDeep: '#F5ECE1',
+              terracotta: '#A8431F',
+              teal: '#186962',
+              green: '#25D366',
+              dark: '#1C1917',
+              footer: '#1A1816',
+            }
+          },
+          borderRadius: {
+            DEFAULT: '4px',
+            sm: '4px',
+            md: '4px',
+            lg: '4px',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFFAF3;
+      color: #1C1917;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .kibreeze-btn-red {
+      background-color: #8C0120;
+      color: #ffffff;
+      transition: background-color 0.15s ease;
+    }
+    .kibreeze-btn-red:hover {
+      background-color: #700119;
+    }
+  </style>
+</head>
+<body class="bg-[#FFFAF3] text-[#1C1917]">
+
+  <!-- TOP BAR DESKTOP (identical to Fiche Excursion en pirogue) -->
+  <header class="sticky top-0 z-50 bg-[#FFFAF3] border-b border-[#E8E0D5]/80">
+    <div class="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Logo kibreeze-wordmark.png (~28px tall) -->
+      <div class="flex items-center gap-12">
+        <a href="#" class="block">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF0NyMbQfDG_uOs5Tg9uhteyT7qo33nZvX077NdrQSN8qaguDDwqWyo9Y7uXArtas9NsMhehfEPYgEVyb8QA0M-HzRMvWFD6SQoAx900pr2-7yVRAAbh0hiS7Mila6Kde_bZfFNPNA3ub7uBJCoixR9kWdL3G_8_aoEFzfZvwJTavg8OSGuyniOJSHzhNdYjn1fE399OcMG4dEGq_d_jScOzlk4v0jafxncdGgLwGAvPwwXY5rlalZyndnyUKWxFFxCYjCasLOtWc" alt="Kibreeze" class="h-7 w-auto object-contain">
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="flex items-center gap-8 text-[15px] font-medium text-[#4A4540]">
+          <a href="#" class="relative py-2 text-[#8C0120] font-semibold">
+            Accueil
+            <span class="absolute bottom-0 left-0 right-0 h-[2px] bg-[#8C0120] rounded-full"></span>
+          </a>
+          <a href="#" class="py-2 hover:text-[#8C0120] transition-colors">Expériences</a>
+          <a href="#" class="py-2 hover:text-[#8C0120] transition-colors">Hébergements</a>
+          <a href="#" class="py-2 hover:text-[#8C0120] transition-colors">Formules</a>
+          <a href="#" class="py-2 hover:text-[#8C0120] transition-colors">Mobilité</a>
+        </nav>
+      </div>
+
+      <!-- Right items: Language, Mon séjour, WhatsApp -->
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-1 text-[13px] tracking-wide">
+          <span class="text-[#8C0120] font-bold">FR</span>
+          <span class="text-[#9C948A]">|</span>
+          <span class="text-[#9C948A]">EN</span>
+        </div>
+
+        <a href="#" class="flex items-center gap-2 text-[14px] font-medium text-[#4A4540] hover:text-[#8C0120] transition-colors">
+          <div class="relative">
+            <svg class="w-5 h-5 text-[#4A4540]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 20h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"></path>
+              <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path>
+              <line x1="10" y1="11" x2="10" y2="15"></line>
+              <line x1="14" y1="11" x2="14" y2="15"></line>
+            </svg>
+            <span class="absolute -top-2 -right-2 bg-[#8C0120] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+          </div>
+          <span class="">Mon séjour</span>
+        </a>
+
+        <a href="#" class="inline-flex items-center gap-2 px-4 py-2 rounded bg-[#25D366] hover:bg-[#20ba59] text-white text-[14px] font-semibold transition-colors shadow-none">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"></path>
+          </svg>
+          <span class="">WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION (Full width, ~640px, Kribi beach sunset photo, dark overlay fading from bottom-left) -->
+  <section class="relative w-full h-[640px] overflow-hidden bg-[#1C1917]">
+    <img src="https://lh3.googleusercontent.com/aida/AEtjO1VfyvuEC6S82hzcA5cC63kSxzkPWAHiLONIY1Xg7WyRLoF5QbZgOE8uFbGq98qEwn28WbMydn2UAruxBqSL6z5DeA_mVPPDpKci2bCo_OKe1LKxN-3eWpwgqWtcfVZZu2zROJ7sho9vEKMqEB-GGxGdb2hT4QOcY2dMAacaYeFqgbnk4j9uMo0qLR0HrjiOmnwZmjGR5aNdrr68C2-b0H6pUIyahzjrKZFAfRBwMz789jLWUZteS7w2ZEA" alt="Plage de Kribi au coucher du soleil" class="absolute inset-0 w-full h-full object-cover object-center">
+    <!-- Overlay fading from bottom-left for perfect text legibility -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent"></div>
+
+    <div class="relative max-w-[1200px] h-full mx-auto px-6 flex flex-col justify-end pb-16">
+      <div class="max-w-[700px]">
+        <!-- Cream Kibreeze wordmark image (~72px tall) -->
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeic1zqSYLIHOd7rMesnmear-Xl_toiqyhdR8Un62JRRgm-SFa1iSzS5UnoNfGghKuYVXPfLAlXNI93gK3O08hUypsXI0oRBIKeAf-irW7D4giDFQhDls3bNl8OXjQU8F6NV4hkl9SfGeRPgj_cqQbaV2GtGUFKntk7qAc66CCFCMJaB6TDTzo5gZoR2Z5BVmntU0ojuzGmMJ_mgwatFYBFam-svhFcyvmFx5uurKAJtXL8riN630MM_ddjyk8rsuBtUM54ycjCIY" alt="Kibreeze" class="h-[72px] w-auto object-contain mb-2">
+        <p class="font-script text-[32px] text-[#FFFAF3]/90 font-normal mb-4 tracking-wide -mt-1">Kribi is a feeling</p>
+        
+        <h1 class="text-[44px] leading-[1.15] font-bold text-white mb-4 tracking-tight">
+          Découvrez Kribi autrement
+        </h1>
+        
+        <p class="text-[17px] leading-relaxed text-[#FFFAF3]/90 mb-8 max-w-[580px]">
+          Des expériences, des excursions et des séjours pensés pour vous faire vivre Kribi autrement.
+        </p>
+
+        <!-- CTAs: solid red & white outline -->
+        <div class="flex items-center gap-4">
+          <a href="#experiences" class="inline-flex items-center justify-center px-7 py-3.5 rounded bg-[#8C0120] hover:bg-[#700119] text-white text-[15px] font-semibold transition-colors">
+            Découvrir les expériences
+          </a>
+          <a href="#sejours" class="inline-flex items-center justify-center px-7 py-3.5 rounded bg-transparent border border-white hover:bg-white/10 text-white text-[15px] font-semibold transition-colors">
+            Planifier mon séjour
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. NOS EXPÉRIENCES (3 Category cards in one row, 320px tall) -->
+  <section id="experiences" class="max-w-[1200px] mx-auto px-6 pt-20 pb-16">
+    <div class="mb-8">
+      <h2 class="text-[28px] font-bold text-[#1C1917] tracking-tight">Nos expériences</h2>
+    </div>
+
+    <div class="grid grid-cols-3 gap-6">
+      <!-- Nature & Découverte (Lobé waterfalls) -->
+      <a href="#" class="group relative h-[320px] rounded overflow-hidden block">
+        <img src="https://lh3.googleusercontent.com/aida/AEtjO1WexY4fS_3NRuEyHlYcJo3nsdnOTvQDxPzzoUfa0led3TfDLCbdrg_m03kChlwy9PGrBOOWawKxJCIDle6xt4MOBH_vSy7L7w8hy7VMv7EM5gDOMxfsgrmejIprs--Lap_ad2Ucd3bPBa-iArHiaFcAuhvXldT8MmC7BTHe2319gwGAXiOvUBIYDEpMbtU5gVye-1nLYWQyi5teuWa-smyD_ldl8e8CFCikCPPbety74_InC0PPqwpMcnc" alt="Chutes de la Lobé" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/20"></div>
+        <div class="absolute top-4 left-4 bg-black/40 backdrop-blur-sm px-3 py-1 rounded text-white text-[12px] font-medium">
+          6 expériences
+        </div>
+        <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+          <h3 class="text-[22px] font-bold text-white tracking-tight leading-snug">Nature &amp; Découverte</h3>
+          <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white group-hover:bg-[#8C0120] transition-colors">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Aventure (Quad on the beach) -->
+      <a href="#" class="group relative h-[320px] rounded overflow-hidden block">
+        <img src="https://lh3.googleusercontent.com/aida/AEtjO1VOfWvyk0nS6Y9I6SteIOIcBMfRDXHBFVoPFuRiN9HAy0i0v0k2VChU5J5o2TGNbMiPN-50N-vayYXpJ8iTRWE4TAmufcY6LVEml5vIaYGb0yXFXrDjGjHh5WZ3SeRD23rZL1tsBezALpkjj2WptPI39w84rzxRpgRFPtixXv_cdqOafJR_-kGvJ9Ojh1_U76r295PFU-WbqpdCFL9LnvJ4RHris6LFfI62_NUTMlAC4VXEY-bU3wBaHbM" alt="Quad sur la plage" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/20"></div>
+        <div class="absolute top-4 left-4 bg-black/40 backdrop-blur-sm px-3 py-1 rounded text-white text-[12px] font-medium">
+          3 expériences
+        </div>
+        <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+          <h3 class="text-[22px] font-bold text-white tracking-tight leading-snug">Aventure</h3>
+          <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white group-hover:bg-[#8C0120] transition-colors">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Détente (Beach bonfire at dusk) -->
+      <a href="#" class="group relative h-[320px] rounded overflow-hidden block">
+        <img src="https://lh3.googleusercontent.com/aida/AEtjO1XhFeqi7E_je6HPpsTTSGEo07I-Eau9QPGLUxZMoitgI1nxjPyNEjs_4sy2KUjEGRAMv2rEn1A3iZOgW81BdoFkBLZRslhWMq8ln0POUQDANRZbcL76p1Ps0CixDXrQkY2kXueB8Wm1NrcMXcUTZgz69ZCjzRm2v9eStuYJ8Dtmqy38ilh9ckYZjiBdqd605Lw1EztRoOkQqd2U7TgVCHJp0khs4ksw9hiIRZN5uhIefMJl5oRpGnRE5gk" alt="Feu de plage au crépuscule" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/20"></div>
+        <div class="absolute top-4 left-4 bg-black/40 backdrop-blur-sm px-3 py-1 rounded text-white text-[12px] font-medium">
+          3 expériences
+        </div>
+        <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+          <h3 class="text-[22px] font-bold text-white tracking-tight leading-snug">Détente</h3>
+          <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white group-hover:bg-[#8C0120] transition-colors">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 3. À NE PAS MANQUER (4 cards in one row, NO badges) -->
+  <section class="max-w-[1200px] mx-auto px-6 py-12">
+    <div class="flex items-baseline justify-between mb-8">
+      <h2 class="text-[28px] font-bold text-[#1C1917] tracking-tight">À ne pas manquer</h2>
+      <span class="text-[13px] text-[#78716C]">Tarifs indicatifs</span>
+    </div>
+
+    <div class="grid grid-cols-4 gap-6">
+      <!-- Card 1: Chutes de la Lobé -->
+      <div class="bg-white rounded border border-[#E8E0D5] flex flex-col justify-between overflow-hidden">
+        <div>
+          <div class="h-[180px] w-full overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1WexY4fS_3NRuEyHlYcJo3nsdnOTvQDxPzzoUfa0led3TfDLCbdrg_m03kChlwy9PGrBOOWawKxJCIDle6xt4MOBH_vSy7L7w8hy7VMv7EM5gDOMxfsgrmejIprs--Lap_ad2Ucd3bPBa-iArHiaFcAuhvXldT8MmC7BTHe2319gwGAXiOvUBIYDEpMbtU5gVye-1nLYWQyi5teuWa-smyD_ldl8e8CFCikCPPbety74_InC0PPqwpMcnc" alt="Chutes de la Lobé" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="text-[17px] font-bold text-[#1C1917] mb-1.5 leading-snug">Chutes de la Lobé</h3>
+            <p class="text-[13px] text-[#57534E] leading-relaxed mb-4 min-h-[38px]">
+              La seule cascade au monde qui se jette dans l'océan
+            </p>
+            <div class="mb-4">
+              <div class="text-[16px]">
+                <span class="font-bold text-[#8C0120]">5 000 FCFA</span>
+                <span class="text-[13px] text-[#78716C]"> / personne</span>
+              </div>
+              <div class="text-[12px] text-[#78716C] mt-0.5">≈ 7,60 €</div>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 pb-5 pt-0">
+          <button class="w-full py-2.5 px-3 rounded bg-[#8C0120] hover:bg-[#700119] text-white text-[13px] font-semibold transition-colors">
+            Ajouter à mon séjour
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2: Excursion en pirogue -->
+      <div class="bg-white rounded border border-[#E8E0D5] flex flex-col justify-between overflow-hidden">
+        <div>
+          <div class="h-[180px] w-full overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1WMM9x14xmgofy7QyJymfwzueA8xmAqwj0dpZ7oRcwYb9cggAIyKTsi9n35AaTkxCYwNw_Xm_Ha7dUQXMBMtNmCRZi5OFHKz9UM_sBC2QxwuE6koME_QwfMdZM_5KSP24F2g666UKv62Z5vSo90Ly2h4hn-dYK7elQ31bYPxjt3Skyq9rrGEnE-DLH-W5--QEEDNe6Xnpo_XaUw9zyJw3p1y1BIa4LzePot0v-b6duKV2PSGaQ9xiBAaKM" alt="Excursion en pirogue" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="text-[17px] font-bold text-[#1C1917] mb-1.5 leading-snug">Excursion en pirogue</h3>
+            <p class="text-[13px] text-[#57534E] leading-relaxed mb-4 min-h-[38px]">
+              Remontez la Lobé entre mangrove et forêt
+            </p>
+            <div class="mb-4">
+              <div class="text-[16px]">
+                <span class="font-bold text-[#8C0120]">35 000 FCFA</span>
+                <span class="text-[13px] text-[#78716C]"> / groupe</span>
+              </div>
+              <div class="text-[12px] text-[#78716C] mt-0.5">≈ 53,20 €</div>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 pb-5 pt-0">
+          <button class="w-full py-2.5 px-3 rounded bg-[#8C0120] hover:bg-[#700119] text-white text-[13px] font-semibold transition-colors">
+            Ajouter à mon séjour
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3: Croisière en bateau -->
+      <div class="bg-white rounded border border-[#E8E0D5] flex flex-col justify-between overflow-hidden">
+        <div>
+          <div class="h-[180px] w-full overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1UqQK3fhVwwD0kgC1Hdif2B1YkztE01BVlZ4marMakQBsWyXGBIo33x-xY1oBKKLT-PHDohYW8T0Z380j-K0TH7X3OfibJg2EkOYIi62hYlZJWynjfnVZ0QRrTcwwpW7oCqOsLk96gczVfV8hA4KCZ7R_lvhIkF-txpCWsw871nC15D4yOigG6vT6o4My2-CHx3z8004wiCdfaxAMN8GcA97w1BoBZ0JZsbQD4TV0SkAKk06T1uPRPhc5c" alt="Croisière en bateau" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="text-[17px] font-bold text-[#1C1917] mb-1.5 leading-snug">Croisière en bateau</h3>
+            <p class="text-[13px] text-[#57534E] leading-relaxed mb-4 min-h-[38px]">
+              Le coucher de soleil vu du large
+            </p>
+            <div class="mb-4">
+              <div class="text-[16px]">
+                <span class="font-bold text-[#8C0120]">25 000 FCFA</span>
+                <span class="text-[13px] text-[#78716C]"> / personne</span>
+              </div>
+              <div class="text-[12px] text-[#78716C] mt-0.5">≈ 38,00 €</div>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 pb-5 pt-0">
+          <button class="w-full py-2.5 px-3 rounded bg-[#8C0120] hover:bg-[#700119] text-white text-[13px] font-semibold transition-colors">
+            Ajouter à mon séjour
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 4: Campement Bagyeli -->
+      <div class="bg-white rounded border border-[#E8E0D5] flex flex-col justify-between overflow-hidden">
+        <div>
+          <div class="h-[180px] w-full overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1Wcgth4I3klI17z1AgJajp5w4XGO-76IxNNCsfj0aYCHwI51wkZuiVCjRMfRa59OmoXRLeeZiaizxQTW0_Q-nzkBQuGf0WZUj-X5P2-UicW3OOhTVsxUTm4fSK3wOFFY-IKfao1rp307hq9KWOPDjPdXBMP0S8gEagB5crT7vii6UrTNB1ucTGvrP9ihQ_Vi9wYnR5RB-JWvIUjXqPa9GzePCXvusgz7K_KSi8pSs2lvLaEjEpevfbmaPw" alt="Campement Bagyeli" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="text-[17px] font-bold text-[#1C1917] mb-1.5 leading-snug">Campement Bagyeli</h3>
+            <p class="text-[13px] text-[#57534E] leading-relaxed mb-4 min-h-[38px]">
+              À la rencontre du peuple de la forêt
+            </p>
+            <div class="mb-4">
+              <div class="text-[16px]">
+                <span class="font-bold text-[#8C0120]">7 500 FCFA</span>
+                <span class="text-[13px] text-[#78716C]"> / personne</span>
+              </div>
+              <div class="text-[12px] text-[#78716C] mt-0.5">≈ 11,40 €</div>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 pb-5 pt-0">
+          <button class="w-full py-2.5 px-3 rounded bg-[#8C0120] hover:bg-[#700119] text-white text-[13px] font-semibold transition-colors">
+            Ajouter à mon séjour
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FULL-BLEED STRIP (360px tall, Lobé river from canoe, MER · FORÊT · CHUTES · PIROGUE, no button) -->
+  <section class="relative w-full h-[360px] overflow-hidden my-12 bg-[#1C1917]">
+    <img src="https://lh3.googleusercontent.com/aida/AEtjO1XPx0bQeiQ5fY0zF1wJGjQR57PUIQcg3v9zG7ezPQmGLznLgypOvy-HsN7fUQTTWj6HtKfA-b4LilE9GEAO5ThjIZML5CGm_-pAm1PFgRbas2Bo6uMmkl9oXO0nI_caCUBxFqHEvN_HXdwhfg3nSCzRUCG_AgqFE5L6YE47OzaCRNLN-bjkUq6YzaVdq33esW43Fp7E5dS5vOeLMbM3UFQLP106j1ZpE5vvd3YHSwDXJZECBxTsDFupnQ" alt="Vue depuis une pirogue sur la rivière Lobé" class="absolute inset-0 w-full h-full object-cover object-center">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative max-w-[1200px] h-full mx-auto px-6 flex items-center justify-center">
+      <h2 class="text-white text-[28px] md:text-[34px] font-extrabold tracking-[0.3em] uppercase text-center">
+        MER · FORÊT · CHUTES · PIROGUE
+      </h2>
+    </div>
+  </section>
+
+  <!-- 5. OÙ DORMIR À KRIBI (3 cards in 1 row, different photos) -->
+  <section id="hebergements" class="max-w-[1200px] mx-auto px-6 py-12">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <h2 class="text-[28px] font-bold text-[#1C1917] tracking-tight">Où dormir à Kribi</h2>
+        <p class="text-[15px] text-[#57534E] mt-1">Dites-nous votre budget, nous trouvons le logement.</p>
+      </div>
+      <a href="#" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#8C0120] hover:underline">
+        <span class="">Voir tous les hébergements</span>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-3 gap-6">
+      <!-- Chambre (diff photo 1) -->
+      <a href="#" class="group bg-white rounded border border-[#E8E0D5] overflow-hidden block">
+        <div class="h-[240px] w-full overflow-hidden">
+          <img src="https://lh3.googleusercontent.com/aida/AEtjO1U5CBaRqZSaL_A4oQ8bE49ohhmIDfhcQcdLcdndrvSIE5nL4FAeyUlgszULgAimjNR_DX5Vw7lNmvwaP9CejbxFHE_y5B8osI5d8I2yQt1zEbfxLkVRnfdd08a9t8UkNNkVxeAvnozhbP6fFA0MsDhDsLpIycJpj7wrxnIjtz7cAuHsJLd1Ef7IRvYu5fuUCrVya2l3qW3idrHyirhn8xIqFD0SdFTqhgZy4kfmtc4BB5iaqGPKJYnQn58" alt="Chambre de lodge à Kribi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="p-6">
+          <h3 class="text-[20px] font-bold text-[#1C1917] mb-2">Chambre</h3>
+          <div class="text-[16px]">
+            <span class="text-[13px] text-[#78716C]">À partir de </span>
+            <span class="font-bold text-[#8C0120]">15 000 FCFA</span>
+            <span class="text-[13px] text-[#78716C]"> / nuit</span>
+          </div>
+          <div class="text-[12px] text-[#78716C] mt-0.5">≈ 22,80 €</div>
+        </div>
+      </a>
+
+      <!-- Studio (diff photo 2) -->
+      <a href="#" class="group bg-white rounded border border-[#E8E0D5] overflow-hidden block">
+        <div class="h-[240px] w-full overflow-hidden">
+          <img src="https://lh3.googleusercontent.com/aida/AEtjO1Uh1IAds1m4n5OBvhlFL2VHUzHMYiPEF95SsTnUimhpm_MLG1rQfhLIXceV3GbZwyYu6sRpZgXwS6x38ek1JPSItgbsmLPzQJ6IqxdcT-BnXa0JixJJ-wcC-4fDNs1zR4bqc4RMZUA21-BaN-RAizcDScFxjCXT8CFRRNeY1jrDV1K8zKafILIeBac2uezAml0T7TuUq6dLKwsiZd7dYxG3eVDjgfK6nqyq0cne_JdypqMaeaQ3n4Wdmg" alt="Studio côtier à Kribi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="p-6">
+          <h3 class="text-[20px] font-bold text-[#1C1917] mb-2">Studio</h3>
+          <div class="text-[16px]">
+            <span class="text-[13px] text-[#78716C]">À partir de </span>
+            <span class="font-bold text-[#8C0120]">30 000 FCFA</span>
+            <span class="text-[13px] text-[#78716C]"> / nuit</span>
+          </div>
+          <div class="text-[12px] text-[#78716C] mt-0.5">≈ 45,60 €</div>
+        </div>
+      </a>
+
+      <!-- Villa (diff photo 3) -->
+      <a href="#" class="group bg-white rounded border border-[#E8E0D5] overflow-hidden block">
+        <div class="h-[240px] w-full overflow-hidden">
+          <img src="https://lh3.googleusercontent.com/aida/AEtjO1UgaX3UNkG6vq1AQzGGKuOYoNv_WHv0c4muj5jqbzbTvA2YEbX8p0R7SN_YamcM62reiFym2A6mwNebv_FZ31W8bqi4_F1Of3kbF0nqkaUpNeCgeN417s7nyWJ6sv119RgqKkIa5EjBVGxej1I35OAH74Q7XwSfAkdUNJyB9YziM7lTXtHNbojrdPgyhH74_AXm5hUloJOVGPzOgOqcfxrCLTsVhQvjwMvweVFOa9PydyawrHWe9L7oSA" alt="Villa privée avec piscine" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="p-6">
+          <h3 class="text-[20px] font-bold text-[#1C1917] mb-2">Villa</h3>
+          <div class="text-[16px]">
+            <span class="text-[13px] text-[#78716C]">À partir de </span>
+            <span class="font-bold text-[#8C0120]">150 000 FCFA</span>
+            <span class="text-[13px] text-[#78716C]"> / nuit</span>
+          </div>
+          <div class="text-[12px] text-[#78716C] mt-0.5">≈ 228,00 €</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 6. SOLID TERRACOTTA SECTION (Full width, cream text, 2 light cards side by side) -->
+  <section id="sejours" class="w-full bg-[#A8431F] py-16 my-8 text-[#FFFAF3]">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="flex items-end justify-between mb-8">
+        <h2 class="text-[28px] font-bold text-[#FFFAF3] tracking-tight">Des séjours déjà composés</h2>
+        <a href="#" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#FFFAF3] hover:underline">
+          <span class="">Voir les 4 formules</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-6">
+        <!-- Package Découverte -->
+        <div class="bg-white rounded p-7 text-[#1C1917] flex flex-col justify-between">
+          <div>
+            <div class="inline-block bg-[#F5ECE1] text-[#A8431F] text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded mb-3">
+              Formule
+            </div>
+            <h3 class="text-[22px] font-bold text-[#1C1917] mb-2 leading-snug">Package Découverte</h3>
+            <p class="text-[14px] text-[#57534E] leading-relaxed mb-6">
+              Chutes, pirogue, campement, musée, guide
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#E8E0D5]">
+            <div class="text-[18px]">
+              <span class="font-bold text-[#8C0120]">100 000 FCFA</span>
+              <span class="text-[14px] text-[#78716C]"> / 2 personnes</span>
+            </div>
+            <div class="text-[13px] text-[#78716C] mt-0.5">≈ 152,00 €</div>
+          </div>
+        </div>
+
+        <!-- Package Aventure -->
+        <div class="bg-white rounded p-7 text-[#1C1917] flex flex-col justify-between">
+          <div>
+            <div class="inline-block bg-[#F5ECE1] text-[#A8431F] text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded mb-3">
+              Formule
+            </div>
+            <h3 class="text-[22px] font-bold text-[#1C1917] mb-2 leading-snug">Package Aventure</h3>
+            <p class="text-[14px] text-[#57534E] leading-relaxed mb-6">
+              Chutes, pirogue, quad, jet-ski, kayak, cheval
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#E8E0D5]">
+            <div class="text-[18px]">
+              <span class="font-bold text-[#8C0120]">150 000 FCFA</span>
+              <span class="text-[14px] text-[#78716C]"> / 2 personnes</span>
+            </div>
+            <div class="text-[13px] text-[#78716C] mt-0.5">≈ 228,00 €</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. COMPACT PLAIN TKS® ROW (very light grey, reduced height, no photo, black TKS logo ~22px) -->
+  <section class="max-w-[1200px] mx-auto px-6 py-6">
+    <div class="bg-[#F0ECE6] rounded px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-6">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0R83kvMzewRODEwwqg85rGvd4JpX57mI1DqxvS0hBM3TOELgxXFMsU17haz68Cv_NA9XVVHLCT9wV_4cylPBRfSnznipItc1XqMMp97QP50O12yy_ksIf1tm7cveNm2Vw8fx4QVS39BZS0aRhT3e2wO_knXgl77vDplbOxOgD441wtrER3BVquRIkXy0wCihdqxk2LCToXlSItVVmezkZYQvnnN1UA9nw8bdo4FTua7h13Tybh1Usk741Aav-R0R_7VWIPAP4144" alt="TKS" class="h-[22px] w-auto object-contain">
+        <div class="h-5 w-[1px] bg-[#D4CDC3]"></div>
+        <div class="flex items-center gap-3 text-[14px]">
+          <span class="font-semibold text-[#1C1917]">Mobilité &amp; transport</span>
+          <span class="text-[#78716C]">·</span>
+          <span class="text-[#57534E]">Location, transferts et chauffeur privé pour compléter votre séjour</span>
+        </div>
+      </div>
+      <a href="#" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#1C1917] hover:text-[#8C0120] transition-colors">
+        <span class="">Voir</span>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- 8. QUI SOMMES-NOUS (2 columns: large Kribi landscape photo left, exact French text right) -->
+  <section class="max-w-[1200px] mx-auto px-6 py-16">
+    <h2 class="text-[28px] font-bold text-[#1C1917] tracking-tight mb-8">Qui sommes-nous</h2>
+    <div class="grid grid-cols-2 gap-12 items-center">
+      <!-- Left: Large landscape photo -->
+      <div class="h-[360px] rounded overflow-hidden">
+        <img src="https://lh3.googleusercontent.com/aida/AEtjO1VfyvuEC6S82hzcA5cC63kSxzkPWAHiLONIY1Xg7WyRLoF5QbZgOE8uFbGq98qEwn28WbMydn2UAruxBqSL6z5DeA_mVPPDpKci2bCo_OKe1LKxN-3eWpwgqWtcfVZZu2zROJ7sho9vEKMqEB-GGxGdb2hT4QOcY2dMAacaYeFqgbnk4j9uMo0qLR0HrjiOmnwZmjGR5aNdrr68C2-b0H6pUIyahzjrKZFAfRBwMz789jLWUZteS7w2ZEA" alt="Paysage de plage à Kribi" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Right: Text & link -->
+      <div>
+        <p class="text-[17px] leading-relaxed text-[#44403C] mb-8">
+          Nous sommes Kibreeze, une marque dédiée à la découverte et aux expériences à Kribi. Nous voulons vous faire découvrir Kribi autrement, à travers ses paysages, ses activités, ses excursions et des expériences adaptées à vos envies.
+        </p>
+        <a href="#" class="inline-flex items-center gap-2 text-[15px] font-bold text-[#8C0120] hover:underline">
+          <span class="">En savoir plus</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. SOLID BRAND-RED BLOCK (Cream text, centered, green WhatsApp button) -->
+  <section class="max-w-[1200px] mx-auto px-6 py-6 mb-16">
+    <div class="bg-[#8C0120] rounded p-12 text-center text-[#FFFAF3]">
+      <h2 class="text-[32px] font-bold mb-3 tracking-tight">Un séjour sur mesure ?</h2>
+      <p class="text-[16px] text-[#FFFAF3]/90 mb-8 max-w-[600px] mx-auto">
+        Parlons directement de vos envies et créons votre itinéraire personnalisé.
+      </p>
+      <a href="#" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded bg-[#25D366] hover:bg-[#20ba59] text-white text-[15px] font-semibold transition-colors shadow-none">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.743.95 3.708 1.451 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.414z"></path>
+        </svg>
+        <span class="">Contacter Kibreeze sur WhatsApp</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 10. FOOTER DESKTOP (identical to the desktop fiche screen) -->
+  <footer class="bg-[#1A1816] text-[#FFFAF3] pt-16 pb-12 border-t border-[#2A2724]">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-12 gap-8 pb-12 border-b border-[#2E2A27]">
+        <!-- Brand & feeling -->
+        <div class="col-span-5">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8U5cenvIwA3IO29DEws62w9tXHn5Jkw6ZufeLzJJ20eVMYYxBT3Ekc581beuKblKPmglI3SF8Usknpldbx0dBB6AKDuGJ3jSfs58rFQ0ch2lE0JAqTYcqmk82d75T3y3qaNZgaO3baFa0TC9kW0U7-lbR1zXRFx5jyNTLzUdtFIi-WRaOdMvVguxiEJsgrIkAyJ-n5zupYKqY6YTw16Klq9Saoo_XKj3jYLMB7tJyZVvL9x7m6N2NMUJVvnPsgF6WZlPa2zR3GjM" alt="Kibreeze" class="h-10 w-auto object-contain mb-3">
+          <p class="font-script text-[22px] text-[#D4CDC3] mb-4">Kribi is a feeling</p>
+          
+        </div>
+
+        <!-- Links column 1: Explorer -->
+        <div class="col-span-2">
+          <h4 class="text-[12px] font-bold uppercase tracking-wider text-[#A8A196] mb-4">EXPLORER</h4>
+          <ul class="space-y-2.5 text-[14px] text-[#D4CDC3]">
+            <li class=""><a href="#" class="hover:text-white transition-colors">Expériences</a></li>
+            <li class=""><a href="#" class="hover:text-white transition-colors">Hébergements</a></li>
+            <li class=""><a href="#" class="hover:text-white transition-colors">Formules</a></li>
+          </ul>
+        </div>
+
+        <!-- Links column 2: Informations -->
+        <div class="col-span-3">
+          <h4 class="text-[12px] font-bold uppercase tracking-wider text-[#A8A196] mb-4">INFORMATIONS</h4>
+          <ul class="space-y-2.5 text-[14px] text-[#D4CDC3]">
+            <li class=""><a href="#" class="hover:text-white transition-colors">Mobilité TKS®</a></li>
+            <li class=""><a href="#" class="hover:text-white transition-colors">À propos</a></li>
+            <li class=""><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+            <li class="pt-2 text-[13px] text-[#78716C]">Kribi, Cameroun</li>
+          </ul>
+        </div>
+
+        <!-- Social icons / contact -->
+        <div class="col-span-2 flex flex-col justify-between">
+          <div>
+            <h4 class="text-[12px] font-bold uppercase tracking-wider text-[#A8A196] mb-4">SUIVEZ-NOUS</h4>
+            <div class="flex items-center gap-4 text-[#D4CDC3]">
+              <a href="#" class="hover:text-white text-[14px] transition-colors">Instagram</a>
+              <a href="#" class="hover:text-white text-[14px] transition-colors">Facebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Breezy Groupe mention (no copyright line) -->
+      
+    </div>
+  </footer>
+
+
+
+
+</body></html>

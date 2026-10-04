@@ -51,9 +51,9 @@ Tailwind CSS v4 lit les tokens depuis des custom properties CSS déclarées dans
   --color-success / --color-warning / --color-danger / --color-info
 
   /* Typographie */
-  --font-sans:    "Inter", system-ui, sans-serif;      /* [PLACEHOLDER] */
-  --font-display: "Inter", system-ui, sans-serif;      /* [PLACEHOLDER] titres */
-  --font-script:  "Caveat", cursive;                   /* [PLACEHOLDER] signature « Kribi is a feeling » */
+  --font-sans:    "Plus Jakarta Sans", system-ui, sans-serif; /* écrans validés le 2026-10-04, ADR-015 */
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif; /* titres, graisses 700 à 800 */
+  --font-script:  "Caveat", cursive;                          /* uniquement « Kribi is a feeling » */
   --text-xs … --text-5xl (échelle 1.25)
   --leading-tight / --leading-normal / --leading-relaxed
 
@@ -61,7 +61,7 @@ Tailwind CSS v4 lit les tokens depuis des custom properties CSS déclarées dans
   --spacing: 0.25rem;  /* Tailwind v4 dérive 1..96 */
 
   /* Rayons */
-  --radius-sm: 0.375rem; --radius-md: 0.75rem; --radius-card: 1rem; --radius-pill: 9999px;
+  --radius-sm: 0.125rem; --radius-md: 0.25rem; --radius-card: 0.25rem; --radius-pill: 9999px; /* angles francs, 4 px au plus ; cercle réservé au bouton WhatsApp et aux pastilles */
 
   /* Ombres */
   --shadow-card: …; --shadow-drawer: …;

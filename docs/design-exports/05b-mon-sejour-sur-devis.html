@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Kibreeze - Mon séjour (sur devis)</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#e1bebe",
+            "on-tertiary-container": "#76beb5",
+            "outline": "#8d7070",
+            "on-secondary-fixed": "#390b00",
+            "primary-fixed": "#ffdad9",
+            "surface-container-highest": "#e6e2db",
+            "secondary-container": "#fe835a",
+            "surface-bright": "#fef9f2",
+            "primary": "#620013",
+            "on-primary-container": "#ff9194",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#910623",
+            "surface-variant": "#e6e2db",
+            "inverse-on-surface": "#f5f0e9",
+            "surface-container-low": "#f8f3ec",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed-dim": "#8bd4cb",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#ffb59d",
+            "surface-dim": "#ded9d3",
+            "primary-fixed-dim": "#ffb3b3",
+            "on-error": "#ffffff",
+            "on-background": "#1d1c18",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#f2ede6",
+            "inverse-primary": "#ffb3b3",
+            "surface-container-high": "#ece7e1",
+            "surface-tint": "#b32738",
+            "on-surface-variant": "#594140",
+            "on-secondary-fixed-variant": "#822804",
+            "secondary-fixed": "#ffdbd0",
+            "tertiary-container": "#004d47",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#a7f0e7",
+            "secondary": "#a23f1b",
+            "inverse-surface": "#32302c",
+            "tertiary": "#003430",
+            "background": "#fef9f2",
+            "on-surface": "#1d1c18",
+            "on-secondary-container": "#701f00",
+            "surface": "#fef9f2",
+            "primary-container": "#8c0120",
+            "on-primary-fixed": "#400009",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#00504a",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#00201d"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          spacing: {
+            gutter: "1.5rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            margin: "1.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem"
+          },
+          fontFamily: {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "headline-sm": ["22px", { lineHeight: "28px", fontWeight: "600" }],
+            "headline-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.08em", fontWeight: "600" }],
+            "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }],
+            "headline-md": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "display-hero-mobile": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "title-md": ["18px", { lineHeight: "24px", fontWeight: "500" }],
+            "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "display-hero": ["56px", { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "700" }],
+            "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "headline-lg-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFFAF3;
+      color: #1C1917;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+  </style>
+</head>
+<body class="bg-[#FFFAF3] text-[#1C1917] flex justify-center min-h-screen">
+<!-- Outer Mobile Container: 390px Viewport Reference -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#FFFAF3] relative flex flex-col pb-36 selection:bg-[#8C0120]/10">
+<!-- Top Bar (Fixed) -->
+<header class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-14 bg-[#FFFAF3] border-b border-[#E5E0D8] z-40 px-4 flex items-center justify-between">
+<!-- Left: Kibreeze Wordmark Image -->
+<a aria-label="Kibreeze Accueil" class="flex items-center min-h-[44px] min-w-[44px] focus:outline-none" href="#">
+<img alt="Kibreeze" class="h-5 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApJ2k7xRmXZtYI2Onh9jeC0Eti8nWWlddOSrvjLW6Lcy9oW7D4nU2F4_6TMw5ZnVsa13HVLMANiw06DNg0LSYS3voiB0JO33bGtQErXD4_VltTdw3w224XMdxoRvW4rshbBfNJLSplSRNCRjHWZg0cIZ0-h2KRLXXCEOafClf1BrslbhCQodaxnjvKybqpUuOBvAuaKbi9luj1cISN2iqyyPdaIm6peJ4xa9TsB81MPjCAigA_3V2UzlMuXx4W5Bk_4gzowni3PR0"/>
+</a>
+<!-- Right: FR | EN + WhatsApp Icon -->
+<div class="flex items-center gap-3">
+<div class="flex items-center text-sm font-medium tracking-tight">
+<span class="text-[#8C0120] font-bold">FR</span>
+<span class="text-[#A8A29E] mx-1 text-xs">|</span>
+<span class="text-[#78716C]">EN</span>
+</div>
+<!-- WhatsApp Icon Link -->
+<a aria-label="Contacter par WhatsApp" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-[#25D366] hover:opacity-80 transition-opacity" href="https://wa.me/" rel="noopener noreferrer" target="_blank">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path>
+</svg>
+</a>
+</div>
+</header>
+<!-- Space under fixed top bar -->
+<div class="h-14 w-full"></div>
+<!-- Header Area -->
+<section class="px-4 pt-6 pb-2">
+<div class="flex items-baseline justify-between">
+<h1 class="text-2xl font-bold tracking-tight text-[#1C1917]">Mon séjour</h1>
+<button class="text-sm text-[#57534E] underline hover:text-[#8C0120] transition-colors py-1 min-h-[44px] flex items-center" type="button">
+          Vider
+        </button>
+</div>
+<p class="text-sm text-[#57534E] mt-0.5">2 prestations sélectionnées</p>
+</section>
+<!-- Form Fields: Dates & Voyageurs -->
+<section class="px-4 mt-3">
+<div class="grid grid-cols-2 gap-3">
+<!-- Dates du séjour -->
+<div>
+<label class="block text-xs font-semibold text-[#1C1917] mb-1.5">Dates du séjour</label>
+<div class="border border-[#D5CFCE] bg-white rounded-[4px] px-3 py-2.5 flex items-center justify-between text-sm text-[#57534E] hover:border-[#8C0120] focus:border-[#8C0120] focus:ring-0 transition-colors cursor-pointer min-h-[44px]" role="button" tabindex="0">
+<span class="truncate text-sm text-[#57534E]">Sélectionner</span>
+<span class="material-symbols-outlined text-[#57534E] text-base ml-1" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+<!-- Voyageurs -->
+<div>
+<label class="block text-xs font-semibold text-[#1C1917] mb-1.5">Voyageurs</label>
+<div class="border border-[#D5CFCE] bg-white rounded-[4px] px-3 py-2.5 flex items-center justify-between text-sm text-[#57534E] hover:border-[#8C0120] focus:border-[#8C0120] focus:ring-0 transition-colors cursor-pointer min-h-[44px]" role="button" tabindex="0">
+<span class="truncate text-sm text-[#57534E]">Combien ?</span>
+<span class="material-symbols-outlined text-[#57534E] text-base ml-1" data-icon="group">group</span>
+</div>
+</div>
+</div>
+<!-- Info line below -->
+<div class="mt-2.5 flex items-center gap-1.5 text-xs text-[#186962] font-medium">
+<span class="material-symbols-outlined text-sm leading-none" data-icon="info">info</span>
+<span>Ajoute tes dates pour une réponse plus rapide</span>
+</div>
+</section>
+<!-- Items List -->
+<section aria-label="Liste des prestations sélectionnées" class="px-4 mt-4 space-y-3">
+<!-- Item 1: Bateau de plaisance -->
+<article class="border border-[#E5E0D8] bg-white rounded-[4px] p-3 flex gap-3 items-center relative shadow-none">
+<!-- Thumbnail: motor yacht -->
+<img alt="Bateau de plaisance à Kribi" class="w-20 h-20 rounded-[4px] object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1Wv-kCmb3xZr4wLJDfXVg35yD3qQ-8P7S0XHfks_dqTeQTP1dXry9wFzBFLtJBu0nUQNvMVUAGWgt-buUXMOYCXOfFTzhPeHpHrFcXhb83FgOIodpyIkMX41xIhZgd5zprBd1mCQ0rfAOLHazeZgirvpveniJIIWTlNTsTJrHS4Bi6NorxaJ_WP6QicyWpQFwPR5vScY-6Aj7zyzet1qbM7hYpAZ4EaZ4tl1m2vJ3a1yHrNnWiG11PKq_g"/>
+<!-- Content -->
+<div class="flex-1 min-w-0 pr-8">
+<h2 class="font-bold text-[#1C1917] text-base leading-snug">Bateau de plaisance</h2>
+<span class="inline-block bg-[#E3F2EE] text-[#186962] text-xs font-semibold px-2 py-0.5 rounded-[4px] mt-1">
+            Sur devis
+          </span>
+</div>
+<!-- Trash icon button on top-right -->
+<button aria-label="Supprimer Bateau de plaisance" class="absolute top-1 right-1 w-11 h-11 flex items-center justify-center text-[#57534E] hover:text-[#8C0120] transition-colors rounded-[4px] focus:outline-none" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</article>
+<!-- Item 2: TKS Transfert Douala -> Kribi -->
+<article class="border border-[#E5E0D8] bg-white rounded-[4px] p-3 flex gap-3 items-center relative shadow-none">
+<!-- Thumbnail: Placeholder Icon Container -->
+<div class="w-20 h-20 bg-[#F4EFEA] rounded-[4px] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[#186962] text-2xl" data-icon="directions_car">directions_car</span>
+</div>
+<!-- Content -->
+<div class="flex-1 min-w-0 pr-8">
+<div class="flex items-center flex-wrap gap-1 leading-snug">
+<img alt="TKS" class="h-3.5 object-contain inline-block align-middle mr-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASJO_BUSDxf-mMsYmepz5QQwS4rzmKQ8fG0V5jGapjfU7SyFsRCGWp_qE7fxYnqTancz115Nbdo-QVPZOSZrUVbDuug4ak4n49bZF7x_diBscruXH7RiO6xhPiZ1CKnYK-jeBnqfCUI5a42NIByzGeOX9gXRA0WqpBdup6w8_pO_VU2Oex7x6dqm4w07ZYsHNzr0WzBnf5OskzdCkx79qy30vCm7n8_uuZtJHm2jJtMPUPPQFhdqYCDNsLB27_g9iswaMbTKl-uEY"/>
+<span class="font-bold text-[#1C1917] text-sm tracking-tight align-middle">TKS® — Transfert Douala → Kribi</span>
+</div>
+<span class="inline-block bg-[#E3F2EE] text-[#186962] text-xs font-semibold px-2 py-0.5 rounded-[4px] mt-1">
+            Sur devis
+          </span>
+</div>
+<!-- Trash icon button on top-right -->
+<button aria-label="Supprimer le transfert TKS" class="absolute top-1 right-1 w-11 h-11 flex items-center justify-center text-[#57534E] hover:text-[#8C0120] transition-colors rounded-[4px] focus:outline-none" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</article>
+</section>
+<!-- Total Box -->
+<section class="px-4 mt-4">
+<div class="bg-[#F9F4EE] border border-[#E8E2D9] rounded-[4px] p-4 text-center">
+<p class="text-base font-bold text-[#1C1917] tracking-tight">
+          Total : sur devis (2 prestations)
+        </p>
+</div>
+</section>
+<!-- Bottom Sticky Call-to-Action Bar -->
+<div class="fixed bottom-16 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-4 pt-3 pb-3 bg-[#FFFAF3] border-t border-[#E5E0D8] z-40">
+<!-- Green WhatsApp Button -->
+<a class="w-full bg-[#25D366] hover:bg-[#20BA5A] active:scale-[0.99] text-white font-semibold py-3.5 px-4 rounded-[4px] flex items-center justify-center gap-2 text-base min-h-[48px] shadow-sm transition-all focus:outline-none" href="https://wa.me/" rel="noopener noreferrer" target="_blank">
+<svg class="w-5 h-5 fill-current flex-shrink-0" viewbox="0 0 24 24">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path>
+</svg>
+<span>Demander un devis par WhatsApp</span>
+</a>
+<!-- Continuer mes recherches -->
+<a class="block text-center text-xs text-[#57534E] underline hover:text-[#1C1917] mt-2 py-1 min-h-[28px]" href="#">
+        Continuer mes recherches
+      </a>
+</div>
+<!-- Bottom Navigation Bar (Fixed bottom-0) -->
+<nav aria-label="Navigation principale" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-16 bg-[#FFFAF3] border-t border-[#E5E0D8] z-50 flex items-center justify-around px-2">
+<!-- Tab 1: Accueil -->
+<a class="flex flex-col items-center justify-center text-[#594140] hover:text-[#8C0120] transition-colors min-h-[44px] min-w-[44px] px-1 py-1" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="home">home</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Accueil</span>
+</a>
+<!-- Tab 2: Expériences -->
+<a class="flex flex-col items-center justify-center text-[#594140] hover:text-[#8C0120] transition-colors min-h-[44px] min-w-[44px] px-1 py-1" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="explore">explore</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Expériences</span>
+</a>
+<!-- Tab 3: Hébergements -->
+<a class="flex flex-col items-center justify-center text-[#594140] hover:text-[#8C0120] transition-colors min-h-[44px] min-w-[44px] px-1 py-1" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="hotel">hotel</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Hébergements</span>
+</a>
+<!-- Tab 4: Formules -->
+<a class="flex flex-col items-center justify-center text-[#594140] hover:text-[#8C0120] transition-colors min-h-[44px] min-w-[44px] px-1 py-1" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="loyalty">loyalty</span>
+<span class="text-[11px] font-medium tracking-wide mt-1">Formules</span>
+</a>
+<!-- Tab 5: Mon séjour (ACTIVE) -->
+<a aria-current="page" class="flex flex-col items-center justify-center text-[#8C0120] font-semibold min-h-[44px] min-w-[44px] px-1 py-1 relative" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[20px] fill-icon" data-icon="luggage">luggage</span>
+<!-- Badge 2 in red circle -->
+<span class="absolute -top-1 -right-2 bg-[#8C0120] text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center leading-none">
+            2
+          </span>
+</div>
+<span class="text-[11px] font-semibold tracking-wide mt-1">Mon séjour</span>
+</a>
+</nav>
+</main>
+</body></html>

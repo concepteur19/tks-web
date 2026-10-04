@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Kibreeze - Accueil Mobile v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans & Caveat / Playfair for subtle cursive feel -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>tailwind.config = {theme: {extend: {colors: {brand: "#8C0120", cream: "#FFFAF3", charcoal: "#1C1917", stoneMuted: "#57534E", terracotta: "#A8431F", infoBadge: "#186962", whatsapp: "#25D366", "on-surface-variant": "#594140", "on-secondary-fixed": "#390b00", "error-container": "#ffdad6", "on-primary-fixed": "#400009", tertiary: "#003430", "on-tertiary-fixed-variant": "#00504a", "surface-container-high": "#ece7e1", secondary: "#a23f1b", "on-tertiary-fixed": "#00201d", "on-primary-container": "#ff9194", "tertiary-container": "#004d47", "on-error": "#ffffff", error: "#ba1a1a", "tertiary-fixed": "#a7f0e7", "on-background": "#1d1c18", "on-primary": "#ffffff", "secondary-container": "#fe835a", background: "#fef9f2", "primary-fixed-dim": "#ffb3b3", "surface-container-highest": "#e6e2db", "surface-container-low": "#f8f3ec", "on-tertiary-container": "#76beb5", "primary-container": "#8c0120", "surface-container-lowest": "#ffffff", primary: "#620013", "inverse-on-surface": "#f5f0e9", "on-secondary": "#ffffff", "surface-tint": "#b32738", "inverse-surface": "#32302c", "surface-dim": "#ded9d3", "on-surface": "#1d1c18", "secondary-fixed-dim": "#ffb59d", "inverse-primary": "#ffb3b3", outline: "#8d7070", "on-primary-fixed-variant": "#910623", "on-error-container": "#93000a", "on-secondary-fixed-variant": "#822804", surface: "#fef9f2", "surface-variant": "#e6e2db", "tertiary-fixed-dim": "#8bd4cb", "primary-fixed": "#ffdad9", "surface-bright": "#fef9f2", "on-secondary-container": "#701f00", "outline-variant": "#e1bebe", "secondary-fixed": "#ffdbd0", "surface-container": "#f2ede6", "on-tertiary": "#ffffff"}, fontFamily: {sans: ["\"Plus Jakarta Sans\"", "system-ui", "-apple-system", "sans-serif"], cursive: ["\"Caveat\"", "cursive", "Georgia"], "body-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "display-hero-mobile": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "display-hero": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"]}, fontSize: {"body-sm": ["13px", {lineHeight: "20px", fontWeight: "400"}], "headline-lg-mobile": ["28px", {lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600"}], "headline-sm": ["22px", {lineHeight: "28px", fontWeight: "600"}], "display-hero-mobile": ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700"}], "label-lg": ["14px", {lineHeight: "18px", letterSpacing: "0.04em", fontWeight: "600"}], "display-hero": ["56px", {lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "700"}], "headline-md": ["28px", {lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600"}], "title-md": ["18px", {lineHeight: "24px", fontWeight: "500"}], "body-md": ["15px", {lineHeight: "24px", fontWeight: "400"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "label-sm": ["11px", {lineHeight: "14px", letterSpacing: "0.08em", fontWeight: "600"}], "headline-lg": ["40px", {lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600"}]}, spacing: {"space-md": "1rem", "space-sm": "0.5rem", "space-xs": "0.25rem", margin: "1.5rem", "space-xl": "2.5rem", "space-lg": "1.5rem", gutter: "1.5rem"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}}}};</script>
+<!-- BEGIN: Custom Style Block -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #FFFAF3;
+      color: #1C1917;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Hide scrollbar for clean horizontal swipe on iOS/Android */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<!-- END: Custom Style Block -->
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-cream text-charcoal antialiased selection:bg-brand selection:text-cream">
+<!-- Mobile screen constraint wrapper (Max width 430px for native iOS app/web feel) -->
+<div class="max-w-[430px] mx-auto min-h-screen bg-cream relative shadow-xl border-x border-[#EBE5DC]/70 pb-20">
+<!-- BEGIN: TopBar -->
+<header class="fixed top-0 left-0 right-0 max-w-[430px] mx-auto z-40 h-14 bg-cream/95 backdrop-blur-md border-b border-[#E7E2DA] px-4 flex items-center justify-between">
+<!-- Kibreeze Logo Text in Red -->
+<a aria-label="Accueil Kibreeze" class="flex items-center" href="#">
+<img alt="Kibreeze" class="h-7 w-auto object-contain max-w-[140px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLmlpJuBGEf4d2SLdZiLT9n-3muNVP7YEhgCHQH_UfD0tc9fCYrm8lXzq0jZZrNkgmDC1glKSE03v49grTSunvnCJ1L3ul8dCiFgbWtHFlGbcB4triNnzhl-MaH0NhtuVIHynEp6rFjofztpIjeWDSNcltXn7-dCpUQJ1VuUK0ZTQVvz-ACnj_wrlC5vsjHYQqpuaGOaF0ENrVifTwVAcp6NLfBuy5fSGsdUfpdZNtGjsrewuL2rrtYclD3b3ti90UsQ"/>
+</a>
+<!-- Right controls: Language toggle + WhatsApp contact -->
+<div class="flex items-center gap-4">
+<!-- Language Selector -->
+<div class="flex items-center text-xs tracking-wide">
+<span class="text-brand font-black cursor-pointer">FR</span>
+<span class="text-[#A8A29E] mx-1">|</span>
+<span class="text-stoneMuted font-medium cursor-pointer">EN</span>
+</div>
+<!-- WhatsApp Quick Icon -->
+<a aria-label="Contacter sur WhatsApp" class="text-whatsapp hover:opacity-90 transition-opacity" href="https://wa.me/">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<path d="M12.031 2C6.511 2 2.025 6.486 2.025 12.006c0 1.905.534 3.738 1.547 5.337L2 22l4.821-1.53c1.53.94 3.284 1.442 5.21 1.442 5.52 0 10.005-4.486 10.005-10.006C22.036 6.486 17.551 2 12.031 2zm0 18.25c-1.67 0-3.26-.475-4.63-1.332l-.33-.207-2.86.908.927-2.784-.225-.357A8.204 8.204 0 0 1 3.8 12.006c0-4.538 3.693-8.231 8.231-8.231s8.231 3.693 8.231 8.231-3.693 8.244-8.231 8.244zm4.512-6.177c-.247-.124-1.464-.723-1.691-.806-.227-.082-.392-.124-.557.124-.165.248-.64 1.053-.784 1.218-.145.165-.289.186-.536.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.237-1.472-1.381-1.72-.144-.247-.015-.381.108-.504.111-.11.248-.289.372-.433.123-.145.165-.248.247-.413.082-.165.041-.31-.02-.433-.062-.124-.558-1.344-.764-1.841-.201-.485-.406-.419-.558-.427l-.475-.008c-.165 0-.433.062-.66.31-.227.247-.866.847-.866 2.066 0 1.219.887 2.397 1.011 2.562.124.165 1.745 2.664 4.227 3.737.59.255 1.051.408 1.41.522.593.189 1.133.162 1.56.099.476-.071 1.464-.599 1.67-1.176.206-.578.206-1.074.145-1.177-.062-.103-.227-.165-.475-.289z"></path>
+</svg>
+</a>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: HeroSection -->
+<section class="relative min-h-[751px] flex flex-col justify-end pt-14 overflow-hidden" data-purpose="hero">
+<!-- Background Beach Sunset Image -->
+<img alt="Plage de Kribi au coucher de soleil" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VfyvuEC6S82hzcA5cC63kSxzkPWAHiLONIY1Xg7WyRLoF5QbZgOE8uFbGq98qEwn28WbMydn2UAruxBqSL6z5DeA_mVPPDpKci2bCo_OKe1LKxN-3eWpwgqWtcfVZZu2zROJ7sho9vEKMqEB-GGxGdb2hT4QOcY2dMAacaYeFqgbnk4j9uMo0qLR0HrjiOmnwZmjGR5aNdrr68C2-b0H6pUIyahzjrKZFAfRBwMz789jLWUZteS7w2ZEA"/>
+<!-- Smooth subtle upward gradient veil for high contrast text readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent"></div>
+<!-- Hero Content Anchored at bottom third -->
+<div class="relative z-10 px-5 pb-8 pt-20">
+<!-- Logo Kibreeze in Cream -->
+<div class="mb-1">
+<img alt="Kibreeze" class="h-14 w-auto object-contain mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC8uSM8_AJjrDM51JrGQfz5dc_FR5bYun8b_y2SZnGEUj_zUGYFJhihniWmwcVq4hlVhfVweDxjjBMUP9o764ssyn5uVe2DlC5UMBD5xno76Z-80YS8jJsXk6ZpWYTP-UAWt6ROaOS4fk5o9qdSXh5c4qHlFuapagyvHAhghUGlWd0cxl3hvCjP_d0ATULChVRb_VWP4Kux1moEF_bOigdAwJIUsuzWEnJLzZunHg4jxmHV5UxBHzr0LS6hOCtFmgF7Q" style="height: 56px;"/>
+</div>
+<!-- Handwritten Signature -->
+<p class="font-cursive text-amber-100 text-2xl tracking-wide -mt-1 drop-shadow-sm font-semibold">
+          Kribi is a feeling
+        </p>
+<!-- Main Headline -->
+<h1 class="text-white text-3xl font-black leading-tight tracking-tight mt-3">
+          Découvrez Kribi<br/>autrement
+        </h1>
+<!-- Subtitle description -->
+<p class="text-stone-200 text-sm mt-2.5 max-w-sm leading-relaxed">
+          Des expériences, des excursions et des séjours pensés pour vous faire vivre Kribi autrement.
+        </p>
+<!-- Call to actions -->
+<div class="flex flex-col gap-2.5 mt-6">
+<a class="w-full bg-brand text-cream font-bold py-3.5 px-5 rounded-[3px] text-center text-sm tracking-wide shadow-none hover:bg-[#77011b] transition-colors" href="#experiences">
+            Découvrir les expériences
+          </a>
+<a class="w-full border border-white/90 bg-black/10 backdrop-blur-xs text-white font-semibold py-3.5 px-5 rounded-[3px] text-center text-sm tracking-wide hover:bg-white/10 transition-colors" href="#formules">
+            Planifier mon séjour
+          </a>
+</div>
+<!-- Discreet pulsing chevron down -->
+<div class="flex justify-center mt-6">
+<a aria-label="Défiler vers les expériences" class="text-stone-300 animate-bounce" href="#experiences">
+<svg class="w-5 h-5 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: ExperiencesSection -->
+<section class="bg-cream py-8 px-4" data-purpose="category-experiences" id="experiences">
+<h2 class="text-charcoal font-black text-2xl mb-4 tracking-tight">
+        Nos expériences
+      </h2>
+<!-- Stacked Category Cards -->
+<div class="flex flex-col gap-3.5">
+<!-- Card 1: Nature & Découverte -->
+<div class="relative h-[200px] rounded-[4px] overflow-hidden cursor-pointer group">
+<img alt="Chutes de la Lobé" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1WexY4fS_3NRuEyHlYcJo3nsdnOTvQDxPzzoUfa0led3TfDLCbdrg_m03kChlwy9PGrBOOWawKxJCIDle6xt4MOBH_vSy7L7w8hy7VMv7EM5gDOMxfsgrmejIprs--Lap_ad2Ucd3bPBa-iArHiaFcAuhvXldT8MmC7BTHe2319gwGAXiOvUBIYDEpMbtU5gVye-1nLYWQyi5teuWa-smyD_ldl8e8CFCikCPPbety74_InC0PPqwpMcnc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+<div class="absolute inset-0 p-4 flex flex-col justify-between">
+<span class="self-start bg-black/40 backdrop-blur-md border border-white/20 text-cream text-[11px] font-semibold px-2.5 py-1 rounded-[2px]">
+              6 expériences
+            </span>
+<div class="flex items-center justify-between">
+<h3 class="text-white text-xl font-extrabold tracking-tight">
+                Nature &amp; Découverte
+              </h3>
+<div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white">
+<svg class="w-4 h-4 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Aventure -->
+<div class="relative h-[200px] rounded-[4px] overflow-hidden cursor-pointer group">
+<img alt="Quad sur la plage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VOfWvyk0nS6Y9I6SteIOIcBMfRDXHBFVoPFuRiN9HAy0i0v0k2VChU5J5o2TGNbMiPN-50N-vayYXpJ8iTRWE4TAmufcY6LVEml5vIaYGb0yXFXrDjGjHh5WZ3SeRD23rZL1tsBezALpkjj2WptPI39w84rzxRpgRFPtixXv_cdqOafJR_-kGvJ9Ojh1_U76r295PFU-WbqpdCFL9LnvJ4RHris6LFfI62_NUTMlAC4VXEY-bU3wBaHbM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+<div class="absolute inset-0 p-4 flex flex-col justify-between">
+<span class="self-start bg-black/40 backdrop-blur-md border border-white/20 text-cream text-[11px] font-semibold px-2.5 py-1 rounded-[2px]">
+              3 expériences
+            </span>
+<div class="flex items-center justify-between">
+<h3 class="text-white text-xl font-extrabold tracking-tight">
+                Aventure
+              </h3>
+<div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white">
+<svg class="w-4 h-4 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Détente -->
+<div class="relative h-[200px] rounded-[4px] overflow-hidden cursor-pointer group">
+<img alt="Feu de plage au coucher du soleil" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1XhFeqi7E_je6HPpsTTSGEo07I-Eau9QPGLUxZMoitgI1nxjPyNEjs_4sy2KUjEGRAMv2rEn1A3iZOgW81BdoFkBLZRslhWMq8ln0POUQDANRZbcL76p1Ps0CixDXrQkY2kXueB8Wm1NrcMXcUTZgz69ZCjzRm2v9eStuYJ8Dtmqy38ilh9ckYZjiBdqd605Lw1EztRoOkQqd2U7TgVCHJp0khs4ksw9hiIRZN5uhIefMJl5oRpGnRE5gk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+<div class="absolute inset-0 p-4 flex flex-col justify-between">
+<span class="self-start bg-black/40 backdrop-blur-md border border-white/20 text-cream text-[11px] font-semibold px-2.5 py-1 rounded-[2px]">
+              3 expériences
+            </span>
+<div class="flex items-center justify-between">
+<h3 class="text-white text-xl font-extrabold tracking-tight">
+                Détente
+              </h3>
+<div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white">
+<svg class="w-4 h-4 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ExperiencesSection -->
+<!-- BEGIN: MustSeeSection -->
+<section class="bg-cream py-6 px-4" data-purpose="must-see-carousel">
+<div class="flex items-baseline justify-between mb-3">
+<h2 class="text-charcoal font-black text-2xl tracking-tight">
+          À ne pas manquer
+        </h2>
+<span class="text-[#78716C] text-xs font-medium">
+          Tarifs indicatifs
+        </span>
+</div>
+<!-- Horizontal scrolling carousel -->
+<div class="flex gap-3.5 overflow-x-auto pb-3 pt-1 no-scrollbar -mx-4 px-4"><!-- Card 1: Chutes de la Lobé -->
+<article class="w-[280px] bg-white rounded-[4px] border border-[#EBE5DC] overflow-hidden flex-shrink-0 flex flex-col justify-between shadow-xs">
+<div>
+<div class="h-40 relative overflow-hidden bg-stone-100">
+<img alt="Chutes de la Lobé" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WexY4fS_3NRuEyHlYcJo3nsdnOTvQDxPzzoUfa0led3TfDLCbdrg_m03kChlwy9PGrBOOWawKxJCIDle6xt4MOBH_vSy7L7w8hy7VMv7EM5gDOMxfsgrmejIprs--Lap_ad2Ucd3bPBa-iArHiaFcAuhvXldT8MmC7BTHe2319gwGAXiOvUBIYDEpMbtU5gVye-1nLYWQyi5teuWa-smyD_ldl8e8CFCikCPPbety74_InC0PPqwpMcnc"/>
+</div>
+<div class="p-3.5">
+<h3 class="font-extrabold text-charcoal text-base leading-snug">
+        Chutes de la Lobé
+      </h3>
+<p class="text-stoneMuted text-xs mt-1 leading-relaxed line-clamp-2">
+        La seule cascade au monde qui se jette dans l'océan
+      </p>
+<div class="mt-3">
+<div class="flex items-baseline gap-1">
+<span class="font-black text-brand text-base">5 000 FCFA</span>
+<span class="text-stoneMuted text-xs font-medium">/ personne</span>
+</div>
+<p class="text-[#78716C] text-[11px] mt-0.5 font-normal">≈ 7,60 €</p>
+</div>
+</div>
+</div>
+<div class="p-3.5 pt-0">
+<button class="w-full py-2.5 bg-brand text-cream text-xs font-bold rounded-[3px] flex items-center justify-center gap-1.5 hover:bg-[#77011b] transition-colors" type="button">
+<svg class="w-3.5 h-3.5 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+      Ajouter à mon séjour
+    </button>
+</div>
+</article>
+<!-- Card 2: Excursion en pirogue -->
+<article class="w-[280px] bg-white rounded-[4px] border border-[#EBE5DC] overflow-hidden flex-shrink-0 flex flex-col justify-between shadow-xs">
+<div>
+<div class="h-40 relative overflow-hidden bg-stone-100">
+<img alt="Excursion en pirogue sur la Lobé" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WMM9x14xmgofy7QyJymfwzueA8xmAqwj0dpZ7oRcwYb9cggAIyKTsi9n35AaTkxCYwNw_Xm_Ha7dUQXMBMtNmCRZi5OFHKz9UM_sBC2QxwuE6koME_QwfMdZM_5KSP24F2g666UKv62Z5vSo90Ly2h4hn-dYK7elQ31bYPxjt3Skyq9rrGEnE-DLH-W5--QEEDNe6Xnpo_XaUw9zyJw3p1y1BIa4LzePot0v-b6duKV2PSGaQ9xiBAaKM"/>
+</div>
+<div class="p-3.5">
+<h3 class="font-extrabold text-charcoal text-base leading-snug">
+        Excursion en pirogue
+      </h3>
+<p class="text-stoneMuted text-xs mt-1 leading-relaxed line-clamp-2">
+        Remontez la Lobé entre mangrove et forêt
+      </p>
+<div class="mt-3">
+<div class="flex items-baseline gap-1">
+<span class="font-black text-brand text-base">35 000 FCFA</span>
+<span class="text-stoneMuted text-xs font-medium">/ groupe</span>
+</div>
+<p class="text-[#78716C] text-[11px] mt-0.5 font-normal">≈ 53,20 €</p>
+</div>
+</div>
+</div>
+<div class="p-3.5 pt-0">
+<button class="w-full py-2.5 bg-brand text-cream text-xs font-bold rounded-[3px] flex items-center justify-center gap-1.5 hover:bg-[#77011b] transition-colors" type="button">
+<svg class="w-3.5 h-3.5 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+      Ajouter à mon séjour
+    </button>
+</div>
+</article>
+<!-- Card 3: Croisière en bateau -->
+<article class="w-[280px] bg-white rounded-[4px] border border-[#EBE5DC] overflow-hidden flex-shrink-0 flex flex-col justify-between shadow-xs">
+<div>
+<div class="h-40 relative overflow-hidden bg-stone-100">
+<img alt="Croisière en bateau au coucher du soleil" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1U_B2HZsA5z3ZVaAwKIgdPzmWCNSeiBVsOYdQG_qDEMzI3EzJaKa8cl0-GDnoC8d6l2Tggc46Fuhmm6RTmoo4S-CGz9RxvYPz25TodTutqieRp4e-65zdotITFOhUH00VPYsDnpaJDL7a6O_jjgL4ZIH1WlceQePqc0wUZm_6dAYcDYs9AUeBbSgYuHHXsNXMLc5Eh4qiXU4tI-w5yVJgoLNaPV3MJPXjHpRXTGhFsLk_4uNhKlVxaINSY"/>
+</div>
+<div class="p-3.5">
+<h3 class="font-extrabold text-charcoal text-base leading-snug">
+        Croisière en bateau
+      </h3>
+<p class="text-stoneMuted text-xs mt-1 leading-relaxed line-clamp-2">
+        Le coucher de soleil vu du large
+      </p>
+<div class="mt-3">
+<div class="flex items-baseline gap-1">
+<span class="font-black text-brand text-base">25 000 FCFA</span>
+<span class="text-stoneMuted text-xs font-medium">/ personne</span>
+</div>
+<p class="text-[#78716C] text-[11px] mt-0.5 font-normal">≈ 38,00 €</p>
+</div>
+</div>
+</div>
+<div class="p-3.5 pt-0">
+<button class="w-full py-2.5 bg-brand text-cream text-xs font-bold rounded-[3px] flex items-center justify-center gap-1.5 hover:bg-[#77011b] transition-colors" type="button">
+<svg class="w-3.5 h-3.5 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+      Ajouter à mon séjour
+    </button>
+</div>
+</article>
+<!-- Card 4: Campement Bagyeli -->
+<article class="w-[280px] bg-white rounded-[4px] border border-[#EBE5DC] overflow-hidden flex-shrink-0 flex flex-col justify-between shadow-xs">
+<div>
+<div class="h-40 relative overflow-hidden bg-stone-100">
+<img alt="Campement traditionnel Bagyeli" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1Wcgth4I3klI17z1AgJajp5w4XGO-76IxNNCsfj0aYCHwI51wkZuiVCjRMfRa59OmoXRLeeZiaizxQTW0_Q-nzkBQuGf0WZUj-X5P2-UicW3OOhTVsxUTm4fSK3wOFFY-IKfao1rp307hq9KWOPDjPdXBMP0S8gEagB5crT7vii6UrTNB1ucTGvrP9ihQ_Vi9wYnR5RB-JWvIUjXqPa9GzePCXvusgz7K_KSi8pSs2lvLaEjEpevfbmaPw"/>
+</div>
+<div class="p-3.5">
+<h3 class="font-extrabold text-charcoal text-base leading-snug">
+        Campement Bagyeli
+      </h3>
+<p class="text-stoneMuted text-xs mt-1 leading-relaxed line-clamp-2">
+        À la rencontre du peuple de la forêt
+      </p>
+<div class="mt-3">
+<div class="flex items-baseline gap-1">
+<span class="font-black text-brand text-base">7 500 FCFA</span>
+<span class="text-stoneMuted text-xs font-medium">/ personne</span>
+</div>
+<p class="text-[#78716C] text-[11px] mt-0.5 font-normal">≈ 11,40 €</p>
+</div>
+</div>
+</div>
+<div class="p-3.5 pt-0">
+<button class="w-full py-2.5 bg-brand text-cream text-xs font-bold rounded-[3px] flex items-center justify-center gap-1.5 hover:bg-[#77011b] transition-colors" type="button">
+<svg class="w-3.5 h-3.5 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+      Ajouter à mon séjour
+    </button>
+</div>
+</article></div>
+</section>
+<!-- END: MustSeeSection -->
+<!-- BEGIN: ImmersiveDivider -->
+<section class="w-full h-[280px] relative overflow-hidden flex items-center justify-center my-4" data-purpose="immersive-banner">
+<img alt="Rivière Lobé en pirogue" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XPx0bQeiQ5fY0zF1wJGjQR57PUIQcg3v9zG7ezPQmGLznLgypOvy-HsN7fUQTTWj6HtKfA-b4LilE9GEAO5ThjIZML5CGm_-pAm1PFgRbas2Bo6uMmkl9oXO0nI_caCUBxFqHEvN_HXdwhfg3nSCzRUCG_AgqFE5L6YE47OzaCRNLN-bjkUq6YzaVdq33esW43Fp7E5dS5vOeLMbM3UFQLP106j1ZpE5vvd3YHSwDXJZECBxTsDFupnQ"/>
+<div class="absolute inset-0 bg-black/40"></div>
+<p class="relative z-10 text-white font-extrabold text-lg md:text-xl tracking-[0.25em] drop-shadow-md text-center px-4">
+        MER · FORÊT · CHUTES · PIROGUE
+      </p>
+</section>
+<!-- END: ImmersiveDivider -->
+<!-- BEGIN: AccommodationSection -->
+<section class="bg-cream py-8 px-4" data-purpose="accommodations" id="hebergements">
+<h2 class="text-charcoal font-black text-2xl tracking-tight">
+        Où dormir à Kribi
+      </h2>
+<p class="text-stoneMuted text-sm mt-1 mb-4">
+        Dites-nous votre budget, nous trouvons le logement.
+      </p>
+<!-- Horizontal Cards for Stays -->
+<div class="flex gap-3 overflow-x-auto pb-3 no-scrollbar -mx-4 px-4"><!-- Stay 1: Chambre -->
+<div class="w-[240px] bg-white rounded-[4px] border border-[#EBE5DC] overflow-hidden flex-shrink-0">
+<div class="h-32 relative overflow-hidden bg-stone-200">
+<img alt="Chambre d'hôtel bord de mer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1U5CBaRqZSaL_A4oQ8bE49ohhmIDfhcQcdLcdndrvSIE5nL4FAeyUlgszULgAimjNR_DX5Vw7lNmvwaP9CejbxFHE_y5B8osI5d8I2yQt1zEbfxLkVRnfdd08a9t8UkNNkVxeAvnozhbP6fFA0MsDhDsLpIycJpj7wrxnIjtz7cAuHsJLd1Ef7IRvYu5fuUCrVya2l3qW3idrHyirhn8xIqFD0SdFTqhgZy4kfmtc4BB5iaqGPKJYnQn58"/>
+</div>
+<div class="p-3">
+<h3 class="font-extrabold text-charcoal text-base">Chambre</h3>
+<p class="text-brand font-bold text-xs mt-1">À partir de 15 000 FCFA <span class="text-stoneMuted font-normal">/ nuit</span></p>
+<p class="text-[#78716C] text-[11px] mt-0.5 font-normal">≈ 22,80 €</p>
+</div>
+</div>
+<!-- Stay 2: Studio -->
+<div class="w-[240px] bg-white rounded-[4px] border border-[#EBE5DC] overflow-hidden flex-shrink-0">
+<div class="h-32 relative overflow-hidden bg-stone-200">
+<img alt="Studio bord de mer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WYXInt2lEANBbGz_-_nWPlpaHgODKDIwbeKOfFSxX_Ums5inXJ4F6pTcYEhhHJ5hczPf76UalTTkRoDHSTAhrTngRViBNRHROcZQGNTmvMC1bBNPXiofvkiIqpOQ1rwVWBcMyHNPfmF82i8P17NNqbXT52UOblhRbTm7lyWfLjDd1dJm31kYAbC4MN6ahzA0C4_scQKsIcc1C1BJEh4r0NnPHikp6ohxNZsz9RsFiCGCYr_xSMwJmkbW8"/>
+</div>
+<div class="p-3">
+<h3 class="font-extrabold text-charcoal text-base">Studio</h3>
+<p class="text-brand font-bold text-xs mt-1">À partir de 30 000 FCFA <span class="text-stoneMuted font-normal">/ nuit</span></p>
+<p class="text-[#78716C] text-[11px] mt-0.5 font-normal">≈ 45,60 €</p>
+</div>
+</div>
+<!-- Stay 3: Villa -->
+<div class="w-[240px] bg-white rounded-[4px] border border-[#EBE5DC] overflow-hidden flex-shrink-0">
+<div class="h-32 relative overflow-hidden bg-stone-200">
+<img alt="Villa tropicale avec piscine" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UgaX3UNkG6vq1AQzGGKuOYoNv_WHv0c4muj5jqbzbTvA2YEbX8p0R7SN_YamcM62reiFym2A6mwNebv_FZ31W8bqi4_F1Of3kbF0nqkaUpNeCgeN417s7nyWJ6sv119RgqKkIa5EjBVGxej1I35OAH74Q7XwSfAkdUNJyB9YziM7lTXtHNbojrdPgyhH74_AXm5hUloJOVGPzOgOqcfxrCLTsVhQvjwMvweVFOa9PydyawrHWe9L7oSA"/>
+</div>
+<div class="p-3">
+<h3 class="font-extrabold text-charcoal text-base">Villa</h3>
+<p class="text-brand font-bold text-xs mt-1">À partir de 150 000 FCFA <span class="text-stoneMuted font-normal">/ nuit</span></p>
+<p class="text-[#78716C] text-[11px] mt-0.5 font-normal">≈ 228,00 €</p>
+</div>
+</div></div>
+<div class="mt-2">
+<a class="text-brand font-bold text-sm inline-flex items-center gap-1.5 hover:underline" href="#hebergements">Voir tous les hébergements →</a>
+</div>
+</section>
+<!-- END: AccommodationSection -->
+<!-- BEGIN: PackagesSection -->
+<section class="bg-terracotta py-8 px-4 text-cream" data-purpose="curated-packages" id="formules">
+<div class="flex items-baseline justify-between mb-4">
+<h2 class="text-white font-black text-2xl tracking-tight">
+          Des séjours déjà composés
+        </h2>
+</div>
+<!-- Packages Cards -->
+<div class="flex flex-col gap-3.5"><!-- Package 1: Découverte -->
+<div class="bg-cream text-charcoal p-4 rounded-[4px] shadow-sm">
+<div class="flex justify-between items-start">
+<span class="bg-terracotta/10 text-terracotta text-[11px] font-bold px-2 py-0.5 rounded-[2px] uppercase tracking-wide">
+      Formule
+    </span>
+</div>
+<h3 class="text-lg font-black mt-2 text-charcoal">
+    Package Découverte
+  </h3>
+<p class="text-stoneMuted text-xs mt-1 leading-relaxed">
+    Chutes, pirogue, campement, musée, guide
+  </p>
+<div class="mt-3 pt-3 border-t border-[#EBE5DC] flex flex-col">
+<div class="flex items-baseline gap-1">
+<span class="text-base font-black text-brand">100 000 FCFA</span>
+<span class="text-xs text-stoneMuted font-medium">/ 2 personnes</span>
+</div>
+<span class="text-[#78716C] text-xs font-normal mt-0.5">≈ 152,00 €</span>
+</div>
+</div>
+<!-- Package 2: Aventure -->
+<div class="bg-cream text-charcoal p-4 rounded-[4px] shadow-sm">
+<div class="flex justify-between items-start">
+<span class="bg-terracotta/10 text-terracotta text-[11px] font-bold px-2 py-0.5 rounded-[2px] uppercase tracking-wide">
+      Formule
+    </span>
+</div>
+<h3 class="text-lg font-black mt-2 text-charcoal">
+    Package Aventure
+  </h3>
+<p class="text-stoneMuted text-xs mt-1 leading-relaxed">
+    Chutes, pirogue, quad, jet-ski, kayak, cheval
+  </p>
+<div class="mt-3 pt-3 border-t border-[#EBE5DC] flex flex-col">
+<div class="flex items-baseline gap-1">
+<span class="text-base font-black text-brand">150 000 FCFA</span>
+<span class="text-xs text-stoneMuted font-medium">/ 2 personnes</span>
+</div>
+<span class="text-[#78716C] text-xs font-normal mt-0.5">≈ 228,00 €</span>
+</div>
+</div></div>
+<a class="text-cream font-bold text-sm underline underline-offset-4 mt-3 inline-block hover:text-white" href="#formules">
+        Voir les 4 formules →
+      </a>
+</section>
+<!-- END: PackagesSection -->
+<!-- BEGIN: TksMobilitySection -->
+<aside class="bg-[#F0EBE3] py-3.5 px-4 my-2 flex items-center justify-between border-y border-[#E2DDD5]" data-purpose="tks-mobility-bar">
+<!-- TKS Logo -->
+<div class="flex-shrink-0 mr-3">
+<img alt="TKS" class="h-5 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkcreZNdhGAXPSujlzQ4NGF08BL4cOc6UPKGQIfUxyfITn6u1JFV_cXRcLsk0vs5ffw9H36we8fibzYTNLO2QSZPG6k8NKCOhIJsjQHdReQ7M2EFdZP4lqBl9_HLul-CvqgF1xiL_rY0FiK36OwkYdYezM9QZpGoi9kQcUTSOg6U-tazZ3wLXzJUGFRA5E1Q-tvh0xx5nkYgwzETaHJL7Ly2hPdhy3205XJta0wuW2ka_96XCuI9WzCgrcd-1Wgm95Og" style="height: 20px;"/>
+</div>
+<!-- Mobility pitch text -->
+<div class="flex-1 pr-3">
+<p class="font-bold text-xs text-charcoal leading-none">
+          Mobilité &amp; transport
+        </p>
+<p class="text-[11px] text-stoneMuted mt-0.5 truncate max-w-[210px]">
+          Location, transferts et chauffeur privé pour compléter votre séjour
+        </p>
+</div>
+<!-- Action link -->
+<a class="flex-shrink-0 text-charcoal font-extrabold text-xs underline underline-offset-2" href="#tks">
+        Voir →
+      </a>
+</aside>
+<!-- END: TksMobilitySection -->
+<!-- BEGIN: AboutSection -->
+<section class="bg-cream py-8 px-4" data-purpose="about-kibreeze">
+<h2 class="text-charcoal font-black text-2xl mb-4 tracking-tight">
+        Qui sommes-nous
+      </h2>
+<!-- Landscape photo -->
+<div class="h-48 w-full rounded-[4px] overflow-hidden mb-4 bg-stone-200">
+<img alt="Paysage de Kribi" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VfyvuEC6S82hzcA5cC63kSxzkPWAHiLONIY1Xg7WyRLoF5QbZgOE8uFbGq98qEwn28WbMydn2UAruxBqSL6z5DeA_mVPPDpKci2bCo_OKe1LKxN-3eWpwgqWtcfVZZu2zROJ7sho9vEKMqEB-GGxGdb2hT4QOcY2dMAacaYeFqgbnk4j9uMo0qLR0HrjiOmnwZmjGR5aNdrr68C2-b0H6pUIyahzjrKZFAfRBwMz789jLWUZteS7w2ZEA"/>
+</div>
+<!-- Exact copy -->
+<p class="text-stoneMuted text-sm leading-relaxed mb-3">
+        Nous sommes Kibreeze, une marque dédiée à la découverte et aux expériences à Kribi. Nous voulons vous faire découvrir Kribi autrement, à travers ses paysages, ses activités, ses excursions et des expériences adaptées à vos envies.
+      </p>
+<a class="text-brand font-bold text-sm inline-flex items-center gap-1 hover:underline" href="#about">
+        En savoir plus →
+      </a>
+</section>
+<!-- END: AboutSection -->
+<!-- BEGIN: ConversionBanner -->
+<section class="px-4 my-4" data-purpose="whatsapp-conversion">
+<div class="bg-brand py-8 px-6 text-center text-cream rounded-[4px]">
+<h2 class="font-black text-2xl text-white mb-2 tracking-tight">
+          Un séjour sur mesure ?
+        </h2>
+<p class="text-white/90 text-sm mb-5 leading-relaxed max-w-xs mx-auto">
+          Parlons directement de vos envies et créons votre itinéraire personnalisé.
+        </p>
+<a class="bg-whatsapp text-white font-bold py-3.5 px-6 rounded-[3px] inline-flex items-center justify-center gap-2.5 text-sm shadow-none w-full hover:opacity-95 transition-opacity" href="https://wa.me/">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M12.031 2C6.511 2 2.025 6.486 2.025 12.006c0 1.905.534 3.738 1.547 5.337L2 22l4.821-1.53c1.53.94 3.284 1.442 5.21 1.442 5.52 0 10.005-4.486 10.005-10.006C22.036 6.486 17.551 2 12.031 2zm0 18.25c-1.67 0-3.26-.475-4.63-1.332l-.33-.207-2.86.908.927-2.784-.225-.357A8.204 8.204 0 0 1 3.8 12.006c0-4.538 3.693-8.231 8.231-8.231s8.231 3.693 8.231 8.231-3.693 8.244-8.231 8.244zm4.512-6.177c-.247-.124-1.464-.723-1.691-.806-.227-.082-.392-.124-.557.124-.165.248-.64 1.053-.784 1.218-.145.165-.289.186-.536.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.237-1.472-1.381-1.72-.144-.247-.015-.381.108-.504.111-.11.248-.289.372-.433.123-.145.165-.248.247-.413.082-.165.041-.31-.02-.433-.062-.124-.558-1.344-.764-1.841-.201-.485-.406-.419-.558-.427l-.475-.008c-.165 0-.433.062-.66.31-.227.247-.866.847-.866 2.066 0 1.219.887 2.397 1.011 2.562.124.165 1.745 2.664 4.227 3.737.59.255 1.051.408 1.41.522.593.189 1.133.162 1.56.099.476-.071 1.464-.599 1.67-1.176.206-.578.206-1.074.145-1.177-.062-.103-.227-.165-.475-.289z"></path>
+</svg>
+          Contacter Kibreeze sur WhatsApp
+        </a>
+</div>
+</section>
+<!-- END: ConversionBanner -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-charcoal py-10 px-4 text-cream pb-24 mt-8" data-purpose="site-footer">
+<!-- Full brand logo in cream with badge -->
+<div>
+<img alt="Kibreeze" class="h-18 w-auto object-contain mb-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVYJkPMA6g5z-tS9buUda57JhXRXGMYtMdqh34z7mXcFogR6lXoPP7FdHOeJnqkd9x6rd-KfkBhqms9CAxucYfU4eWvro_tJGlBj5IUthMX9-Sdzukb9Nna1OYI0UhZIy7J84WEIbs_drHc7N8i3STvF077cTtnMirK6LUSCd7oM8kqMmuHRp1Fa5gcbpqwYZUKDdopIwhC3AbqHx8s2bU5SglnmEBjJEhvwJENHyZF_fv6NSXZS2V-1xLTMYhP5ra_w" style="height: 72px;"/>
+</div>
+<!-- Handwritten signature -->
+<p class="font-cursive text-amber-100/85 text-xl my-2 tracking-wide font-medium">
+        Kribi is a feeling
+      </p>
+<!-- 3 Columns of Navigation Links -->
+<div class="grid grid-cols-3 gap-2 text-xs text-[#D6D3D1] mt-6">
+<!-- Col 1 -->
+<div class="flex flex-col space-y-2.5">
+<a class="hover:text-white" href="#experiences">Expériences</a>
+<a class="hover:text-white" href="#hebergements">Hébergements</a>
+<a class="hover:text-white" href="#formules">Formules</a>
+</div>
+<!-- Col 2 -->
+<div class="flex flex-col space-y-2.5">
+<a class="hover:text-white" href="#tks">Mobilité TKS®</a>
+<a class="hover:text-white" href="#about">À propos</a>
+<a class="hover:text-white" href="https://wa.me/">Contact</a>
+</div>
+<!-- Col 3 -->
+<div class="flex flex-col space-y-2.5">
+<span class="text-stone-400 font-medium">Kribi, Cameroun</span>
+<a class="hover:text-white" href="#">Instagram</a>
+<a class="hover:text-white" href="#">Facebook</a>
+</div>
+</div>
+<!-- Group Trademark Note -->
+<div class="border-t border-[#44403C] pt-4 mt-8">
+<p class="text-[10px] text-[#A8A29E] leading-relaxed">
+          Kibreeze est une marque de Breezy Groupe, avec TKS®, iBreezy et Breezy Delivery.
+        </p>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<!-- BEGIN: FloatingWhatsAppButton -->
+<a aria-label="Bouton d'échange WhatsApp direct" class="fixed bottom-20 right-4 z-40 w-14 h-14 rounded-full bg-whatsapp text-white flex items-center justify-center shadow-lg active:scale-95 transition-transform" href="https://wa.me/">
+<svg class="w-7 h-7 fill-current" viewbox="0 0 24 24">
+<path d="M12.031 2C6.511 2 2.025 6.486 2.025 12.006c0 1.905.534 3.738 1.547 5.337L2 22l4.821-1.53c1.53.94 3.284 1.442 5.21 1.442 5.52 0 10.005-4.486 10.005-10.006C22.036 6.486 17.551 2 12.031 2zm0 18.25c-1.67 0-3.26-.475-4.63-1.332l-.33-.207-2.86.908.927-2.784-.225-.357A8.204 8.204 0 0 1 3.8 12.006c0-4.538 3.693-8.231 8.231-8.231s8.231 3.693 8.231 8.231-3.693 8.244-8.231 8.244zm4.512-6.177c-.247-.124-1.464-.723-1.691-.806-.227-.082-.392-.124-.557.124-.165.248-.64 1.053-.784 1.218-.145.165-.289.186-.536.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.237-1.472-1.381-1.72-.144-.247-.015-.381.108-.504.111-.11.248-.289.372-.433.123-.145.165-.248.247-.413.082-.165.041-.31-.02-.433-.062-.124-.558-1.344-.764-1.841-.201-.485-.406-.419-.558-.427l-.475-.008c-.165 0-.433.062-.66.31-.227.247-.866.847-.866 2.066 0 1.219.887 2.397 1.011 2.562.124.165 1.745 2.664 4.227 3.737.59.255 1.051.408 1.41.522.593.189 1.133.162 1.56.099.476-.071 1.464-.599 1.67-1.176.206-.578.206-1.074.145-1.177-.062-.103-.227-.165-.475-.289z"></path>
+</svg>
+</a>
+<!-- END: FloatingWhatsAppButton -->
+<!-- BEGIN: BottomNavigation -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto z-50 h-16 bg-cream border-t border-[#E7E2DA] flex items-center justify-around px-1 select-none" data-purpose="bottom-tab-bar"><!-- 1. Accueil (Active) -->
+<a class="flex flex-col items-center gap-1 text-brand font-bold py-1 px-2" href="#">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] leading-none">Accueil</span>
+</a>
+<!-- 2. Expériences -->
+<a class="flex flex-col items-center gap-1 text-stoneMuted py-1 px-2 hover:text-charcoal" href="#experiences">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+<span class="text-[10px] leading-none">Expériences</span>
+</a>
+<!-- 3. Hébergements -->
+<a class="flex flex-col items-center gap-1 text-stoneMuted py-1 px-2 hover:text-charcoal" href="#hebergements">
+<span class="material-symbols-outlined text-[24px]">hotel</span>
+<span class="text-[10px] leading-none">Hébergements</span>
+</a>
+<!-- 4. Formules -->
+<a class="flex flex-col items-center gap-1 text-stoneMuted py-1 px-2 hover:text-charcoal" href="#formules">
+<span class="material-symbols-outlined text-[24px]">loyalty</span>
+<span class="text-[10px] leading-none">Formules</span>
+</a>
+<!-- 5. Mon séjour -->
+<a class="flex flex-col items-center gap-1 text-stoneMuted py-1 px-2 hover:text-charcoal relative" href="#mon-sejour">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">luggage</span>
+<span class="absolute -top-1.5 -right-2 bg-brand text-cream text-[9px] font-black rounded-full h-4 w-4 flex items-center justify-center">
+      0
+    </span>
+</div>
+<span class="text-[10px] leading-none">Mon séjour</span>
+</a></nav>
+<!-- END: BottomNavigation -->
+</div>
+</body></html>
