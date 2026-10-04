@@ -26,6 +26,31 @@
   --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-script: 'Caveat', cursive; /* uniquement « Kribi is a feeling » */
 
+  /* Échelle de texte relevée sur les écrans validés : titre d'accueil mobile 36 px (4xl),
+     titres de section 28 à 30 px (3xl), corps 15 à 16 px (base), mentions 12 à 13 px (xs, sm) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* Espacement : grille de 4 px, Tailwind en dérive p-1 à p-96 */
+  --spacing: 0.25rem;
+
+  /* Points de rupture : mobile d'abord, ordinateur à partir de lg */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+
   /* Rayons : angles francs, 4 px au plus (brief Stitch). Le cercle ne sert qu'au
      bouton WhatsApp flottant et aux pastilles de compteur. */
   --radius-sm: 0.125rem;

@@ -283,7 +283,7 @@ Franck a validé les écrans générés dans Stitch. L'information a été relay
 - **Angles** : 4 px au plus, cercle réservé au bouton WhatsApp flottant et aux pastilles de compteur.
 - **Logo WhatsApp** : tracé officiel, déjà utilisé par `src/components/WhatsAppButton.astro`.
 
-**Ce que la validation ne tranche pas** : les prix des hébergements affichés sur l'écran 6 viennent de la note vocale du 2026-09-25 et du brief. Franck ne les a pas confirmés comme une grille ferme (question L1). La validation porte sur le design, pas sur ces montants.
+**Ce que la validation ne tranche pas** : les photos des hébergements et des véhicules TKS® des maquettes sont générées par Stitch. Les photos représentatives par budget restent à fournir par Franck (L1). La grille de prix des hébergements, elle, est celle qu'il a validée le 2026-09-26 (section 1 quater).
 
 ## 2. Ce que ça change dans le projet
 

@@ -55,8 +55,10 @@ Fonctions : `t(locale, key, params?)` avec interpolation et pluriels via `Intl.P
 
 Deux collections déclarées, avec leurs champs localisés, conformément à [docs/data-model.md](../../docs/data-model.md) :
 
-- `categories` : `id`, `pole`, `name`, `description?`, `order`
-- `services` : `id`, `title`, `pole`, `categoryId`, `shortDescription`, `description`, `images`, `pricing`, `quantity`, `duration?`, `capacity?`, `conditions?`, `availability`, `featured?`, `order?`, `seo?`
+- `categories` : `name`, `description?`, `order`, `provisional?` ; l'identifiant est le nom du fichier
+- `services` : `title`, `section`, `categoryId?`, `isOption?`, `shortDescription`, `description`, `images`, `pricing` ou `tiers`, `quantity`, `duration?`, `capacity?`, `conditions?`, `availability`, `featured?`, `order?`, `seo?`, `provisional?`
+
+Mis à jour le 2026-10-04 pour le modèle Kibreeze : `section` remplace `pole` (ADR-014). Le contrat à jour est [contracts/content-schema.md](./contracts/content-schema.md).
 
 Règles de validation implémentées ici :
 

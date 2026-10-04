@@ -1,0 +1,124 @@
+---
+/**
+ * Page de démonstration interne des tokens — /dev/ui, docs/design-system.md section 3.
+ * Elle n'existe qu'avec `npm run dev` : hors développement, getStaticPaths ne renvoie rien
+ * et aucune page n'est construite. Elle est aussi exclue du plan du site (astro.config.mjs)
+ * et marquée noindex. Page d'outillage, en français uniquement, hors dictionnaires.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+import { contrastRatio, parseColorTokens } from '../../../scripts/check-tokens.ts';
+import tokensCss from '../../styles/tokens.css?raw';
+
+export function getStaticPaths() {
+  return import.meta.env.DEV ? [{ params: { page: 'ui' } }] : [];
+}
+
+const colors = [...parseColorTokens(tokensCss)].map(([name, hex]) => ({
+  name,
+  hex,
+  onBg: contrastRatio(hex, parseColorTokens(tokensCss).get('bg') ?? '#ffffff').toFixed(2),
+}));
+const textSizes = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl'];
+const spacings = [1, 2, 3, 4, 6, 8, 12, 16];
+const radii = ['sm', 'md', 'card', 'pill'];
+---
+
+<BaseLayout locale="fr" title="Tokens" noindex>
+  <div class="mx-auto max-w-5xl space-y-12 px-4 py-10">
+    <header>
+      <h1 class="font-display text-3xl font-extrabold">Tokens du design system</h1>
+      <p class="mt-2 text-fg-muted">
+        Source : <code>src/styles/tokens.css</code>. Contrastes vérifiés par{' '}
+        <code>npm run tokens:check</code>.
+      </p>
+    </header>
+
+    <section>
+      <h2 class="font-display text-2xl font-bold">Couleurs</h2>
+      <ul class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {colors.map((color) => (
+          <li class="rounded-card border border-border">
+            <div class="h-16 rounded-t-[var(--radius-card)]" style={`background:${color.hex}`} />
+            <div class="p-2 text-sm">
+              <p class="font-semibold">--color-{color.name}</p>
+              <p class="text-fg-muted">
+                {color.hex} · {color.onBg}:1 sur bg
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="font-display text-2xl font-bold">Typographie</h2>
+      <p class="mt-4 font-script text-3xl text-accent">Kribi is a feeling</p>
+      <ul class="mt-4 space-y-2">
+        {textSizes.map((size) => (
+          <li style={`font-size:var(--text-${size})`}>
+            <span class="font-bold">text-{size}</span> — Découvrez Kribi autrement, 35 000 FCFA
+          </li>
+        ))}
+      </ul>
+      <p class="mt-4 text-base">
+        <span class="font-normal">400</span> · <span class="font-medium">500</span> ·
+        <span class="font-semibold">600</span> · <span class="font-bold">700</span> ·
+        <span class="font-extrabold">800</span>
+      </p>
+    </section>
+
+    <section>
+      <h2 class="font-display text-2xl font-bold">Espacements, rayons, ombres</h2>
+      <ul class="mt-4 flex flex-wrap items-end gap-4">
+        {spacings.map((step) => (
+          <li class="text-center text-xs">
+            <div
+              class="bg-accent"
+              style={`width:calc(var(--spacing) * ${step});height:calc(var(--spacing) * ${step})`}
+            />
+            {step * 4} px
+          </li>
+        ))}
+      </ul>
+      <ul class="mt-6 flex flex-wrap gap-4">
+        {radii.map((radius) => (
+          <li
+            class="flex h-16 w-24 items-center justify-center bg-bg-muted text-sm"
+            style={`border-radius:var(--radius-${radius})`}
+          >
+            {radius}
+          </li>
+        ))}
+        <li class="flex h-16 w-24 items-center justify-center rounded-card bg-bg text-sm shadow-card">
+          card
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="font-display text-2xl font-bold">Composants</h2>
+      <div class="mt-4 flex flex-wrap items-center gap-4">
+        <button
+          type="button"
+          class="min-h-11 rounded-md bg-brand px-4 font-semibold text-brand-contrast"
+        >
+          Ajouter à mon séjour
+        </button>
+        <button
+          type="button"
+          class="min-h-11 rounded-md border border-brand px-4 font-semibold text-brand"
+        >
+          Voir les détails
+        </button>
+        <span class="rounded-sm bg-bg-muted px-2 py-1 text-sm font-semibold text-accent">
+          Sur devis
+        </span>
+        <LanguageSwitcher locale="fr" />
+      </div>
+      <p class="mt-4 text-sm text-fg-muted">
+        Le bouton WhatsApp flottant est visible en bas à droite.
+      </p>
+    </section>
+  </div>
+</BaseLayout>

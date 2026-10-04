@@ -30,7 +30,7 @@ Les six autres écrans n'ont pas de maquette ordinateur : ils se déduisent des 
 ## Ce que les maquettes ne règlent pas
 
 - **Photos** : celles des maquettes sont générées par Stitch. Le site utilise les photos de Franck triées dans `Elements/tri-par-activite/`, et des photos d'illustration là où il n'en existe pas, notamment pour les hébergements et les véhicules TKS®.
-- **Prix des hébergements** : ils viennent de la note vocale de Franck du 2026-09-25 et du brief. Franck ne les a pas encore confirmés comme une grille ferme.
+- **Prix des hébergements** : ce sont ceux de la grille validée par Franck le 2026-09-26 ([client-answers.md](../client-answers.md), section 1 quater). Les photos par budget restent à fournir (L1).
 - **Rendu** : les captures `02a`, `05a` et `07` ont été refaites à partir du HTML, parce que Stitch les avait prises avant la fin du chargement. Les autres sont les captures de Stitch.
 
 ## Écarts connus, acceptés

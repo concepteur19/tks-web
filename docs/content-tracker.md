@@ -51,6 +51,15 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 | Liens des réseaux sociaux | contact, pied de page | ⏳ | — | | `src/content/site/company.json` | Non |
 | Supports existants : Facebook, Instagram, flyers | inspiration design | ⏳ | — | | `Elements/incoming/` | Non |
 
+## Contenu d'exemple de la fondation
+
+Livré par la tâche T038 de la spec 001 pour prouver que les schémas acceptent un vrai contenu. Les deux fichiers portent `"provisional": true` : `npm run check:content` fait échouer la construction si une fiche provisoire n'est pas `disabled`. Ils seront remplacés par la feature 003.
+
+| Fichier | Rôle | État |
+|---|---|---|
+| `src/content/categories/nature-decouverte.json` | Catégorie Nature & Découverte, textes FR et EN | Provisoire, textes repris du brief validé |
+| `src/content/services/excursion-en-pirogue.json` | Fiche pirogue : 35 000 FCFA par groupe, 8 personnes max, guide tarifaire du 2026-09-26 | Provisoire, `disabled` faute de photo validée |
+
 ## Services
 
 Pour chaque service, Franck doit fournir : le tarif avec son mode et son unité, des photos, une description, les informations importantes. Le fichier de destination est `src/content/services/<fichier>.json`, les photos vont dans `src/assets/services/<fichier>/`.
