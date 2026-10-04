@@ -73,7 +73,7 @@ docker/
 └── .dockerignore
 ```
 
-Dockerfile (esquisse, écrit en spec 001) :
+Dockerfile (esquisse ; la version réelle, avec l'utilisateur non privilégié et la configuration nginx complète, est dans `docker/`) :
 
 ```dockerfile
 FROM node:22-alpine AS build
@@ -142,11 +142,11 @@ Chaque exercice a un objectif, des commandes, et une question d'observation. Ils
 
 | # | Exercice | Objectif | Question d'observation |
 |---|---|---|---|
-| 1 | `docker build -t tks-web:dev .` puis rebuild après un changement de composant | Cache des layers | Quels layers sont reconstruits ? Pourquoi `npm ci` ne l'est pas ? |
-| 2 | `docker run -p 8080:8080 tks-web:dev` puis `docker logs -f` | Cycle de vie, logs nginx | Que voit-on à chaque requête ? |
+| 1 | `docker build -f docker/Dockerfile -t kibreeze-web:dev .` puis rebuild après un changement de composant | Cache des layers | Quels layers sont reconstruits ? Pourquoi `npm ci` ne l'est pas ? |
+| 2 | `docker run -p 8080:8080 kibreeze-web:dev` puis `docker logs -f` | Cycle de vie, logs nginx | Que voit-on à chaque requête ? |
 | 3 | `docker inspect --format '{{.State.Health.Status}}'` | Healthcheck | Que se passe-t-il si `/healthz` renvoie 500 ? Modifier nginx.conf pour le simuler |
 | 4 | Rebuild avec `--build-arg PUBLIC_WHATSAPP_NUMBER=...` | Build-time vs run-time | Pourquoi un `docker run -e` ne change rien ? |
-| 5 | `docker compose up dev` et modifier un fichier | Volumes, hot reload | Où vit `node_modules` ? |
+| 5 | `docker compose -f docker/compose.yml up dev` et modifier un fichier | Volumes, hot reload | Où vit `node_modules` ? |
 | 6 | `kind create cluster --config k8s/kind-config.yaml`, `kubectl get nodes` | Cluster local | Combien de nœuds ? Quels pods système ? |
 | 7 | `kind load docker-image tks-web:dev`, `kubectl apply -k k8s/overlays/local`, `kubectl get pods -n tks -w` | Deployment, Service, Ingress | Sur quels nœuds sont les pods ? Pourquoi ? |
 | 8 | `kubectl scale deployment/tks-web --replicas=3 -n tks` | Scaling | Combien de temps pour le 3e pod ? |
@@ -156,6 +156,22 @@ Chaque exercice a un objectif, des commandes, et une question d'observation. Ils
 | 12 | `kubectl rollout undo deployment/tks-web -n tks` | Rollback | Quelle révision est active ? (`rollout history`) |
 | 13 | Baisser `limits.memory` à 8Mi et observer | Ressources | Quel statut prend le pod ? |
 | 14 | `kubectl create secret generic ...` puis le monter en variable | Secrets | En quoi diffère-t-il d'un ConfigMap ? Est-il chiffré ? |
+
+### Réponses — exercices 1 à 5 (2026-10-04)
+
+Réalisés sur un Mac Apple Silicon avec Docker Desktop 29.8, image `kibreeze-web:dev`.
+
+**1. Cache des couches.** La première construction prend 4 min 28 s, dont 4 min 25 s pour `npm ci`. Après une modification de `src/components/Footer.astro`, elle prend 2,9 s. Les étapes `WORKDIR`, `COPY package.json package-lock.json` et `npm ci` sont marquées `CACHED` ; seules `COPY . .`, `npm run build` et les copies de l'étape nginx sont refaites. `npm ci` n'est pas refait parce que sa couche ne dépend que des deux fichiers de dépendances, copiés avant le reste du code : tant qu'ils ne changent pas, Docker réutilise le résultat. Copier tout le code avant `npm ci` réinstallerait les dépendances à chaque modification.
+
+**2. Cycle de vie et journaux.** Chaque requête produit une ligne : adresse, requête, statut, taille, navigateur, durée. Par exemple `"GET /en/anything HTTP/1.1" 404 4559 "curl/8.7.1" 0.000`. Les appels à `/healthz` n'apparaissent pas, parce que `access_log off` les exclut : sinon le contrôle de santé noierait les vraies requêtes toutes les 30 secondes. nginx écrit sur la sortie standard, c'est ce qui permet à `docker logs` de les lire. Le conteneur tourne sous l'utilisateur `nginx`, pas `root`.
+
+**3. Contrôle de santé.** L'état vaut `starting` au lancement, puis `healthy` après le premier contrôle réussi. Avec `/healthz` forcé à 500 (configuration modifiée montée dans le conteneur, contrôle toutes les 2 s), l'état passe à `unhealthy` après 3 échecs consécutifs, soit environ 5 s. **Le conteneur continue de tourner et de servir le site** : la page d'accueil répond toujours 200. Docker se contente de signaler ; c'est un orchestrateur qui agirait, en arrêtant d'envoyer du trafic ou en redémarrant le conteneur. C'est exactement ce que la readiness et la liveness probe de Kubernetes feront dans l'exercice 11.
+
+**4. Construction ou exécution.** Image construite avec `--build-arg PUBLIC_WHATSAPP_NUMBER=237600000000` : le lien de la page est `wa.me/237600000000`. Image normale lancée avec `-e PUBLIC_WHATSAPP_NUMBER=237699999999` : le lien reste `wa.me/237697135388`, alors que la variable est bien présente dans le conteneur. Le site est statique : le numéro est écrit dans le HTML au moment de `npm run build`, et nginx ne fait que servir des fichiers déjà générés. Une variable d'exécution arrive trop tard. Changer le numéro exige une nouvelle construction, chez Cloudflare comme en local.
+
+**5. Volumes et rechargement.** Un fichier modifié sur le poste est servi par le conteneur en moins de 3 secondes : le code est monté en direct (`..:/app`). `node_modules`, lui, vit dans le volume Docker `kibreeze-web_node_modules`, pas sur le poste : le conteneur y installe des binaires Linux (`@rollup/rollup-linux-arm64-musl`), alors que le poste a des binaires macOS (`@rollup/rollup-darwin-arm64`). Partager le dossier du poste ferait planter Vite dans le conteneur. Le premier démarrage réinstalle les dépendances dans ce volume ; les suivants le réutilisent.
+
+Constat annexe : `npm ci` est lancé avec `--ignore-scripts` dans l'image, sinon le script `prepare` installerait les crochets Git de Husky, qui n'ont rien à faire dans une image.
 
 ## 8. Coûts
 

@@ -115,17 +115,17 @@ Projet unique, racine du dépôt. Code dans `src/`, tests dans `tests/`, contene
 
 ### Tests de la story
 
-- [ ] T035 [P] [US3] Tests des schémas de contenu dans `tests/unit/content-schema.test.ts` : champ obligatoire absent, `categoryId` inconnu, unité de prix incohérente avec les dimensions, plus de deux dimensions, deux dimensions de durée, `min` supérieur à `default`, montant nul ou négatif
-- [ ] T036 [P] [US3] Test du contrôle des traductions dans `tests/unit/check-i18n.test.ts` : détection d'un champ anglais manquant, message citant le fichier et le champ, code de sortie non nul
+- [X] T035 [P] [US3] Tests des schémas de contenu dans `tests/unit/content-schema.test.ts` : champ obligatoire absent, `categoryId` inconnu, unité de prix incohérente avec les dimensions, plus de deux dimensions, deux dimensions de durée, `min` supérieur à `default`, montant nul ou négatif
+- [X] T036 [P] [US3] Test du contrôle des traductions dans `tests/unit/check-i18n.test.ts` : détection d'un champ anglais manquant, message citant le fichier et le champ, code de sortie non nul
 
 ### Implémentation de la story
 
-- [ ] T037 [US3] Créer `src/content/config.ts` : collections `categories` et `services`, schémas Zod avec champs localisés et règles de [contracts/content-schema.md](./contracts/content-schema.md), dont l'accord entre `pricing.unit` et `quantity.dimensions`, au plus deux dimensions et au plus une durée
-- [ ] T038 [P] [US3] Créer le contenu d'exemple `src/content/categories/nature-decouverte.json` et `src/content/services/excursion-en-pirogue.json`, tous deux marqués provisoires et référencés dans [docs/content-tracker.md](../../docs/content-tracker.md)
-- [ ] T039 [US3] Écrire `scripts/check-i18n.ts` : parcours des dictionnaires et des fichiers de contenu, avertissement hors production, échec en production avec la liste des champs manquants, puis le brancher dans le script `build:prod` de `package.json`
-- [ ] T040 [US3] Compléter `src/styles/tokens.css` avec toutes les catégories de [docs/design-system.md](../../docs/design-system.md), écrire `scripts/check-tokens.ts` qui vérifie les contrastes au niveau AA, et déclarer le script `tokens:check` dans `package.json`
-- [ ] T041 [P] [US3] Créer la page de démonstration `src/pages/dev/ui.astro` listant couleurs, typographies, espacements et composants, exclue du plan du site, de l'indexation et du build de production
-- [ ] T042 [US3] Ajouter un test d'intégration dans `tests/unit/build-guards.test.ts` : avec une fiche d'essai privée de sa traduction anglaise, `build:prod` échoue ; avec une variable d'environnement vide, le build échoue aussi
+- [X] T037 [US3] Créer `src/content.config.ts` (emplacement imposé par Astro 5 ; schémas purs dans `src/content/schemas.ts`) : collections `categories` et `services`, schémas Zod avec champs localisés et règles de [contracts/content-schema.md](./contracts/content-schema.md), dont l'accord entre `pricing.unit` et `quantity.dimensions`, au plus deux dimensions et au plus une durée
+- [X] T038 [P] [US3] Créer le contenu d'exemple `src/content/categories/nature-decouverte.json` et `src/content/services/excursion-en-pirogue.json`, tous deux marqués provisoires et référencés dans [docs/content-tracker.md](../../docs/content-tracker.md)
+- [X] T039 [US3] Écrire `scripts/check-i18n.ts` : parcours des dictionnaires et des fichiers de contenu, avertissement hors production, échec en production avec la liste des champs manquants, puis le brancher dans le script `build:prod` de `package.json`
+- [X] T040 [US3] Compléter `src/styles/tokens.css` avec toutes les catégories de [docs/design-system.md](../../docs/design-system.md), écrire `scripts/check-tokens.ts` qui vérifie les contrastes au niveau AA, et déclarer le script `tokens:check` dans `package.json`
+- [X] T041 [P] [US3] Créer la page de démonstration `src/pages/dev/[page].astro` (route `/dev/ui`, générée seulement par `astro dev`) listant couleurs, typographies, espacements et composants, exclue du plan du site, de l'indexation et du build de production
+- [X] T042 [US3] Ajouter un test d'intégration dans `tests/unit/build-guards.test.ts` : avec une fiche d'essai privée de sa traduction anglaise, `build:prod` échoue ; avec une variable d'environnement mal formée, le build échoue aussi (une variable absente prend le repli de [contracts/env.md](./contracts/env.md))
 
 **Point de contrôle** : le socle accepte le contenu réel et la direction visuelle sans réécriture.
 
@@ -139,19 +139,19 @@ Projet unique, racine du dépôt. Code dans `src/`, tests dans `tests/`, contene
 
 **Prérequis** : Docker Desktop installé sur le poste. Cette phase ne bloque aucune autre.
 
-- [ ] T043 [P] [US4] Écrire `docker/Dockerfile` en deux étapes : construction sur `node:22-alpine` avec `ARG PUBLIC_WHATSAPP_NUMBER` et `ARG PUBLIC_SITE_URL`, service sur `nginx:1.27-alpine`, utilisateur non privilégié, port 8080, contrôle de santé
-- [ ] T044 [P] [US4] Écrire `docker/nginx.conf` : écoute sur 8080, point de contrôle `/healthz`, cache long sur les ressources empreintées et court sur le HTML, compression, en-têtes de sécurité, page d'erreur par répertoire
-- [ ] T045 [P] [US4] Écrire `docker/compose.yml` avec un service de développement monté en volume et rechargement automatique, et un service servant l'image construite
-- [ ] T046 [P] [US4] Écrire `docker/.dockerignore` pour exclure `node_modules`, `dist`, `.git`, `Elements` et les fichiers d'environnement
-- [ ] T047 [US4] Dérouler les exercices 1 à 5 de [docs/devops.md](../../docs/devops.md) et consigner les réponses aux questions d'observation dans ce même document
+- [X] T043 [P] [US4] Écrire `docker/Dockerfile` en deux étapes : construction sur `node:22-alpine` avec `ARG PUBLIC_WHATSAPP_NUMBER` et `ARG PUBLIC_SITE_URL`, service sur `nginx:1.27-alpine`, utilisateur non privilégié, port 8080, contrôle de santé
+- [X] T044 [P] [US4] Écrire `docker/nginx.conf` (configuration complète, PID et fichiers temporaires dans `/tmp` pour l'utilisateur non privilégié) : écoute sur 8080, point de contrôle `/healthz`, cache long sur les ressources empreintées et court sur le HTML, compression, en-têtes de sécurité, page d'erreur par répertoire
+- [X] T045 [P] [US4] Écrire `docker/compose.yml` avec un service de développement monté en volume et rechargement automatique, et un service servant l'image construite
+- [X] T046 [P] [US4] Écrire `docker/Dockerfile.dockerignore` (le contexte étant la racine, un `docker/.dockerignore` serait ignoré ; BuildKit lit le fichier propre au Dockerfile) pour exclure `node_modules`, `dist`, `.git`, `Elements` et les fichiers d'environnement
+- [X] T047 [US4] Dérouler les exercices 1 à 5 de [docs/devops.md](../../docs/devops.md) et consigner les réponses aux questions d'observation dans ce même document
 
 ---
 
 ## Phase 7: Polish et vérification finale
 
-- [ ] T048 [P] Mettre à jour [quickstart.md](./quickstart.md) si une commande a changé pendant l'implémentation
-- [ ] T049 Vérifier la publication sur l'hébergeur : construction réussie, accueil servi dans les deux langues, page d'erreur anglaise bien servie sous `/en/`, variables correctes
-- [ ] T050 [P] Relever les scores d'audit sur `/` et `/en/` en ligne et les consigner dans [quickstart.md](./quickstart.md)
+- [X] T048 [P] Mettre à jour [quickstart.md](./quickstart.md) si une commande a changé pendant l'implémentation
+- [X] T049 Vérifier la publication sur l'hébergeur : construction réussie, accueil servi dans les deux langues, page d'erreur anglaise bien servie sous `/en/`, variables correctes
+- [X] T050 [P] Relever les scores d'audit sur `/` et `/en/` en ligne et les consigner dans [quickstart.md](./quickstart.md)
 - [ ] T051 Ouvrir la proposition de modification de `001-project-foundation` vers `main` et vérifier que la vérification automatique s'exécute et conditionne la fusion
 
 ---

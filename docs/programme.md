@@ -94,8 +94,8 @@ Section C de l'audit :
 
 ### C3. Tâches restantes de la 001 ([tasks.md](../specs/001-project-foundation/tasks.md))
 
-- [ ] T035 à T042 : schémas de contenu, `check-i18n`, tokens et `check-tokens`, page `/dev/ui`, garde-fous de build. Aligner les exemples de contenu sur les expériences Kibreeze, pas sur les trois pôles
-- [ ] T043 à T047 : Docker, nginx, compose, exercices DevOps 1 à 5
+- [x] T035 à T042 : schémas de contenu, `check-i18n`, tokens et `check-tokens`, page `/dev/ui`, garde-fous de build. Aligner les exemples de contenu sur les expériences Kibreeze, pas sur les trois pôles
+- [x] T043 à T047 : Docker, nginx, compose, exercices DevOps 1 à 5
 - [ ] T048 à T051 : quickstart, vérification de la publication, scores d'audit, PR vers `main`
 
 ---
