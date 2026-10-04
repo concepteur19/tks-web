@@ -121,8 +121,9 @@ Three visually distinct forms:
   a fixed price "25 000 FCFA", a starting price "À partir de 15 000 FCFA",
   and a "Sur devis" badge with no amount.
 Currency is FCFA, with a space as the thousands separator. Under each price,
-in small grey text, the indicative euro equivalent, in French number format:
-1 000 FCFA ≈ 1,52 €.
+in small grey text and on its own line, the indicative euro equivalent, in
+French number format, ALWAYS with two decimals and no parentheses:
+1 000 FCFA ≈ 1,52 €, so 25 000 FCFA ≈ 38,00 € and 35 000 FCFA ≈ 53,20 €.
 
 ACCESSIBILITY
 WCAG AA contrast. Touch targets of at least 44 px. Leave room for 30% longer
@@ -315,7 +316,7 @@ SCREEN 3 — DETAIL PAGE "EXCURSION EN PIROGUE".
    "Nature & Découverte" below it.
 
 4. Price block, visually strong: "35 000 FCFA" very large in brand red,
-   followed by "/ groupe" smaller in grey, then below "≈ 53 € — montant
+   followed by "/ groupe" smaller in grey, then below "≈ 53,20 € — montant
    indicatif" in light grey, then in small type "Prix indicatif, sous
    réserve de disponibilité et de confirmation par Kibreeze." Finally, on
    its own line, a teal badge "Jusqu'à 8 personnes — au-delà, sur devis".
@@ -350,7 +351,7 @@ SCREEN 3 — DETAIL PAGE "EXCURSION EN PIROGUE".
 
 11. STICKY BOTTOM BAR, right above the tab bar, cream background with a thin
     top border: on the left "Total" in small grey and "35 000 FCFA" in bold
-    above "≈ 53 €"; on the right a red button "Ajouter à mon séjour". Below
+    above "≈ 53,20 €"; on the right a red button "Ajouter à mon séjour". Below
     the button, a discreet underlined link "Demander ce service".
     NO floating WhatsApp button on this screen: the sticky bar replaces it.
 
@@ -390,7 +391,7 @@ SCREEN 4 — "MON SÉJOUR", FILLED CART.
 
 4. Total box, deeper cream background, thin border:
    "Total estimatif" on the left, "110 000 FCFA" on the right, very large
-   and red, and under the amount "≈ 167 € — montant indicatif".
+   and red, and under the amount "≈ 167,20 € — montant indicatif".
    Below, a teal line "+ 1 prestation sur devis".
    Then in small grey: "Prix indicatif, sous réserve de disponibilité et de
    confirmation par Kibreeze."
@@ -462,18 +463,18 @@ SCREEN 6 — ACCOMMODATION ("HÉBERGEMENTS").
    compact "Ajouter" button on the right:
 
    "CHAMBRE" — "1 à 2 personnes"
-     · "À partir de 15 000 FCFA / nuit" — "≈ 23 €"
+     · "À partir de 15 000 FCFA / nuit" — "≈ 22,80 €"
 
    "STUDIO" — "2 à 3 personnes"
-     · "À partir de 30 000 FCFA / nuit" — "≈ 46 €"
+     · "À partir de 30 000 FCFA / nuit" — "≈ 45,60 €"
 
    "APPARTEMENT" — "2 à 6 personnes"
-     · "À partir de 35 000 FCFA / nuit" — "≈ 53 €"
-     · "À partir de 50 000 FCFA / nuit" — "≈ 76 €"
-     · "À partir de 100 000 FCFA / nuit" — "≈ 152 €"
+     · "À partir de 35 000 FCFA / nuit" — "≈ 53,20 €"
+     · "À partir de 50 000 FCFA / nuit" — "≈ 76,00 €"
+     · "À partir de 100 000 FCFA / nuit" — "≈ 152,00 €"
 
    "VILLA" — "6 à 12 personnes"
-     · "À partir de 150 000 FCFA / nuit" — "≈ 228 €"
+     · "À partir de 150 000 FCFA / nuit" — "≈ 228,00 €"
 
 4. HIGH-END SECTION, clearly separated by wide spacing and a different,
    darker and plainer background. It comes AFTER the standard tiers, never
@@ -515,19 +516,19 @@ SCREEN 7 — PACKAGES ("FORMULES").
    red with "/ 2 personnes" small right after it, the euro equivalent below,
    and finally a full-width red button "Ajouter à mon séjour".
 
-   "PACKAGE DÉCOUVERTE" — "100 000 FCFA / 2 personnes" — "≈ 152 €"
+   "PACKAGE DÉCOUVERTE" — "100 000 FCFA / 2 personnes" — "≈ 152,00 €"
      "Chutes de la Lobé" · "Excursion en pirogue" · "Campement Bagyeli" ·
      "Musée d'art" · "Guide touristique"
 
-   "PACKAGE ÉVASION" — "120 000 FCFA / 2 personnes" — "≈ 182 €"
+   "PACKAGE ÉVASION" — "120 000 FCFA / 2 personnes" — "≈ 182,40 €"
      "Chutes de la Lobé" · "Excursion en pirogue" · "Kayak" ·
      "Balade à cheval" · "Jacuzzi naturel"
 
-   "PACKAGE AVENTURE" — "150 000 FCFA / 2 personnes" — "≈ 228 €"
+   "PACKAGE AVENTURE" — "150 000 FCFA / 2 personnes" — "≈ 228,00 €"
      "Chutes de la Lobé" · "Excursion en pirogue" · "Quad" · "Jet-ski" ·
      "Kayak" · "Balade à cheval"
 
-   "PACKAGE PREMIUM" — "300 000 FCFA / 2 personnes" — "≈ 456 €"
+   "PACKAGE PREMIUM" — "300 000 FCFA / 2 personnes" — "≈ 456,00 €"
      "Chutes de la Lobé" · "Excursion en chaloupe" · "Bateau de plaisance" ·
      "Quad" · "Jet-ski" · "Kayak" · "Balade à cheval" · "Jacuzzi naturel"
 
