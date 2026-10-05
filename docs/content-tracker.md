@@ -47,6 +47,7 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 | Texte « À propos » | accueil | 📝 idée reçue (F3) | ⏳ | 2026-09-14 | `src/content/site/company.json` | Oui |
 | Raisons de choisir TKS | accueil | 📝 réactivité, service local, expérience personnalisée, plusieurs services réunis (F3) | ⏳ | 2026-09-14 | `src/content/site/company.json` | Oui |
 | Téléphone, si différent du WhatsApp | contact | ⏳ | — | | `src/content/site/company.json` | Non |
+| Identité légale de l'éditeur : raison sociale, forme, immatriculation (RCCM, NIU), adresse, responsable de la publication | mentions légales | ⏳ dépend de K3 | ⏳ | | `src/content/site/company.json` | Oui |
 | E-mail professionnel | contact | ⏳ | — | | `src/content/site/company.json` | Non |
 | Liens des réseaux sociaux | contact, pied de page | ⏳ | — | | `src/content/site/company.json` | Non |
 | Supports existants : Facebook, Instagram, flyers | inspiration design | ⏳ | — | | `Elements/incoming/` | Non |

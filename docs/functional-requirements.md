@@ -208,7 +208,7 @@ Modèle confirmé par Franck le 2026-09-25 (vocal) : le site n'affiche **pas de 
 **FR-EUR-1** Chaque montant affiche, sous le montant en FCFA et en plus petit, son équivalent indicatif en euros (client R7, qui renverse la réponse C5). Le FCFA reste la devise de référence : le total, le panier et le message WhatsApp sont en FCFA.
 
 **FR-EUR-2** La conversion utilise un **taux fixe stocké en configuration**, pas un service externe : aucun appel réseau au chargement, et un prix ne change jamais tout seul. Le taux est documenté avec sa date de relevé.
-- Given un taux de 1 000 FCFA = 1,52 €, When une expérience coûte 25 000 FCFA, Then le site affiche « ≈ 38,00 € ». Le montant en euros a toujours deux décimales, en format français, sans parenthèses, sur sa propre ligne (décision du 2026-10-04).
+- Given la parité officielle 1 € = 655,957 FCFA, When une expérience coûte 25 000 FCFA, Then le site affiche « ≈ 38,11 € » (corrigé le 2026-10-05 : l'exemple précédent, 1 000 FCFA ≈ 1,52 €, était un arrondi faux de 0,3 %). Le montant en euros a toujours deux décimales, en format français, sans parenthèses, sur sa propre ligne (décision du 2026-10-04).
 
 **FR-EUR-3** La mention « montant indicatif » accompagne la conversion, une fois par page et non à chaque ligne.
 
