@@ -42,8 +42,8 @@ Trois mécanismes portent la feature ([research.md](./research.md)) :
 |---|---|---|
 | I. Simple enough to ship | Aucune dépendance ajoutée. Pas de collections hébergements et formules anticipées : un fichier d'aperçu temporaire, supprimé par 005. Deux scripts de contrôle maison courts plutôt que des outils externes | ✅ |
 | II. Specification-first | Plan issu de [spec.md](./spec.md), qui référence FR-LAND-1 à 7, FR-WA-7, FR-EUR-1 à 3, FR-SEO-1 à 3 et FR-I18N-* | ✅ |
-| III. Business logic is pure and tested | Formatage des prix et conversion en euros dans `src/features/estimation/formatPrice.ts`, couverts à 100 % ; `resolveLink` et `cardPrice` purs et testés | ✅ |
-| IV. Content is data, not code | Prix, textes, coordonnées, identité légale et parité dans `src/content/` ; chaînes d'interface dans les dictionnaires ; contrôle bilingue étendu aux documents légaux | ✅ |
+| III. Business logic is pure and tested | Formatage des prix, conversion en euros et choix du prix d'une carte dans `src/features/estimation/` (`formatPrice.ts`, `cardPrice.ts`), couverts à 100 % ; `resolveLink` pur et testé | ✅ |
+| IV. Content is data, not code | Prix, textes, coordonnées, identité légale et parité dans `src/content/` ; chaînes d'interface dans les dictionnaires ; contrôle bilingue étendu aux documents légaux ; marques `[PLACEHOLDER]` retirées des tokens validés et détectées par le build de production, comme l'exige le principe | ✅ |
 | V. Mobile-first, accessible, fast | Conception à 360 px, aucune page dépendante de JavaScript, budgets Lighthouse et axe en CI, `prefers-reduced-motion` respecté | ✅ |
 | VI. Design through tokens | Valeurs relevées dans [design-exports/](../../docs/design-exports/README.md) et portées en tokens (`--size-tabbar`, `--size-content`, hauteur du hero), aucune valeur brute dans les composants | ✅ |
 | VII. DevOps isolated from production | `check-links` ajouté à la CI ; aucun changement d'infrastructure | ✅ |
@@ -85,7 +85,9 @@ src/
 │   ├── WhatsAppButton.astro        # existant, positionné au-dessus de la barre à onglets
 │   ├── SmartLink.astro             # nouveau : rend resolveLink (interne ou WhatsApp + icône)
 │   ├── Price.astro                 # nouveau : montant, unité, équivalent euro, badge sur devis
+│   ├── NotFoundPage.astro          # nouveau : 404 partagée FR / EN
 │   ├── home/                       # sections de l'accueil
+│   │   ├── HomePage.astro          # assemble les sections dans l'ordre de FR-010
 │   │   ├── Hero.astro
 │   │   ├── CategoryCards.astro
 │   │   ├── FeaturedCarousel.astro
@@ -95,7 +97,10 @@ src/
 │   │   ├── MobilityStrip.astro
 │   │   ├── About.astro
 │   │   └── WhatsAppCta.astro
+│   ├── contact/
+│   │   └── ContactPage.astro       # Contact partagé FR / EN, section #a-propos
 │   └── legal/
+│       ├── LegalPage.astro         # page légale : titre, date, corps Markdown
 │       └── PublisherIdentity.astro # bloc éditeur depuis company.json
 ├── content/
 │   ├── categories/                 # 3 fichiers, avec image
@@ -105,7 +110,8 @@ src/
 │   └── schemas.ts                  # + companySchema, currencySchema, homeSchema, legalSchema
 ├── features/
 │   └── estimation/
-│       └── formatPrice.ts          # formatXaf, formatEurEquivalent (purs)
+│       ├── formatPrice.ts          # formatXaf, formatEurEquivalent (purs)
+│       └── cardPrice.ts            # prix affiché sur une carte (pur)
 ├── i18n/
 │   ├── routes.ts                   # + contact, legalNotice, privacy, terms livrées
 │   ├── navigation.ts               # nouveau : listes de navigation, resolveLink
@@ -113,7 +119,8 @@ src/
 ├── layouts/
 │   └── BaseLayout.astro            # + routeKey, ogImage, floatingWhatsApp, jsonLd, TabBar
 ├── lib/
-│   ├── catalog.ts                  # nouveau : accès typé aux collections, cardPrice
+│   ├── catalog.ts                  # nouveau : accès typé aux collections
+│   ├── site.ts                     # nouveau : company, currency, home validés
 │   └── seo.ts                      # + buildLocalBusinessJsonLd, og:image
 ├── pages/
 │   ├── index.astro, contact.astro, 404.astro
@@ -125,6 +132,8 @@ src/
     └── tokens.css                  # + tailles de coque et du hero
 
 scripts/
+├── import-photos.mjs               # nouveau : redimensionne les photos, refuse les filigranées
+├── check-i18n.ts                   # étendu : documents légaux, marques [PLACEHOLDER]
 ├── check-links.mjs                 # nouveau
 └── check-legal.ts                  # nouveau
 
@@ -134,7 +143,7 @@ tests/
 └── e2e/                            # home, contact, legal, shell (cookies, WhatsApp, 360 px, clavier)
 ```
 
-**Structure Decision**: projet unique, conforme à [architecture.md](../../docs/architecture.md). `src/features/estimation/` est créé ici pour le seul `formatPrice.ts`, que la feature 004 complétera avec `computeEstimate`. `Nav.astro` est renommé `Header.astro` parce qu'il porte désormais plus que la navigation ; les tests de 001 qui le ciblent sont mis à jour. Les pages françaises et anglaises restent des fichiers distincts, sur le modèle de 001, chacune réduite à un appel de composant partagé.
+**Structure Decision**: projet unique, conforme à [architecture.md](../../docs/architecture.md). `src/features/estimation/` est créé ici pour `formatPrice.ts` et `cardPrice.ts`, que la feature 004 complétera avec `computeEstimate`. `Nav.astro` est renommé `Header.astro` parce qu'il porte désormais plus que la navigation ; les tests de 001 qui le ciblent sont mis à jour. Les pages françaises et anglaises restent des fichiers distincts, sur le modèle de 001, chacune réduite à un appel de composant partagé.
 
 ## Découpage par user story
 

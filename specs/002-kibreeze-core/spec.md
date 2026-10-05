@@ -135,7 +135,7 @@ Un visiteur, souvent européen, veut savoir qui édite le site, ce qu'il advient
 - **FR-004**: Une destination de navigation DOIT n'apparaître que si sa page est livrée. Aucun lien interne du site ne DOIT mener à une page inexistante.
 - **FR-005**: Le pied de page DOIT afficher le logo Kibreeze complet en crème sur fond très sombre, la signature, les liens vers les pages livrées parmi Expériences, Hébergements, Formules, Mobilité TKS®, À propos et Contact, « Kribi, Cameroun », et la ligne « Kibreeze est une marque de Breezy Groupe, avec TKS®, iBreezy et Breezy Delivery. » Seule Kibreeze DOIT être un lien (FR-LAND-6).
 - **FR-006**: Les icônes de réseaux sociaux du pied de page DOIVENT n'apparaître que pour les comptes dont Franck a fourni l'adresse.
-- **FR-007**: Le bouton WhatsApp flottant DOIT apparaître sur l'accueil, Contact et la page d'erreur, rond, ancré en bas à droite, au moins 16 px au-dessus de la barre à onglets, sans la chevaucher (FR-LAND-4).
+- **FR-007**: Le bouton WhatsApp flottant DOIT apparaître sur toute page sans barre d'action fixe (dans cette feature : l'accueil, Contact, la page d'erreur et les pages légales), rond, ancré en bas à droite, au moins 16 px au-dessus de la barre à onglets, sans la chevaucher (FR-LAND-4).
 
 #### WhatsApp
 
@@ -166,6 +166,12 @@ Un visiteur, souvent européen, veut savoir qui édite le site, ce qu'il advient
 - **FR-023**: L'interface DOIT être utilisable au clavier, avec des noms accessibles sur tous les éléments interactifs, des zones tactiles d'au moins 44 px et des contrastes conformes à WCAG AA (FR-SEO-6).
 - **FR-024**: Les coins des cartes, images et boutons NE DOIVENT pas dépasser 4 px d'arrondi ; le cercle est réservé au bouton WhatsApp flottant et aux pastilles de compteur. Le vert WhatsApp est réservé aux boutons WhatsApp.
 
+#### Référencement
+
+- **FR-025**: Chaque page livrée, dans chaque langue, DOIT avoir un titre et une description uniques, des balises de partage avec image, une adresse canonique et des liens alternatifs vers l'autre langue (FR-SEO-1, FR-I18N-3).
+- **FR-026**: Le plan du site DOIT lister les pages livrées dans les deux langues avec leurs équivalents, et exclure les pages non livrées et les pages de développement (FR-SEO-2).
+- **FR-027**: L'accueil DOIT exposer des données structurées d'entreprise locale : nom Kibreeze, zone Kribi, Cameroun, numéro de téléphone, langue de la page (FR-SEO-3).
+
 #### Pages légales
 
 - **FR-028**: Le site DOIT proposer, dans les deux langues, une page de mentions légales, une page « Confidentialité et cookies » et une page de conditions d'utilisation, toutes liées depuis le pied de page de chaque page.
@@ -173,20 +179,14 @@ Un visiteur, souvent européen, veut savoir qui édite le site, ce qu'il advient
 - **FR-030**: La politique de confidentialité DOIT décrire chaque traitement de données lié au site : journaux techniques de l'hébergeur, sélection conservée sur l'appareil du visiteur, messages WhatsApp reçus par Kibreeze. Pour chacun : finalité, base légale, destinataires, durée de conservation, transferts hors du pays du visiteur. Elle DOIT indiquer les droits du visiteur (accès, rectification, effacement, opposition) et le moyen de les exercer.
 - **FR-031**: Le site NE DOIT déposer aucun cookie ni traceur non indispensable au service demandé sans consentement préalable. Tant qu'il n'en dépose aucun, il NE DOIT pas afficher de bandeau de consentement, et la section cookies DOIT le dire et lister les stockages indispensables utilisés.
 - **FR-032**: Les conditions d'utilisation DOIVENT couvrir l'objet du site, le caractère indicatif des prix et de leur équivalent en euros, le caractère non contractuel de l'estimation, le passage d'une demande WhatsApp à une réservation confirmée par Kibreeze, les responsabilités, la propriété intellectuelle, le droit applicable et la date de dernière mise à jour.
-- **FR-033**: Chaque page légale DOIT afficher sa date de dernière mise à jour, et ne DOIT pas être indexée comme page de destination principale dans les données structurées.
-
-#### Référencement
-
-- **FR-025**: Chaque page livrée, dans chaque langue, DOIT avoir un titre et une description uniques, des balises de partage avec image, une adresse canonique et des liens alternatifs vers l'autre langue (FR-SEO-1, FR-I18N-3).
-- **FR-026**: Le plan du site DOIT lister les pages livrées dans les deux langues avec leurs équivalents, et exclure les pages non livrées et les pages de développement (FR-SEO-2).
-- **FR-027**: L'accueil DOIT exposer des données structurées d'entreprise locale : nom Kibreeze, zone Kribi, Cameroun, numéro de téléphone, langue de la page (FR-SEO-3).
+- **FR-033**: Chaque page légale DOIT afficher sa date de dernière mise à jour, et NE DOIT porter aucune donnée structurée d'entreprise : celles-ci sont réservées à l'accueil.
 
 ### Key Entities
 
 - **Destination de navigation** : une page du site désignée par sa clé de route, avec son libellé dans chaque langue, sa place dans la barre à onglets ou dans la navigation ordinateur, et son état livré ou non. L'état livré décide de sa présence dans la navigation, dans le plan du site et dans les liens de l'accueil.
 - **Catégorie d'expérience** : Nature & Découverte, Aventure ou Détente, avec son nom dans chaque langue, sa photographie et le nombre d'expériences publiées.
 - **Expérience mise en avant** : une expérience du catalogue signalée comme telle, avec son nom, sa description courte, sa photographie et son prix dans l'une des trois formes. Le catalogue complet relève de la feature 003.
-- **Repère d'hébergement et formule** : un type de logement ou une formule montré en aperçu sur l'accueil, avec son prix de départ et son unité. Leur catalogue complet relève de la feature 005.
+- **Aperçu d'hébergement ou de formule** : un type de logement ou une formule montré en aperçu sur l'accueil, avec son prix de départ et son unité. Leur catalogue complet relève de la feature 005.
 - **Identité légale de l'éditeur** : raison sociale ou nom, forme juridique, immatriculation, adresse, responsable de la publication. Fournie par Franck, elle conditionne les mentions légales.
 - **Coordonnées de Kibreeze** : numéro WhatsApp, localisation, e-mail et réseaux sociaux, chacun facultatif sauf le numéro, et omis tant qu'il n'est pas fourni.
 

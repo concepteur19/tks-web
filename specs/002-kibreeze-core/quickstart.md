@@ -39,7 +39,7 @@ Sur un téléphone réel ou en émulation 360 × 800, puis en 1 440 × 1 024.
 | 6 | Même chose sous `/en/` | message « Hello Kibreeze, I would like some information about your experiences in Kribi. » | US2-2 |
 | 7 | Regarder le bas d'écran sur téléphone | bouton flottant au-dessus de la barre à onglets, sans chevauchement ; seul l'onglet Accueil est présent | US2-3, FR-004 |
 | 8 | Passer en 1 440 px | barre à onglets absente, navigation dans l'en-tête, contenu centré | US3-2 |
-| 9 | Basculer FR → EN → FR sur chaque page | page équivalente, sans redirection | US3-4 |
+| 9 | Basculer FR → EN → FR sur chaque page | page équivalente, sans redirection ; en anglais, les libellés plus longs passent à la ligne sans casser la mise en page | US3-4, edge case |
 | 10 | Lire le pied de page | quatre marques, seule Kibreeze cliquable ; trois liens légaux | US3-5, US5-1 |
 | 11 | Ouvrir `/mentions-legales`, `/confidentialite#cookies`, `/conditions-utilisation` et leurs équivalents anglais | contenu complet, date de mise à jour, hébergeur cité, aucun cookie listé | US5 |
 | 12 | Parcourir `/` au clavier seul | lien d'évitement, focus visible, tous les liens atteignables | SC-006 |

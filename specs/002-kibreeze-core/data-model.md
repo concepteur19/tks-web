@@ -62,7 +62,7 @@ Quatre fichiers `featured: true` publiés par cette feature :
 | `croisiere-en-bateau` | 25 000 `per_person` | prix ferme |
 | `campement-bagyeli` | 3 tarifs (`tiers`) ; la carte affiche le tarif individuel 7 500 `per_person` comme « à partir de » | à partir de |
 
-Prix affiché sur une carte : `pricing` si présent ; sinon le plus petit montant des `tiers` non `quote`, en forme « à partir de » ; badge « sur devis » si tout est `quote`. Cette règle est une fonction pure, `cardPrice(service)`, testée.
+Prix affiché sur une carte : `pricing` si présent ; sinon le plus petit montant des `tiers` non `quote`, en forme « à partir de » ; badge « sur devis » si tout est `quote`. Cette règle est une fonction pure, `cardPrice(service)`, dans `src/features/estimation/cardPrice.ts`, couverte à 100 %.
 
 `excursion-en-pirogue` perd `provisional` et `availability: "disabled"` une fois ses textes et sa photo validés.
 
