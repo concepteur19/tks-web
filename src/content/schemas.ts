@@ -160,11 +160,14 @@ export function serviceSchema<Src extends z.ZodTypeAny>(src: Src) {
         '160 caractères au plus par langue',
       ),
       description: localizedString,
-      images: z.array(imageSchema(src)).min(1, 'au moins une image'),
+      /** Au moins une image, sauf pour une option, qui n'a pas de carte (feature 003). */
+      images: z.array(imageSchema(src)).min(1, 'au moins une image').optional(),
       pricing: pricing.optional(),
       tiers: z.array(priceTier).min(2).optional(),
       quantity: quantityRule,
       duration: localizedString.optional(),
+      /** Lieu ou point de départ, affiché dans la ligne d'informations de la fiche. */
+      location: localizedString.optional(),
       capacity: z
         .object({
           min: z.number().int().positive().optional(),
@@ -194,8 +197,11 @@ export function serviceSchema<Src extends z.ZodTypeAny>(src: Src) {
       const fail = (message: string, path: (string | number)[] = []) =>
         ctx.addIssue({ code: z.ZodIssueCode.custom, message, path });
 
-      if (service.section === 'experience' && !service.categoryId) {
+      if (service.section === 'experience' && !service.isOption && !service.categoryId) {
         fail('categoryId est obligatoire pour une expérience', ['categoryId']);
+      }
+      if (!service.isOption && !service.images) {
+        fail('au moins une image', ['images']);
       }
       if (!service.pricing === !service.tiers) {
         fail('un service porte soit pricing, soit tiers, jamais les deux ni aucun', ['pricing']);

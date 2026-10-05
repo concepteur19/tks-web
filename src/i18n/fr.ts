@@ -100,6 +100,9 @@ export const fr = {
   'legal.director': 'Responsable de la publication',
   'legal.hostTitle': 'Hébergeur',
 
+  'whatsapp.serviceRequest':
+    'Bonjour Kibreeze, je souhaite des informations sur l’expérience « {title} » : {url}',
+
   'notFound.title': 'Page introuvable',
   'notFound.description': "Cette page n'existe pas sur le site de Kibreeze.",
   'notFound.text': "Cette page n'existe pas ou a été déplacée.",

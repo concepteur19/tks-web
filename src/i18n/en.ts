@@ -99,6 +99,9 @@ export const en = {
   'legal.director': 'Publication director',
   'legal.hostTitle': 'Host',
 
+  'whatsapp.serviceRequest':
+    'Hello Kibreeze, I would like some information about the “{title}” experience: {url}',
+
   'notFound.title': 'Page not found',
   'notFound.description': 'This page does not exist on the Kibreeze website.',
   'notFound.text': 'This page does not exist or has been moved.',

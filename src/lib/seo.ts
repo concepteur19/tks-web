@@ -1,3 +1,4 @@
+import type { CardPrice } from '../features/estimation/cardPrice.ts';
 import { getAlternates, getRoutePath } from '../i18n/routes.ts';
 import { DEFAULT_LOCALE, LOCALES, type Locale } from '../i18n/types.ts';
 
@@ -95,4 +96,60 @@ export function buildLocalBusinessJsonLd({
     address: { '@type': 'PostalAddress', addressLocality: 'Kribi', addressCountry: 'CM' },
     inLanguage: locale,
   };
+}
+
+export type ExperienceJsonLdInput = {
+  title: string;
+  description: string;
+  url: string;
+  imageUrl: string;
+  locale: Locale;
+  siteUrl: string;
+  price: CardPrice;
+  /** Libellé de l'unité dans la langue de la page, ex. « groupe ». */
+  unitLabel?: string;
+};
+
+/**
+ * Données structurées d'une fiche (FR-026). TouristTrip décrit l'activité organisée et vendue ;
+ * l'offre n'existe que pour un prix ferme ou « à partir de », jamais pour un prix sur devis.
+ */
+export function buildExperienceJsonLd({
+  title,
+  description,
+  url,
+  imageUrl,
+  locale,
+  siteUrl,
+  price,
+  unitLabel,
+}: ExperienceJsonLdInput): Record<string, unknown> {
+  const data: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'TouristTrip',
+    name: title,
+    description,
+    url,
+    image: imageUrl,
+    inLanguage: locale,
+    provider: {
+      '@type': 'TravelAgency',
+      name: 'Kibreeze',
+      url: absolute(siteUrl, getRoutePath('home', locale)),
+    },
+  };
+  if (price.kind !== 'quote') {
+    data.offers = {
+      '@type': 'Offer',
+      price: price.amount,
+      priceCurrency: 'XAF',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: price.amount,
+        priceCurrency: 'XAF',
+        ...(unitLabel ? { unitText: unitLabel } : {}),
+      },
+    };
+  }
+  return data;
 }

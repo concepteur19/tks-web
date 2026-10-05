@@ -37,15 +37,15 @@ Celles de [002/tasks.md](../002-kibreeze-core/tasks.md) : aucun texte en dur, au
 
 ## Phase 2: Foundational (bloquant pour toutes les stories)
 
-- [ ] T003 [P] Étendre `tests/unit/content-schema.test.ts` (doit échouer) : `location` localisé accepté ; option (`isOption: true`) sans `categoryId` ni `images` acceptée ; expérience non option sans `categoryId` refusée ; expérience non option sans image refusée
-- [ ] T004 Modifier `serviceSchema` dans `src/content/schemas.ts` : champ facultatif `location: localizedString` ; `categoryId` obligatoire seulement si `section = "experience"` et non `isOption` ; `images` facultatif (`.min(1)` conservé quand présent) et obligatoire sauf `isOption`, conformément à [contracts/content.md](./contracts/content.md)
-- [ ] T005 [P] Écrire `tests/unit/related-experiences.test.ts` (doit échouer), couverture 100 % : exclut l'expérience courante, les options et les `disabled` ; d'abord la même catégorie par `order`, puis les autres par `order` ; tronque à `limit` (3 par défaut) ; liste vide si rien d'autre
-- [ ] T006 Créer `src/features/catalog/relatedExperiences.ts` (`relatedExperiences(current, all, limit = 3)`), fonction pure sans import d'Astro
-- [ ] T007 [P] Écrire `tests/unit/service-request-message.test.ts` (doit échouer), couverture 100 % : FR « Bonjour Kibreeze, je souhaite des informations sur l'expérience « Excursion en pirogue » : https://kibreeze.com/experiences/excursion-en-pirogue » ; EN « Hello Kibreeze, I would like some information about the "Dugout canoe trip" experience: https://kibreeze.com/en/experiences/excursion-en-pirogue »
-- [ ] T008 Créer `src/features/whatsapp/buildServiceRequestMessage.ts` et les gabarits `whatsapp.serviceRequest` FR et EN dans `src/i18n/fr.ts` et `src/i18n/en.ts`
-- [ ] T009 [P] Écrire `tests/unit/experience-jsonld.test.ts` (doit échouer) : `@type: "TouristTrip"`, `name`, `description`, `url`, `image`, `inLanguage`, `provider` `TravelAgency` Kibreeze ; `offers` avec `price`, `priceCurrency: "XAF"` et `priceSpecification.unitText` pour `fixed` et `from` ; aucune `offers` pour `quote`
-- [ ] T010 Ajouter `buildExperienceJsonLd` à `src/lib/seo.ts`
-- [ ] T011 Étendre `src/lib/catalog.ts` : `getExperiences()` (expériences publiées, non options, non `disabled`, triées par `order` puis nom), `getOptions()`, `getExperience(slug)`, `categoriesWithExperiences()` ; `getFeatured()` exclut les options
+- [X] T003 [P] Étendre `tests/unit/content-schema.test.ts` (doit échouer) : `location` localisé accepté ; option (`isOption: true`) sans `categoryId` ni `images` acceptée ; expérience non option sans `categoryId` refusée ; expérience non option sans image refusée
+- [X] T004 Modifier `serviceSchema` dans `src/content/schemas.ts` : champ facultatif `location: localizedString` ; `categoryId` obligatoire seulement si `section = "experience"` et non `isOption` ; `images` facultatif (`.min(1)` conservé quand présent) et obligatoire sauf `isOption`, conformément à [contracts/content.md](./contracts/content.md)
+- [X] T005 [P] Écrire `tests/unit/related-experiences.test.ts` (doit échouer), couverture 100 % : exclut l'expérience courante, les options et les `disabled` ; d'abord la même catégorie par `order`, puis les autres par `order` ; tronque à `limit` (3 par défaut) ; liste vide si rien d'autre
+- [X] T006 Créer `src/features/catalog/relatedExperiences.ts` (`relatedExperiences(current, all, limit = 3)`), fonction pure sans import d'Astro
+- [X] T007 [P] Écrire `tests/unit/service-request-message.test.ts` (doit échouer), couverture 100 % : FR « Bonjour Kibreeze, je souhaite des informations sur l'expérience « Excursion en pirogue » : https://kibreeze.com/experiences/excursion-en-pirogue » ; EN « Hello Kibreeze, I would like some information about the "Dugout canoe trip" experience: https://kibreeze.com/en/experiences/excursion-en-pirogue »
+- [X] T008 Créer `src/features/whatsapp/buildServiceRequestMessage.ts` et les gabarits `whatsapp.serviceRequest` FR et EN dans `src/i18n/fr.ts` et `src/i18n/en.ts`
+- [X] T009 [P] Écrire `tests/unit/experience-jsonld.test.ts` (doit échouer) : `@type: "TouristTrip"`, `name`, `description`, `url`, `image`, `inLanguage`, `provider` `TravelAgency` Kibreeze ; `offers` avec `price`, `priceCurrency: "XAF"` et `priceSpecification.unitText` pour `fixed` et `from` ; aucune `offers` pour `quote`
+- [X] T010 Ajouter `buildExperienceJsonLd` à `src/lib/seo.ts`
+- [X] T011 Étendre `src/lib/catalog.ts` : `getExperiences()` (expériences publiées, non options, non `disabled`, triées par `order` puis nom), `getOptions()`, `getExperience(slug)`, `categoriesWithExperiences()` ; `getFeatured()` exclut les options
 
 **Checkpoint** : `npm run check` passe.
 

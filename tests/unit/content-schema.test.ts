@@ -43,6 +43,37 @@ function messages(input: unknown): string[] {
     : result.error.issues.map((issue) => `${issue.path.join('.')} ${issue.message}`);
 }
 
+describe('lieu et options (003)', () => {
+  const guide = {
+    title: { fr: 'Guide touristique', en: 'Tour guide' },
+    section: 'experience',
+    isOption: true,
+    shortDescription: { fr: 'Un guide local', en: 'A local guide' },
+    description: { fr: 'Un guide local vous accompagne.', en: 'A local guide comes along.' },
+    pricing: { kind: 'fixed', amount: 5000, unit: 'per_service' },
+    quantity: { dimensions: [] },
+  };
+
+  it('accepte un lieu localisé', () => {
+    expect(
+      messages({ ...pirogue, location: { fr: 'Embouchure de la Lobé', en: 'Lobé estuary' } }),
+    ).toEqual([]);
+  });
+
+  it('accepte une option sans catégorie ni image', () => {
+    expect(messages(guide)).toEqual([]);
+  });
+
+  it('exige une catégorie pour une expérience qui n’est pas une option', () => {
+    expect(messages(omit(pirogue, 'categoryId')).join()).toContain('categoryId');
+  });
+
+  it('exige au moins une image pour une expérience qui n’est pas une option', () => {
+    expect(messages(omit(pirogue, 'images')).join()).toContain('images');
+    expect(messages({ ...pirogue, images: [] }).join()).toContain('images');
+  });
+});
+
 describe('fiche de service', () => {
   it('accepte une fiche conforme', () => {
     expect(messages(pirogue)).toEqual([]);

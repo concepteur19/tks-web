@@ -24,7 +24,7 @@ const featured = await getFeatured();
     aria-label={t(locale, 'home.featured.title')}
   >
     {featured.map((service) => {
-      const image = service.data.images[0];
+      const image = service.data.images?.[0];
       return (
         <li class="w-(--size-card-featured) shrink-0 snap-start lg:w-auto">
           <SmartLink
