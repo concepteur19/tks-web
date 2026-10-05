@@ -27,7 +27,7 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 
 - Le build de production échoue s'il reste un contenu `[PLACEHOLDER]` ou un texte anglais manquant.
 - Un service sans tarif ne part en « sur devis » qu'avec l'accord de Franck.
-- Un service sans photo validée est désactivé jusqu'à réception, plutôt que publié avec une image provisoire.
+- Un service sans photo de Franck est publié avec l'image générée par Google Stitch pour les écrans validés, en attendant sa photo (décision de Zobel, 2026-10-05). Ces images sont rangées dans `src/assets/photos/stitch/` et recensées dans son README.
 
 ## Éléments globaux
 

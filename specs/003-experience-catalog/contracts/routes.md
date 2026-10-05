@@ -11,5 +11,5 @@
 - `<categorie>` ∈ `nature-decouverte`, `aventure`, `detente` : identifiant du fichier de catégorie, identique dans les deux langues.
 - `<slug>` : identifiant du fichier de service, identique dans les deux langues, minuscules, sans accent.
 - Une expérience `disabled` ou une option n'a pas de fiche : son adresse sert la 404.
-- Le sélecteur de langue d'une fiche mène à la même fiche dans l'autre langue ; celui de la liste conserve l'ancre de filtre quand le navigateur l'expose, sinon mène à la liste complète.
+- Le sélecteur de langue d'une fiche mène à la même fiche dans l'autre langue ; celui de la liste conserve l'ancre de filtre grâce au script du filtre ; sans JavaScript, il mène à la liste complète.
 - Le plan du site inclut la liste et chaque fiche, dans les deux langues, sans ancre.

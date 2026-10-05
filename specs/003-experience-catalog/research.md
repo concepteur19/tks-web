@@ -85,7 +85,7 @@ Les gabarits vivent dans les dictionnaires ; la fonction assemble. L'URL est abs
 
 ## 10. Photos
 
-**Decision**: importer, avec `npm run photos:import` et après contrôle visuel des filigranes, les photos manquantes : quad, jet-ski (hors `L7-01`, suspect de filigrane), kayak (`excursion-en-pirogue/L7-04`), paddle (`_a-classer_paddle/L6-01`), cheval (`balade-a-cheval/L7-07`), bandeau de la page Expériences (chutes), et une deuxième ou troisième photo pour les galeries des chutes, de la pirogue et du campement. Chaloupe, jacuzzi, feu de plage et bateau de plaisance prennent un paysage de Kribi, avec un texte alternatif qui décrit ce qu'on voit réellement.
+**Decision**: importer, avec `npm run photos:import` et après contrôle visuel des filigranes, les photos manquantes : quad, jet-ski (hors `L7-01`, suspect de filigrane), kayak (`excursion-en-pirogue/L7-04`), paddle (`_a-classer_paddle/L6-01`), cheval (`balade-a-cheval/L7-07`), bandeau de la page Expériences (chutes), et une deuxième ou troisième photo pour les galeries des chutes, de la pirogue et du campement. Chaloupe, jacuzzi, feu de plage, croisière et bateau de plaisance prennent, en attendant les photos de Franck, les images générées par Google Stitch pour les écrans validés (décision de Zobel, 2026-10-05). Elles sont rangées à part dans `src/assets/photos/stitch/` et recensées dans le README des photos, pour être remplacées une à une.
 
 **Rationale**: hypothèse « Photos » de la spec ; règles du README des photos.
 

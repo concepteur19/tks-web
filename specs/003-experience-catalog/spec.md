@@ -97,7 +97,7 @@ Une personne cherche « chutes de la Lobé excursion » ou reçoit le lien d'une
 - **Expérience désactivée** : elle n'apparaît ni dans la liste, ni dans « Vous aimerez aussi », ni sur l'accueil, et son adresse renvoie la page d'erreur (FR-CAT-5).
 - **Expérience à confirmer** : elle reste visible, avec le badge « Disponibilité à confirmer » sur sa carte et sur sa fiche.
 - **Catégorie sans expérience publiée** : son onglet n'apparaît pas, plutôt qu'un filtre qui affiche une liste vide.
-- **Photo manquante pour une expérience** : la carte et la fiche utilisent un paysage de Kribi appartenant à Franck, jamais une photo filigranée ni une photo d'une autre activité présentée comme celle-ci.
+- **Photo manquante pour une expérience** : la carte et la fiche utilisent l'image Stitch de cette activité, jamais une photo filigranée ni une photo d'une autre activité présentée comme celle-ci.
 - **Une seule photo** : la galerie montre la photo sans compteur ni vignettes.
 - **Tarifs multiples** : la carte affiche le plus petit tarif chiffré en « à partir de » ; la fiche détaille chaque tarif.
 - **Expérience sur devis** : aucun montant ni équivalent en euros, ni sur la carte, ni sur la fiche, ni dans les données structurées.
@@ -182,7 +182,7 @@ Une personne cherche « chutes de la Lobé excursion » ou reçoit le lien d'une
 - **Fiche sans interaction de sélection** : le sélecteur de personnes, les cases à cocher, le total et « Ajouter à mon séjour » des écrans validés arrivent avec la 004, qui leur donne un effet. La 003 affiche les mêmes informations en lecture.
 - **Message de demande** : il nomme l'expérience et donne l'adresse de la fiche ; la 004 l'enrichira des quantités et options choisies.
 - **Textes descriptifs** : rédigés à partir du guide tarifaire et des réponses de Franck, traduits en anglais par IA puis relus par Zobel (ADR-013). Aucune promesse absente du brief (pas de délai de réponse, pas de remise, pas de « meilleur prix »).
-- **Photos** : les photos de Franck triées, hors filigranes. Chaloupe, jacuzzi, feu de plage et bateau de plaisance n'ont pas de photo propre : un paysage de Kribi en tient lieu, en attendant ses photos.
+- **Photos** : les photos de Franck triées, hors filigranes. Pour les sujets sans photo de Franck (chaloupe, jacuzzi, feu de plage, croisière, bateau de plaisance), les images générées par Google Stitch pour les écrans validés en tiennent lieu en attendant ses photos (décision de Zobel, 2026-10-05).
 - **Lieux** : indiqués seulement quand le guide ou Franck les donnent.
 
 ## Dependencies
