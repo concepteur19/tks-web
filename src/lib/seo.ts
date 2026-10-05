@@ -1,4 +1,4 @@
-import { getAlternates } from '../i18n/routes.ts';
+import { getAlternates, getRoutePath } from '../i18n/routes.ts';
 import { DEFAULT_LOCALE, LOCALES, type Locale } from '../i18n/types.ts';
 
 export type SeoInput = {
@@ -62,4 +62,37 @@ export function buildSeo({
 /** Lien WhatsApp prérempli, utilisé par le bouton permanent. */
 export function buildWhatsAppUrl(number: string, message: string): string {
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+}
+
+export type LocalBusinessInput = {
+  company: { brand: string };
+  locale: Locale;
+  siteUrl: string;
+  /** Chiffres seuls, comme PUBLIC_WHATSAPP_NUMBER. */
+  phone: string;
+  logoUrl: string;
+};
+
+/**
+ * Données structurées de l'accueil (FR-027, FR-SEO-3). TravelAgency est un sous-type de
+ * LocalBusiness : il décrit mieux Kibreeze tout en restant une entreprise locale.
+ */
+export function buildLocalBusinessJsonLd({
+  company,
+  locale,
+  siteUrl,
+  phone,
+  logoUrl,
+}: LocalBusinessInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'TravelAgency',
+    name: company.brand,
+    url: absolute(siteUrl, getRoutePath('home', locale)),
+    logo: logoUrl,
+    telephone: `+${phone}`,
+    areaServed: { '@type': 'City', name: 'Kribi' },
+    address: { '@type': 'PostalAddress', addressLocality: 'Kribi', addressCountry: 'CM' },
+    inLanguage: locale,
+  };
 }

@@ -33,7 +33,8 @@ const categories = await Promise.all(
           <Image
             src={category.data.image.src}
             alt={localize(category.data.image.alt, locale)}
-            widths={[480, 800]}
+            widths={[400, 720]}
+            quality={70}
             sizes="(min-width: 64rem) 33vw, 100vw"
             class="absolute inset-0 -z-10 h-full w-full object-cover"
           />

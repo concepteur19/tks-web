@@ -21,8 +21,9 @@ const { locale } = Astro.props;
   <Picture
     src={heroPhoto}
     alt={t(locale, 'home.hero.alt')}
-    formats={['avif', 'webp']}
-    widths={[640, 960]}
+    formats={['webp']}
+    widths={[480, 828]}
+    quality={55}
     sizes="100vw"
     loading="eager"
     fetchpriority="high"

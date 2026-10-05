@@ -39,6 +39,7 @@ const featured = await getFeatured();
                 src={image.src}
                 alt={localize(image.alt, locale)}
                 widths={[320, 560]}
+                quality={70}
                 sizes="(min-width: 64rem) 25vw, 17.5rem"
                 class="aspect-4/3 w-full object-cover"
               />

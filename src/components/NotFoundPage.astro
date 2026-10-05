@@ -11,7 +11,13 @@ interface Props {
 const { locale } = Astro.props;
 ---
 
-<BaseLayout locale={locale} routeKey="notFound" title={t(locale, 'notFound.title')} noindex>
+<BaseLayout
+  locale={locale}
+  routeKey="notFound"
+  title={t(locale, 'notFound.title')}
+  description={t(locale, 'notFound.description')}
+  noindex
+>
   <section class="mx-auto max-w-(--size-content) px-4 py-16">
     <h1 class="font-display text-3xl font-bold text-fg">{t(locale, 'notFound.title')}</h1>
     <p class="mt-4 text-fg-muted">{t(locale, 'notFound.text')}</p>

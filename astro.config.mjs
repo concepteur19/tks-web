@@ -45,7 +45,17 @@ export default defineConfig({
     react(),
     sitemap({
       i18n: { defaultLocale: 'fr', locales: { fr: 'fr', en: 'en' } },
-      filter: (page) => !page.includes('/dev/'),
+      // Ni la page de démonstration, ni les pages d'erreur (contrat d'adresses de 002).
+      filter: (page) => !page.includes('/dev/') && !/\/404\/?$/.test(page),
+      // L'accueil anglais est servi sous /en/ (contrat d'adresses) ; le plugin écrit /en.
+      serialize: (item) => {
+        const withSlash = (url) => (new URL(url).pathname === '/en' ? `${url}/` : url);
+        return {
+          ...item,
+          url: withSlash(item.url),
+          links: item.links?.map((link) => ({ ...link, url: withSlash(link.url) })),
+        };
+      },
     }),
   ],
   vite: { plugins: [tailwindcss()] },

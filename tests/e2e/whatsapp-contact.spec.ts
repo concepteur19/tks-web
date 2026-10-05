@@ -63,6 +63,6 @@ test('« En savoir plus » de l’accueil mène à la présentation de la page C
   page,
 }) => {
   await page.goto('/');
-  await page.getByRole('link', { name: 'En savoir plus' }).click();
+  await page.getByRole('link', { name: 'En savoir plus sur Kibreeze' }).click();
   await expect(page).toHaveURL(/\/contact#a-propos$/);
 });

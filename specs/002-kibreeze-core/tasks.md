@@ -153,16 +153,16 @@ Règles valables pour toutes les tâches :
 
 ### Tests for User Story 4
 
-- [ ] T048 [P] [US4] Écrire `tests/unit/seo-jsonld.test.ts` (doit échouer) : `buildLocalBusinessJsonLd(company, locale, siteUrl, phone)` produit `@type: "TravelAgency"`, `name: "Kibreeze"`, `areaServed` Kribi, `address` avec `addressLocality: "Kribi"` et `addressCountry: "CM"`, `telephone` au format `+237…`, `url` absolue, `logo` absolu, `inLanguage` égal à la locale
-- [ ] T049 [P] [US4] Écrire `tests/e2e/seo.spec.ts` : sur chaque page livrée des deux langues, `title` et `meta description` uniques sur tout le site, `og:image` en adresse absolue, `link rel="canonical"` propre à la langue, liens `hreflang` fr, en et x-default ; JSON-LD `TravelAgency` présent sur l'accueil seulement ; `sitemap-index.xml` liste les pages livrées dans les deux langues, sans 404 ni `/dev/`
+- [X] T048 [P] [US4] Écrire `tests/unit/seo-jsonld.test.ts` (doit échouer) : `buildLocalBusinessJsonLd(company, locale, siteUrl, phone)` produit `@type: "TravelAgency"`, `name: "Kibreeze"`, `areaServed` Kribi, `address` avec `addressLocality: "Kribi"` et `addressCountry: "CM"`, `telephone` au format `+237…`, `url` absolue, `logo` absolu, `inLanguage` égal à la locale
+- [X] T049 [P] [US4] Écrire `tests/e2e/seo.spec.ts` : sur chaque page livrée des deux langues, `title` et `meta description` uniques sur tout le site, `og:image` en adresse absolue, `link rel="canonical"` propre à la langue, liens `hreflang` fr, en et x-default ; JSON-LD `TravelAgency` présent sur l'accueil seulement ; `sitemap-index.xml` liste les pages livrées dans les deux langues, sans 404 ni `/dev/`
 
 ### Implementation for User Story 4
 
-- [ ] T050 [US4] Ajouter `buildLocalBusinessJsonLd` à `src/lib/seo.ts`, et le passer en `jsonLd` depuis `HomePage.astro`
-- [ ] T051 [US4] Générer l'image de partage par défaut dans `src/layouts/BaseLayout.astro` avec `getImage` d'`astro:assets` depuis la photo du hero, 1 200 × 630, JPEG ; `og:image`, `og:image:width`, `og:image:height` et `og:image:alt` absolus ; propriété `ogImage` pour la remplacer
-- [ ] T052 [US4] Exclure la 404 du plan du site dans le filtre de `astro.config.mjs`, en plus de `/dev/`
-- [ ] T053 [US4] Écrire `scripts/check-links.mjs` : parcourt `dist/**/*.html`, extrait chaque `href` et `src` commençant par `/` (ancre et paramètres retirés), échoue en listant page et lien si la cible n'existe ni en fichier, ni en `<chemin>.html`, ni en `<chemin>/index.html` ; ajouter l'étape `npm run check:links` après `npm run build:prod` dans `.github/workflows/ci.yml`
-- [ ] T054 [US4] Passer `lighthouserc.json` au profil mobile (retirer `"preset": "desktop"`) et ajouter `/contact.html`, `/en/contact.html`, `/404.html` et `/en/404.html` aux adresses auditées (SC-002)
+- [X] T050 [US4] Ajouter `buildLocalBusinessJsonLd` à `src/lib/seo.ts`, et le passer en `jsonLd` depuis `HomePage.astro`
+- [X] T051 [US4] Générer l'image de partage par défaut dans `src/layouts/BaseLayout.astro` avec `getImage` d'`astro:assets` depuis la photo du hero, 1 200 × 630, JPEG ; `og:image`, `og:image:width`, `og:image:height` et `og:image:alt` absolus ; propriété `ogImage` pour la remplacer
+- [X] T052 [US4] Exclure la 404 du plan du site dans le filtre de `astro.config.mjs`, en plus de `/dev/`
+- [X] T053 [US4] Écrire `scripts/check-links.mjs` : parcourt `dist/**/*.html`, extrait chaque `href` et `src` commençant par `/` (ancre et paramètres retirés), échoue en listant page et lien si la cible n'existe ni en fichier, ni en `<chemin>.html`, ni en `<chemin>/index.html` ; ajouter l'étape `npm run check:links` après `npm run build:prod` dans `.github/workflows/ci.yml`
+- [X] T054 [US4] Passer `lighthouserc.json` au profil mobile (retirer `"preset": "desktop"`) et ajouter `/contact.html`, `/en/contact.html`, `/404.html` et `/en/404.html` aux adresses auditées (SC-002)
 
 **Checkpoint** : T048 et T049 passent, `npm run check:links` passe.
 

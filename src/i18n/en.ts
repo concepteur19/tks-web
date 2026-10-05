@@ -52,7 +52,7 @@ export const en = {
   'home.mobility.cta': 'See',
   'home.about.title': 'Who we are',
   'home.about.alt': 'Aerial view of Kribi, between the town, the beach and the ocean',
-  'home.about.more': 'Learn more',
+  'home.about.more': 'Learn more about Kibreeze',
   'home.cta.title': 'A tailor-made trip?',
   'home.cta.text': 'Write to us: we help you put together your stay in Kribi.',
 
@@ -75,6 +75,7 @@ export const en = {
   'price.unit.per_service': '/ service',
 
   'contact.title': 'Contact Kibreeze',
+  'contact.metaTitle': 'Contact us',
   'contact.description':
     'Message Kibreeze on WhatsApp to plan your stay in Kribi: experiences, accommodation and packages.',
   'contact.intro':
@@ -86,6 +87,7 @@ export const en = {
   'contact.about.alt': 'Palm trees under the blue sky of Kribi',
 
   'notFound.title': 'Page not found',
+  'notFound.description': 'This page does not exist on the Kibreeze website.',
   'notFound.text': 'This page does not exist or has been moved.',
   'notFound.back': 'Back to home',
 

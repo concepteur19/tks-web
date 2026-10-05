@@ -11,7 +11,8 @@ const { locale } = Astro.props;
 const currentPath = Astro.url.pathname;
 const links = LOCALES.map((code) => ({
   code,
-  href: code === locale ? currentPath : getAlternatePath(currentPath, code),
+  // Normalisé par la table des routes, y compris pour la langue courante (pas de barre finale).
+  href: getAlternatePath(currentPath, code),
   label: t(locale, code === 'fr' ? 'language.fr' : 'language.en'),
   isCurrent: code === locale,
 }));

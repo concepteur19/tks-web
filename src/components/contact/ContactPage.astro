@@ -27,7 +27,7 @@ const NETWORKS = { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok
 <BaseLayout
   locale={locale}
   routeKey="contact"
-  title={t(locale, 'contact.title')}
+  title={t(locale, 'contact.metaTitle')}
   description={t(locale, 'contact.description')}
 >
   <section class="mx-auto max-w-(--size-content) px-4 py-12">
@@ -102,7 +102,8 @@ const NETWORKS = { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok
     <Image
       src={photo}
       alt={t(locale, 'contact.about.alt')}
-      widths={[480, 800]}
+      widths={[400, 720]}
+      quality={70}
       sizes="(min-width: 64rem) 50vw, 100vw"
       class="aspect-4/3 w-full rounded-card object-cover"
     />
