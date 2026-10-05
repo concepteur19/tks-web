@@ -90,6 +90,7 @@
   --size-header: 3.5rem; /* en-tête mobile, h-14 */
   --size-header-desktop: 4.5rem; /* en-tête ordinateur, 72 px */
   --size-tabbar: 4rem; /* barre à onglets, h-16 */
+  --size-sticky-cta: 4.5rem; /* barre « Demander ce service » des fiches, 03-fiche-pirogue */
   --size-fab: 3.5rem; /* bouton WhatsApp flottant, 56 px */
   --size-content: 75rem; /* largeur de contenu ordinateur, 1 200 px */
   --size-hero-mobile: 85svh;
