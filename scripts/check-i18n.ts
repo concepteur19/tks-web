@@ -10,7 +10,7 @@
  * Il vérifie aussi qu'aucune marque `[PLACEHOLDER]` ne subsiste dans `src/` (constitution,
  * principe IV), hors de la page de démonstration `src/pages/dev/`, jamais construite en production.
  */
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { en } from '../src/i18n/en.ts';
@@ -110,6 +110,41 @@ export function placeholderIssues(sourceDir: string, root = process.cwd()): Issu
   return issues;
 }
 
+/** Fichier de chaque document légal, par langue : src/content/legal/<locale>/<fichier>. */
+const LEGAL_FILES = {
+  legalNotice: 'legal-notice.md',
+  privacy: 'privacy.md',
+  terms: 'terms.md',
+} as const;
+
+/** Chaque document légal existe en français et en anglais, avec une langue cohérente. */
+export function legalIssues(legalDir: string, root = process.cwd()): Issue[] {
+  const issues: Issue[] = [];
+  for (const [doc, fileName] of Object.entries(LEGAL_FILES)) {
+    for (const locale of ['fr', 'en'] as const) {
+      const file = join(legalDir, locale, fileName);
+      if (!existsSync(file)) {
+        const language = locale === 'fr' ? 'français' : 'anglais';
+        issues.push({
+          file: relative(root, file),
+          key: doc,
+          reason: `document légal ${language} absent`,
+        });
+        continue;
+      }
+      const declared = /^locale:\s*(\w+)/m.exec(readFileSync(file, 'utf8'))?.[1];
+      if (declared !== locale) {
+        issues.push({
+          file: relative(root, file),
+          key: 'locale',
+          reason: `langue « ${declared ?? '?'} » différente du dossier « ${locale} »`,
+        });
+      }
+    }
+  }
+  return issues;
+}
+
 export function formatIssue(issue: Issue): string {
   return `[i18n] ${issue.file} → « ${issue.key} » : ${issue.reason}`;
 }
@@ -117,9 +152,11 @@ export function formatIssue(issue: Issue): string {
 function main(): void {
   const contentDir = process.env.I18N_CONTENT_DIR ?? 'src/content';
   const sourceDir = process.env.I18N_SOURCE_DIR ?? 'src';
+  const legalDir = process.env.I18N_LEGAL_DIR ?? join(contentDir, 'legal');
   const issues = [
     ...dictionaryIssues(fr, en),
     ...contentIssues(contentDir),
+    ...legalIssues(legalDir),
     ...placeholderIssues(sourceDir),
   ];
   const isProduction =

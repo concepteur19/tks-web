@@ -49,12 +49,11 @@ export default defineConfig({
       filter: (page) => !page.includes('/dev/') && !/\/404\/?$/.test(page),
       // L'accueil anglais est servi sous /en/ (contrat d'adresses) ; le plugin écrit /en.
       serialize: (item) => {
+        /** @param {string} url */
         const withSlash = (url) => (new URL(url).pathname === '/en' ? `${url}/` : url);
-        return {
-          ...item,
-          url: withSlash(item.url),
-          links: item.links?.map((link) => ({ ...link, url: withSlash(link.url) })),
-        };
+        item.url = withSlash(item.url);
+        for (const link of item.links ?? []) link.url = withSlash(link.url);
+        return item;
       },
     }),
   ],

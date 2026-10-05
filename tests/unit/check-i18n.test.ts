@@ -7,6 +7,7 @@ import {
   contentIssues,
   dictionaryIssues,
   formatIssue,
+  legalIssues,
   placeholderIssues,
 } from '../../scripts/check-i18n.ts';
 
@@ -110,6 +111,31 @@ describe('contrôle des traductions', () => {
       expect(result.stderr).toContain('marque [PLACEHOLDER]');
     } finally {
       rmSync(src, { recursive: true, force: true });
+    }
+  });
+
+  it('exige chaque document légal dans les deux langues, avec une langue cohérente', () => {
+    const legal = mkdtempSync(join(tmpdir(), 'legal-'));
+    mkdirSync(join(legal, 'fr'));
+    mkdirSync(join(legal, 'en'));
+    const frontmatter = (doc: string, locale: string) =>
+      `---\ndoc: ${doc}\nlocale: ${locale}\ntitle: T\ndescription: D\nupdatedAt: 2026-10-05\n---\nTexte\n`;
+    writeFileSync(join(legal, 'fr', 'legal-notice.md'), frontmatter('legalNotice', 'fr'));
+    writeFileSync(join(legal, 'en', 'legal-notice.md'), frontmatter('legalNotice', 'en'));
+    writeFileSync(join(legal, 'fr', 'privacy.md'), frontmatter('privacy', 'fr'));
+    writeFileSync(join(legal, 'fr', 'terms.md'), frontmatter('terms', 'fr'));
+    writeFileSync(join(legal, 'en', 'terms.md'), frontmatter('terms', 'fr'));
+    try {
+      expect(legalIssues(legal, legal)).toEqual([
+        { file: join('en', 'privacy.md'), key: 'privacy', reason: 'document légal anglais absent' },
+        {
+          file: join('en', 'terms.md'),
+          key: 'locale',
+          reason: 'langue « fr » différente du dossier « en »',
+        },
+      ]);
+    } finally {
+      rmSync(legal, { recursive: true, force: true });
     }
   });
 });

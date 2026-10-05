@@ -36,7 +36,14 @@ export const ROUTES: Record<RouteKey, Record<Locale, string>> = {
  * et les liens de l'accueil en dépendent (specs/002-kibreeze-core/contracts/routes.md).
  * Une feature qui livre une page ajoute sa clé ici, et rien d'autre dans la coque.
  */
-export const IMPLEMENTED_ROUTES: readonly RouteKey[] = ['home', 'contact', 'notFound'];
+export const IMPLEMENTED_ROUTES: readonly RouteKey[] = [
+  'home',
+  'contact',
+  'legalNotice',
+  'privacy',
+  'terms',
+  'notFound',
+];
 
 function normalize(path: string): string {
   if (path === '/') return '/';
