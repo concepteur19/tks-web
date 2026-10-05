@@ -17,9 +17,10 @@ import WhatsAppIcon from './WhatsAppIcon.astro';
 interface Props {
   locale: Locale;
   routeKey: RouteKey;
+  alternatePaths?: Record<Locale, string> | undefined;
 }
 
-const { locale, routeKey } = Astro.props;
+const { locale, routeKey, alternatePaths } = Astro.props;
 const links = visible(DESKTOP_NAV);
 const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.genericMessage'));
 ---
@@ -57,7 +58,7 @@ const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.ge
     )}
 
     <div class="flex items-center gap-2">
-      <LanguageSwitcher locale={locale} />
+      <LanguageSwitcher locale={locale} alternatePaths={alternatePaths} />
       {isImplemented('stay') && (
         <a
           href={getRoutePath('stay', locale)}

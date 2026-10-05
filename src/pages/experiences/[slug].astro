@@ -1,0 +1,15 @@
+---
+import ExperienceDetail from '../../components/experiences/ExperienceDetail.astro';
+import { getExperiences } from '../../lib/catalog.ts';
+
+export async function getStaticPaths() {
+  return (await getExperiences()).map((service) => ({
+    params: { slug: service.id },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+---
+
+<ExperienceDetail service={service} locale="fr" />

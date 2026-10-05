@@ -1,0 +1,37 @@
+---
+/** Carte compacte de « Vous aimerez aussi » (FR-017). */
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { cardPrice } from '../../features/estimation/cardPrice.ts';
+import { getRoutePath } from '../../i18n/routes.ts';
+import { localize } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import Price from '../Price.astro';
+
+interface Props {
+  service: CollectionEntry<'services'>;
+  locale: Locale;
+}
+
+const { service, locale } = Astro.props;
+const image = service.data.images?.[0];
+---
+
+<a
+  href={`${getRoutePath('experiences', locale)}/${service.id}`}
+  class="flex h-full gap-3 overflow-hidden rounded-card bg-bg p-2 shadow-card"
+>
+  {image && (
+    <Image
+      src={image.src}
+      alt=""
+      width={192}
+      quality={60}
+      class="size-24 shrink-0 rounded-sm object-cover"
+    />
+  )}
+  <span class="flex min-w-0 flex-col justify-center gap-1">
+    <span class="font-semibold text-fg">{localize(service.data.title, locale)}</span>
+    <Price price={cardPrice(service.data)} locale={locale} />
+  </span>
+</a>

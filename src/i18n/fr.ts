@@ -120,6 +120,23 @@ export const fr = {
   'experiences.special.text':
     'Une activité qui ne figure pas ici, une date, un groupe ? Écrivez-nous, on en parle.',
 
+  'detail.breadcrumb': "Fil d'Ariane",
+  'detail.gallery': 'Photos',
+  'detail.priceNote':
+    'Prix indicatif, sous réserve de disponibilité et de confirmation par Kibreeze.',
+  'detail.capacityBadge': "Jusqu'à {count} personnes — au-delà, sur devis",
+  'detail.duration': 'Durée',
+  'detail.capacityLabel': 'Nombre de personnes',
+  'detail.capacity': '{min} à {max} personnes',
+  'detail.location': 'Lieu',
+  'detail.included': 'Ce qui est inclus',
+  'detail.excluded': "Ce qui n'est pas inclus",
+  'detail.notes': 'À savoir',
+  'detail.optionsTitle': 'Complétez votre expérience',
+  'detail.optionsNote': "À demander avec l'expérience.",
+  'detail.related': 'Vous aimerez aussi',
+  'detail.request': 'Demander ce service',
+
   'notFound.title': 'Page introuvable',
   'notFound.description': "Cette page n'existe pas sur le site de Kibreeze.",
   'notFound.text': "Cette page n'existe pas ou a été déplacée.",

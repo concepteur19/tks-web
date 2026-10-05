@@ -1,0 +1,36 @@
+---
+/** Ligne d'informations (FR-013) : durée, capacité, lieu ; chaque case vide est omise. */
+import type { CollectionEntry } from 'astro:content';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import Icon, { type IconName } from '../Icon.astro';
+
+interface Props {
+  service: CollectionEntry<'services'>;
+  locale: Locale;
+}
+
+const { service, locale } = Astro.props;
+const { data } = service;
+const capacity =
+  data.capacity?.max !== undefined
+    ? t(locale, 'detail.capacity', { min: data.capacity.min ?? 1, max: data.capacity.max })
+    : undefined;
+const cells = [
+  ['schedule', t(locale, 'detail.duration'), data.duration && localize(data.duration, locale)],
+  ['group', t(locale, 'detail.capacityLabel'), capacity],
+  ['place', t(locale, 'detail.location'), data.location && localize(data.location, locale)],
+].filter((cell): cell is [IconName, string, string] => Boolean(cell[2]));
+---
+
+{cells.length > 0 && (
+  <dl class="my-4 flex divide-x divide-border rounded-card border border-border bg-bg py-3">
+    {cells.map(([icon, label, value]) => (
+      <div class="flex flex-1 flex-col items-center gap-1 px-2 text-center">
+        <Icon name={icon} size={20} class="text-brand" />
+        <dt class="sr-only">{label}</dt>
+        <dd class="text-xs font-semibold text-fg">{value}</dd>
+      </div>
+    ))}
+  </dl>
+)}

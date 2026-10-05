@@ -4,6 +4,8 @@ import { DEFAULT_LOCALE, LOCALES, type Locale } from '../i18n/types.ts';
 
 export type SeoInput = {
   path: string;
+  /** Chemins de la même page dans chaque langue, pour une page hors de la table des routes (fiche). */
+  alternatePaths?: Record<Locale, string> | undefined;
   locale: Locale;
   title: string;
   description: string;
@@ -38,15 +40,16 @@ export function buildSeo({
   description,
   siteUrl,
   noindex = false,
+  alternatePaths,
 }: SeoInput): Seo {
-  const alternatePaths = getAlternates(path);
+  const paths = alternatePaths ?? getAlternates(path);
   const alternates: AlternateLink[] = LOCALES.map((code) => ({
     hreflang: code,
-    href: absolute(siteUrl, alternatePaths[code]),
+    href: absolute(siteUrl, paths[code]),
   }));
   alternates.push({
     hreflang: 'x-default',
-    href: absolute(siteUrl, alternatePaths[DEFAULT_LOCALE]),
+    href: absolute(siteUrl, paths[DEFAULT_LOCALE]),
   });
 
   return {

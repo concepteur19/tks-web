@@ -1,0 +1,30 @@
+---
+/** « Complétez votre expérience » (FR-016) : lignes nom — prix, sans case à cocher avant la 004. */
+import type { CollectionEntry } from 'astro:content';
+import { cardPrice } from '../../features/estimation/cardPrice.ts';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import Price from '../Price.astro';
+
+interface Props {
+  options: CollectionEntry<'services'>[];
+  locale: Locale;
+}
+
+const { options, locale } = Astro.props;
+---
+
+{options.length > 0 && (
+  <section class="mt-6 rounded-card bg-bg-muted p-4" data-testid="options">
+    <h2 class="text-base font-bold text-fg">{t(locale, 'detail.optionsTitle')}</h2>
+    <ul class="mt-3 divide-y divide-border">
+      {options.map((option) => (
+        <li class="flex items-center justify-between gap-4 py-2.5">
+          <span class="text-sm font-medium text-fg">{localize(option.data.title, locale)}</span>
+          <Price price={cardPrice(option.data)} locale={locale} />
+        </li>
+      ))}
+    </ul>
+    <p class="mt-2 text-xs text-fg-muted">{t(locale, 'detail.optionsNote')}</p>
+  </section>
+)}

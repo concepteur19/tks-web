@@ -1,0 +1,61 @@
+---
+/**
+ * Demande d'une expérience sur WhatsApp (FR-018, FR-019). Variante `bar` : fixée au-dessus de
+ * la barre à onglets sur téléphone. Variante `card` : carte collante de la colonne de droite
+ * sur ordinateur. Pas de bouton d'ajout au séjour avant la feature 004 (FR-020).
+ */
+import { formatEurEquivalent, formatXaf } from '../../features/estimation/formatPrice.ts';
+import type { CardPrice } from '../../features/estimation/cardPrice.ts';
+import { t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import { currency } from '../../lib/site.ts';
+import WhatsAppIcon from '../WhatsAppIcon.astro';
+
+interface Props {
+  variant: 'bar' | 'card';
+  price: CardPrice;
+  href: string;
+  locale: Locale;
+}
+
+const { variant, price, href, locale } = Astro.props;
+---
+
+<div
+  class:list={[
+    variant === 'bar'
+      ? 'fixed inset-x-0 bottom-(--size-tabbar) flex h-(--size-sticky-cta) items-center justify-between gap-3 border-t border-border bg-bg px-4 lg:hidden'
+      : 'hidden flex-col gap-4 rounded-card bg-bg p-5 shadow-card lg:flex',
+  ]}
+  style={variant === 'bar' ? 'z-index: var(--z-sticky-cta)' : undefined}
+  data-testid={`request-${variant}`}
+>
+  <div>
+    {price.kind === 'quote' ? (
+      <span class="inline-block rounded-sm bg-accent px-2 py-1 text-xs font-semibold text-bg">
+        {t(locale, 'price.quote')}
+      </span>
+    ) : (
+      <>
+        <p class="font-bold text-fg">
+          {price.kind === 'from'
+            ? t(locale, 'price.from', { amount: formatXaf(price.amount, locale) })
+            : formatXaf(price.amount, locale)}
+        </p>
+        <p class="text-xs text-fg-muted">
+          {formatEurEquivalent(price.amount, locale, currency.eurToXaf)}
+        </p>
+      </>
+    )}
+  </div>
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-brand px-4 font-semibold text-brand-contrast"
+    data-testid="request-service"
+  >
+    <WhatsAppIcon size={18} />
+    {t(locale, 'detail.request')}
+  </a>
+</div>

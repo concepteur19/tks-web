@@ -26,6 +26,11 @@ interface Props {
   /** Faux sur les pages qui portent une barre d'action fixe (fiches, Mon séjour). */
   floatingWhatsApp?: boolean;
   jsonLd?: Record<string, unknown>[];
+  /**
+   * Page hors de la table des routes (une fiche) : son chemin dans chaque langue. Il sert à
+   * l'adresse canonique, aux liens hreflang et au sélecteur de langue.
+   */
+  alternatePaths?: Record<Locale, string>;
 }
 
 const {
@@ -38,11 +43,13 @@ const {
   ogImageAlt,
   floatingWhatsApp = true,
   jsonLd = [],
+  alternatePaths,
 } = Astro.props;
 const seo = buildSeo({
   // Chemin de la table des routes, pas Astro.url : au build, ce dernier porte une barre finale
   // (« /contact/ ») qui contredit le contrat d'adresses.
-  path: getRoutePath(routeKey, locale),
+  path: alternatePaths?.[locale] ?? getRoutePath(routeKey, locale),
+  alternatePaths,
   locale,
   title,
   description: description ?? t(locale, 'site.description'),
@@ -110,7 +117,7 @@ const ogImageUrl = new URL(share.src, `${env.siteUrl}/`).toString();
     <a class="skip-link" href="#main">
       {t(locale, 'nav.skipToContent')}
     </a>
-    <Header locale={locale} routeKey={routeKey} />
+    <Header locale={locale} routeKey={routeKey} alternatePaths={alternatePaths} />
     <main id="main" class="flex-1">
       <slot />
     </main>

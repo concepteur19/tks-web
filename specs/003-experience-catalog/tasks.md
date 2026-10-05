@@ -85,17 +85,17 @@ Celles de [002/tasks.md](../002-kibreeze-core/tasks.md) : aucun texte en dur, au
 
 ### Tests for User Story 2
 
-- [ ] T022 [P] [US2] Écrire `tests/component/gallery.test.ts` : une photo → ni compteur ni vignettes ; trois photos → compteurs « 1 / 3 » à « 3 / 3 », vignettes en liens `#photo-k` avec texte alternatif ; aucune violation axe
-- [ ] T023 [P] [US2] Écrire `tests/e2e/experience-detail.spec.ts` : fiche pirogue (fil d'Ariane, galerie, 35 000 FCFA ≈ 53,36 €, mention « Prix indicatif… », badge « Jusqu'à 8 personnes — au-delà, sur devis », inclus puis non inclus, trois options avec prix, trois « Vous aimerez aussi » dont la même catégorie d'abord) ; fiche campement (trois tarifs nommés) ; fiche kayak (aucune rubrique vide) ; aucune case à cocher, aucun « Ajouter à mon séjour » ; `/experiences/decouverte-de-kribi` → 404 ; sélecteur de langue vers la même fiche ; pas de défilement horizontal à 320 px
+- [X] T022 [P] [US2] Écrire le test de la galerie (fait en e2e dans `tests/e2e/experience-detail.spec.ts` : les images exigent le service d’images d’Astro, absent des tests de composants) : une photo → ni compteur ni vignettes ; trois photos → compteurs « 1 / 3 » à « 3 / 3 », vignettes en liens `#photo-k` avec texte alternatif ; aucune violation axe
+- [X] T023 [P] [US2] Écrire `tests/e2e/experience-detail.spec.ts` : fiche pirogue (fil d'Ariane, galerie, 35 000 FCFA ≈ 53,36 €, mention « Prix indicatif… », badge « Jusqu'à 8 personnes — au-delà, sur devis », inclus puis non inclus, trois options avec prix, trois « Vous aimerez aussi » dont la même catégorie d'abord) ; fiche campement (trois tarifs nommés) ; fiche kayak (aucune rubrique vide) ; aucune case à cocher, aucun « Ajouter à mon séjour » ; `/experiences/decouverte-de-kribi` → 404 ; sélecteur de langue vers la même fiche ; pas de défilement horizontal à 320 px
 
 ### Implementation for User Story 2
 
-- [ ] T024 [P] [US2] Créer `src/components/experiences/Gallery.astro` conforme à T022 : bande `scroll-snap`, première photo `loading="eager"` et `fetchpriority="high"`, les autres lazy
-- [ ] T025 [P] [US2] Créer `src/components/experiences/PriceBlock.astro` : prix en grand via `cardPrice`, unité, équivalent euro, mention « Prix indicatif, sous réserve de disponibilité et de confirmation par Kibreeze. », liste des `tiers` nommés, badge de capacité si `maxCapacity`, badge « Disponibilité à confirmer » si `on_request`
-- [ ] T026 [P] [US2] Créer `src/components/experiences/InfoRow.astro` (durée, capacité, lieu, chaque cellule omise si vide, la rangée entière si tout est vide) et `src/components/experiences/Conditions.astro` (« Ce qui est inclus » avec coches, « Ce qui n'est pas inclus » avec croix, « À savoir », chaque liste omise si vide)
-- [ ] T027 [P] [US2] Créer `src/components/experiences/OptionsList.astro` (« Complétez votre expérience », lignes nom — `Price`, phrase « À demander avec l'expérience », aucune case à cocher) et `src/components/experiences/CompactCard.astro` (photo, nom, prix, lien vers la fiche)
-- [ ] T028 [US2] Créer `src/components/experiences/ExperienceDetail.astro` : fil d'Ariane (`nav` nommée, liens vers la liste et la liste filtrée, page courante `aria-current="page"`), `Gallery`, nom et badge de catégorie, `PriceBlock`, `InfoRow`, description, `Conditions`, `OptionsList` (via `getOptions()`), « Vous aimerez aussi » (via `relatedExperiences`) ; deux colonnes à partir de `lg` ; chaînes FR et EN
-- [ ] T029 [US2] Créer `src/pages/experiences/[slug].astro` et `src/pages/en/experiences/[slug].astro` : `getStaticPaths` sur `getExperiences()`, rendu de `ExperienceDetail` dans `BaseLayout` avec `routeKey="experiences"` ; vérifier que le sélecteur de langue et l'adresse canonique d'une fiche utilisent le chemin de la fiche, et non celui de la liste (adapter `BaseLayout`, `LanguageSwitcher` et `buildSeo` pour accepter un chemin explicite et son équivalent dans l'autre langue : adresse canonique, liens `hreflang` fr / en / x-default et sélecteur de langue doivent viser la fiche, jamais la liste ni la 404 ; test e2e dans T023)
+- [X] T024 [P] [US2] Créer `src/components/experiences/Gallery.astro` conforme à T022 : bande `scroll-snap`, première photo `loading="eager"` et `fetchpriority="high"`, les autres lazy
+- [X] T025 [P] [US2] Créer `src/components/experiences/PriceBlock.astro` : prix en grand via `cardPrice`, unité, équivalent euro, mention « Prix indicatif, sous réserve de disponibilité et de confirmation par Kibreeze. », liste des `tiers` nommés, badge de capacité si `maxCapacity`, badge « Disponibilité à confirmer » si `on_request`
+- [X] T026 [P] [US2] Créer `src/components/experiences/InfoRow.astro` (durée, capacité, lieu, chaque cellule omise si vide, la rangée entière si tout est vide) et `src/components/experiences/Conditions.astro` (« Ce qui est inclus » avec coches, « Ce qui n'est pas inclus » avec croix, « À savoir », chaque liste omise si vide)
+- [X] T027 [P] [US2] Créer `src/components/experiences/OptionsList.astro` (« Complétez votre expérience », lignes nom — `Price`, phrase « À demander avec l'expérience », aucune case à cocher) et `src/components/experiences/CompactCard.astro` (photo, nom, prix, lien vers la fiche)
+- [X] T028 [US2] Créer `src/components/experiences/ExperienceDetail.astro` : fil d'Ariane (`nav` nommée, liens vers la liste et la liste filtrée, page courante `aria-current="page"`), `Gallery`, nom et badge de catégorie, `PriceBlock`, `InfoRow`, description, `Conditions`, `OptionsList` (via `getOptions()`), « Vous aimerez aussi » (via `relatedExperiences`) ; deux colonnes à partir de `lg` ; chaînes FR et EN
+- [X] T029 [US2] Créer `src/pages/experiences/[slug].astro` et `src/pages/en/experiences/[slug].astro` : `getStaticPaths` sur `getExperiences()`, rendu de `ExperienceDetail` dans `BaseLayout` avec `routeKey="experiences"` ; vérifier que le sélecteur de langue et l'adresse canonique d'une fiche utilisent le chemin de la fiche, et non celui de la liste (adapter `BaseLayout`, `LanguageSwitcher` et `buildSeo` pour accepter un chemin explicite et son équivalent dans l'autre langue : adresse canonique, liens `hreflang` fr / en / x-default et sélecteur de langue doivent viser la fiche, jamais la liste ni la 404 ; test e2e dans T023)
 
 **Checkpoint** : T022 et T023 passent.
 
@@ -109,12 +109,12 @@ Celles de [002/tasks.md](../002-kibreeze-core/tasks.md) : aucun texte en dur, au
 
 ### Tests for User Story 3
 
-- [ ] T030 [P] [US3] Écrire `tests/e2e/service-request.spec.ts` : en 360 px, barre fixe au-dessus de la barre à onglets, sans chevauchement, aucun bouton flottant ; le lien ouvre `wa.me` avec le message de la langue qui nomme l'expérience et contient l'adresse absolue de la fiche ; fiche sur devis → badge « Sur devis » dans la barre ; en 1 440 px, carte de demande visible après défilement ; le contenu n'est jamais masqué par la barre
+- [X] T030 [P] [US3] Écrire `tests/e2e/service-request.spec.ts` : en 360 px, barre fixe au-dessus de la barre à onglets, sans chevauchement, aucun bouton flottant ; le lien ouvre `wa.me` avec le message de la langue qui nomme l'expérience et contient l'adresse absolue de la fiche ; fiche sur devis → badge « Sur devis » dans la barre ; en 1 440 px, carte de demande visible après défilement ; le contenu n'est jamais masqué par la barre
 
 ### Implementation for User Story 3
 
-- [ ] T031 [US3] Créer `src/components/experiences/StickyRequest.astro` (variantes `bar` et `card`) : prix et équivalent euro ou badge « Sur devis », bouton « Demander ce service » vers `buildWhatsAppUrl(env.whatsappNumber, buildServiceRequestMessage(...))`, `target="_blank"`, `rel="noopener noreferrer"`
-- [ ] T032 [US3] Intégrer `StickyRequest` dans `ExperienceDetail.astro` : variante `bar` fixée sous `lg` (`bottom: var(--size-tabbar)`, `z-index: var(--z-sticky-cta)`), variante `card` en `position: sticky` dans la colonne de droite à partir de `lg` ; passer `floatingWhatsApp={false}` ; marge basse de `main` = barre à onglets + `--size-sticky-cta` sous `lg`
+- [X] T031 [US3] Créer `src/components/experiences/StickyRequest.astro` (variantes `bar` et `card`) : prix et équivalent euro ou badge « Sur devis », bouton « Demander ce service » vers `buildWhatsAppUrl(env.whatsappNumber, buildServiceRequestMessage(...))`, `target="_blank"`, `rel="noopener noreferrer"`
+- [X] T032 [US3] Intégrer `StickyRequest` dans `ExperienceDetail.astro` : variante `bar` fixée sous `lg` (`bottom: var(--size-tabbar)`, `z-index: var(--z-sticky-cta)`), variante `card` en `position: sticky` dans la colonne de droite à partir de `lg` ; passer `floatingWhatsApp={false}` ; marge basse de `main` = barre à onglets + `--size-sticky-cta` sous `lg`
 
 **Checkpoint** : T030 passe.
 
@@ -122,9 +122,9 @@ Celles de [002/tasks.md](../002-kibreeze-core/tasks.md) : aucun texte en dur, au
 
 ## Phase 6: User Story 4 — Référencement (Priority: P4)
 
-- [ ] T033 [P] [US4] Étendre `tests/e2e/seo.spec.ts` : titres et descriptions uniques sur la liste et les fiches ; `og:image` de chaque fiche = sa première photo ; JSON-LD `TouristTrip` présent sur chaque fiche, `offers` absent pour le jet-ski et le bateau de plaisance ; plan du site = pages livrées de 002 + liste + 13 fiches, × 2 langues
-- [ ] T034 [US4] Brancher dans `ExperienceDetail.astro` : titre (nom de l'expérience), description (description courte), `ogImage` (première photo), `jsonLd=[buildExperienceJsonLd(...)]`
-- [ ] T035 [US4] Ajouter `/experiences.html` et une fiche (`/experiences/excursion-en-pirogue.html`) aux adresses auditées de `lighthouserc.json`
+- [X] T033 [P] [US4] Étendre `tests/e2e/seo.spec.ts` : titres et descriptions uniques sur la liste et les fiches ; `og:image` de chaque fiche = sa première photo ; JSON-LD `TouristTrip` présent sur chaque fiche, `offers` absent pour le jet-ski et le bateau de plaisance ; plan du site = pages livrées de 002 + liste + 13 fiches, × 2 langues
+- [X] T034 [US4] Brancher dans `ExperienceDetail.astro` : titre (nom de l'expérience), description (description courte), `ogImage` (première photo), `jsonLd=[buildExperienceJsonLd(...)]`
+- [X] T035 [US4] Ajouter `/experiences.html` et une fiche (`/experiences/excursion-en-pirogue.html`) aux adresses auditées de `lighthouserc.json`
 
 ---
 

@@ -63,7 +63,7 @@ test('le filtre fonctionne sans JavaScript', async ({ browser }) => {
 test('les onglets restent visibles sous l’en-tête pendant le défilement', async ({ page }) => {
   await page.setViewportSize({ width: 360, height: 800 });
   await page.goto('/experiences');
-  await page.mouse.wheel(0, 2000);
+  await page.evaluate(() => window.scrollBy(0, 2000));
   await expect(page.getByTestId('category-tabs')).toBeInViewport();
 });
 
