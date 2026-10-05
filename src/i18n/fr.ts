@@ -75,6 +75,17 @@ export const fr = {
   'price.unit.per_trip': '/ trajet',
   'price.unit.per_service': '/ prestation',
 
+  'contact.title': 'Contactez Kibreeze',
+  'contact.description':
+    'Écrivez à Kibreeze sur WhatsApp pour organiser votre séjour à Kribi : expériences, hébergements et formules.',
+  'contact.intro':
+    'Une question, une envie, un séjour à organiser ? Le plus simple est de nous écrire sur WhatsApp.',
+  'contact.whatsapp': 'WhatsApp et téléphone',
+  'contact.location': 'Où nous trouver',
+  'contact.email': 'E-mail',
+  'contact.social': 'Réseaux sociaux',
+  'contact.about.alt': 'Palmiers sous le ciel bleu de Kribi',
+
   'notFound.title': 'Page introuvable',
   'notFound.text': "Cette page n'existe pas ou a été déplacée.",
   'notFound.back': "Retour à l'accueil",

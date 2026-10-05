@@ -110,13 +110,13 @@ Règles valables pour toutes les tâches :
 
 ### Tests for User Story 2
 
-- [ ] T037 [P] [US2] Écrire `tests/e2e/whatsapp-contact.spec.ts` : sur `/`, `/contact`, `/en/`, `/en/contact` et une 404 de chaque langue, le bouton flottant pointe vers `https://wa.me/<numéro>?text=` + message générique de la langue (FR-LAND-5), porte `target="_blank"` et un nom accessible ; en 360 px, son bord bas est au moins 16 px au-dessus du bord haut de la barre à onglets quand elle existe ; `/contact` affiche le numéro cliquable, « Kribi, Cameroun », la section `#a-propos` avec le texte complet, aucun `form`, aucun horaire, aucun e-mail ni réseau social tant que `company.json` n'en contient pas
+- [X] T037 [P] [US2] Écrire `tests/e2e/whatsapp-contact.spec.ts` : sur `/`, `/contact`, `/en/`, `/en/contact` et une 404 de chaque langue, le bouton flottant pointe vers `https://wa.me/<numéro>?text=` + message générique de la langue (FR-LAND-5), porte `target="_blank"` et un nom accessible ; en 360 px, son bord bas est au moins 16 px au-dessus du bord haut de la barre à onglets quand elle existe ; `/contact` affiche le numéro cliquable, « Kribi, Cameroun », la section `#a-propos` avec le texte complet, aucun `form`, aucun horaire, aucun e-mail ni réseau social tant que `company.json` n'en contient pas
 
 ### Implementation for User Story 2
 
-- [ ] T038 [US2] Repositionner `src/components/WhatsAppButton.astro` : cercle de 56 px, ancré en bas à droite, à `calc(var(--size-tabbar) + 16px)` du bas sous `lg` et à 16 px au-dessus, en remplaçant la valeur brute `bottom-4` par des tokens
-- [ ] T039 [US2] Créer `src/components/contact/ContactPage.astro` : titre, bouton WhatsApp générique, numéro WhatsApp affiché au format international lisible et cliquable (`wa.me`), localité, e-mail en `mailto:` et réseaux sociaux seulement s'ils sont fournis, section `id="a-propos"` « Qui sommes-nous » avec `company.about.full` et une photo de paysage ; pas de formulaire, pas d'horaires (FR-018). Ajouter les chaînes FR et EN
-- [ ] T040 [US2] Créer `src/pages/contact.astro` et `src/pages/en/contact.astro` (appel de `ContactPage`, titre et description uniques) puis ajouter `contact` à `IMPLEMENTED_ROUTES` dans `src/i18n/routes.ts`
+- [X] T038 [US2] Repositionner `src/components/WhatsAppButton.astro` : cercle de 56 px, ancré en bas à droite, à `calc(var(--size-tabbar) + 16px)` du bas sous `lg` et à 16 px au-dessus, en remplaçant la valeur brute `bottom-4` par des tokens
+- [X] T039 [US2] Créer `src/components/contact/ContactPage.astro` : titre, bouton WhatsApp générique, numéro WhatsApp affiché au format international lisible et cliquable (`wa.me`), localité, e-mail en `mailto:` et réseaux sociaux seulement s'ils sont fournis, section `id="a-propos"` « Qui sommes-nous » avec `company.about.full` et une photo de paysage ; pas de formulaire, pas d'horaires (FR-018). Ajouter les chaînes FR et EN
+- [X] T040 [US2] Créer `src/pages/contact.astro` et `src/pages/en/contact.astro` (appel de `ContactPage`, titre et description uniques) puis ajouter `contact` à `IMPLEMENTED_ROUTES` dans `src/i18n/routes.ts`
 
 **Checkpoint** : T037 passe ; le lien « En savoir plus » de l'accueil mène à `/contact#a-propos`.
 

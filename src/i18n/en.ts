@@ -74,6 +74,17 @@ export const en = {
   'price.unit.per_trip': '/ trip',
   'price.unit.per_service': '/ service',
 
+  'contact.title': 'Contact Kibreeze',
+  'contact.description':
+    'Message Kibreeze on WhatsApp to plan your stay in Kribi: experiences, accommodation and packages.',
+  'contact.intro':
+    'A question, an idea, a trip to plan? The easiest way is to message us on WhatsApp.',
+  'contact.whatsapp': 'WhatsApp and phone',
+  'contact.location': 'Where to find us',
+  'contact.email': 'Email',
+  'contact.social': 'Social media',
+  'contact.about.alt': 'Palm trees under the blue sky of Kribi',
+
   'notFound.title': 'Page not found',
   'notFound.text': 'This page does not exist or has been moved.',
   'notFound.back': 'Back to home',
