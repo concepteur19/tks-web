@@ -283,7 +283,9 @@ Franck a validé les écrans générés dans Stitch. L'information a été relay
 - **Angles** : 4 px au plus, cercle réservé au bouton WhatsApp flottant et aux pastilles de compteur.
 - **Logo WhatsApp** : tracé officiel, déjà utilisé par `src/components/WhatsAppButton.astro`.
 
-**Photos du village Bagyeli** : les personnes photographiées, dont des enfants, ont donné leur accord. Information relayée par Zobel le 2026-10-04, sans message écrit de Franck. Les 5 photos deviennent utilisables ; garder une trace écrite des accords reste recommandé, surtout pour les mineurs.
+**Photos du village Bagyeli** : les personnes photographiées ont donné leur accord (Zobel, 2026-10-04). Les 5 photos sont utilisables.
+
+**Entreprise éditrice** : en cours de création (Zobel, 2026-10-05). Les mentions légales se compléteront quand elle existera ; la mise en ligne n'en dépend pas.
 
 **Pages légales** : Zobel demande le 2026-10-04 des mentions légales, une politique de confidentialité avec gestion des cookies et des conditions d'utilisation dès la feature 002. L'identité juridique de l'éditeur reste à fournir par Franck (K3).
 

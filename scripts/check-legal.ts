@@ -1,8 +1,7 @@
 /**
  * Contrôle de l'identité légale de l'éditeur — spec 002, FR-029, research.md décision 8.
- * Avertit dans tous les builds et n'échoue jamais : le site en adresse provisoire doit rester
- * publiable. La mise en ligne sous kibreeze.com exige une sortie vide (checklist de lancement
- * de specs/002-kibreeze-core/quickstart.md).
+ * Information seulement, n'échoue jamais : l'entreprise éditrice est en cours de création et la
+ * mise en ligne n'en dépend pas (décision du 2026-10-05). Les champs se compléteront quand elle existera.
  */
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -37,9 +36,9 @@ function main(): void {
     console.info('[légal] identité de l’éditeur complète dans les mentions légales');
     return;
   }
-  console.warn(
-    `[légal] mentions légales incomplètes, champs manquants dans ${file} : ${missing.join(', ')}. ` +
-      'Publiable en adresse provisoire, bloquant pour la mise en ligne sous kibreeze.com.',
+  console.info(
+    `[légal] champs d'identité de l'éditeur non renseignés dans ${file} : ${missing.join(', ')} ` +
+      '(entreprise en cours de création).',
   );
 }
 

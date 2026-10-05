@@ -35,7 +35,7 @@ describe('contrôle des mentions légales', () => {
     ).toEqual([]);
   });
 
-  it('avertit sans jamais faire échouer la construction', () => {
+  it('informe sans jamais faire échouer la construction', () => {
     const result = spawnSync(
       process.execPath,
       ['--experimental-strip-types', 'scripts/check-legal.ts'],
@@ -44,6 +44,6 @@ describe('contrôle des mentions légales', () => {
       },
     );
     expect(result.status).toBe(0);
-    expect(result.stderr + result.stdout).toMatch(/mentions légales/);
+    expect(result.stderr + result.stdout).toMatch(/entreprise en cours de création/);
   });
 });

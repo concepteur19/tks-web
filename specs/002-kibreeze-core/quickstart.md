@@ -50,10 +50,7 @@ Sur un téléphone réel ou en émulation 360 × 800, puis en 1 440 × 1 024.
 
 Ne s'applique pas à l'adresse provisoire `*.pages.dev`.
 
-- [ ] `npm run check:legal` ne signale plus aucun champ manquant (identité de l'éditeur, question K3)
-- [ ] Textes légaux relus par un professionnel du droit
 - [ ] `PUBLIC_SITE_URL` réglée sur `https://kibreeze.com` dans l'environnement de production
-- [ ] Trace écrite des accords des personnes photographiées au campement Bagyeli conservée par Franck
 - [ ] Relecture de l'accueil par Franck sur son téléphone (SC-008)
 
 ## Résultats relevés

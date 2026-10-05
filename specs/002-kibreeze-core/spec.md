@@ -93,7 +93,7 @@ Quand un lien du site est partagé sur WhatsApp ou sur un réseau social, l'aper
 
 Un visiteur, souvent européen, veut savoir qui édite le site, ce qu'il advient de ses données et sous quelles conditions les prix et les demandes de réservation sont présentés. Depuis le pied de page de n'importe quelle page, il accède aux mentions légales, à la politique de confidentialité, qui traite aussi des cookies, et aux conditions d'utilisation, dans sa langue.
 
-**Why this priority**: Ces pages sont obligatoires avant la mise en ligne sous kibreeze.com et rassurent une clientèle étrangère qui réserve à distance. Elles n'apportent pas de conversion directe, d'où leur rang, mais elles bloquent le lancement si elles manquent.
+**Why this priority**: Ces pages rassurent une clientèle étrangère qui réserve à distance. Elles n'apportent pas de conversion directe, d'où leur rang.
 
 **Independent Test**: Depuis le pied de page, ouvrir chacune des trois pages dans chaque langue, et vérifier que l'éditeur, l'hébergeur, les données traitées, l'absence de cookie de suivi et les conditions d'utilisation y figurent.
 
@@ -119,7 +119,7 @@ Un visiteur, souvent européen, veut savoir qui édite le site, ce qu'il advient
 - **JavaScript désactivé** : tout le contenu de l'accueil reste lisible, la navigation et les boutons WhatsApp restent des liens qui fonctionnent. Le carrousel des expériences mises en avant reste parcourable par défilement.
 - **Écran très étroit (320 px) ou très large (plus de 1 440 px)** : pas de défilement horizontal de la page ; au-delà de 1 200 px, le contenu reste centré et le hero ne s'étire pas démesurément en hauteur.
 - **Préférence « réduire les animations »** : le chevron animé du hero et les éventuelles transitions sont désactivés.
-- **Information légale manquante** : tant que Franck n'a pas fourni l'identité juridique de l'éditeur (raison sociale, forme, numéro d'immatriculation, adresse, responsable de la publication), la page des mentions légales affiche les informations disponibles et omet les autres ; la mise en ligne sous kibreeze.com reste bloquée tant que ces informations manquent.
+- **Information légale manquante** : tant que Franck n'a pas fourni l'identité juridique de l'éditeur (raison sociale, forme, numéro d'immatriculation, adresse, responsable de la publication), la page des mentions légales affiche les informations disponibles et omet les autres. L'entreprise est en cours de création ; la mise en ligne n'en dépend pas (décision de Zobel, 2026-10-05).
 - **Ajout futur d'un traceur** : si une mesure d'audience ou un service tiers soumis à consentement est ajouté plus tard, un mécanisme de consentement préalable devient obligatoire avant tout dépôt, et la section cookies est mise à jour dans la même modification.
 - **Numéro WhatsApp absent ou mal formé à la construction** : le comportement de 001 s'applique ([contracts/env.md](../001-project-foundation/contracts/env.md)).
 
@@ -212,7 +212,7 @@ Un visiteur, souvent européen, veut savoir qui édite le site, ce qu'il advient
 - **À propos** : il n'existe pas de page À propos distincte. Le lien « À propos » du pied de page et le lien « En savoir plus » de l'accueil mènent à la section de présentation de la page Contact, qui porte le texte complet de Franck. Choix validé par Zobel le 2026-10-04.
 - **Téléphone** : le numéro d'appel est le même que le numéro WhatsApp (client K6) ; il n'est donc pas affiché séparément (FR-WA-7).
 - **Hero** : une photographie, pas une vidéo. La vidéo d'accueil reste conditionnée à la fourniture d'une vidéo courte et légère (client G4).
-- **Photos** : seules les 93 photos appartenant à Franck sont utilisées. Les photos du village Bagyeli montrent des personnes identifiables, dont des enfants ; leur accord a été obtenu, information relayée par Zobel le 2026-10-04, sans trace écrite de Franck à ce jour. Ces photos sont donc utilisables pour la carte Campement Bagyeli. Garder une trace écrite de ces accords, en particulier pour les mineurs, reste recommandé.
+- **Photos** : seules les 93 photos appartenant à Franck sont utilisées. Les photos du village Bagyeli montrent des personnes identifiables, dont des enfants ; leur accord a été obtenu (Zobel, 2026-10-04). Ces photos sont donc utilisables pour la carte Campement Bagyeli.
 - **Cookies** : le site ne dépose aucun cookie de suivi et n'a pas de mesure d'audience en V1 (TR-70). La sélection Mon séjour, conservée sur l'appareil à partir de la feature 004, est un stockage indispensable au service demandé et ne requiert pas de consentement. D'où l'absence de bandeau, conforme au brief validé.
 - **Cadre juridique** : les textes visent le droit camerounais, celui de l'éditeur, et le RGPD européen, parce que le site s'adresse d'abord à des touristes étrangers, dont des Européens. Ils sont rédigés comme une base sérieuse, pas comme un avis juridique : une relecture par un professionnel du droit est recommandée avant le lancement.
 - **Hébergeur** : Cloudflare, hébergeur de production retenu (ADR de la feature 001).
@@ -227,7 +227,7 @@ Un visiteur, souvent européen, veut savoir qui édite le site, ce qu'il advient
 - Écrans validés dans [docs/design-exports/](../../docs/design-exports/README.md).
 - Logos Kibreeze nettoyés dans le dépôt ; logo TKS® en lettres seules.
 - Photos triées de Franck dans `Elements/tri-par-activite/`, hors photos filigranées.
-- Identité légale de l'éditeur, à fournir par Franck, qui dépend de sa réponse sur la relation juridique entre Kibreeze et TKS® (question K3). Bloquante pour le lancement, pas pour le développement.
+- Identité légale de l'éditeur : l'entreprise est en cours de création, les champs seront complétés quand elle existera. Non bloquant.
 
 ## Out of Scope
 

@@ -34,7 +34,7 @@ La section cookies est une ancre `#cookies` de la page confidentialité, pas une
 
 **Decision**: les photos utilisées sont copiées depuis `Elements/tri-par-activite/` vers `src/assets/photos/<sujet>/`, redimensionnées une fois à 2 400 px de large au plus et versionnées. Le rendu passe par `<Picture>` d'`astro:assets`, formats AVIF et WebP avec repli JPEG, tailles responsives. Le schéma `services` passe du chemin texte au helper `image()` d'Astro, comme 001 l'avait annoncé pour 003 : 002 publie les premières expériences avec photo, la bascule a lieu ici.
 
-Choix des photos, faits au moment de l'implémentation en regardant les fichiers, sous trois contraintes : aucun fichier `_FILIGRANE`, photos du village Bagyeli autorisées (accord relayé le 2026-10-04), et repli sur un paysage de Kribi quand le sujet manque. La seule photo de croisière (`croisiere/L6-08.jpg`) a été jugée inutilisable lors du tri : la carte Croisière prend un coucher de soleil du dossier `ambiance-hero-plages-couchers/`.
+Choix des photos, faits au moment de l'implémentation en regardant les fichiers, sous trois contraintes : aucun fichier `_FILIGRANE`, photos du village Bagyeli autorisées (accord des personnes photographiées, 2026-10-04), et repli sur un paysage de Kribi quand le sujet manque. La seule photo de croisière (`croisiere/L6-08.jpg`) a été jugée inutilisable lors du tri : la carte Croisière prend un coucher de soleil du dossier `ambiance-hero-plages-couchers/`.
 
 **Rationale**: `Elements/` est ignoré par Git (décision du 2026-09-25) ; le build en CI et sur Cloudflare a besoin des fichiers dans le dépôt. Les originaux font jusqu'à plusieurs Mo, le redimensionnement préalable garde le dépôt léger (cible : moins de 10 Mo pour cette feature). FR-SEO-4 et SC-001 exigent des formats modernes.
 
@@ -90,7 +90,7 @@ Nombre d'expériences par catégorie : calculé à partir de la collection `serv
 
 Rédaction : textes rédigés par nos soins, structurés par les obligations du droit camerounais (loi n° 2010/012 sur la cybersécurité et la cybercriminalité, loi n° 2010/021 sur le commerce électronique, loi n° 2024/017 sur la protection des données à caractère personnel) et par le RGPD, applicable parce que le site vise des visiteurs situés dans l'Union européenne. Hébergeur : Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, États-Unis. Les textes portent une date de mise à jour et ne constituent pas un avis juridique ; une relecture professionnelle est recommandée avant le lancement.
 
-Contrôle de lancement : un script `scripts/check-legal.ts` liste les champs d'identité manquants dans `company.json`. Il avertit dans tous les builds et **n'échoue pas** : le site en adresse provisoire doit rester publiable. La mise en ligne sous kibreeze.com est conditionnée à une sortie vide, consignée dans la checklist de lancement de [quickstart.md](./quickstart.md).
+Contrôle : un script `scripts/check-legal.ts` liste, pour information, les champs d'identité non renseignés dans `company.json`. Il **n'échoue jamais** : l'entreprise est en cours de création et la mise en ligne n'en dépend pas (Zobel, 2026-10-05).
 
 **Rationale**: des pages de prose longue sont du contenu éditorial, mieux servi par Markdown que par des dictionnaires de chaînes. Séparer l'identité de l'éditeur permet de compléter les mentions légales en modifiant un seul fichier de données, sans toucher aux textes.
 
