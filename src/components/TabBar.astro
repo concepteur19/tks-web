@@ -1,0 +1,55 @@
+---
+/**
+ * Barre à onglets mobile (FR-002, FR-004) : seules les pages livrées y figurent, et elle
+ * se complète d'elle-même quand une feature ajoute sa route à IMPLEMENTED_ROUTES.
+ * Masquée à partir de lg, où la navigation passe dans l'en-tête.
+ */
+import { TAB_BAR, visible } from '../i18n/navigation.ts';
+import { getRoutePath, type RouteKey } from '../i18n/routes.ts';
+import { t } from '../i18n/t.ts';
+import type { Locale } from '../i18n/types.ts';
+import Icon, { type IconName } from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+  routeKey: RouteKey;
+}
+
+const { locale, routeKey } = Astro.props;
+const ICONS: Record<(typeof TAB_BAR)[number], IconName> = {
+  home: 'home',
+  experiences: 'explore',
+  accommodation: 'hotel',
+  packages: 'loyalty',
+  stay: 'luggage',
+};
+const tabs = visible(TAB_BAR);
+---
+
+<nav
+  aria-label={t(locale, 'nav.mobileLabel')}
+  class="fixed inset-x-0 bottom-0 h-(--size-tabbar) border-t border-border bg-bg lg:hidden"
+  style="z-index: var(--z-tabbar)"
+  data-testid="tab-bar"
+>
+  <ul class="mx-auto flex h-full max-w-(--size-content) items-stretch justify-around">
+    {tabs.map((key) => {
+      const active = key === routeKey;
+      return (
+        <li class="flex flex-1">
+          <a
+            href={getRoutePath(key, locale)}
+            aria-current={active ? 'page' : undefined}
+            class:list={[
+              'flex flex-1 flex-col items-center justify-center gap-1 text-xs leading-none',
+              active ? 'font-bold text-brand' : 'text-fg-muted',
+            ]}
+          >
+            <Icon name={ICONS[key]} />
+            <span>{t(locale, `nav.${key}`)}</span>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</nav>

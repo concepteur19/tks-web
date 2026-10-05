@@ -1,0 +1,42 @@
+{
+  "title": {
+    "fr": "Chutes de la Lobé",
+    "en": "Lobé Falls"
+  },
+  "section": "experience",
+  "categoryId": "nature-decouverte",
+  "shortDescription": {
+    "fr": "L'une des rares cascades au monde à se jeter dans l'océan",
+    "en": "One of the few waterfalls in the world that flow straight into the ocean"
+  },
+  "description": {
+    "fr": "Visite guidée des chutes de la Lobé, là où la rivière se jette dans l'océan Atlantique, à quelques minutes de Kribi.",
+    "en": "A guided visit to the Lobé Falls, where the river pours into the Atlantic Ocean, a few minutes from Kribi."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/chutes-de-la-lobe.jpg",
+      "alt": {
+        "fr": "Les chutes de la Lobé dévalent les rochers au milieu de la végétation",
+        "en": "The Lobé Falls tumbling over rocks amid lush vegetation"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 5000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "featured": true,
+  "order": 10
+}

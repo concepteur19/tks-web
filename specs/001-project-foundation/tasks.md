@@ -152,7 +152,7 @@ Projet unique, racine du dépôt. Code dans `src/`, tests dans `tests/`, contene
 - [X] T048 [P] Mettre à jour [quickstart.md](./quickstart.md) si une commande a changé pendant l'implémentation
 - [X] T049 Vérifier la publication sur l'hébergeur : construction réussie, accueil servi dans les deux langues, page d'erreur anglaise bien servie sous `/en/`, variables correctes
 - [X] T050 [P] Relever les scores d'audit sur `/` et `/en/` en ligne et les consigner dans [quickstart.md](./quickstart.md)
-- [ ] T051 Ouvrir la proposition de modification de `001-project-foundation` vers `main` et vérifier que la vérification automatique s'exécute et conditionne la fusion
+- [X] T051 Ouvrir la proposition de modification de `001-project-foundation` vers `main` et vérifier que la vérification automatique s'exécute et conditionne la fusion
 
 ---
 

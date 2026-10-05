@@ -1,6 +1,14 @@
 ---
-import { t } from '../i18n/t.ts';
+/**
+ * Pied de page (FR-005, FR-006, FR-LAND-6) : logo crème sur fond sombre, liens des pages
+ * livrées, quatre marques de Breezy Groupe dont seule Kibreeze est un lien, liens légaux.
+ */
+import { FOOTER_LINKS, isImplemented, LEGAL_LINKS, visible } from '../i18n/navigation.ts';
+import { getRoutePath } from '../i18n/routes.ts';
+import { localize, t } from '../i18n/t.ts';
 import type { Locale } from '../i18n/types.ts';
+import { company } from '../lib/site.ts';
+import BrandLogo from './BrandLogo.astro';
 
 interface Props {
   locale: Locale;
@@ -8,15 +16,95 @@ interface Props {
 
 const { locale } = Astro.props;
 const year = new Date().getFullYear();
+
+const pages = visible(FOOTER_LINKS).map((key) => ({
+  href: getRoutePath(key, locale),
+  label: t(locale, `nav.${key}`),
+}));
+if (isImplemented('contact')) {
+  // « À propos » vit sur la page Contact (spec 002, hypothèse validée le 2026-10-04).
+  const contactIndex = pages.findIndex((page) => page.href === getRoutePath('contact', locale));
+  pages.splice(contactIndex, 0, {
+    href: `${getRoutePath('contact', locale)}#a-propos`,
+    label: t(locale, 'nav.about'),
+  });
+}
+const legal = visible(LEGAL_LINKS);
+// en-GB : pas de virgule d'Oxford, comme dans la ligne validée « TKS®, iBreezy and Breezy Delivery ».
+const LIST_LOCALES = { fr: 'fr-FR', en: 'en-GB' } as const;
+const sisters = new Intl.ListFormat(LIST_LOCALES[locale], { type: 'conjunction' }).format(
+  company.sisterBrands,
+);
+const [groupBefore = '', groupAfter = ''] = t(locale, 'footer.group', {
+  group: company.group,
+  sisters,
+}).split('{brand}');
+const NETWORKS = { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok' } as const;
 ---
 
-<footer class="mt-16 border-t border-border bg-bg-muted">
-  <div class="mx-auto max-w-5xl px-4 py-8 text-sm text-fg-muted">
-    <p class="font-display text-base font-bold text-brand">{t(locale, 'site.name')}</p>
-    <p class="font-script text-lg">{t(locale, 'site.tagline')}</p>
-    <p class="mt-4">{t(locale, 'footer.location')}</p>
-    <p class="mt-1">
-      © {year} {t(locale, 'site.name')} — {t(locale, 'footer.rights')}
-    </p>
+<footer class="bg-footer-bg text-brand-contrast" data-testid="site-footer">
+  <div class="mx-auto max-w-(--size-content) px-4 py-10">
+    <a href={getRoutePath('home', locale)} class="inline-block" aria-label={company.brand}>
+      <BrandLogo variant="full" class="h-18 w-auto" label="" />
+    </a>
+    <p class="mt-2 font-script text-xl">{t(locale, 'site.tagline')}</p>
+
+    <div class="mt-6 grid grid-cols-2 gap-6 text-sm sm:grid-cols-3">
+      {pages.length > 0 && (
+        <nav aria-label={t(locale, 'nav.footerLabel')} class="col-span-2">
+          <ul class="grid grid-cols-2 gap-x-6 gap-y-1">
+            {pages.map((page) => (
+              <li>
+                <a href={page.href} class="inline-flex min-h-11 items-center hover:underline">
+                  {page.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+      <div class="flex flex-col gap-1">
+        <p class="flex min-h-11 items-center">{localize(company.locality, locale)}</p>
+        {company.social.map((account) => (
+          <a
+            href={account.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-11 items-center hover:underline"
+          >
+            {NETWORKS[account.network]}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-8 border-t border-fg-muted pt-4 text-xs leading-relaxed">
+      <p>
+        {groupBefore}
+        <a href={getRoutePath('home', locale)} class="underline">
+          {company.brand}
+        </a>
+        {groupAfter}
+      </p>
+      {legal.length > 0 && (
+        <nav aria-label={t(locale, 'nav.legalLabel')} class="mt-2">
+          <ul class="flex flex-wrap gap-x-4">
+            {legal.map((key) => (
+              <li>
+                <a
+                  href={getRoutePath(key, locale)}
+                  class="inline-flex min-h-11 items-center hover:underline"
+                >
+                  {t(locale, `nav.${key}`)}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+      <p class="mt-2">
+        © {year} {company.brand}
+      </p>
+    </div>
   </div>
 </footer>

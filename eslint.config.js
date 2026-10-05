@@ -20,6 +20,9 @@ export default tseslint.config(
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
+      // Une zone qui défile sans élément focalisable doit l'être elle-même pour le clavier
+      // (axe, scrollable-region-focusable) : c'est le rôle « region » nommé.
+      'astro/jsx-a11y/no-noninteractive-tabindex': ['error', { roles: ['tabpanel', 'region'] }],
     },
   },
   {

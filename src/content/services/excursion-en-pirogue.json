@@ -1,5 +1,8 @@
 {
-  "title": { "fr": "Excursion en pirogue", "en": "Dugout canoe trip" },
+  "title": {
+    "fr": "Excursion en pirogue",
+    "en": "Dugout canoe trip"
+  },
   "section": "experience",
   "categoryId": "nature-decouverte",
   "shortDescription": {
@@ -12,30 +15,64 @@
   },
   "images": [
     {
-      "src": "excursion-en-pirogue/pirogue-lobe.jpg",
+      "src": "../../assets/photos/experiences/excursion-en-pirogue.jpg",
       "alt": {
-        "fr": "Pirogue sur la Lobé bordée de végétation dense",
-        "en": "Dugout canoe on the Lobé river lined with dense vegetation"
+        "fr": "Une pirogue glisse sur la Lobé, entre forêt et reflets",
+        "en": "A dugout canoe glides along the Lobé between forest and reflections"
       }
     }
   ],
-  "pricing": { "kind": "fixed", "amount": 35000, "unit": "per_group", "maxCapacity": 8 },
-  "quantity": { "dimensions": [] },
-  "duration": { "fr": "2 à 3 heures", "en": "2 to 3 hours" },
-  "capacity": { "min": 1, "max": 8 },
+  "pricing": {
+    "kind": "fixed",
+    "amount": 35000,
+    "unit": "per_group",
+    "maxCapacity": 8
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "duration": {
+    "fr": "2 à 3 heures",
+    "en": "2 to 3 hours"
+  },
+  "capacity": {
+    "min": 1,
+    "max": 8
+  },
   "conditions": {
     "included": [
-      { "fr": "Pirogue et équipement de sécurité", "en": "Canoe and safety equipment" },
-      { "fr": "Piroguier local", "en": "Local boatman" },
-      { "fr": "Gilets de sauvetage", "en": "Life jackets" },
-      { "fr": "Rafraîchissements", "en": "Refreshments" }
+      {
+        "fr": "Pirogue et équipement de sécurité",
+        "en": "Canoe and safety equipment"
+      },
+      {
+        "fr": "Piroguier local",
+        "en": "Local boatman"
+      },
+      {
+        "fr": "Gilets de sauvetage",
+        "en": "Life jackets"
+      },
+      {
+        "fr": "Rafraîchissements",
+        "en": "Refreshments"
+      }
     ],
     "excluded": [
-      { "fr": "Pourboires", "en": "Tips" },
-      { "fr": "Dépenses personnelles", "en": "Personal expenses" },
-      { "fr": "Transport jusqu'au point d'embarquement", "en": "Transport to the boarding point" }
+      {
+        "fr": "Pourboires",
+        "en": "Tips"
+      },
+      {
+        "fr": "Dépenses personnelles",
+        "en": "Personal expenses"
+      },
+      {
+        "fr": "Transport jusqu'au point d'embarquement",
+        "en": "Transport to the boarding point"
+      }
     ]
   },
-  "availability": "disabled",
-  "provisional": true
+  "featured": true,
+  "order": 20
 }

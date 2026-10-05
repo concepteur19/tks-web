@@ -14,8 +14,8 @@ La découpe ci-dessous remplace celle du 2026-09-13, qui organisait le travail a
 
 | # | Feature | Contenu | Exigences | Dépend de | Bloqué par le client ? |
 |---|---|---|---|---|---|
-| 001 | `project-foundation` | **Livrée.** Scaffold Astro + React + Tailwind v4, TypeScript strict, i18n FR / EN, `lib/env`, Docker, CI, déploiement Cloudflare Pages. Reste à rebrander : dictionnaires, table de routes, nom du paquet | TR-*, FR-I18N-1 à 4, 8 | — | Non |
-| 002 | `kibreeze-core` | Layout, barre du haut (logo, FR/EN, WhatsApp), **barre à onglets mobile**, pied de page aux quatre marques de Breezy Groupe, accueil touristique, page Contact, 404, SEO de base | FR-LAND-*, FR-SEO-1/2/3 | 001 | Non : textes fournis, photos suffisantes |
+| 001 | `project-foundation` | **Livrée** (PR #2). Scaffold Astro + React + Tailwind v4, TypeScript strict, i18n FR / EN, `lib/env`, Docker, CI, déploiement Cloudflare Pages | TR-*, FR-I18N-1 à 4, 8 | — | Non |
+| 002 | `kibreeze-core` | **Implémentée** (branche `002-kibreeze-core`, PR à ouvrir). Layout, barre du haut (logo, FR/EN, WhatsApp), **barre à onglets mobile**, pied de page aux quatre marques de Breezy Groupe, accueil touristique, page Contact, 404, SEO de base, **pages légales** | FR-LAND-*, FR-SEO-1/2/3 | 001 | Non : textes fournis, photos suffisantes |
 | 003 | `experience-catalog` | Collections `experiences` / `categories`, page Expériences avec filtres par catégorie, fiches détail, **options à cocher** (guide, maître-nageur, musée), images optimisées, JSON-LD | FR-CAT-*, FR-SEO-4 | 002 | Non : tarifs reçus le 2026-09-26, sauf jet-ski et quad |
 | 004 | `stay-and-estimate` | Store nanostores persistant, ajout au séjour, steppers, badge, page Mon séjour et ses états, `computeEstimate`, **conversion en euros**, `buildSelectionMessage`, CTA WhatsApp | FR-SEL-*, FR-EST-*, FR-WA-*, FR-I18N-5/6/7 | 003 | Non |
 | 005 | `accommodation-and-packages` | Hébergements **par type et par palier de budget** (pas de logement nommé), packages Kibreeze, ajout des deux au séjour | FR-HEB-*, FR-PACK-* | 004 | Partiellement : photos par budget attendues, prix des packages complets manquants |

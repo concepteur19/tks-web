@@ -1,0 +1,52 @@
+---
+/**
+ * Lien vers une page qui peut ne pas être livrée (FR-009, contracts/shell.md).
+ * Page livrée : lien interne. Sinon : conversation WhatsApp préremplie, signalée par
+ * l'icône WhatsApp et par un nom accessible qui le dit.
+ */
+import { resolveLink } from '../i18n/navigation.ts';
+import type { RouteKey } from '../i18n/routes.ts';
+import { t } from '../i18n/t.ts';
+import type { Locale } from '../i18n/types.ts';
+import { env } from '../lib/env.ts';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+
+interface Props {
+  routeKey: RouteKey;
+  locale: Locale;
+  /** Ancre ajoutée à un lien interne, ex. « a-propos ». */
+  hash?: string;
+  /** Segment ajouté à un lien interne, ex. le slug d'une fiche sous /experiences. */
+  subpath?: string;
+  class?: string;
+  /** Masque l'icône WhatsApp quand le lien enveloppe une carte qui la montre déjà. */
+  hideIcon?: boolean;
+  'data-testid'?: string;
+}
+
+const {
+  routeKey,
+  locale,
+  hash,
+  subpath,
+  class: className,
+  hideIcon = false,
+  ...rest
+} = Astro.props;
+const link = resolveLink(routeKey, locale, env.whatsappNumber);
+const isWhatsApp = link.kind === 'whatsapp';
+const base = !isWhatsApp && subpath ? `${link.href.replace(/\/$/, '')}/${subpath}` : link.href;
+const href = !isWhatsApp && hash ? `${base}#${hash}` : base;
+---
+
+<a
+  href={href}
+  class={className}
+  data-link-kind={link.kind}
+  {...(isWhatsApp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+  {...rest}
+>
+  <slot />
+  {isWhatsApp && !hideIcon && <WhatsAppIcon size={18} class="inline-block shrink-0" />}
+  {isWhatsApp && <span class="sr-only"> ({t(locale, 'link.viaWhatsapp')})</span>}
+</a>

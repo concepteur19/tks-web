@@ -1,0 +1,46 @@
+---
+/** Accueil : sections dans l'ordre de FR-010 et de la maquette 01-accueil. */
+import { getImage } from 'astro:assets';
+import logo from '../../assets/brand/kibreeze-logo.png';
+import { t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { env } from '../../lib/env.ts';
+import { buildLocalBusinessJsonLd } from '../../lib/seo.ts';
+import { company } from '../../lib/site.ts';
+import About from './About.astro';
+import AccommodationTeaser from './AccommodationTeaser.astro';
+import CategoryCards from './CategoryCards.astro';
+import FeaturedCarousel from './FeaturedCarousel.astro';
+import Hero from './Hero.astro';
+import ImmersiveStrip from './ImmersiveStrip.astro';
+import MobilityStrip from './MobilityStrip.astro';
+import PackagesTeaser from './PackagesTeaser.astro';
+import WhatsAppCta from './WhatsAppCta.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const logoImage = await getImage({ src: logo, width: 512, format: 'png' });
+const jsonLd = buildLocalBusinessJsonLd({
+  company,
+  locale,
+  siteUrl: env.siteUrl,
+  phone: env.whatsappNumber,
+  logoUrl: new URL(logoImage.src, `${env.siteUrl}/`).toString(),
+});
+---
+
+<BaseLayout locale={locale} routeKey="home" title={t(locale, 'home.title')} jsonLd={[jsonLd]}>
+  <Hero locale={locale} />
+  <CategoryCards locale={locale} />
+  <FeaturedCarousel locale={locale} />
+  <ImmersiveStrip locale={locale} />
+  <AccommodationTeaser locale={locale} />
+  <PackagesTeaser locale={locale} />
+  <MobilityStrip locale={locale} />
+  <About locale={locale} />
+  <WhatsAppCta locale={locale} />
+</BaseLayout>

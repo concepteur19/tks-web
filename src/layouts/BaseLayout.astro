@@ -1,23 +1,48 @@
 ---
 import '../styles/global.css';
-import Nav from '../components/Nav.astro';
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import heroPhoto from '../assets/photos/hero/plage-coucher-de-soleil.jpg';
+import Header from '../components/Header.astro';
+import TabBar from '../components/TabBar.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { getRoutePath, type RouteKey } from '../i18n/routes.ts';
 import { t } from '../i18n/t.ts';
 import type { Locale } from '../i18n/types.ts';
 import { env } from '../lib/env.ts';
 import { buildSeo } from '../lib/seo.ts';
 
+/** Contrat : specs/002-kibreeze-core/contracts/shell.md */
 interface Props {
   locale: Locale;
+  routeKey: RouteKey;
   title: string;
   description?: string;
   noindex?: boolean;
+  /** Image de partage ; par défaut, la photo du hero recadrée en 1 200 × 630. */
+  ogImage?: ImageMetadata;
+  ogImageAlt?: string;
+  /** Faux sur les pages qui portent une barre d'action fixe (fiches, Mon séjour). */
+  floatingWhatsApp?: boolean;
+  jsonLd?: Record<string, unknown>[];
 }
 
-const { locale, title, description, noindex = false } = Astro.props;
+const {
+  locale,
+  routeKey,
+  title,
+  description,
+  noindex = false,
+  ogImage = heroPhoto,
+  ogImageAlt,
+  floatingWhatsApp = true,
+  jsonLd = [],
+} = Astro.props;
 const seo = buildSeo({
-  path: Astro.url.pathname,
+  // Chemin de la table des routes, pas Astro.url : au build, ce dernier porte une barre finale
+  // (« /contact/ ») qui contredit le contrat d'adresses.
+  path: getRoutePath(routeKey, locale),
   locale,
   title,
   description: description ?? t(locale, 'site.description'),
@@ -25,6 +50,16 @@ const seo = buildSeo({
   noindex,
 });
 const pageTitle = `${title} · ${t(locale, 'site.name')}`;
+const OG_WIDTH = 1200;
+const OG_HEIGHT = 630;
+const share = await getImage({
+  src: ogImage,
+  width: OG_WIDTH,
+  height: OG_HEIGHT,
+  fit: 'cover',
+  format: 'jpg',
+});
+const ogImageUrl = new URL(share.src, `${env.siteUrl}/`).toString();
 ---
 
 <!doctype html>
@@ -62,17 +97,25 @@ const pageTitle = `${title} · ${t(locale, 'site.name')}`;
     {seo.ogLocaleAlternate.map((value) => (
       <meta property="og:locale:alternate" content={value} />
     ))}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content={String(OG_WIDTH)} />
+    <meta property="og:image:height" content={String(OG_HEIGHT)} />
+    <meta property="og:image:alt" content={ogImageAlt ?? t(locale, 'home.hero.alt')} />
     <meta name="twitter:card" content="summary_large_image" />
+    {jsonLd.map((data) => (
+      <script type="application/ld+json" set:html={JSON.stringify(data)}></script>
+    ))}
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="flex min-h-screen flex-col pb-(--size-tabbar) lg:pb-0">
     <a class="skip-link" href="#main">
       {t(locale, 'nav.skipToContent')}
     </a>
-    <Nav locale={locale} />
+    <Header locale={locale} routeKey={routeKey} />
     <main id="main" class="flex-1">
       <slot />
     </main>
     <Footer locale={locale} />
-    <WhatsAppButton locale={locale} />
+    <TabBar locale={locale} routeKey={routeKey} />
+    {floatingWhatsApp && <WhatsAppButton locale={locale} />}
   </body>
 </html>

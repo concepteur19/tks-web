@@ -1,0 +1,18 @@
+{
+  "name": {
+    "fr": "Détente",
+    "en": "Relaxation"
+  },
+  "description": {
+    "fr": "Croisière, feu de plage et couchers de soleil sur l'océan",
+    "en": "Boat cruise, beach bonfire and sunsets over the ocean"
+  },
+  "order": 30,
+  "image": {
+    "src": "../../assets/photos/categories/detente.jpg",
+    "alt": {
+      "fr": "Pirogues de pêcheurs sur la plage, sous les palmiers, au soleil couchant",
+      "en": "Fishing canoes on the beach under palm trees at sunset"
+    }
+  }
+}

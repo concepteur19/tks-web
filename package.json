@@ -10,7 +10,7 @@
     "dev": "astro dev",
     "prebuild": "npm run check:content",
     "build": "astro build",
-    "build:prod": "npm run check:i18n -- --production && npm run build",
+    "build:prod": "npm run check:i18n -- --production && npm run check:legal && npm run build",
     "preview": "astro preview",
     "check": "npm run lint && npm run format:check && npm run typecheck && npm run tokens:check && npm run check:content && vitest run",
     "check:i18n": "node --experimental-strip-types scripts/check-i18n.ts",
@@ -23,6 +23,9 @@
     "format:check": "prettier --check .",
     "typecheck": "astro check",
     "check:bundle": "node scripts/check-bundle-size.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check:legal": "node --experimental-strip-types scripts/check-legal.ts",
+    "photos:import": "node scripts/import-photos.mjs",
     "lighthouse": "lhci autorun",
     "prepare": "husky"
   },

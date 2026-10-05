@@ -1,0 +1,102 @@
+{
+  "accommodation": [
+    {
+      "id": "chambre",
+      "title": {
+        "fr": "Chambre",
+        "en": "Room"
+      },
+      "summary": {
+        "fr": "1 à 2 personnes",
+        "en": "1 to 2 guests"
+      },
+      "price": {
+        "kind": "from",
+        "amount": 15000,
+        "unit": "per_night"
+      },
+      "image": {
+        "src": "accommodation/chambre.jpg",
+        "alt": {
+          "fr": "Résidence en bord de mer à Kribi, entre palmiers et ciel bleu",
+          "en": "Seaside residence in Kribi, between palm trees and blue sky"
+        }
+      }
+    },
+    {
+      "id": "studio",
+      "title": {
+        "fr": "Studio",
+        "en": "Studio"
+      },
+      "summary": {
+        "fr": "2 à 3 personnes",
+        "en": "2 to 3 guests"
+      },
+      "price": {
+        "kind": "from",
+        "amount": 30000,
+        "unit": "per_night"
+      }
+    },
+    {
+      "id": "villa",
+      "title": {
+        "fr": "Villa",
+        "en": "Villa"
+      },
+      "summary": {
+        "fr": "6 à 12 personnes",
+        "en": "6 to 12 guests"
+      },
+      "price": {
+        "kind": "from",
+        "amount": 150000,
+        "unit": "per_night"
+      },
+      "image": {
+        "src": "accommodation/villa.jpg",
+        "alt": {
+          "fr": "Transats et paillote sur une plage privée de Kribi",
+          "en": "Sun loungers and a straw parasol on a private beach in Kribi"
+        }
+      }
+    }
+  ],
+  "packages": [
+    {
+      "id": "decouverte",
+      "title": {
+        "fr": "Package Découverte",
+        "en": "Discovery package"
+      },
+      "summary": {
+        "fr": "Chutes, pirogue, campement, musée, guide",
+        "en": "Falls, canoe, camp, museum, guide"
+      },
+      "price": {
+        "kind": "fixed",
+        "amount": 100000,
+        "unit": "per_group",
+        "basePersons": 2
+      }
+    },
+    {
+      "id": "aventure",
+      "title": {
+        "fr": "Package Aventure",
+        "en": "Adventure package"
+      },
+      "summary": {
+        "fr": "Chutes, pirogue, quad, jet-ski, kayak, cheval",
+        "en": "Falls, canoe, quad bike, jet ski, kayak, horse riding"
+      },
+      "price": {
+        "kind": "fixed",
+        "amount": 150000,
+        "unit": "per_group",
+        "basePersons": 2
+      }
+    }
+  ]
+}

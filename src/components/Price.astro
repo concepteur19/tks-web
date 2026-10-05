@@ -1,0 +1,54 @@
+---
+/**
+ * Prix d'une carte : montant FCFA et unité, puis, sur sa propre ligne et en plus petit,
+ * l'équivalent indicatif en euros (FR-015, FR-EUR-1). « Sur devis » n'a pas d'équivalent.
+ */
+import type { PriceUnit } from '../content/schemas.ts';
+import type { CardPrice } from '../features/estimation/cardPrice.ts';
+import { formatEurEquivalent, formatXaf } from '../features/estimation/formatPrice.ts';
+import { t } from '../i18n/t.ts';
+import type { Locale } from '../i18n/types.ts';
+import { currency } from '../lib/site.ts';
+
+type PriceValue =
+  | CardPrice
+  | { kind: 'fixed' | 'from'; amount: number; unit: PriceUnit; basePersons?: number | undefined };
+
+interface Props {
+  price: PriceValue;
+  locale: Locale;
+  /** Sur fond sombre ou coloré : texte crème au lieu du rouge. */
+  onDark?: boolean;
+}
+
+const { price, locale, onDark = false } = Astro.props;
+
+function unitLabel(value: Exclude<PriceValue, { kind: 'quote' }>): string {
+  if (value.unit === 'per_group' && 'basePersons' in value && value.basePersons) {
+    return t(locale, 'price.forPersons', { count: value.basePersons });
+  }
+  return t(locale, `price.unit.${value.unit}`);
+}
+---
+
+{price.kind === 'quote' ? (
+  <p data-price="quote">
+    <span class="inline-block rounded-sm bg-accent px-2 py-1 text-xs font-semibold text-bg">
+      {t(locale, 'price.quote')}
+    </span>
+  </p>
+) : (
+  <div data-price={price.kind}>
+    <p class:list={['font-bold', onDark ? 'text-brand-contrast' : 'text-brand']}>
+      {price.kind === 'from'
+        ? t(locale, 'price.from', { amount: formatXaf(price.amount, locale) })
+        : formatXaf(price.amount, locale)}{' '}
+      <span class:list={['text-sm font-normal', onDark ? 'text-brand-contrast' : 'text-fg-muted']}>
+        {unitLabel(price)}
+      </span>
+    </p>
+    <p class:list={['text-xs', onDark ? 'text-brand-contrast' : 'text-fg-muted']} data-price-eur>
+      {formatEurEquivalent(price.amount, locale, currency.eurToXaf)}
+    </p>
+  </div>
+)}

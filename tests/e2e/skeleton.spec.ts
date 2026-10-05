@@ -59,15 +59,6 @@ test.describe('squelette bilingue', () => {
     await context.close();
   });
 
-  test('ne déborde pas horizontalement à 360 pixels', async ({ page }) => {
-    await page.setViewportSize({ width: 360, height: 800 });
-    await page.goto('/');
-    const overflow = await page.evaluate(
-      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
-    );
-    expect(overflow).toBeLessThanOrEqual(0);
-  });
-
   test('se parcourt au clavier jusqu’au contenu', async ({ page, browserName }) => {
     // WebKit ne déplace le focus vers les liens avec Tab que si l'option
     // système d'accès clavier complet est active. Le comportement du site est

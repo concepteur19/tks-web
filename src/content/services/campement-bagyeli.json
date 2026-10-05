@@ -1,0 +1,89 @@
+{
+  "title": {
+    "fr": "Campement Bagyeli",
+    "en": "Bagyeli camp"
+  },
+  "section": "experience",
+  "categoryId": "nature-decouverte",
+  "shortDescription": {
+    "fr": "À la rencontre du peuple de la forêt, au campement pygmée Bagyeli",
+    "en": "Meet the people of the forest at the Bagyeli pygmy camp"
+  },
+  "description": {
+    "fr": "Une visite du campement pygmée Bagyeli, au bord de la Lobé, pour découvrir le mode de vie du peuple de la forêt.",
+    "en": "A visit to the Bagyeli pygmy camp on the banks of the Lobé, to discover the way of life of the people of the forest."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/campement-bagyeli.jpg",
+      "alt": {
+        "fr": "Des visiteurs avec des habitants du campement Bagyeli, devant une case",
+        "en": "Visitors with residents of the Bagyeli camp in front of a hut"
+      }
+    }
+  ],
+  "tiers": [
+    {
+      "id": "individuel",
+      "label": {
+        "fr": "Individuel",
+        "en": "Individual"
+      },
+      "pricing": {
+        "kind": "fixed",
+        "amount": 7500,
+        "unit": "per_person"
+      },
+      "quantity": {
+        "dimensions": [
+          {
+            "kind": "persons",
+            "min": 1,
+            "max": 20,
+            "default": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "couple",
+      "label": {
+        "fr": "Couple",
+        "en": "Couple"
+      },
+      "pricing": {
+        "kind": "fixed",
+        "amount": 20000,
+        "unit": "per_group"
+      },
+      "quantity": {
+        "dimensions": []
+      }
+    },
+    {
+      "id": "groupe",
+      "label": {
+        "fr": "Groupe",
+        "en": "Group"
+      },
+      "pricing": {
+        "kind": "quote"
+      },
+      "quantity": {
+        "dimensions": []
+      }
+    }
+  ],
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "featured": true,
+  "order": 40
+}

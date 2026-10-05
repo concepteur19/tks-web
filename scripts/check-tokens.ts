@@ -72,6 +72,30 @@ export const PAIRS: Pair[] = [
     usage: 'pied de page et bandeau sombres',
   },
   {
+    text: 'fg',
+    background: 'bg-subtle',
+    minimum: AA_TEXT,
+    usage: 'texte du bandeau TKS® Mobilité',
+  },
+  {
+    text: 'fg-muted',
+    background: 'bg-subtle',
+    minimum: AA_TEXT,
+    usage: 'phrase du bandeau TKS® Mobilité',
+  },
+  {
+    text: 'brand-contrast',
+    background: 'footer-bg',
+    minimum: AA_TEXT,
+    usage: 'texte du pied de page',
+  },
+  {
+    text: 'whatsapp-ink',
+    background: 'whatsapp',
+    minimum: AA_TEXT,
+    usage: 'libellé des boutons WhatsApp verts',
+  },
+  {
     text: 'success',
     background: 'bg',
     minimum: AA_TEXT,
@@ -85,7 +109,7 @@ export const PAIRS: Pair[] = [
     usage: 'bouton WhatsApp flottant, icône seule',
     exception:
       'vert imposé par la marque WhatsApp, admis pour le bouton flottant qui porte un libellé accessible. ' +
-      'Les boutons à libellé visible ne peuvent pas garder du texte blanc sur ce vert : à trancher en feature 002',
+      'Les boutons à libellé visible utilisent whatsapp-ink (feature 002)',
   },
 ];
 

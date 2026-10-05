@@ -21,6 +21,13 @@ describe('table des routes', () => {
     }
   });
 
+  it('déclare les adresses des pages légales et de Contact', () => {
+    expect(ROUTES.contact).toEqual({ fr: '/contact', en: '/en/contact' });
+    expect(ROUTES.legalNotice).toEqual({ fr: '/mentions-legales', en: '/en/legal-notice' });
+    expect(ROUTES.privacy).toEqual({ fr: '/confidentialite', en: '/en/privacy' });
+    expect(ROUTES.terms).toEqual({ fr: '/conditions-utilisation', en: '/en/terms-of-use' });
+  });
+
   it("n'utilise jamais deux fois le même chemin dans une langue", () => {
     for (const locale of LOCALES) {
       const paths = keys.map((key) => ROUTES[key][locale]);

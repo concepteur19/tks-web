@@ -1,0 +1,83 @@
+---
+/** Page légale : titre, date de mise à jour, corps Markdown (FR-028, FR-033). */
+import { getEntry, render } from 'astro:content';
+import type { LegalDoc } from '../../content/schemas.ts';
+import { t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PublisherIdentity from './PublisherIdentity.astro';
+
+interface Props {
+  locale: Locale;
+  doc: LegalDoc;
+}
+
+const FILES: Record<LegalDoc, string> = {
+  legalNotice: 'legal-notice',
+  privacy: 'privacy',
+  terms: 'terms',
+};
+
+const { locale, doc } = Astro.props;
+const entry = await getEntry('legal', `${locale}/${FILES[doc]}`);
+if (!entry) throw new Error(`[légal] document ${locale}/${FILES[doc]} introuvable`);
+const { Content } = await render(entry);
+const INTL = { fr: 'fr-FR', en: 'en-GB' } as const;
+const updated = new Intl.DateTimeFormat(INTL[locale], { dateStyle: 'long' }).format(
+  entry.data.updatedAt,
+);
+---
+
+<BaseLayout
+  locale={locale}
+  routeKey={doc}
+  title={entry.data.title}
+  description={entry.data.description}
+>
+  <article class="legal mx-auto max-w-3xl px-4 py-12">
+    <h1 class="font-display text-4xl font-extrabold text-fg">{entry.data.title}</h1>
+    <p class="mt-2 text-sm text-fg-muted" data-updated>
+      {t(locale, 'legal.updated', { date: updated })}
+    </p>
+    {doc === 'legalNotice' && (
+      <div class="mt-8">
+        <PublisherIdentity locale={locale} />
+      </div>
+    )}
+    <div class="legal-body mt-8">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal-body :global(h2) {
+    margin-top: calc(var(--spacing) * 8);
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-fg);
+    scroll-margin-top: var(--size-header-desktop);
+  }
+  .legal-body :global(p),
+  .legal-body :global(ul),
+  .legal-body :global(table) {
+    margin-top: calc(var(--spacing) * 3);
+    line-height: var(--leading-relaxed);
+  }
+  .legal-body :global(a) {
+    color: var(--color-brand);
+    text-decoration: underline;
+  }
+  .legal-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+  .legal-body :global(th),
+  .legal-body :global(td) {
+    border: 1px solid var(--color-border);
+    padding: calc(var(--spacing) * 2);
+    text-align: left;
+  }
+</style>

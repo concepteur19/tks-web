@@ -38,6 +38,8 @@ jobs:
         run: npm run test
       - name: Construction de production
         run: npm run build:prod
+      - name: Liens internes
+        run: npm run check:links
       - name: Budget JavaScript
         run: npm run check:bundle
       - name: Conserver le site construit

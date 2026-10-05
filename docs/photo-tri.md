@@ -143,7 +143,7 @@ Aucune photo utilisable n'a été trouvée pour :
 | `L12-11` | À classer — rencontre en village | `photo_11_2026-09-25_12-11-29.jpg` |  |
 | `L12-12` | À classer — rencontre en village | `photo_12_2026-09-25_12-11-29.jpg` |  |
 | `L6-01` | À classer — paddle | `photo_1_2026-09-25_12-09-12.jpg` |  |
-| `L11-01` | Hébergement et détente | `photo_1_2026-09-25_12-10-55.jpg` |  |
+| `L11-01` | Hébergement et détente | `photo_1_2026-09-25_12-10-55.jpg` | ⚠️ filigrane « © The Tourist Guide » repéré le 2026-10-05, non signalé au tri ; `L12-15` et `L12-24` sont de la même série |
 | `L12-15` | Hébergement et détente | `photo_15_2026-09-25_12-11-29.jpg` |  |
 | `L12-24` | Hébergement et détente | `photo_24_2026-09-25_12-11-29.jpg` |  |
 | `L4-01` | Ambiance, hero, plages et couchers de soleil | `photo_1_2026-09-25_12-08-37.jpg` |  |

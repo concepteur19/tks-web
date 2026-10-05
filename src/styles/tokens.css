@@ -1,6 +1,5 @@
 /* Design tokens Kibreeze — voir docs/design-system.md
-   Les valeurs marquées [PLACEHOLDER] seront remplacées par celles de la
-   direction C « Soleil et vie locale », une fois la maquette affinée.
+   Valeurs relevées sur les écrans validés par Franck le 2026-10-04 (docs/design-exports/).
    Règle : aucune valeur brute dans les composants, tout passe par un token. */
 
 @theme {
@@ -8,11 +7,14 @@
   --color-brand: #8c0120; /* rouge du logo officiel à plat, identique à src/assets/brand/ — 9.4:1 sur le fond crème */
   --color-brand-contrast: #fffaf3;
   --color-brand-warm: #a8431f; /* terracotta de la direction C, rétrogradé en accent chaud secondaire — 5.8:1 sur le crème */
-  --color-accent: #186962; /* [PLACEHOLDER] turquoise profond, direction C — 6.2:1 sur le fond crème */
+  --color-accent: #186962; /* turquoise profond, réservé aux badges d'information — 6.2:1 sur le fond crème */
   --color-whatsapp: #25d366; /* vert WhatsApp, valeur imposée par la marque */
-  --color-whatsapp-contrast: #ffffff;
-  --color-bg: #fffaf3; /* [PLACEHOLDER] crème */
+  --color-whatsapp-contrast: #ffffff; /* icône seule du bouton flottant */
+  --color-whatsapp-ink: #1c1917; /* libellé visible sur un bouton vert : le blanc n'atteint pas AA */
+  --color-bg: #fffaf3; /* crème */
   --color-bg-muted: #f5ece1;
+  --color-bg-subtle: #f0ebe3; /* bandeau TKS® Mobilité, volontairement sobre */
+  --color-footer-bg: #1c1917; /* pied de page gris très sombre */
   --color-fg: #1c1917;
   --color-fg-muted: #57534e;
   --color-border: #e3d7c8;
@@ -37,6 +39,8 @@
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
   --text-5xl: 3rem;
+
+  --tracking-strip: 0.3em; /* capitales espacées de la bande immersive, ordinateur */
 
   --leading-tight: 1.2;
   --leading-normal: 1.5;
@@ -80,4 +84,17 @@
   --z-nav: 40;
   --z-drawer: 50;
   --z-toast: 60;
+
+  /* Tailles de la coque, relevées sur 01-accueil et 10-accueil-ordinateur.
+     Hors @theme : elles servent en valeurs arbitraires, ex. h-(--size-tabbar). */
+  --size-header: 3.5rem; /* en-tête mobile, h-14 */
+  --size-header-desktop: 4.5rem; /* en-tête ordinateur, 72 px */
+  --size-tabbar: 4rem; /* barre à onglets, h-16 */
+  --size-fab: 3.5rem; /* bouton WhatsApp flottant, 56 px */
+  --size-content: 75rem; /* largeur de contenu ordinateur, 1 200 px */
+  --size-hero-mobile: 85svh;
+  --size-hero-max: 40rem; /* hero ordinateur, 640 px */
+  --size-card-featured: 17.5rem; /* cartes « À ne pas manquer », 280 px */
+  --size-category-card: 12.5rem; /* cartes de catégorie, 200 px */
+  --size-strip: 17.5rem; /* bande immersive, 280 px */
 }

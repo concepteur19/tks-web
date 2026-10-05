@@ -1,0 +1,52 @@
+---
+/**
+ * Bloc éditeur et hébergeur des mentions légales (FR-029), lu dans company.json.
+ * Un champ non fourni est omis, sans emplacement vide ; scripts/check-legal.ts les liste.
+ */
+import { t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import { env } from '../../lib/env.ts';
+import { formatPhone } from '../../lib/phone.ts';
+import { company } from '../../lib/site.ts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { legal } = company;
+const publisher = [
+  [t(locale, 'legal.publisher'), legal.publisherName],
+  [t(locale, 'legal.legalForm'), legal.legalForm],
+  [t(locale, 'legal.rccm'), legal.registration?.rccm],
+  [t(locale, 'legal.niu'), legal.registration?.niu],
+  [t(locale, 'legal.address'), legal.address],
+  [t(locale, 'legal.phone'), formatPhone(env.whatsappNumber)],
+  [t(locale, 'legal.email'), company.email],
+  [t(locale, 'legal.director'), legal.publicationDirector],
+].filter((entry): entry is [string, string] => Boolean(entry[1]));
+---
+
+<section class="rounded-card bg-bg-muted p-5" data-testid="publisher-identity">
+  <h2 class="font-display text-xl font-bold text-fg">{t(locale, 'legal.publisherTitle')}</h2>
+  <p class="mt-2">{t(locale, 'legal.brandLine', { brand: company.brand, group: company.group })}</p>
+  <dl class="mt-3 grid gap-x-6 gap-y-1 sm:grid-cols-[max-content_1fr]">
+    {publisher.map(([label, value]) => (
+      <>
+        <dt class="font-semibold">{label}</dt>
+        <dd>{value}</dd>
+      </>
+    ))}
+  </dl>
+
+  <h2 class="mt-6 font-display text-xl font-bold text-fg">{t(locale, 'legal.hostTitle')}</h2>
+  <p class="mt-2">
+    {legal.host.name}
+    <br />
+    {legal.host.address}
+    <br />
+    <a href={legal.host.url} target="_blank" rel="noopener noreferrer" class="text-brand underline">
+      {legal.host.url.replace('https://', '')}
+    </a>
+  </p>
+</section>

@@ -1,0 +1,74 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import { homeTeasers } from '../../lib/site.ts';
+import Icon from '../Icon.astro';
+import Price from '../Price.astro';
+import SmartLink from '../SmartLink.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+// Les chemins de home.json sont relatifs à src/assets/photos/ : résolus ici pour astro:assets.
+const photos = import.meta.glob<{ default: ImageMetadata }>(
+  '../../assets/photos/accommodation/*.jpg',
+  {
+    eager: true,
+  },
+);
+const photo = (src: string) => photos[`../../assets/photos/${src}`]?.default;
+---
+
+<section data-section="accommodation" class="mx-auto max-w-(--size-content) px-4 py-12">
+  <h2 class="font-display text-3xl font-extrabold text-fg">
+    {t(locale, 'home.accommodation.title')}
+  </h2>
+  <p class="mt-2 text-fg-muted">{t(locale, 'home.accommodation.intro')}</p>
+  <!-- Défilement horizontal sans élément focalisable : la zone elle-même doit l'être (axe). -->
+  <div
+    role="region"
+    tabindex="0"
+    aria-label={t(locale, 'home.accommodation.title')}
+    class="relative -mx-4 mt-6 overflow-x-auto px-4 pb-2 lg:mx-0 lg:px-0"
+  >
+    <ul class="flex snap-x gap-4 lg:grid lg:grid-cols-3">
+      {homeTeasers.accommodation.map((card) => (
+        <li class="w-(--size-card-featured) shrink-0 snap-start overflow-hidden rounded-card bg-bg shadow-card lg:w-auto">
+          {card.image && photo(card.image.src) ? (
+            <Image
+              src={photo(card.image.src)!}
+              alt={localize(card.image.alt, locale)}
+              widths={[320, 560]}
+              quality={70}
+              sizes="(min-width: 64rem) 33vw, 17.5rem"
+              class="aspect-16/9 w-full object-cover"
+            />
+          ) : (
+            /* Pas de photo pour ce type : bloc de couleur (src/assets/photos/README.md). */
+            <div class="flex aspect-16/9 items-center justify-center bg-bg-muted text-brand-warm">
+              <Icon name="hotel" size={48} />
+            </div>
+          )}
+          <div class="p-4">
+            <h3 class="font-display text-lg font-bold text-fg">{localize(card.title, locale)}</h3>
+            {card.summary && <p class="text-sm text-fg-muted">{localize(card.summary, locale)}</p>}
+            <div class="mt-2">
+              <Price price={card.price} locale={locale} />
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <SmartLink
+    routeKey="accommodation"
+    locale={locale}
+    class="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-brand underline underline-offset-4"
+  >
+    {t(locale, 'home.accommodation.cta')}
+  </SmartLink>
+</section>

@@ -55,19 +55,20 @@ Un **site statique multi-pages** (une dizaine de routes plus une fiche par servi
 ├── specs/                    # une feature Spec Kit par dossier
 ├── public/                   # favicon, robots.txt, images statiques non optimisées
 ├── src/
-│   ├── pages/                # routes FR : index, transport, tourisme, livraison, sejour, contact, services/[slug], 404
-│   │   └── en/               # routes EN : index, transport, tourism, delivery, my-trip, contact, services/[slug]
+│   ├── pages/                # routes FR livrées (002) : index, contact, mentions-legales, confidentialite, conditions-utilisation, 404 ; à venir : experiences/[slug], hebergements, formules, mobilite, sejour
+│   │   └── en/               # routes EN : index, contact, legal-notice, privacy, terms-of-use, 404 ; à venir : experiences/[slug], accommodation, packages, mobility, my-trip
 │   ├── layouts/              # BaseLayout.astro (head SEO, nav, footer, WhatsApp flottant)
-│   ├── components/           # composants Astro statiques : Hero, PoleCard, ServiceCard, PriceTag, Section, Footer, Nav
+│   ├── components/           # coque (Header, TabBar, Footer, SmartLink, Price, BrandLogo, Icon), sections de l'accueil (home/), contact/, legal/
 │   ├── features/
 │   │   ├── selection/        # store.ts (nanostores), SelectionBadge.tsx, SelectionDrawer.tsx, SelectionPage.tsx, AddToStay.tsx, QuantityStepper.tsx, hooks
-│   │   ├── estimation/       # computeEstimate.ts, formatPrice.ts (pur TS)
+│   │   ├── estimation/       # formatPrice.ts et cardPrice.ts (002), computeEstimate.ts (004) — pur TS
 │   │   └── whatsapp/         # buildMessage.ts, buildUrl.ts, WhatsAppButton.astro (pur TS + un composant)
 │   ├── content/
 │   │   ├── config.ts         # schémas Zod des collections
 │   │   ├── services/         # un JSON par service + images/
 │   │   ├── categories/       # un JSON par catégorie
-│   │   └── site/             # poles.json, company.json (textes localisés, coordonnées)
+│   │   ├── legal/            # documents légaux Markdown, fr/ et en/ (002)
+│   │   └── site/             # company.json (coordonnées, identité légale), currency.json (parité euro), home.json (aperçus temporaires)
 │   ├── i18n/                 # fr.ts (dictionnaire source), en.ts (satisfies Dictionary), routes.ts (clé → slugs FR / EN), t.ts (t(), pluriels, localize)
 │   ├── lib/                  # catalog.ts (accès typé aux collections), env.ts (variables validées), seo.ts, analytics.ts (trackEvent no-op)
 │   ├── styles/               # tokens.css (@theme), global.css

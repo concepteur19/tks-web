@@ -3,7 +3,13 @@ import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { contentIssues, dictionaryIssues, formatIssue } from '../../scripts/check-i18n.ts';
+import {
+  contentIssues,
+  dictionaryIssues,
+  formatIssue,
+  legalIssues,
+  placeholderIssues,
+} from '../../scripts/check-i18n.ts';
 
 let dir: string;
 
@@ -71,5 +77,65 @@ describe('contrôle des traductions', () => {
     const result = runScript({ I18N_CONTENT_DIR: dir });
     expect(result.status).toBe(0);
     expect(result.stderr).toContain('repli sur le français');
+  });
+
+  it('signale une marque [PLACEHOLDER] dans les sources, avec le fichier et la ligne', () => {
+    const src = mkdtempSync(join(tmpdir(), 'placeholder-'));
+    mkdirSync(join(src, 'styles'));
+    mkdirSync(join(src, 'pages', 'dev'), { recursive: true });
+    writeFileSync(
+      join(src, 'styles', 'tokens.css'),
+      ':root {\n  --x: #fff; /* [PLACEHOLDER] */\n}\n',
+    );
+    writeFileSync(join(src, 'styles', 'clean.css'), ':root { --y: #000; }\n');
+    writeFileSync(join(src, 'pages', 'dev', 'ui.astro'), '<p>[PLACEHOLDER]</p>\n');
+    try {
+      expect(placeholderIssues(src, src)).toEqual([
+        { file: join('styles', 'tokens.css'), key: 'ligne 2', reason: 'marque [PLACEHOLDER]' },
+      ]);
+    } finally {
+      rmSync(src, { recursive: true, force: true });
+    }
+  });
+
+  it('échoue en production quand une marque [PLACEHOLDER] subsiste', () => {
+    const src = mkdtempSync(join(tmpdir(), 'placeholder-'));
+    writeFileSync(join(src, 'a.ts'), '// [PLACEHOLDER]\n');
+    try {
+      const result = runScript({
+        I18N_CONTENT_DIR: join(src, 'vide'),
+        I18N_SOURCE_DIR: src,
+        NODE_ENV: 'production',
+      });
+      expect(result.status).not.toBe(0);
+      expect(result.stderr).toContain('marque [PLACEHOLDER]');
+    } finally {
+      rmSync(src, { recursive: true, force: true });
+    }
+  });
+
+  it('exige chaque document légal dans les deux langues, avec une langue cohérente', () => {
+    const legal = mkdtempSync(join(tmpdir(), 'legal-'));
+    mkdirSync(join(legal, 'fr'));
+    mkdirSync(join(legal, 'en'));
+    const frontmatter = (doc: string, locale: string) =>
+      `---\ndoc: ${doc}\nlocale: ${locale}\ntitle: T\ndescription: D\nupdatedAt: 2026-10-05\n---\nTexte\n`;
+    writeFileSync(join(legal, 'fr', 'legal-notice.md'), frontmatter('legalNotice', 'fr'));
+    writeFileSync(join(legal, 'en', 'legal-notice.md'), frontmatter('legalNotice', 'en'));
+    writeFileSync(join(legal, 'fr', 'privacy.md'), frontmatter('privacy', 'fr'));
+    writeFileSync(join(legal, 'fr', 'terms.md'), frontmatter('terms', 'fr'));
+    writeFileSync(join(legal, 'en', 'terms.md'), frontmatter('terms', 'fr'));
+    try {
+      expect(legalIssues(legal, legal)).toEqual([
+        { file: join('en', 'privacy.md'), key: 'privacy', reason: 'document légal anglais absent' },
+        {
+          file: join('en', 'terms.md'),
+          key: 'locale',
+          reason: 'langue « fr » différente du dossier « en »',
+        },
+      ]);
+    } finally {
+      rmSync(legal, { recursive: true, force: true });
+    }
   });
 });
