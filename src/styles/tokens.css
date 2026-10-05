@@ -40,6 +40,8 @@
   --text-4xl: 2.25rem;
   --text-5xl: 3rem;
 
+  --tracking-strip: 0.3em; /* capitales espacées de la bande immersive, ordinateur */
+
   --leading-tight: 1.2;
   --leading-normal: 1.5;
   --leading-relaxed: 1.65;

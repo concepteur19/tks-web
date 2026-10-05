@@ -16,16 +16,27 @@ interface Props {
   locale: Locale;
   /** Ancre ajoutée à un lien interne, ex. « a-propos ». */
   hash?: string;
+  /** Segment ajouté à un lien interne, ex. le slug d'une fiche sous /experiences. */
+  subpath?: string;
   class?: string;
   /** Masque l'icône WhatsApp quand le lien enveloppe une carte qui la montre déjà. */
   hideIcon?: boolean;
   'data-testid'?: string;
 }
 
-const { routeKey, locale, hash, class: className, hideIcon = false, ...rest } = Astro.props;
+const {
+  routeKey,
+  locale,
+  hash,
+  subpath,
+  class: className,
+  hideIcon = false,
+  ...rest
+} = Astro.props;
 const link = resolveLink(routeKey, locale, env.whatsappNumber);
 const isWhatsApp = link.kind === 'whatsapp';
-const href = !isWhatsApp && hash ? `${link.href}#${hash}` : link.href;
+const base = !isWhatsApp && subpath ? `${link.href.replace(/\/$/, '')}/${subpath}` : link.href;
+const href = !isWhatsApp && hash ? `${base}#${hash}` : base;
 ---
 
 <a

@@ -42,7 +42,10 @@ export function checkContent(contentDir: string): string[] {
       }
     }
   }
-  const valid: { id: string; data: { categoryId?: string | undefined } }[] = [];
+  const valid: {
+    id: string;
+    data: { categoryId?: string | undefined; featured?: boolean | undefined };
+  }[] = [];
   for (const service of services) {
     const result = schema.safeParse(service.data);
     if (result.success) {
@@ -59,6 +62,12 @@ export function checkContent(contentDir: string): string[] {
         );
       }
     }
+  }
+  const featured = valid.filter((service) => service.data.featured);
+  if (featured.length > 4) {
+    issues.push(
+      `services → featured : ${featured.length} expériences mises en avant, 4 au plus (accueil, FR-013)`,
+    );
   }
   issues.push(
     ...catalogIssues(

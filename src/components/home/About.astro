@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import photo from '../../assets/photos/sections/kribi-vue-aerienne.jpg';
+import { isImplemented } from '../../i18n/navigation.ts';
+import { getRoutePath } from '../../i18n/routes.ts';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import { company } from '../../lib/site.ts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section
+  data-section="about"
+  class="mx-auto grid max-w-(--size-content) gap-6 px-4 py-12 lg:grid-cols-2 lg:items-center"
+>
+  <Image
+    src={photo}
+    alt={t(locale, 'home.about.alt')}
+    widths={[480, 800]}
+    sizes="(min-width: 64rem) 50vw, 100vw"
+    class="aspect-4/3 w-full rounded-card object-cover"
+  />
+  <div>
+    <h2 class="font-display text-3xl font-extrabold text-fg">{t(locale, 'home.about.title')}</h2>
+    <p class="mt-4 leading-relaxed text-fg">{localize(company.about.short, locale)}</p>
+    {isImplemented('contact') && (
+      <a
+        href={`${getRoutePath('contact', locale)}#a-propos`}
+        class="mt-4 inline-flex min-h-11 items-center font-semibold text-brand underline underline-offset-4"
+      >
+        {t(locale, 'home.about.more')}
+      </a>
+    )}
+  </div>
+</section>

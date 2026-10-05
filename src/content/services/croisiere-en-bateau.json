@@ -1,0 +1,42 @@
+{
+  "title": {
+    "fr": "Croisière en bateau",
+    "en": "Boat cruise"
+  },
+  "section": "experience",
+  "categoryId": "detente",
+  "shortDescription": {
+    "fr": "Le coucher de soleil vu du large",
+    "en": "The sunset seen from the open sea"
+  },
+  "description": {
+    "fr": "Une sortie en mer au large de Kribi pour profiter du coucher de soleil sur l'océan.",
+    "en": "A boat trip off the coast of Kribi to enjoy the sunset over the ocean."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/croisiere-en-bateau.jpg",
+      "alt": {
+        "fr": "Le soleil se couche sur l'océan au large de Kribi",
+        "en": "The sun setting over the ocean off Kribi"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 25000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "featured": true,
+  "order": 30
+}

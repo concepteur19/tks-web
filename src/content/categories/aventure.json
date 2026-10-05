@@ -1,0 +1,18 @@
+{
+  "name": {
+    "fr": "Aventure",
+    "en": "Adventure"
+  },
+  "description": {
+    "fr": "Jet-ski, quad et balade à cheval sur les plages de Kribi",
+    "en": "Jet ski, quad bikes and horse rides on Kribi's beaches"
+  },
+  "order": 20,
+  "image": {
+    "src": "../../assets/photos/categories/aventure.jpg",
+    "alt": {
+      "fr": "Deux personnes filent en jet-ski sur l'eau",
+      "en": "Two people speeding across the water on a jet ski"
+    }
+  }
+}

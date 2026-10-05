@@ -1,0 +1,30 @@
+---
+import { t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import { env } from '../../lib/env.ts';
+import { buildWhatsAppUrl } from '../../lib/seo.ts';
+import WhatsAppIcon from '../WhatsAppIcon.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const href = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.genericMessage'));
+---
+
+<section data-section="whatsapp-cta" class="bg-brand text-brand-contrast">
+  <div class="mx-auto max-w-(--size-content) px-4 py-12">
+    <h2 class="font-display text-3xl font-extrabold">{t(locale, 'home.cta.title')}</h2>
+    <p class="mt-2 max-w-xl">{t(locale, 'home.cta.text')}</p>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-6 inline-flex min-h-12 items-center gap-2 rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
+    >
+      <WhatsAppIcon size={22} />
+      {t(locale, 'whatsapp.label')}
+    </a>
+  </div>
+</section>

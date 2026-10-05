@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import tksMark from '../../assets/brand/tks-mark.png';
+import { t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import SmartLink from '../SmartLink.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<!-- Volontairement sobre : ni photo, ni carte d'expérience, toujours après les expériences (FR-016). -->
+<section data-section="mobility" class="border-y border-border bg-bg-subtle">
+  <div class="mx-auto flex max-w-(--size-content) items-center gap-4 px-4 py-4">
+    <Image src={tksMark} alt="TKS®" height={20} class="h-5 w-auto shrink-0" />
+    <div class="min-w-0 flex-1">
+      <h2 class="text-sm font-bold text-fg">{t(locale, 'home.mobility.title')}</h2>
+      <p class="text-xs text-fg-muted">{t(locale, 'home.mobility.text')}</p>
+    </div>
+    <SmartLink
+      routeKey="mobility"
+      locale={locale}
+      class="inline-flex min-h-11 shrink-0 items-center gap-1 text-xs font-bold text-fg underline underline-offset-2"
+    >
+      {t(locale, 'home.mobility.cta')}
+      <span class="sr-only"> {t(locale, 'home.mobility.title')}</span>
+    </SmartLink>
+  </div>
+</section>

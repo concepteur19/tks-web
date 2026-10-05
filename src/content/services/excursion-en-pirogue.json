@@ -17,8 +17,8 @@
     {
       "src": "../../assets/photos/experiences/excursion-en-pirogue.jpg",
       "alt": {
-        "fr": "Pirogue sur la Lobé bordée de végétation dense",
-        "en": "Dugout canoe on the Lobé river lined with dense vegetation"
+        "fr": "Une pirogue glisse sur la Lobé, entre forêt et reflets",
+        "en": "A dugout canoe glides along the Lobé between forest and reflections"
       }
     }
   ],
@@ -73,6 +73,6 @@
       }
     ]
   },
-  "availability": "disabled",
-  "provisional": true
+  "featured": true,
+  "order": 20
 }
