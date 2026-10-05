@@ -23,6 +23,9 @@
     "format:check": "prettier --check .",
     "typecheck": "astro check",
     "check:bundle": "node scripts/check-bundle-size.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check:legal": "node --experimental-strip-types scripts/check-legal.ts",
+    "photos:import": "node scripts/import-photos.mjs",
     "lighthouse": "lhci autorun",
     "prepare": "husky"
   },

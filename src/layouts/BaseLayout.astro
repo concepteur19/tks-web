@@ -3,19 +3,32 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import type { RouteKey } from '../i18n/routes.ts';
 import { t } from '../i18n/t.ts';
 import type { Locale } from '../i18n/types.ts';
 import { env } from '../lib/env.ts';
 import { buildSeo } from '../lib/seo.ts';
 
+/** Contrat : specs/002-kibreeze-core/contracts/shell.md */
 interface Props {
   locale: Locale;
+  routeKey: RouteKey;
   title: string;
   description?: string;
   noindex?: boolean;
+  /** Faux sur les pages qui portent une barre d'action fixe (fiches, Mon séjour). */
+  floatingWhatsApp?: boolean;
+  jsonLd?: Record<string, unknown>[];
 }
 
-const { locale, title, description, noindex = false } = Astro.props;
+const {
+  locale,
+  title,
+  description,
+  noindex = false,
+  floatingWhatsApp = true,
+  jsonLd = [],
+} = Astro.props;
 const seo = buildSeo({
   path: Astro.url.pathname,
   locale,
@@ -63,6 +76,9 @@ const pageTitle = `${title} · ${t(locale, 'site.name')}`;
       <meta property="og:locale:alternate" content={value} />
     ))}
     <meta name="twitter:card" content="summary_large_image" />
+    {jsonLd.map((data) => (
+      <script type="application/ld+json" set:html={JSON.stringify(data)}></script>
+    ))}
   </head>
   <body class="min-h-screen flex flex-col">
     <a class="skip-link" href="#main">
@@ -73,6 +89,6 @@ const pageTitle = `${title} · ${t(locale, 'site.name')}`;
       <slot />
     </main>
     <Footer locale={locale} />
-    <WhatsAppButton locale={locale} />
+    {floatingWhatsApp && <WhatsAppButton locale={locale} />}
   </body>
 </html>

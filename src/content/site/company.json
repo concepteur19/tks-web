@@ -1,0 +1,24 @@
+{
+  "brand": "Kibreeze",
+  "group": "Breezy Groupe",
+  "sisterBrands": ["TKS®", "iBreezy", "Breezy Delivery"],
+  "locality": { "fr": "Kribi, Cameroun", "en": "Kribi, Cameroon" },
+  "social": [],
+  "about": {
+    "short": {
+      "fr": "Nous sommes Kibreeze, une marque dédiée à la découverte et aux expériences à Kribi. Nous voulons vous faire découvrir Kribi autrement, à travers ses paysages, ses activités, ses excursions et des expériences adaptées à vos envies.",
+      "en": "We are Kibreeze, a brand dedicated to discovery and experiences in Kribi. We want to show you Kribi differently, through its landscapes, its activities, its excursions and experiences tailored to what you love."
+    },
+    "full": {
+      "fr": "Nous sommes Kibreeze, une marque dédiée à la découverte et aux expériences à Kribi. Nous voulons vous faire découvrir Kribi autrement, à travers ses paysages, ses activités, ses excursions et des expériences adaptées à vos envies. Nous connaissons la destination et travaillons à réunir au même endroit les services essentiels pour rendre votre séjour plus simple. Avec Kibreeze, vous ne venez pas seulement à Kribi : vous venez la vivre.",
+      "en": "We are Kibreeze, a brand dedicated to discovery and experiences in Kribi. We want to show you Kribi differently, through its landscapes, its activities, its excursions and experiences tailored to what you love. We know the destination and are bringing the essential services together in one place to make your stay simpler. With Kibreeze, you don't just come to Kribi: you come to live it."
+    }
+  },
+  "legal": {
+    "host": {
+      "name": "Cloudflare, Inc.",
+      "address": "101 Townsend St, San Francisco, CA 94107, États-Unis",
+      "url": "https://www.cloudflare.com"
+    }
+  }
+}

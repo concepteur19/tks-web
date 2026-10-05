@@ -30,9 +30,10 @@ export function checkContent(contentDir: string): string[] {
   const categories = read(join(contentDir, 'categories'));
   const services = read(join(contentDir, 'services'));
   const schema = serviceSchema(z.string());
+  const categoryParser = categorySchema(z.string());
 
   for (const category of categories) {
-    const result = categorySchema.safeParse(category.data);
+    const result = categoryParser.safeParse(category.data);
     if (!result.success) {
       for (const issue of result.error.issues) {
         issues.push(

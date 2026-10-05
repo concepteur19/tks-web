@@ -115,15 +115,23 @@ export function quantityIssues(rule: QuantityRule, price: Pricing): string[] {
   return issues;
 }
 
-export const categorySchema = z
-  .object({
-    name: localizedString,
-    description: localizedString.optional(),
-    order: z.number().int(),
-    provisional: z.boolean().optional(),
-  })
-  .strict();
-export type Category = z.infer<typeof categorySchema>;
+/** Image de contenu : le schéma de `src` est injecté, comme pour les services. */
+function imageSchema<Src extends z.ZodTypeAny>(src: Src) {
+  return z.object({ src, alt: localizedString }).strict();
+}
+
+export function categorySchema<Src extends z.ZodTypeAny>(src: Src) {
+  return z
+    .object({
+      name: localizedString,
+      description: localizedString.optional(),
+      order: z.number().int(),
+      image: imageSchema(src),
+      provisional: z.boolean().optional(),
+    })
+    .strict();
+}
+export type Category = z.infer<ReturnType<typeof categorySchema<z.ZodString>>>;
 
 /**
  * Le schéma d'image est injecté : une chaîne dans les tests et les scripts, le helper `image()`
@@ -152,9 +160,7 @@ export function serviceSchema<Src extends z.ZodTypeAny>(src: Src) {
         '160 caractères au plus par langue',
       ),
       description: localizedString,
-      images: z
-        .array(z.object({ src, alt: localizedString }).strict())
-        .min(1, 'au moins une image'),
+      images: z.array(imageSchema(src)).min(1, 'au moins une image'),
       pricing: pricing.optional(),
       tiers: z.array(priceTier).min(2).optional(),
       quantity: quantityRule,
@@ -220,3 +226,92 @@ export function catalogIssues(
         `services/${service.id} : categoryId « ${service.data.categoryId} » ne correspond à aucune catégorie`,
     );
 }
+
+/* ——— Fichiers du site (feature 002) : specs/002-kibreeze-core/contracts/content.md ——— */
+
+const httpsUrl = z
+  .string()
+  .url()
+  .refine((value) => value.startsWith('https://'), 'adresse https attendue');
+
+/** Coordonnées et identité légale. Tout champ facultatif absent est simplement omis à l'affichage. */
+export const companySchema = z
+  .object({
+    brand: z.literal('Kibreeze'),
+    group: z.string().min(1),
+    sisterBrands: z.array(z.string().min(1)).min(1),
+    locality: localizedString,
+    email: z.string().email().optional(),
+    social: z
+      .array(
+        z.object({ network: z.enum(['facebook', 'instagram', 'tiktok']), url: httpsUrl }).strict(),
+      )
+      .default([]),
+    about: z.object({ short: localizedString, full: localizedString }).strict(),
+    legal: z
+      .object({
+        publisherName: z.string().min(1).optional(),
+        legalForm: z.string().min(1).optional(),
+        registration: z
+          .object({ rccm: z.string().min(1).optional(), niu: z.string().min(1).optional() })
+          .strict()
+          .optional(),
+        address: z.string().min(1).optional(),
+        publicationDirector: z.string().min(1).optional(),
+        host: z
+          .object({ name: z.string().min(1), address: z.string().min(1), url: httpsUrl })
+          .strict(),
+      })
+      .strict(),
+  })
+  .strict();
+export type Company = z.infer<typeof companySchema>;
+
+const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'date ISO AAAA-MM-JJ attendue');
+
+export const currencySchema = z
+  .object({ eurToXaf: z.number().positive(), source: z.string().min(1), since: isoDate })
+  .strict();
+export type Currency = z.infer<typeof currencySchema>;
+
+/** Aperçus temporaires de l'accueil, supprimés par la feature 005. */
+export function homeSchema<Src extends z.ZodTypeAny>(src: Src) {
+  const teaser = z
+    .object({
+      id: z.string().min(1),
+      title: localizedString,
+      summary: localizedString.optional(),
+      price: z.discriminatedUnion('unit', [
+        z
+          .object({ kind: z.enum(['from', 'fixed']), amount, unit: z.literal('per_night') })
+          .strict(),
+        z
+          .object({
+            kind: z.enum(['from', 'fixed']),
+            amount,
+            unit: z.literal('per_group'),
+            basePersons: z.number().int().positive(),
+          })
+          .strict(),
+      ]),
+      /** Facultative : aucune photo d'hébergement n'est utilisable à ce jour (src/assets/photos/README.md). */
+      image: imageSchema(src).optional(),
+    })
+    .strict();
+  return z.object({ accommodation: z.array(teaser), packages: z.array(teaser) }).strict();
+}
+export type HomeTeasers = z.infer<ReturnType<typeof homeSchema<z.ZodString>>>;
+export type TeaserCard = HomeTeasers['accommodation'][number];
+
+export const LEGAL_DOCS = ['legalNotice', 'privacy', 'terms'] as const;
+export type LegalDoc = (typeof LEGAL_DOCS)[number];
+
+/** Frontmatter des documents légaux. YAML transforme une date nue en Date : les deux sont acceptés. */
+export const legalSchema = z.object({
+  doc: z.enum(LEGAL_DOCS),
+  locale: z.enum(['fr', 'en']),
+  title: z.string().min(1),
+  description: z.string().min(1).max(160, '160 caractères au plus'),
+  updatedAt: z.union([z.date(), isoDate.transform((value) => new Date(value))]),
+});
+export type LegalFrontmatter = z.infer<typeof legalSchema>;

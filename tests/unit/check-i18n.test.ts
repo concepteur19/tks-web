@@ -3,7 +3,12 @@ import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { contentIssues, dictionaryIssues, formatIssue } from '../../scripts/check-i18n.ts';
+import {
+  contentIssues,
+  dictionaryIssues,
+  formatIssue,
+  placeholderIssues,
+} from '../../scripts/check-i18n.ts';
 
 let dir: string;
 
@@ -71,5 +76,40 @@ describe('contrôle des traductions', () => {
     const result = runScript({ I18N_CONTENT_DIR: dir });
     expect(result.status).toBe(0);
     expect(result.stderr).toContain('repli sur le français');
+  });
+
+  it('signale une marque [PLACEHOLDER] dans les sources, avec le fichier et la ligne', () => {
+    const src = mkdtempSync(join(tmpdir(), 'placeholder-'));
+    mkdirSync(join(src, 'styles'));
+    mkdirSync(join(src, 'pages', 'dev'), { recursive: true });
+    writeFileSync(
+      join(src, 'styles', 'tokens.css'),
+      ':root {\n  --x: #fff; /* [PLACEHOLDER] */\n}\n',
+    );
+    writeFileSync(join(src, 'styles', 'clean.css'), ':root { --y: #000; }\n');
+    writeFileSync(join(src, 'pages', 'dev', 'ui.astro'), '<p>[PLACEHOLDER]</p>\n');
+    try {
+      expect(placeholderIssues(src, src)).toEqual([
+        { file: join('styles', 'tokens.css'), key: 'ligne 2', reason: 'marque [PLACEHOLDER]' },
+      ]);
+    } finally {
+      rmSync(src, { recursive: true, force: true });
+    }
+  });
+
+  it('échoue en production quand une marque [PLACEHOLDER] subsiste', () => {
+    const src = mkdtempSync(join(tmpdir(), 'placeholder-'));
+    writeFileSync(join(src, 'a.ts'), '// [PLACEHOLDER]\n');
+    try {
+      const result = runScript({
+        I18N_CONTENT_DIR: join(src, 'vide'),
+        I18N_SOURCE_DIR: src,
+        NODE_ENV: 'production',
+      });
+      expect(result.status).not.toBe(0);
+      expect(result.stderr).toContain('marque [PLACEHOLDER]');
+    } finally {
+      rmSync(src, { recursive: true, force: true });
+    }
   });
 });

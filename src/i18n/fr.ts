@@ -20,6 +20,8 @@ export const fr = {
   'home.intro':
     'Le site est en cours de construction. Les services, les tarifs et la composition de votre séjour arrivent très bientôt.',
 
+  'link.viaWhatsapp': 'ouvre une conversation WhatsApp',
+
   'whatsapp.label': 'Contacter Kibreeze sur WhatsApp',
   'whatsapp.genericMessage':
     'Bonjour Kibreeze, je souhaite des informations sur vos expériences à Kribi.',

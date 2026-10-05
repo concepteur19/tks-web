@@ -3,23 +3,28 @@
  * Emplacement imposé par Astro 5 (content layer) : src/content.config.ts, pas src/content/config.ts.
  *
  * Le contrôle transversal (un categoryId qui existe) n'est pas faisable fichier par fichier :
- * scripts/check-content.ts le fait avant chaque construction.
+ * scripts/check-content.ts le fait avant chaque construction. Les fichiers uniques du site
+ * (company, currency, home) sont validés par src/lib/site.ts.
  */
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { z } from 'zod';
-import { categorySchema, serviceSchema } from './content/schemas.ts';
+import { categorySchema, legalSchema, serviceSchema } from './content/schemas.ts';
 
+// Les images sont des chemins relatifs au fichier JSON, résolus et optimisés par astro:assets.
 const categories = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/categories' }),
-  schema: categorySchema,
+  schema: ({ image }) => categorySchema(image()),
 });
 
-// Les images restent des chemins tant qu'aucune photo validée n'est livrée ; la feature 003
-// passera au helper image() d'Astro pour l'optimisation.
 const services = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/services' }),
-  schema: serviceSchema(z.string()),
+  schema: ({ image }) => serviceSchema(image()),
 });
 
-export const collections = { categories, services };
+// Un document par langue : src/content/legal/<locale>/<doc>.md, identifiant « <locale>/<doc> ».
+const legal = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/legal' }),
+  schema: legalSchema,
+});
+
+export const collections = { categories, services, legal };

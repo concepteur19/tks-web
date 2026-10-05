@@ -1,6 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
-import { catalogIssues, categorySchema, serviceSchema } from '../../src/content/schemas.ts';
+import {
+  catalogIssues,
+  categorySchema,
+  companySchema,
+  currencySchema,
+  homeSchema,
+  legalSchema,
+  serviceSchema,
+} from '../../src/content/schemas.ts';
 
 const schema = serviceSchema(z.string());
 
@@ -149,11 +157,137 @@ describe('fiche de service', () => {
 });
 
 describe('catégorie', () => {
+  const category = categorySchema(z.string());
+  const aventure = {
+    name: { fr: 'Aventure', en: 'Adventure' },
+    order: 20,
+    image: { src: 'aventure.jpg', alt: { fr: 'Jet-ski', en: 'Jet ski' } },
+  };
+
   it('accepte une catégorie conforme et refuse un nom absent', () => {
+    expect(category.safeParse(aventure).success).toBe(true);
+    expect(category.safeParse(omit(aventure, 'name')).success).toBe(false);
+  });
+
+  it('exige une image avec son texte alternatif', () => {
+    expect(category.safeParse(omit(aventure, 'image')).success).toBe(false);
+    expect(category.safeParse({ ...aventure, image: { src: 'aventure.jpg' } }).success).toBe(false);
+  });
+});
+
+describe('coordonnées et identité de Kibreeze', () => {
+  const company = {
+    brand: 'Kibreeze',
+    group: 'Breezy Groupe',
+    sisterBrands: ['TKS®', 'iBreezy', 'Breezy Delivery'],
+    locality: { fr: 'Kribi, Cameroun', en: 'Kribi, Cameroon' },
+    social: [],
+    about: {
+      short: { fr: 'Nous sommes Kibreeze.', en: 'We are Kibreeze.' },
+      full: { fr: 'Nous sommes Kibreeze, à Kribi.', en: 'We are Kibreeze, in Kribi.' },
+    },
+    legal: {
+      host: {
+        name: 'Cloudflare, Inc.',
+        address: '101 Townsend St, San Francisco, CA 94107, États-Unis',
+        url: 'https://www.cloudflare.com',
+      },
+    },
+  };
+
+  it('accepte un fichier sans e-mail, sans réseau et sans identité légale hormis l’hébergeur', () => {
+    expect(companySchema.safeParse(company).success).toBe(true);
+  });
+
+  it('exige l’hébergeur', () => {
+    expect(companySchema.safeParse({ ...company, legal: {} }).success).toBe(false);
+  });
+
+  it('refuse un réseau social hors https ou inconnu', () => {
+    const facebook = { network: 'facebook', url: 'https://facebook.com/kibreeze' };
+    expect(companySchema.safeParse({ ...company, social: [facebook] }).success).toBe(true);
     expect(
-      categorySchema.safeParse({ name: { fr: 'Aventure', en: 'Adventure' }, order: 20 }).success,
-    ).toBe(true);
-    expect(categorySchema.safeParse({ order: 20 }).success).toBe(false);
+      companySchema.safeParse({
+        ...company,
+        social: [{ network: 'facebook', url: 'http://facebook.com/kibreeze' }],
+      }).success,
+    ).toBe(false);
+    expect(
+      companySchema.safeParse({ ...company, social: [{ ...facebook, network: 'myspace' }] })
+        .success,
+    ).toBe(false);
+  });
+
+  it('valide un e-mail fourni', () => {
+    expect(companySchema.safeParse({ ...company, email: 'contact@kibreeze.com' }).success).toBe(
+      true,
+    );
+    expect(companySchema.safeParse({ ...company, email: 'pas-un-email' }).success).toBe(false);
+  });
+});
+
+describe('taux de change', () => {
+  it('exige un taux strictement positif', () => {
+    const currency = { eurToXaf: 655.957, source: 'BEAC', since: '1999-01-01' };
+    expect(currencySchema.safeParse(currency).success).toBe(true);
+    expect(currencySchema.safeParse({ ...currency, eurToXaf: 0 }).success).toBe(false);
+  });
+});
+
+describe('aperçus de l’accueil', () => {
+  const home = homeSchema(z.string());
+  const chambre = {
+    id: 'chambre',
+    title: { fr: 'Chambre', en: 'Room' },
+    price: { kind: 'from', amount: 15000, unit: 'per_night' },
+  };
+  const decouverte = {
+    id: 'decouverte',
+    title: { fr: 'Package Découverte', en: 'Discovery package' },
+    price: { kind: 'fixed', amount: 100000, unit: 'per_group', basePersons: 2 },
+  };
+
+  it('accepte des aperçus conformes, avec ou sans photo', () => {
+    expect(home.safeParse({ accommodation: [chambre], packages: [decouverte] }).success).toBe(true);
+  });
+
+  it('exige un montant entier strictement positif', () => {
+    const invalid = { ...chambre, price: { ...chambre.price, amount: 0 } };
+    expect(home.safeParse({ accommodation: [invalid], packages: [] }).success).toBe(false);
+  });
+
+  it('limite les unités et exige basePersons pour un prix de groupe', () => {
+    const perPerson = { ...chambre, price: { ...chambre.price, unit: 'per_person' } };
+    expect(home.safeParse({ accommodation: [perPerson], packages: [] }).success).toBe(false);
+    const withoutBase = {
+      ...decouverte,
+      price: { kind: 'fixed', amount: 100000, unit: 'per_group' },
+    };
+    expect(home.safeParse({ accommodation: [], packages: [withoutBase] }).success).toBe(false);
+  });
+});
+
+describe('document légal', () => {
+  const privacy = {
+    doc: 'privacy',
+    locale: 'fr',
+    title: 'Confidentialité et cookies',
+    description: 'Comment Kibreeze traite vos données.',
+    updatedAt: '2026-10-05',
+  };
+
+  it('accepte un frontmatter conforme', () => {
+    expect(legalSchema.safeParse(privacy).success).toBe(true);
+  });
+
+  it('refuse un document ou une langue inconnus', () => {
+    expect(legalSchema.safeParse({ ...privacy, doc: 'cgv' }).success).toBe(false);
+    expect(legalSchema.safeParse({ ...privacy, locale: 'de' }).success).toBe(false);
+  });
+
+  it('limite la description à 160 caractères et exige une date ISO', () => {
+    expect(legalSchema.safeParse({ ...privacy, description: 'x'.repeat(161) }).success).toBe(false);
+    expect(legalSchema.safeParse({ ...privacy, updatedAt: '05/10/2026' }).success).toBe(false);
   });
 });
 

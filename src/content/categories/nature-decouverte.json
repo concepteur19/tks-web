@@ -1,9 +1,18 @@
 {
-  "name": { "fr": "Nature & Découverte", "en": "Nature & Discovery" },
+  "name": {
+    "fr": "Nature & Découverte",
+    "en": "Nature & Discovery"
+  },
   "description": {
     "fr": "Cascades, rivière et forêt autour de Kribi",
     "en": "Waterfalls, river and forest around Kribi"
   },
   "order": 10,
-  "provisional": true
+  "image": {
+    "src": "../../assets/photos/categories/nature-decouverte.jpg",
+    "alt": {
+      "fr": "Les chutes de la Lobé entre les rochers et la forêt",
+      "en": "The Lobé falls between rocks and forest"
+    }
+  }
 }

@@ -19,6 +19,8 @@ export const en = {
   'home.intro':
     'This site is being built. Services, prices and trip planning are coming very soon.',
 
+  'link.viaWhatsapp': 'opens a WhatsApp chat',
+
   'whatsapp.label': 'Message Kibreeze on WhatsApp',
   'whatsapp.genericMessage':
     'Hello Kibreeze, I would like some information about your experiences in Kribi.',

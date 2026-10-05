@@ -28,7 +28,7 @@ Historique de la valeur : #A4021F avait d'abord été prélevé, le 2026-09-25, 
 
 Brief actif : [design-briefs/kibreeze-brief.md](./design-briefs/kibreeze-brief.md). L'ancien brief [direction-c-soleil-et-vie-locale.md](./design-briefs/direction-c-soleil-et-vie-locale.md) est périmé, conservé comme trace.
 
-Les typographies restent des `[PLACEHOLDER]` : aucune police n'a encore été choisie.
+Polices choisies le 2026-10-04 : Plus Jakarta Sans et Caveat, auto-hébergées (ADR-015).
 
 ## 2. Implémentation des tokens
 
@@ -81,6 +81,26 @@ Tailwind CSS v4 lit les tokens depuis des custom properties CSS déclarées dans
 ```
 
 Mode sombre : non prévu en V1 (site vitrine, photos claires). Les tokens sémantiques le rendent possible plus tard sans toucher aux composants.
+
+### Tokens ajoutés par la feature 002 (2026-10-05)
+
+Relevés sur les écrans validés ([design-exports/](./design-exports/README.md)). Les marques `[PLACEHOLDER]` de `tokens.css` sont retirées : ses valeurs sont celles de la maquette validée, et le build de production échoue si une marque réapparaît dans `src/`.
+
+| Token | Valeur | Usage |
+|---|---|---|
+| `--color-bg-subtle` | `#f0ebe3` | bandeau TKS® Mobilité, volontairement sobre |
+| `--color-footer-bg` | `#1c1917` | pied de page, texte `--color-brand-contrast` |
+| `--color-whatsapp-ink` | `#1c1917` | libellé visible sur un bouton vert WhatsApp (8,8:1) ; le blanc (2:1) reste réservé à l'icône seule du bouton flottant |
+| `--size-header` / `--size-header-desktop` | 3,5 rem / 4,5 rem | hauteur de l'en-tête |
+| `--size-tabbar` | 4 rem | barre à onglets mobile |
+| `--size-fab` | 3,5 rem | bouton WhatsApp flottant |
+| `--size-content` | 75 rem | largeur de contenu sur ordinateur |
+| `--size-hero-mobile` / `--size-hero-max` | 85 svh / 40 rem | hauteur du hero |
+| `--size-card-featured` | 17,5 rem | cartes « À ne pas manquer » |
+| `--size-category-card` | 12,5 rem | cartes de catégorie |
+| `--size-strip` | 17,5 rem | bande immersive |
+
+Les tailles sont déclarées hors `@theme`, dans `:root`, et s'emploient en valeur arbitraire : `h-(--size-tabbar)`.
 
 ## 3. Catégories de tokens et provenance Figma
 

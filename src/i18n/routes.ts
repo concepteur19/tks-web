@@ -12,6 +12,9 @@ export type RouteKey =
   | 'mobility'
   | 'stay'
   | 'contact'
+  | 'legalNotice'
+  | 'privacy'
+  | 'terms'
   | 'notFound';
 
 export const ROUTES: Record<RouteKey, Record<Locale, string>> = {
@@ -22,10 +25,17 @@ export const ROUTES: Record<RouteKey, Record<Locale, string>> = {
   mobility: { fr: '/mobilite', en: '/en/mobility' },
   stay: { fr: '/sejour', en: '/en/my-trip' },
   contact: { fr: '/contact', en: '/en/contact' },
+  legalNotice: { fr: '/mentions-legales', en: '/en/legal-notice' },
+  privacy: { fr: '/confidentialite', en: '/en/privacy' },
+  terms: { fr: '/conditions-utilisation', en: '/en/terms-of-use' },
   notFound: { fr: '/404', en: '/en/404' },
 };
 
-/** Routes réellement livrées par la feature 001. Les autres attendent 002 à 006. */
+/**
+ * Routes réellement livrées. Source unique de l'état livré : la navigation, le plan du site
+ * et les liens de l'accueil en dépendent (specs/002-kibreeze-core/contracts/routes.md).
+ * Une feature qui livre une page ajoute sa clé ici, et rien d'autre dans la coque.
+ */
 export const IMPLEMENTED_ROUTES: readonly RouteKey[] = ['home', 'notFound'];
 
 function normalize(path: string): string {
