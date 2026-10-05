@@ -23,8 +23,10 @@ Choix du 2026-10-05 :
 | Bande immersive | `sections/lobe-en-pirogue.jpg` | |
 | Qui sommes-nous (accueil) | `sections/kribi-vue-aerienne.jpg` | |
 | Qui sommes-nous (Contact) | `sections/kribi-palmiers.jpg` | |
+| Aperçu Chambre | `accommodation/chambre.jpg` | `hebergement-et-detente/L12-15`, voir ci-dessous |
+| Aperçu Villa | `accommodation/villa.jpg` | `hebergement-et-detente/L12-24`, voir ci-dessous |
 
 ## Limites connues
 
-- **Hébergements : aucune photo utilisable.** `hebergement-et-detente/L11-01.jpg` porte un filigrane « © The Tourist Guide » que le tri du 2026-09-25 n'avait pas repéré (renommé `_FILIGRANE` localement le 2026-10-05) ; `L12-15` et `L12-24` sont de la même série et ne sont pas utilisées par prudence. Les cartes d'hébergement de l'accueil sont des blocs de couleur en attendant les photos par budget promises par Franck (L1).
+- **Hébergements.** `hebergement-et-detente/L11-01.jpg` porte un filigrane « © The Tourist Guide » que le tri du 2026-09-25 n'avait pas repéré : renommé `_FILIGRANE` localement le 2026-10-05, jamais utilisé. `L12-15` et `L12-24` n'ont pas de filigrane visible mais semblent issues de la même série ; elles illustrent les aperçus Chambre et Villa **à la demande de Zobel (2026-10-05)**. À remplacer dès que Franck envoie ses photos par budget (L1), et à retirer si leur provenance se confirme. Le Studio garde un bloc de couleur.
 - **Résolution faible** : les originaux font 680 à 1 280 px de large, vraisemblablement compressés par WhatsApp. Suffisant sur téléphone, flou sur grand écran. Demander à Franck les fichiers d'origine.

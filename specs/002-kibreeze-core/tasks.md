@@ -196,8 +196,8 @@ Règles valables pour toutes les tâches :
 
 ## Phase 8: Polish & vérification finale
 
-- [ ] T065 [P] Mettre à jour la documentation : arborescence des pages dans `docs/architecture.md`, photos utilisées et état des coordonnées dans `docs/content-tracker.md`, statut de 002 dans `specs/README.md`
-- [ ] T066 Lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e` et `npm run lighthouse` ; corriger jusqu'à ce que tout passe
+- [X] T065 [P] Mettre à jour la documentation : arborescence des pages dans `docs/architecture.md`, photos utilisées et état des coordonnées dans `docs/content-tracker.md`, statut de 002 dans `specs/README.md`
+- [X] T066 Lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e` et `npm run lighthouse` ; corriger jusqu'à ce que tout passe
 - [ ] T067 Dérouler les 14 scénarios manuels de [quickstart.md](./quickstart.md) sur téléphone et en 1 440 px, puis consigner dans sa section « Résultats relevés » les scores Lighthouse de `/`, `/en/`, `/contact` et le temps d'affichage du hero
 - [ ] T068 Ouvrir la proposition de modification de `002-kibreeze-core` vers `main`, vérifier que la CI passe, et partager l'adresse d'aperçu avec Franck pour la relecture de SC-008
 

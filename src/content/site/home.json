@@ -14,6 +14,13 @@
         "kind": "from",
         "amount": 15000,
         "unit": "per_night"
+      },
+      "image": {
+        "src": "accommodation/chambre.jpg",
+        "alt": {
+          "fr": "Résidence en bord de mer à Kribi, entre palmiers et ciel bleu",
+          "en": "Seaside residence in Kribi, between palm trees and blue sky"
+        }
       }
     },
     {
@@ -46,6 +53,13 @@
         "kind": "from",
         "amount": 150000,
         "unit": "per_night"
+      },
+      "image": {
+        "src": "accommodation/villa.jpg",
+        "alt": {
+          "fr": "Transats et paillote sur une plage privée de Kribi",
+          "en": "Sun loungers and a straw parasol on a private beach in Kribi"
+        }
       }
     }
   ],

@@ -58,4 +58,26 @@ Ne s'applique pas à l'adresse provisoire `*.pages.dev`.
 
 ## Résultats relevés
 
-À compléter à la fin de l'implémentation : scores Lighthouse de `/`, `/en/`, `/contact`, et temps d'affichage du hero (SC-001).
+Contrôles automatiques du 2026-10-05, sur le site construit (T066) :
+
+| Contrôle | Résultat |
+|---|---|
+| `npm run check` | 120 tests unitaires et de composants, lint, formatage, types, contrastes : tout passe |
+| `npm run build:prod` | réussit ; `check:legal` signale les 6 champs d'identité de l'éditeur manquants (attendu, question K3) |
+| `npm run check:links` | 224 liens internes sur 12 pages, aucun cassé |
+| `npm run check:bundle` | aucune page ne charge de JavaScript |
+| `npm run test:e2e` | 168 parcours, Chromium et WebKit : tout passe |
+
+Lighthouse, profil mobile, trois passages (médiane) :
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO | LCP simulé |
+|---|---|---|---|---|---|
+| `/` | 96 | 100 | 100 | 100 | 2,86 s |
+| `/en/` | 96 | 100 | 100 | 100 | 2,86 s |
+| `/contact` | 100 | 100 | 100 | 100 | 1,28 s |
+| `/en/contact` | 100 | 100 | 100 | 100 | 1,28 s |
+| `/404`, `/en/404` | 100 | 100 | 100 | 66, exempté : `noindex` voulu | 1,20 s |
+
+**Écart à SC-001** : le hero s'affiche en 2,86 s dans la simulation de Lighthouse, un téléphone d'entrée de gamme à 1,6 Mbit/s, pour un objectif de 2,5 s. Le hero est déjà réduit (WebP 828 px, 81 Ko) ; le reste est du temps de rendu du processeur simulé. À remesurer sur un vrai téléphone en 4G lors des scénarios manuels.
+
+Scénarios manuels 1 à 14 : à dérouler par Zobel (T067).
