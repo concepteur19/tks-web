@@ -40,4 +40,23 @@ En 360 × 800 puis en 1 440 × 1 024, en français puis en anglais.
 
 ## Résultats relevés
 
-À compléter en fin d'implémentation.
+Contrôles automatiques du 2026-10-05 (T037) :
+
+| Contrôle | Résultat |
+|---|---|
+| `npm run check` | 139 tests unitaires et de composants, lint, types, contrastes : tout passe |
+| `npm run build:prod` | 40 pages (dont 13 fiches × 2 langues), traductions complètes |
+| `npm run check:links` | 1 098 liens internes, aucun cassé |
+| `npm run check:bundle` | aucune page ne charge de script externe (le filtre est un script en ligne < 1 Ko) |
+| `npm run test:e2e` | 234 parcours, Chromium et WebKit : tout passe |
+
+Lighthouse, profil mobile, médiane de trois passages :
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO | LCP simulé |
+|---|---|---|---|---|---|
+| `/experiences` | 93 | 100 | 100 | 100 | 3,83 s |
+| `/experiences/excursion-en-pirogue` | 98 | 100 | 100 | 100 | 2,33 s |
+
+Le LCP de `/experiences` est le bandeau photo ; 65 % du délai est du temps de rendu sous le processeur simulé, comme pour le hero de l'accueil (002). À remesurer sur un vrai téléphone lors des scénarios manuels.
+
+Scénarios manuels 1 à 14 : à dérouler par Zobel (T038).

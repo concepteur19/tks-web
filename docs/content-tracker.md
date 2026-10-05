@@ -52,14 +52,27 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 | Liens des réseaux sociaux | contact, pied de page | ⏳ | — | | `src/content/site/company.json` | Non |
 | Supports existants : Facebook, Instagram, flyers | inspiration design | ⏳ | — | | `Elements/incoming/` | Non |
 
-## Contenu d'exemple de la fondation
+## Catalogue des expériences (feature 003, 2026-10-05)
 
-Livré par la tâche T038 de la spec 001 pour prouver que les schémas acceptent un vrai contenu. Les deux fichiers portent `"provisional": true` : `npm run check:content` fait échouer la construction si une fiche provisoire n'est pas `disabled`. Ils seront remplacés par la feature 003.
+13 expériences et 3 options publiées depuis le guide tarifaire. Ce qui manque encore, demandé à Franck dans `docs/questions-kibreeze-franck-3.xlsx` :
 
-| Fichier | Rôle | État |
-|---|---|---|
-| `src/content/categories/nature-decouverte.json` | Catégorie Nature & Découverte, textes FR et EN | Provisoire, textes repris du brief validé |
-| `src/content/services/excursion-en-pirogue.json` | Fiche pirogue : 35 000 FCFA par groupe, 8 personnes max, guide tarifaire du 2026-09-26 | Provisoire, `disabled` faute de photo validée |
+| Expérience | Photo | Durée | Lieu | Inclus / non inclus | Prix |
+|---|---|---|---|---|---|
+| Chutes de la Lobé | ✅ 3 photos | ⏳ | ⏳ | ⏳ | ✅ |
+| Excursion en pirogue | ✅ 3 photos | ✅ | ✅ | ✅ | ✅ |
+| Excursion en chaloupe | 🔄 image Stitch | ⏳ | ✅ chutes de la Lobé | ⏳ | ✅ |
+| Campement Bagyeli | ✅ 3 photos | ⏳ | ⏳ | ⏳ | ✅ |
+| Jacuzzi naturel | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
+| Croisière en bateau | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
+| Feu de plage | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
+| Quad | ✅ | ⏳ durée de session | ⏳ | ⏳ | ✅ |
+| Jet-ski | ✅ | ⏳ | ⏳ | ⏳ | ⏳ sur devis (T1) |
+| Kayak | ✅ | ⏳ | ⏳ | ⏳ | ✅ |
+| Paddle | ✅ | ⏳ | ⏳ | ⏳ | ✅ |
+| Balade à cheval | ✅ | ⏳ | ⏳ | ⏳ | ✅ |
+| Bateau de plaisance | 🔄 image Stitch | ⏳ | ⏳ | ✅ à savoir | sur devis |
+
+Une case ⏳ n'est pas affichée sur la fiche : rien n'est inventé.
 
 ## Services
 

@@ -130,8 +130,8 @@ Celles de [002/tasks.md](../002-kibreeze-core/tasks.md) : aucun texte en dur, au
 
 ## Phase 7: Polish & vérification
 
-- [ ] T036 [P] Mettre à jour `docs/content-tracker.md` (photos et champs encore vides par expérience), `specs/README.md` (statut de 003) et `docs/architecture.md` (pages et modules `features/catalog`, `features/whatsapp`)
-- [ ] T037 Lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; corriger jusqu'à ce que tout passe ; consigner les résultats dans [quickstart.md](./quickstart.md)
+- [X] T036 [P] Mettre à jour `docs/content-tracker.md` (photos et champs encore vides par expérience), `specs/README.md` (statut de 003) et `docs/architecture.md` (pages et modules `features/catalog`, `features/whatsapp`)
+- [X] T037 Lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; corriger jusqu'à ce que tout passe ; consigner les résultats dans [quickstart.md](./quickstart.md)
 - [ ] T038 Dérouler les 14 scénarios manuels de [quickstart.md](./quickstart.md) (Zobel)
 - [ ] T039 Ouvrir la PR de `003-experience-catalog` vers `main` après la fusion de 002 (Zobel)
 
