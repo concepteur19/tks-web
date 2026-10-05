@@ -2,7 +2,7 @@ import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import axe from 'axe-core';
 import { describe, expect, it } from 'vitest';
 import Footer from '../../src/components/Footer.astro';
-import Nav from '../../src/components/Nav.astro';
+import Header from '../../src/components/Header.astro';
 
 async function renderToBody(
   component: Parameters<AstroContainer['renderToString']>[0],
@@ -11,7 +11,7 @@ async function renderToBody(
 ): Promise<HTMLElement> {
   const container = await AstroContainer.create();
   const html = await container.renderToString(component, {
-    props: { locale },
+    props: { locale, routeKey: 'home' },
     request: new Request(`http://localhost${path}`),
   });
   document.documentElement.lang = locale;
@@ -27,13 +27,13 @@ const AXE_OPTIONS = {
 
 describe('accessibilité des éléments de page', () => {
   it('ne produit aucune violation dans la navigation, en français', async () => {
-    const body = await renderToBody(Nav, 'fr');
+    const body = await renderToBody(Header, 'fr');
     const results = await axe.run(body, AXE_OPTIONS);
     expect(results.violations.map((violation) => violation.id)).toEqual([]);
   });
 
   it('ne produit aucune violation dans la navigation, en anglais', async () => {
-    const body = await renderToBody(Nav, 'en', '/en/');
+    const body = await renderToBody(Header, 'en', '/en/');
     const results = await axe.run(body, AXE_OPTIONS);
     expect(results.violations.map((violation) => violation.id)).toEqual([]);
   });
@@ -45,9 +45,9 @@ describe('accessibilité des éléments de page', () => {
   });
 
   it('donne un nom accessible au lien de marque', async () => {
-    const body = await renderToBody(Nav, 'fr');
+    const body = await renderToBody(Header, 'fr');
     const brand = body.querySelector('header a');
-    expect(brand?.textContent).toContain('Kibreeze');
+    expect(brand?.querySelector('svg')?.getAttribute('aria-label')).toBe('Kibreeze');
     expect(brand?.textContent).toContain('Kribi is a feeling');
   });
 });

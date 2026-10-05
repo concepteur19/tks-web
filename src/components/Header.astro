@@ -1,0 +1,82 @@
+---
+/**
+ * En-tête commun (FR-001, FR-003). Téléphone : logo, FR | EN, WhatsApp, rien d'autre.
+ * Ordinateur : la navigation des pages livrées s'y ajoute, la barre à onglets disparaît.
+ */
+import { DESKTOP_NAV, isImplemented, visible } from '../i18n/navigation.ts';
+import { getRoutePath, type RouteKey } from '../i18n/routes.ts';
+import { t } from '../i18n/t.ts';
+import type { Locale } from '../i18n/types.ts';
+import { env } from '../lib/env.ts';
+import { buildWhatsAppUrl } from '../lib/seo.ts';
+import BrandLogo from './BrandLogo.astro';
+import Icon from './Icon.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+
+interface Props {
+  locale: Locale;
+  routeKey: RouteKey;
+}
+
+const { locale, routeKey } = Astro.props;
+const links = visible(DESKTOP_NAV);
+const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.genericMessage'));
+---
+
+<header
+  class="sticky top-0 border-b border-border bg-bg"
+  style="z-index: var(--z-nav)"
+  data-testid="site-header"
+>
+  <div class="mx-auto flex h-(--size-header) max-w-(--size-content) items-center justify-between gap-4 px-4 lg:h-(--size-header-desktop)">
+    <a href={getRoutePath('home', locale)} class="inline-flex min-h-11 items-center text-brand">
+      <BrandLogo variant="wordmark" class="h-6 w-auto lg:h-7" label="Kibreeze" />
+      <span class="sr-only"> — {t(locale, 'site.tagline')}</span>
+    </a>
+
+    {links.length > 0 && (
+      <nav aria-label={t(locale, 'nav.label')} class="hidden lg:block">
+        <ul class="flex items-center gap-8 text-sm font-medium">
+          {links.map((key) => (
+            <li>
+              <a
+                href={getRoutePath(key, locale)}
+                aria-current={key === routeKey ? 'page' : undefined}
+                class:list={[
+                  'inline-flex min-h-11 items-center',
+                  key === routeKey ? 'text-brand' : 'text-fg-muted hover:text-fg',
+                ]}
+              >
+                {t(locale, `nav.${key}`)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
+
+    <div class="flex items-center gap-2">
+      <LanguageSwitcher locale={locale} />
+      {isImplemented('stay') && (
+        <a
+          href={getRoutePath('stay', locale)}
+          aria-label={t(locale, 'nav.stay')}
+          class="hidden min-h-11 min-w-11 items-center justify-center text-fg lg:inline-flex"
+        >
+          <Icon name="luggage" />
+        </a>
+      )}
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={t(locale, 'whatsapp.label')}
+        class="inline-flex min-h-11 min-w-11 items-center justify-center text-whatsapp-ink"
+        data-testid="header-whatsapp"
+      >
+        <WhatsAppIcon size={24} class="text-whatsapp" />
+      </a>
+    </div>
+  </div>
+</header>

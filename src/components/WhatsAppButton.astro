@@ -20,7 +20,7 @@ const href = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.genericMes
   rel="noopener noreferrer"
   aria-label={label}
   data-testid="whatsapp-button"
-  class="fixed bottom-4 right-4 inline-flex min-h-14 min-w-14 items-center justify-center rounded-pill bg-whatsapp text-whatsapp-contrast shadow-card"
+  class="fixed right-4 bottom-[calc(var(--size-tabbar)+--spacing(4))] inline-flex size-(--size-fab) items-center justify-center rounded-pill bg-whatsapp text-whatsapp-contrast shadow-card lg:bottom-4"
   style="z-index: var(--z-fab)"
 >
   <WhatsAppIcon size={28} />

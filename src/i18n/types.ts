@@ -13,7 +13,7 @@ export function isLocale(value: string): value is Locale {
  * Texte de contenu traduit. `en` est optionnel dans le schéma pour accepter le
  * contenu livré au fil de l'eau ; le contrôle de production l'exige partout.
  */
-export type LocalizedString = { fr: string; en?: string };
+export type LocalizedString = { fr: string; en?: string | undefined };
 
 /** Formes plurielles d'une chaîne d'interface. */
 export type PluralForms = { zero?: string; one: string; other: string };

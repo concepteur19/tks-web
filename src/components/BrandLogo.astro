@@ -1,0 +1,31 @@
+---
+/**
+ * Logo Kibreeze, tracé vectoriel nettoyé (src/assets/brand/). La couleur suit `currentColor` :
+ * rouge sur fond clair, crème sur photo ou fond sombre, jamais l'inverse (charte du brief).
+ */
+import full from '../assets/brand/kibreeze.svg?raw';
+import symbol from '../assets/brand/kibreeze-symbol.svg?raw';
+import wordmark from '../assets/brand/kibreeze-wordmark.svg?raw';
+
+interface Props {
+  variant?: 'wordmark' | 'full' | 'symbol';
+  class?: string;
+  /** Nom accessible ; vide quand le lien parent porte déjà le nom de la marque. */
+  label?: string;
+}
+
+const SOURCES = { wordmark, full, symbol } as const;
+const { variant = 'wordmark', class: className, label = 'Kibreeze' } = Astro.props;
+
+const accessibility = label
+  ? `role="img" aria-label="${label}"`
+  : 'aria-hidden="true" focusable="false"';
+const svg = SOURCES[variant]
+  .replace(/<\?xml[^>]*>\s*/, '')
+  .replace(/\s(role|aria-label|width|height)="[^"]*"/g, '')
+  .replace(/<title>[^<]*<\/title>\s*/, '')
+  .replace(/fill="#8C0120"/gi, 'fill="currentColor"')
+  .replace('<svg', `<svg ${accessibility} class="${className ?? ''}"`);
+---
+
+<Fragment set:html={svg} />
