@@ -20,6 +20,20 @@
         "fr": "Les chutes de la Lobé dévalent les rochers au milieu de la végétation",
         "en": "The Lobé Falls tumbling over rocks amid lush vegetation"
       }
+    },
+    {
+      "src": "../../assets/photos/experiences/chutes-de-la-lobe-2.jpg",
+      "alt": {
+        "fr": "Une cascade de la Lobé tombe dans un bassin sombre",
+        "en": "A Lobé waterfall pouring into a dark pool"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/chutes-de-la-lobe-3.jpg",
+      "alt": {
+        "fr": "Un baigneur au pied d'une petite chute de la Lobé",
+        "en": "A swimmer at the foot of a small Lobé waterfall"
+      }
     }
   ],
   "pricing": {

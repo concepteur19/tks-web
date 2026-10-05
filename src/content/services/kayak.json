@@ -1,0 +1,41 @@
+{
+  "title": {
+    "fr": "Kayak",
+    "en": "Kayak"
+  },
+  "section": "experience",
+  "categoryId": "aventure",
+  "shortDescription": {
+    "fr": "Pagayez sur la Lobé, à votre rythme",
+    "en": "Paddle along the Lobé at your own pace"
+  },
+  "description": {
+    "fr": "Une session de kayak, à la personne.",
+    "en": "A kayak session, priced per person."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/kayak.jpg",
+      "alt": {
+        "fr": "Deux personnes pagaient en kayak sur la rivière",
+        "en": "Two people paddling a kayak on the river"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 10000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "order": 100
+}

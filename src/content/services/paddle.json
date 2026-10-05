@@ -1,0 +1,41 @@
+{
+  "title": {
+    "fr": "Paddle",
+    "en": "Stand-up paddle"
+  },
+  "section": "experience",
+  "categoryId": "aventure",
+  "shortDescription": {
+    "fr": "Glissez debout sur l'eau calme, face à l'horizon",
+    "en": "Glide standing on calm water, facing the horizon"
+  },
+  "description": {
+    "fr": "Une session de paddle, à la personne.",
+    "en": "A stand-up paddle session, priced per person."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/paddle.jpg",
+      "alt": {
+        "fr": "Une femme debout sur une planche de paddle, sous un ciel bleu",
+        "en": "A woman standing on a paddleboard under a blue sky"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 10000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "order": 110
+}

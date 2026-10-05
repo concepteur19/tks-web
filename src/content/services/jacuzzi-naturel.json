@@ -1,0 +1,41 @@
+{
+  "title": {
+    "fr": "Jacuzzi naturel",
+    "en": "Natural jacuzzi"
+  },
+  "section": "experience",
+  "categoryId": "nature-decouverte",
+  "shortDescription": {
+    "fr": "Baignez-vous dans un bassin naturel, au cœur de la végétation",
+    "en": "Bathe in a natural pool surrounded by greenery"
+  },
+  "description": {
+    "fr": "Un accès au jacuzzi naturel, un bassin où l'eau vive se détend au milieu de la végétation.",
+    "en": "Access to the natural jacuzzi, a pool where running water settles amid lush vegetation."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/stitch/jacuzzi-naturel.jpg",
+      "alt": {
+        "fr": "Deux baigneurs dans un bassin d'eau vive au milieu de la forêt",
+        "en": "Two bathers in a pool of running water in the forest"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 5000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "order": 50
+}

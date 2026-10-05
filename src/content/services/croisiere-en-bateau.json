@@ -15,10 +15,10 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/experiences/croisiere-en-bateau.jpg",
+      "src": "../../assets/photos/stitch/croisiere-en-bateau.jpg",
       "alt": {
-        "fr": "Le soleil se couche sur l'océan au large de Kribi",
-        "en": "The sun setting over the ocean off Kribi"
+        "fr": "Un bateau de croisière avec des passagers, au coucher du soleil",
+        "en": "A cruise boat with passengers at sunset"
       }
     }
   ],
@@ -38,5 +38,5 @@
     ]
   },
   "featured": true,
-  "order": 30
+  "order": 60
 }

@@ -103,6 +103,23 @@ export const fr = {
   'whatsapp.serviceRequest':
     'Bonjour Kibreeze, je souhaite des informations sur l’expérience « {title} » : {url}',
 
+  'experiences.title': 'Expériences',
+  'experiences.tagline': 'Vivez Kribi autrement',
+  'experiences.description':
+    'Chutes de la Lobé, pirogue, quad, jet-ski, croisière : toutes les expériences Kibreeze à Kribi, avec leurs prix indicatifs.',
+  'experiences.bannerAlt': 'Les chutes de la Lobé vues depuis une pirogue',
+  'experiences.tabsLabel': "Catégories d'expériences",
+  'experiences.all': 'Toutes',
+  'experiences.count': { one: '{count} expérience', other: '{count} expériences' },
+  'experiences.indicative': 'tarifs indicatifs',
+  'experiences.details': 'Voir les détails',
+  'experiences.detailsOf': 'Voir les détails : {title}',
+  'experiences.capacityMax': '{count} personnes max',
+  'experiences.onRequest': 'Disponibilité à confirmer',
+  'experiences.special.title': 'Une envie particulière ?',
+  'experiences.special.text':
+    'Une activité qui ne figure pas ici, une date, un groupe ? Écrivez-nous, on en parle.',
+
   'notFound.title': 'Page introuvable',
   'notFound.description': "Cette page n'existe pas sur le site de Kibreeze.",
   'notFound.text': "Cette page n'existe pas ou a été déplacée.",

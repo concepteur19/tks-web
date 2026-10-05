@@ -18,7 +18,6 @@ Choix du 2026-10-05 :
 | Catégorie Détente | `categories/detente.jpg` | pirogues sur la plage au soleil couchant ; les deux photos « feux de plage » montrent un pique-nique, pas un feu |
 | Chutes de la Lobé | `experiences/chutes-de-la-lobe.jpg` | |
 | Excursion en pirogue | `experiences/excursion-en-pirogue.jpg` | |
-| Croisière en bateau | `experiences/croisiere-en-bateau.jpg` | coucher de soleil en mer : la seule photo de croisière (`croisiere/L6-08.jpg`) est inutilisable |
 | Campement Bagyeli | `experiences/campement-bagyeli.jpg` | |
 | Bande immersive | `sections/lobe-en-pirogue.jpg` | |
 | Qui sommes-nous (accueil) | `sections/kribi-vue-aerienne.jpg` | |

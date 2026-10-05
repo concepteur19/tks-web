@@ -1,0 +1,34 @@
+{
+  "title": {
+    "fr": "Feu de plage",
+    "en": "Beach bonfire"
+  },
+  "section": "experience",
+  "categoryId": "detente",
+  "shortDescription": {
+    "fr": "Une soirée autour du feu, sur la plage, à la tombée de la nuit",
+    "en": "An evening around the fire on the beach as night falls"
+  },
+  "description": {
+    "fr": "Un feu de plage organisé pour votre groupe, pour finir la journée face à l'océan.",
+    "en": "A beach bonfire set up for your group, to end the day facing the ocean."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/stitch/feu-de-plage.jpg",
+      "alt": {
+        "fr": "Un groupe d'amis assis autour d'un feu sur la plage, à la nuit tombée",
+        "en": "A group of friends sitting around a fire on the beach at nightfall"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 50000,
+    "unit": "per_group"
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "order": 70
+}

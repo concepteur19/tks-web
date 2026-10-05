@@ -102,6 +102,23 @@ export const en = {
   'whatsapp.serviceRequest':
     'Hello Kibreeze, I would like some information about the “{title}” experience: {url}',
 
+  'experiences.title': 'Experiences',
+  'experiences.tagline': 'Live Kribi differently',
+  'experiences.description':
+    'Lobé Falls, dugout canoe, quad bike, jet ski, cruise: every Kibreeze experience in Kribi, with indicative prices.',
+  'experiences.bannerAlt': 'The Lobé Falls seen from a dugout canoe',
+  'experiences.tabsLabel': 'Experience categories',
+  'experiences.all': 'All',
+  'experiences.count': { one: '{count} experience', other: '{count} experiences' },
+  'experiences.indicative': 'indicative prices',
+  'experiences.details': 'See details',
+  'experiences.detailsOf': 'See details: {title}',
+  'experiences.capacityMax': '{count} people max',
+  'experiences.onRequest': 'Availability to be confirmed',
+  'experiences.special.title': 'Something special in mind?',
+  'experiences.special.text':
+    'An activity not listed here, a date, a group? Write to us and we will talk it through.',
+
   'notFound.title': 'Page not found',
   'notFound.description': 'This page does not exist on the Kibreeze website.',
   'notFound.text': 'This page does not exist or has been moved.',

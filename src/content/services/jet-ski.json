@@ -1,0 +1,32 @@
+{
+  "title": {
+    "fr": "Jet-ski",
+    "en": "Jet ski"
+  },
+  "section": "experience",
+  "categoryId": "aventure",
+  "shortDescription": {
+    "fr": "Filez sur l'eau en jet-ski, sensations garanties",
+    "en": "Speed across the water on a jet ski"
+  },
+  "description": {
+    "fr": "Une sortie en jet-ski sur les eaux de Kribi.",
+    "en": "A jet ski ride on the waters of Kribi."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/jet-ski.jpg",
+      "alt": {
+        "fr": "Une pilote sur un jet-ski rose, sur la rivière",
+        "en": "A rider on a pink jet ski on the river"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "order": 90
+}

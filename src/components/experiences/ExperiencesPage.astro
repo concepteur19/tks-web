@@ -1,0 +1,92 @@
+---
+/** Page Expériences (FR-006 à FR-011) : bandeau, onglets de catégorie, grille, bloc WhatsApp. */
+import { Image } from 'astro:assets';
+import banner from '../../assets/photos/sections/bandeau-experiences.jpg';
+import { t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { categoriesWithExperiences, getExperiences } from '../../lib/catalog.ts';
+import { env } from '../../lib/env.ts';
+import { buildWhatsAppUrl } from '../../lib/seo.ts';
+import WhatsAppIcon from '../WhatsAppIcon.astro';
+import CategoryTabs from './CategoryTabs.astro';
+import ExperienceCard from './ExperienceCard.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const [experiences, categories] = await Promise.all([
+  getExperiences(),
+  categoriesWithExperiences(),
+]);
+const counts = Object.fromEntries(
+  categories.map((category) => [
+    category.id,
+    experiences.filter((service) => service.data.categoryId === category.id).length,
+  ]),
+);
+const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.genericMessage'));
+---
+
+<BaseLayout
+  locale={locale}
+  routeKey="experiences"
+  title={t(locale, 'experiences.title')}
+  description={t(locale, 'experiences.description')}
+  ogImage={banner}
+  ogImageAlt={t(locale, 'experiences.bannerAlt')}
+>
+  <section class="relative isolate flex h-56 items-end overflow-hidden" data-section="banner">
+    <Image
+      src={banner}
+      alt={t(locale, 'experiences.bannerAlt')}
+      widths={[480, 960, 1440]}
+      quality={60}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 -z-10 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 -z-10 bg-linear-to-t from-fg/80 to-fg/20"></div>
+    <div class="mx-auto w-full max-w-(--size-content) px-4 pb-6 text-brand-contrast">
+      <h1 class="font-display text-4xl font-extrabold">{t(locale, 'experiences.title')}</h1>
+      <p class="mt-1 text-lg">{t(locale, 'experiences.tagline')}</p>
+    </div>
+  </section>
+
+  <div data-catalog>
+    <CategoryTabs
+      categories={categories}
+      counts={counts}
+      total={experiences.length}
+      locale={locale}
+    />
+    <ul class="mx-auto grid max-w-(--size-content) gap-4 px-4 py-6 sm:grid-cols-2 lg:grid-cols-3">
+      {experiences.map((service) => (
+        <li data-category={service.data.categoryId} class="flex">
+          <ExperienceCard service={service} locale={locale} />
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <section class="bg-bg-muted" data-section="special">
+    <div class="mx-auto max-w-(--size-content) px-4 py-10">
+      <h2 class="font-display text-2xl font-extrabold text-fg">
+        {t(locale, 'experiences.special.title')}
+      </h2>
+      <p class="mt-2 max-w-xl text-fg-muted">{t(locale, 'experiences.special.text')}</p>
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-5 inline-flex min-h-12 items-center gap-2 rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
+      >
+        <WhatsAppIcon size={22} />
+        {t(locale, 'whatsapp.label')}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

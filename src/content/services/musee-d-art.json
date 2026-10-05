@@ -1,0 +1,32 @@
+{
+  "title": {
+    "fr": "Musée d'art",
+    "en": "Art museum"
+  },
+  "section": "experience",
+  "isOption": true,
+  "shortDescription": {
+    "fr": "Une visite du musée d'art",
+    "en": "A visit to the art museum"
+  },
+  "description": {
+    "fr": "Une visite du musée d'art, à la personne.",
+    "en": "A visit to the art museum, priced per person."
+  },
+  "pricing": {
+    "kind": "fixed",
+    "amount": 1500,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "order": 30
+}
