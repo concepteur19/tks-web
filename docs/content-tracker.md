@@ -62,7 +62,7 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 | Excursion en pirogue | ✅ 3 photos | ✅ | ✅ | ✅ | ✅ |
 | Excursion en chaloupe | 🔄 image Stitch | ⏳ | ✅ chutes de la Lobé | ⏳ | ✅ |
 | Campement Bagyeli | ✅ 3 photos | ⏳ | ⏳ | ⏳ | ✅ |
-| Jacuzzi naturel | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
+| Jacuzzi naturel | ✅ 3 photos (reclassées le 2026-10-06) | ⏳ | ⏳ | ⏳ | ✅ |
 | Croisière en bateau | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
 | Feu de plage | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
 | Quad | ✅ | ⏳ durée de session | ⏳ | ⏳ | ✅ |

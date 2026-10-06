@@ -65,13 +65,13 @@ Aucune photo utilisable n'a été trouvée pour :
 
 | Identifiant | Activité | Fichier d'origine | Filigrane |
 |---|---|---|---|
-| `L2-01` | Chutes de la Lobé | `photo_1_2026-09-25_12-07-51.jpg` |  |
-| `L2-02` | Chutes de la Lobé | `photo_2_2026-09-25_12-07-51.jpg` |  |
-| `L2-03` | Chutes de la Lobé | `photo_3_2026-09-25_12-07-51.jpg` |  |
-| `L2-04` | Chutes de la Lobé | `photo_4_2026-09-25_12-07-51.jpg` |  |
-| `L3-01` | Chutes de la Lobé | `photo_1_2026-09-25_12-08-19.jpg` |  |
-| `L3-02` | Chutes de la Lobé | `photo_2_2026-09-25_12-08-19.jpg` |  |
-| `L3-03` | Chutes de la Lobé | `photo_3_2026-09-25_12-08-19.jpg` |  |
+| `L2-01` | Jacuzzi naturel (corrigé le 2026-10-06) | `photo_1_2026-09-25_12-07-51.jpg` |  |
+| `L2-02` | Jacuzzi naturel (corrigé le 2026-10-06) | `photo_2_2026-09-25_12-07-51.jpg` |  |
+| `L2-03` | Jacuzzi naturel (corrigé le 2026-10-06) | `photo_3_2026-09-25_12-07-51.jpg` |  |
+| `L2-04` | Jacuzzi naturel (corrigé le 2026-10-06) | `photo_4_2026-09-25_12-07-51.jpg` |  |
+| `L3-01` | Jacuzzi naturel (corrigé le 2026-10-06) | `photo_1_2026-09-25_12-08-19.jpg` |  |
+| `L3-02` | Jacuzzi naturel (corrigé le 2026-10-06) | `photo_2_2026-09-25_12-08-19.jpg` |  |
+| `L3-03` | Jacuzzi naturel (corrigé le 2026-10-06) | `photo_3_2026-09-25_12-08-19.jpg` |  |
 | `L6-05` | Chutes de la Lobé | `photo_5_2026-09-25_12-09-12.jpg` |  |
 | `L7-03` | Chutes de la Lobé | `photo_3_2026-09-25_12-09-32.jpg` |  |
 | `L8-01` | Chutes de la Lobé | `photo_1_2026-09-25_12-10-01.jpg` |  |
@@ -89,15 +89,15 @@ Aucune photo utilisable n'a été trouvée pour :
 | `L9-11` | Chutes de la Lobé | `photo_13_2026-09-25_12-10-02.jpg` |  |
 | `L9-12` | Chutes de la Lobé | `photo_14_2026-09-25_12-10-02.jpg` |  |
 | `L9-13` | Chutes de la Lobé | `photo_15_2026-09-25_12-10-02.jpg` |  |
-| `L9-14` | Chutes de la Lobé | `photo_16_2026-09-25_12-10-02.jpg` |  |
+| `L9-14` | Jacuzzi naturel (corrigé le 2026-10-06) | `photo_16_2026-09-25_12-10-02.jpg` |  |
 | `L9-15` | Chutes de la Lobé | `photo_17_2026-09-25_12-10-02.jpg` |  |
 | `L10-01` | Chutes de la Lobé | `photo_1_2026-09-25_12-10-22.jpg` | ⚠️ oui |
 | `L10-02` | Chutes de la Lobé | `photo_2_2026-09-25_12-10-22.jpg` |  |
 | `L10-03` | Chutes de la Lobé | `photo_3_2026-09-25_12-10-22.jpg` | ⚠️ oui |
 | `L10-04` | Chutes de la Lobé | `photo_4_2026-09-25_12-10-22.jpg` | ⚠️ oui |
-| `L10-05` | Chutes de la Lobé | `photo_5_2026-09-25_12-10-22.jpg` |  |
-| `L10-06` | Chutes de la Lobé | `photo_6_2026-09-25_12-10-22.jpg` |  |
-| `L10-07` | Chutes de la Lobé | `photo_7_2026-09-25_12-10-22.jpg` |  |
+| `L10-05` | Jacuzzi naturel (corrigé le 2026-10-06) | `photo_5_2026-09-25_12-10-22.jpg` |  |
+| `L10-06` | Jacuzzi naturel (corrigé le 2026-10-06) | `photo_6_2026-09-25_12-10-22.jpg` |  |
+| `L10-07` | Jacuzzi naturel (corrigé le 2026-10-06) | `photo_7_2026-09-25_12-10-22.jpg` |  |
 | `L10-10` | Chutes de la Lobé | `photo_10_2026-09-25_12-10-22.jpg` |  |
 | `L6-04` | Excursion en pirogue | `photo_4_2026-09-25_12-09-12.jpg` |  |
 | `L7-04` | Excursion en pirogue | `photo_4_2026-09-25_12-09-32.jpg` |  |
@@ -178,3 +178,5 @@ Aucune photo utilisable n'a été trouvée pour :
 | `L12-21` | Ambiance, hero, plages et couchers de soleil | `photo_21_2026-09-25_12-11-29.jpg` | ⚠️ oui |
 | `L12-22` | Ambiance, hero, plages et couchers de soleil | `photo_22_2026-09-25_12-11-29.jpg` | ⚠️ oui |
 | `L12-23` | Ambiance, hero, plages et couchers de soleil | `photo_23_2026-09-25_12-11-29.jpg` | ⚠️ oui |
+
+**Correction du 2026-10-06** (Franck, relayé par Zobel) : les photos de la petite cascade où l'on se baigne sont le **jacuzzi naturel**, pas les chutes de la Lobé. 11 photos reclassées et déplacées dans `Elements/tri-par-activite/jacuzzi-naturel/`.

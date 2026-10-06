@@ -16,7 +16,6 @@ Choix du 2026-10-05 :
 | Catégorie Nature & Découverte | `categories/nature-decouverte.jpg` | chutes de la Lobé ; aucune photo ne montre la chute dans l'océan |
 | Catégorie Aventure | `categories/aventure.jpg` | jet-ski |
 | Catégorie Détente | `categories/detente.jpg` | pirogues sur la plage au soleil couchant ; les deux photos « feux de plage » montrent un pique-nique, pas un feu |
-| Chutes de la Lobé | `experiences/chutes-de-la-lobe.jpg` | |
 | Excursion en pirogue | `experiences/excursion-en-pirogue.jpg` | |
 | Campement Bagyeli | `experiences/campement-bagyeli.jpg` | |
 | Bande immersive | `sections/lobe-en-pirogue.jpg` | |
@@ -35,7 +34,14 @@ Ajouts du 2026-10-05 (feature 003) :
 | Paddle | `experiences/paddle.jpg` | `_a-classer_paddle/L6-01` |
 | Balade à cheval | `experiences/balade-a-cheval.jpg` | `balade-a-cheval/L7-07` |
 | Bandeau de la page Expériences | `sections/bandeau-experiences.jpg` | `chutes-de-la-lobe/L9-11` |
-| Galeries | `experiences/*-2.jpg`, `*-3.jpg` | chutes `L10-05`, `L2-02` ; pirogue `L12-02`, `L7-09` ; campement `L12-09`, `L12-08` |
+| Galeries | `experiences/*-2.jpg`, `*-3.jpg` | pirogue `L12-02`, `L7-09` ; campement `L12-09`, `L12-08` |
+
+Correction du 2026-10-06 (Franck, relayé par Zobel) : les photos de la petite cascade où l'on se baigne montrent le **jacuzzi naturel**, pas les chutes de la Lobé. Elles sont rangées dans `Elements/tri-par-activite/jacuzzi-naturel/` (`L2-01` à `L2-04`, `L3-01` à `L3-03`, `L10-05` à `L10-07`, `L9-14`).
+
+| Usage | Fichier | Source |
+|---|---|---|
+| Chutes de la Lobé | `experiences/chutes-de-la-lobe.jpg`, `-2`, `-3` | `chutes-de-la-lobe/L9-08`, `L9-07`, `L10-02` |
+| Jacuzzi naturel | `experiences/jacuzzi-naturel.jpg`, `-2`, `-3` | `jacuzzi-naturel/L2-03`, `L2-01`, `L10-06` |
 
 ## Images générées par Google Stitch (provisoires)
 
@@ -44,7 +50,6 @@ Décision de Zobel du 2026-10-05 : en attendant les photos de Franck, les sujets
 | Usage | Fichier | Capture d'origine |
 |---|---|---|
 | Excursion en chaloupe | `stitch/excursion-en-chaloupe.jpg` | `02a-experiences-toutes` |
-| Jacuzzi naturel | `stitch/jacuzzi-naturel.jpg` | `02a-experiences-toutes` |
 | Croisière en bateau | `stitch/croisiere-en-bateau.jpg` | `02a-experiences-toutes` |
 | Feu de plage | `stitch/feu-de-plage.jpg` | `02a-experiences-toutes` |
 | Bateau de plaisance | `stitch/bateau-de-plaisance.jpg` | `02a-experiences-toutes` |
