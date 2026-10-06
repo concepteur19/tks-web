@@ -56,7 +56,7 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 
 ### Tests
 
-- [ ] T013 [P] [US1] Écrire `tests/component/quantity-stepper.test.tsx` et `tests/component/experience-configurator.test.tsx` (Testing Library Preact + axe) : bornes du sélecteur, saisie clavier, boutons de 44 px nommés ; choix du tarif ; cases des options ; total mis à jour ; « Ajouter » puis « Déjà dans mon séjour » pour une ligne non duplicable ; aucune violation axe
+- [X] T013 [P] [US1] Écrire (regroupés dans `tests/component/selection-islands.test.tsx`) `tests/component/quantity-stepper.test.tsx` et `tests/component/experience-configurator.test.tsx` (Testing Library Preact + axe) : bornes du sélecteur, saisie clavier, boutons de 44 px nommés ; choix du tarif ; cases des options ; total mis à jour ; « Ajouter » puis « Déjà dans mon séjour » pour une ligne non duplicable ; aucune violation axe
 - [ ] T014 [P] [US1] Écrire `tests/e2e/add-to-stay.spec.ts` : scénarios 1 à 6 de [quickstart.md](./quickstart.md) (ajout pirogue 6 + guide, fusion et passage sur devis, tarif couple, doublon refusé, ajout rapide depuis la liste et l'accueil, persistance après fermeture du contexte) ; message de confirmation annoncé ; stockage bloqué → bandeau et fonctionnement en mémoire
 
 ### Implementation
@@ -76,7 +76,7 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 
 ### Tests
 
-- [ ] T021 [P] [US2] Écrire `tests/component/stay-page.test.tsx` : lignes, quantités en toutes lettres, tarif, options, total « estimatif » / « indicatif », euro, « + N sur devis », état tout sur devis, état vide, rappel dates et voyageurs ; aucune violation axe
+- [X] T021 [P] [US2] Écrire (dans `tests/component/selection-islands.test.tsx`) `tests/component/stay-page.test.tsx` : lignes, quantités en toutes lettres, tarif, options, total « estimatif » / « indicatif », euro, « + N sur devis », état tout sur devis, état vide, rappel dates et voyageurs ; aucune violation axe
 - [ ] T022 [P] [US2] Écrire `tests/e2e/stay-page.spec.ts` : scénarios 7 à 9, 11 et 13 de [quickstart.md](./quickstart.md) ; « Vider » avec confirmation ; ligne d'une expérience désactivée retirée au chargement avec message ; pas de défilement horizontal à 320 px ; panneau collant à 1 440 px
 
 ### Implementation
@@ -104,7 +104,7 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 
 ## Phase 7: Polish & vérification
 
-- [ ] T029 [P] Mettre à jour `src/content/legal/{fr,en}/privacy.md` (section cookies : clé `kibreeze.selection.v1`, contenu, 30 jours, effacement) et `DOCUMENTED_STORAGE` dans `tests/e2e/legal.spec.ts` (FR-029)
+- [X] T029 [P] Mettre à jour `src/content/legal/{fr,en}/privacy.md` (section cookies : clé `kibreeze.selection.v1`, contenu, 30 jours, effacement) et `DOCUMENTED_STORAGE` dans `tests/e2e/legal.spec.ts` (FR-029)
 - [ ] T030 [P] Mettre à jour `docs/architecture.md` (îlots Preact), `specs/README.md` (statut 004), `docs/content-tracker.md` si besoin
 - [ ] T031 Ajouter `/sejour.html` à `lighthouserc.json` ; lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; consigner les résultats dans [quickstart.md](./quickstart.md)
 - [ ] T032 Comparer les écrans 03, 04, 05a, 05b et 11 à notre rendu, élément par élément (captures au même format), et corriger les écarts non justifiés

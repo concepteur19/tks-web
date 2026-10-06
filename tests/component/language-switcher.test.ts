@@ -1,10 +1,10 @@
-import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import { createContainer } from '../setup/container.ts';
 import axe from 'axe-core';
 import { beforeEach, describe, expect, it } from 'vitest';
 import LanguageSwitcher from '../../src/components/LanguageSwitcher.astro';
 
 async function render(path: string, locale: 'fr' | 'en'): Promise<string> {
-  const container = await AstroContainer.create();
+  const container = await createContainer();
   return container.renderToString(LanguageSwitcher, {
     props: { locale },
     request: new Request(`http://localhost${path}`),

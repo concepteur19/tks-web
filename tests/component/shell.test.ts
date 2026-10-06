@@ -1,4 +1,5 @@
-import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import type { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import { createContainer } from '../setup/container.ts';
 import axe from 'axe-core';
 import { beforeEach, describe, expect, it } from 'vitest';
 import Footer from '../../src/components/Footer.astro';
@@ -14,7 +15,7 @@ async function mount(
   props: Record<string, unknown>,
   path = '/',
 ): Promise<HTMLElement> {
-  const container = await AstroContainer.create();
+  const container = await createContainer();
   const html = await container.renderToString(component, {
     props,
     request: new Request(`http://localhost${path}`),
@@ -52,12 +53,14 @@ describe('en-tête', () => {
     expect(root.querySelector('button')).toBeNull();
   });
 
-  it("n'affiche ni Mon séjour ni lien de navigation vers une page non livrée", async () => {
+  it("n'affiche aucun lien de navigation vers une page non livrée", async () => {
     const root = await mount(Header, { locale: 'fr', routeKey: 'home' });
     const internal = [...root.querySelectorAll('a:not([data-locale])')]
       .map((link) => link.getAttribute('href') ?? '')
       .filter((href) => href.startsWith('/'));
-    expect(internal).toEqual(['/', ...visible(DESKTOP_NAV).map((key) => ROUTES[key].fr)]);
+    const expected = ['/', ...visible(DESKTOP_NAV).map((key) => ROUTES[key].fr)];
+    if (IMPLEMENTED_ROUTES.includes('stay')) expected.push(ROUTES.stay.fr);
+    expect(internal).toEqual(expected);
   });
 
   it("ne produit aucune violation d'accessibilité, dans les deux langues", async () => {

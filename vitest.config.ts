@@ -27,6 +27,17 @@ export default getViteConfig({
           setupFiles: ['tests/setup/jsdom.ts'],
         },
       },
+      {
+        // Îlots Preact rendus dans le navigateur simulé. Projet séparé : chargés avec les
+        // composants Astro, ils font traiter astro:content comme un module client.
+        extends: true,
+        test: {
+          name: 'islands',
+          include: ['tests/component/**/*.test.tsx'],
+          environment: 'jsdom',
+          setupFiles: ['tests/setup/jsdom.ts'],
+        },
+      },
     ],
   },
 });

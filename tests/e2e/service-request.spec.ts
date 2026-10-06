@@ -29,8 +29,10 @@ for (const [path, expected] of [
     const href = (await link.getAttribute('href')) ?? '';
     expect(href).toMatch(/^https:\/\/wa\.me\/\d+\?text=/);
     const message = decodeURIComponent(href.split('?text=')[1] ?? '');
-    expect(message.startsWith(expected)).toBe(true);
-    expect(message.endsWith(path)).toBe(true);
+    // Depuis la 004, le message reprend ensuite la configuration choisie (quantités, options).
+    const firstLine = message.split('\n')[0] ?? '';
+    expect(firstLine.startsWith(expected)).toBe(true);
+    expect(firstLine.endsWith(path)).toBe(true);
     await expect(link).toHaveAttribute('target', '_blank');
   });
 }

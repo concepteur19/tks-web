@@ -42,7 +42,7 @@ describe('état livré', () => {
 
   it("reconnaît une page livrée et une page qui ne l'est pas", () => {
     expect(isImplemented('home')).toBe(true);
-    expect(isImplemented('stay')).toBe(false);
+    expect(isImplemented('accommodation')).toBe(false);
   });
 });
 
@@ -53,7 +53,7 @@ describe('resolveLink', () => {
   });
 
   it('renvoie WhatsApp avec le message générique pour une page non livrée', () => {
-    const french = resolveLink('stay', 'fr', NUMBER);
+    const french = resolveLink('accommodation', 'fr', NUMBER);
     expect(french.kind).toBe('whatsapp');
     expect(french.href).toBe(
       `https://wa.me/${NUMBER}?text=${encodeURIComponent(
@@ -61,7 +61,7 @@ describe('resolveLink', () => {
       )}`,
     );
 
-    const english = resolveLink('stay', 'en', NUMBER);
+    const english = resolveLink('accommodation', 'en', NUMBER);
     expect(decodeURIComponent(english.href)).toContain(
       'Hello Kibreeze, I would like some information about your experiences in Kribi.',
     );

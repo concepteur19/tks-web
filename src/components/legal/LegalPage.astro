@@ -70,9 +70,16 @@ const updated = new Intl.DateTimeFormat(INTL[locale], { dateStyle: 'long' }).for
     text-decoration: underline;
   }
   .legal-body :global(table) {
-    width: 100%;
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
     border-collapse: collapse;
     font-size: var(--text-sm);
+  }
+  /* Un nom long (clé de stockage) se coupe plutôt que de faire déborder la page sur téléphone. */
+  .legal-body :global(td),
+  .legal-body :global(code) {
+    overflow-wrap: anywhere;
   }
   .legal-body :global(th),
   .legal-body :global(td) {

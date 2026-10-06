@@ -20,7 +20,7 @@ test.describe('fiche de l’excursion en pirogue', () => {
     const options = plain(await page.getByTestId('options').textContent());
     for (const name of ['Guide touristique', 'Maître-nageur', "Musée d'art"])
       expect(options).toContain(name);
-    await expect(page.getByTestId('options').locator('input')).toHaveCount(0);
+    await expect(page.getByTestId('options').locator('input[type="checkbox"]')).toHaveCount(3);
     await expect(page.getByRole('heading', { name: 'Vous aimerez aussi' })).toBeVisible();
   });
 
@@ -38,10 +38,10 @@ test.describe('fiche de l’excursion en pirogue', () => {
     await expect(gallery.locator('a[href="#photo-2"]')).toHaveCount(1);
   });
 
-  test('aucun bouton d’ajout au séjour, aucune case à cocher', async ({ page }) => {
+  test('propose l’ajout au séjour et une case par option (feature 004)', async ({ page }) => {
     await page.goto('/experiences/excursion-en-pirogue');
-    await expect(page.getByText(/Ajouter à mon séjour/)).toHaveCount(0);
-    await expect(page.locator('input[type="checkbox"]')).toHaveCount(0);
+    await expect(page.getByTestId('add-to-stay').first()).toBeAttached();
+    await expect(page.getByTestId('options').locator('input[type="checkbox"]')).toHaveCount(3);
   });
 });
 

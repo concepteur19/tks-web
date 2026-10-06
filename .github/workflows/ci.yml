@@ -35,7 +35,7 @@ jobs:
       - name: Contrastes des tokens
         run: npm run tokens:check
       - name: Tests unitaires (couverture 100 % de src/features) et de composants
-        run: npm run test:coverage && npx vitest run --project component
+        run: npm run test:coverage && npx vitest run --project component --project islands
       - name: Construction de production
         run: npm run build:prod
       - name: Liens internes

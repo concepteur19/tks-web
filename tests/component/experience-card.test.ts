@@ -1,7 +1,11 @@
-import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import { createContainer } from '../setup/container.ts';
 import axe from 'axe-core';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { SERVICES } from '../fixtures/catalog.ts';
 import ExperienceCard from '../../src/components/experiences/ExperienceCard.astro';
+
+// Le catalogue de page lit astro:content, disponible seulement pendant la construction.
+vi.mock('../../src/lib/pageCatalog.ts', () => ({ getPageCatalog: async () => SERVICES }));
 
 /** Carte sans photo : le rendu des images relève des parcours, qui ont le service d'images. */
 function service(id: string, data: Record<string, unknown>) {
@@ -22,7 +26,7 @@ function service(id: string, data: Record<string, unknown>) {
 }
 
 async function mount(props: Record<string, unknown>): Promise<HTMLElement> {
-  const container = await AstroContainer.create();
+  const container = await createContainer();
   const html = await container.renderToString(ExperienceCard, { props });
   document.documentElement.lang = String(props.locale);
   document.body.innerHTML = `<div id="root">${html}</div>`;
@@ -79,7 +83,7 @@ describe('carte d’expérience', () => {
   it("ne produit aucune violation d'accessibilité", async () => {
     const root = await mount({
       locale: 'fr',
-      service: service('kayak', { pricing: { kind: 'fixed', amount: 10000, unit: 'per_person' } }),
+      service: service('quad', { pricing: { kind: 'fixed', amount: 10000, unit: 'per_person' } }),
     });
     const results = await axe.run(root, {
       rules: { 'color-contrast': { enabled: false }, region: { enabled: false } },
