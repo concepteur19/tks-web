@@ -13,8 +13,9 @@ type Entry = {
   };
 };
 
-const byOrder = (a: Entry, b: Entry) =>
-  (a.data.order ?? Number.POSITIVE_INFINITY) - (b.data.order ?? Number.POSITIVE_INFINITY);
+/** Sans ordre défini, une expérience passe après les autres (rang fini : pas de NaN au tri). */
+const rank = (entry: Entry) => entry.data.order ?? Number.MAX_SAFE_INTEGER;
+const byOrder = (a: Entry, b: Entry) => rank(a) - rank(b);
 
 export function relatedExperiences<T extends Entry>(currentId: string, all: T[], limit = 3): T[] {
   const current = all.find((entry) => entry.id === currentId);

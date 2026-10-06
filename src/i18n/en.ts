@@ -135,6 +135,28 @@ export const en = {
   'detail.related': 'You may also like',
   'detail.request': 'Ask about this experience',
 
+  'message.introQuote': 'Hello Kibreeze, I would like to organise a stay in Kribi.',
+  'message.dates': 'Dates: {dates}',
+  'message.travelers': { one: 'Travellers: {count}', other: 'Travellers: {count}' },
+  'message.tier': '{label} rate',
+  'message.onQuote': 'on request',
+  'message.totalEstimated': 'Estimated total: {amount}',
+  'message.totalIndicative': 'Indicative total: {amount}',
+  'message.quoteSuffix': {
+    one: '(+ {count} service on request)',
+    other: '(+ {count} services on request)',
+  },
+  'message.quoteOnly': {
+    one: 'Total: on request ({count} service)',
+    other: 'Total: on request ({count} services)',
+  },
+  'message.more': { one: '… and {count} more service', other: '… and {count} more services' },
+  'message.closing': 'Thank you, see you soon!',
+  'quantity.persons': { one: '{count} person', other: '{count} people' },
+  'quantity.days': { one: '{count} day', other: '{count} days' },
+  'quantity.nights': { one: '{count} night', other: '{count} nights' },
+  'quantity.hours': { one: '{count} hour', other: '{count} hours' },
+
   'notFound.title': 'Page not found',
   'notFound.description': 'This page does not exist on the Kibreeze website.',
   'notFound.text': 'This page does not exist or has been moved.',

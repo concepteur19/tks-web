@@ -33,9 +33,9 @@ Si l'écriture dans le stockage échoue (navigation privée stricte, quota), le 
 
 ## 4. Catalogue minimal transmis aux îlots
 
-**Decision**: `toIslandCatalog(services, locale)` (pur, `src/features/selection/islandCatalog.ts`) produit pour chaque expérience et option : identifiant, titre dans les deux langues, prix ou tarifs, règle de quantité, capacité maximale, option ou non, URL de la vignette. Il est sérialisé dans les props des îlots. Les descriptions, galeries et textes longs n'y figurent pas.
+**Decision**: `toIslandCatalog(services, locale)` (pur, `src/features/selection/islandCatalog.ts`) produit pour chaque expérience et option : identifiant, titre dans les deux langues, prix ou tarifs, règle de quantité, capacité maximale, option ou non, URL de la vignette. Il est publié **une seule fois par page**, dans un bloc `<script type="application/json" id="kibreeze-catalog">` du layout, et lu par tous les îlots. Les descriptions, galeries et textes longs n'y figurent pas.
 
-**Rationale**: architecture §5 : les îlots ne reçoivent que ce que le calcul et l'affichage compact demandent. Treize expériences et trois options tiennent en quelques kilo-octets ; la page `/sejour` reçoit le catalogue entier, la fiche seulement son expérience et les options.
+**Rationale**: architecture §5 : les îlots ne reçoivent que ce que le calcul et l'affichage compact demandent. Treize expériences et trois options tiennent en quelques kilo-octets. Un catalogue partiel par îlot ferait purger, à la relecture, les lignes des expériences absentes de ce catalogue : chaque page a donc le catalogue complet.
 
 ## 5. Estimation
 

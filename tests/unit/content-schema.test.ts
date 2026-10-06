@@ -43,6 +43,26 @@ function messages(input: unknown): string[] {
     : result.error.issues.map((issue) => `${issue.path.join('.')} ${issue.message}`);
 }
 
+describe('prix de groupe avec nombre de personnes (004)', () => {
+  it('accepte une dimension persons sur un prix de groupe, pour la capacité', () => {
+    expect(
+      messages({
+        ...pirogue,
+        quantity: { dimensions: [{ kind: 'persons', min: 1, max: 20, default: 2 }] },
+      }),
+    ).toEqual([]);
+  });
+
+  it('refuse toujours une durée sur un prix de groupe', () => {
+    expect(
+      messages({
+        ...pirogue,
+        quantity: { dimensions: [{ kind: 'days', min: 1, max: 5, default: 1 }] },
+      }).join(),
+    ).toContain('per_group');
+  });
+});
+
 describe('lieu et options (003)', () => {
   const guide = {
     title: { fr: 'Guide touristique', en: 'Tour guide' },

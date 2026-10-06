@@ -26,13 +26,19 @@ export default tseslint.config(
     },
   },
   {
-    // Les îlots React ne doivent porter aucun texte en dur : tout passe par les
-    // dictionnaires, conformément à FR-I18N-4.
-    files: ['**/*.tsx'],
+    // Les îlots Preact (ADR-016) ne portent aucun texte en dur : tout passe par les
+    // dictionnaires, conformément à FR-I18N-4. Un texte JSX contenant une lettre est refusé.
+    files: ['src/**/*.tsx'],
     plugins: { 'jsx-a11y': jsxA11y },
     rules: {
       ...jsxA11y.flatConfigs.recommended.rules,
-      'react/jsx-no-literals': 'off',
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'JSXText[value=/\\p{L}/u]',
+          message: 'Texte en dur dans un îlot : passer par les dictionnaires (FR-I18N-4).',
+        },
+      ],
     },
   },
   {

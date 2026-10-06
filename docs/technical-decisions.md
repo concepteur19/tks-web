@@ -286,3 +286,31 @@ Les écrans validés par Franck le 2026-10-04 ([design-exports/](./design-export
 - Le signe « ≈ » des équivalents en euros n'est pas dans le sous-ensemble latin de Plus Jakarta Sans : il s'affiche dans la police du système. C'est acceptable pour un seul caractère.
 - Les deux polices sont sous licence SIL Open Font License 1.1, qui autorise l'auto-hébergement et le sous-ensemble.
 
+---
+
+## ADR-016 — Îlots en Preact plutôt qu'en React
+
+**Date** : 2026-10-06 · **Statut** : accepté · Remplace la partie « îlots React » de l'ADR-001. Feature 004.
+
+### Contexte
+
+La feature 004 introduit les premiers îlots : le compteur Mon séjour, présent sur toutes les pages, le configurateur des fiches, l'ajout rapide et la page Mon séjour. TR-20 fixe le JavaScript à 50 Ko compressés par page de contenu et 80 Ko sur `/sejour`. Le moteur de React 19 mesuré dans `node_modules` pèse environ 115 Ko compressés (`react-dom-client.production.js` : 111 Ko ; `react` : 5 Ko). Avec React, chaque page dépasserait le budget avant d'avoir écrit une ligne. Aucun îlot React n'existait encore : React était installé mais jamais chargé.
+
+### Décision
+
+- Les îlots sont écrits en **Preact 10** avec `@astrojs/preact` 4 (compatible Astro 5). Même syntaxe JSX, mêmes hooks, environ 4 Ko.
+- `@astrojs/react`, `react`, `react-dom` et leurs types sont retirés. `tsconfig.json` passe à `jsxImportSource: "preact"`.
+- L'ADR-002 reste valable ; le connecteur devient `@nanostores/preact`.
+- La règle « aucun texte en dur dans un îlot » (FR-I18N-4) est appliquée par ESLint : tout texte JSX contenant une lettre est refusé dans `src/**/*.tsx`.
+
+### Alternatives écartées
+
+- *React seulement sur `/sejour`, JavaScript sans framework ailleurs* : deux façons d'écrire l'interface, et la fiche dépasserait encore le budget.
+- *Tout sans framework* : la page Mon séjour, avec sa liste modifiable, deviendrait du code de manipulation du DOM difficile à maintenir et à tester.
+
+### Conséquences
+
+- Budget tenu : quelques kilo-octets par page pour Preact et nanostores.
+- Apprentissage transférable : l'API est celle de React.
+- La ligne Stack de la constitution est amendée (2.1.0).
+

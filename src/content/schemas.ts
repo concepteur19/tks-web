@@ -106,8 +106,16 @@ export function quantityIssues(rule: QuantityRule, price: Pricing): string[] {
   if (required && !kinds.includes(required)) {
     issues.push(`l'unité ${price.unit} exige une dimension ${required}`);
   }
-  if (!required && kinds.some((kind) => kind !== 'units')) {
-    issues.push(`l'unité ${price.unit} n'accepte qu'une dimension units, ou aucune`);
+  // Un prix de groupe accepte une dimension persons : elle ne multiplie pas le prix, elle sert à
+  // vérifier la capacité maximale et à compter les options facturées par personne (feature 004).
+  const informative = (kind: QuantityDimension['kind']) =>
+    kind === 'units' || (price.unit === 'per_group' && kind === 'persons');
+  if (!required && !kinds.every(informative)) {
+    issues.push(
+      price.unit === 'per_group'
+        ? `l'unité per_group n'accepte qu'une dimension units ou persons, ou aucune`
+        : `l'unité ${price.unit} n'accepte qu'une dimension units, ou aucune`,
+    );
   }
   if (price.maxCapacity !== undefined && price.unit !== 'per_group') {
     issues.push('maxCapacity ne s’applique qu’à un prix per_group');

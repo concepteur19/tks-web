@@ -137,6 +137,31 @@ export const fr = {
   'detail.related': 'Vous aimerez aussi',
   'detail.request': 'Demander ce service',
 
+  'message.introQuote': 'Bonjour Kibreeze, je souhaite organiser un séjour à Kribi.',
+  'message.dates': 'Dates : {dates}',
+  'message.travelers': { one: 'Voyageurs : {count}', other: 'Voyageurs : {count}' },
+  'message.tier': 'tarif {label}',
+  'message.onQuote': 'sur devis',
+  'message.totalEstimated': 'Total estimatif : {amount}',
+  'message.totalIndicative': 'Total indicatif : {amount}',
+  'message.quoteSuffix': {
+    one: '(+ {count} prestation sur devis)',
+    other: '(+ {count} prestations sur devis)',
+  },
+  'message.quoteOnly': {
+    one: 'Total : sur devis ({count} prestation)',
+    other: 'Total : sur devis ({count} prestations)',
+  },
+  'message.more': {
+    one: '… et {count} autre prestation',
+    other: '… et {count} autres prestations',
+  },
+  'message.closing': 'Merci, à bientôt !',
+  'quantity.persons': { one: '{count} personne', other: '{count} personnes' },
+  'quantity.days': { one: '{count} jour', other: '{count} jours' },
+  'quantity.nights': { one: '{count} nuit', other: '{count} nuits' },
+  'quantity.hours': { one: '{count} heure', other: '{count} heures' },
+
   'notFound.title': 'Page introuvable',
   'notFound.description': "Cette page n'existe pas sur le site de Kibreeze.",
   'notFound.text': "Cette page n'existe pas ou a été déplacée.",
