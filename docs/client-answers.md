@@ -322,3 +322,22 @@ Franck a validé les écrans générés dans Stitch. L'information a été relay
 Tout ce que Franck doit encore envoyer, et l'état de la traduction anglaise, est suivi élément par élément dans [content-tracker.md](./content-tracker.md) : tarifs, quantités en transport, logo, photos, textes, domaine, coordonnées.
 
 Ces points ne bloquent pas les specs 001 à 006 : ils bloquent la **mise en ligne**.
+
+## 1 sexies. Réponses du 2026-10-06 (relayées par Zobel)
+
+### Véhicules TKS®, trois catégories
+
+| Catégorie | Véhicules | Prix |
+|---|---|---|
+| Luxe | Toyota Land Cruiser Prado TXL, Toyota Land Cruiser (SUV) | à partir de 100 000 FCFA |
+| Premium | Toyota RAV4, Toyota Avensis (« tête de cochon ») | à partir de 35 000 FCFA |
+| Yaris | Toyota Yaris | à partir de 25 000 FCFA |
+
+Photos des cinq véhicules reçues, copiées dans `Elements/tri-par-activite/voitures-tks/`. À reprendre dans la feature 006 (mobilité).
+
+### Photos
+
+- Les photos de la petite cascade où l'on se baigne sont le **jacuzzi naturel**, pas les chutes de la Lobé ; Franck a envoyé de vraies photos des chutes.
+- Règle de Franck : chaque service affiche au moins une de ses photos quand elle existe. Il désigne `photo_8_2026-09-25_12-09-12.jpg` (L6-08) pour la croisière.
+- Nouvelles photos en haute résolution : chutes, feu de plage, appartement et studio, villa, voitures (`Elements/Images ett vidéos du projet/nouvelles images/`).
+

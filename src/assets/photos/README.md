@@ -40,8 +40,24 @@ Correction du 2026-10-06 (Franck, relayé par Zobel) : les photos de la petite c
 
 | Usage | Fichier | Source |
 |---|---|---|
-| Chutes de la Lobé | `experiences/chutes-de-la-lobe.jpg`, `-2`, `-3` | `chutes-de-la-lobe/L9-08`, `L9-07`, `L10-02` |
+| Chutes de la Lobé | `experiences/chutes-de-la-lobe.jpg`, `-2`, `-3` | nouvelles photos du 2026-10-06 (`chutes/`) |
 | Jacuzzi naturel | `experiences/jacuzzi-naturel.jpg`, `-2`, `-3` | `jacuzzi-naturel/L2-03`, `L2-01`, `L10-06` |
+
+## Règle de Franck (2026-10-06)
+
+Chaque service affiche **au moins une photo de Franck** quand il en existe une, en première position ; une image Stitch peut compléter la galerie.
+
+Nouvelles photos reçues le 2026-10-06 (`Elements/Images ett vidéos du projet/nouvelles images/`, copiées dans `Elements/tri-par-activite/`) :
+
+| Usage | Fichier | Source |
+|---|---|---|
+| Croisière, photo principale | `experiences/croisiere-en-bateau.jpg` | `croisiere/L6-08` (photo désignée par Franck) |
+| Feu de plage, photo principale | `experiences/feu-de-plage.jpg` | `feux-de-plage/photo_2026-10-06_01-53-03` |
+| Aperçu Chambre | `accommodation/chambre.jpg` | `hebergements-franck/photo_2026-10-06_02-14-24` |
+| Aperçu Studio | `accommodation/studio.jpg` | `hebergements-franck/photo_2026-10-06_02-14-21` |
+| Aperçu Villa | `accommodation/villa.jpg` | `hebergements-franck/villa_photo_2026-10-06_01-21-02` |
+
+Autres photos reçues, gardées pour plus tard : 4 autres photos d'appartement ou studio et 9 autres photos de villa (feature 005), la vue aérienne et le panneau des chutes, 7 photos de voitures TKS® (feature 006, `voitures-tks/`).
 
 ## Images générées par Google Stitch (provisoires)
 
@@ -53,9 +69,8 @@ Décision de Zobel du 2026-10-05 : en attendant les photos de Franck, les sujets
 | Croisière en bateau | `stitch/croisiere-en-bateau.jpg` | `02a-experiences-toutes` |
 | Feu de plage | `stitch/feu-de-plage.jpg` | `02a-experiences-toutes` |
 | Bateau de plaisance | `stitch/bateau-de-plaisance.jpg` | `02a-experiences-toutes` |
-| Aperçu Studio (accueil) | `stitch/studio.jpg` | `06a-hebergements` |
 
 ## Limites connues
 
-- **Hébergements.** `hebergement-et-detente/L11-01.jpg` porte un filigrane « © The Tourist Guide » que le tri du 2026-09-25 n'avait pas repéré : renommé `_FILIGRANE` localement le 2026-10-05, jamais utilisé. `L12-15` et `L12-24` illustrent les aperçus Chambre et Villa (Zobel, 2026-10-05), en attendant les photos par budget de Franck (L1). Le Studio prend l'image Stitch `stitch/studio.jpg`.
+- **Hébergements.** `hebergement-et-detente/L11-01.jpg` porte un filigrane « © The Tourist Guide » que le tri du 2026-09-25 n'avait pas repéré : renommé `_FILIGRANE` localement le 2026-10-05, jamais utilisé. Les aperçus Chambre, Studio et Villa utilisent depuis le 2026-10-06 les photos de Franck ; `L12-15` et `L12-24` ne sont plus utilisées.
 - **Résolution faible** : les originaux font 680 à 1 280 px de large, vraisemblablement compressés par WhatsApp. Suffisant sur téléphone, flou sur grand écran. Demander à Franck les fichiers d'origine.
