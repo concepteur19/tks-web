@@ -57,7 +57,7 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 ### Tests
 
 - [X] T013 [P] [US1] Écrire (regroupés dans `tests/component/selection-islands.test.tsx`) `tests/component/quantity-stepper.test.tsx` et `tests/component/experience-configurator.test.tsx` (Testing Library Preact + axe) : bornes du sélecteur, saisie clavier, boutons de 44 px nommés ; choix du tarif ; cases des options ; total mis à jour ; « Ajouter » puis « Déjà dans mon séjour » pour une ligne non duplicable ; aucune violation axe
-- [ ] T014 [P] [US1] Écrire `tests/e2e/add-to-stay.spec.ts` : scénarios 1 à 6 de [quickstart.md](./quickstart.md) (ajout pirogue 6 + guide, fusion et passage sur devis, tarif couple, doublon refusé, ajout rapide depuis la liste et l'accueil, persistance après fermeture du contexte) ; message de confirmation annoncé ; stockage bloqué → bandeau et fonctionnement en mémoire
+- [X] T014 [P] [US1] Écrire `tests/e2e/add-to-stay.spec.ts` : scénarios 1 à 6 de [quickstart.md](./quickstart.md) (ajout pirogue 6 + guide, fusion et passage sur devis, tarif couple, doublon refusé, ajout rapide depuis la liste et l'accueil, persistance après fermeture du contexte) ; message de confirmation annoncé ; stockage bloqué → bandeau et fonctionnement en mémoire
 
 ### Implementation
 
@@ -77,7 +77,7 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 ### Tests
 
 - [X] T021 [P] [US2] Écrire (dans `tests/component/selection-islands.test.tsx`) `tests/component/stay-page.test.tsx` : lignes, quantités en toutes lettres, tarif, options, total « estimatif » / « indicatif », euro, « + N sur devis », état tout sur devis, état vide, rappel dates et voyageurs ; aucune violation axe
-- [ ] T022 [P] [US2] Écrire `tests/e2e/stay-page.spec.ts` : scénarios 7 à 9, 11 et 13 de [quickstart.md](./quickstart.md) ; « Vider » avec confirmation ; ligne d'une expérience désactivée retirée au chargement avec message ; pas de défilement horizontal à 320 px ; panneau collant à 1 440 px
+- [X] T022 [P] [US2] Écrire `tests/e2e/stay-page.spec.ts` : scénarios 7 à 9, 11 et 13 de [quickstart.md](./quickstart.md) ; « Vider » avec confirmation ; ligne d'une expérience désactivée retirée au chargement avec message ; pas de défilement horizontal à 320 px ; panneau collant à 1 440 px
 
 ### Implementation
 
@@ -90,14 +90,14 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 
 ## Phase 5: User Story 3 — Envoyer sur WhatsApp (Priority: P3)
 
-- [ ] T025 [P] [US3] Écrire `tests/e2e/send-stay.spec.ts` : scénario 10 de [quickstart.md](./quickstart.md) en FR et en EN (message décodé comparé à l'attendu) ; message ≤ 1 800 caractères encodés avec 13 lignes ; « Demander ce service » sur une fiche reprend quantité et options sans modifier la sélection
+- [X] T025 [P] [US3] Écrire `tests/e2e/send-stay.spec.ts` : scénario 10 de [quickstart.md](./quickstart.md) en FR et en EN (message décodé comparé à l'attendu) ; message ≤ 1 800 caractères encodés avec 13 lignes ; « Demander ce service » sur une fiche reprend quantité et options sans modifier la sélection
 - [X] T026 [US3] Brancher « Demander un devis par WhatsApp » dans `StayPage.tsx` (intention `quote`, `target="_blank"`, `rel="noopener noreferrer"`) et « Continuer mes recherches » vers la page Expériences
 
 ---
 
 ## Phase 6: User Story 4 — Compteur (Priority: P4)
 
-- [ ] T027 [P] [US4] Écrire `tests/e2e/stay-badge.spec.ts` : compteur à 2 après deux ajouts sur l'accueil, Contact et une page légale, sur l'onglet (360 px) et l'icône de l'en-tête (1 440 px) ; aucun décalage de mise en page au chargement (CLS mesuré nul sur la zone)
+- [X] T027 [P] [US4] Écrire `tests/e2e/stay-badge.spec.ts` : compteur à 2 après deux ajouts sur l'accueil, Contact et une page légale, sur l'onglet (360 px) et l'icône de l'en-tête (1 440 px) ; aucun décalage de mise en page au chargement (CLS mesuré nul sur la zone)
 - [X] T028 [US4] Créer `src/features/selection/StayBadge.tsx` et le brancher (`client:idle`) dans `src/components/TabBar.astro` et `src/components/Header.astro`, dans l'emplacement déjà réservé ; pastille ronde (seule exception d'arrondi autorisée) relevée sur la maquette 04
 
 ---
