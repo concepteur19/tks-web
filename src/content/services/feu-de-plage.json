@@ -15,6 +15,13 @@
   },
   "images": [
     {
+      "src": "../../assets/photos/experiences/feu-de-plage.jpg",
+      "alt": {
+        "fr": "Un grand feu sur le sable, la nuit",
+        "en": "A large fire on the sand at night"
+      }
+    },
+    {
       "src": "../../assets/photos/stitch/feu-de-plage.jpg",
       "alt": {
         "fr": "Un groupe d'amis assis autour d'un feu sur la plage, à la nuit tombée",

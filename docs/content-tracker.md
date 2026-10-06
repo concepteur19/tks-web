@@ -39,7 +39,7 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 | Nom de domaine | global | ⏳ | — | | variable `PUBLIC_SITE_URL`, DNS Cloudflare. Adresse provisoire en service : `https://tks-web-1h2.pages.dev` | Oui |
 | Photos (fonds global) | toutes pages | 📝 **113 photos reçues et triées** par activité, voir [photo-tri.md](./photo-tri.md). 🛑 **20 d'entre elles sont inutilisables** : Franck confirme le 2026-09-25 n'avoir **aucune autorisation** du photographe. Ni le retrait du filigrane ni un crédit ne règlent la question : il faut son accord, ou refaire les photos | ✅ textes alternatifs des photos publiées | 2026-09-25 | 13 photos optimisées dans `src/assets/photos/` (feature 002), liste et limites dans son README. ⚠️ Résolution faible (680 à 1 280 px) : demander les originaux | Oui |
 | Photos d'hébergements (chambre, appartement, villa) | hébergements | ⏳ **aucune reçue de Franck** (question L1). L'accueil illustre Chambre et Villa avec `L12-15` et `L12-24` (Zobel, 2026-10-05) en attendant ses photos par budget. `L11-01` porte un filigrane non repéré au tri | ⏳ | | `src/assets/photos/accommodation/` | Oui |
-| Photos de véhicules et de chauffeurs | TKS® mobilité | ⏳ **aucune reçue** | ⏳ | | `src/assets/mobilite/` | Oui |
+| Photos de véhicules et de chauffeurs | TKS® mobilité | 📝 5 véhicules reçus le 2026-10-06 (Prado TXL, Land Cruiser, RAV4, Avensis, Yaris), 3 catégories de prix (client-answers 1 sexies) | ⏳ | | `src/assets/mobilite/` | Oui |
 | Photo d'équipe Kibreeze | accueil, bloc À propos | ⏳ **aucune reçue** | — | | `src/assets/home/` | Non |
 | Vidéo d'accueil courte et légère | accueil | 📝 **17 vidéos reçues** (MOV et MP4), à visionner et à sélectionner, poids à vérifier | — | 2026-09-25 | `src/assets/home/` | Non |
 | Photos de bandeau des rubriques | expériences, hébergements, formules, TKS mobilité | ⏳ à choisir dans le lot reçu | ⏳ textes alternatifs | | `src/assets/sections/` | Oui |
@@ -58,13 +58,13 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 
 | Expérience | Photo | Durée | Lieu | Inclus / non inclus | Prix |
 |---|---|---|---|---|---|
-| Chutes de la Lobé | ✅ 3 photos | ⏳ | ⏳ | ⏳ | ✅ |
+| Chutes de la Lobé | ✅ 3 photos haute résolution (2026-10-06) | ⏳ | ⏳ | ⏳ | ✅ |
 | Excursion en pirogue | ✅ 3 photos | ✅ | ✅ | ✅ | ✅ |
 | Excursion en chaloupe | 🔄 image Stitch | ⏳ | ✅ chutes de la Lobé | ⏳ | ✅ |
 | Campement Bagyeli | ✅ 3 photos | ⏳ | ⏳ | ⏳ | ✅ |
-| Jacuzzi naturel | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
-| Croisière en bateau | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
-| Feu de plage | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
+| Jacuzzi naturel | ✅ 3 photos (reclassées le 2026-10-06) | ⏳ | ⏳ | ⏳ | ✅ |
+| Croisière en bateau | ✅ photo de Franck + image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
+| Feu de plage | ✅ photo de Franck + image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
 | Quad | ✅ | ⏳ durée de session | ⏳ | ⏳ | ✅ |
 | Jet-ski | ✅ | ⏳ | ⏳ | ⏳ | ⏳ sur devis (T1) |
 | Kayak | ✅ | ⏳ | ⏳ | ⏳ | ✅ |

@@ -15,10 +15,24 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/stitch/jacuzzi-naturel.jpg",
+      "src": "../../assets/photos/experiences/jacuzzi-naturel.jpg",
       "alt": {
-        "fr": "Deux baigneurs dans un bassin d'eau vive au milieu de la forêt",
-        "en": "Two bathers in a pool of running water in the forest"
+        "fr": "Un baigneur dans le bassin du jacuzzi naturel, devant la cascade",
+        "en": "A bather in the natural jacuzzi pool, in front of the cascade"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/jacuzzi-naturel-2.jpg",
+      "alt": {
+        "fr": "Baignade dans le jacuzzi naturel, entre rochers et végétation",
+        "en": "Swimming in the natural jacuzzi, between rocks and greenery"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/jacuzzi-naturel-3.jpg",
+      "alt": {
+        "fr": "L'eau du jacuzzi naturel dévale les rochers",
+        "en": "Water of the natural jacuzzi tumbling over the rocks"
       }
     }
   ],

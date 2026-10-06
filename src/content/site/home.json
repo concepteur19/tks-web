@@ -18,8 +18,8 @@
       "image": {
         "src": "accommodation/chambre.jpg",
         "alt": {
-          "fr": "Résidence en bord de mer à Kribi, entre palmiers et ciel bleu",
-          "en": "Seaside residence in Kribi, between palm trees and blue sky"
+          "fr": "Une chambre lumineuse, lit fait, avec rideaux roses",
+          "en": "A bright bedroom with a made bed and pink curtains"
         }
       }
     },
@@ -37,6 +37,13 @@
         "kind": "from",
         "amount": 30000,
         "unit": "per_night"
+      },
+      "image": {
+        "src": "accommodation/studio.jpg",
+        "alt": {
+          "fr": "Le salon d'un studio, canapés en cuir et télévision",
+          "en": "A studio living room with leather sofas and a TV"
+        }
       }
     },
     {
@@ -57,8 +64,8 @@
       "image": {
         "src": "accommodation/villa.jpg",
         "alt": {
-          "fr": "Transats et paillote sur une plage privée de Kribi",
-          "en": "Sun loungers and a straw parasol on a private beach in Kribi"
+          "fr": "Une villa blanche avec piscine et jardin",
+          "en": "A white villa with a pool and garden"
         }
       }
     }
