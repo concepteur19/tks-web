@@ -8,7 +8,9 @@
         "http://localhost/contact.html",
         "http://localhost/en/contact.html",
         "http://localhost/404.html",
-        "http://localhost/en/404.html"
+        "http://localhost/en/404.html",
+        "http://localhost/experiences.html",
+        "http://localhost/experiences/excursion-en-pirogue.html"
       ],
       "numberOfRuns": 3
     },

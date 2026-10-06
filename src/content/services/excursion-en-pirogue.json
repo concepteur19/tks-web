@@ -20,6 +20,20 @@
         "fr": "Une pirogue glisse sur la Lobé, entre forêt et reflets",
         "en": "A dugout canoe glides along the Lobé between forest and reflections"
       }
+    },
+    {
+      "src": "../../assets/photos/experiences/excursion-en-pirogue-2.jpg",
+      "alt": {
+        "fr": "Un piroguier sur la Lobé, entre forêt et reflets",
+        "en": "A boatman on the Lobé between forest and reflections"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/excursion-en-pirogue-3.jpg",
+      "alt": {
+        "fr": "Des visiteurs en gilet de sauvetage dans une pirogue",
+        "en": "Visitors in life jackets in a dugout canoe"
+      }
     }
   ],
   "pricing": {
@@ -74,5 +88,9 @@
     ]
   },
   "featured": true,
-  "order": 20
+  "order": 20,
+  "location": {
+    "fr": "Chutes de la Lobé",
+    "en": "Lobé Falls"
+  }
 }

@@ -246,7 +246,7 @@ Détail des dépendances internes :
 3. **MVP** : phase 3 (US1). L'accueil est montrable à Franck.
 4. **Conversion** : phase 4 (US2). La page Contact est livrée.
 5. **Visibilité** : phase 6 (US4).
-6. **Légal** : phase 7 (US5). Requis avant la mise en ligne sous kibreeze.com, avec la checklist de lancement de [quickstart.md](./quickstart.md).
+6. **Légal** : phase 7 (US5).
 7. **Clôture** : phase 8, puis fusion vers `main`.
 
 ## Total

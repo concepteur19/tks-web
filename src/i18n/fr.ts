@@ -100,6 +100,43 @@ export const fr = {
   'legal.director': 'Responsable de la publication',
   'legal.hostTitle': 'Hébergeur',
 
+  'whatsapp.serviceRequest':
+    'Bonjour Kibreeze, je souhaite des informations sur l’expérience « {title} » : {url}',
+
+  'experiences.title': 'Expériences',
+  'experiences.tagline': 'Vivez Kribi autrement',
+  'experiences.description':
+    'Chutes de la Lobé, pirogue, quad, jet-ski, croisière : toutes les expériences Kibreeze à Kribi, avec leurs prix indicatifs.',
+  'experiences.bannerAlt': 'Les chutes de la Lobé vues depuis une pirogue',
+  'experiences.tabsLabel': "Catégories d'expériences",
+  'experiences.all': 'Toutes',
+  'experiences.count': { one: '{count} expérience', other: '{count} expériences' },
+  'experiences.indicative': 'tarifs indicatifs',
+  'experiences.details': 'Voir les détails',
+  'experiences.detailsOf': 'Voir les détails : {title}',
+  'experiences.capacityMax': '{count} personnes max',
+  'experiences.onRequest': 'Disponibilité à confirmer',
+  'experiences.special.title': 'Une envie particulière ?',
+  'experiences.special.text':
+    'Une activité qui ne figure pas ici, une date, un groupe ? Écrivez-nous, on en parle.',
+
+  'detail.breadcrumb': "Fil d'Ariane",
+  'detail.gallery': 'Photos',
+  'detail.priceNote':
+    'Prix indicatif, sous réserve de disponibilité et de confirmation par Kibreeze.',
+  'detail.capacityBadge': "Jusqu'à {count} personnes — au-delà, sur devis",
+  'detail.duration': 'Durée',
+  'detail.capacityLabel': 'Nombre de personnes',
+  'detail.capacity': '{min} à {max} personnes',
+  'detail.location': 'Lieu',
+  'detail.included': 'Ce qui est inclus',
+  'detail.excluded': "Ce qui n'est pas inclus",
+  'detail.notes': 'À savoir',
+  'detail.optionsTitle': 'Complétez votre expérience',
+  'detail.optionsNote': "À demander avec l'expérience.",
+  'detail.related': 'Vous aimerez aussi',
+  'detail.request': 'Demander ce service',
+
   'notFound.title': 'Page introuvable',
   'notFound.description': "Cette page n'existe pas sur le site de Kibreeze.",
   'notFound.text': "Cette page n'existe pas ou a été déplacée.",

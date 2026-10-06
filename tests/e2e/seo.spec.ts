@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { deliveredPaths } from './delivered.ts';
+import { deliveredPaths, experiencePaths } from './delivered.ts';
 
 test('chaque page livrée a un titre et une description uniques', async ({ page }) => {
   const titles = new Map<string, string>();
@@ -48,5 +48,25 @@ test('le plan du site liste les pages livrées dans les deux langues, sans 404',
     locs.push(...[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1] ?? ''));
   }
   const paths = locs.map((loc) => new URL(loc).pathname).sort();
-  expect(paths).toEqual([...deliveredPaths()].sort());
+  expect(paths).toEqual([...deliveredPaths(), ...experiencePaths()].sort());
+});
+
+test('chaque fiche a son image de partage et ses données structurées TouristTrip', async ({
+  page,
+}) => {
+  for (const [slug, hasOffer] of [
+    ['excursion-en-pirogue', true],
+    ['jet-ski', false],
+    ['bateau-de-plaisance', false],
+  ] as const) {
+    await page.goto(`/experiences/${slug}`);
+    const data = JSON.parse(
+      (await page.locator('script[type="application/ld+json"]').textContent()) ?? '{}',
+    );
+    expect(data['@type'], slug).toBe('TouristTrip');
+    expect('offers' in data, slug).toBe(hasOffer);
+    expect(await page.locator('meta[property="og:image"]').getAttribute('content')).toMatch(
+      /\.jpg$/,
+    );
+  }
 });

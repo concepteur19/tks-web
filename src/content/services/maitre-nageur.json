@@ -1,0 +1,25 @@
+{
+  "title": {
+    "fr": "Maître-nageur",
+    "en": "Lifeguard"
+  },
+  "section": "experience",
+  "isOption": true,
+  "shortDescription": {
+    "fr": "Un maître-nageur veille pendant l'activité",
+    "en": "A lifeguard keeps watch during the activity"
+  },
+  "description": {
+    "fr": "Un maître-nageur veille sur votre groupe.",
+    "en": "A lifeguard watches over your group."
+  },
+  "pricing": {
+    "kind": "fixed",
+    "amount": 5000,
+    "unit": "per_service"
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "order": 20
+}

@@ -33,5 +33,5 @@
 
 - Aucune question bloquante : les points ouverts ont reçu une valeur par défaut documentée dans Assumptions. Pas de page À propos distincte : le contenu vit sur la page Contact, choix validé par Zobel le 2026-10-04.
 - Les adresses de pages (`/`, `/en/`) et les références `FR-LAND-*` sont des identifiants produit déjà fixés par la spec 001 et les exigences fonctionnelles, pas des détails d'implémentation.
-- 2026-10-04, seconde passe après retour de Zobel : ajout de l'histoire 5 (pages légales, FR-028 à FR-033, SC-009 et SC-010) ; accord relayé pour les photos Bagyeli. Checklist revalidée.
+- 2026-10-04, seconde passe après retour de Zobel : ajout de l'histoire 5 (pages légales, FR-028 à FR-033, SC-009 et SC-010) ; photos Bagyeli utilisables (accord obtenu). Checklist revalidée.
 - SC-008 est qualitatif : il se vérifie par la relecture de Franck sur son téléphone.

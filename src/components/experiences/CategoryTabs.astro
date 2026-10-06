@@ -1,0 +1,101 @@
+---
+/**
+ * Onglets de catégorie (FR-008, FR-009, FR-024 ; research.md décision 3). Chaque onglet est un
+ * lien vers une ancre ; le CSS `:has(#id:target)` masque les autres cartes et souligne l'onglet
+ * actif, sans JavaScript. Le script en ligne, facultatif, ajoute `aria-current`, l'annonce du
+ * nombre de résultats et l'ancre sur le lien du sélecteur de langue.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+
+interface Props {
+  categories: CollectionEntry<'categories'>[];
+  counts: Record<string, number>;
+  total: number;
+  locale: Locale;
+}
+
+const { categories, counts, total, locale } = Astro.props;
+const ids = categories.map((category) => category.id);
+const css = ids
+  .map(
+    (id) => `
+[data-catalog]:has(#${id}:target) [data-category]:not([data-category='${id}']),
+[data-catalog]:has(#${id}:target) [data-count]:not([data-count='${id}']) { display: none; }
+[data-catalog]:has(#${id}:target) [data-count='${id}'] { display: inline; }
+[data-catalog]:has(#${id}:target) [data-tab='${id}'] { color: var(--color-brand); font-weight: 700; border-bottom-color: var(--color-brand); }`,
+  )
+  .join('\n').concat(`
+[data-catalog]:has([data-anchor]:target) [data-tab='all'] { color: var(--color-fg-muted); font-weight: 400; border-bottom-color: transparent; }`);
+---
+
+<Fragment set:html={`<style>${css}</style>`} />
+{ids.map((id) => (
+  <span id={id} data-anchor class="block scroll-mt-(--size-header)" />
+))}
+<nav
+  aria-label={t(locale, 'experiences.tabsLabel')}
+  class="sticky top-(--size-header) border-b border-border bg-bg lg:top-(--size-header-desktop)"
+  style="z-index: var(--z-tabbar)"
+  data-testid="category-tabs"
+>
+  <ul class="mx-auto flex max-w-(--size-content) gap-6 overflow-x-auto px-4">
+    <li>
+      <a
+        href="#toutes"
+        data-tab="all"
+        class="inline-flex min-h-11 items-center border-b-3 border-brand pt-2 font-bold whitespace-nowrap text-brand"
+      >
+        {t(locale, 'experiences.all')}
+      </a>
+    </li>
+    {categories.map((category) => (
+      <li>
+        <a
+          href={`#${category.id}`}
+          data-tab={category.id}
+          class="inline-flex min-h-11 items-center border-b-3 border-transparent pt-2 whitespace-nowrap text-fg-muted"
+        >
+          {localize(category.data.name, locale)}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+<div class="mx-auto flex max-w-(--size-content) items-center justify-between px-4 pt-4 text-sm">
+  <p class="font-medium text-fg">
+    <span data-count="all">{t(locale, 'experiences.count', { count: total })}</span>
+    {ids.map((id) => (
+      <span data-count={id} class="hidden">
+        {t(locale, 'experiences.count', { count: counts[id] ?? 0 })}
+      </span>
+    ))}
+  </p>
+  <p class="text-xs text-fg-muted italic">{t(locale, 'experiences.indicative')}</p>
+</div>
+<p class="sr-only" aria-live="polite" data-live></p>
+
+<script is:inline>
+  (() => {
+    const catalog = document.querySelector('[data-catalog]');
+    if (!catalog) return;
+    const ids = [...catalog.querySelectorAll('[data-anchor]')].map((node) => node.id);
+    const update = (announce) => {
+      const id = ids.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'all';
+      catalog.querySelectorAll('[data-tab]').forEach((tab) => {
+        if (tab.dataset.tab === id) tab.setAttribute('aria-current', 'true');
+        else tab.removeAttribute('aria-current');
+      });
+      const label = catalog.querySelector(`[data-tab="${id}"]`)?.textContent?.trim() ?? '';
+      const count = catalog.querySelector(`[data-count="${id}"]`)?.textContent?.trim() ?? '';
+      if (announce) catalog.querySelector('[data-live]').textContent = `${count} — ${label}`;
+      document.querySelectorAll('a[data-locale]').forEach((link) => {
+        const base = link.getAttribute('href').split('#')[0];
+        link.setAttribute('href', id === 'all' ? base : `${base}#${id}`);
+      });
+    };
+    update(false);
+    addEventListener('hashchange', () => update(true));
+  })();
+</script>

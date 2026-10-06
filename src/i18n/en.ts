@@ -99,6 +99,42 @@ export const en = {
   'legal.director': 'Publication director',
   'legal.hostTitle': 'Host',
 
+  'whatsapp.serviceRequest':
+    'Hello Kibreeze, I would like some information about the “{title}” experience: {url}',
+
+  'experiences.title': 'Experiences',
+  'experiences.tagline': 'Live Kribi differently',
+  'experiences.description':
+    'Lobé Falls, dugout canoe, quad bike, jet ski, cruise: every Kibreeze experience in Kribi, with indicative prices.',
+  'experiences.bannerAlt': 'The Lobé Falls seen from a dugout canoe',
+  'experiences.tabsLabel': 'Experience categories',
+  'experiences.all': 'All',
+  'experiences.count': { one: '{count} experience', other: '{count} experiences' },
+  'experiences.indicative': 'indicative prices',
+  'experiences.details': 'See details',
+  'experiences.detailsOf': 'See details: {title}',
+  'experiences.capacityMax': '{count} people max',
+  'experiences.onRequest': 'Availability to be confirmed',
+  'experiences.special.title': 'Something special in mind?',
+  'experiences.special.text':
+    'An activity not listed here, a date, a group? Write to us and we will talk it through.',
+
+  'detail.breadcrumb': 'Breadcrumb',
+  'detail.gallery': 'Photos',
+  'detail.priceNote': 'Indicative price, subject to availability and confirmation by Kibreeze.',
+  'detail.capacityBadge': 'Up to {count} people — beyond that, on request',
+  'detail.duration': 'Duration',
+  'detail.capacityLabel': 'Group size',
+  'detail.capacity': '{min} to {max} people',
+  'detail.location': 'Location',
+  'detail.included': "What's included",
+  'detail.excluded': "What's not included",
+  'detail.notes': 'Good to know',
+  'detail.optionsTitle': 'Complete your experience',
+  'detail.optionsNote': 'Ask for them along with the experience.',
+  'detail.related': 'You may also like',
+  'detail.request': 'Ask about this experience',
+
   'notFound.title': 'Page not found',
   'notFound.description': 'This page does not exist on the Kibreeze website.',
   'notFound.text': 'This page does not exist or has been moved.',

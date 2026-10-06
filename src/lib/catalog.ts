@@ -10,12 +10,48 @@ export async function getCategories() {
   return categories.sort((a, b) => a.data.order - b.data.order);
 }
 
-export async function getFeatured() {
+const byOrderThenName = (
+  a: { data: { order?: number | undefined; title: { fr: string } } },
+  b: { data: { order?: number | undefined; title: { fr: string } } },
+) =>
+  (a.data.order ?? Number.POSITIVE_INFINITY) - (b.data.order ?? Number.POSITIVE_INFINITY) ||
+  a.data.title.fr.localeCompare(b.data.title.fr, 'fr');
+
+/** Expériences publiées : ni options, ni désactivées, par ordre défini puis par nom (FR-007). */
+export async function getExperiences() {
   const services = await getCollection(
     'services',
-    (service) => service.data.featured === true && service.data.availability !== 'disabled',
+    (service) =>
+      service.data.section === 'experience' &&
+      !service.data.isOption &&
+      service.data.availability !== 'disabled',
   );
-  return services.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+  return services.sort(byOrderThenName);
+}
+
+export async function getExperience(slug: string) {
+  return (await getExperiences()).find((service) => service.id === slug);
+}
+
+/** Options proposées sur toutes les fiches (FR-003, FR-016). */
+export async function getOptions() {
+  const options = await getCollection(
+    'services',
+    (service) => service.data.isOption === true && service.data.availability !== 'disabled',
+  );
+  return options.sort(byOrderThenName);
+}
+
+/** Catégories qui contiennent au moins une expérience publiée : elles seules ont un onglet. */
+export async function categoriesWithExperiences() {
+  const [categories, experiences] = await Promise.all([getCategories(), getExperiences()]);
+  return categories.filter((category) =>
+    experiences.some((service) => service.data.categoryId === category.id),
+  );
+}
+
+export async function getFeatured() {
+  return (await getExperiences()).filter((service) => service.data.featured === true);
 }
 
 /**

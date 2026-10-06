@@ -26,6 +26,7 @@ const categories = await Promise.all(
       <li>
         <SmartLink
           routeKey="experiences"
+          hash={category.id}
           locale={locale}
           class="relative isolate flex h-(--size-category-card) items-end overflow-hidden rounded-card p-5 text-brand-contrast"
           hideIcon

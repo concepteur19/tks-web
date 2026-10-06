@@ -1,0 +1,70 @@
+---
+/**
+ * Galerie (FR-015) : bande défilante `scroll-snap`, compteur « k / N » et vignettes en liens
+ * d'ancre. Aucun JavaScript. Une seule photo : ni compteur ni vignettes.
+ */
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  images: { src: ImageMetadata; alt: string }[];
+  thumbnailsLabel: string;
+}
+
+const { images, thumbnailsLabel } = Astro.props;
+const several = images.length > 1;
+---
+
+<div data-testid="gallery">
+  <ul
+    class="flex snap-x snap-mandatory overflow-x-auto rounded-card"
+    aria-label={several ? thumbnailsLabel : undefined}
+  >
+    {images.map((image, index) => (
+      <li
+        id={`photo-${index + 1}`}
+        class="relative w-full shrink-0 snap-start scroll-mt-(--size-header)"
+      >
+        <Image
+          src={image.src}
+          alt={image.alt}
+          widths={[480, 960]}
+          quality={65}
+          sizes="(min-width: 64rem) 50vw, 100vw"
+          loading={index === 0 ? 'eager' : 'lazy'}
+          fetchpriority={index === 0 ? 'high' : 'auto'}
+          class="aspect-4/3 w-full object-cover"
+        />
+        {several && (
+          <span
+            class="absolute right-2.5 bottom-2.5 rounded-sm bg-fg/70 px-2 py-0.5 text-xs font-medium text-bg"
+            data-counter
+          >
+            {index + 1} / {images.length}
+          </span>
+        )}
+      </li>
+    ))}
+  </ul>
+  {several && (
+    <ul class="mt-2 flex gap-2">
+      {images.map((image, index) => (
+        <li>
+          <a
+            href={`#photo-${index + 1}`}
+            class="block size-18 overflow-hidden rounded-sm border border-border"
+            aria-label={`${index + 1} / ${images.length} — ${image.alt}`}
+          >
+            <Image
+              src={image.src}
+              alt=""
+              width={144}
+              quality={60}
+              class="h-full w-full object-cover"
+            />
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</div>

@@ -27,7 +27,7 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 
 - Le build de production échoue s'il reste un contenu `[PLACEHOLDER]` ou un texte anglais manquant.
 - Un service sans tarif ne part en « sur devis » qu'avec l'accord de Franck.
-- Un service sans photo validée est désactivé jusqu'à réception, plutôt que publié avec une image provisoire.
+- Un service sans photo de Franck est publié avec l'image générée par Google Stitch pour les écrans validés, en attendant sa photo (décision de Zobel, 2026-10-05). Ces images sont rangées dans `src/assets/photos/stitch/` et recensées dans son README.
 
 ## Éléments globaux
 
@@ -38,7 +38,7 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 | Numéro WhatsApp | global | ✅ +237 697 13 53 88 | — | 2026-09-14 | variable `PUBLIC_WHATSAPP_NUMBER` | — |
 | Nom de domaine | global | ⏳ | — | | variable `PUBLIC_SITE_URL`, DNS Cloudflare. Adresse provisoire en service : `https://tks-web-1h2.pages.dev` | Oui |
 | Photos (fonds global) | toutes pages | 📝 **113 photos reçues et triées** par activité, voir [photo-tri.md](./photo-tri.md). 🛑 **20 d'entre elles sont inutilisables** : Franck confirme le 2026-09-25 n'avoir **aucune autorisation** du photographe. Ni le retrait du filigrane ni un crédit ne règlent la question : il faut son accord, ou refaire les photos | ✅ textes alternatifs des photos publiées | 2026-09-25 | 13 photos optimisées dans `src/assets/photos/` (feature 002), liste et limites dans son README. ⚠️ Résolution faible (680 à 1 280 px) : demander les originaux | Oui |
-| Photos d'hébergements (chambre, appartement, villa) | hébergements | ⏳ **aucune reçue de Franck** (question L1). L'accueil illustre provisoirement Chambre et Villa avec `L12-15` et `L12-24` (demande de Zobel, 2026-10-05), de provenance incertaine : à remplacer. `L11-01` porte un filigrane non repéré au tri | ⏳ | | `src/assets/photos/accommodation/` | Oui |
+| Photos d'hébergements (chambre, appartement, villa) | hébergements | ⏳ **aucune reçue de Franck** (question L1). L'accueil illustre Chambre et Villa avec `L12-15` et `L12-24` (Zobel, 2026-10-05) en attendant ses photos par budget. `L11-01` porte un filigrane non repéré au tri | ⏳ | | `src/assets/photos/accommodation/` | Oui |
 | Photos de véhicules et de chauffeurs | TKS® mobilité | ⏳ **aucune reçue** | ⏳ | | `src/assets/mobilite/` | Oui |
 | Photo d'équipe Kibreeze | accueil, bloc À propos | ⏳ **aucune reçue** | — | | `src/assets/home/` | Non |
 | Vidéo d'accueil courte et légère | accueil | 📝 **17 vidéos reçues** (MOV et MP4), à visionner et à sélectionner, poids à vérifier | — | 2026-09-25 | `src/assets/home/` | Non |
@@ -47,19 +47,32 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 | Texte « À propos » | Contact `#a-propos` | ✅ c'est la présentation de Kibreeze, pas de page dédiée (validé par Zobel le 2026-10-04) | ✅ | 2026-10-05 | `src/content/site/company.json` | Oui |
 | Raisons de choisir TKS | accueil | 📝 réactivité, service local, expérience personnalisée, plusieurs services réunis (F3) | ⏳ | 2026-09-14 | `src/content/site/company.json` | Oui |
 | Téléphone, si différent du WhatsApp | contact | ⏳ | — | | `src/content/site/company.json` | Non |
-| Identité légale de l'éditeur : raison sociale, forme, immatriculation (RCCM, NIU), adresse, responsable de la publication | mentions légales | ⏳ dépend de K3 | ⏳ | | `src/content/site/company.json` | Oui |
+| Identité légale de l'éditeur : raison sociale, forme, immatriculation (RCCM, NIU), adresse, responsable de la publication | mentions légales | ⏳ entreprise en cours de création, à compléter quand elle existera | ⏳ | | `src/content/site/company.json` | Non |
 | E-mail professionnel | contact | ⏳ | — | | `src/content/site/company.json` | Non |
 | Liens des réseaux sociaux | contact, pied de page | ⏳ | — | | `src/content/site/company.json` | Non |
 | Supports existants : Facebook, Instagram, flyers | inspiration design | ⏳ | — | | `Elements/incoming/` | Non |
 
-## Contenu d'exemple de la fondation
+## Catalogue des expériences (feature 003, 2026-10-05)
 
-Livré par la tâche T038 de la spec 001 pour prouver que les schémas acceptent un vrai contenu. Les deux fichiers portent `"provisional": true` : `npm run check:content` fait échouer la construction si une fiche provisoire n'est pas `disabled`. Ils seront remplacés par la feature 003.
+13 expériences et 3 options publiées depuis le guide tarifaire. Ce qui manque encore, demandé à Franck dans `docs/questions-kibreeze-franck-3.xlsx` :
 
-| Fichier | Rôle | État |
-|---|---|---|
-| `src/content/categories/nature-decouverte.json` | Catégorie Nature & Découverte, textes FR et EN | Provisoire, textes repris du brief validé |
-| `src/content/services/excursion-en-pirogue.json` | Fiche pirogue : 35 000 FCFA par groupe, 8 personnes max, guide tarifaire du 2026-09-26 | Provisoire, `disabled` faute de photo validée |
+| Expérience | Photo | Durée | Lieu | Inclus / non inclus | Prix |
+|---|---|---|---|---|---|
+| Chutes de la Lobé | ✅ 3 photos | ⏳ | ⏳ | ⏳ | ✅ |
+| Excursion en pirogue | ✅ 3 photos | ✅ | ✅ | ✅ | ✅ |
+| Excursion en chaloupe | 🔄 image Stitch | ⏳ | ✅ chutes de la Lobé | ⏳ | ✅ |
+| Campement Bagyeli | ✅ 3 photos | ⏳ | ⏳ | ⏳ | ✅ |
+| Jacuzzi naturel | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
+| Croisière en bateau | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
+| Feu de plage | 🔄 image Stitch | ⏳ | ⏳ | ⏳ | ✅ |
+| Quad | ✅ | ⏳ durée de session | ⏳ | ⏳ | ✅ |
+| Jet-ski | ✅ | ⏳ | ⏳ | ⏳ | ⏳ sur devis (T1) |
+| Kayak | ✅ | ⏳ | ⏳ | ⏳ | ✅ |
+| Paddle | ✅ | ⏳ | ⏳ | ⏳ | ✅ |
+| Balade à cheval | ✅ | ⏳ | ⏳ | ⏳ | ✅ |
+| Bateau de plaisance | 🔄 image Stitch | ⏳ | ⏳ | ✅ à savoir | sur devis |
+
+Une case ⏳ n'est pas affichée sur la fiche : rien n'est inventé.
 
 ## Services
 

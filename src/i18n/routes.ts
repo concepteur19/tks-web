@@ -38,6 +38,7 @@ export const ROUTES: Record<RouteKey, Record<Locale, string>> = {
  */
 export const IMPLEMENTED_ROUTES: readonly RouteKey[] = [
   'home',
+  'experiences',
   'contact',
   'legalNotice',
   'privacy',

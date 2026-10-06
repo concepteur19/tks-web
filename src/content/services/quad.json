@@ -1,0 +1,45 @@
+{
+  "title": {
+    "fr": "Quad",
+    "en": "Quad bike"
+  },
+  "section": "experience",
+  "categoryId": "aventure",
+  "shortDescription": {
+    "fr": "Pilotez un quad sur le sable, le long du littoral de Kribi",
+    "en": "Ride a quad bike on the sand along the Kribi coastline"
+  },
+  "description": {
+    "fr": "Une session de quad sur la plage, à la session.",
+    "en": "A quad bike session on the beach, priced per session."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/quad.jpg",
+      "alt": {
+        "fr": "Une pilote sur un quad bleu, au bord de l'eau",
+        "en": "A rider on a blue quad bike at the water's edge"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 10000,
+    "unit": "per_session"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "units",
+        "label": {
+          "fr": "sessions",
+          "en": "sessions"
+        },
+        "min": 1,
+        "max": 10,
+        "default": 1
+      }
+    ]
+  },
+  "order": 80
+}

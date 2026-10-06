@@ -1,0 +1,43 @@
+{
+  "title": {
+    "fr": "Excursion en chaloupe",
+    "en": "Motorboat trip"
+  },
+  "section": "experience",
+  "categoryId": "nature-decouverte",
+  "shortDescription": {
+    "fr": "Rejoignez les chutes de la Lobé en chaloupe, jusqu'à 8 personnes",
+    "en": "Reach the Lobé Falls by motorboat, up to 8 people"
+  },
+  "description": {
+    "fr": "Une sortie en chaloupe autour des chutes de la Lobé, pour un groupe de 8 personnes au plus.",
+    "en": "A motorboat outing around the Lobé Falls, for a group of up to 8 people."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/stitch/excursion-en-chaloupe.jpg",
+      "alt": {
+        "fr": "Une chaloupe chargée de passagers glisse sur l'eau au coucher du soleil",
+        "en": "A motorboat with passengers gliding on the water at sunset"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 65000,
+    "unit": "per_group",
+    "maxCapacity": 8
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "capacity": {
+    "min": 1,
+    "max": 8
+  },
+  "location": {
+    "fr": "Chutes de la Lobé",
+    "en": "Lobé Falls"
+  },
+  "order": 30
+}

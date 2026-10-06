@@ -93,6 +93,7 @@ Relevés sur les écrans validés ([design-exports/](./design-exports/README.md)
 | `--color-whatsapp-ink` | `#1c1917` | libellé visible sur un bouton vert WhatsApp (8,8:1) ; le blanc (2:1) reste réservé à l'icône seule du bouton flottant |
 | `--size-header` / `--size-header-desktop` | 3,5 rem / 4,5 rem | hauteur de l'en-tête |
 | `--size-tabbar` | 4 rem | barre à onglets mobile |
+| `--size-sticky-cta` | 4,5 rem | barre « Demander ce service » des fiches (003) |
 | `--size-fab` | 3,5 rem | bouton WhatsApp flottant |
 | `--size-content` | 75 rem | largeur de contenu sur ordinateur |
 | `--size-hero-mobile` / `--size-hero-max` | 85 svh / 40 rem | hauteur du hero |

@@ -1,0 +1,67 @@
+---
+/** Carte de la page Expériences (FR-010) : photo, nom, description, prix, badges, lien vers la fiche. */
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { cardPrice } from '../../features/estimation/cardPrice.ts';
+import { getRoutePath } from '../../i18n/routes.ts';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import Price from '../Price.astro';
+
+interface Props {
+  service: CollectionEntry<'services'>;
+  locale: Locale;
+}
+
+const { service, locale } = Astro.props;
+const { data } = service;
+const image = data.images?.[0];
+const title = localize(data.title, locale);
+const maxCapacity =
+  data.pricing && data.pricing.kind !== 'quote' ? data.pricing.maxCapacity : undefined;
+const href = `${getRoutePath('experiences', locale)}/${service.id}`;
+---
+
+<article
+  class="flex w-full flex-col overflow-hidden rounded-card bg-bg shadow-card"
+  data-testid="experience-card"
+>
+  <div class="relative aspect-16/9 w-full overflow-hidden bg-bg-muted">
+    {image && (
+      <Image
+        src={image.src}
+        alt={localize(image.alt, locale)}
+        widths={[400, 720]}
+        quality={70}
+        sizes="(min-width: 64rem) 33vw, 100vw"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+    )}
+    <div class="absolute top-3 left-3 flex flex-col items-start gap-1">
+      {maxCapacity && (
+        <span class="rounded-sm bg-accent px-2 py-1 text-xs font-semibold text-bg">
+          {t(locale, 'experiences.capacityMax', { count: maxCapacity })}
+        </span>
+      )}
+      {data.availability === 'on_request' && (
+        <span class="rounded-sm bg-fg px-2 py-1 text-xs font-semibold text-bg">
+          {t(locale, 'experiences.onRequest')}
+        </span>
+      )}
+    </div>
+  </div>
+  <div class="flex flex-1 flex-col gap-1 p-4">
+    <h2 class="font-display text-lg font-bold text-fg">{title}</h2>
+    <p class="text-sm text-fg-muted">{localize(data.shortDescription, locale)}</p>
+    <div class="mt-auto flex items-end justify-between gap-3 pt-3">
+      <Price price={cardPrice(data)} locale={locale} />
+      <a
+        href={href}
+        class="inline-flex min-h-11 shrink-0 items-center rounded-md border border-brand px-3 text-sm font-semibold text-brand"
+        aria-label={t(locale, 'experiences.detailsOf', { title })}
+      >
+        {t(locale, 'experiences.details')}
+      </a>
+    </div>
+  </div>
+</article>

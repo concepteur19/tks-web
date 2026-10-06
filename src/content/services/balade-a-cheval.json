@@ -1,0 +1,41 @@
+{
+  "title": {
+    "fr": "Balade à cheval",
+    "en": "Horse ride"
+  },
+  "section": "experience",
+  "categoryId": "aventure",
+  "shortDescription": {
+    "fr": "Une balade à cheval sur la plage, au bord de l'océan",
+    "en": "A horse ride on the beach, by the ocean"
+  },
+  "description": {
+    "fr": "Une balade à cheval le long de la plage, à la personne.",
+    "en": "A horse ride along the beach, priced per person."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/balade-a-cheval.jpg",
+      "alt": {
+        "fr": "Une cavalière sur un cheval, au bord de l'eau",
+        "en": "A rider on a horse at the water's edge"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 5000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "order": 120
+}

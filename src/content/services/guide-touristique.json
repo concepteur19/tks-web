@@ -1,0 +1,25 @@
+{
+  "title": {
+    "fr": "Guide touristique",
+    "en": "Tour guide"
+  },
+  "section": "experience",
+  "isOption": true,
+  "shortDescription": {
+    "fr": "Un guide vous accompagne pendant l'activité",
+    "en": "A guide comes along during the activity"
+  },
+  "description": {
+    "fr": "Un guide touristique vous accompagne.",
+    "en": "A tour guide comes along with you."
+  },
+  "pricing": {
+    "kind": "fixed",
+    "amount": 5000,
+    "unit": "per_service"
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "order": 10
+}

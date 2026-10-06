@@ -4,7 +4,8 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import Footer from '../../src/components/Footer.astro';
 import Header from '../../src/components/Header.astro';
 import TabBar from '../../src/components/TabBar.astro';
-import { IMPLEMENTED_ROUTES } from '../../src/i18n/routes.ts';
+import { DESKTOP_NAV, visible } from '../../src/i18n/navigation.ts';
+import { IMPLEMENTED_ROUTES, ROUTES } from '../../src/i18n/routes.ts';
 
 type Component = Parameters<AstroContainer['renderToString']>[0];
 
@@ -56,7 +57,7 @@ describe('en-tête', () => {
     const internal = [...root.querySelectorAll('a:not([data-locale])')]
       .map((link) => link.getAttribute('href') ?? '')
       .filter((href) => href.startsWith('/'));
-    expect(internal).toEqual(['/']);
+    expect(internal).toEqual(['/', ...visible(DESKTOP_NAV).map((key) => ROUTES[key].fr)]);
   });
 
   it("ne produit aucune violation d'accessibilité, dans les deux langues", async () => {
@@ -117,13 +118,7 @@ describe('pied de page', () => {
     const internal = [...root.querySelectorAll('a')]
       .map((link) => (link.getAttribute('href') ?? '').split('#')[0] ?? '')
       .filter((href) => href.startsWith('/'));
-    const allowed = new Set([
-      '/',
-      '/contact',
-      '/mentions-legales',
-      '/confidentialite',
-      '/conditions-utilisation',
-    ]);
+    const allowed = new Set(IMPLEMENTED_ROUTES.map((key) => ROUTES[key].fr));
     for (const href of internal) expect(allowed.has(href), href).toBe(true);
   });
 

@@ -55,14 +55,15 @@ Un **site statique multi-pages** (une dizaine de routes plus une fiche par servi
 ├── specs/                    # une feature Spec Kit par dossier
 ├── public/                   # favicon, robots.txt, images statiques non optimisées
 ├── src/
-│   ├── pages/                # routes FR livrées (002) : index, contact, mentions-legales, confidentialite, conditions-utilisation, 404 ; à venir : experiences/[slug], hebergements, formules, mobilite, sejour
-│   │   └── en/               # routes EN : index, contact, legal-notice, privacy, terms-of-use, 404 ; à venir : experiences/[slug], accommodation, packages, mobility, my-trip
+│   ├── pages/                # routes FR livrées : index, contact, mentions-legales, confidentialite, conditions-utilisation, 404 (002), experiences, experiences/[slug] (003) ; à venir : hebergements, formules, mobilite, sejour
+│   │   └── en/               # routes EN : index, contact, legal-notice, privacy, terms-of-use, 404, experiences, experiences/[slug] ; à venir : accommodation, packages, mobility, my-trip
 │   ├── layouts/              # BaseLayout.astro (head SEO, nav, footer, WhatsApp flottant)
-│   ├── components/           # coque (Header, TabBar, Footer, SmartLink, Price, BrandLogo, Icon), sections de l'accueil (home/), contact/, legal/
+│   ├── components/           # coque (Header, TabBar, Footer, SmartLink, Price, BrandLogo, Icon), sections de l'accueil (home/), catalogue (experiences/), contact/, legal/
 │   ├── features/
 │   │   ├── selection/        # store.ts (nanostores), SelectionBadge.tsx, SelectionDrawer.tsx, SelectionPage.tsx, AddToStay.tsx, QuantityStepper.tsx, hooks
 │   │   ├── estimation/       # formatPrice.ts et cardPrice.ts (002), computeEstimate.ts (004) — pur TS
-│   │   └── whatsapp/         # buildMessage.ts, buildUrl.ts, WhatsAppButton.astro (pur TS + un composant)
+│   │   ├── catalog/          # relatedExperiences.ts (003) — pur TS
+│   │   └── whatsapp/         # buildServiceRequestMessage.ts (003), buildSelectionMessage.ts (004) — pur TS
 │   ├── content/
 │   │   ├── config.ts         # schémas Zod des collections
 │   │   ├── services/         # un JSON par service + images/

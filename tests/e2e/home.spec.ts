@@ -62,19 +62,21 @@ for (const [path, lang, title, ctas] of [
       await expect(page.locator('[data-indicative]')).toHaveCount(1);
     });
 
-    test('ne montre ni bouton d’ajout au séjour, ni nombre d’expériences non vérifié', async ({
+    test('ne montre aucun bouton d’ajout au séjour, et compte les expériences par catégorie', async ({
       page,
     }) => {
+      // Le nombre par catégorie apparaît depuis la livraison du catalogue (feature 003).
       await page.goto(path);
       await expect(page.getByText(/Ajouter à mon séjour|Add to my trip/)).toHaveCount(0);
       await expect(
         page.locator('[data-section="categories"]').getByText(/\d+ (expériences?|experiences?)/),
-      ).toHaveCount(0);
+      ).toHaveCount(3);
     });
 
     test('renvoie vers WhatsApp les liens dont la page n’est pas livrée', async ({ page }) => {
+      // « Planifier mon séjour » vise Mon séjour, livrée par la feature 004.
       await page.goto(path);
-      const cta = page.getByTestId('hero-cta-experiences');
+      const cta = page.locator('[data-section="hero"] a[data-link-kind]').nth(1);
       await expect(cta).toHaveAttribute('data-link-kind', 'whatsapp');
       await expect(cta).toHaveAttribute('href', /^https:\/\/wa\.me\//);
     });

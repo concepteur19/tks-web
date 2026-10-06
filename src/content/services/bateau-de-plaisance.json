@@ -1,0 +1,41 @@
+{
+  "title": {
+    "fr": "Bateau de plaisance",
+    "en": "Pleasure boat"
+  },
+  "section": "experience",
+  "categoryId": "detente",
+  "shortDescription": {
+    "fr": "Louez un bateau de plaisance ou un mini-yacht au large de Kribi",
+    "en": "Hire a pleasure boat or mini yacht off the coast of Kribi"
+  },
+  "description": {
+    "fr": "La location d'un bateau de plaisance ou d'un mini-yacht, à l'heure, pour profiter de la côte de Kribi depuis la mer.",
+    "en": "Hire a pleasure boat or mini yacht by the hour and enjoy the Kribi coastline from the sea."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/stitch/bateau-de-plaisance.jpg",
+      "alt": {
+        "fr": "Un yacht blanc navigue près de la côte boisée",
+        "en": "A white yacht sailing near the wooded coast"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "conditions": {
+    "notes": [
+      {
+        "fr": "Le tarif dépend du type de bateau.",
+        "en": "The price depends on the type of boat."
+      }
+    ]
+  },
+  "availability": "on_request",
+  "order": 130
+}

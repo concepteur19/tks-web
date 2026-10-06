@@ -5,14 +5,16 @@ import { LOCALES, type Locale } from '../i18n/types.ts';
 
 interface Props {
   locale: Locale;
+  /** Chemins explicites d'une page hors de la table des routes (fiche). */
+  alternatePaths?: Record<Locale, string> | undefined;
 }
 
-const { locale } = Astro.props;
+const { locale, alternatePaths } = Astro.props;
 const currentPath = Astro.url.pathname;
 const links = LOCALES.map((code) => ({
   code,
   // Normalisé par la table des routes, y compris pour la langue courante (pas de barre finale).
-  href: getAlternatePath(currentPath, code),
+  href: alternatePaths?.[code] ?? getAlternatePath(currentPath, code),
   label: t(locale, code === 'fr' ? 'language.fr' : 'language.en'),
   isCurrent: code === locale,
 }));
@@ -22,7 +24,7 @@ const links = LOCALES.map((code) => ({
   {links.map((link, index) => (
     <>
       {index > 0 && (
-        <span aria-hidden="true" class="text-fg-muted">
+        <span aria-hidden="true" class="text-fg-muted/50">
           |
         </span>
       )}
@@ -33,8 +35,11 @@ const links = LOCALES.map((code) => ({
         aria-current={link.isCurrent ? 'true' : undefined}
         data-locale={link.code}
         class:list={[
+          // Maquette validée : langue active en rouge et en gras, l'autre en gris, sans soulignement.
           'min-h-11 inline-flex items-center px-2 rounded-sm',
-          link.isCurrent ? 'font-semibold text-fg' : 'text-fg-muted underline',
+          link.isCurrent
+            ? 'font-extrabold text-brand'
+            : 'font-medium text-fg-muted hover:text-fg hover:underline',
         ]}
       >
         {link.code.toUpperCase()}
