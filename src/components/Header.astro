@@ -13,6 +13,7 @@ import BrandLogo from './BrandLogo.astro';
 import Icon from './Icon.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
+import StayBadge from '../features/selection/StayBadge.tsx';
 
 interface Props {
   locale: Locale;
@@ -65,7 +66,10 @@ const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.ge
           aria-label={t(locale, 'nav.stay')}
           class="hidden min-h-11 min-w-11 items-center justify-center text-fg lg:inline-flex"
         >
-          <Icon name="luggage" />
+          <span class="relative inline-flex">
+            <Icon name="luggage" />
+            <StayBadge client:idle locale={locale} />
+          </span>
         </a>
       )}
       <a

@@ -99,10 +99,11 @@ function ensureMounted(): void {
   mounted = true;
 }
 
-export function hydrate(source: Catalog = readPageCatalog(), now = new Date()): Catalog {
+export function hydrate(source?: Catalog, now = new Date()): Catalog {
   ensureMounted();
-  if (hydrated && source.size === 0) return catalog;
-  catalog = source;
+  // Une seule relecture par page : la relire à chaque rendu d'îlot provoquerait une boucle.
+  if (hydrated && !source) return catalog;
+  catalog = source ?? readPageCatalog();
   hydrated = true;
   const { selection, purged } = parseSelection($selection.get(), catalog, now);
   $selection.set(selection);

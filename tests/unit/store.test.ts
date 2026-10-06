@@ -136,7 +136,7 @@ describe('store de la sélection', () => {
       getElementById: () => ({ textContent: JSON.stringify(SERVICES) }),
     });
     expect(store.getCatalog().size).toBe(SERVICES.length);
-    expect(store.hydrate(new Map())).toBe(store.getCatalog());
+    expect(store.hydrate()).toBe(store.getCatalog());
   });
 
   it('décode une valeur stockée illisible en sélection vide', async () => {

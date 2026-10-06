@@ -19,6 +19,10 @@ import InfoRow from './InfoRow.astro';
 import OptionsList from './OptionsList.astro';
 import PriceBlock from './PriceBlock.astro';
 import StickyRequest from './StickyRequest.astro';
+import ExperienceConfigurator from '../../features/selection/ExperienceConfigurator.tsx';
+import RequestBar from '../../features/selection/RequestBar.tsx';
+import { currency } from '../../lib/site.ts';
+import { getPageCatalog } from '../../lib/pageCatalog.ts';
 
 interface Props {
   service: CollectionEntry<'services'>;
@@ -66,6 +70,9 @@ const jsonLd = buildExperienceJsonLd({
     : {}),
 });
 const related = relatedExperiences(service.id, experiences);
+const islandCatalog = await getPageCatalog();
+const islandService = islandCatalog.find((entry) => entry.id === service.id)!;
+const islandOptions = islandCatalog.filter((entry) => entry.isOption);
 ---
 
 <BaseLayout
@@ -129,7 +136,15 @@ const related = relatedExperiences(service.id, experiences);
         <InfoRow service={service} locale={locale} />
         <p class="mt-4 leading-relaxed text-fg-muted">{localize(data.description, locale)}</p>
         <Conditions service={service} locale={locale} />
-        <OptionsList options={options} locale={locale} />
+        <ExperienceConfigurator
+          client:load
+          service={islandService}
+          options={islandOptions}
+          locale={locale}
+        />
+        <noscript>
+          <OptionsList options={options} locale={locale} />
+        </noscript>
 
         {related.length > 0 && (
           <section class="mt-8">
@@ -147,10 +162,34 @@ const related = relatedExperiences(service.id, experiences);
 
       <aside class="hidden lg:block">
         <div class="sticky top-[calc(var(--size-header-desktop)+var(--spacing)*4)]">
-          <StickyRequest variant="card" price={price} href={requestHref} locale={locale} />
+          <RequestBar
+            client:load
+            variant="card"
+            service={islandService}
+            options={islandOptions}
+            locale={locale}
+            pageUrl={pageUrl}
+            whatsappNumber={env.whatsappNumber}
+            eurToXaf={currency.eurToXaf}
+          />
+          <noscript>
+            <StickyRequest variant="card" price={price} href={requestHref} locale={locale} />
+          </noscript>
         </div>
       </aside>
     </div>
   </div>
-  <StickyRequest variant="bar" price={price} href={requestHref} locale={locale} />
+  <RequestBar
+    client:load
+    variant="bar"
+    service={islandService}
+    options={islandOptions}
+    locale={locale}
+    pageUrl={pageUrl}
+    whatsappNumber={env.whatsappNumber}
+    eurToXaf={currency.eurToXaf}
+  />
+  <noscript>
+    <StickyRequest variant="bar" price={price} href={requestHref} locale={locale} />
+  </noscript>
 </BaseLayout>

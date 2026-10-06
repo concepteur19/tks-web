@@ -44,7 +44,7 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 - [X] T009 Créer `src/features/whatsapp/buildSelectionMessage.ts` et les gabarits `message.*` FR et EN dans `src/i18n/fr.ts` et `src/i18n/en.ts` ; faire de `buildServiceRequestMessage` (003) une enveloppe de l'intention `single`, ses tests restant verts
 - [X] T010 [P] Écrire `tests/unit/island-catalog.test.ts` puis créer `src/features/selection/islandCatalog.ts` (`toIslandCatalog`) : uniquement identifiant, titres, prix ou tarifs, quantité, option, vignette, adresses de fiche ; aucune description ni galerie
 - [X] T011 Créer `src/features/selection/store.ts` : atome persistant `kibreeze.selection.v1` (`@nanostores/persistent`, encodage JSON), repli sur un atome en mémoire si un essai d'écriture échoue (événement `storageUnavailable`), `$lastEvent`, actions `add`, `update`, `remove`, `clear`, `setStay`, `hydrate(catalog)` ; test `tests/unit/store.test.ts` avec un stockage simulé (persistance, repli, synchronisation)
-- [ ] T012 Ajouter `stay` à `IMPLEMENTED_ROUTES`, créer `src/pages/sejour.astro` et `src/pages/en/my-trip.astro` (coquille `BaseLayout` avec `routeKey="stay"`, titre et description propres, `<noscript>` : explication et bouton WhatsApp générique) ; l'onglet, l'icône de l'en-tête et « Planifier mon séjour » apparaissent par le mécanisme de 002
+- [X] T012 Ajouter `stay` à `IMPLEMENTED_ROUTES`, créer `src/pages/sejour.astro` et `src/pages/en/my-trip.astro` (coquille `BaseLayout` avec `routeKey="stay"`, titre et description propres, `<noscript>` : explication et bouton WhatsApp générique) ; l'onglet, l'icône de l'en-tête et « Planifier mon séjour » apparaissent par le mécanisme de 002
 
 **Checkpoint** : `npm run check` passe, couverture 100 % des trois modules purs.
 
@@ -61,12 +61,12 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 
 ### Implementation
 
-- [ ] T015 [P] [US1] Créer `src/features/selection/QuantityStepper.tsx` (− / valeur éditable / +, 44 px, `aria-label` traduits, bornes)
-- [ ] T016 [US1] Créer `src/features/selection/ExperienceConfigurator.tsx` : rubrique « Votre réservation » (sélecteurs, tarif en boutons radio), cases à cocher des options, et rendu de la barre fixe (téléphone) et de la carte collante (ordinateur) avec total, euro, « Ajouter à mon séjour » / « Déjà dans mon séjour », lien « Demander ce service » (intention `single`, configuration choisie) ; valeurs relevées dans `docs/design-exports/03-fiche-pirogue.html` et `11-fiche-pirogue-ordinateur.html`
-- [ ] T017 [US1] Brancher l'îlot dans `src/components/experiences/ExperienceDetail.astro` (`client:load`) à la place de `StickyRequest` et des lignes d'options statiques, en gardant le lien statique « Demander ce service » comme repli sans JavaScript ; supprimer les éléments 003 devenus inutiles
-- [ ] T018 [P] [US1] Créer `src/features/selection/QuickAdd.tsx` (`defaultLine`, bouton « Ajouter à mon séjour » / « Déjà dans mon séjour ») et le brancher (`client:visible`) dans `ExperienceCard.astro` et `home/FeaturedCarousel.astro`
-- [ ] T019 [US1] Créer `src/features/selection/Toasts.tsx` (`client:idle` dans `BaseLayout`) : confirmations, maximum atteint, déjà présent, lignes retirées au chargement, stockage indisponible ; région `aria-live="polite"`
-- [ ] T020 [US1] Ajouter toutes les chaînes des îlots (FR et EN) et le mécanisme de passage des chaînes en props (`src/features/selection/strings.ts`, sous-ensemble typé des dictionnaires)
+- [X] T015 [P] [US1] Créer `src/features/selection/QuantityStepper.tsx` (− / valeur éditable / +, 44 px, `aria-label` traduits, bornes)
+- [X] T016 [US1] Créer `src/features/selection/ExperienceConfigurator.tsx` : rubrique « Votre réservation » (sélecteurs, tarif en boutons radio), cases à cocher des options, et rendu de la barre fixe (téléphone) et de la carte collante (ordinateur) avec total, euro, « Ajouter à mon séjour » / « Déjà dans mon séjour », lien « Demander ce service » (intention `single`, configuration choisie) ; valeurs relevées dans `docs/design-exports/03-fiche-pirogue.html` et `11-fiche-pirogue-ordinateur.html`
+- [X] T017 [US1] Brancher l'îlot dans `src/components/experiences/ExperienceDetail.astro` (`client:load`) à la place de `StickyRequest` et des lignes d'options statiques, en gardant le lien statique « Demander ce service » comme repli sans JavaScript ; supprimer les éléments 003 devenus inutiles
+- [X] T018 [P] [US1] Créer `src/features/selection/QuickAdd.tsx` (`defaultLine`, bouton « Ajouter à mon séjour » / « Déjà dans mon séjour ») et le brancher (`client:visible`) dans `ExperienceCard.astro` et `home/FeaturedCarousel.astro`
+- [X] T019 [US1] Créer `src/features/selection/Toasts.tsx` (`client:idle` dans `BaseLayout`) : confirmations, maximum atteint, déjà présent, lignes retirées au chargement, stockage indisponible ; région `aria-live="polite"`
+- [X] T020 [US1] Ajouter toutes les chaînes des îlots (FR et EN) et le mécanisme de passage des chaînes en props (`src/features/selection/strings.ts`, sous-ensemble typé des dictionnaires)
 
 **Checkpoint** : T013 et T014 passent.
 
@@ -81,8 +81,8 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 
 ### Implementation
 
-- [ ] T023 [US2] Créer `src/features/selection/StayPage.tsx` conforme à [contracts/ui.md](./contracts/ui.md) : en-tête et « Vider » (`dialog`), champs dates et voyageurs, lignes avec vignette, sélecteur compact et suppression, encadré du total, actions (barre fixe ou panneau collant), états vide (photo de Kribi, bouton « Découvrir les expériences ») et tout sur devis ; valeurs relevées dans `docs/design-exports/04-mon-sejour-plein.html`, `05a-mon-sejour-vide.html`, `05b-mon-sejour-sur-devis.html`
-- [ ] T024 [US2] Brancher `StayPage` dans `src/pages/sejour.astro` et `src/pages/en/my-trip.astro` (`client:load`, catalogue complet via `toIslandCatalog`, image vide optimisée) ; bouton WhatsApp flottant visible seulement quand la sélection est vide (attribut sur `body` posé par l'îlot)
+- [X] T023 [US2] Créer `src/features/selection/StayPage.tsx` conforme à [contracts/ui.md](./contracts/ui.md) : en-tête et « Vider » (`dialog`), champs dates et voyageurs, lignes avec vignette, sélecteur compact et suppression, encadré du total, actions (barre fixe ou panneau collant), états vide (photo de Kribi, bouton « Découvrir les expériences ») et tout sur devis ; valeurs relevées dans `docs/design-exports/04-mon-sejour-plein.html`, `05a-mon-sejour-vide.html`, `05b-mon-sejour-sur-devis.html`
+- [X] T024 [US2] Brancher `StayPage` dans `src/pages/sejour.astro` et `src/pages/en/my-trip.astro` (`client:load`, catalogue complet via `toIslandCatalog`, image vide optimisée) ; bouton WhatsApp flottant visible seulement quand la sélection est vide (attribut sur `body` posé par l'îlot)
 
 **Checkpoint** : T021 et T022 passent.
 
@@ -91,14 +91,14 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 ## Phase 5: User Story 3 — Envoyer sur WhatsApp (Priority: P3)
 
 - [ ] T025 [P] [US3] Écrire `tests/e2e/send-stay.spec.ts` : scénario 10 de [quickstart.md](./quickstart.md) en FR et en EN (message décodé comparé à l'attendu) ; message ≤ 1 800 caractères encodés avec 13 lignes ; « Demander ce service » sur une fiche reprend quantité et options sans modifier la sélection
-- [ ] T026 [US3] Brancher « Demander un devis par WhatsApp » dans `StayPage.tsx` (intention `quote`, `target="_blank"`, `rel="noopener noreferrer"`) et « Continuer mes recherches » vers la page Expériences
+- [X] T026 [US3] Brancher « Demander un devis par WhatsApp » dans `StayPage.tsx` (intention `quote`, `target="_blank"`, `rel="noopener noreferrer"`) et « Continuer mes recherches » vers la page Expériences
 
 ---
 
 ## Phase 6: User Story 4 — Compteur (Priority: P4)
 
 - [ ] T027 [P] [US4] Écrire `tests/e2e/stay-badge.spec.ts` : compteur à 2 après deux ajouts sur l'accueil, Contact et une page légale, sur l'onglet (360 px) et l'icône de l'en-tête (1 440 px) ; aucun décalage de mise en page au chargement (CLS mesuré nul sur la zone)
-- [ ] T028 [US4] Créer `src/features/selection/StayBadge.tsx` et le brancher (`client:idle`) dans `src/components/TabBar.astro` et `src/components/Header.astro`, dans l'emplacement déjà réservé ; pastille ronde (seule exception d'arrondi autorisée) relevée sur la maquette 04
+- [X] T028 [US4] Créer `src/features/selection/StayBadge.tsx` et le brancher (`client:idle`) dans `src/components/TabBar.astro` et `src/components/Header.astro`, dans l'emplacement déjà réservé ; pastille ronde (seule exception d'arrondi autorisée) relevée sur la maquette 04
 
 ---
 

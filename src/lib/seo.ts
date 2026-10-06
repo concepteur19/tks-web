@@ -63,10 +63,7 @@ export function buildSeo({
   };
 }
 
-/** Lien WhatsApp prérempli, utilisé par le bouton permanent. */
-export function buildWhatsAppUrl(number: string, message: string): string {
-  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
-}
+export { buildWhatsAppUrl } from './whatsapp.ts';
 
 export type LocalBusinessInput = {
   company: { brand: string };

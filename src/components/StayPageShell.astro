@@ -1,0 +1,57 @@
+---
+/** Page Mon séjour (FR-019) : l'îlot rend tout ; sans JavaScript, une explication et WhatsApp. */
+import { getImage } from 'astro:assets';
+import emptyPhoto from '../assets/photos/hero/plage-coucher-de-soleil.jpg';
+import StayPage from '../features/selection/StayPage.tsx';
+import { getRoutePath } from '../i18n/routes.ts';
+import { t } from '../i18n/t.ts';
+import type { Locale } from '../i18n/types.ts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { env } from '../lib/env.ts';
+import { buildWhatsAppUrl } from '../lib/seo.ts';
+import { currency } from '../lib/site.ts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const empty = await getImage({
+  src: emptyPhoto,
+  width: 560,
+  height: 560,
+  fit: 'cover',
+  format: 'webp',
+});
+const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.genericMessage'));
+---
+
+<BaseLayout
+  locale={locale}
+  routeKey="stay"
+  title={t(locale, 'stay.metaTitle')}
+  description={t(locale, 'stay.description')}
+>
+  <StayPage
+    client:only="preact"
+    locale={locale}
+    whatsappNumber={env.whatsappNumber}
+    eurToXaf={currency.eurToXaf}
+    experiencesHref={getRoutePath('experiences', locale)}
+    emptyImage={{ src: empty.src, width: 560, height: 560 }}
+  />
+  <noscript>
+    <section class="mx-auto max-w-(--size-content) px-4 py-12">
+      <h1 class="font-display text-3xl font-bold text-fg">{t(locale, 'stay.title')}</h1>
+      <p class="mt-4 max-w-xl text-fg-muted">{t(locale, 'stay.noscript')}</p>
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 inline-flex min-h-12 items-center rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
+      >
+        {t(locale, 'whatsapp.label')}
+      </a>
+    </section>
+  </noscript>
+</BaseLayout>
