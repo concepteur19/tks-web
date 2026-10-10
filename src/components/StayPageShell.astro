@@ -32,26 +32,30 @@ const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.ge
   title={t(locale, 'stay.metaTitle')}
   description={t(locale, 'stay.description')}
 >
-  <StayPage
-    client:only="preact"
-    locale={locale}
-    whatsappNumber={env.whatsappNumber}
-    eurToXaf={currency.eurToXaf}
-    experiencesHref={getRoutePath('experiences', locale)}
-    emptyImage={{ src: empty.src, width: 560, height: 560 }}
-  />
-  <noscript>
-    <section class="mx-auto max-w-(--size-content) px-4 py-12">
-      <h1 class="font-display text-3xl font-bold text-fg">{t(locale, 'stay.title')}</h1>
-      <p class="mt-4 max-w-xl text-fg-muted">{t(locale, 'stay.noscript')}</p>
-      <a
-        href={whatsappHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-6 inline-flex min-h-12 items-center rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
-      >
-        {t(locale, 'whatsapp.label')}
-      </a>
-    </section>
-  </noscript>
+  {/* L'îlot n'existe qu'après chargement : réserver un écran de haut garde le pied de page hors de
+       la vue, sinon il saute à l'arrivée du contenu (CLS mesuré à 0,5 sans cette réserve). */}
+  <div class="min-h-svh">
+    <StayPage
+      client:only="preact"
+      locale={locale}
+      whatsappNumber={env.whatsappNumber}
+      eurToXaf={currency.eurToXaf}
+      experiencesHref={getRoutePath('experiences', locale)}
+      emptyImage={{ src: empty.src, width: 560, height: 560 }}
+    />
+    <noscript>
+      <section class="mx-auto max-w-(--size-content) px-4 py-12">
+        <h1 class="font-display text-3xl font-bold text-fg">{t(locale, 'stay.title')}</h1>
+        <p class="mt-4 max-w-xl text-fg-muted">{t(locale, 'stay.noscript')}</p>
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-6 inline-flex min-h-12 items-center rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
+        >
+          {t(locale, 'whatsapp.label')}
+        </a>
+      </section>
+    </noscript>
+  </div>
 </BaseLayout>
