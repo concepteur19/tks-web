@@ -104,10 +104,10 @@ export default function RequestBar({
     );
   }
   return (
-    <div class="rounded-card bg-bg shadow-card flex flex-col gap-4 p-5" data-testid="request-card">
-      <div class="flex flex-col">
-        <span class="text-fg-muted text-xs">{t(locale, 'stay.total')}</span>
-        {price}
+    <div class="border-border flex flex-col gap-4 border-t pt-5" data-testid="request-card">
+      <div class="flex items-start justify-between gap-3">
+        <span class="text-fg text-sm">{t(locale, 'stay.total')}</span>
+        <div class="flex flex-col items-end">{price}</div>
       </div>
       {actions}
     </div>

@@ -130,18 +130,21 @@ const islandOptions = islandCatalog.filter((entry) => entry.isOption);
           </p>
         )}
 
-        <div class="mt-4">
+        <div class="mt-4 lg:hidden">
           <PriceBlock service={service} locale={locale} />
         </div>
         <InfoRow service={service} locale={locale} />
         <p class="mt-4 leading-relaxed text-fg-muted">{localize(data.description, locale)}</p>
         <Conditions service={service} locale={locale} />
-        <ExperienceConfigurator
-          client:load
-          service={islandService}
-          options={islandOptions}
-          locale={locale}
-        />
+        {/* Sur ordinateur, prix et configurateur passent dans la carte collante (maquette 11). */}
+        <div class="lg:hidden">
+          <ExperienceConfigurator
+            client:load
+            service={islandService}
+            options={islandOptions}
+            locale={locale}
+          />
+        </div>
         <noscript>
           <OptionsList options={options} locale={locale} />
         </noscript>
@@ -161,7 +164,15 @@ const islandOptions = islandCatalog.filter((entry) => entry.isOption);
       </div>
 
       <aside class="hidden lg:block">
-        <div class="sticky top-[calc(var(--size-header-desktop)+var(--spacing)*4)]">
+        <div class="sticky top-[calc(var(--size-header-desktop)+var(--spacing)*4)] flex flex-col gap-5 rounded-card bg-bg p-5 shadow-card">
+          <PriceBlock service={service} locale={locale} />
+          <ExperienceConfigurator
+            client:load
+            variant="card"
+            service={islandService}
+            options={islandOptions}
+            locale={locale}
+          />
           <RequestBar
             client:load
             variant="card"

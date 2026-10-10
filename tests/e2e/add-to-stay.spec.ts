@@ -11,12 +11,15 @@ async function openExperience(page: Page, slug: string) {
 }
 
 const more = (page: Page) =>
-  page.getByTestId('configurator').getByRole('button', { name: 'Augmenter : Nombre de personnes' });
+  page
+    .getByTestId('configurator')
+    .filter({ visible: true })
+    .getByRole('button', { name: 'Augmenter : Nombre de personnes' });
 
 test('pirogue pour 6 avec guide : total à jour, ajout confirmé, compteur à 1', async ({ page }) => {
   await openExperience(page, 'excursion-en-pirogue');
   for (let i = 0; i < 4; i += 1) await more(page).click();
-  await page.getByLabel(/^Guide touristique/).check();
+  await page.getByRole('checkbox', { name: /^Guide touristique/ }).check();
   expect(plain(await visible(page, 'draft-total').textContent())).toBe('40 000 FCFA');
   await visible(page, 'add-to-stay').click();
   await expect(page.getByTestId('toast')).toContainText(
@@ -45,7 +48,7 @@ test('réajouter la pirogue fusionne la ligne et passe sur devis au-delà de 8',
 
 test('campement : le tarif couple donne une ligne à 20 000 FCFA', async ({ page }) => {
   await openExperience(page, 'campement-bagyeli');
-  await page.getByLabel(/^Couple/).check();
+  await page.getByRole('radio', { name: /^Couple/ }).check();
   await visible(page, 'add-to-stay').click();
   await page.goto('/sejour');
   const line = page.getByTestId('stay-line');

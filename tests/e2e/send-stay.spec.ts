@@ -80,9 +80,10 @@ test('« Demander ce service » reprend la configuration sans toucher à la sél
   await waitForIslands(page);
   const more = page
     .getByTestId('configurator')
+    .filter({ visible: true })
     .getByRole('button', { name: 'Augmenter : Nombre de personnes' });
   for (let i = 0; i < 4; i += 1) await more.click();
-  await page.getByLabel(/^Guide touristique/).check();
+  await page.getByRole('checkbox', { name: /^Guide touristique/ }).check();
   const message = normalize(
     decodedMessage(await visible(page, 'request-service').getAttribute('href')),
   );
