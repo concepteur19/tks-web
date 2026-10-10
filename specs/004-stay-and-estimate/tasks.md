@@ -107,7 +107,7 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 - [X] T029 [P] Mettre à jour `src/content/legal/{fr,en}/privacy.md` (section cookies : clé `kibreeze.selection.v1`, contenu, 30 jours, effacement) et `DOCUMENTED_STORAGE` dans `tests/e2e/legal.spec.ts` (FR-029)
 - [X] T030 [P] Mettre à jour `docs/architecture.md` (îlots Preact), `specs/README.md` (statut 004), `docs/content-tracker.md` si besoin
 - [X] T031 Ajouter `/sejour.html` à `lighthouserc.json` ; lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; consigner les résultats dans [quickstart.md](./quickstart.md)
-- [ ] T032 Comparer les écrans 03, 04, 05a, 05b et 11 à notre rendu, élément par élément (captures au même format), et corriger les écarts non justifiés
+- [X] T032 Comparer les écrans 03, 04, 05a, 05b et 11 à notre rendu, élément par élément (captures au même format), et corriger les écarts non justifiés
 - [ ] T033 Dérouler les 14 scénarios manuels (Zobel)
 - [ ] T034 Ouvrir la PR `004-stay-and-estimate` → `main` (Zobel)
 

@@ -43,7 +43,7 @@ Contrôles automatiques du 2026-10-10 (T031) :
 | `npm run check` | 168 tests unitaires (couverture 100 %), 36 tests de composants et d'îlots, lint, types, contrastes : tout passe |
 | `npm run build:prod` | 42 pages, traductions complètes |
 | `npm run check:links` | 1 220 liens internes, aucun cassé |
-| `npm run check:bundle` | pages de contenu 20 à 24,5 Ko compressés (budget 50 Ko) ; Mon séjour 24,8 Ko (budget 80 Ko) |
+| `npm run check:bundle` | pages de contenu 20 à 25 Ko compressés (budget 50 Ko) ; Mon séjour 25,4 Ko (budget 80 Ko) |
 | `npm run test:e2e` | 289 parcours, Chromium et WebKit : tout passe (3 ignorés sous WebKit, comme avant) |
 
 Lighthouse, profil mobile, médiane de trois passages :
@@ -51,10 +51,10 @@ Lighthouse, profil mobile, médiane de trois passages :
 | Page | Performance | Accessibilité | Bonnes pratiques | SEO | LCP simulé | CLS |
 |---|---|---|---|---|---|---|
 | `/` | 94 | 100 | 100 | 100 | 3,01 s | 0,001 |
-| `/experiences` | 96 | 100 | 100 | 100 | 2,79 s | 0 |
+| `/experiences` | 95 | 100 | 100 | 100 | 2,93 s | 0,001 |
 | `/experiences/excursion-en-pirogue` | 96 | 100 | 100 | 100 | 2,78 s | 0 |
-| `/sejour` | 99 | 100 | 100 | 100 | 1,80 s | 0 |
-| `/contact` | 99 | 100 | 100 | 100 | 1,80 s | 0,001 |
+| `/sejour` | 99 | 100 | 100 | 100 | 2,11 s | 0,001 |
+| `/contact` | 99 | 100 | 100 | 100 | 1,80 s | 0 |
 
 Deux corrections ont été nécessaires pour y arriver :
 
@@ -63,4 +63,30 @@ Deux corrections ont été nécessaires pour y arriver :
 
 Le test « l'apparition du compteur ne décale pas la mise en page » échouait une fois sur dix environ. Ce n'était pas le compteur : Chromium peint parfois l'en-tête à mi-lecture, arrêté au script d'hydratation d'Astro placé avant le premier îlot, sans le bouton WhatsApp qui suit (décalage de 0,0013, sans effet perceptible). Le test fait maintenant apparaître le compteur sur une page déjà chargée, par un ajout fait dans un autre onglet, et ne mesure que ce moment ; il échoue bien si le compteur sort de sa position absolue.
 
-Comparaison avec les maquettes : voir T032. Scénarios manuels 1 à 14 : à dérouler par Zobel (T033).
+## Comparaison avec les maquettes (T032)
+
+Captures au format des exports (390 px en 2x, 1 440 px), mesures relevées après corrections ; les tableaux ci-dessus sont ceux de la version finale.
+
+Écarts corrigés :
+
+| Écran | Écart | Correction |
+|---|---|---|
+| 11 | La carte collante ne portait que le total et les boutons ; prix, options et nombre de personnes restaient dans la colonne de gauche, contre la maquette et la 003 (« le bloc prix avec le bouton devient une carte ») | La carte regroupe bloc prix, options, nombre de personnes, total et boutons ; dans le corps, ces blocs sont masqués à partir de `lg`. Le configurateur est rendu deux fois (variantes `page` et `card`, groupes de boutons radio nommés séparément), synchronisé par `$draft` |
+| 03, 11 | Nombre de personnes avant les options | Options d'abord, puis quantités, comme les deux maquettes |
+| 03, 11 | Pastille « Jusqu'à 8 personnes » en turquoise plein | Turquoise pâle (`--color-accent-soft`, 5,44:1) |
+| 04, 05b | Pastille « Sur devis » pleine, en bas à droite | Turquoise pâle, sous le nom |
+| 04, 05b | Bouton d'envoi sans logo WhatsApp ; « Continuer mes recherches » aligné à gauche sur téléphone | Logo ajouté (tracé partagé avec `WhatsAppIcon.astro`) ; lien centré |
+| 04, 05b | Rappel sans icône ; seule chaîne du site au tutoiement (« Ajoute tes dates ») | Icône ⓘ ; « Ajoutez vos dates… » |
+| 04, 05b | Corbeille pleine | Corbeille au trait |
+| 04, 05b | Exemple de dates coupé à 390 px (« Ex. du 12 au 15 décemb ») | « Ex. 12-15 déc. » / « E.g. 12-15 Dec » |
+
+Écarts conservés, justifiés :
+
+- Pas d'icône calendrier dans le champ des dates : c'est un texte libre (FR-021), l'icône promettrait un sélecteur.
+- Pas de pastille « 0 » sur l'onglet quand le séjour est vide (05a) : le compteur n'apparaît qu'avec au moins une ligne.
+- Barre à onglets et navigation ordinateur réduites aux pages livrées (`IMPLEMENTED_ROUTES`, 002).
+- « Total indicatif » au lieu de « Total estimatif » quand aucun prix « à partir de » n'entre dans le total : le libellé suit la nature des prix.
+- La pirogue se règle en personnes (« 6 personnes ») et non en « 1 groupe » : la capacité de 8 en dépend (FR-013).
+- « Vous aimerez aussi » en cartes compactes, aussi sur ordinateur (FR-017 de la 003), là où la maquette 11 montre de grandes photos.
+
+Scénarios manuels 1 à 14 : à dérouler par Zobel (T033).
