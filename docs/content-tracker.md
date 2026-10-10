@@ -43,6 +43,7 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 | Photo d'équipe Kibreeze | accueil, bloc À propos | ⏳ **aucune reçue** | — | | `src/assets/home/` | Non |
 | Vidéo d'accueil courte et légère | accueil | 📝 **17 vidéos reçues** (MOV et MP4), à visionner et à sélectionner, poids à vérifier | — | 2026-09-25 | `src/assets/home/` | Non |
 | Photos de bandeau des rubriques | expériences, hébergements, formules, TKS mobilité | ⏳ à choisir dans le lot reçu | ⏳ textes alternatifs | | `src/assets/sections/` | Oui |
+| Photo de l'état vide de Mon séjour | Mon séjour | ✅ reprend la photo de l'accueil (plage au coucher du soleil), texte alternatif FR / EN dans les dictionnaires (feature 004, 2026-10-06) | ✅ | 2026-09-25 | `src/assets/photos/hero/plage-coucher-de-soleil.jpg` | Non |
 | Présentation de Kibreeze | accueil, Contact | ✅ texte de Franck (1 quater), version courte sur l'accueil, complète sur Contact | ✅ | 2026-10-05 | `src/content/site/company.json` | Oui |
 | Texte « À propos » | Contact `#a-propos` | ✅ c'est la présentation de Kibreeze, pas de page dédiée (validé par Zobel le 2026-10-04) | ✅ | 2026-10-05 | `src/content/site/company.json` | Oui |
 | Raisons de choisir TKS | accueil | 📝 réactivité, service local, expérience personnalisée, plusieurs services réunis (F3) | ⏳ | 2026-09-14 | `src/content/site/company.json` | Oui |

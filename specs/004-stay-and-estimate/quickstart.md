@@ -36,4 +36,31 @@ En 360 × 800 puis en 1 440 × 1 024, en français puis en anglais.
 
 ## Résultats relevés
 
-À compléter en fin d'implémentation.
+Contrôles automatiques du 2026-10-10 (T031) :
+
+| Contrôle | Résultat |
+|---|---|
+| `npm run check` | 168 tests unitaires (couverture 100 %), 36 tests de composants et d'îlots, lint, types, contrastes : tout passe |
+| `npm run build:prod` | 42 pages, traductions complètes |
+| `npm run check:links` | 1 220 liens internes, aucun cassé |
+| `npm run check:bundle` | pages de contenu 20 à 24,5 Ko compressés (budget 50 Ko) ; Mon séjour 24,8 Ko (budget 80 Ko) |
+| `npm run test:e2e` | 289 parcours, Chromium et WebKit : tout passe (3 ignorés sous WebKit, comme avant) |
+
+Lighthouse, profil mobile, médiane de trois passages :
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO | LCP simulé | CLS |
+|---|---|---|---|---|---|---|
+| `/` | 94 | 100 | 100 | 100 | 3,01 s | 0,001 |
+| `/experiences` | 96 | 100 | 100 | 100 | 2,79 s | 0 |
+| `/experiences/excursion-en-pirogue` | 96 | 100 | 100 | 100 | 2,78 s | 0 |
+| `/sejour` | 99 | 100 | 100 | 100 | 1,80 s | 0 |
+| `/contact` | 99 | 100 | 100 | 100 | 1,80 s | 0,001 |
+
+Deux corrections ont été nécessaires pour y arriver :
+
+- **`/sejour` était à 78** (CLS 0,499) : l'îlot n'existe qu'après chargement, et le pied de page remontait puis redescendait à l'arrivée du contenu. La zone de l'îlot réserve désormais un écran de haut (`StayPageShell.astro`).
+- **`/experiences` était tombé à 87-91** (LCP 4,0 s, contre 93 et 3,83 s à la livraison de la 003) : la photo du bandeau, en portrait 960 × 1 280, était téléchargée entière (141 Ko) pour une bande de 224 px de haut. Elle est maintenant recadrée en 16:9 au build (74 Ko) ; la partie visible ne change pas.
+
+Le test « l'apparition du compteur ne décale pas la mise en page » échouait une fois sur dix environ. Ce n'était pas le compteur : Chromium peint parfois l'en-tête à mi-lecture, arrêté au script d'hydratation d'Astro placé avant le premier îlot, sans le bouton WhatsApp qui suit (décalage de 0,0013, sans effet perceptible). Le test fait maintenant apparaître le compteur sur une page déjà chargée, par un ajout fait dans un autre onglet, et ne mesure que ce moment ; il échoue bien si le compteur sort de sa position absolue.
+
+Comparaison avec les maquettes : voir T032. Scénarios manuels 1 à 14 : à dérouler par Zobel (T033).
