@@ -28,11 +28,33 @@ for (const [label, width, container] of [
   });
 }
 
-test('l’apparition du compteur ne décale pas la mise en page', async ({ page, browserName }) => {
+test('l’apparition du compteur ne décale pas la mise en page', async ({
+  page,
+  context,
+  browserName,
+}) => {
   test.skip(browserName !== 'chromium', 'layout-shift n’est mesuré que par Chromium');
+  // On n'observe que l'apparition du compteur, sur une page déjà chargée : un ajout fait dans un
+  // autre onglet arrive par l'événement storage, sans geste de l'utilisateur qui masquerait un
+  // décalage. Mesurer depuis le chargement compterait aussi une peinture à mi-lecture de
+  // l'en-tête (0,0013, une fois sur dix environ) qui ne doit rien au compteur.
   await page.setViewportSize({ width: 360, height: 800 });
   await page.goto('/contact');
-  await page.evaluate(() =>
+  await waitForIslands(page);
+  await expect(page.getByTestId('tab-bar').getByTestId('stay-badge')).toHaveCount(0);
+  await page.evaluate(() => {
+    const target = window as Window & { layoutShift?: number };
+    target.layoutShift = 0;
+    new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        target.layoutShift! += (entry as PerformanceEntry & { value: number }).value;
+      }
+    }).observe({ type: 'layout-shift' });
+  });
+
+  const other = await context.newPage();
+  await other.goto('/contact');
+  await other.evaluate(() =>
     localStorage.setItem(
       'kibreeze.selection.v1',
       JSON.stringify({
@@ -43,20 +65,12 @@ test('l’apparition du compteur ne décale pas la mise en page', async ({ page,
       }),
     ),
   );
-  await page.reload();
-  await waitForIslands(page);
+  await other.close();
+
   await expect(page.getByTestId('tab-bar').getByTestId('stay-badge')).toBeVisible();
+  await page.waitForTimeout(500);
   const shift = await page.evaluate(
-    () =>
-      new Promise<number>((resolve) => {
-        let total = 0;
-        new PerformanceObserver((list) => {
-          for (const entry of list.getEntries()) {
-            total += (entry as PerformanceEntry & { value: number }).value;
-          }
-        }).observe({ type: 'layout-shift', buffered: true });
-        setTimeout(() => resolve(total), 500);
-      }),
+    () => (window as Window & { layoutShift?: number }).layoutShift,
   );
   expect(shift).toBe(0);
 });
