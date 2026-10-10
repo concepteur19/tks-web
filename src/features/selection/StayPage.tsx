@@ -8,11 +8,16 @@ import { computeEstimate, type EstimateLine } from '../estimation/computeEstimat
 import { formatEurEquivalent, formatXaf } from '../estimation/formatPrice.ts';
 import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
-import { buildWhatsAppUrl } from '../../lib/whatsapp.ts';
+import { buildWhatsAppUrl, WHATSAPP_ICON_PATH } from '../../lib/whatsapp.ts';
 import { buildSelectionMessage, describeQuantities } from '../whatsapp/buildSelectionMessage.ts';
 import QuantityStepper from './QuantityStepper.tsx';
 import { quantityRuleOf } from './selection.ts';
 import { $selection, clear, getCatalog, remove, setStay, update } from './store.ts';
+
+const INFO_ICON =
+  'M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z';
+const TRASH_ICON =
+  'M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z';
 
 type Props = {
   locale: Locale;
@@ -113,6 +118,11 @@ export default function StayPage({
                 + {entry.options.map((option) => localize(option.title, locale)).join(', ')}
               </p>
             )}
+            {entry.lineAmount === null && (
+              <span class="bg-accent-soft text-accent mt-1.5 inline-block rounded-sm px-2 py-1 text-xs font-semibold">
+                {t(locale, 'price.quote')}
+              </span>
+            )}
           </div>
           {rule.dimensions.map((dimension, index) => (
             <QuantityStepper
@@ -139,14 +149,10 @@ export default function StayPage({
             onClick={() => remove(entry.serviceId)}
           >
             <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+              <path d={TRASH_ICON} />
             </svg>
           </button>
-          {entry.lineAmount === null ? (
-            <span class="bg-accent text-bg rounded-sm px-2 py-1 text-xs font-semibold">
-              {t(locale, 'price.quote')}
-            </span>
-          ) : (
+          {entry.lineAmount !== null && (
             <span class="text-brand text-sm font-bold whitespace-nowrap">
               {formatXaf(entry.lineAmount, locale)}
             </span>
@@ -195,11 +201,14 @@ export default function StayPage({
         class="bg-whatsapp text-whatsapp-ink flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-4 text-sm font-bold"
         data-testid="send-stay"
       >
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d={WHATSAPP_ICON_PATH} />
+        </svg>
         {t(locale, 'stay.send')}
       </a>
       <a
         href={experiencesHref}
-        class="text-fg-muted mt-1 inline-flex min-h-11 items-center justify-center text-xs underline"
+        class="text-fg-muted mt-1 flex min-h-11 items-center justify-center text-xs underline"
       >
         {t(locale, 'stay.continue')}
       </a>
@@ -264,7 +273,19 @@ export default function StayPage({
           </label>
         </div>
         {remindStay && (
-          <p class="text-accent mt-2 text-xs font-medium">{t(locale, 'stay.reminder')}</p>
+          <p class="text-accent mt-2 flex items-start gap-1.5 text-xs font-medium">
+            <svg
+              aria-hidden="true"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="shrink-0"
+            >
+              <path d={INFO_ICON} />
+            </svg>
+            {t(locale, 'stay.reminder')}
+          </p>
         )}
 
         <ul class="mt-5 space-y-3">{estimate.lines.map(line)}</ul>

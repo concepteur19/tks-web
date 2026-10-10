@@ -66,6 +66,12 @@ export const PAIRS: Pair[] = [
     usage: 'information dans un encadré crème',
   },
   {
+    text: 'accent',
+    background: 'accent-soft',
+    minimum: AA_TEXT,
+    usage: 'pastille « Sur devis » de Mon séjour',
+  },
+  {
     text: 'brand-contrast',
     background: 'fg',
     minimum: AA_TEXT,

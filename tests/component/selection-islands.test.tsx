@@ -126,7 +126,7 @@ describe('page Mon séjour', () => {
     expect(total).toContain('Total indicatif');
     expect(total).toContain('40 000 FCFA');
     expect(total).toContain('+ 1 prestation sur devis');
-    expect(container.textContent).toContain('Ajoute tes dates');
+    expect(container.textContent).toContain('Ajoutez vos dates');
     expect((await axe.run(container, AXE)).violations.map((v) => v.id)).toEqual([]);
   });
 

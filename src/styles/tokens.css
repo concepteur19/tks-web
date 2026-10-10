@@ -8,6 +8,7 @@
   --color-brand-contrast: #fffaf3;
   --color-brand-warm: #a8431f; /* terracotta de la direction C, rétrogradé en accent chaud secondaire — 5.8:1 sur le crème */
   --color-accent: #186962; /* turquoise profond, réservé aux badges d'information — 6.2:1 sur le fond crème */
+  --color-accent-soft: #dcefeb; /* fond turquoise pâle des pastilles « Sur devis » (maquettes 04 et 05b) */
   --color-whatsapp: #25d366; /* vert WhatsApp, valeur imposée par la marque */
   --color-whatsapp-contrast: #ffffff; /* icône seule du bouton flottant */
   --color-whatsapp-ink: #1c1917; /* libellé visible sur un bouton vert : le blanc n'atteint pas AA */

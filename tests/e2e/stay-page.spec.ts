@@ -57,7 +57,7 @@ test('dates et voyageurs vides : rappel visible, envoi possible ; saisis : conse
   page,
 }) => {
   await seedSelection(page, FULL);
-  await expect(page.getByText('Ajoute tes dates')).toBeVisible();
+  await expect(page.getByText('Ajoutez vos dates')).toBeVisible();
   await expect(page.locator('[data-testid="send-stay"]:visible')).toBeVisible();
   await page.getByLabel('Dates du séjour').fill('du 12 au 15 décembre');
   await page.getByLabel('Voyageurs').fill('4');
@@ -66,7 +66,7 @@ test('dates et voyageurs vides : rappel visible, envoi possible ; saisis : conse
   await waitForIslands(page);
   await expect(page.getByLabel('Dates du séjour')).toHaveValue('du 12 au 15 décembre');
   await expect(page.getByLabel('Voyageurs')).toHaveValue('4');
-  await expect(page.getByText('Ajoute tes dates')).toHaveCount(0);
+  await expect(page.getByText('Ajoutez vos dates')).toHaveCount(0);
 });
 
 test('changer de langue garde les lignes et traduit libellés et montants', async ({ page }) => {
