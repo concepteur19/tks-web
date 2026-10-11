@@ -4,7 +4,7 @@
     "en": "Motorboat trip"
   },
   "section": "experience",
-  "categoryId": "nature-decouverte",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Rejoignez les chutes de la Lobé en chaloupe, jusqu'à 8 personnes",
     "en": "Reach the Lobé Falls by motorboat, up to 8 people"
@@ -46,5 +46,5 @@
     "fr": "Chutes de la Lobé",
     "en": "Lobé Falls"
   },
-  "order": 30
+  "order": 60
 }

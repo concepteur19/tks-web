@@ -4,7 +4,7 @@
     "en": "Kayak"
   },
   "section": "experience",
-  "categoryId": "aventure",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Pagayez sur la Lobé, à votre rythme",
     "en": "Paddle along the Lobé at your own pace"
@@ -37,5 +37,5 @@
       }
     ]
   },
-  "order": 100
+  "order": 30
 }

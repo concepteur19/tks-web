@@ -4,7 +4,7 @@
     "en": "Horse ride"
   },
   "section": "experience",
-  "categoryId": "aventure",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Une balade à cheval sur la plage, au bord de l'océan",
     "en": "A horse ride on the beach, by the ocean"
@@ -37,5 +37,5 @@
       }
     ]
   },
-  "order": 120
+  "order": 50
 }

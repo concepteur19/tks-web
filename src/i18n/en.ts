@@ -14,7 +14,7 @@ export const en = {
   'nav.footerLabel': 'Footer links',
   'nav.legalLabel': 'Legal information',
   'nav.home': 'Home',
-  'nav.experiences': 'Experiences',
+  'nav.experiences': 'Tourism',
   'nav.accommodation': 'Accommodation',
   'nav.packages': 'Packages',
   'nav.mobility': 'TKS® Mobility',
@@ -102,10 +102,10 @@ export const en = {
   'whatsapp.serviceRequest':
     'Hello Kibreeze, I would like some information about the “{title}” experience: {url}',
 
-  'experiences.title': 'Experiences',
+  'experiences.title': 'Tourism',
   'experiences.tagline': 'Live Kribi differently',
   'experiences.description':
-    'Lobé Falls, dugout canoe, quad bike, jet ski, cruise: every Kibreeze experience in Kribi, with indicative prices.',
+    'Visits, activities and local food: discover Kribi your way, with indicative prices.',
   'experiences.bannerAlt': 'The Lobé Falls seen from a dugout canoe',
   'experiences.tabsLabel': 'Experience categories',
   'experiences.all': 'All',
@@ -115,6 +115,14 @@ export const en = {
   'experiences.detailsOf': 'See details: {title}',
   'experiences.capacityMax': '{count} people max',
   'experiences.onRequest': 'Availability to be confirmed',
+  'experiences.universesTitle': 'Discover Kribi your way',
+  'experiences.seeCatalogue': 'See the catalogue',
+  'experiences.universeNav': 'Themes',
+  'experiences.universeMetaTitle': '{name} — Tourism in Kribi',
+  'experiences.illustrative': 'Illustrative photo',
+  'price.minimum': 'Minimum {count} people',
+  'price.minimumShort': 'Min. {count} ppl',
+  'price.degressive': 'Group pricing: the price per person may drop for larger groups.',
   'experiences.special.title': 'Something special in mind?',
   'experiences.special.text':
     'An activity not listed here, a date, a group? Write to us and we will talk it through.',

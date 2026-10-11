@@ -8,7 +8,7 @@
 |---|---|---|
 | `name` | `{ fr, en }` | obligatoire |
 | `description` | `{ fr, en }` | phrase de présentation du cahier, section 3 ; devient obligatoire |
-| `slug` | `{ fr, en }` | **nouveau**, obligatoire ; minuscules, chiffres, tirets ; unique par langue ; jamais égal à un identifiant de prestation |
+| `urlSlug` | `{ fr, en }` | **nouveau** (`slug` est réservé par Astro), obligatoire ; minuscules, chiffres, tirets ; unique par langue ; jamais égal à un identifiant de prestation |
 | `order` | entier | ordre d'affichage |
 | `image` | `{ src, alt }` | photo de la carte et du bandeau |
 | `withOptions` | booléen | **nouveau**, facultatif, `true` par défaut ; `false` : aucune option sur les fiches de l'univers |

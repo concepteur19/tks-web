@@ -4,7 +4,7 @@
     "en": "Stand-up paddle"
   },
   "section": "experience",
-  "categoryId": "aventure",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Glissez debout sur l'eau calme, face à l'horizon",
     "en": "Glide standing on calm water, facing the horizon"
@@ -37,5 +37,5 @@
       }
     ]
   },
-  "order": 110
+  "order": 40
 }

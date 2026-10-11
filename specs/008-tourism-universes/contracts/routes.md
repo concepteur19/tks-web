@@ -7,7 +7,7 @@ Complète le contrat d'adresses de la 002 (`specs/002-kibreeze-core/contracts/ro
 | Page | FR | EN | Générée si |
 |---|---|---|---|
 | Page d'entrée du Tourisme | `/experiences` | `/en/experiences` | toujours (route `experiences`, inchangée) |
-| Page d'un univers | `/experiences/<univers.slug.fr>` | `/en/experiences/<univers.slug.en>` | l'univers a au moins une prestation publiée |
+| Page d'un univers | `/experiences/<univers.urlSlug.fr>` | `/en/experiences/<univers.urlSlug.en>` | l'univers a au moins une prestation publiée |
 | Fiche | `/experiences/<id>` | `/en/experiences/<id>` | la prestation est publiée (inchangé, 003) |
 
 - Pages d'univers et fiches sont produites par la même route dynamique (`src/pages/experiences/[slug].astro` et `src/pages/en/experiences/[slug].astro`).

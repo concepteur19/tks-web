@@ -2,7 +2,7 @@
  * Accès typé aux collections du catalogue. Aucune règle métier ici : le prix affiché
  * d'une carte est décidé par src/features/estimation/cardPrice.ts.
  */
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { isImplemented } from '../i18n/navigation.ts';
 
 export async function getCategories() {
@@ -29,11 +29,16 @@ export async function getExperiences() {
   return services.sort(byOrderThenName);
 }
 
+/** Prestations publiées d'un univers, par ordre défini puis par nom (008, FR-004). */
+export async function getUniverseExperiences(universeId: string) {
+  return (await getExperiences()).filter((service) => service.data.categoryId === universeId);
+}
+
 export async function getExperience(slug: string) {
   return (await getExperiences()).find((service) => service.id === slug);
 }
 
-/** Options proposées sur toutes les fiches (FR-003, FR-016). */
+/** Toutes les options publiées (003, FR-003). Pour une fiche, voir `getOptionsFor`. */
 export async function getOptions() {
   const options = await getCollection(
     'services',
@@ -42,7 +47,16 @@ export async function getOptions() {
   return options.sort(byOrderThenName);
 }
 
-/** Catégories qui contiennent au moins une expérience publiée : elles seules ont un onglet. */
+/**
+ * Options proposées sur une fiche : toutes les options publiées, sauf si l'univers de la
+ * prestation déclare `withOptions: false` (008, FR-016).
+ */
+export async function getOptionsFor(service: CollectionEntry<'services'>) {
+  const universe = (await getCategories()).find((entry) => entry.id === service.data.categoryId);
+  return universe?.data.withOptions === false ? [] : getOptions();
+}
+
+/** Univers qui contiennent au moins une prestation publiée : eux seuls ont une page et une carte (008). */
 export async function categoriesWithExperiences() {
   const [categories, experiences] = await Promise.all([getCategories(), getExperiences()]);
   return categories.filter((category) =>

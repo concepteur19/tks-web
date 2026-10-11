@@ -14,7 +14,7 @@ export const fr = {
   'nav.footerLabel': 'Liens du pied de page',
   'nav.legalLabel': 'Informations légales',
   'nav.home': 'Accueil',
-  'nav.experiences': 'Expériences',
+  'nav.experiences': 'Tourisme',
   'nav.accommodation': 'Hébergements',
   'nav.packages': 'Formules',
   'nav.mobility': 'Mobilité TKS®',
@@ -103,10 +103,10 @@ export const fr = {
   'whatsapp.serviceRequest':
     'Bonjour Kibreeze, je souhaite des informations sur l’expérience « {title} » : {url}',
 
-  'experiences.title': 'Expériences',
+  'experiences.title': 'Tourisme',
   'experiences.tagline': 'Vivez Kribi autrement',
   'experiences.description':
-    'Chutes de la Lobé, pirogue, quad, jet-ski, croisière : toutes les expériences Kibreeze à Kribi, avec leurs prix indicatifs.',
+    'Visites, activités et spécialités culinaires : découvrez Kribi selon vos envies, avec des prix indicatifs.',
   'experiences.bannerAlt': 'Les chutes de la Lobé vues depuis une pirogue',
   'experiences.tabsLabel': "Catégories d'expériences",
   'experiences.all': 'Toutes',
@@ -116,6 +116,15 @@ export const fr = {
   'experiences.detailsOf': 'Voir les détails : {title}',
   'experiences.capacityMax': '{count} personnes max',
   'experiences.onRequest': 'Disponibilité à confirmer',
+  'experiences.universesTitle': 'Découvrez Kribi selon vos envies',
+  'experiences.seeCatalogue': 'Voir le catalogue',
+  'experiences.universeNav': 'Univers',
+  'experiences.universeMetaTitle': '{name} — Tourisme à Kribi',
+  'experiences.illustrative': 'Photo illustrative',
+  'price.minimum': 'Minimum {count} personnes',
+  'price.minimumShort': 'Min. {count} pers.',
+  'price.degressive':
+    'Tarif dégressif : le prix par personne peut baisser avec la taille du groupe.',
   'experiences.special.title': 'Une envie particulière ?',
   'experiences.special.text':
     'Une activité qui ne figure pas ici, une date, un groupe ? Écrivez-nous, on en parle.',

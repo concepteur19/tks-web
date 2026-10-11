@@ -8,7 +8,7 @@ Pas d'inconnue technique : la feature réorganise des pages et du contenu avec l
 
 ## 1. Les univers remplacent les catégories, dans la même collection
 
-**Decision**: la collection `categories` porte désormais les trois univers. Ses trois fichiers (`nature-decouverte`, `aventure`, `detente`) sont remplacés par `visites`, `activites` et `specialites-culinaires`. Le champ `categoryId` des prestations pointe vers un univers. Le schéma gagne deux champs : `slug` (adresse de la page de l'univers, par langue) et `withOptions` (les options sont-elles proposées sur les fiches de cet univers, `true` par défaut).
+**Decision**: la collection `categories` porte désormais les trois univers. Ses trois fichiers (`nature-decouverte`, `aventure`, `detente`) sont remplacés par `visites`, `activites` et `specialites-culinaires`. Le champ `categoryId` des prestations pointe vers un univers. Le schéma gagne deux champs : `urlSlug` (adresse de la page de l'univers, par langue ; `slug` est réservé par Astro) et `withOptions` (les options sont-elles proposées sur les fiches de cet univers, `true` par défaut).
 
 **Rationale**: un univers joue exactement le rôle d'une catégorie (regrouper des prestations, avec nom, phrase, photo et ordre). Renommer la collection, le champ et leurs usages toucherait une trentaine de fichiers et de tests sans rien changer pour le visiteur. Le mot anglais `category` reste juste dans le code ; « univers » est le terme des textes et de la documentation.
 

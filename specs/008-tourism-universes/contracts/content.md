@@ -7,7 +7,7 @@ Complète `specs/001-project-foundation/contracts/content-schema.md` et la 003. 
 ```text
 name         { fr, en }            obligatoire
 description  { fr, en }            obligatoire (était facultatif)
-slug         { fr, en }            obligatoire, /^[a-z0-9]+(-[a-z0-9]+)*$/
+urlSlug      { fr, en }            obligatoire, /^[a-z0-9]+(-[a-z0-9]+)*$/ (`slug` est réservé par Astro)
 order        entier
 image        { src, alt { fr, en } }
 withOptions  booléen               facultatif, true par défaut
@@ -30,7 +30,7 @@ Signature élargie pour recevoir les univers entiers (identifiant et slugs), et 
 |---|---|
 | `categoryId` inconnu (existant) | `services/<id> : categoryId « x » ne correspond à aucun univers` |
 | identifiant de prestation égal à un slug d'univers | `services/<id> : identifiant identique à l'adresse de l'univers « x »` |
-| slug d'univers en double dans une langue | `categories/<id> → slug.<langue> : déjà utilisé par l'univers « x »` |
+| slug d'univers en double dans une langue | `categories/<id> → urlSlug.<langue> : déjà utilisé par l'univers « x »` |
 
 L'appartenance à un univers est déjà imposée par le schéma (« categoryId est obligatoire pour une expérience »). `scripts/check-content.ts` exécute ces contrôles avant chaque construction, comme aujourd'hui.
 

@@ -4,7 +4,7 @@
     "en": "Beach bonfire"
   },
   "section": "experience",
-  "categoryId": "detente",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Une soirée autour du feu, sur la plage, à la tombée de la nuit",
     "en": "An evening around the fire on the beach as night falls"
@@ -37,5 +37,5 @@
   "quantity": {
     "dimensions": []
   },
-  "order": 70
+  "order": 100
 }

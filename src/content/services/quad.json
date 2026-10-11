@@ -4,7 +4,7 @@
     "en": "Quad bike"
   },
   "section": "experience",
-  "categoryId": "aventure",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Pilotez un quad sur le sable, le long du littoral de Kribi",
     "en": "Ride a quad bike on the sand along the Kribi coastline"
@@ -41,5 +41,5 @@
       }
     ]
   },
-  "order": 80
+  "order": 10
 }

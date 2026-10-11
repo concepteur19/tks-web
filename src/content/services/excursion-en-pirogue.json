@@ -4,7 +4,7 @@
     "en": "Dugout canoe trip"
   },
   "section": "experience",
-  "categoryId": "nature-decouverte",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Remontez la Lobé entre mangrove et forêt",
     "en": "Paddle up the Lobé between mangrove and forest"
@@ -95,7 +95,7 @@
     ]
   },
   "featured": true,
-  "order": 20,
+  "order": 70,
   "location": {
     "fr": "Chutes de la Lobé",
     "en": "Lobé Falls"

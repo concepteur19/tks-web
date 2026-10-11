@@ -1,0 +1,22 @@
+{
+  "name": {
+    "fr": "Activités & Loisirs",
+    "en": "Activities & Leisure"
+  },
+  "description": {
+    "fr": "Vivre des expériences entre mer, nature, aventure et détente.",
+    "en": "Enjoy experiences between sea, nature, adventure and relaxation."
+  },
+  "urlSlug": {
+    "fr": "activites",
+    "en": "activities"
+  },
+  "order": 20,
+  "image": {
+    "src": "../../assets/photos/experiences/jet-ski.jpg",
+    "alt": {
+      "fr": "Une pilote sur un jet-ski rose, sur la rivière",
+      "en": "A rider on a pink jet ski on the river"
+    }
+  }
+}

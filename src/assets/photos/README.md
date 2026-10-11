@@ -13,9 +13,6 @@ Choix du 2026-10-05 :
 | Usage | Fichier | Remarque |
 |---|---|---|
 | Hero de l'accueil, image de partage | `hero/plage-coucher-de-soleil.jpg` | portrait 960 × 1 280 |
-| Catégorie Nature & Découverte | `categories/nature-decouverte.jpg` | chutes de la Lobé ; aucune photo ne montre la chute dans l'océan |
-| Catégorie Aventure | `categories/aventure.jpg` | jet-ski |
-| Catégorie Détente | `categories/detente.jpg` | pirogues sur la plage au soleil couchant ; les deux photos « feux de plage » montrent un pique-nique, pas un feu |
 | Excursion en pirogue | `experiences/excursion-en-pirogue.jpg` | |
 | Campement Bagyeli | `experiences/campement-bagyeli.jpg` | |
 | Bande immersive | `sections/lobe-en-pirogue.jpg` | |
@@ -58,6 +55,22 @@ Nouvelles photos reçues le 2026-10-06 (`Elements/Images ett vidéos du projet/n
 | Aperçu Villa | `accommodation/villa.jpg` | `hebergements-franck/villa_photo_2026-10-06_01-21-02` |
 
 Autres photos reçues, gardées pour plus tard : 4 autres photos d'appartement ou studio et 9 autres photos de villa (feature 005), la vue aérienne et le panneau des chutes, 7 photos de voitures TKS® (feature 006, `voitures-tks/`).
+
+Photos retrouvées ou reçues le 2026-10-11 (feature 008, voir `docs/photo-tri.md`, « Réexamen du 2026-10-11 ») ; le lot du jour vient de `Elements/Images ett vidéos du projet/nouvelles images/`, les deux HEIC de `~/Downloads/Telegram Desktop/`, convertis en JPEG par `sips`, tous copiés dans `Elements/tri-par-activite/` :
+
+| Usage | Fichiers | Source |
+|---|---|---|
+| Village Mayi | `experiences/village-mayi.jpg`, `-2` | `decouverte-de-kribi/L13-05` (pont des Esclaves), `L13-01` (monument) |
+| Débarcadère de Mboa-Manga | `experiences/debarcadere-de-mboa-manga.jpg` | `decouverte-de-kribi/L1-01` |
+| Plage du village Batanga | `experiences/plage-de-batanga.jpg` | `ambiance-hero-plages-couchers/L11-05` (plage de Kribi, à la demande de Franck) |
+| Excursion en chaloupe | `experiences/excursion-en-chaloupe.jpg`, `-2`, `-3` | `chaloupe/photo_2026-10-11_18-56-09`, `18-55-32`, `18-54-10` |
+| Feu de plage, galerie | `experiences/feu-de-plage-2.jpg`, `-3` | `feux-de-plage/IMG_2058`, `IMG_2060` |
+| Pique-nique et bivouac | `experiences/pique-nique-bivouac.jpg`, `-2` | `pique-nique/photo_2026-10-11_18-56-48`, `feux-de-plage/L11-04` |
+| Bouée tractée | `experiences/bouee-tractee.jpg`, `-2` | `bouee-tractee/photo_2026-10-11_18-56-29`, `18-56-16` (`18-56-38`, quasi identique, écartée) |
+| Séance photo | `experiences/seance-photo.jpg`, `-2`, `-3` | `seance-photo/photo_2026-10-11_18-56-42`, `18-55-15`, `18-55-09` |
+| Quad, galerie | `experiences/quad-2.jpg`, `-3` | `quad/photo_2026-10-11_18-56-55`, `18-55-21` |
+| Jet-ski, galerie | `experiences/jet-ski-2.jpg`, `-3` | `jet-ski/photo_2026-10-11_18-55-46`, `18-55-04` |
+| Univers Spécialités culinaires | `categories/specialites-culinaires.jpg` | `decouverte-de-kribi/L14-02` (étal de poissons) |
 
 ## Images générées par Google Stitch (provisoires)
 

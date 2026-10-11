@@ -4,7 +4,7 @@
     "en": "Jet ski"
   },
   "section": "experience",
-  "categoryId": "aventure",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Filez sur l'eau en jet-ski, sensations garanties",
     "en": "Speed across the water on a jet ski"
@@ -28,5 +28,5 @@
   "quantity": {
     "dimensions": []
   },
-  "order": 90
+  "order": 20
 }

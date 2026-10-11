@@ -125,16 +125,35 @@ export function quantityIssues(rule: QuantityRule, price: Pricing): string[] {
 
 /** Image de contenu : le schéma de `src` est injecté, comme pour les services. */
 function imageSchema<Src extends z.ZodTypeAny>(src: Src) {
-  return z.object({ src, alt: localizedString }).strict();
+  return z
+    .object({
+      src,
+      alt: localizedString,
+      /** Image générée, en attendant une photo réelle : étiquetée « Photo illustrative » (008). */
+      illustrative: z.boolean().optional(),
+    })
+    .strict();
 }
+
+/** Segment d'adresse : minuscules, chiffres et tirets, sans tiret au bord. */
+const slugSegment = z
+  .string()
+  .regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, 'minuscules, chiffres et tirets seulement');
 
 export function categorySchema<Src extends z.ZodTypeAny>(src: Src) {
   return z
     .object({
       name: localizedString,
-      description: localizedString.optional(),
+      description: localizedString,
+      /**
+       * Adresse de la page de l'univers, par langue (008). Pas `slug` : Astro réserve ce nom
+       * pour l'identifiant de l'entrée.
+       */
+      urlSlug: z.object({ fr: slugSegment, en: slugSegment }).strict(),
       order: z.number().int(),
       image: imageSchema(src),
+      /** `false` : aucune option sur les fiches de cet univers (008, FR-016). */
+      withOptions: z.boolean().optional(),
       provisional: z.boolean().optional(),
     })
     .strict();
@@ -192,6 +211,8 @@ export function serviceSchema<Src extends z.ZodTypeAny>(src: Src) {
         .strict()
         .optional(),
       availability: z.enum(['available', 'on_request', 'disabled']).default('available'),
+      /** Mention « tarif dégressif » sur la fiche, sans paliers (008, FR-018). */
+      degressive: z.boolean().optional(),
       featured: z.boolean().optional(),
       order: z.number().int().optional(),
       seo: z
@@ -229,16 +250,40 @@ export type Service = z.infer<ReturnType<typeof serviceSchema<z.ZodString>>>;
 
 /** Contrôle transversal, que le schéma d'un fichier isolé ne peut pas faire. */
 export function catalogIssues(
-  categoryIds: Iterable<string>,
+  universes: { id: string; urlSlug: { fr: string; en: string } }[],
   services: { id: string; data: Pick<Service, 'categoryId'> }[],
 ): string[] {
-  const known = new Set(categoryIds);
-  return services
-    .filter((service) => service.data.categoryId && !known.has(service.data.categoryId))
-    .map(
-      (service) =>
-        `services/${service.id} : categoryId « ${service.data.categoryId} » ne correspond à aucune catégorie`,
+  const issues: string[] = [];
+  const known = new Set(universes.map((universe) => universe.id));
+  for (const service of services) {
+    if (service.data.categoryId && !known.has(service.data.categoryId)) {
+      issues.push(
+        `services/${service.id} : categoryId « ${service.data.categoryId} » ne correspond à aucun univers`,
+      );
+    }
+    const clash = universes.find(
+      (universe) => universe.urlSlug.fr === service.id || universe.urlSlug.en === service.id,
     );
+    if (clash) {
+      issues.push(
+        `services/${service.id} : identifiant identique à l’adresse de l’univers « ${clash.id} »`,
+      );
+    }
+  }
+  for (const locale of ['fr', 'en'] as const) {
+    const seen = new Map<string, string>();
+    for (const universe of universes) {
+      const owner = seen.get(universe.urlSlug[locale]);
+      if (owner) {
+        issues.push(
+          `categories/${universe.id} → urlSlug.${locale} : déjà utilisé par l’univers « ${owner} »`,
+        );
+      } else {
+        seen.set(universe.urlSlug[locale], universe.id);
+      }
+    }
+  }
+  return issues;
 }
 
 /* ——— Fichiers du site (feature 002) : specs/002-kibreeze-core/contracts/content.md ——— */

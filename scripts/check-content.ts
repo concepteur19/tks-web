@@ -1,7 +1,8 @@
 /**
  * Contrôle du catalogue avant chaque construction, en développement comme en production.
  * Astro valide déjà chaque fichier contre son schéma ; ce script ajoute ce qu'un fichier
- * isolé ne peut pas vérifier — un categoryId qui pointe vers une catégorie existante — et
+ * isolé ne peut pas vérifier — un categoryId qui pointe vers un univers existant, des adresses
+ * d'univers sans collision — et
  * rend les erreurs de schéma lisibles en français, avec le fichier et le champ.
  */
 import { readdirSync, readFileSync } from 'node:fs';
@@ -32,9 +33,12 @@ export function checkContent(contentDir: string): string[] {
   const schema = serviceSchema(z.string());
   const categoryParser = categorySchema(z.string());
 
+  const universes: { id: string; urlSlug: { fr: string; en: string } }[] = [];
   for (const category of categories) {
     const result = categoryParser.safeParse(category.data);
-    if (!result.success) {
+    if (result.success) {
+      universes.push({ id: category.id, urlSlug: result.data.urlSlug });
+    } else {
       for (const issue of result.error.issues) {
         issues.push(
           `categories/${category.id} → ${issue.path.join('.') || '(racine)'} : ${issue.message}`,
@@ -69,12 +73,7 @@ export function checkContent(contentDir: string): string[] {
       `services → featured : ${featured.length} expériences mises en avant, 4 au plus (accueil, FR-013)`,
     );
   }
-  issues.push(
-    ...catalogIssues(
-      categories.map((category) => category.id),
-      valid,
-    ),
-  );
+  issues.push(...catalogIssues(universes, valid));
   return issues;
 }
 

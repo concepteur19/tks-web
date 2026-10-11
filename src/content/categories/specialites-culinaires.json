@@ -1,0 +1,17 @@
+{
+  "name": { "fr": "Spécialités culinaires", "en": "Local Food" },
+  "description": {
+    "fr": "Découvrir les saveurs et spécialités de la côte.",
+    "en": "Discover the flavours and specialities of the coast."
+  },
+  "urlSlug": { "fr": "specialites-culinaires", "en": "local-food" },
+  "order": 30,
+  "withOptions": false,
+  "image": {
+    "src": "../../assets/photos/categories/specialites-culinaires.jpg",
+    "alt": {
+      "fr": "Un étal de poissons frais au marché",
+      "en": "A stall of fresh fish at the market"
+    }
+  }
+}
