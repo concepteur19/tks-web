@@ -108,8 +108,6 @@ export const fr = {
   'experiences.description':
     'Visites, activités et spécialités culinaires : découvrez Kribi selon vos envies, avec des prix indicatifs.',
   'experiences.bannerAlt': 'Les chutes de la Lobé vues depuis une pirogue',
-  'experiences.tabsLabel': "Catégories d'expériences",
-  'experiences.all': 'Toutes',
   'experiences.count': { one: '{count} expérience', other: '{count} expériences' },
   'experiences.indicative': 'tarifs indicatifs',
   'experiences.details': 'Voir les détails',

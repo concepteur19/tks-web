@@ -1,15 +1,34 @@
 ---
+/**
+ * Fiches et pages d'univers partagent l'adresse /experiences/<segment> (008, contracts/routes.md) :
+ * le contrôle du contenu garantit qu'aucun identifiant de prestation n'est l'adresse d'un univers.
+ */
 import ExperienceDetail from '../../components/experiences/ExperienceDetail.astro';
-import { getExperiences } from '../../lib/catalog.ts';
+import UniversePage from '../../components/experiences/UniversePage.astro';
+import { categoriesWithExperiences, getExperiences } from '../../lib/catalog.ts';
 
 export async function getStaticPaths() {
-  return (await getExperiences()).map((service) => ({
-    params: { slug: service.id },
-    props: { service },
-  }));
+  const [experiences, universes] = await Promise.all([
+    getExperiences(),
+    categoriesWithExperiences(),
+  ]);
+  return [
+    ...experiences.map((service) => ({
+      params: { slug: service.id },
+      props: { kind: 'experience' as const, service },
+    })),
+    ...universes.map((universe) => ({
+      params: { slug: universe.data.urlSlug.fr },
+      props: { kind: 'universe' as const, universe },
+    })),
+  ];
 }
 
-const { service } = Astro.props;
+const props = Astro.props;
 ---
 
-<ExperienceDetail service={service} locale="fr" />
+{props.kind === 'experience' ? (
+  <ExperienceDetail service={props.service} locale="fr" />
+) : (
+  <UniversePage universe={props.universe} locale="fr" />
+)}

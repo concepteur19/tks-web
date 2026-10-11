@@ -25,3 +25,22 @@ export function experiencePaths(): string[] {
       return LOCALES.map((locale) => `${ROUTES.experiences[locale]}/${slug}`);
     });
 }
+
+/** Pages d'univers qui ont au moins une prestation publiée, dans les deux langues (008). */
+export function universePaths(): string[] {
+  const published = new Set(
+    readdirSync('src/content/services')
+      .filter((file) => file.endsWith('.json'))
+      .map((file) => JSON.parse(readFileSync(`src/content/services/${file}`, 'utf8')))
+      .filter((data) => data.section === 'experience' && !data.isOption)
+      .filter((data) => data.availability !== 'disabled')
+      .map((data) => data.categoryId as string),
+  );
+  const dir = 'src/content/categories';
+  return readdirSync(dir)
+    .filter((file) => file.endsWith('.json') && published.has(file.replace(/\.json$/, '')))
+    .flatMap((file) => {
+      const { urlSlug } = JSON.parse(readFileSync(`${dir}/${file}`, 'utf8'));
+      return LOCALES.map((locale) => `${ROUTES.experiences[locale]}/${urlSlug[locale]}`);
+    });
+}

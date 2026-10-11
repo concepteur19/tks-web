@@ -4,6 +4,8 @@
  */
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { isImplemented } from '../i18n/navigation.ts';
+import { getRoutePath } from '../i18n/routes.ts';
+import type { Locale } from '../i18n/types.ts';
 
 export async function getCategories() {
   const categories = await getCollection('categories');
@@ -79,4 +81,9 @@ export async function categoryCount(categoryId: string): Promise<number | undefi
     (service) => service.data.categoryId === categoryId && service.data.availability !== 'disabled',
   );
   return services.length;
+}
+
+/** Adresse de la page d'un univers dans une langue (008, contracts/routes.md). */
+export function universePath(universe: CollectionEntry<'categories'>, locale: Locale): string {
+  return `${getRoutePath('experiences', locale)}/${universe.data.urlSlug[locale]}`;
 }

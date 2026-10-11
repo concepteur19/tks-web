@@ -1,0 +1,33 @@
+---
+/** Bloc « Une envie particulière ? » (FR-CAT-6) : page d'entrée du Tourisme et pages d'univers. */
+import { t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import { env } from '../../lib/env.ts';
+import { buildWhatsAppUrl } from '../../lib/seo.ts';
+import WhatsAppIcon from '../WhatsAppIcon.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.genericMessage'));
+---
+
+<section class="bg-bg-muted" data-section="special">
+  <div class="mx-auto max-w-(--size-content) px-4 py-10">
+    <h2 class="font-display text-2xl font-extrabold text-fg">
+      {t(locale, 'experiences.special.title')}
+    </h2>
+    <p class="mt-2 max-w-xl text-fg-muted">{t(locale, 'experiences.special.text')}</p>
+    <a
+      href={whatsappHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-5 inline-flex min-h-12 items-center gap-2 rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
+    >
+      <WhatsAppIcon size={22} />
+      {t(locale, 'whatsapp.label')}
+    </a>
+  </div>
+</section>

@@ -1,0 +1,105 @@
+---
+/**
+ * Page d'un univers (008, FR-004 à FR-006, contracts/ui.md) : fil d'Ariane, bandeau, navigation
+ * entre univers, cartes des prestations de l'univers, bloc WhatsApp.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { getRoutePath } from '../../i18n/routes.ts';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  categoriesWithExperiences,
+  getUniverseExperiences,
+  universePath,
+} from '../../lib/catalog.ts';
+import ExperienceCard from './ExperienceCard.astro';
+import SpecialRequest from './SpecialRequest.astro';
+import UniverseNav from './UniverseNav.astro';
+
+interface Props {
+  universe: CollectionEntry<'categories'>;
+  locale: Locale;
+}
+
+const { universe, locale } = Astro.props;
+const [universes, experiences] = await Promise.all([
+  categoriesWithExperiences(),
+  getUniverseExperiences(universe.id),
+]);
+const name = localize(universe.data.name, locale);
+const description = localize(universe.data.description, locale);
+const alternatePaths = { fr: universePath(universe, 'fr'), en: universePath(universe, 'en') };
+---
+
+<BaseLayout
+  locale={locale}
+  routeKey="experiences"
+  title={t(locale, 'experiences.universeMetaTitle', { name })}
+  description={description}
+  alternatePaths={alternatePaths}
+  ogImage={universe.data.image.src}
+  ogImageAlt={localize(universe.data.image.alt, locale)}
+>
+  <nav
+    aria-label={t(locale, 'detail.breadcrumb')}
+    class="mx-auto max-w-(--size-content) px-4 py-1 text-xs text-fg-muted"
+  >
+    <ol class="flex flex-wrap items-center gap-1">
+      <li>
+        <a
+          href={getRoutePath('experiences', locale)}
+          class="inline-flex min-h-11 items-center underline"
+        >
+          {t(locale, 'experiences.title')}
+        </a>
+      </li>
+      <li class="flex items-center gap-1">
+        <span aria-hidden="true">›</span>
+        <span aria-current="page" class="font-medium text-fg">
+          {name}
+        </span>
+      </li>
+    </ol>
+  </nav>
+
+  <section class="relative isolate flex h-48 items-end overflow-hidden" data-section="banner">
+    <Image
+      src={universe.data.image.src}
+      alt={localize(universe.data.image.alt, locale)}
+      widths={[480, 960, 1440]}
+      width={960}
+      height={540}
+      fit="cover"
+      quality={60}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 -z-10 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 -z-10 bg-linear-to-t from-fg/80 to-fg/20"></div>
+    <div class="mx-auto w-full max-w-(--size-content) px-4 pb-6 text-brand-contrast">
+      <h1 class="font-display text-4xl font-extrabold">{name}</h1>
+      <p class="mt-1 text-lg">{description}</p>
+    </div>
+  </section>
+
+  <UniverseNav universes={universes} currentId={universe.id} locale={locale} />
+
+  <div class="mx-auto flex max-w-(--size-content) items-center justify-between px-4 pt-4 text-sm">
+    <p class="font-medium text-fg">
+      {t(locale, 'experiences.count', { count: experiences.length })}
+    </p>
+    <p class="text-xs text-fg-muted italic">{t(locale, 'experiences.indicative')}</p>
+  </div>
+  <ul class="mx-auto grid max-w-(--size-content) gap-4 px-4 py-6 sm:grid-cols-2 lg:grid-cols-3">
+    {experiences.map((service) => (
+      <li class="flex">
+        <ExperienceCard service={service} locale={locale} />
+      </li>
+    ))}
+  </ul>
+
+  <SpecialRequest locale={locale} />
+</BaseLayout>

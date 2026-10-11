@@ -8,7 +8,11 @@ test.describe('fiche de l’excursion en pirogue', () => {
     const breadcrumb = page
       .getByRole('navigation', { name: 'Fil d’Ariane' })
       .or(page.getByRole('navigation', { name: "Fil d'Ariane" }));
-    await expect(breadcrumb).toContainText('Nature & Découverte');
+    await expect(breadcrumb).toContainText('Tourisme');
+    await expect(breadcrumb.getByRole('link', { name: 'Activités & Loisirs' })).toHaveAttribute(
+      'href',
+      '/experiences/activites',
+    );
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Excursion en pirogue');
     const price = plain(
       await page.getByTestId('price-block').filter({ visible: true }).textContent(),
@@ -30,11 +34,11 @@ test.describe('fiche de l’excursion en pirogue', () => {
     await expect(page.getByRole('heading', { name: 'Vous aimerez aussi' })).toBeVisible();
   });
 
-  test('propose trois expériences, la même catégorie d’abord', async ({ page }) => {
+  test('propose trois expériences, le même univers d’abord', async ({ page }) => {
     await page.goto('/experiences/excursion-en-pirogue');
     const related = page.locator('section:has(h2:text("Vous aimerez aussi")) a');
     await expect(related).toHaveCount(3);
-    await expect(related.first()).toHaveAttribute('href', '/experiences/chutes-de-la-lobe');
+    await expect(related.first()).toHaveAttribute('href', '/experiences/quad');
   });
 
   test('galerie : compteur et vignettes qui mènent à chaque photo', async ({ page }) => {

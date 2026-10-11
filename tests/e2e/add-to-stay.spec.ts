@@ -64,7 +64,7 @@ test('feu de plage : le second ajout est refusé', async ({ page }) => {
 });
 
 test('ajout rapide depuis la liste et l’accueil avec les valeurs par défaut', async ({ page }) => {
-  await page.goto('/experiences');
+  await page.goto('/experiences/visites');
   await waitForIslands(page);
   const lobe = page.getByRole('button', { name: 'Ajouter à mon séjour : Chutes de la Lobé' });
   await reveal(lobe);

@@ -107,8 +107,6 @@ export const en = {
   'experiences.description':
     'Visits, activities and local food: discover Kribi your way, with indicative prices.',
   'experiences.bannerAlt': 'The Lobé Falls seen from a dugout canoe',
-  'experiences.tabsLabel': 'Experience categories',
-  'experiences.all': 'All',
   'experiences.count': { one: '{count} experience', other: '{count} experiences' },
   'experiences.indicative': 'indicative prices',
   'experiences.details': 'See details',

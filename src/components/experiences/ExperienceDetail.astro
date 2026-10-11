@@ -9,7 +9,7 @@ import { getRoutePath } from '../../i18n/routes.ts';
 import { localize, t } from '../../i18n/t.ts';
 import { LOCALES, type Locale } from '../../i18n/types.ts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCategories, getExperiences, getOptions } from '../../lib/catalog.ts';
+import { getCategories, getExperiences, getOptions, universePath } from '../../lib/catalog.ts';
 import { env } from '../../lib/env.ts';
 import { buildExperienceJsonLd, buildWhatsAppUrl } from '../../lib/seo.ts';
 import CompactCard from './CompactCard.astro';
@@ -97,7 +97,7 @@ const islandOptions = islandCatalog.filter((entry) => entry.isOption);
           <li class="flex items-center gap-1">
             <span aria-hidden="true">›</span>
             <a
-              href={`${listPath}#${category.id}`}
+              href={universePath(category, locale)}
               class="inline-flex min-h-11 items-center underline"
             >
               {localize(category.data.name, locale)}

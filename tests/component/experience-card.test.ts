@@ -15,7 +15,7 @@ function service(id: string, data: Record<string, unknown>) {
     data: {
       title: { fr: 'Excursion en pirogue', en: 'Dugout canoe trip' },
       section: 'experience',
-      categoryId: 'nature-decouverte',
+      categoryId: 'visites',
       shortDescription: { fr: 'Remontez la Lobé', en: 'Paddle up the Lobé' },
       description: { fr: 'Description', en: 'Description' },
       quantity: { dimensions: [] },
