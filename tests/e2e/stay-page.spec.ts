@@ -112,3 +112,17 @@ test('sur ordinateur, le panneau du total reste visible au défilement', async (
   await expect(page.locator('[data-testid="stay-total"]:visible')).toBeInViewport();
   await expect(page.locator('[data-testid="send-stay"]:visible')).toBeInViewport();
 });
+
+test('Mon séjour respecte le minimum du Village Bagyeli', async ({ page }) => {
+  await seedSelection(page, [{ serviceId: 'campement-bagyeli', quantities: [2] }]);
+  await expect(page.getByRole('button', { name: /^Diminuer : Village Bagyeli/ })).toBeDisabled();
+});
+
+test('un tarif du campement qui n’existe plus est retiré, avec un message', async ({ page }) => {
+  await seedSelection(page, [
+    ...FULL,
+    { serviceId: 'campement-bagyeli', tierId: 'couple', quantities: [] },
+  ]);
+  await expect(page.getByTestId('stay-line')).toHaveCount(3);
+  await expect(page.getByTestId('toast')).toContainText('n’est plus proposée'.replace('’', "'"));
+});

@@ -109,16 +109,16 @@ Celles de 002, 003 et 004 (aucun texte en dur, tokens, liens par `getRoutePath`,
 
 ### Tests
 
-- [ ] T031 [P] [US3] Écrire `tests/unit/minimum-participants.test.ts` (doit échouer), couverture 100 % : dimension `persons` de `min` 2 → 2 ; `min` 1 → `undefined` ; aucune dimension `persons` (units, hours, aucune) → `undefined`
-- [ ] T032 [P] [US3] Tests : `tests/component/experience-card.test.ts` (pastille « Min. 2 pers. » quand le minimum est défini, absente sinon) ; `tests/e2e/experience-detail.spec.ts` (fiche Village Bagyeli : « À partir de 15 000 FCFA », « Minimum 2 personnes », mention dégressive ; fiche Chutes : aucune des deux ; le test « trois tarifs » du campement est supprimé) ; `tests/e2e/add-to-stay.spec.ts` (remplacer « tarif couple » par : Village Bagyeli, bouton « Diminuer » désactivé à 2, ajout → ligne « 2 personnes », 30 000 FCFA, total « estimatif ») ; `tests/e2e/stay-page.spec.ts` (sélecteur du Village Bagyeli dans Mon séjour : « Diminuer » désactivé à 2 ; séjour enregistré avec `campement-bagyeli` au tarif `couple` → ligne retirée, message de la 004)
+- [X] T031 [P] [US3] Écrire `tests/unit/minimum-participants.test.ts` (doit échouer), couverture 100 % : dimension `persons` de `min` 2 → 2 ; `min` 1 → `undefined` ; aucune dimension `persons` (units, hours, aucune) → `undefined`
+- [X] T032 [P] [US3] Tests : `tests/component/experience-card.test.ts` (pastille « Min. 2 pers. » quand le minimum est défini, absente sinon) ; `tests/e2e/experience-detail.spec.ts` (fiche Village Bagyeli : « À partir de 15 000 FCFA », « Minimum 2 personnes », mention dégressive ; fiche Chutes : aucune des deux ; le test « trois tarifs » du campement est supprimé) ; `tests/e2e/add-to-stay.spec.ts` (remplacer « tarif couple » par : Village Bagyeli, bouton « Diminuer » désactivé à 2, ajout → ligne « 2 personnes », 30 000 FCFA, total « estimatif ») ; `tests/e2e/stay-page.spec.ts` (sélecteur du Village Bagyeli dans Mon séjour : « Diminuer » désactivé à 2 ; séjour enregistré avec `campement-bagyeli` au tarif `couple` → ligne retirée, message de la 004)
 
 ### Implementation
 
-- [ ] T033 [US3] `src/content/services/campement-bagyeli.json` : supprimer `tiers` ; `pricing: { kind: "from", amount: 15000, unit: "per_person" }` ; quantité `persons` `min` 2, `max` 20, `default` 2 ; `degressive: true`
-- [ ] T034 [US3] Créer `src/features/catalog/minimumParticipants.ts` conforme à T031 et à [contracts/content.md](./contracts/content.md), pur, sans import d'Astro
-- [ ] T035 [US3] `src/components/experiences/PriceBlock.astro` : sous la pastille de capacité, pastille `accent-soft` « Minimum N personnes » (`price.minimum`) quand `minimumParticipants` est défini, et la phrase `price.degressive` (`text-xs text-fg-muted`) quand `degressive`
-- [ ] T036 [US3] `src/components/experiences/ExperienceCard.astro` : pastille « Min. N pers. » (`price.minimumShort`) sur la photo, à côté de « N personnes max », quand `minimumParticipants` est défini
-- [ ] T037 [US3] `npm run check` (couverture 100 % de `minimumParticipants`) ; T031 et T032 passent
+- [X] T033 [US3] `src/content/services/campement-bagyeli.json` : supprimer `tiers` ; `pricing: { kind: "from", amount: 15000, unit: "per_person" }` ; quantité `persons` `min` 2, `max` 20, `default` 2 ; `degressive: true`
+- [X] T034 [US3] Créer `src/features/catalog/minimumParticipants.ts` conforme à T031 et à [contracts/content.md](./contracts/content.md), pur, sans import d'Astro
+- [X] T035 [US3] `src/components/experiences/PriceBlock.astro` : sous la pastille de capacité, pastille `accent-soft` « Minimum N personnes » (`price.minimum`) quand `minimumParticipants` est défini, et la phrase `price.degressive` (`text-xs text-fg-muted`) quand `degressive`
+- [X] T036 [US3] `src/components/experiences/ExperienceCard.astro` : pastille « Min. N pers. » (`price.minimumShort`) sur la photo, à côté de « N personnes max », quand `minimumParticipants` est défini
+- [X] T037 [US3] `npm run check` (couverture 100 % de `minimumParticipants`) ; T031 et T032 passent
 
 **Checkpoint**: les trois stories sont livrées.
 

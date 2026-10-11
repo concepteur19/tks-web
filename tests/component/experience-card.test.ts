@@ -66,6 +66,24 @@ describe('carte d’expérience', () => {
     expect(text(root)).not.toContain('€');
   });
 
+  it('affiche le minimum de participants quand il dépasse 1', async () => {
+    const minimum = await mount({
+      locale: 'fr',
+      service: service('campement-bagyeli', {
+        pricing: { kind: 'from', amount: 15000, unit: 'per_person' },
+        quantity: { dimensions: [{ kind: 'persons', min: 2, max: 20, default: 2 }] },
+      }),
+    });
+    expect(text(minimum)).toContain('Min. 2 pers.');
+    const none = await mount({
+      locale: 'fr',
+      service: service('excursion-en-pirogue', {
+        pricing: { kind: 'fixed', amount: 35000, unit: 'per_group', maxCapacity: 8 },
+      }),
+    });
+    expect(text(none)).not.toContain('Min.');
+  });
+
   it('suit la langue anglaise', async () => {
     const root = await mount({
       locale: 'en',

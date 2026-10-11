@@ -46,14 +46,21 @@ test('réajouter la pirogue fusionne la ligne et passe sur devis au-delà de 8',
   await expect(page.getByTestId('stay-line')).toContainText('Sur devis');
 });
 
-test('campement : le tarif couple donne une ligne à 20 000 FCFA', async ({ page }) => {
+test('Village Bagyeli : pas moins de 2 personnes, ligne à 30 000 FCFA', async ({ page }) => {
   await openExperience(page, 'campement-bagyeli');
-  await page.getByRole('radio', { name: /^Couple/ }).check();
+  await expect(
+    page
+      .getByTestId('configurator')
+      .filter({ visible: true })
+      .getByRole('button', { name: 'Diminuer : Nombre de personnes' }),
+  ).toBeDisabled();
   await visible(page, 'add-to-stay').click();
   await page.goto('/sejour');
   const line = page.getByTestId('stay-line');
-  await expect(line).toContainText('tarif Couple');
-  expect(plain(await line.textContent())).toContain('20 000 FCFA');
+  await expect(line).toContainText('2 personnes');
+  expect(plain(await line.textContent())).toContain('30 000 FCFA');
+  const total = plain(await page.locator('[data-testid="stay-total"]:visible').textContent());
+  expect(total).toContain('Total estimatif');
 });
 
 test('une prestation sur devis : le second ajout est refusé', async ({ page }) => {

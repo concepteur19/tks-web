@@ -56,17 +56,23 @@ test.describe('fiche de l’excursion en pirogue', () => {
   });
 });
 
-test('fiche du campement Bagyeli : trois tarifs nommés', async ({ page }) => {
+test('fiche du Village Bagyeli : à partir de, minimum 2 personnes, tarif dégressif', async ({
+  page,
+}) => {
   await page.goto('/experiences/campement-bagyeli');
   const price = plain(
     await page.getByTestId('price-block').filter({ visible: true }).textContent(),
   );
-  expect(price).toContain('Individuel');
-  expect(price).toContain('7 500 FCFA');
-  expect(price).toContain('Couple');
-  expect(price).toContain('20 000 FCFA');
-  expect(price).toContain('Groupe');
-  expect(price).toContain('Sur devis');
+  expect(price).toContain('À partir de 15 000 FCFA');
+  expect(price).toContain('Minimum 2 personnes');
+  expect(price).toContain('Tarif dégressif');
+});
+
+test('fiche des chutes : ni minimum ni mention dégressive', async ({ page }) => {
+  await page.goto('/experiences/chutes-de-la-lobe');
+  const block = page.getByTestId('price-block').filter({ visible: true });
+  await expect(block.locator('[data-minimum]')).toHaveCount(0);
+  await expect(block.locator('[data-degressive]')).toHaveCount(0);
 });
 
 test('fiche sans durée ni inclus : aucune rubrique vide', async ({ page }) => {
