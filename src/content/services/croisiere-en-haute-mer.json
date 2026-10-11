@@ -1,0 +1,62 @@
+{
+  "title": {
+    "fr": "Bateau de croisière en haute mer",
+    "en": "Offshore cruise boat"
+  },
+  "section": "experience",
+  "categoryId": "activites",
+  "shortDescription": {
+    "fr": "La côte de Kribi vue depuis l'océan, à bord d'un bateau de croisière",
+    "en": "The Kribi coast seen from the ocean, aboard a cruise boat"
+  },
+  "description": {
+    "fr": "Profitez d'une sortie en bateau de croisière en haute mer pour découvrir la côte depuis l'océan.",
+    "en": "Head out to sea aboard a cruise boat and discover the coast from the ocean."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/croisiere-en-haute-mer.jpg",
+      "alt": {
+        "fr": "Un bateau de croisière blanc en mer, au large d'une côte tropicale",
+        "en": "A white cruise boat at sea off a tropical coast"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 150000,
+    "unit": "per_hour"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "hours",
+        "min": 1,
+        "max": 8,
+        "default": 1
+      }
+    ]
+  },
+  "conditions": {
+    "included": [
+      {
+        "fr": "Le bateau de croisière",
+        "en": "The cruise boat"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport",
+        "en": "Transport"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Sortie soumise aux conditions météo",
+        "en": "Outing subject to weather conditions"
+      }
+    ]
+  },
+  "order": 80
+}

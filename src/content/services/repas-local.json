@@ -1,0 +1,54 @@
+{
+  "title": {
+    "fr": "Expérience de repas local",
+    "en": "Local meal experience"
+  },
+  "section": "experience",
+  "categoryId": "specialites-culinaires",
+  "shortDescription": {
+    "fr": "Un repas local pour découvrir les saveurs de la côte",
+    "en": "A local meal to discover the flavours of the coast"
+  },
+  "description": {
+    "fr": "Vivez un repas local pour découvrir les saveurs et les habitudes culinaires de la côte.",
+    "en": "Enjoy a local meal and discover the flavours and food customs of the coast."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/repas-local.jpg",
+      "alt": {
+        "fr": "Un repas camerounais servi sous une paillote : poisson en sauce, légumes, manioc et plantain",
+        "en": "A Cameroonian meal served under a thatched roof: fish in sauce, greens, cassava and plantain"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
+  },
+  "conditions": {
+    "included": [
+      {
+        "fr": "Menu composé avec notre partenaire",
+        "en": "Menu put together with our partner"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Sur demande, selon la disponibilité de nos partenaires et du plat",
+        "en": "On request, depending on our partners and the dish"
+      }
+    ]
+  },
+  "order": 100
+}

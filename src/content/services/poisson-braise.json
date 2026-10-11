@@ -1,0 +1,58 @@
+{
+  "title": {
+    "fr": "Poisson frais ou braisé",
+    "en": "Fresh or braised fish"
+  },
+  "section": "experience",
+  "categoryId": "specialites-culinaires",
+  "shortDescription": {
+    "fr": "Du poisson frais ou braisé, préparé par un partenaire local",
+    "en": "Fresh or braised fish, prepared by a local partner"
+  },
+  "description": {
+    "fr": "Dégustez du poisson frais ou braisé, préparé selon les possibilités du partenaire local.",
+    "en": "Enjoy fresh or braised fish, prepared as our local partner sees fit."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/poisson-braise.jpg",
+      "alt": {
+        "fr": "Un poisson entier braisé, servi avec du plantain et une sauce pimentée",
+        "en": "A whole braised fish served with plantain and chili sauce"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Boissons, accompagnements et transport, sauf mention contraire",
+        "en": "Drinks, sides and transport, unless stated otherwise"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Sur demande, selon la disponibilité de nos partenaires et du plat",
+        "en": "On request, depending on our partners and the dish"
+      }
+    ]
+  },
+  "order": 10,
+  "location": {
+    "fr": "Restaurant ou bord de mer",
+    "en": "Restaurant or seaside"
+  }
+}

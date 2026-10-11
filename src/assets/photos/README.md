@@ -72,6 +72,26 @@ Photos retrouvées ou reçues le 2026-10-11 (feature 008, voir `docs/photo-tri.m
 | Jet-ski, galerie | `experiences/jet-ski-2.jpg`, `-3` | `jet-ski/photo_2026-10-11_18-55-46`, `18-55-04` |
 | Univers Spécialités culinaires | `categories/specialites-culinaires.jpg` | `decouverte-de-kribi/L14-02` (étal de poissons) |
 
+## Illustrations « Photo illustrative » (feature 008)
+
+À la demande de Franck (questionnaire 4, P9 et P15), les spécialités culinaires et le bateau de croisière en haute mer, faute de photo réelle, affichent une illustration réaliste générée le 2026-10-11 avec l'outil d'images de Figma (`generate_image`, modèle `gemini-3.1-flash-image`, 1 200 × 896 px, forfait Connecteur inc 360). Chaque image porte `illustrative: true` : le site affiche l'étiquette « Photo illustrative ». À remplacer par une photo de Franck dès qu'il en envoie.
+
+Consigne commune : *Realistic documentary food photograph taken in Kribi, Cameroon: [sujet], on a weathered wooden table at a beach restaurant. Natural late-afternoon golden light, warm tones (terracotta, cream, ochre), shallow depth of field, Atlantic ocean and palm trees softly blurred in the background. 35mm lens, authentic and appetizing, not studio lighting. No people, no hands, no text, no logos, no watermark.*
+
+| Fichier | Sujet de la consigne |
+|---|---|
+| `illustrations/langouste.jpg` | langouste grillée ouverte, citron vert, plantain frit, sauce pimentée |
+| `illustrations/poisson-braise.jpg` | poisson entier braisé au charbon, plantain, oignons, sauce pimentée |
+| `illustrations/gambas.jpg` | gambas grillées à l'ail et au piment, citron vert |
+| `illustrations/crevettes.jpg` | crevettes sautées en sauce tomate pimentée, plantain |
+| `illustrations/crabe.jpg` | crabes en sauce tomate pimentée, plantain |
+| `illustrations/maban.jpg` | maban : poisson pimenté aux épices, en pot de terre sur feuille de bananier |
+| `illustrations/noix-de-coco.jpg` | noix de coco verte ouverte avec une paille |
+| `illustrations/grillades-de-plage.jpg` | barbecue sur le sable : brochettes de poisson et de viande, maïs |
+| `illustrations/degustation-fruits-de-mer.jpg` | plateau de fruits de mer à partager sur la plage |
+| `illustrations/repas-local.jpg` | repas camerounais sous une paillote de village (poisson en sauce, légumes, manioc, plantain, bâton de manioc) |
+| `illustrations/croisiere-en-haute-mer.jpg` | bateau de croisière blanc en mer au large de la côte de Kribi (consigne de voyage, sans nourriture) |
+
 ## Images générées par Google Stitch (provisoires)
 
 Décision de Zobel du 2026-10-05 : en attendant les photos de Franck, les sujets sans photo prennent l'image générée par Stitch pour les écrans validés. Les liens d'origine de ces images sont privés : elles sont découpées dans les captures validées de `docs/design-exports/`, sans les badges incrustés. À remplacer une à une dès réception des photos (questionnaire `docs/questions-kibreeze-franck-3.xlsx`, onglet Photos).

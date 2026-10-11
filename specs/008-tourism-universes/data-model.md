@@ -118,7 +118,7 @@ Sources relatives à `Elements/tri-par-activite/` (`NEW/…` : lot du 2026-10-11
 | `excursion-en-chaloupe` | `NEW/18-56-09` (bateau couvert), `NEW/chaloupe/18-55-32`, `NEW/chaloupe/18-54-10` | Franck, remplace l'image Stitch |
 | `feu-de-plage` | photo actuelle (`feux-de-plage/photo_2026-10-06_01-53-03`, PR n°5), puis `HEIC/IMG_2058`, `HEIC/IMG_2060` | Franck ; les deux HEIC remplacent l'image Stitch en seconde position |
 | `pique-nique-bivouac` | `NEW/18-56-48` (paillote au coucher du soleil), `feux-de-plage/L11-04` | Franck |
-| `bouee-tractee` | `NEW/18-56-29` (bouée tirée par un bateau), `NEW/18-56-16`, `NEW/18-56-38` | Franck |
+| `bouee-tractee` | `NEW/18-56-29` (bouée tirée par un bateau), `NEW/18-56-16` (`18-56-38`, quasi identique, écartée) | Franck |
 | `seance-photo` | `NEW/18-56-42`, `NEW/quad et jet sky/18-55-15`, `NEW/quad et jet sky/18-55-09` | Franck (personnes qui posent) |
 | `quad` | photo actuelle, puis `NEW/18-56-55`, `NEW/quad et jet sky/18-55-21` | Franck, galerie complétée |
 | `jet-ski` | photo actuelle, puis `NEW/18-55-46`, `NEW/quad et jet sky/18-55-04` | Franck, galerie complétée |
