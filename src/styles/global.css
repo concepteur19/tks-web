@@ -41,3 +41,9 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Mon séjour : le bouton WhatsApp flottant n'apparaît que sur l'état vide, sans barre fixe
+   (maquettes 04 et 05a). L'îlot de la page pose l'attribut. */
+body[data-stay-filled='true'] [data-testid='whatsapp-button'] {
+  display: none;
+}

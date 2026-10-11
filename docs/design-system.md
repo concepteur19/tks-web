@@ -42,6 +42,7 @@ Tailwind CSS v4 lit les tokens depuis des custom properties CSS déclarées dans
   --color-brand-contrast: #FFFAF3;
   --color-brand-warm:     #A8431F; /* terracotta, accent chaud secondaire */
   --color-accent:         #186962; /* turquoise profond, accent froid */
+  --color-accent-soft:    #dcefeb; /* fond des pastilles « Sur devis » */
   --color-whatsapp:       #25D366; /* vert WhatsApp, valeur imposée par la marque */
   --color-bg:             #FFFFFF;
   --color-bg-muted:       #F4F6F8;

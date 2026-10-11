@@ -1,4 +1,5 @@
-import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import type { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import { createContainer } from '../setup/container.ts';
 import axe from 'axe-core';
 import { describe, expect, it } from 'vitest';
 import Footer from '../../src/components/Footer.astro';
@@ -9,7 +10,7 @@ async function renderToBody(
   locale: 'fr' | 'en',
   path = '/',
 ): Promise<HTMLElement> {
-  const container = await AstroContainer.create();
+  const container = await createContainer();
   const html = await container.renderToString(component, {
     props: { locale, routeKey: 'home' },
     request: new Request(`http://localhost${path}`),

@@ -1,6 +1,6 @@
 # Architecture frontend
 
-**Statut** : draft · **Date** : 2026-09-13 · Décisions détaillées dans [technical-decisions.md](./technical-decisions.md)
+**Statut** : draft · **Date** : 2026-09-13, mise à jour le 2026-10-06 (004) · Décisions détaillées dans [technical-decisions.md](./technical-decisions.md)
 
 ## 1. Nature du projet
 
@@ -20,17 +20,17 @@ Un **site statique multi-pages** (une dizaine de routes plus une fiche par servi
 | Évolution vers backend | Adaptateur SSR activable page par page | Natif | Ajout d'un serveur séparé |
 | Adéquation au projet | **Très bonne** : vitrine + un îlot | Bonne, mais surdimensionné | Faible : SEO et perf |
 
-**Décision : Astro 5 avec îlots React** (ADR-001).
+**Décision : Astro 5 avec îlots React** (ADR-001), îlots finalement écrits en **Preact** (ADR-016) : même API à hooks et même JSX, pour environ 4 Ko au lieu de 115 Ko de moteur React.
 
 ## 3. Stack retenue
 
 | Couche | Choix | Rôle | ADR |
 |---|---|---|---|
 | Framework | Astro 5, sortie `static` | Routes, layouts, rendu HTML, images, sitemap | 001 |
-| Interactivité | React 19 via `@astrojs/react`, hydratation `client:idle` ou `client:visible` | Sélection, drawer, steppers, toasts | 001 |
+| Interactivité | Preact 10 via `@astrojs/preact`, hydratation `client:load`, `client:idle` ou `client:visible` | Sélection, steppers, compteur, messages | 016 |
 | Langage | TypeScript strict | Partout | — |
 | Styles | Tailwind CSS v4 + tokens en CSS custom properties (`@theme`) | Design system alimenté par Figma | 003 |
-| État partagé | nanostores + `@nanostores/persistent` + `@nanostores/react` | Sélection visible depuis tous les îlots (badge nav, drawer, page) | 002 |
+| État partagé | nanostores + `@nanostores/persistent` + `@nanostores/preact` | Sélection visible depuis tous les îlots (compteur, fiche, page Mon séjour) | 002 |
 | Données | Astro Content Collections (`glob` loader) avec schémas Zod | Catalogue validé au build | 004 |
 | Validation runtime | Zod | Sélection persistée, variables d'environnement | 004 |
 | Internationalisation | i18n natif Astro, français sans préfixe et anglais sous `/en/`, dictionnaires TypeScript typés sans librairie | Routes, chaînes d'interface, contenu localisé | 013 |
@@ -40,7 +40,7 @@ Un **site statique multi-pages** (une dizaine de routes plus une fiche par servi
 | Formulaires | Aucun en V1 (deux champs contrôlés dans l'îlot séjour) | — | — |
 | Composants UI | Maison, typés, sans librairie | Le design vient de Figma ; une lib imposerait son style | — |
 | Tests | Vitest + Testing Library + Playwright + axe | Voir [testing-strategy.md](./testing-strategy.md) | 010 |
-| Qualité | ESLint (ts, astro, react, jsx-a11y) + Prettier (plugin astro, tailwind) + Husky/lint-staged | Pré-commit et CI | — |
+| Qualité | ESLint (ts, astro, jsx-a11y ; aucun texte en dur dans le JSX) + Prettier (plugin astro, tailwind) + Husky/lint-staged | Pré-commit et CI | — |
 | CI/CD | GitHub Actions | Lint, test, build, Lighthouse, déploiement, image Docker | 009 |
 | Hébergement | Cloudflare Pages | Prod, aperçus par PR | 007 |
 | Conteneurs | Docker (nginx) + kind | Dev reproductible, CI, labo Kubernetes | 006, 008 |
@@ -76,7 +76,7 @@ Un **site statique multi-pages** (une dizaine de routes plus une fiche par servi
 │   └── types/                # types dérivés des schémas, réexportés
 ├── tests/
 │   ├── unit/                 # estimation, whatsapp, store
-│   ├── component/            # îlots React
+│   ├── component/            # composants Astro (*.test.ts) et îlots Preact (*.test.tsx)
 │   └── e2e/                  # Playwright
 ├── docker/                   # Dockerfile, nginx.conf, compose
 ├── k8s/                      # manifests kustomize (labo)
@@ -95,28 +95,33 @@ Ce qui est volontairement absent : `hooks/` et `utils/` génériques (les hooks 
                    build                                  runtime (navigateur)
 src/content/services/*.json ──Zod──► collections ──► pages HTML statiques
                                          │
-                                         └──► catalogue sérialisé minimal (id, title dans la langue de la page, pricing, quantity, availability)
-                                                     injecté dans l'îlot de sélection, avec `locale` et ses chaînes
+                                         └──► catalogue minimal (id, titres FR / EN, prix ou tarifs, quantités, capacité, vignette)
+                                                     publié une fois par page : <script type="application/json" id="kibreeze-catalog">
                                                                  │
 localStorage ◄──persistent──► selectionStore (nanostores) ◄──────┘
                                    │
-                                   ├──► computeEstimate(selection, catalog) ──► PriceEstimate ──► UI (badge, drawer, page)
+                                   ├──► computeEstimate(selection, catalog) ──► PriceEstimate ──► UI (fiche, page Mon séjour)
                                    │
                                    └──► buildSelectionMessage(estimate, stay) ──► buildWhatsAppUrl ──► <a href="https://wa.me/...">
 ```
 
-Les îlots ne reçoivent que le sous-ensemble du catalogue nécessaire au calcul (pas les descriptions ni les images), pour garder `/sejour` sous 80 kB de JavaScript. De même, ils ne reçoivent que les chaînes d'interface de la langue de la page.
+Les îlots ne reçoivent que le sous-ensemble du catalogue nécessaire au calcul et à l'affichage compact (pas les descriptions ni les galeries). Le catalogue est complet sur chaque page : un catalogue partiel ferait purger, à la relecture du stockage, les lignes des expériences absentes. Les deux dictionnaires (environ 5 Ko compressés) sont inclus dans le code des îlots. Pages de contenu : 20 à 24 Ko de JavaScript compressé, pour un budget de 50 Ko (80 Ko sur `/sejour`).
 
-## 6. Îlots React et hydratation
+## 6. Îlots Preact et hydratation
+
+Code dans `src/features/selection/`. Les règles (sélection, estimation, message) sont des fonctions pures testées à 100 % ; les îlots ne font que les appliquer.
 
 | Îlot | Où | Directive | Pourquoi |
 |---|---|---|---|
-| `SelectionBadge` | Nav, toutes pages | `client:idle` | Doit refléter le stockage local dès que possible sans bloquer le rendu |
-| `AddToStay` (stepper + bouton) | Fiche | `client:visible` | Interaction principale de la fiche |
-| `SelectionDrawer` | Layout desktop | `client:idle` | Ouvert depuis le badge |
-| `SelectionPage` | `/sejour` | `client:load` | C'est tout le contenu de la page |
-| `Toaster` | Layout | `client:idle` | Retour d'action |
-| `WhatsAppButton` | Partout | Astro statique (lien) ; la version avec sélection est dans les îlots ci-dessus | Pas de JS pour un lien |
+| `StayBadge` | Onglet Mon séjour et icône de l'en-tête, toutes pages | `client:idle` | Reflète le stockage local sans bloquer le rendu ; pastille en position absolue, sans décalage |
+| `ExperienceConfigurator` | Fiche, rubrique « Votre réservation » | `client:load` | Quantités, tarif, options ; rendu côté serveur avec les valeurs par défaut |
+| `RequestBar` | Fiche, barre fixe (téléphone) et carte collante (ordinateur) | `client:load` | Total, « Ajouter à mon séjour », « Demander ce service » ; partage la configuration avec le configurateur par `$draft` |
+| `QuickAdd` | Cartes de la liste et de l'accueil | `client:visible` | Ajout en un geste avec les valeurs par défaut |
+| `StayPage` | `/sejour`, `/en/my-trip` | `client:only="preact"` | Toute la page dépend du stockage local ; `<noscript>` propose WhatsApp |
+| `Toasts` | Layout | `client:idle` | Confirmations en région `aria-live` |
+| `WhatsAppButton` | Partout | Astro statique (lien), masqué quand le séjour contient des lignes | Pas de JS pour un lien |
+
+Sans JavaScript, la fiche garde le lien « Demander ce service » de la 003 dans un `<noscript>`.
 
 ## 7. Extension future
 

@@ -1,10 +1,10 @@
-import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import { createContainer } from '../setup/container.ts';
 import axe from 'axe-core';
 import { describe, expect, it } from 'vitest';
 import Price from '../../src/components/Price.astro';
 
 async function mount(props: Record<string, unknown>): Promise<HTMLElement> {
-  const container = await AstroContainer.create();
+  const container = await createContainer();
   const html = await container.renderToString(Price, { props });
   document.documentElement.lang = String(props.locale);
   document.body.innerHTML = `<div id="root">${html}</div>`;

@@ -29,7 +29,7 @@ La production est un déploiement statique (Cloudflare Pages). Docker sert au de
 
 ## Constraints
 
-- Stack : Astro 5 (statique) + îlots React 19, i18n natif Astro (français sans préfixe, anglais sous `/en/`) avec dictionnaires typés sans librairie, TypeScript strict, Tailwind CSS v4, nanostores, Zod, Vitest, Playwright. Tout écart exige un ADR dans `docs/technical-decisions.md`.
+- Stack : Astro 5 (statique) + îlots Preact 10 (ADR-016, mesure du budget JavaScript), i18n natif Astro (français sans préfixe, anglais sous `/en/`) avec dictionnaires typés sans librairie, TypeScript strict, Tailwind CSS v4, nanostores, Zod, Vitest, Playwright. Tout écart exige un ADR dans `docs/technical-decisions.md`.
 - Node 22 LTS, npm avec lockfile.
 - Langue : documentation et specs en français ; code, identifiants, commits en anglais (Conventional Commits). Le site, lui, est bilingue français / anglais.
 - Toute variable d'environnement est `PUBLIC_*` et injectée au build. Aucun secret applicatif.
@@ -47,4 +47,4 @@ La production est un déploiement statique (Cloudflare Pages). Docker sert au de
 
 Cette constitution prime sur toute autre pratique. Un amendement est une PR qui modifie ce fichier, incrémente la version et explique le changement dans `docs/technical-decisions.md`. Chaque plan vérifie la conformité aux principes I à VII ; toute violation est justifiée dans la section Complexity Tracking du plan.
 
-**Version**: 2.0.0 | **Ratified**: 2026-09-13 | **Last Amended**: 2026-09-28
+**Version**: 2.1.0 | **Ratified**: 2026-09-13 | **Last Amended**: 2026-10-06

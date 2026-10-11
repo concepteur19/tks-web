@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
-import react from '@astrojs/react';
+import preact from '@astrojs/preact';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { loadEnv } from 'vite';
@@ -42,7 +42,7 @@ export default defineConfig({
     },
   },
   integrations: [
-    react(),
+    preact(),
     sitemap({
       i18n: { defaultLocale: 'fr', locales: { fr: 'fr', en: 'en' } },
       // Ni la page de démonstration, ni les pages d'erreur (contrat d'adresses de 002).

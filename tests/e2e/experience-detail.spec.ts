@@ -10,17 +10,23 @@ test.describe('fiche de l’excursion en pirogue', () => {
       .or(page.getByRole('navigation', { name: "Fil d'Ariane" }));
     await expect(breadcrumb).toContainText('Nature & Découverte');
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Excursion en pirogue');
-    const price = plain(await page.getByTestId('price-block').textContent());
+    const price = plain(
+      await page.getByTestId('price-block').filter({ visible: true }).textContent(),
+    );
     expect(price).toContain('35 000 FCFA');
     expect(price).toContain('≈ 53,36 €');
     expect(price).toContain('Prix indicatif, sous réserve de disponibilité');
     expect(price).toContain('Jusqu’à 8 personnes'.replace('’', "'"));
     await expect(page.getByRole('heading', { name: 'Ce qui est inclus' })).toBeVisible();
     await expect(page.getByRole('heading', { name: "Ce qui n'est pas inclus" })).toBeVisible();
-    const options = plain(await page.getByTestId('options').textContent());
+    const options = plain(
+      await page.getByTestId('options').filter({ visible: true }).textContent(),
+    );
     for (const name of ['Guide touristique', 'Maître-nageur', "Musée d'art"])
       expect(options).toContain(name);
-    await expect(page.getByTestId('options').locator('input')).toHaveCount(0);
+    await expect(
+      page.getByTestId('options').filter({ visible: true }).locator('input[type="checkbox"]'),
+    ).toHaveCount(3);
     await expect(page.getByRole('heading', { name: 'Vous aimerez aussi' })).toBeVisible();
   });
 
@@ -38,16 +44,20 @@ test.describe('fiche de l’excursion en pirogue', () => {
     await expect(gallery.locator('a[href="#photo-2"]')).toHaveCount(1);
   });
 
-  test('aucun bouton d’ajout au séjour, aucune case à cocher', async ({ page }) => {
+  test('propose l’ajout au séjour et une case par option (feature 004)', async ({ page }) => {
     await page.goto('/experiences/excursion-en-pirogue');
-    await expect(page.getByText(/Ajouter à mon séjour/)).toHaveCount(0);
-    await expect(page.locator('input[type="checkbox"]')).toHaveCount(0);
+    await expect(page.getByTestId('add-to-stay').first()).toBeAttached();
+    await expect(
+      page.getByTestId('options').filter({ visible: true }).locator('input[type="checkbox"]'),
+    ).toHaveCount(3);
   });
 });
 
 test('fiche du campement Bagyeli : trois tarifs nommés', async ({ page }) => {
   await page.goto('/experiences/campement-bagyeli');
-  const price = plain(await page.getByTestId('price-block').textContent());
+  const price = plain(
+    await page.getByTestId('price-block').filter({ visible: true }).textContent(),
+  );
   expect(price).toContain('Individuel');
   expect(price).toContain('7 500 FCFA');
   expect(price).toContain('Couple');

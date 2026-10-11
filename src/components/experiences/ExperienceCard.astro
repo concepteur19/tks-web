@@ -6,6 +6,8 @@ import { cardPrice } from '../../features/estimation/cardPrice.ts';
 import { getRoutePath } from '../../i18n/routes.ts';
 import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
+import QuickAdd from '../../features/selection/QuickAdd.tsx';
+import { getPageCatalog } from '../../lib/pageCatalog.ts';
 import Price from '../Price.astro';
 
 interface Props {
@@ -20,6 +22,7 @@ const title = localize(data.title, locale);
 const maxCapacity =
   data.pricing && data.pricing.kind !== 'quote' ? data.pricing.maxCapacity : undefined;
 const href = `${getRoutePath('experiences', locale)}/${service.id}`;
+const islandCatalog = await getPageCatalog();
 ---
 
 <article
@@ -55,13 +58,21 @@ const href = `${getRoutePath('experiences', locale)}/${service.id}`;
     <p class="text-sm text-fg-muted">{localize(data.shortDescription, locale)}</p>
     <div class="mt-auto flex items-end justify-between gap-3 pt-3">
       <Price price={cardPrice(data)} locale={locale} />
-      <a
-        href={href}
-        class="inline-flex min-h-11 shrink-0 items-center rounded-md border border-brand px-3 text-sm font-semibold text-brand"
-        aria-label={t(locale, 'experiences.detailsOf', { title })}
-      >
-        {t(locale, 'experiences.details')}
-      </a>
+      <div class="flex shrink-0 flex-col items-end gap-1">
+        <QuickAdd
+          client:visible
+          service={islandCatalog.find((entry) => entry.id === service.id)!}
+          locale={locale}
+          title={title}
+        />
+        <a
+          href={href}
+          class="inline-flex min-h-11 items-center text-sm font-semibold text-brand underline underline-offset-2"
+          aria-label={t(locale, 'experiences.detailsOf', { title })}
+        >
+          {t(locale, 'experiences.details')}
+        </a>
+      </div>
     </div>
   </div>
 </article>

@@ -19,6 +19,10 @@ import InfoRow from './InfoRow.astro';
 import OptionsList from './OptionsList.astro';
 import PriceBlock from './PriceBlock.astro';
 import StickyRequest from './StickyRequest.astro';
+import ExperienceConfigurator from '../../features/selection/ExperienceConfigurator.tsx';
+import RequestBar from '../../features/selection/RequestBar.tsx';
+import { currency } from '../../lib/site.ts';
+import { getPageCatalog } from '../../lib/pageCatalog.ts';
 
 interface Props {
   service: CollectionEntry<'services'>;
@@ -66,6 +70,9 @@ const jsonLd = buildExperienceJsonLd({
     : {}),
 });
 const related = relatedExperiences(service.id, experiences);
+const islandCatalog = await getPageCatalog();
+const islandService = islandCatalog.find((entry) => entry.id === service.id)!;
+const islandOptions = islandCatalog.filter((entry) => entry.isOption);
 ---
 
 <BaseLayout
@@ -123,13 +130,24 @@ const related = relatedExperiences(service.id, experiences);
           </p>
         )}
 
-        <div class="mt-4">
+        <div class="mt-4 lg:hidden">
           <PriceBlock service={service} locale={locale} />
         </div>
         <InfoRow service={service} locale={locale} />
         <p class="mt-4 leading-relaxed text-fg-muted">{localize(data.description, locale)}</p>
         <Conditions service={service} locale={locale} />
-        <OptionsList options={options} locale={locale} />
+        {/* Sur ordinateur, prix et configurateur passent dans la carte collante (maquette 11). */}
+        <div class="lg:hidden">
+          <ExperienceConfigurator
+            client:load
+            service={islandService}
+            options={islandOptions}
+            locale={locale}
+          />
+        </div>
+        <noscript>
+          <OptionsList options={options} locale={locale} />
+        </noscript>
 
         {related.length > 0 && (
           <section class="mt-8">
@@ -146,11 +164,43 @@ const related = relatedExperiences(service.id, experiences);
       </div>
 
       <aside class="hidden lg:block">
-        <div class="sticky top-[calc(var(--size-header-desktop)+var(--spacing)*4)]">
-          <StickyRequest variant="card" price={price} href={requestHref} locale={locale} />
+        <div class="sticky top-[calc(var(--size-header-desktop)+var(--spacing)*4)] flex flex-col gap-5 rounded-card bg-bg p-5 shadow-card">
+          <PriceBlock service={service} locale={locale} />
+          <ExperienceConfigurator
+            client:load
+            variant="card"
+            service={islandService}
+            options={islandOptions}
+            locale={locale}
+          />
+          <RequestBar
+            client:load
+            variant="card"
+            service={islandService}
+            options={islandOptions}
+            locale={locale}
+            pageUrl={pageUrl}
+            whatsappNumber={env.whatsappNumber}
+            eurToXaf={currency.eurToXaf}
+          />
+          <noscript>
+            <StickyRequest variant="card" price={price} href={requestHref} locale={locale} />
+          </noscript>
         </div>
       </aside>
     </div>
   </div>
-  <StickyRequest variant="bar" price={price} href={requestHref} locale={locale} />
+  <RequestBar
+    client:load
+    variant="bar"
+    service={islandService}
+    options={islandOptions}
+    locale={locale}
+    pageUrl={pageUrl}
+    whatsappNumber={env.whatsappNumber}
+    eurToXaf={currency.eurToXaf}
+  />
+  <noscript>
+    <StickyRequest variant="bar" price={price} href={requestHref} locale={locale} />
+  </noscript>
 </BaseLayout>

@@ -6,6 +6,9 @@ import heroPhoto from '../assets/photos/hero/plage-coucher-de-soleil.jpg';
 import Header from '../components/Header.astro';
 import TabBar from '../components/TabBar.astro';
 import Footer from '../components/Footer.astro';
+import Toasts from '../features/selection/Toasts.tsx';
+import { CATALOG_ELEMENT_ID } from '../features/selection/store.ts';
+import { getPageCatalog } from '../lib/pageCatalog.ts';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { getRoutePath, type RouteKey } from '../i18n/routes.ts';
 import { t } from '../i18n/t.ts';
@@ -57,6 +60,7 @@ const seo = buildSeo({
   noindex,
 });
 const pageTitle = `${title} · ${t(locale, 'site.name')}`;
+const pageCatalog = JSON.stringify(await getPageCatalog());
 const OG_WIDTH = 1200;
 const OG_HEIGHT = 630;
 const share = await getImage({
@@ -123,6 +127,8 @@ const ogImageUrl = new URL(share.src, `${env.siteUrl}/`).toString();
     </main>
     <Footer locale={locale} />
     <TabBar locale={locale} routeKey={routeKey} />
+    <Toasts client:idle locale={locale} />
+    <script type="application/json" id={CATALOG_ELEMENT_ID} set:html={pageCatalog}></script>
     {floatingWhatsApp && <WhatsAppButton locale={locale} />}
   </body>
 </html>

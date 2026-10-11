@@ -25,7 +25,7 @@ const { variant, price, href, locale } = Astro.props;
   class:list={[
     variant === 'bar'
       ? 'fixed inset-x-0 bottom-(--size-tabbar) flex h-(--size-sticky-cta) items-center justify-between gap-3 border-t border-border bg-bg px-4 lg:hidden'
-      : 'hidden flex-col gap-4 rounded-card bg-bg p-5 shadow-card lg:flex',
+      : 'hidden flex-col gap-4 lg:flex',
   ]}
   style={variant === 'bar' ? 'z-index: var(--z-sticky-cta)' : undefined}
   data-testid={`request-${variant}`}

@@ -1,42 +1,18 @@
 import { en } from './en.ts';
 import { fr, type Dictionary } from './fr.ts';
-import {
-  DEFAULT_LOCALE,
-  type DictionaryEntry,
-  type Locale,
-  type LocalizedString,
-  type PluralForms,
-} from './types.ts';
+import { formatEntry, type Params } from './format.ts';
+import { DEFAULT_LOCALE, type Locale, type LocalizedString } from './types.ts';
 
 const DICTIONARIES: Record<Locale, Dictionary> = { fr, en };
 
 export type TranslationKey = keyof Dictionary;
-
-type Params = Record<string, string | number>;
-
-function interpolate(template: string, params: Params | undefined): string {
-  if (!params) return template;
-  return template.replace(/\{(\w+)\}/g, (match, name: string) => {
-    const value = params[name];
-    return value === undefined ? match : String(value);
-  });
-}
-
-function selectPlural(forms: PluralForms, locale: Locale, count: number): string {
-  if (count === 0 && forms.zero !== undefined) return forms.zero;
-  const rule = new Intl.PluralRules(locale).select(count);
-  return rule === 'one' ? forms.one : forms.other;
-}
 
 /**
  * Traduit une clé d'interface. Les pluriels s'appuient sur `count`, passé en
  * paramètre, et sur les règles de la langue.
  */
 export function t(locale: Locale, key: TranslationKey, params?: Params): string {
-  const entry: DictionaryEntry = DICTIONARIES[locale][key];
-  if (typeof entry === 'string') return interpolate(entry, params);
-  const count = Number(params?.count ?? 0);
-  return interpolate(selectPlural(entry, locale, count), params);
+  return formatEntry(DICTIONARIES[locale][key], locale, params);
 }
 
 /**
