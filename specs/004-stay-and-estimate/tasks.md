@@ -109,7 +109,7 @@ Celles de 002 et 003 (aucun texte en dur, tokens, liens par `getRoutePath`). En 
 - [X] T031 Ajouter `/sejour.html` à `lighthouserc.json` ; lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; consigner les résultats dans [quickstart.md](./quickstart.md)
 - [X] T032 Comparer les écrans 03, 04, 05a, 05b et 11 à notre rendu, élément par élément (captures au même format), et corriger les écarts non justifiés
 - [ ] T033 Dérouler les 14 scénarios manuels (Zobel)
-- [ ] T034 Ouvrir la PR `004-stay-and-estimate` → `main` (Zobel)
+- [X] T034 Ouvrir la PR `004-stay-and-estimate` → `main` (Zobel)
 
 ---
 
