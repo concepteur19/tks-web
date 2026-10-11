@@ -21,6 +21,9 @@ La découpe ci-dessous remplace celle du 2026-09-13, qui organisait le travail a
 | 005 | `accommodation-and-packages` | Hébergements **par type et par palier de budget** (pas de logement nommé), packages Kibreeze, ajout des deux au séjour | FR-HEB-*, FR-PACK-* | 004 | Partiellement : photos par budget attendues, prix des packages complets manquants |
 | 006 | `tks-mobility` | Section secondaire TKS® : liste compacte des services de mobilité, ajout au séjour comme prestation complémentaire | FR-MOB-* | 004 | **Oui : aucun tarif de mobilité n'a jamais été fourni** |
 | 007 | `k8s-lab` | Manifests Kustomize, config kind, Ingress local, exercices de `docs/devops.md` | — (hors produit) | 001 | Non |
+| 008 | `tourism-universes` | **Spécifiée** (branche `008-tourism-universes`). Le Tourisme en trois univers (Visites & Découvertes, Activités & Loisirs, Spécialités culinaires) : page d'entrée, une page par univers, catalogue porté à 32 prestations, minimum de participants, mention « tarif dégressif ». Cahier actualisé d'octobre 2026. **Réalisée avant la 005** | FR-CAT-* | 004 | Non : questionnaire 4 en attente, chaque point a une valeur par défaut |
+
+La 008 a été ajoutée le 2026-10-11, après le cahier actualisé de Franck. Elle porte ce numéro parce que 005 à 007 étaient déjà réservés et cités dans la documentation, mais elle se réalise juste après la 004, avant la 005.
 
 Les features 003 et 004 forment le cœur de valeur : découvrir, sélectionner, estimer, envoyer sur WhatsApp. Elles sont spécifiées ensemble avant d'être implémentées, pour garantir la cohérence du modèle ([../docs/data-model.md](../docs/data-model.md)).
 
