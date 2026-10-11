@@ -9,7 +9,7 @@ import { getRoutePath } from '../../i18n/routes.ts';
 import { localize, t } from '../../i18n/t.ts';
 import { LOCALES, type Locale } from '../../i18n/types.ts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCategories, getExperiences, getOptions, universePath } from '../../lib/catalog.ts';
+import { getCategories, getExperiences, getOptionsFor, universePath } from '../../lib/catalog.ts';
 import { env } from '../../lib/env.ts';
 import { buildExperienceJsonLd, buildWhatsAppUrl } from '../../lib/seo.ts';
 import CompactCard from './CompactCard.astro';
@@ -33,7 +33,7 @@ const { service, locale } = Astro.props;
 const { data } = service;
 const [experiences, options, categories] = await Promise.all([
   getExperiences(),
-  getOptions(),
+  getOptionsFor(service),
   getCategories(),
 ]);
 const category = categories.find((entry) => entry.id === data.categoryId);
@@ -45,9 +45,13 @@ const alternatePaths = Object.fromEntries(
 ) as Record<Locale, string>;
 const pageUrl = new URL(alternatePaths[locale], `${env.siteUrl}/`).toString();
 const price = cardPrice(data);
+const illustrativeLabel = t(locale, 'experiences.illustrative');
 const images = (data.images ?? []).map((image) => ({
   src: image.src,
-  alt: localize(image.alt, locale),
+  alt: image.illustrative
+    ? `${localize(image.alt, locale)} (${illustrativeLabel})`
+    : localize(image.alt, locale),
+  illustrative: image.illustrative === true,
 }));
 const firstImage = images[0];
 const share = firstImage
@@ -72,7 +76,9 @@ const jsonLd = buildExperienceJsonLd({
 const related = relatedExperiences(service.id, experiences);
 const islandCatalog = await getPageCatalog();
 const islandService = islandCatalog.find((entry) => entry.id === service.id)!;
-const islandOptions = islandCatalog.filter((entry) => entry.isOption);
+// Options de cet univers seulement (008, FR-016) : aucune sur les spécialités culinaires.
+const optionIds = new Set(options.map((option) => option.id));
+const islandOptions = islandCatalog.filter((entry) => entry.isOption && optionIds.has(entry.id));
 ---
 
 <BaseLayout
@@ -116,7 +122,11 @@ const islandOptions = islandCatalog.filter((entry) => entry.isOption);
     <div class="mt-2 grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
       <div class="min-w-0">
         {images.length > 0 && (
-          <Gallery images={images} thumbnailsLabel={t(locale, 'detail.gallery')} />
+          <Gallery
+            images={images}
+            thumbnailsLabel={t(locale, 'detail.gallery')}
+            illustrativeLabel={illustrativeLabel}
+          />
         )}
 
         <h1 class="mt-4 font-display text-2xl leading-tight font-bold text-fg lg:text-4xl">
@@ -145,9 +155,11 @@ const islandOptions = islandCatalog.filter((entry) => entry.isOption);
             locale={locale}
           />
         </div>
-        <noscript>
-          <OptionsList options={options} locale={locale} />
-        </noscript>
+        {options.length > 0 && (
+          <noscript>
+            <OptionsList options={options} locale={locale} />
+          </noscript>
+        )}
 
         {related.length > 0 && (
           <section class="mt-8">

@@ -37,5 +37,19 @@
       }
     ]
   },
-  "order": 50
+  "order": 50,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Balade encadrée",
+        "en": "Guided ride"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport",
+        "en": "Transport"
+      }
+    ]
+  }
 }

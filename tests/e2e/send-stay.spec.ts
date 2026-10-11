@@ -5,7 +5,7 @@ import { decodedMessage, seedSelection, storedSelection, visible, waitForIslands
 const ITEMS = [
   { serviceId: 'excursion-en-pirogue', quantities: [6], optionIds: ['guide-touristique'] },
   { serviceId: 'chutes-de-la-lobe', quantities: [2] },
-  { serviceId: 'jet-ski' },
+  { serviceId: 'village-ebodje' },
 ];
 const STAY = { dates: 'du 12 au 15 décembre', travelers: 4 };
 
@@ -18,7 +18,7 @@ const EXPECTED = {
     '• Excursion en pirogue — 6 personnes : 40 000 FCFA',
     '  + Guide touristique : 5 000 FCFA',
     '• Chutes de la Lobé — 2 personnes : 10 000 FCFA',
-    '• Jet-ski : sur devis',
+    '• Village Ebodjé et tortues marines — 2 personnes : sur devis',
     '',
     'Total indicatif : 50 000 FCFA (+ 1 prestation sur devis)',
     '',
@@ -32,7 +32,7 @@ const EXPECTED = {
     '• Dugout canoe trip — 6 people: 40,000 FCFA',
     '  + Tour guide: 5,000 FCFA',
     '• Lobé Falls — 2 people: 10,000 FCFA',
-    '• Jet ski: on request',
+    '• Ebodjé village and sea turtles — 2 people: on request',
     '',
     'Indicative total: 50,000 FCFA (+ 1 service on request)',
     '',

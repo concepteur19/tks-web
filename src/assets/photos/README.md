@@ -78,9 +78,7 @@ Décision de Zobel du 2026-10-05 : en attendant les photos de Franck, les sujets
 
 | Usage | Fichier | Capture d'origine |
 |---|---|---|
-| Excursion en chaloupe | `stitch/excursion-en-chaloupe.jpg` | `02a-experiences-toutes` |
 | Croisière en bateau | `stitch/croisiere-en-bateau.jpg` | `02a-experiences-toutes` |
-| Feu de plage | `stitch/feu-de-plage.jpg` | `02a-experiences-toutes` |
 | Bateau de plaisance | `stitch/bateau-de-plaisance.jpg` | `02a-experiences-toutes` |
 
 ## Limites connues

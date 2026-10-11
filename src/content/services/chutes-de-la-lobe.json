@@ -52,5 +52,29 @@
     ]
   },
   "featured": true,
-  "order": 10
+  "order": 10,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Visite des chutes",
+        "en": "Visit of the falls"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport, repas et prestations supplémentaires, sauf mention contraire",
+        "en": "Transport, meals and extra services, unless stated otherwise"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Respecter les consignes locales et les conditions météo",
+        "en": "Follow local guidance and weather conditions"
+      }
+    ]
+  },
+  "location": {
+    "fr": "Chutes de la Lobé",
+    "en": "Lobé Falls"
+  }
 }

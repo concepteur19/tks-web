@@ -1,0 +1,57 @@
+{
+  "title": {
+    "fr": "Port Autonome de Kribi",
+    "en": "Port of Kribi"
+  },
+  "section": "experience",
+  "categoryId": "visites",
+  "shortDescription": {
+    "fr": "Une visite du Port Autonome de Kribi, sous réserve d'autorisation",
+    "en": "A visit to the Port of Kribi, subject to authorisation"
+  },
+  "description": {
+    "fr": "Visite du Port Autonome de Kribi, sous réserve des autorisations et des conditions d'accès.",
+    "en": "A visit to the Port of Kribi, subject to authorisation and access conditions."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/sections/kribi-vue-aerienne.jpg",
+      "alt": {
+        "fr": "Vue aérienne de la côte de Kribi",
+        "en": "Aerial view of the Kribi coast"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
+  },
+  "location": {
+    "fr": "Port Autonome de Kribi",
+    "en": "Port of Kribi"
+  },
+  "order": 50,
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Transport",
+        "en": "Transport"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Accès soumis aux règles et autorisations du port",
+        "en": "Access subject to the port's rules and authorisations"
+      }
+    ]
+  }
+}

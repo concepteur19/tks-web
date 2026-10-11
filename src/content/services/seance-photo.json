@@ -1,0 +1,69 @@
+{
+  "title": {
+    "fr": "Séance photo à Kribi",
+    "en": "Photo shoot in Kribi"
+  },
+  "section": "experience",
+  "categoryId": "activites",
+  "shortDescription": {
+    "fr": "Une séance photo pour immortaliser votre séjour, adaptée à votre groupe",
+    "en": "A photo shoot to capture your stay, tailored to your group"
+  },
+  "description": {
+    "fr": "Immortalisez votre séjour à Kribi avec une séance photo adaptée au groupe et à l'expérience choisie.",
+    "en": "Capture your stay in Kribi with a photo shoot tailored to your group and the experience you choose."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/seance-photo.jpg",
+      "alt": {
+        "fr": "Deux jeunes femmes posent sur un quad, au bord de la rivière",
+        "en": "Two young women pose on a quad bike by the river"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/seance-photo-2.jpg",
+      "alt": {
+        "fr": "Une jeune femme pose sur un quad, sur la plage",
+        "en": "A young woman poses on a quad bike on the beach"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/seance-photo-3.jpg",
+      "alt": {
+        "fr": "Une jeune femme pose sur un jet-ski, au bord de la rivière",
+        "en": "A young woman poses on a jet ski by the river"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 10000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "order": 110,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Séance photo et couverture selon la taille du groupe",
+        "en": "Photo shoot and coverage according to group size"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport, impressions et retouches spécifiques, sauf accord contraire",
+        "en": "Transport, prints and special retouching, unless agreed otherwise"
+      }
+    ]
+  }
+}

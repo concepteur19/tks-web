@@ -26,11 +26,10 @@ test.describe('fiche de l’excursion en pirogue', () => {
     const options = plain(
       await page.getByTestId('options').filter({ visible: true }).textContent(),
     );
-    for (const name of ['Guide touristique', 'Maître-nageur', "Musée d'art"])
-      expect(options).toContain(name);
+    for (const name of ['Guide touristique', 'Maître-nageur']) expect(options).toContain(name);
     await expect(
       page.getByTestId('options').filter({ visible: true }).locator('input[type="checkbox"]'),
-    ).toHaveCount(3);
+    ).toHaveCount(2);
     await expect(page.getByRole('heading', { name: 'Vous aimerez aussi' })).toBeVisible();
   });
 
@@ -53,7 +52,7 @@ test.describe('fiche de l’excursion en pirogue', () => {
     await expect(page.getByTestId('add-to-stay').first()).toBeAttached();
     await expect(
       page.getByTestId('options').filter({ visible: true }).locator('input[type="checkbox"]'),
-    ).toHaveCount(3);
+    ).toHaveCount(2);
   });
 });
 
@@ -71,7 +70,7 @@ test('fiche du campement Bagyeli : trois tarifs nommés', async ({ page }) => {
 });
 
 test('fiche sans durée ni inclus : aucune rubrique vide', async ({ page }) => {
-  await page.goto('/experiences/kayak');
+  await page.goto('/experiences/village-ebodje');
   await expect(page.getByRole('heading', { name: 'Ce qui est inclus' })).toHaveCount(0);
   await expect(page.locator('dl dd:empty')).toHaveCount(0);
 });
@@ -99,7 +98,7 @@ test('le sélecteur de langue et l’adresse canonique visent la fiche, pas la l
 
 test('pas de défilement horizontal à 320 px', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 800 });
-  for (const slug of ['excursion-en-pirogue', 'campement-bagyeli', 'bateau-de-plaisance']) {
+  for (const slug of ['excursion-en-pirogue', 'campement-bagyeli', 'village-ebodje']) {
     await page.goto(`/experiences/${slug}`);
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - document.documentElement.clientWidth,

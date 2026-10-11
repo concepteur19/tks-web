@@ -4,9 +4,10 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import { cardPrice } from '../../features/estimation/cardPrice.ts';
 import { getRoutePath } from '../../i18n/routes.ts';
-import { localize } from '../../i18n/t.ts';
+import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
 import Price from '../Price.astro';
+import IllustrativeTag from './IllustrativeTag.astro';
 
 interface Props {
   service: CollectionEntry<'services'>;
@@ -22,13 +23,18 @@ const image = service.data.images?.[0];
   class="flex h-full gap-3 overflow-hidden rounded-card bg-bg p-2 shadow-card"
 >
   {image && (
-    <Image
-      src={image.src}
-      alt=""
-      width={192}
-      quality={60}
-      class="size-24 shrink-0 rounded-sm object-cover"
-    />
+    <span class="relative shrink-0">
+      <Image
+        src={image.src}
+        alt=""
+        width={192}
+        quality={60}
+        class="size-24 rounded-sm object-cover"
+      />
+      {image.illustrative && (
+        <IllustrativeTag label={t(locale, 'experiences.illustrative')} small />
+      )}
+    </span>
   )}
   <span class="flex min-w-0 flex-col justify-center gap-1">
     <span class="font-semibold text-fg">{localize(service.data.title, locale)}</span>

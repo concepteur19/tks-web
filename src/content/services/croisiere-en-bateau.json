@@ -44,6 +44,6 @@
       }
     ]
   },
-  "featured": true,
-  "order": 140
+  "order": 140,
+  "availability": "disabled"
 }

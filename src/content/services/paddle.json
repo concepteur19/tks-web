@@ -37,5 +37,25 @@
       }
     ]
   },
-  "order": 40
+  "order": 40,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Paddle et équipement fourni",
+        "en": "Paddle board and equipment provided"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport",
+        "en": "Transport"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Respecter les consignes de sécurité et les conditions météo",
+        "en": "Follow safety guidance and weather conditions"
+      }
+    ]
+  }
 }

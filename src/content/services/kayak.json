@@ -37,5 +37,25 @@
       }
     ]
   },
-  "order": 30
+  "order": 30,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Kayak et équipement fourni",
+        "en": "Kayak and equipment provided"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport",
+        "en": "Transport"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Respecter les consignes de sécurité et les conditions météo",
+        "en": "Follow safety guidance and weather conditions"
+      }
+    ]
+  }
 }

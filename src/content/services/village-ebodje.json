@@ -1,0 +1,57 @@
+{
+  "title": {
+    "fr": "Village Ebodjé et tortues marines",
+    "en": "Ebodjé village and sea turtles"
+  },
+  "section": "experience",
+  "categoryId": "visites",
+  "shortDescription": {
+    "fr": "Le village d'Ebodjé et, selon la saison, l'observation des tortues marines",
+    "en": "Ebodjé village and, in season, sea turtle watching"
+  },
+  "description": {
+    "fr": "Découverte du village d'Ebodjé et possibilité d'observer les tortues marines selon la saison et les conditions.",
+    "en": "Discover Ebodjé village, with a chance to watch sea turtles depending on the season and conditions."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/sections/kribi-vue-aerienne.jpg",
+      "alt": {
+        "fr": "Vue aérienne de la côte de Kribi",
+        "en": "Aerial view of the Kribi coast"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
+  },
+  "location": {
+    "fr": "Ebodjé",
+    "en": "Ebodjé"
+  },
+  "order": 40,
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Transport et repas",
+        "en": "Transport and meals"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "L'observation des tortues dépend de la période et des conditions locales",
+        "en": "Turtle watching depends on the season and local conditions"
+      }
+    ]
+  }
+}

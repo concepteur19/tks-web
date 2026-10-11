@@ -56,8 +56,9 @@ test('campement : le tarif couple donne une ligne à 20 000 FCFA', async ({ page
   expect(plain(await line.textContent())).toContain('20 000 FCFA');
 });
 
-test('feu de plage : le second ajout est refusé', async ({ page }) => {
-  await openExperience(page, 'feu-de-plage');
+test('une prestation sur devis : le second ajout est refusé', async ({ page }) => {
+  // Le feu de plage compte désormais des personnes (008) : un second ajout fusionne la ligne.
+  await openExperience(page, 'village-ebodje');
   await visible(page, 'add-to-stay').click();
   await expect(visible(page, 'add-to-stay')).toHaveText('Déjà dans mon séjour');
   await expect(visible(page, 'add-to-stay')).toBeDisabled();
@@ -72,7 +73,7 @@ test('ajout rapide depuis la liste et l’accueil avec les valeurs par défaut',
   await expect(page.getByTestId('toast')).toContainText('Chutes de la Lobé ajouté');
   await page.goto('/');
   await waitForIslands(page);
-  const quick = page.getByRole('button', { name: /^Ajouter à mon séjour : Croisière/ });
+  const quick = page.getByRole('button', { name: /^Ajouter à mon séjour : Jet-ski/ });
   await reveal(quick);
   await quick.click();
   await expect(page.getByTestId('toast')).toContainText('ajouté');
@@ -101,7 +102,7 @@ test('stockage bloqué : bandeau d’avertissement, la sélection fonctionne en 
       throw new DOMException('bloqué', 'SecurityError');
     };
   });
-  await openExperience(page, 'feu-de-plage');
+  await openExperience(page, 'village-ebodje');
   await expect(page.getByTestId('toast')).toContainText('ne permet pas de conserver');
   await visible(page, 'add-to-stay').click();
   await expect(visible(page, 'add-to-stay')).toHaveText('Déjà dans mon séjour');

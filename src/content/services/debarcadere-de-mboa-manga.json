@@ -1,0 +1,65 @@
+{
+  "title": {
+    "fr": "Débarcadère de Mboa-Manga",
+    "en": "Mboa-Manga landing stage"
+  },
+  "section": "experience",
+  "categoryId": "visites",
+  "shortDescription": {
+    "fr": "Le débarcadère des pêcheurs et l'activité autour de la pêche",
+    "en": "The fishermen's landing stage and the life around fishing"
+  },
+  "description": {
+    "fr": "Découverte du débarcadère de Mboa-Manga et de l'activité locale autour de la pêche.",
+    "en": "Discover the Mboa-Manga landing stage and the local life around fishing."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/debarcadere-de-mboa-manga.jpg",
+      "alt": {
+        "fr": "Des pirogues de pêcheurs alignées au débarcadère",
+        "en": "Fishermen's dugout canoes lined up at the landing stage"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 2000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "location": {
+    "fr": "Mboa-Manga, Kribi",
+    "en": "Mboa-Manga, Kribi"
+  },
+  "order": 90,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Visite du site",
+        "en": "Visit of the site"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport, repas et achats éventuels",
+        "en": "Transport, meals and any purchases"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "L'activité visible varie selon l'heure et les arrivages",
+        "en": "What you see varies with the time of day and the catch"
+      }
+    ]
+  }
+}

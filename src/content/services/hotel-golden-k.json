@@ -1,0 +1,60 @@
+{
+  "title": {
+    "fr": "Hôtel Golden K, visite",
+    "en": "Golden K Hotel, visit"
+  },
+  "section": "experience",
+  "categoryId": "visites",
+  "shortDescription": {
+    "fr": "Découvrir l'hôtel Golden K le temps d'une visite",
+    "en": "Discover the Golden K Hotel on a visit"
+  },
+  "description": {
+    "fr": "Découverte de l'hôtel Golden K dans le cadre d'une visite, et non d'une réservation d'hébergement.",
+    "en": "Discover the Golden K Hotel on a visit; this is not an accommodation booking."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/sections/kribi-vue-aerienne.jpg",
+      "alt": {
+        "fr": "Vue aérienne de la côte de Kribi",
+        "en": "Aerial view of the Kribi coast"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 5000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "location": {
+    "fr": "Hôtel Golden K, Kribi",
+    "en": "Golden K Hotel, Kribi"
+  },
+  "order": 60,
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Transport, repas et hébergement",
+        "en": "Transport, meals and accommodation"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Visite soumise à l'accord et à la disponibilité de l'établissement",
+        "en": "Visit subject to the hotel's agreement and availability"
+      }
+    ]
+  },
+  "degressive": true
+}

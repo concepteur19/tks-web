@@ -1,7 +1,7 @@
 {
   "title": {
-    "fr": "Campement Bagyeli",
-    "en": "Bagyeli camp"
+    "fr": "Village Bagyeli",
+    "en": "Bagyeli Village"
   },
   "section": "experience",
   "categoryId": "visites",
@@ -99,5 +99,37 @@
     ]
   },
   "featured": true,
-  "order": 20
+  "order": 20,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Le fleuve Lobé",
+        "en": "The Lobé River"
+      },
+      {
+        "fr": "Le campement",
+        "en": "The camp"
+      },
+      {
+        "fr": "Le pont Lobé",
+        "en": "The Lobé bridge"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport et dépenses personnelles",
+        "en": "Transport and personal expenses"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Visite organisée avec un interlocuteur local",
+        "en": "Visit organised with a local contact"
+      }
+    ]
+  },
+  "location": {
+    "fr": "Fleuve Lobé",
+    "en": "Lobé River"
+  }
 }

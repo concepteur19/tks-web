@@ -15,10 +15,24 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/stitch/excursion-en-chaloupe.jpg",
+      "src": "../../assets/photos/experiences/excursion-en-chaloupe.jpg",
       "alt": {
-        "fr": "Une chaloupe chargée de passagers glisse sur l'eau au coucher du soleil",
-        "en": "A motorboat with passengers gliding on the water at sunset"
+        "fr": "Des passagers en gilet de sauvetage à bord d’une chaloupe couverte",
+        "en": "Passengers in life jackets aboard a covered launch"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/excursion-en-chaloupe-2.jpg",
+      "alt": {
+        "fr": "Une chaloupe chargée de passagers en gilet de sauvetage, sur l’eau",
+        "en": "A launch full of passengers in life jackets on the water"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/excursion-en-chaloupe-3.jpg",
+      "alt": {
+        "fr": "Des passagers à bord d’un bateau, près des chutes de la Lobé",
+        "en": "Passengers aboard a boat near the Lobé Falls"
       }
     }
   ],
@@ -46,5 +60,19 @@
     "fr": "Chutes de la Lobé",
     "en": "Lobé Falls"
   },
-  "order": 60
+  "order": 60,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Chaloupe ou mini-bateau pour un groupe de 8",
+        "en": "Launch or small boat for a group of 8"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport",
+        "en": "Transport"
+      }
+    ]
+  }
 }

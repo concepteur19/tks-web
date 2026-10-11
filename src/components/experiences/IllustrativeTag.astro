@@ -1,0 +1,19 @@
+---
+/** Étiquette « Photo illustrative » sur une image générée (008, FR-024, research.md §14). */
+interface Props {
+  label: string;
+  small?: boolean;
+}
+
+const { label, small = false } = Astro.props;
+---
+
+<span
+  class:list={[
+    'absolute bottom-2 left-2 rounded-sm bg-fg/70 font-medium text-bg',
+    small ? 'px-1 py-px text-2xs' : 'px-2 py-0.5 text-xs',
+  ]}
+  data-illustrative
+>
+  {label}
+</span>

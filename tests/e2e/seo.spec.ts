@@ -56,8 +56,8 @@ test('chaque fiche a son image de partage et ses données structurées TouristTr
 }) => {
   for (const [slug, hasOffer] of [
     ['excursion-en-pirogue', true],
-    ['jet-ski', false],
-    ['bateau-de-plaisance', false],
+    ['jet-ski', true],
+    ['village-ebodje', false],
   ] as const) {
     await page.goto(`/experiences/${slug}`);
     const data = JSON.parse(

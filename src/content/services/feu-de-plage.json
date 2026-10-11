@@ -1,7 +1,7 @@
 {
   "title": {
-    "fr": "Feu de plage",
-    "en": "Beach bonfire"
+    "fr": "Feu de camp ou feu de plage",
+    "en": "Campfire or beach bonfire"
   },
   "section": "experience",
   "categoryId": "activites",
@@ -22,20 +22,55 @@
       }
     },
     {
-      "src": "../../assets/photos/stitch/feu-de-plage.jpg",
+      "src": "../../assets/photos/experiences/feu-de-plage-2.jpg",
       "alt": {
-        "fr": "Un groupe d'amis assis autour d'un feu sur la plage, à la nuit tombée",
-        "en": "A group of friends sitting around a fire on the beach at nightfall"
+        "fr": "Un homme près d’un grand feu de bois, la nuit sur la plage",
+        "en": "A man next to a big wood fire at night on the beach"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/feu-de-plage-3.jpg",
+      "alt": {
+        "fr": "Un feu de bois sur le sable, la nuit",
+        "en": "A wood fire on the sand at night"
       }
     }
   ],
   "pricing": {
     "kind": "fixed",
     "amount": 50000,
-    "unit": "per_group"
+    "unit": "per_group",
+    "maxCapacity": 10
   },
   "quantity": {
-    "dimensions": []
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
   },
-  "order": 100
+  "order": 100,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Organisation du feu",
+        "en": "Bonfire set-up"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport, repas et équipements supplémentaires, sauf mention contraire",
+        "en": "Transport, meals and extra equipment, unless stated otherwise"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Selon les autorisations locales et la météo",
+        "en": "Subject to local permits and the weather"
+      }
+    ]
+  }
 }

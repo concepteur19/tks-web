@@ -9,6 +9,7 @@ import type { Locale } from '../../i18n/types.ts';
 import QuickAdd from '../../features/selection/QuickAdd.tsx';
 import { getPageCatalog } from '../../lib/pageCatalog.ts';
 import Price from '../Price.astro';
+import IllustrativeTag from './IllustrativeTag.astro';
 
 interface Props {
   service: CollectionEntry<'services'>;
@@ -33,13 +34,18 @@ const islandCatalog = await getPageCatalog();
     {image && (
       <Image
         src={image.src}
-        alt={localize(image.alt, locale)}
+        alt={
+          image.illustrative
+            ? `${localize(image.alt, locale)} (${t(locale, 'experiences.illustrative')})`
+            : localize(image.alt, locale)
+        }
         widths={[400, 720]}
         quality={70}
         sizes="(min-width: 64rem) 33vw, 100vw"
         class="absolute inset-0 h-full w-full object-cover"
       />
     )}
+    {image?.illustrative && <IllustrativeTag label={t(locale, 'experiences.illustrative')} />}
     <div class="absolute top-3 left-3 flex flex-col items-start gap-1">
       {maxCapacity && (
         <span class="rounded-sm bg-accent px-2 py-1 text-xs font-semibold text-bg">

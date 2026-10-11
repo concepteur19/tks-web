@@ -1,0 +1,59 @@
+{
+  "title": {
+    "fr": "Musée Batanga",
+    "en": "Batanga Museum"
+  },
+  "section": "experience",
+  "categoryId": "visites",
+  "shortDescription": {
+    "fr": "Le patrimoine et la culture Batanga, au musée",
+    "en": "Batanga heritage and culture, at the museum"
+  },
+  "description": {
+    "fr": "Visite du Musée Batanga pour découvrir des éléments du patrimoine et de la culture Batanga.",
+    "en": "Visit the Batanga Museum to discover the heritage and culture of the Batanga people."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/sections/kribi-vue-aerienne.jpg",
+      "alt": {
+        "fr": "Vue aérienne de la côte de Kribi",
+        "en": "Aerial view of the Kribi coast"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 2000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "location": {
+    "fr": "Musée Batanga",
+    "en": "Batanga Museum"
+  },
+  "order": 80,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Entrée et visite, selon les conditions du musée",
+        "en": "Entry and visit, according to the museum's conditions"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport et dépenses personnelles",
+        "en": "Transport and personal expenses"
+      }
+    ]
+  }
+}

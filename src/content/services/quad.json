@@ -20,6 +20,20 @@
         "fr": "Une pilote sur un quad bleu, au bord de l'eau",
         "en": "A rider on a blue quad bike at the water's edge"
       }
+    },
+    {
+      "src": "../../assets/photos/experiences/quad-2.jpg",
+      "alt": {
+        "fr": "Un pilote sur un quad, sur la plage",
+        "en": "A rider on a quad bike on the beach"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/quad-3.jpg",
+      "alt": {
+        "fr": "Une jeune femme sur un quad, au bord de la mer",
+        "en": "A young woman on a quad bike by the sea"
+      }
     }
   ],
   "pricing": {
@@ -41,5 +55,25 @@
       }
     ]
   },
-  "order": 10
+  "order": 10,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Quad et encadrement",
+        "en": "Quad bike and supervision"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport jusqu'au point de départ",
+        "en": "Transport to the starting point"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Une personne par engin",
+        "en": "One person per vehicle"
+      }
+    ]
+  }
 }
