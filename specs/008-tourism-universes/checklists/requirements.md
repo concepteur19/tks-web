@@ -31,5 +31,5 @@
 
 ## Notes
 
-- Les points encore ouverts chez Franck (questionnaire 4 : U1, U5, U6, Q1 à Q5) ne sont pas des marqueurs de clarification : chacun a une valeur par défaut dans Assumptions, référencée `[HYPOTHÈSE …]`, et se corrige dans les données sans changer la spec.
+- Les questions du questionnaire 4 (U1 à U6, Q1 à Q5) ont reçu leur réponse le 2026-10-11 ; la spec les intègre (FR-010, FR-015, FR-016, FR-023 à FR-025) et ne contient plus d'hypothèse ouverte.
 - Numéro 008 : 005 à 007 sont réservés dans `specs/README.md` (hébergements, mobilité, labo k8s) et cités dans une vingtaine de documents. La 008 passe avant la 005 dans l'ordre de réalisation.

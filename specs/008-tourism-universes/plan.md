@@ -8,7 +8,9 @@
 
 Remplacer la liste unique des expériences, filtrée par trois catégories, par trois univers : une page d'entrée « Découvrez Kribi selon vos envies » à `/experiences`, une page par univers, et un catalogue porté de 13 à 32 prestations d'après le cahier actualisé de Franck.
 
-La feature est surtout du contenu et de la mise en page. Les univers prennent la place des catégories dans la même collection ([research.md](./research.md) §1). Les pages d'univers partagent la route dynamique des fiches, dont les adresses ne bougent pas (§2). Le minimum de participants existe déjà dans le modèle de quantité (§6). La sélection, l'estimation et le message de la 004 n'ont besoin d'aucune modification (§9). Une seule fonction pure nouvelle (`minimumParticipants`), un contrôle de contenu élargi, deux champs de schéma (`slug` et `withOptions` sur l'univers, `degressive` sur la prestation).
+La feature est surtout du contenu et de la mise en page. Les univers prennent la place des catégories dans la même collection ([research.md](./research.md) §1). Les pages d'univers partagent la route dynamique des fiches, dont les adresses ne bougent pas (§2). Le minimum de participants existe déjà dans le modèle de quantité (§6). La sélection, l'estimation et le message de la 004 n'ont besoin d'aucune modification (§9). Une seule fonction pure nouvelle (`minimumParticipants`), un contrôle de contenu élargi, quelques champs de schéma (`slug` et `withOptions` sur l'univers, `degressive` sur la prestation, `illustrative` sur l'image).
+
+Les réponses de Franck du 2026-10-11 sont intégrées : onglet « Tourisme » (§15), croisière et bateau de plaisance remplacés avec redirection (§10), option Musée d'art retirée (§16), textes de fiches repris sans les « à confirmer » (§12), photos retrouvées dans ses envois et illustrations « Photo illustrative » générées pour les plats et le bateau de croisière (§11, §14).
 
 ## Technical Context
 
@@ -28,7 +30,7 @@ La feature est surtout du contenu et de la mise en page. Les univers prennent la
 
 **Constraints**: aucune règle métier dans un composant ; aucun texte en dur ; adresses des fiches inchangées ; aucune photo filigranée ; aucune durée, lieu ou « inclus » inventé
 
-**Scale/Scope**: 3 univers, 32 prestations publiées (21 nouvelles), 2 désactivées ; 4 pages nouvelles par langue (entrée refondue + 3 univers) ; ~44 fiches nouvelles (21 × 2 langues)
+**Scale/Scope**: 3 univers, 32 prestations publiées (21 nouvelles), 2 remplacées avec redirection, 1 option retirée ; ~25 photos de Franck à importer, 11 illustrations à générer ; 4 pages nouvelles par langue (entrée refondue + 3 univers) ; ~44 fiches nouvelles (21 × 2 langues)
 
 ## Constitution Check
 
@@ -94,6 +96,8 @@ src/
 
 scripts/check-content.ts              # appelle catalogIssues élargi
 lighthouserc.json                     # + un univers, + une nouvelle fiche
+public/_redirects                     # anciennes fiches croisière et bateau de plaisance (Cloudflare Pages)
+src/assets/photos/illustrations/      # 11 illustrations « Photo illustrative »
 tests/                                # unitaires, composants, e2e mis à jour (catégories → univers, tarifs Bagyeli)
 ```
 
@@ -104,7 +108,7 @@ tests/                                # unitaires, composants, e2e mis à jour (
 | Story | Livrable |
 |---|---|
 | US1 — choisir son univers (P1) | schéma d'univers, 3 univers, 13 prestations existantes rattachées, contrôles, page d'entrée, pages d'univers, navigation entre univers, fil d'Ariane et badge des fiches, cartes de l'accueil |
-| US2 — nouvelles prestations (P2) | 21 prestations, jet-ski tarifé, feu de plage plafonné, 2 désactivées, mise en avant du jet-ski, options par univers, photos de remplacement, textes FR et EN |
+| US2 — nouvelles prestations (P2) | 21 prestations, textes de Franck, jet-ski tarifé, feu de plage plafonné, croisière et bateau de plaisance remplacés et redirigés, option Musée d'art retirée, mise en avant du jet-ski, options par univers, photos de Franck, illustrations « Photo illustrative » |
 | US3 — prix de groupe (P3) | `minimumParticipants`, `degressive`, Village Bagyeli « à partir de, minimum 2 », mentions sur carte et fiche |
 
 US1 est livrable seule avec les 13 prestations actuelles réparties en deux univers (le culinaire, vide, n'a ni page ni carte, comme le prévoit la spec).

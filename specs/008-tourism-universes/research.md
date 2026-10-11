@@ -72,37 +72,39 @@ Chaque carte d'univers montre la photo de l'univers, son nom, sa phrase, le nomb
 
 **Decision**: `withOptions: false` sur l'univers Spécialités culinaires. La fiche d'une prestation de cet univers ne reçoit aucune option : ni configurateur d'options, ni encadré `noscript`.
 
-**Rationale**: FR-016. La règle vit dans le contenu, pas dans un composant (principe IV). Si la réponse Q5 restreint les options prestation par prestation, un champ au niveau de la prestation s'ajoutera alors ; pas avant (principe I).
+**Rationale**: FR-016, réponse Q5 (« les options partout » sur les visites et activités). La règle vit dans le contenu, pas dans un composant (principe IV).
 
 ## 9. Ce que la sélection gère déjà
 
 **Vérifié dans `src/features/selection/selection.ts`** : à la lecture du stockage, une ligne dont la prestation n'est plus au catalogue (désactivée), ou dont le tarif n'existe plus (anciens tarifs du campement Bagyeli), est retirée et signalée par le message de la 004. Aucune modification des fonctions pures de sélection, d'estimation ou de message n'est nécessaire : les nouvelles prestations n'utilisent que des unités et des dimensions existantes (`per_session` + `units`, `per_hour` + `hours`, `per_group` + `maxCapacity`, `from`, `quote` avec `persons` informatif).
 
-## 10. Prestations retirées : désactivées, pas supprimées
+## 10. Croisière et bateau de plaisance : remplacés, avec redirection
 
-**Decision**: `croisiere-en-bateau` et `bateau-de-plaisance` passent en `availability: "disabled"` [HYPOTHÈSE Q1, Q2]. Leur fichier reste, leurs fiches disparaissent (page d'erreur), et elles sont purgées des séjours enregistrés.
+**Decision** (réponses Q1, Q2) : `croisiere-en-bateau` et `bateau-de-plaisance` passent en `availability: "disabled"` ; le bateau de croisière en haute mer est une nouvelle fiche, `croisiere-en-haute-mer`. Leurs anciennes adresses redirigent en 301 vers elle, par un fichier `public/_redirects` (format Cloudflare Pages), dans les deux langues. Un séjour enregistré qui les contient perd la ligne au chargement, avec le message de la 004.
 
-La croisière était l'une des quatre expériences mises en avant sur l'accueil. Le jet-ski la remplace, pour que la section « À ne pas manquer » garde quatre cartes (FR-009 : le reste de l'accueil ne change pas) : il a une vraie photo de Franck, et son prix vient d'être fixé.
+La croisière était l'une des quatre expériences mises en avant sur l'accueil. Le jet-ski la remplace, pour que la section « À ne pas manquer » garde quatre cartes.
 
-**Rationale**: réversible en une ligne si Franck répond qu'elles restent.
+**Rationale**: reprendre l'ancienne fiche sous un nouveau prix changerait son unité (personne → heure) : `parseSelection` ramènerait alors en silence « 2 personnes » à « 2 heures », soit 300 000 FCFA. Une nouvelle fiche plus une redirection préservent les liens sans fausser un séjour. `_redirects` est lu par Cloudflare Pages ; l'image nginx de développement l'ignore, sans conséquence hors production.
 
-## 11. Photos des nouvelles prestations
+## 11. Photos : celles de Franck d'abord, puis l'ambiance, puis l'illustration
 
-**Decision**: le schéma exige au moins une image par prestation. En attendant les photos de Franck (questionnaire 4, onglet Photos), chaque nouvelle prestation reçoit une photo d'ambiance de son univers, tirée de ses envois sans filigrane, avec un texte alternatif qui décrit ce que la photo montre :
+**Decision**: chaque prestation reçoit, dans cet ordre de préférence :
 
-| Univers | Photo de remplacement | Source |
-|---|---|---|
-| Visites & Découvertes | vue aérienne de la côte de Kribi | `sections/kribi-vue-aerienne.jpg` (déjà importée) |
-| Activités & Loisirs | plage de Kribi au coucher du soleil | `hero/plage-coucher-de-soleil.jpg` (déjà importée) |
-| Spécialités culinaires | étal de poissons frais | `decouverte-de-kribi/L14-02.jpg`, à importer |
+1. **les photos de Franck** qui la montrent, retrouvées au réexamen du 2026-10-11 et dans le lot ajouté le même jour (tableau dans [data-model.md](./data-model.md)) ;
+2. **une photo d'ambiance de son univers**, avec un texte alternatif qui décrit le paysage, pour les visites dont Franck enverra la photo (Ebodjé, Port Autonome, Golden K, Musée Batanga) ;
+3. **une illustration réaliste marquée « Photo illustrative »** (§14) pour les spécialités culinaires et le bateau de croisière, à la demande de Franck.
 
-Les photos des cartes d'univers : les chutes de la Lobé (visites), le jet-ski (activités), l'étal de poissons (spécialités).
+Les 5 photos du feu de plage restées en HEIC dans `~/Downloads/Telegram Desktop` sont converties en JPEG par `sips` (outil intégré à macOS) et copiées dans `Elements/tri-par-activite/feux-de-plage/`. `scripts/import-photos.mjs` lit les sources relatives à `Elements/tri-par-activite/` : les photos du lot du 2026-10-11 y sont copiées dans le dossier de leur activité, sous leur nom d'origine, avant import.
 
-**Rationale**: spec, edge case « prestation sans photo » : jamais la photo d'une autre prestation présentée comme celle-ci, jamais de filigrane. Les images Stitch de la 003 ne couvrent pas ces sujets.
+Exclues : toute photo filigranée (phare `L13-02` à `L13-04`, `18-58-17`, `18-59-20`, parasols `L11-01` et `18-58-27`), les doublons en plus basse résolution d'une photo déjà importée.
 
-## 12. Textes des nouvelles prestations
+Cartes d'univers : chutes de la Lobé (visites), jet-ski (activités), étal de poissons `L14-02` (spécialités culinaires, photo réelle de Franck).
 
-**Decision**: nom, phrase courte et description rédigés à partir du cahier, sans durée, lieu ni « inclus » inventés : ces rubriques restent vides, donc omises, jusqu'aux réponses de l'onglet 3 du questionnaire. Seuls les lieux que le cahier donne comme inclus (Village Mayi, Village Bagyeli) remplissent « Ce qui est inclus ». Traduction anglaise par IA, relue par Zobel (ADR-013).
+## 12. Textes des fiches
+
+**Decision**: lieu, inclus, non inclus et « à savoir » viennent de l'onglet 3 du questionnaire 4. Règle de reprise : une phrase dont le seul contenu est une réserve (« Lieu de départ à confirmer avec le prestataire », « Site à confirmer ») n'est pas publiée ; une phrase qui informe et ajoute une réserve est gardée (« Accès soumis aux règles et autorisations du port »). Les mentions « Photo illustrative » des « à savoir » culinaires ne vont pas dans le texte : la mention est portée par l'image (§14). Les descriptions déjà publiées des 13 prestations existantes restent ; la phrase de Franck sert de description aux 21 nouvelles. Quad, jet-ski et bouée tractée reçoivent « Une personne par engin » dans « À savoir » (Q4). Traduction anglaise par IA, relue par Zobel (ADR-013).
+
+**Rationale**: répétée sur trente fiches, la mention « à confirmer » donnerait l'image d'un site inachevé ; la confirmation passe de toute façon par WhatsApp (cahier, section 2).
 
 ## 13. Contrôle du contenu
 
@@ -112,6 +114,20 @@ Les photos des cartes d'univers : les chutes de la Lobé (visites), le jet-ski (
 - aucun identifiant de prestation n'est égal au slug d'un univers, dans l'une ou l'autre langue (§2) ;
 - les slugs d'univers sont uniques par langue.
 
-## 14. Ce qui ne change pas
+## 14. Images illustratives
+
+**Decision**: le schéma d'image (`{ src, alt }`) gagne `illustrative` (booléen, facultatif). `ExperienceCard`, `CompactCard` et la galerie de la fiche affichent alors une étiquette « Photo illustrative » / « Illustrative photo » en bas à gauche de l'image (texte `text-xs`, fond `fg` à 70 %, texte `bg`), dont le texte figure aussi dans le texte alternatif. Les illustrations sont générées avec l'outil d'images de Figma, une par spécialité et une pour le bateau de croisière : photographie réaliste, lumière naturelle de fin d'après-midi, tons chauds de la direction artistique, aucune personne identifiable, aucun texte ni logo. Elles vivent dans `src/assets/photos/illustrations/` ; le prompt de chacune est noté dans `src/assets/photos/README.md`.
+
+**Rationale**: demande explicite de Franck (questionnaire 4, P9 et P15). L'étiquette visible évite de présenter une image générée comme une photo de Kribi.
+
+## 15. Onglet « Tourisme »
+
+**Decision** (U1) : les chaînes `nav.experiences` et `experiences.title` deviennent « Tourisme » / « Tourism ». La clé de route `experiences`, les adresses et les identifiants de test restent. Les tests qui cherchent le lien « Expériences » sont mis à jour.
+
+## 16. Option « Musée d'art » retirée
+
+**Decision** (Q3) : `musee-d-art` passe en `availability: "disabled"`. `parseSelection` retire déjà une option disparue d'une ligne enregistrée, avec le message de la 004 : rien à coder.
+
+## 17. Ce qui ne change pas
 
 Mon séjour, l'estimation, le message WhatsApp, les îlots de la 004, la barre à onglets, la coque, les pages légales, l'accueil hors cartes d'univers et mise en avant, la table des adresses, `IMPLEMENTED_ROUTES`. Aucune dépendance ajoutée, donc aucun ADR.

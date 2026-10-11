@@ -18,7 +18,9 @@ Objet strict : tout champ inconnu est une erreur.
 
 ## Schéma de prestation (`serviceSchema`)
 
-Un seul ajout : `degressive` (booléen, facultatif). Tout le reste est inchangé ; le minimum de participants est la borne `min` de la dimension `persons`.
+Deux ajouts : `degressive` (booléen, facultatif) et, dans chaque image, `illustrative` (booléen, facultatif). Tout le reste est inchangé ; le minimum de participants est la borne `min` de la dimension `persons`.
+
+Schéma d'image : `{ src, alt { fr, en }, illustrative? }`, strict.
 
 ## Contrôles transversaux (`catalogIssues`, pur)
 
@@ -27,11 +29,10 @@ Signature élargie pour recevoir les univers entiers (identifiant et slugs), et 
 | Règle | Message (forme) |
 |---|---|
 | `categoryId` inconnu (existant) | `services/<id> : categoryId « x » ne correspond à aucun univers` |
-| prestation publiée, hors option, sans `categoryId` | `services/<id> : une prestation publiée doit appartenir à un univers` |
 | identifiant de prestation égal à un slug d'univers | `services/<id> : identifiant identique à l'adresse de l'univers « x »` |
 | slug d'univers en double dans une langue | `categories/<id> → slug.<langue> : déjà utilisé par l'univers « x »` |
 
-`scripts/check-content.ts` les exécute avant chaque construction, comme aujourd'hui.
+L'appartenance à un univers est déjà imposée par le schéma (« categoryId est obligatoire pour une expérience »). `scripts/check-content.ts` exécute ces contrôles avant chaque construction, comme aujourd'hui.
 
 ## Fonctions d'accès (`src/lib/catalog.ts`)
 
@@ -40,7 +41,7 @@ Signature élargie pour recevoir les univers entiers (identifiant et slugs), et 
 | `getCategories()` | univers triés par ordre (inchangé) |
 | `categoriesWithExperiences()` | univers qui ont au moins une prestation publiée (inchangé) ; ils seuls ont une page et une carte |
 | `getUniverseExperiences(id)` | **nouveau** : prestations publiées d'un univers, par ordre puis nom |
-| `getOptionsFor(service)` | **nouveau** : options publiées si l'univers de la prestation a `withOptions` différent de `false`, sinon liste vide |
+| `getOptionsFor(service)` | **nouveau** : options publiées (guide touristique, maître-nageur ; `musee-d-art` est désactivé) si l'univers de la prestation a `withOptions` différent de `false`, sinon liste vide |
 | `categoryCount(id)` | inchangé |
 
 ## Fonction pure (`src/features/catalog/`)

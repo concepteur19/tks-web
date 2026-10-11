@@ -29,6 +29,7 @@ Supprimés : `nature-decouverte.json`, `aventure.json`, `detente.json`.
 |---|---|
 | `categoryId` | pointe vers un univers ; obligatoire pour toute prestation publiée hors options (contrôle au build) |
 | `degressive` | **nouveau**, booléen facultatif : affiche la mention « tarif dégressif » sur la fiche |
+| `images[].illustrative` | **nouveau**, booléen facultatif : image générée, étiquetée « Photo illustrative » |
 | `conditions.included` | porte les lieux inclus d'une visite (Village Mayi, Village Bagyeli) |
 | minimum de participants | pas de champ : borne `min` de la dimension `persons` ([research.md](./research.md) §6) |
 
@@ -70,7 +71,7 @@ Unités et dimensions existantes uniquement ([research.md](./research.md) §9). 
 
 ### Spécialités culinaires (`specialites-culinaires`)
 
-Toutes : `pricing: { kind: "quote" }`, quantité persons info 1–30, déf. 2 [HYPOTHÈSE U6], aucune option (`withOptions: false`).
+Toutes : `pricing: { kind: "quote" }`, quantité persons info 1–30, déf. 2 (U6), aucune option (`withOptions: false`).
 
 | Ordre | Identifiant | Nom FR |
 |---|---|---|
@@ -85,20 +86,52 @@ Toutes : `pricing: { kind: "quote" }`, quantité persons info 1–30, déf. 2 [H
 | 90 | `degustation-fruits-de-mer` | Dégustation de fruits de mer en bord de mer |
 | 100 | `repas-local` | Expérience de repas local |
 
-### Désactivées [HYPOTHÈSE Q1, Q2]
+### Remplacées (Q1, Q2)
 
 | Identifiant | Avant | Après |
 |---|---|---|
-| `croisiere-en-bateau` | 25 000 `per_person`, mise en avant | `availability: "disabled"`, plus mise en avant |
-| `bateau-de-plaisance` | quote | `availability: "disabled"` |
+| `croisiere-en-bateau` | 25 000 `per_person`, mise en avant | `availability: "disabled"`, plus mise en avant ; adresse redirigée (301) vers `croisiere-en-haute-mer` |
+| `bateau-de-plaisance` | quote | `availability: "disabled"` ; adresse redirigée (301) vers `croisiere-en-haute-mer` |
 
-### Options (inchangées)
+### Options (Q3, Q5)
 
-`guide-touristique`, `maitre-nageur`, `musee-d-art` [HYPOTHÈSE Q3] : proposées sur les univers `visites` et `activites`.
+| Identifiant | État |
+|---|---|
+| `guide-touristique` | inchangé, proposé sur `visites` et `activites` |
+| `maitre-nageur` | inchangé, proposé sur `visites` et `activites` |
+| `musee-d-art` | `availability: "disabled"` : c'est le Musée Batanga, publié comme visite |
+
+### « À savoir » imposés
+
+Quad, jet-ski, bouée tractée : « Une personne par engin » / « One person per vehicle » (Q4).
+
+## Photos par prestation
+
+Sources relatives à `Elements/tri-par-activite/` (`NEW/…` : lot du 2026-10-11, à copier d'abord dans le dossier de l'activité ; `HEIC` : `~/Downloads/Telegram Desktop`, à convertir). Destination : `src/assets/photos/experiences/<id>[-2|-3].jpg`, ou `illustrations/<id>.jpg` pour une image illustrative.
+
+| Prestation | Photos (ordre de la galerie) | Nature |
+|---|---|---|
+| `village-mayi` | `decouverte-de-kribi/L13-05` (pont des Esclaves), `L13-01` (monument) | Franck |
+| `debarcadere-de-mboa-manga` | `decouverte-de-kribi/L1-01` | Franck |
+| `plage-de-batanga` | `ambiance-hero-plages-couchers/L11-05` (plage de Kribi) | Franck, à sa demande ; texte alternatif « Plage de Kribi » |
+| `village-ebodje`, `port-autonome-de-kribi`, `hotel-golden-k`, `musee-batanga` | `sections/kribi-vue-aerienne.jpg` (déjà importée) | ambiance ; texte alternatif « Vue aérienne de la côte de Kribi » |
+| `excursion-en-chaloupe` | `NEW/18-56-09` (bateau couvert), `NEW/chaloupe/18-55-32`, `NEW/chaloupe/18-54-10` | Franck, remplace l'image Stitch |
+| `feu-de-plage` | `NEW/feu/photo_2026-10-06_01-53-03`, `HEIC/IMG_2058`, `HEIC/IMG_2060` | Franck, remplace l'image Stitch |
+| `pique-nique-bivouac` | `NEW/18-56-48` (paillote au coucher du soleil), `feux-de-plage/L11-04` | Franck |
+| `bouee-tractee` | `NEW/18-56-29` (bouée tirée par un bateau), `NEW/18-56-16`, `NEW/18-56-38` | Franck |
+| `seance-photo` | `NEW/18-56-42`, `NEW/quad et jet sky/18-55-15`, `NEW/quad et jet sky/18-55-09` | Franck (personnes qui posent) |
+| `quad` | photo actuelle, puis `NEW/18-56-55`, `NEW/quad et jet sky/18-55-21` | Franck, galerie complétée |
+| `jet-ski` | photo actuelle, puis `NEW/18-55-46`, `NEW/quad et jet sky/18-55-04` | Franck, galerie complétée |
+| `croisiere-en-haute-mer` | `illustrations/croisiere-en-haute-mer.jpg` | illustrative |
+| 10 spécialités culinaires | `illustrations/<id>.jpg` | illustrative |
+
+Univers : `visites` → `experiences/chutes-de-la-lobe.jpg` ; `activites` → `experiences/jet-ski.jpg` ; `specialites-culinaires` → `categories/specialites-culinaires.jpg` (`decouverte-de-kribi/L14-02`, étal de poissons, Franck).
+
+Exclues : toute photo filigranée (`L13-02` à `L13-04`, `L11-01`, `18-58-17`, `18-58-27`, `18-59-20`) et les doublons de plus basse résolution.
 
 ## Totaux
 
-- 32 prestations publiées : 9 + 13 + 10. 21 nouvelles, 11 existantes déplacées, 2 désactivées.
+- 32 prestations publiées : 9 + 13 + 10. 21 nouvelles, 11 existantes déplacées, 2 remplacées. 2 options publiées.
 - 4 mises en avant : chutes de la Lobé, Village Bagyeli, excursion en pirogue, jet-ski.
 
 ## Cas de référence (tests)
@@ -109,6 +142,8 @@ Toutes : `pricing: { kind: "quote" }`, quantité persons info 1–30, déf. 2 [H
 | Sélecteur du Village Bagyeli à 2, bouton « moins » | désactivé |
 | Séjour enregistré avec `campement-bagyeli` au tarif `couple` | ligne retirée au chargement, message de la 004 |
 | Séjour enregistré avec `croisiere-en-bateau` | ligne retirée au chargement, message de la 004 |
+| Séjour enregistré avec la pirogue et l'option `musee-d-art` | option retirée au chargement, message de la 004 |
+| `/experiences/croisiere-en-bateau` en production | redirection 301 vers `/experiences/croisiere-en-haute-mer` |
 | Feu de plage pour 12 personnes | ligne « sur devis » (au-delà de 10) |
 | Bateau de croisière, 2 heures | 300 000 FCFA |
 | Jet-ski, 2 sessions | 20 000 FCFA |

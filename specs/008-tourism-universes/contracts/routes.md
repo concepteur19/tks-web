@@ -25,8 +25,19 @@ Complète le contrat d'adresses de la 002 (`specs/002-kibreeze-core/contracts/ro
 | Adresse | Comportement |
 |---|---|
 | `/experiences#nature-decouverte`, `#aventure`, `#detente`, `#toutes` (et `/en/…`) | page d'entrée ; l'ancre ne désigne plus rien (FR-007) |
-| `/experiences/croisiere-en-bateau`, `/experiences/bateau-de-plaisance` | page d'erreur, prestations désactivées [HYPOTHÈSE Q1, Q2] |
+| `/experiences/croisiere-en-bateau`, `/experiences/bateau-de-plaisance` (et `/en/…`) | redirection 301 vers `/experiences/croisiere-en-haute-mer` (ou `/en/…`), par `public/_redirects` (Q1, Q2) ; le build statique local ne les génère plus |
 | Toute autre fiche existante | inchangée |
+
+## Redirections (`public/_redirects`)
+
+```text
+/experiences/croisiere-en-bateau        /experiences/croisiere-en-haute-mer        301
+/experiences/bateau-de-plaisance        /experiences/croisiere-en-haute-mer        301
+/en/experiences/croisiere-en-bateau     /en/experiences/croisiere-en-haute-mer     301
+/en/experiences/bateau-de-plaisance     /en/experiences/croisiere-en-haute-mer     301
+```
+
+Format Cloudflare Pages. Chaque cible DOIT être une page générée (vérifié par un test unitaire qui lit le fichier et le catalogue).
 
 ## Plan du site
 

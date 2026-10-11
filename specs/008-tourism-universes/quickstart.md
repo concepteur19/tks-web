@@ -15,13 +15,13 @@ npm run lighthouse     # page d'entrée, un univers, une nouvelle fiche ≥ 90 (
 
 `lighthouserc.json` reçoit `/experiences/visites.html` et `/experiences/village-mayi.html`.
 
-## Scénarios à dérouler à la main
+## Scénarios à dérouler à la main (17)
 
 En 360 × 800 puis en 1 440 × 1 024, en français puis en anglais.
 
 | # | Scénario | Résultat attendu | Spec |
 |---|---|---|---|
-| 1 | Onglet Expériences | « Découvrez Kribi selon vos envies », 3 cartes d'univers, aucune carte d'expérience | US1-1, FR-002 |
+| 1 | Onglet Tourisme | « Découvrez Kribi selon vos envies », 3 cartes d'univers, aucune carte d'expérience | US1-1, FR-002 |
 | 2 | Lire une carte d'univers | photo, nom, phrase, 3 exemples, nombre, « Voir le catalogue » | US1-2, FR-003 |
 | 3 | Toucher « Activités & Loisirs » | 13 activités, rien d'autre | US1-3, FR-004 |
 | 4 | Depuis Activités, toucher « Spécialités culinaires » dans la navigation | 10 spécialités, toutes « Sur demande » | US1-4, US2-3 |
@@ -33,8 +33,11 @@ En 360 × 800 puis en 1 440 × 1 024, en français puis en anglais.
 | 10 | Fiche jet-ski | 10 000 FCFA la session | US2-4 |
 | 11 | Fiche langouste | aucun montant, aucune option | FR-013, FR-016 |
 | 12 | Ajouter Mayi, quad et langouste, ouvrir Mon séjour, envoyer | 3 lignes ; total sans la langouste, comptée « sur devis » ; message qui nomme les trois | US2-5, US2-6 |
-| 13 | Ancienne fiche `/experiences/croisiere-en-bateau` | page d'erreur | Edge cases |
+| 13 | Ancienne fiche `/experiences/croisiere-en-bateau`, sur l'aperçu Cloudflare | redirection vers le bateau de croisière en haute mer | FR-007 |
 | 14 | Sans JavaScript | page d'entrée, univers et fiches lisibles, univers atteignables par lien | Edge cases |
+| 15 | Fiche langouste, carte du bateau de croisière | étiquette « Photo illustrative » sur l'image | FR-024 |
+| 16 | Fiche pirogue | options guide et maître-nageur, plus de musée | FR-016 |
+| 17 | Fiches feu de plage, chaloupe, bouée tractée | photos de Franck, plus d'image générée | FR-025 |
 
 ## Résultats relevés
 
