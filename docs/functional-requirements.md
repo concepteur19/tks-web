@@ -69,8 +69,8 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 **FR-CAT-1** Le catalogue est défini dans des fichiers de données versionnés (un fichier par service), validés par un schéma au build. Un fichier invalide fait échouer le build avec un message explicite.
 - Given un service sans `title`, When on lance le build, Then le build échoue en nommant le fichier et le champ.
 
-**FR-CAT-2** La page Expériences liste les expériences `available` et `on_request`, filtrables par les trois catégories (Nature / Découverte, Aventure, Détente), dans l'ordre `order` puis alphabétique. Un onglet « Toutes » est actif par défaut.
-- Given 2 catégories dans Tourisme, When le visiteur choisit « Aventure », Then seules les cartes de cette catégorie sont visibles ; « Tous » rétablit la liste.
+**FR-CAT-2** Le Tourisme (onglet « Tourisme », adresse `/experiences`) s'ouvre sur une page d'entrée « Découvrez Kribi selon vos envies » qui présente trois univers : Visites & Découvertes, Activités & Loisirs, Spécialités culinaires. Chaque univers a sa propre page, qui liste ses expériences `available` et `on_request` dans l'ordre `order` puis alphabétique, et donne accès aux deux autres univers. *(Remplace, depuis la feature 008 et le cahier actualisé d'octobre 2026, la liste unique filtrée par les catégories Nature / Découverte, Aventure, Détente.)*
+- Given la page d'entrée, When le visiteur choisit « Activités & Loisirs », Then il arrive sur la page de cet univers, qui ne liste que ses expériences, et rejoint les deux autres en un geste.
 
 **FR-CAT-3** Une carte de service affiche : image, titre, description courte, étiquette de prix (voir FR-EST-1), badge « Disponibilité à confirmer » si `on_request`, lien vers la fiche.
 
@@ -78,7 +78,7 @@ Convention : `FR-<feature>-<n>`. Les features correspondent aux specs Spec Kit (
 
 **FR-CAT-5** Un service `disabled` n'apparaît nulle part et sa route renvoie une 404.
 
-**FR-CAT-6** La page Expériences contient un bloc « Une envie particulière ? » avec CTA WhatsApp générique.
+**FR-CAT-6** La page d'entrée du Tourisme et chaque page d'univers se terminent par un bloc « Une envie particulière ? » avec CTA WhatsApp générique.
 
 ---
 

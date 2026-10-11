@@ -41,4 +41,33 @@ En 360 × 800 puis en 1 440 × 1 024, en français puis en anglais.
 
 ## Résultats relevés
 
-À compléter en fin d'implémentation.
+Contrôles automatiques du 2026-10-11 (T040) :
+
+| Contrôle | Résultat |
+|---|---|
+| `npm run check` | 181 tests unitaires (couverture 100 %), 37 tests de composants, lint, types, contrastes : tout passe |
+| `npm run build:prod` | 86 pages (page d'entrée, 3 univers et 32 fiches, × 2 langues, plus le reste du site), traductions complètes |
+| `npm run check:links` | 2 634 liens internes, aucun cassé |
+| `npm run check:bundle` | toutes les pages sous budget ; la plus lourde, Mon séjour, 25,6 Ko |
+| `npm run test:e2e` | 345 parcours, Chromium et WebKit : tout passe (3 ignorés sous WebKit, comme avant) |
+| `public/_redirects` | 4 redirections vérifiées par `tests/unit/redirects.test.ts` ; leur effet ne se voit que sur Cloudflare Pages (scénario 13) |
+
+Lighthouse, profil mobile, médiane de trois passages :
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO | LCP simulé | CLS |
+|---|---|---|---|---|---|---|
+| `/experiences` (page d'entrée) | 97 | 100 | 100 | 100 | 2,55 s | 0 |
+| `/experiences/visites` | 94 | 100 | 100 | 100 | 3,00 s | 0 |
+| `/experiences/village-mayi` | 94 | 100 | 100 | 100 | 3,00 s | 0,001 |
+| `/experiences/excursion-en-pirogue` | 95 | 100 | 100 | 100 | 2,85 s | 0 |
+
+## Comparaison visuelle (T041)
+
+Captures à 390 px (2x) et 1 440 px de la page d'entrée et des pages d'univers, comparées aux illustrations fonctionnelles du cahier (pages 2 et 4) et au style des écrans 02a et 02b.
+
+- Page d'entrée : conforme à la page 4 du cahier (titre, trois univers, quelques exemples, « Voir le catalogue ») ; une colonne sur téléphone, trois sur ordinateur.
+- Pages d'univers : grille et cartes des écrans 02a et 02b, navigation entre univers à l'emplacement de leurs onglets.
+- Corrigé : le bandeau de l'univers Activités coupait la photo du jet-ski (portrait) au niveau du torse ; l'univers prend désormais la photo en paysage `jet-ski-2`.
+- Corrigé en cours de vérification : cinq photos portaient un filigrane « The Tourist Guide » non repéré au premier tri, dont celle de la page Contact, en ligne depuis la 002 (voir `docs/photo-tri.md`).
+
+Scénarios manuels 1 à 17 : à dérouler par Zobel (T042).

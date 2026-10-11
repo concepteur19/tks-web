@@ -35,9 +35,9 @@ Remplace l'ancien `Pole = 'transport' | 'tourisme' | 'livraison'` depuis le pivo
 
 Les sections sont fixes dans le code (elles structurent les routes). Leurs libellés, descriptions et visuels sont dans un fichier de contenu `sections.json`.
 
-### `ServiceCategory`
+### `ServiceCategory` (univers)
 
-Ne concerne que la section `experience`. Trois catégories, arrêtées le 2026-09-16 et inchangées par le pivot : `nature-decouverte`, `aventure`, `detente`.
+Ne concerne que la section `experience`. Depuis la feature 008 (cahier actualisé d'octobre 2026), la collection porte les **trois univers** du Tourisme : `visites`, `activites`, `specialites-culinaires`. Les catégories du 2026-09-16 (`nature-decouverte`, `aventure`, `detente`) sont supprimées. Détail, catalogue des 32 prestations et photos : [specs/008-tourism-universes/data-model.md](../specs/008-tourism-universes/data-model.md).
 
 | Champ | Type | Obligatoire | Description |
 |---|---|---|---|
@@ -45,6 +45,10 @@ Ne concerne que la section `experience`. Trois catégories, arrêtées le 2026-0
 | `name` | `LocalizedString` | oui | Libellé affiché, ex. `{ fr: "Aventure", en: "Adventure" }` |
 | `description` | `LocalizedString` | non | Une phrase pour l'onglet ou l'en-tête |
 | `order` | `number` | oui | Ordre d'affichage dans le catalogue |
+| `urlSlug` | `{ fr, en }` | oui | Adresse de la page de l'univers, par langue (`slug` est réservé par Astro) |
+| `withOptions` | `boolean` | non | `false` : aucune option sur les fiches de l'univers (spécialités culinaires) |
+
+Une `Service` gagne `degressive` (mention « tarif dégressif » sur la fiche) ; une image gagne `illustrative` (image générée, étiquetée « Photo illustrative »). Le minimum de participants est la borne `min` de la dimension `persons`.
 
 ### `Service`
 
