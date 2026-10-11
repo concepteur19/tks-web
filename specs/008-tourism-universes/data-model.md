@@ -111,8 +111,8 @@ Sources relatives à `Elements/tri-par-activite/` (`NEW/…` : lot du 2026-10-11
 
 | Prestation | Photos (ordre de la galerie) | Nature |
 |---|---|---|
-| `village-mayi` | `decouverte-de-kribi/L13-05` (pont des Esclaves), `L13-01` (monument) | Franck |
-| `debarcadere-de-mboa-manga` | `decouverte-de-kribi/L1-01` | Franck |
+| `village-mayi` | `decouverte-de-kribi/L13-05` (pont des Esclaves) ; `L13-01` (monument) écartée, filigranée | Franck |
+| `debarcadere-de-mboa-manga` | `sections/kribi-vue-aerienne.jpg` (`L1-01` écartée, filigranée) | ambiance |
 | `plage-de-batanga` | `ambiance-hero-plages-couchers/L11-05` (plage de Kribi) | Franck, à sa demande ; texte alternatif « Plage de Kribi » |
 | `village-ebodje`, `port-autonome-de-kribi`, `hotel-golden-k`, `musee-batanga` | `sections/kribi-vue-aerienne.jpg` (déjà importée) | ambiance ; texte alternatif « Vue aérienne de la côte de Kribi » |
 | `excursion-en-chaloupe` | `NEW/18-56-09` (bateau couvert), `NEW/chaloupe/18-55-32`, `NEW/chaloupe/18-54-10` | Franck, remplace l'image Stitch |
@@ -125,7 +125,7 @@ Sources relatives à `Elements/tri-par-activite/` (`NEW/…` : lot du 2026-10-11
 | `croisiere-en-haute-mer` | `illustrations/croisiere-en-haute-mer.jpg` | illustrative |
 | 10 spécialités culinaires | `illustrations/<id>.jpg` | illustrative |
 
-Univers : `visites` → `experiences/chutes-de-la-lobe.jpg` ; `activites` → `experiences/jet-ski.jpg` ; `specialites-culinaires` → `categories/specialites-culinaires.jpg` (`decouverte-de-kribi/L14-02`, étal de poissons, Franck).
+Univers : `visites` → `experiences/chutes-de-la-lobe.jpg` ; `activites` → `experiences/jet-ski.jpg` ; `specialites-culinaires` → `illustrations/degustation-fruits-de-mer.jpg`, marquée illustrative (`L14-02`, étal de poissons, écartée : filigranée).
 
 Exclues : toute photo filigranée (`L13-02` à `L13-04`, `L11-01`, `18-58-17`, `18-58-27`, `18-59-20`) et les doublons de plus basse résolution.
 

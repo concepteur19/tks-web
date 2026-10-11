@@ -187,8 +187,8 @@ Franck signale que beaucoup de photos redemandées sont déjà dans ses envois T
 
 | Prestation | Photo trouvée | Statut |
 |---|---|---|
-| Débarcadère de Mboa-Manga | `L1-01`, `L14-01` (pirogues de pêcheurs) | identifiées par Franck (P16, P19) |
-| Village Mayi, monument | `L13-01` | identifiée par Franck (P17) ; groupe de personnes identifiables |
+| Débarcadère de Mboa-Manga | `L1-01`, `L14-01` (pirogues de pêcheurs) | identifiées par Franck (P16, P19), mais **filigranées** (voir plus bas) : inutilisables |
+| Village Mayi, monument | `L13-01` | identifiée par Franck (P17), mais **filigranée** (voir plus bas) : inutilisable |
 | Village Mayi, pont des Esclaves | `L13-05` (jetée de pierre) | identifiée par Franck (P18). L'audio parle de **deux** angles : un seul est dans les fichiers |
 | Village Mayi, phare | `L13-02`, `L13-03`, `L13-04` | **filigranées, inutilisables** |
 | Chutes de la Lobé | `L10-08`, `L10-09` (statue de sirène) | font partie du site des chutes, selon Franck (P20) |
@@ -202,3 +202,20 @@ Franck signale que beaucoup de photos redemandées sont déjà dans ses envois T
 | Hébergements, véhicules TKS® | `NEW/appart:studio`, `NEW/villa`, `NEW/voitures` | pour les features 005 et 006 |
 
 Toujours sans photo : Village Ebodjé, Port Autonome, Hôtel Golden K (Franck l'envoie), Musée Batanga, bateau de croisière, spécialités culinaires. Pour les deux derniers, Franck demande des **illustrations réalistes harmonisées, marquées « Photo illustrative »**, en attendant de vraies photos.
+
+## Filigranes manqués, contrôle du 2026-10-11
+
+Le tri du 2026-09-25 avait été fait sur des planches-contacts réduites. Contrôlées en pleine résolution, cinq photos non marquées portent elles aussi « © The Tourist Guide », en petit et en surimpression au milieu de l'image :
+
+| Photo | Où elle servait | Remplacée par |
+|---|---|---|
+| `L12-19` (palmiers) | page Contact, bloc « Qui sommes-nous », **en ligne depuis la 002** | `L11-06` (plage), `sections/plage-kribi.jpg` |
+| `L14-02` (étal de poissons) | carte de l'univers Spécialités culinaires (008, jamais publiée) | illustration `degustation-fruits-de-mer.jpg`, marquée « Photo illustrative » |
+| `L13-01` (monument du village Mayi) | galerie du Village Mayi (008, jamais publiée) | retirée ; reste le pont de l'Esclavage `L13-05` |
+| `L1-01` et `L14-01` (pirogues de Mboa-Manga) | Débarcadère de Mboa-Manga (008, jamais publiée) | photo d'ambiance (vue aérienne), en attendant celle de Franck |
+
+Les fichiers sont renommés `_FILIGRANE` dans `Elements/tri-par-activite/`, ce qui bloque leur import. `L14-04`, version brute et non retouchée de l'étal de poissons, est propre.
+
+Les 21 autres photos du lot du 2026-09-25 publiées par le site ont été contrôlées en pleine résolution le même jour : aucune autre mention. Le traitement très contrasté (HDR) est un indice : la plupart des photos du photographe l'ont, les photos de téléphone de Franck non.
+
+**À dire à Franck** : le monument du village Mayi et les pirogues de Mboa-Manga qu'il a identifiés (P16, P17, P19) viennent du photographe, pas de lui. Il faut ses propres photos de ces deux lieux.

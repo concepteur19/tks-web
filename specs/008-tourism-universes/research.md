@@ -98,7 +98,7 @@ Les 5 photos du feu de plage restées en HEIC dans `~/Downloads/Telegram Desktop
 
 Exclues : toute photo filigranée (phare `L13-02` à `L13-04`, `18-58-17`, `18-59-20`, parasols `L11-01` et `18-58-27`), les doublons en plus basse résolution d'une photo déjà importée.
 
-Cartes d'univers : chutes de la Lobé (visites), jet-ski (activités), étal de poissons `L14-02` (spécialités culinaires, photo réelle de Franck).
+Cartes d'univers : chutes de la Lobé (visites), jet-ski (activités), illustration de dégustation de fruits de mer (spécialités culinaires, marquée « Photo illustrative » ; l'étal de poissons `L14-02` envisagé porte un filigrane non repéré au premier tri).
 
 ## 12. Textes des fiches
 

@@ -84,7 +84,7 @@ export const en = {
   'contact.location': 'Where to find us',
   'contact.email': 'Email',
   'contact.social': 'Social media',
-  'contact.about.alt': 'Palm trees under the blue sky of Kribi',
+  'contact.about.alt': 'A sandy Kribi beach facing the ocean',
 
   'legal.updated': 'Last updated: {date}',
   'legal.publisherTitle': 'Website publisher',

@@ -85,7 +85,7 @@ export const fr = {
   'contact.location': 'Où nous trouver',
   'contact.email': 'E-mail',
   'contact.social': 'Réseaux sociaux',
-  'contact.about.alt': 'Palmiers sous le ciel bleu de Kribi',
+  'contact.about.alt': 'Une plage de sable de Kribi, face à l’océan',
 
   'legal.updated': 'Dernière mise à jour : {date}',
   'legal.publisherTitle': 'Éditeur du site',

@@ -17,7 +17,7 @@ Choix du 2026-10-05 :
 | Campement Bagyeli | `experiences/campement-bagyeli.jpg` | |
 | Bande immersive | `sections/lobe-en-pirogue.jpg` | |
 | Qui sommes-nous (accueil) | `sections/kribi-vue-aerienne.jpg` | |
-| Qui sommes-nous (Contact) | `sections/kribi-palmiers.jpg` | |
+| Qui sommes-nous (Contact) | `sections/plage-kribi.jpg` | `ambiance-hero-plages-couchers/L11-06` ; remplace le 2026-10-11 `L12-19` (palmiers), filigrane « The Tourist Guide » non repéré au premier tri |
 | Aperçu Chambre | `accommodation/chambre.jpg` | `hebergement-et-detente/L12-15`, voir ci-dessous |
 | Aperçu Villa | `accommodation/villa.jpg` | `hebergement-et-detente/L12-24`, voir ci-dessous |
 
@@ -60,8 +60,7 @@ Photos retrouvées ou reçues le 2026-10-11 (feature 008, voir `docs/photo-tri.m
 
 | Usage | Fichiers | Source |
 |---|---|---|
-| Village Mayi | `experiences/village-mayi.jpg`, `-2` | `decouverte-de-kribi/L13-05` (pont des Esclaves), `L13-01` (monument) |
-| Débarcadère de Mboa-Manga | `experiences/debarcadere-de-mboa-manga.jpg` | `decouverte-de-kribi/L1-01` |
+| Village Mayi | `experiences/village-mayi.jpg` | `decouverte-de-kribi/L13-05` (pont des Esclaves) |
 | Plage du village Batanga | `experiences/plage-de-batanga.jpg` | `ambiance-hero-plages-couchers/L11-05` (plage de Kribi, à la demande de Franck) |
 | Excursion en chaloupe | `experiences/excursion-en-chaloupe.jpg`, `-2`, `-3` | `chaloupe/photo_2026-10-11_18-56-09`, `18-55-32`, `18-54-10` |
 | Feu de plage, galerie | `experiences/feu-de-plage-2.jpg`, `-3` | `feux-de-plage/IMG_2058`, `IMG_2060` |
@@ -70,7 +69,6 @@ Photos retrouvées ou reçues le 2026-10-11 (feature 008, voir `docs/photo-tri.m
 | Séance photo | `experiences/seance-photo.jpg`, `-2`, `-3` | `seance-photo/photo_2026-10-11_18-56-42`, `18-55-15`, `18-55-09` |
 | Quad, galerie | `experiences/quad-2.jpg`, `-3` | `quad/photo_2026-10-11_18-56-55`, `18-55-21` |
 | Jet-ski, galerie | `experiences/jet-ski-2.jpg`, `-3` | `jet-ski/photo_2026-10-11_18-55-46`, `18-55-04` |
-| Univers Spécialités culinaires | `categories/specialites-culinaires.jpg` | `decouverte-de-kribi/L14-02` (étal de poissons) |
 
 ## Illustrations « Photo illustrative » (feature 008)
 
@@ -105,3 +103,5 @@ Décision de Zobel du 2026-10-05 : en attendant les photos de Franck, les sujets
 
 - **Hébergements.** `hebergement-et-detente/L11-01.jpg` porte un filigrane « © The Tourist Guide » que le tri du 2026-09-25 n'avait pas repéré : renommé `_FILIGRANE` localement le 2026-10-05, jamais utilisé. Les aperçus Chambre, Studio et Villa utilisent depuis le 2026-10-06 les photos de Franck ; `L12-15` et `L12-24` ne sont plus utilisées.
 - **Résolution faible** : les originaux font 680 à 1 280 px de large, vraisemblablement compressés par WhatsApp. Suffisant sur téléphone, flou sur grand écran. Demander à Franck les fichiers d'origine.
+
+- **Filigranes manqués** (contrôle du 2026-10-11) : `L12-19`, `L14-02`, `L13-01`, `L1-01` et `L14-01` portent « © The Tourist Guide » en petit, au milieu de l'image ; le tri du 2026-09-25 ne les avait pas vus. Toute nouvelle photo du lot du 2026-09-25 se contrôle en pleine résolution avant import. Détail : `docs/photo-tri.md`.

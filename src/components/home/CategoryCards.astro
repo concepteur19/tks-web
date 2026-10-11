@@ -5,6 +5,7 @@ import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
 import { categoriesWithExperiences, categoryCount, universePath } from '../../lib/catalog.ts';
 import Icon from '../Icon.astro';
+import IllustrativeTag from '../experiences/IllustrativeTag.astro';
 
 interface Props {
   locale: Locale;
@@ -37,6 +38,9 @@ const categories = await Promise.all(
             class="absolute inset-0 -z-10 h-full w-full object-cover"
           />
           <span class="absolute inset-0 -z-10 bg-linear-to-t from-fg/80 to-fg/10" />
+          {category.data.image.illustrative && (
+            <IllustrativeTag label={t(locale, 'experiences.illustrative')} top />
+          )}
           <span class="flex w-full items-end justify-between gap-3">
             <span>
               <span class="block font-display text-2xl font-bold">

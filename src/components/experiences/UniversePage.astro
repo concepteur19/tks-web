@@ -17,6 +17,7 @@ import {
 import ExperienceCard from './ExperienceCard.astro';
 import SpecialRequest from './SpecialRequest.astro';
 import UniverseNav from './UniverseNav.astro';
+import IllustrativeTag from './IllustrativeTag.astro';
 
 interface Props {
   universe: CollectionEntry<'categories'>;
@@ -79,6 +80,9 @@ const alternatePaths = { fr: universePath(universe, 'fr'), en: universePath(univ
       class="absolute inset-0 -z-10 h-full w-full object-cover"
     />
     <div class="absolute inset-0 -z-10 bg-linear-to-t from-fg/80 to-fg/20"></div>
+    {universe.data.image.illustrative && (
+      <IllustrativeTag label={t(locale, 'experiences.illustrative')} top />
+    )}
     <div class="mx-auto w-full max-w-(--size-content) px-4 pb-6 text-brand-contrast">
       <h1 class="font-display text-4xl font-extrabold">{name}</h1>
       <p class="mt-1 text-lg">{description}</p>

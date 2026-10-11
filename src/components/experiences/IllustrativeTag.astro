@@ -3,14 +3,17 @@
 interface Props {
   label: string;
   small?: boolean;
+  /** En haut à droite quand le bas de l'image porte déjà du texte (bandeaux, cartes de l'accueil). */
+  top?: boolean;
 }
 
-const { label, small = false } = Astro.props;
+const { label, small = false, top = false } = Astro.props;
 ---
 
 <span
   class:list={[
-    'absolute bottom-2 left-2 rounded-sm bg-fg/70 font-medium text-bg',
+    'absolute rounded-sm bg-fg/70 font-medium text-bg',
+    top ? 'top-2 right-2' : 'bottom-2 left-2',
     small ? 'px-1 py-px text-2xs' : 'px-2 py-0.5 text-xs',
   ]}
   data-illustrative
