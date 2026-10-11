@@ -192,7 +192,7 @@ Franck signale que beaucoup de photos redemandées sont déjà dans ses envois T
 | Village Mayi, pont des Esclaves | `L13-05` (jetée de pierre) | identifiée par Franck (P18). L'audio parle de **deux** angles : un seul est dans les fichiers |
 | Village Mayi, phare | `L13-02`, `L13-03`, `L13-04` | **filigranées, inutilisables** |
 | Chutes de la Lobé | `L10-08`, `L10-09` (statue de sirène) | font partie du site des chutes, selon Franck (P20) |
-| Feu de plage | `NEW/feu/photo_2026-10-06_01-53-03` + 5 HEIC `IMG_2056` à `IMG_2061` (Telegram Desktop, non importées) | vrai feu de plage de nuit ; remplace l'image Stitch |
+| Feu de plage | `NEW/feu/photo_2026-10-06_01-53-03` + 5 HEIC `IMG_2056` à `IMG_2061` (Telegram Desktop, non importées) | vrai feu de plage de nuit ; la première est publiée depuis la PR n°5 (2026-10-06), les HEIC remplaceront l'image Stitch en seconde position |
 | Pique-nique / bivouac | `feux-de-plage/L11-04`, `L6-06` | pique-nique sur la plage (classées à tort en « feu ») |
 | Chaloupe / mini-bateau | `croisiere/L6-08` (homme assis à la proue d'un bateau à moteur blanc) | **à confirmer** : chaloupe probable, classée à tort en « croisière » |
 | Bouée tractée | `ambiance/L11-02` (personne allongée sur une bouée dans les vagues) ; `L7-02` filigranée | **à confirmer** |
