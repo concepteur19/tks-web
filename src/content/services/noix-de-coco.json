@@ -1,0 +1,64 @@
+{
+  "title": {
+    "fr": "Noix de coco fraîche à boire",
+    "en": "Fresh coconut to drink"
+  },
+  "section": "experience",
+  "categoryId": "specialites-culinaires",
+  "shortDescription": {
+    "fr": "Une noix de coco fraîche, ouverte devant vous",
+    "en": "A fresh coconut, opened in front of you"
+  },
+  "description": {
+    "fr": "Rafraîchissez-vous avec une noix de coco fraîche à boire.",
+    "en": "Cool down with a fresh coconut to drink."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/noix-de-coco.jpg",
+      "alt": {
+        "fr": "Une noix de coco verte ouverte, avec une paille",
+        "en": "An opened green coconut with a straw"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
+  },
+  "conditions": {
+    "included": [
+      {
+        "fr": "Noix de coco fraîche",
+        "en": "Fresh coconut"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport et autres consommations",
+        "en": "Transport and other drinks"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Sur demande, selon la disponibilité de nos partenaires et du plat",
+        "en": "On request, depending on our partners and the dish"
+      },
+      {
+        "fr": "Selon l'arrivage",
+        "en": "Depending on supply"
+      }
+    ]
+  },
+  "order": 70
+}

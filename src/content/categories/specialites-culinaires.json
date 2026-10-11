@@ -1,0 +1,24 @@
+{
+  "name": {
+    "fr": "Spécialités culinaires",
+    "en": "Local Food"
+  },
+  "description": {
+    "fr": "Découvrir les saveurs et spécialités de la côte.",
+    "en": "Discover the flavours and specialities of the coast."
+  },
+  "urlSlug": {
+    "fr": "specialites-culinaires",
+    "en": "local-food"
+  },
+  "order": 30,
+  "withOptions": false,
+  "image": {
+    "src": "../../assets/photos/illustrations/degustation-fruits-de-mer.jpg",
+    "alt": {
+      "fr": "Un plateau de fruits de mer grillés à partager, sur une table de plage",
+      "en": "A platter of grilled seafood to share on a beach table"
+    },
+    "illustrative": true
+  }
+}

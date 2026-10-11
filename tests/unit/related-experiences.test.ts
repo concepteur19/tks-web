@@ -11,18 +11,18 @@ const item = (
 ): Item => ({ id, data: { categoryId, order, ...extra } });
 
 const all: Item[] = [
-  item('pirogue', 'nature', 20),
-  item('chutes', 'nature', 10),
-  item('jacuzzi', 'nature', 50),
-  item('quad', 'aventure', 80),
-  item('kayak', 'aventure', 90),
-  item('croisiere', 'detente', 60),
-  item('chaloupe', 'nature', 30, { availability: 'disabled' }),
+  item('pirogue', 'visites', 20),
+  item('chutes', 'visites', 10),
+  item('jacuzzi', 'visites', 50),
+  item('quad', 'activites', 80),
+  item('kayak', 'activites', 90),
+  item('croisiere', 'saveurs', 60),
+  item('chaloupe', 'visites', 30, { availability: 'disabled' }),
   item('guide', undefined, 1, { isOption: true }),
 ];
 
 describe('relatedExperiences', () => {
-  it('propose d’abord la même catégorie, par ordre, puis les autres', () => {
+  it('propose d’abord le même univers, par ordre, puis les autres', () => {
     expect(relatedExperiences('pirogue', all).map((entry) => entry.id)).toEqual([
       'chutes',
       'jacuzzi',
@@ -30,7 +30,7 @@ describe('relatedExperiences', () => {
     ]);
   });
 
-  it('complète avec les autres catégories quand la sienne est épuisée', () => {
+  it('complète avec les autres univers quand le sien est épuisé', () => {
     expect(relatedExperiences('quad', all).map((entry) => entry.id)).toEqual([
       'kayak',
       'chutes',
@@ -47,7 +47,7 @@ describe('relatedExperiences', () => {
 
   it('respecte la limite et renvoie une liste vide quand il n’y a rien d’autre', () => {
     expect(relatedExperiences('pirogue', all, 1)).toHaveLength(1);
-    expect(relatedExperiences('seule', [item('seule', 'nature', 1)])).toEqual([]);
+    expect(relatedExperiences('seule', [item('seule', 'visites', 1)])).toEqual([]);
   });
 
   it('range en dernier une expérience sans ordre', () => {

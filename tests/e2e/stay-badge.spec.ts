@@ -11,7 +11,7 @@ for (const [label, width, container] of [
     page,
   }) => {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto('/experiences');
+    await page.goto('/experiences/activites');
     await waitForIslands(page);
     for (const title of ['Kayak', 'Paddle']) {
       const button = page.getByRole('button', { name: `Ajouter à mon séjour : ${title}` });

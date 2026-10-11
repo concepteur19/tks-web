@@ -1,0 +1,54 @@
+{
+  "title": {
+    "fr": "Crabe",
+    "en": "Crab"
+  },
+  "section": "experience",
+  "categoryId": "specialites-culinaires",
+  "shortDescription": {
+    "fr": "Du crabe cuisiné selon les arrivages",
+    "en": "Crab cooked with the day’s catch"
+  },
+  "description": {
+    "fr": "Dégustez du crabe cuisiné selon les disponibilités et la préparation proposée.",
+    "en": "Enjoy crab cooked according to availability and the suggested recipe."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/crabe.jpg",
+      "alt": {
+        "fr": "Des crabes en sauce tomate pimentée",
+        "en": "Crabs in a spicy tomato sauce"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Accompagnements, boissons et transport, sauf mention contraire",
+        "en": "Sides, drinks and transport, unless stated otherwise"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Sur demande, selon la disponibilité de nos partenaires et du plat",
+        "en": "On request, depending on our partners and the dish"
+      }
+    ]
+  },
+  "order": 40
+}

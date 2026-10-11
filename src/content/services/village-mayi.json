@@ -1,0 +1,72 @@
+{
+  "title": {
+    "fr": "Village Mayi",
+    "en": "Mayi Village"
+  },
+  "section": "experience",
+  "categoryId": "visites",
+  "shortDescription": {
+    "fr": "Le pont de l'Esclavage, le pont des Enclaves, le phare et le monument",
+    "en": "The Slavery Bridge, the Enclaves Bridge, the lighthouse and the monument"
+  },
+  "description": {
+    "fr": "Découverte du village Mayi et de ses sites patrimoniaux : pont de l'Esclavage, pont des Enclaves, phare et monument.",
+    "en": "Discover Mayi village and its heritage sites: the Slavery Bridge, the Enclaves Bridge, the lighthouse and the monument."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/village-mayi.jpg",
+      "alt": {
+        "fr": "Une jetée de pierre qui avance dans l'océan, le pont de l'Esclavage",
+        "en": "A stone jetty reaching into the ocean, the Slavery Bridge"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 5000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "location": {
+    "fr": "Village Mayi",
+    "en": "Mayi Village"
+  },
+  "order": 30,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Le pont de l'Esclavage",
+        "en": "The Slavery Bridge"
+      },
+      {
+        "fr": "Le pont des Enclaves",
+        "en": "The Enclaves Bridge"
+      },
+      {
+        "fr": "Le phare",
+        "en": "The lighthouse"
+      },
+      {
+        "fr": "Le monument",
+        "en": "The monument"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport, repas et prestations supplémentaires, sauf mention contraire",
+        "en": "Transport, meals and extra services, unless stated otherwise"
+      }
+    ]
+  },
+  "degressive": true
+}

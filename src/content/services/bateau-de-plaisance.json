@@ -4,7 +4,7 @@
     "en": "Pleasure boat"
   },
   "section": "experience",
-  "categoryId": "detente",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Louez un bateau de plaisance ou un mini-yacht au large de Kribi",
     "en": "Hire a pleasure boat or mini yacht off the coast of Kribi"
@@ -36,6 +36,6 @@
       }
     ]
   },
-  "availability": "on_request",
-  "order": 130
+  "availability": "disabled",
+  "order": 150
 }

@@ -1,0 +1,22 @@
+{
+  "name": {
+    "fr": "Visites & Découvertes",
+    "en": "Visits & Discoveries"
+  },
+  "description": {
+    "fr": "Explorer les lieux, paysages, villages, patrimoines et sites de Kribi.",
+    "en": "Explore Kribi's places, landscapes, villages, heritage and sites."
+  },
+  "urlSlug": {
+    "fr": "visites",
+    "en": "visits"
+  },
+  "order": 10,
+  "image": {
+    "src": "../../assets/photos/experiences/chutes-de-la-lobe.jpg",
+    "alt": {
+      "fr": "Les chutes de la Lobé vues depuis une pirogue",
+      "en": "The Lobé Falls seen from a dugout canoe"
+    }
+  }
+}

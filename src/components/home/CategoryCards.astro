@@ -1,10 +1,11 @@
 ---
+/** Cartes des univers sur l'accueil (008, FR-009) : un univers non vide, une carte vers sa page. */
 import { Image } from 'astro:assets';
 import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
-import { categoryCount, getCategories } from '../../lib/catalog.ts';
+import { categoriesWithExperiences, categoryCount, universePath } from '../../lib/catalog.ts';
 import Icon from '../Icon.astro';
-import SmartLink from '../SmartLink.astro';
+import IllustrativeTag from '../experiences/IllustrativeTag.astro';
 
 interface Props {
   locale: Locale;
@@ -12,7 +13,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const categories = await Promise.all(
-  (await getCategories()).map(async (category) => ({
+  (await categoriesWithExperiences()).map(async (category) => ({
     ...category,
     count: await categoryCount(category.id),
   })),
@@ -24,12 +25,9 @@ const categories = await Promise.all(
   <ul class="mt-6 grid gap-4 lg:grid-cols-3">
     {categories.map((category) => (
       <li>
-        <SmartLink
-          routeKey="experiences"
-          hash={category.id}
-          locale={locale}
+        <a
+          href={universePath(category, locale)}
           class="relative isolate flex h-(--size-category-card) items-end overflow-hidden rounded-card p-5 text-brand-contrast"
-          hideIcon
         >
           <Image
             src={category.data.image.src}
@@ -40,6 +38,9 @@ const categories = await Promise.all(
             class="absolute inset-0 -z-10 h-full w-full object-cover"
           />
           <span class="absolute inset-0 -z-10 bg-linear-to-t from-fg/80 to-fg/10" />
+          {category.data.image.illustrative && (
+            <IllustrativeTag label={t(locale, 'experiences.illustrative')} top />
+          )}
           <span class="flex w-full items-end justify-between gap-3">
             <span>
               <span class="block font-display text-2xl font-bold">
@@ -53,7 +54,7 @@ const categories = await Promise.all(
             </span>
             <Icon name="arrow" />
           </span>
-        </SmartLink>
+        </a>
       </li>
     ))}
   </ul>

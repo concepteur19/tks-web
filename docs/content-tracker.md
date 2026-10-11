@@ -126,3 +126,16 @@ Trois catégories arrêtées le 2026-09-16 : Nature / Découverte, Aventure, Dé
 - **Bateau, chaloupe, prestations de campement** : cités le 2026-09-16 comme exemples de tarification au groupe, mais absents de la liste de lancement. Ce sont de nouveaux services à ajouter, ou des variantes d'activités existantes ?
 
 Réglé le 2026-09-16 : l'excursion en pirogue est gardée, il n'y a pas de catégorie « autres activités », et les dimensions de quantité sont définies service par service.
+
+## Les trois univers du Tourisme (feature 008, 2026-10-11)
+
+32 prestations publiées. Ce qui manque encore :
+
+| Élément | État |
+|---|---|
+| Photos du Village Ebodjé, du Port Autonome, de l'Hôtel Golden K (Franck l'envoie), du Musée Batanga | ⏳ photo d'ambiance (vue aérienne de Kribi) en attendant |
+| Photo du débarcadère de Mboa-Manga et du monument du village Mayi | ⏳ celles identifiées par Franck (P16, P17, P19) portent le filigrane « The Tourist Guide » : il faut les siennes |
+| Second angle du pont des Esclaves | ⏳ introuvable dans les fichiers (Zobel, 2026-10-11 : on passe) |
+| Photos réelles des 10 spécialités culinaires et du bateau de croisière | 🔄 illustrations générées, marquées « Photo illustrative » |
+| Durées (sessions de quad, jet-ski, bouée ; visites ; parcours) | ⏳ jamais données : rubrique omise |
+| Textes anglais des 21 nouvelles prestations | 🔄 traduits par IA, à relire par Zobel (T042) |

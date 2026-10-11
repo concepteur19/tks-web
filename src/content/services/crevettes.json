@@ -1,0 +1,54 @@
+{
+  "title": {
+    "fr": "Crevettes",
+    "en": "Shrimps"
+  },
+  "section": "experience",
+  "categoryId": "specialites-culinaires",
+  "shortDescription": {
+    "fr": "Des crevettes cuisinées selon la recette du jour",
+    "en": "Shrimps cooked to the recipe of the day"
+  },
+  "description": {
+    "fr": "Découvrez des crevettes préparées selon la recette et les produits disponibles.",
+    "en": "Discover shrimps prepared with the recipe and produce of the day."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/crevettes.jpg",
+      "alt": {
+        "fr": "Des crevettes en sauce tomate pimentée, servies avec du plantain",
+        "en": "Shrimps in a spicy tomato sauce, served with plantain"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Accompagnements, boissons et transport, sauf mention contraire",
+        "en": "Sides, drinks and transport, unless stated otherwise"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Sur demande, selon la disponibilité de nos partenaires et du plat",
+        "en": "On request, depending on our partners and the dish"
+      }
+    ]
+  },
+  "order": 30
+}

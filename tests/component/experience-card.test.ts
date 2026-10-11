@@ -15,7 +15,7 @@ function service(id: string, data: Record<string, unknown>) {
     data: {
       title: { fr: 'Excursion en pirogue', en: 'Dugout canoe trip' },
       section: 'experience',
-      categoryId: 'nature-decouverte',
+      categoryId: 'visites',
       shortDescription: { fr: 'Remontez la Lobé', en: 'Paddle up the Lobé' },
       description: { fr: 'Description', en: 'Description' },
       quantity: { dimensions: [] },
@@ -64,6 +64,24 @@ describe('carte d’expérience', () => {
     expect(text(root)).toContain('Disponibilité à confirmer');
     expect(text(root)).toContain('Sur devis');
     expect(text(root)).not.toContain('€');
+  });
+
+  it('affiche le minimum de participants quand il dépasse 1', async () => {
+    const minimum = await mount({
+      locale: 'fr',
+      service: service('campement-bagyeli', {
+        pricing: { kind: 'from', amount: 15000, unit: 'per_person' },
+        quantity: { dimensions: [{ kind: 'persons', min: 2, max: 20, default: 2 }] },
+      }),
+    });
+    expect(text(minimum)).toContain('Min. 2 pers.');
+    const none = await mount({
+      locale: 'fr',
+      service: service('excursion-en-pirogue', {
+        pricing: { kind: 'fixed', amount: 35000, unit: 'per_group', maxCapacity: 8 },
+      }),
+    });
+    expect(text(none)).not.toContain('Min.');
   });
 
   it('suit la langue anglaise', async () => {

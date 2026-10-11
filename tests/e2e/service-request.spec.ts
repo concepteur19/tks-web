@@ -39,7 +39,7 @@ for (const [path, expected] of [
 
 test('une expérience sur devis affiche le badge à la place du prix', async ({ page }) => {
   await page.setViewportSize({ width: 360, height: 800 });
-  await page.goto('/experiences/bateau-de-plaisance');
+  await page.goto('/experiences/village-ebodje');
   await expect(page.getByTestId('request-bar')).toContainText('Sur devis');
 });
 

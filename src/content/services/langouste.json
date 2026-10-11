@@ -1,0 +1,54 @@
+{
+  "title": {
+    "fr": "Langouste",
+    "en": "Spiny lobster"
+  },
+  "section": "experience",
+  "categoryId": "specialites-culinaires",
+  "shortDescription": {
+    "fr": "Une langouste préparée selon les arrivages",
+    "en": "A spiny lobster prepared with the day’s catch"
+  },
+  "description": {
+    "fr": "Savourez une langouste préparée selon les arrivages et la proposition du partenaire.",
+    "en": "Savour a spiny lobster prepared with the day’s catch and our partner’s suggestion."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/langouste.jpg",
+      "alt": {
+        "fr": "Une langouste grillée, servie avec du plantain et une sauce pimentée",
+        "en": "A grilled spiny lobster served with plantain and chili sauce"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Accompagnements, boissons et transport, sauf mention contraire",
+        "en": "Sides, drinks and transport, unless stated otherwise"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Sur demande, selon la disponibilité de nos partenaires et du plat",
+        "en": "On request, depending on our partners and the dish"
+      }
+    ]
+  },
+  "order": 50
+}

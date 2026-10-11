@@ -1,0 +1,64 @@
+{
+  "title": {
+    "fr": "Dégustation de fruits de mer en bord de mer",
+    "en": "Seaside seafood tasting"
+  },
+  "section": "experience",
+  "categoryId": "specialites-culinaires",
+  "shortDescription": {
+    "fr": "Une sélection de fruits de mer à partager, au bord de la mer",
+    "en": "A selection of seafood to share by the sea"
+  },
+  "description": {
+    "fr": "Dégustez une sélection de fruits de mer en bord de mer, selon les produits disponibles.",
+    "en": "Taste a selection of seafood by the sea, depending on the produce available."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/degustation-fruits-de-mer.jpg",
+      "alt": {
+        "fr": "Un plateau de fruits de mer grillés à partager, sur une table de plage",
+        "en": "A platter of grilled seafood to share on a beach table"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
+  },
+  "conditions": {
+    "included": [
+      {
+        "fr": "Sélection et portions adaptées au groupe",
+        "en": "Selection and portions suited to the group"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Boissons, transport et extras, sauf mention contraire",
+        "en": "Drinks, transport and extras, unless stated otherwise"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Sur demande, selon la disponibilité de nos partenaires et du plat",
+        "en": "On request, depending on our partners and the dish"
+      },
+      {
+        "fr": "Tarif selon le menu et le nombre de convives",
+        "en": "Price depends on the menu and number of guests"
+      }
+    ]
+  },
+  "order": 90
+}

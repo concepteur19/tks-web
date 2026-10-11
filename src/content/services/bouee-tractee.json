@@ -1,0 +1,72 @@
+{
+  "title": {
+    "fr": "Bouée tractée",
+    "en": "Towed tube ride"
+  },
+  "section": "experience",
+  "categoryId": "activites",
+  "shortDescription": {
+    "fr": "Des sensations sur une bouée tirée par un bateau",
+    "en": "Thrills on a tube towed by a boat"
+  },
+  "description": {
+    "fr": "Vivez une expérience de bouée tractée derrière un engin nautique, selon les conditions du prestataire.",
+    "en": "Ride a tube towed behind a boat, according to the operator's conditions."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/bouee-tractee.jpg",
+      "alt": {
+        "fr": "Une bouée gonflable tirée par un bateau à moteur",
+        "en": "An inflatable tube towed by a motorboat"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/bouee-tractee-2.jpg",
+      "alt": {
+        "fr": "Des passagers sur une bouée banane, en mer",
+        "en": "Riders on a banana boat at sea"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 10000,
+    "unit": "per_session"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "units",
+        "label": {
+          "fr": "sessions",
+          "en": "sessions"
+        },
+        "min": 1,
+        "max": 10,
+        "default": 1
+      }
+    ]
+  },
+  "order": 130,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Bouée et encadrement",
+        "en": "Tube and supervision"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport",
+        "en": "Transport"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Une personne par engin",
+        "en": "One person per vehicle"
+      }
+    ]
+  }
+}

@@ -4,7 +4,7 @@
     "en": "Natural jacuzzi"
   },
   "section": "experience",
-  "categoryId": "nature-decouverte",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Baignez-vous dans un bassin naturel, au cœur de la végétation",
     "en": "Bathe in a natural pool surrounded by greenery"
@@ -51,5 +51,19 @@
       }
     ]
   },
-  "order": 50
+  "order": 90,
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Transport",
+        "en": "Transport"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "L'accès dépend des conditions naturelles et de la météo",
+        "en": "Access depends on natural conditions and the weather"
+      }
+    ]
+  }
 }

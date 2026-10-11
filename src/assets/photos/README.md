@@ -13,14 +13,11 @@ Choix du 2026-10-05 :
 | Usage | Fichier | Remarque |
 |---|---|---|
 | Hero de l'accueil, image de partage | `hero/plage-coucher-de-soleil.jpg` | portrait 960 × 1 280 |
-| Catégorie Nature & Découverte | `categories/nature-decouverte.jpg` | chutes de la Lobé ; aucune photo ne montre la chute dans l'océan |
-| Catégorie Aventure | `categories/aventure.jpg` | jet-ski |
-| Catégorie Détente | `categories/detente.jpg` | pirogues sur la plage au soleil couchant ; les deux photos « feux de plage » montrent un pique-nique, pas un feu |
 | Excursion en pirogue | `experiences/excursion-en-pirogue.jpg` | |
 | Campement Bagyeli | `experiences/campement-bagyeli.jpg` | |
 | Bande immersive | `sections/lobe-en-pirogue.jpg` | |
 | Qui sommes-nous (accueil) | `sections/kribi-vue-aerienne.jpg` | |
-| Qui sommes-nous (Contact) | `sections/kribi-palmiers.jpg` | |
+| Qui sommes-nous (Contact) | `sections/plage-kribi.jpg` | `ambiance-hero-plages-couchers/L11-06` ; remplace le 2026-10-11 `L12-19` (palmiers), filigrane « The Tourist Guide » non repéré au premier tri |
 | Aperçu Chambre | `accommodation/chambre.jpg` | `hebergement-et-detente/L12-15`, voir ci-dessous |
 | Aperçu Villa | `accommodation/villa.jpg` | `hebergement-et-detente/L12-24`, voir ci-dessous |
 
@@ -59,18 +56,52 @@ Nouvelles photos reçues le 2026-10-06 (`Elements/Images ett vidéos du projet/n
 
 Autres photos reçues, gardées pour plus tard : 4 autres photos d'appartement ou studio et 9 autres photos de villa (feature 005), la vue aérienne et le panneau des chutes, 7 photos de voitures TKS® (feature 006, `voitures-tks/`).
 
+Photos retrouvées ou reçues le 2026-10-11 (feature 008, voir `docs/photo-tri.md`, « Réexamen du 2026-10-11 ») ; le lot du jour vient de `Elements/Images ett vidéos du projet/nouvelles images/`, les deux HEIC de `~/Downloads/Telegram Desktop/`, convertis en JPEG par `sips`, tous copiés dans `Elements/tri-par-activite/` :
+
+| Usage | Fichiers | Source |
+|---|---|---|
+| Village Mayi | `experiences/village-mayi.jpg` | `decouverte-de-kribi/L13-05` (pont des Esclaves) |
+| Plage du village Batanga | `experiences/plage-de-batanga.jpg` | `ambiance-hero-plages-couchers/L11-05` (plage de Kribi, à la demande de Franck) |
+| Excursion en chaloupe | `experiences/excursion-en-chaloupe.jpg`, `-2`, `-3` | `chaloupe/photo_2026-10-11_18-56-09`, `18-55-32`, `18-54-10` |
+| Feu de plage, galerie | `experiences/feu-de-plage-2.jpg`, `-3` | `feux-de-plage/IMG_2058`, `IMG_2060` |
+| Pique-nique et bivouac | `experiences/pique-nique-bivouac.jpg`, `-2` | `pique-nique/photo_2026-10-11_18-56-48`, `feux-de-plage/L11-04` |
+| Bouée tractée | `experiences/bouee-tractee.jpg`, `-2` | `bouee-tractee/photo_2026-10-11_18-56-29`, `18-56-16` (`18-56-38`, quasi identique, écartée) |
+| Séance photo | `experiences/seance-photo.jpg`, `-2`, `-3` | `seance-photo/photo_2026-10-11_18-56-42`, `18-55-15`, `18-55-09` |
+| Quad, galerie | `experiences/quad-2.jpg`, `-3` | `quad/photo_2026-10-11_18-56-55`, `18-55-21` |
+| Jet-ski, galerie | `experiences/jet-ski-2.jpg`, `-3` | `jet-ski/photo_2026-10-11_18-55-46`, `18-55-04` |
+
+## Illustrations « Photo illustrative » (feature 008)
+
+À la demande de Franck (questionnaire 4, P9 et P15), les spécialités culinaires et le bateau de croisière en haute mer, faute de photo réelle, affichent une illustration réaliste générée le 2026-10-11 avec l'outil d'images de Figma (`generate_image`, modèle `gemini-3.1-flash-image`, 1 200 × 896 px, forfait Connecteur inc 360). Chaque image porte `illustrative: true` : le site affiche l'étiquette « Photo illustrative ». À remplacer par une photo de Franck dès qu'il en envoie.
+
+Consigne commune : *Realistic documentary food photograph taken in Kribi, Cameroon: [sujet], on a weathered wooden table at a beach restaurant. Natural late-afternoon golden light, warm tones (terracotta, cream, ochre), shallow depth of field, Atlantic ocean and palm trees softly blurred in the background. 35mm lens, authentic and appetizing, not studio lighting. No people, no hands, no text, no logos, no watermark.*
+
+| Fichier | Sujet de la consigne |
+|---|---|
+| `illustrations/langouste.jpg` | langouste grillée ouverte, citron vert, plantain frit, sauce pimentée |
+| `illustrations/poisson-braise.jpg` | poisson entier braisé au charbon, plantain, oignons, sauce pimentée |
+| `illustrations/gambas.jpg` | gambas grillées à l'ail et au piment, citron vert |
+| `illustrations/crevettes.jpg` | crevettes sautées en sauce tomate pimentée, plantain |
+| `illustrations/crabe.jpg` | crabes en sauce tomate pimentée, plantain |
+| `illustrations/maban.jpg` | maban : poisson pimenté aux épices, en pot de terre sur feuille de bananier |
+| `illustrations/noix-de-coco.jpg` | noix de coco verte ouverte avec une paille |
+| `illustrations/grillades-de-plage.jpg` | barbecue sur le sable : brochettes de poisson et de viande, maïs |
+| `illustrations/degustation-fruits-de-mer.jpg` | plateau de fruits de mer à partager sur la plage |
+| `illustrations/repas-local.jpg` | repas camerounais sous une paillote de village (poisson en sauce, légumes, manioc, plantain, bâton de manioc) |
+| `illustrations/croisiere-en-haute-mer.jpg` | bateau de croisière blanc en mer au large de la côte de Kribi (consigne de voyage, sans nourriture) |
+
 ## Images générées par Google Stitch (provisoires)
 
 Décision de Zobel du 2026-10-05 : en attendant les photos de Franck, les sujets sans photo prennent l'image générée par Stitch pour les écrans validés. Les liens d'origine de ces images sont privés : elles sont découpées dans les captures validées de `docs/design-exports/`, sans les badges incrustés. À remplacer une à une dès réception des photos (questionnaire `docs/questions-kibreeze-franck-3.xlsx`, onglet Photos).
 
 | Usage | Fichier | Capture d'origine |
 |---|---|---|
-| Excursion en chaloupe | `stitch/excursion-en-chaloupe.jpg` | `02a-experiences-toutes` |
 | Croisière en bateau | `stitch/croisiere-en-bateau.jpg` | `02a-experiences-toutes` |
-| Feu de plage | `stitch/feu-de-plage.jpg` | `02a-experiences-toutes` |
 | Bateau de plaisance | `stitch/bateau-de-plaisance.jpg` | `02a-experiences-toutes` |
 
 ## Limites connues
 
 - **Hébergements.** `hebergement-et-detente/L11-01.jpg` porte un filigrane « © The Tourist Guide » que le tri du 2026-09-25 n'avait pas repéré : renommé `_FILIGRANE` localement le 2026-10-05, jamais utilisé. Les aperçus Chambre, Studio et Villa utilisent depuis le 2026-10-06 les photos de Franck ; `L12-15` et `L12-24` ne sont plus utilisées.
 - **Résolution faible** : les originaux font 680 à 1 280 px de large, vraisemblablement compressés par WhatsApp. Suffisant sur téléphone, flou sur grand écran. Demander à Franck les fichiers d'origine.
+
+- **Filigranes manqués** (contrôle du 2026-10-11) : `L12-19`, `L14-02`, `L13-01`, `L1-01` et `L14-01` portent « © The Tourist Guide » en petit, au milieu de l'image ; le tri du 2026-09-25 ne les avait pas vus. Toute nouvelle photo du lot du 2026-09-25 se contrôle en pleine résolution avant import. Détail : `docs/photo-tri.md`.

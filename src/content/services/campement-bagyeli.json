@@ -1,10 +1,10 @@
 {
   "title": {
-    "fr": "Campement Bagyeli",
-    "en": "Bagyeli camp"
+    "fr": "Village Bagyeli",
+    "en": "Bagyeli Village"
   },
   "section": "experience",
-  "categoryId": "nature-decouverte",
+  "categoryId": "visites",
   "shortDescription": {
     "fr": "À la rencontre du peuple de la forêt, au campement pygmée Bagyeli",
     "en": "Meet the people of the forest at the Bagyeli pygmy camp"
@@ -36,68 +36,54 @@
       }
     }
   ],
-  "tiers": [
-    {
-      "id": "individuel",
-      "label": {
-        "fr": "Individuel",
-        "en": "Individual"
-      },
-      "pricing": {
-        "kind": "fixed",
-        "amount": 7500,
-        "unit": "per_person"
-      },
-      "quantity": {
-        "dimensions": [
-          {
-            "kind": "persons",
-            "min": 1,
-            "max": 20,
-            "default": 2
-          }
-        ]
-      }
-    },
-    {
-      "id": "couple",
-      "label": {
-        "fr": "Couple",
-        "en": "Couple"
-      },
-      "pricing": {
-        "kind": "fixed",
-        "amount": 20000,
-        "unit": "per_group"
-      },
-      "quantity": {
-        "dimensions": []
-      }
-    },
-    {
-      "id": "groupe",
-      "label": {
-        "fr": "Groupe",
-        "en": "Group"
-      },
-      "pricing": {
-        "kind": "quote"
-      },
-      "quantity": {
-        "dimensions": []
-      }
-    }
-  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 15000,
+    "unit": "per_person"
+  },
   "quantity": {
     "dimensions": [
       {
         "kind": "persons",
-        "min": 1,
+        "min": 2,
         "max": 20,
         "default": 2
       }
     ]
   },
   "featured": true,
-  "order": 40
+  "order": 20,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Le fleuve Lobé",
+        "en": "The Lobé River"
+      },
+      {
+        "fr": "Le campement",
+        "en": "The camp"
+      },
+      {
+        "fr": "Le pont Lobé",
+        "en": "The Lobé bridge"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport et dépenses personnelles",
+        "en": "Transport and personal expenses"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Visite organisée avec un interlocuteur local",
+        "en": "Visit organised with a local contact"
+      }
+    ]
+  },
+  "location": {
+    "fr": "Fleuve Lobé",
+    "en": "Lobé River"
+  },
+  "degressive": true
 }

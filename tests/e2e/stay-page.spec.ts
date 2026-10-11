@@ -4,7 +4,7 @@ import { plain, seedSelection, storedSelection, waitForIslands } from './stay.ts
 const FULL = [
   { serviceId: 'excursion-en-pirogue', quantities: [6], optionIds: ['guide-touristique'] },
   { serviceId: 'chutes-de-la-lobe', quantities: [2] },
-  { serviceId: 'jet-ski' },
+  { serviceId: 'village-ebodje' },
 ];
 
 test.beforeEach(async ({ page }) => {
@@ -36,7 +36,9 @@ test('modifier une quantité et retirer une ligne mettent total et compteur à j
   expect(plain(await page.locator('[data-testid="stay-total"]:visible').textContent())).toContain(
     '55 000 FCFA',
   );
-  await page.getByRole('button', { name: 'Retirer Jet-ski de mon séjour' }).click();
+  await page
+    .getByRole('button', { name: 'Retirer Village Ebodjé et tortues marines de mon séjour' })
+    .click();
   await expect(page.getByTestId('stay-line')).toHaveCount(2);
   await expect(page.locator('[data-testid="stay-badge"]:visible')).toHaveText(/^2/);
 });
@@ -101,7 +103,7 @@ test('sur ordinateur, le panneau du total reste visible au défilement', async (
   await page.setViewportSize({ width: 1440, height: 700 });
   await seedSelection(
     page,
-    ['kayak', 'paddle', 'quad', 'balade-a-cheval', 'jacuzzi-naturel', 'croisiere-en-bateau'].map(
+    ['kayak', 'paddle', 'quad', 'balade-a-cheval', 'jacuzzi-naturel', 'seance-photo'].map(
       (serviceId) => ({ serviceId, quantities: [2] }),
     ),
   );
@@ -109,4 +111,18 @@ test('sur ordinateur, le panneau du total reste visible au défilement', async (
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   await expect(page.locator('[data-testid="stay-total"]:visible')).toBeInViewport();
   await expect(page.locator('[data-testid="send-stay"]:visible')).toBeInViewport();
+});
+
+test('Mon séjour respecte le minimum du Village Bagyeli', async ({ page }) => {
+  await seedSelection(page, [{ serviceId: 'campement-bagyeli', quantities: [2] }]);
+  await expect(page.getByRole('button', { name: /^Diminuer : Village Bagyeli/ })).toBeDisabled();
+});
+
+test('un tarif du campement qui n’existe plus est retiré, avec un message', async ({ page }) => {
+  await seedSelection(page, [
+    ...FULL,
+    { serviceId: 'campement-bagyeli', tierId: 'couple', quantities: [] },
+  ]);
+  await expect(page.getByTestId('stay-line')).toHaveCount(3);
+  await expect(page.getByTestId('toast')).toContainText('n’est plus proposée'.replace('’', "'"));
 });

@@ -341,3 +341,18 @@ Photos des cinq véhicules reçues, copiées dans `Elements/tri-par-activite/voi
 - Règle de Franck : chaque service affiche au moins une de ses photos quand elle existe. Il désigne `photo_8_2026-09-25_12-09-12.jpg` (L6-08) pour la croisière.
 - Nouvelles photos en haute résolution : chutes, feu de plage, appartement et studio, villa, voitures (`Elements/Images ett vidéos du projet/nouvelles images/`).
 
+
+## 1 septies. Cahier actualisé d'octobre 2026 et questionnaire 4 (2026-10-10 et 2026-10-11)
+
+**Source** : [Cahier_des_charges_KIBREEZE_MAJ_2026.pdf](../Elements/Cahier_des_charges_KIBREEZE_MAJ_2026.pdf), message de Franck du 2026-10-10, réponses au questionnaire 4 ([questions-kibreeze-franck-repondu (1).xlsx](../Elements/questions-kibreeze-franck-repondu%20(1).xlsx)) et audio du 2026-10-11 ([audio-transcript.md](./audio-transcript.md)). Mis en œuvre par la feature 008.
+
+- **Trois univers** remplacent les catégories : Visites & Découvertes (9 visites), Activités & Loisirs (13 activités), Spécialités culinaires (10, toutes sur demande). Page d'entrée « Découvrez Kribi selon vos envies ».
+- **U1** : l'onglet s'appelle « Tourisme » (adresses inchangées).
+- **U2 à U4** : les Parcours vont dans l'onglet Formules (feature 005), avec une entrée « Parcours Kibreeze » depuis le Tourisme ; « Personnaliser ce parcours » les ajoute à Mon séjour ; ils comptent dans le total, « à partir de ».
+- **U5, U6** : Kibreeze organise les repas avec ses partenaires, sur demande ; la quantité est le nombre de convives.
+- **Q1, Q2** : la croisière en bateau et le bateau de plaisance sont remplacés par le bateau de croisière en haute mer (150 000 FCFA l'heure) ; anciennes adresses redirigées.
+- **Q3** : le Musée d'art est le Musée Batanga ; l'option est retirée, la visite (2 000 FCFA) reste.
+- **Q4** : quad, jet-ski et bouée tractée, une personne par engin ; jet-ski à 10 000 FCFA la session.
+- **Q5** : guide et maître-nageur proposés sur toutes les visites et activités.
+- **Règles de prix** : minimum de participants (Village Bagyeli : à partir de 15 000 FCFA par personne, minimum 2) et mention « tarif dégressif », sans paliers.
+- **Photos** : Franck a fourni lieux, inclus, non inclus et « à savoir » de chaque prestation ; il demande des illustrations réalistes marquées « Photo illustrative » pour les plats et le bateau de croisière, en attendant de vraies photos.

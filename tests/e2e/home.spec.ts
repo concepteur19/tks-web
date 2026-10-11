@@ -62,7 +62,7 @@ for (const [path, lang, title, ctas] of [
       await expect(page.locator('[data-indicative]')).toHaveCount(1);
     });
 
-    test('ne montre aucun bouton d’ajout au séjour, et compte les expériences par catégorie', async ({
+    test('ne montre aucun bouton d’ajout au séjour, et compte les expériences par univers', async ({
       page,
     }) => {
       // Le nombre par catégorie apparaît depuis la livraison du catalogue (feature 003).
@@ -71,9 +71,13 @@ for (const [path, lang, title, ctas] of [
       await expect(page.locator('[data-section="featured"] [data-testid="quick-add"]')).toHaveCount(
         4,
       );
+      // Une carte par univers qui a au moins une prestation publiée (feature 008).
+      const cards = page.locator('[data-section="categories"] a');
+      const count = await cards.count();
+      expect(count).toBeGreaterThanOrEqual(2);
       await expect(
         page.locator('[data-section="categories"]').getByText(/\d+ (expériences?|experiences?)/),
-      ).toHaveCount(3);
+      ).toHaveCount(count);
     });
 
     test('renvoie vers WhatsApp les liens dont la page n’est pas livrée', async ({ page }) => {

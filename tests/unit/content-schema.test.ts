@@ -21,7 +21,7 @@ function omit<T extends object>(value: T, key: keyof T): Partial<T> {
 const pirogue = {
   title: { fr: 'Excursion en pirogue', en: 'Dugout canoe trip' },
   section: 'experience',
-  categoryId: 'nature-decouverte',
+  categoryId: 'activites',
   shortDescription: { fr: 'Remontez la Lobé entre mangrove et forêt', en: 'Paddle up the Lobé' },
   description: { fr: 'Une remontée de la Lobé.', en: 'A trip up the Lobé.' },
   images: [{ src: 'pirogue.jpg', alt: { fr: 'Pirogue sur la Lobé', en: 'Canoe on the Lobé' } }],
@@ -207,22 +207,65 @@ describe('fiche de service', () => {
   });
 });
 
-describe('catégorie', () => {
-  const category = categorySchema(z.string());
-  const aventure = {
-    name: { fr: 'Aventure', en: 'Adventure' },
+describe('univers', () => {
+  const universe = categorySchema(z.string());
+  const activites = {
+    name: { fr: 'Activités & Loisirs', en: 'Activities & Leisure' },
+    description: { fr: 'Vivre des expériences entre mer et nature.', en: 'Sea and nature.' },
+    urlSlug: { fr: 'activites', en: 'activities' },
     order: 20,
-    image: { src: 'aventure.jpg', alt: { fr: 'Jet-ski', en: 'Jet ski' } },
+    image: { src: 'jet-ski.jpg', alt: { fr: 'Jet-ski', en: 'Jet ski' } },
   };
 
-  it('accepte une catégorie conforme et refuse un nom absent', () => {
-    expect(category.safeParse(aventure).success).toBe(true);
-    expect(category.safeParse(omit(aventure, 'name')).success).toBe(false);
+  it('accepte un univers conforme et refuse un nom absent', () => {
+    expect(universe.safeParse(activites).success).toBe(true);
+    expect(universe.safeParse(omit(activites, 'name')).success).toBe(false);
+  });
+
+  it('exige une phrase de présentation et une adresse par langue', () => {
+    expect(universe.safeParse(omit(activites, 'description')).success).toBe(false);
+    expect(universe.safeParse(omit(activites, 'urlSlug')).success).toBe(false);
+    expect(universe.safeParse({ ...activites, urlSlug: { fr: 'activites' } }).success).toBe(false);
+  });
+
+  it('refuse une adresse qui n’est pas en minuscules et tirets', () => {
+    for (const fr of ['Activites', 'activités', 'activites-', 'a b', '-activites']) {
+      expect(universe.safeParse({ ...activites, urlSlug: { fr, en: 'activities' } }).success).toBe(
+        false,
+      );
+    }
+    expect(
+      universe.safeParse({
+        ...activites,
+        urlSlug: { fr: 'specialites-culinaires', en: 'local-food' },
+      }).success,
+    ).toBe(true);
+  });
+
+  it('accepte withOptions booléen et refuse un champ inconnu', () => {
+    expect(universe.safeParse({ ...activites, withOptions: false }).success).toBe(true);
+    expect(universe.safeParse({ ...activites, withOptions: 'non' }).success).toBe(false);
+    expect(universe.safeParse({ ...activites, slugz: {} }).success).toBe(false);
   });
 
   it('exige une image avec son texte alternatif', () => {
-    expect(category.safeParse(omit(aventure, 'image')).success).toBe(false);
-    expect(category.safeParse({ ...aventure, image: { src: 'aventure.jpg' } }).success).toBe(false);
+    expect(universe.safeParse(omit(activites, 'image')).success).toBe(false);
+    expect(universe.safeParse({ ...activites, image: { src: 'jet-ski.jpg' } }).success).toBe(false);
+  });
+});
+
+describe('dégressivité et images illustratives (008)', () => {
+  it('accepte degressive booléen', () => {
+    expect(schema.safeParse({ ...kayak, degressive: true }).success).toBe(true);
+    expect(schema.safeParse({ ...kayak, degressive: 'oui' }).success).toBe(false);
+  });
+
+  it('accepte une image marquée illustrative', () => {
+    const image = { ...pirogue.images[0]!, illustrative: true };
+    expect(schema.safeParse({ ...kayak, images: [image] }).success).toBe(true);
+    expect(schema.safeParse({ ...kayak, images: [{ ...image, illustrative: 1 }] }).success).toBe(
+      false,
+    );
   });
 });
 
@@ -343,16 +386,48 @@ describe('document légal', () => {
 });
 
 describe('cohérence du catalogue', () => {
+  const universes = [
+    { id: 'visites', urlSlug: { fr: 'visites', en: 'visits' } },
+    { id: 'activites', urlSlug: { fr: 'activites', en: 'activities' } },
+  ];
+
+  it('accepte un catalogue cohérent', () => {
+    expect(
+      catalogIssues(universes, [
+        { id: 'excursion-en-pirogue', data: { categoryId: 'activites' } },
+        { id: 'guide-touristique', data: {} },
+      ]),
+    ).toEqual([]);
+  });
+
   it('signale un categoryId inconnu', () => {
-    const issues = catalogIssues(
-      ['nature-decouverte'],
-      [
-        { id: 'excursion-en-pirogue', data: { categoryId: 'nature-decouverte' } },
-        { id: 'quad', data: { categoryId: 'aventur' } },
-      ],
-    );
-    expect(issues).toEqual([
-      'services/quad : categoryId « aventur » ne correspond à aucune catégorie',
+    const issues = catalogIssues(universes, [
+      { id: 'excursion-en-pirogue', data: { categoryId: 'activites' } },
+      { id: 'quad', data: { categoryId: 'aventur' } },
     ]);
+    expect(issues).toEqual([
+      'services/quad : categoryId « aventur » ne correspond à aucun univers',
+    ]);
+  });
+
+  it('signale une prestation dont l’identifiant est l’adresse d’un univers, dans chaque langue', () => {
+    expect(
+      catalogIssues(universes, [
+        { id: 'visits', data: { categoryId: 'visites' } },
+        { id: 'activites', data: { categoryId: 'activites' } },
+      ]),
+    ).toEqual([
+      'services/visits : identifiant identique à l’adresse de l’univers « visites »',
+      'services/activites : identifiant identique à l’adresse de l’univers « activites »',
+    ]);
+  });
+
+  it('signale une adresse d’univers utilisée deux fois dans une langue', () => {
+    expect(
+      catalogIssues(
+        [...universes, { id: 'saveurs', urlSlug: { fr: 'saveurs', en: 'activities' } }],
+        [],
+      ),
+    ).toEqual(['categories/saveurs → urlSlug.en : déjà utilisé par l’univers « activites »']);
   });
 });

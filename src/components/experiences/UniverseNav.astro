@@ -1,0 +1,45 @@
+---
+/**
+ * Navigation entre univers (008, FR-005) : un lien par univers non vide, le courant marqué
+ * `aria-current="page"` avec le style de l'onglet actif de la 003. Sans JavaScript.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import { universePath } from '../../lib/catalog.ts';
+
+interface Props {
+  universes: CollectionEntry<'categories'>[];
+  currentId: string;
+  locale: Locale;
+}
+
+const { universes, currentId, locale } = Astro.props;
+---
+
+<nav
+  aria-label={t(locale, 'experiences.universeNav')}
+  class="sticky top-(--size-header) border-b border-border bg-bg lg:top-(--size-header-desktop)"
+  style="z-index: var(--z-tabbar)"
+  data-testid="universe-nav"
+>
+  <ul class="mx-auto flex max-w-(--size-content) gap-6 overflow-x-auto px-4">
+    {universes.map((universe) => {
+      const current = universe.id === currentId;
+      return (
+        <li>
+          <a
+            href={universePath(universe, locale)}
+            aria-current={current ? 'page' : undefined}
+            class:list={[
+              'inline-flex min-h-11 items-center border-b-3 pt-2 whitespace-nowrap',
+              current ? 'border-brand font-bold text-brand' : 'border-transparent text-fg-muted',
+            ]}
+          >
+            {localize(universe.data.name, locale)}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</nav>

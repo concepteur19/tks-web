@@ -1,0 +1,66 @@
+{
+  "title": {
+    "fr": "Plage du village Batanga",
+    "en": "Batanga village beach"
+  },
+  "section": "experience",
+  "categoryId": "visites",
+  "shortDescription": {
+    "fr": "La plage du village Batanga et son littoral",
+    "en": "The beach of Batanga village and its coastline"
+  },
+  "description": {
+    "fr": "Découverte de la plage du village Batanga et de son environnement côtier.",
+    "en": "Discover the beach of Batanga village and its coastal surroundings."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/plage-de-batanga.jpg",
+      "alt": {
+        "fr": "Une plage de sable de Kribi au bord de l’océan",
+        "en": "A sandy Kribi beach by the ocean"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 5000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "location": {
+    "fr": "Village Batanga",
+    "en": "Batanga village"
+  },
+  "order": 70,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Visite de la plage",
+        "en": "Beach visit"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport, repas et activités supplémentaires, sauf mention contraire",
+        "en": "Transport, meals and extra activities, unless stated otherwise"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Respecter les consignes locales et les conditions météo",
+        "en": "Follow local guidance and weather conditions"
+      }
+    ]
+  },
+  "degressive": true
+}

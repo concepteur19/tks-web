@@ -1,0 +1,54 @@
+{
+  "title": {
+    "fr": "Gambas",
+    "en": "King prawns"
+  },
+  "section": "experience",
+  "categoryId": "specialites-culinaires",
+  "shortDescription": {
+    "fr": "Des gambas préparées selon les arrivages",
+    "en": "King prawns prepared with the day’s catch"
+  },
+  "description": {
+    "fr": "Savourez des gambas préparées selon les arrivages et les propositions du partenaire.",
+    "en": "Savour king prawns prepared with the day’s catch and our partner’s suggestions."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/gambas.jpg",
+      "alt": {
+        "fr": "Des gambas grillées au piment, servies avec du citron vert",
+        "en": "Grilled king prawns with chili, served with lime"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Accompagnements, boissons et transport, sauf mention contraire",
+        "en": "Sides, drinks and transport, unless stated otherwise"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Sur demande, selon la disponibilité de nos partenaires et du plat",
+        "en": "On request, depending on our partners and the dish"
+      }
+    ]
+  },
+  "order": 20
+}

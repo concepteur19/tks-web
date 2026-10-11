@@ -4,7 +4,7 @@
     "en": "Jet ski"
   },
   "section": "experience",
-  "categoryId": "aventure",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Filez sur l'eau en jet-ski, sensations garanties",
     "en": "Speed across the water on a jet ski"
@@ -20,13 +20,65 @@
         "fr": "Une pilote sur un jet-ski rose, sur la rivière",
         "en": "A rider on a pink jet ski on the river"
       }
+    },
+    {
+      "src": "../../assets/photos/experiences/jet-ski-2.jpg",
+      "alt": {
+        "fr": "Un pilote sur un jet-ski rose, sur la rivière",
+        "en": "A rider on a pink jet ski on the river"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/jet-ski-3.jpg",
+      "alt": {
+        "fr": "Une jeune femme sur un jet-ski, devant les chutes de la Lobé",
+        "en": "A young woman on a jet ski in front of the Lobé Falls"
+      }
     }
   ],
   "pricing": {
-    "kind": "quote"
+    "kind": "fixed",
+    "amount": 10000,
+    "unit": "per_session"
   },
   "quantity": {
-    "dimensions": []
+    "dimensions": [
+      {
+        "kind": "units",
+        "label": {
+          "fr": "sessions",
+          "en": "sessions"
+        },
+        "min": 1,
+        "max": 10,
+        "default": 1
+      }
+    ]
   },
-  "order": 90
+  "order": 20,
+  "featured": true,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Jet-ski et consignes de sécurité",
+        "en": "Jet ski and safety briefing"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport jusqu'au point de départ",
+        "en": "Transport to the starting point"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Une personne par engin",
+        "en": "One person per vehicle"
+      },
+      {
+        "fr": "Sortie selon les conditions autorisées et la météo",
+        "en": "Rides depend on permitted conditions and the weather"
+      }
+    ]
+  }
 }

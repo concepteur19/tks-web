@@ -1,0 +1,5 @@
+# Anciennes fiches remplacées par le bateau de croisière en haute mer (feature 008, Q1 et Q2).
+/experiences/croisiere-en-bateau        /experiences/croisiere-en-haute-mer        301
+/experiences/bateau-de-plaisance        /experiences/croisiere-en-haute-mer        301
+/en/experiences/croisiere-en-bateau     /en/experiences/croisiere-en-haute-mer     301
+/en/experiences/bateau-de-plaisance     /en/experiences/croisiere-en-haute-mer     301

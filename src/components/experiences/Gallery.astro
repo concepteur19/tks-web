@@ -5,13 +5,15 @@
  */
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
+import IllustrativeTag from './IllustrativeTag.astro';
 
 interface Props {
-  images: { src: ImageMetadata; alt: string }[];
+  images: { src: ImageMetadata; alt: string; illustrative?: boolean }[];
   thumbnailsLabel: string;
+  illustrativeLabel: string;
 }
 
-const { images, thumbnailsLabel } = Astro.props;
+const { images, thumbnailsLabel, illustrativeLabel } = Astro.props;
 const several = images.length > 1;
 ---
 
@@ -35,6 +37,7 @@ const several = images.length > 1;
           fetchpriority={index === 0 ? 'high' : 'auto'}
           class="aspect-4/3 w-full object-cover"
         />
+        {image.illustrative && <IllustrativeTag label={illustrativeLabel} />}
         {several && (
           <span
             class="absolute right-2.5 bottom-2.5 rounded-sm bg-fg/70 px-2 py-0.5 text-xs font-medium text-bg"

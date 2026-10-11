@@ -1,0 +1,59 @@
+---
+/** Carte d'univers de la page d'entrée du Tourisme (008, FR-003, contracts/ui.md). */
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import { getUniverseExperiences, universePath } from '../../lib/catalog.ts';
+import Icon from '../Icon.astro';
+import IllustrativeTag from './IllustrativeTag.astro';
+
+interface Props {
+  universe: CollectionEntry<'categories'>;
+  locale: Locale;
+}
+
+const { universe, locale } = Astro.props;
+const experiences = await getUniverseExperiences(universe.id);
+const examples = experiences.slice(0, 3).map((service) => localize(service.data.title, locale));
+const name = localize(universe.data.name, locale);
+---
+
+<article
+  class="relative flex h-full flex-col overflow-hidden rounded-card bg-bg shadow-card"
+  data-testid="universe-card"
+>
+  <div class="relative aspect-4/3 w-full overflow-hidden bg-bg-muted">
+    <Image
+      src={universe.data.image.src}
+      alt={localize(universe.data.image.alt, locale)}
+      widths={[400, 720]}
+      quality={70}
+      sizes="(min-width: 64rem) 33vw, 100vw"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+    {universe.data.image.illustrative && (
+      <IllustrativeTag label={t(locale, 'experiences.illustrative')} />
+    )}
+  </div>
+  <div class="flex flex-1 flex-col gap-2 p-5">
+    <h3 class="font-display text-2xl font-bold text-fg">
+      <a href={universePath(universe, locale)} class="after:absolute after:inset-0">
+        {name}
+      </a>
+    </h3>
+    <p class="text-fg-muted">{localize(universe.data.description, locale)}</p>
+    <p class="text-sm font-medium text-fg" data-examples>
+      {examples.join(' · ')}
+    </p>
+    <div class="mt-auto flex items-center justify-between gap-3 pt-3">
+      <span class="text-sm text-fg-muted">
+        {t(locale, 'experiences.count', { count: experiences.length })}
+      </span>
+      <span class="inline-flex items-center gap-1 font-semibold text-brand" aria-hidden="true">
+        {t(locale, 'experiences.seeCatalogue')}
+        <Icon name="arrow" />
+      </span>
+    </div>
+  </div>
+</article>

@@ -4,7 +4,7 @@
     "en": "Lobé Falls"
   },
   "section": "experience",
-  "categoryId": "nature-decouverte",
+  "categoryId": "visites",
   "shortDescription": {
     "fr": "L'une des rares cascades au monde à se jeter dans l'océan",
     "en": "One of the few waterfalls in the world that flow straight into the ocean"
@@ -52,5 +52,29 @@
     ]
   },
   "featured": true,
-  "order": 10
+  "order": 10,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Visite des chutes",
+        "en": "Visit of the falls"
+      }
+    ],
+    "excluded": [
+      {
+        "fr": "Transport, repas et prestations supplémentaires, sauf mention contraire",
+        "en": "Transport, meals and extra services, unless stated otherwise"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Respecter les consignes locales et les conditions météo",
+        "en": "Follow local guidance and weather conditions"
+      }
+    ]
+  },
+  "location": {
+    "fr": "Chutes de la Lobé",
+    "en": "Lobé Falls"
+  }
 }

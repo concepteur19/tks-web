@@ -4,7 +4,7 @@
     "en": "Boat cruise"
   },
   "section": "experience",
-  "categoryId": "detente",
+  "categoryId": "activites",
   "shortDescription": {
     "fr": "Le coucher de soleil vu du large",
     "en": "The sunset seen from the open sea"
@@ -44,6 +44,6 @@
       }
     ]
   },
-  "featured": true,
-  "order": 60
+  "order": 140,
+  "availability": "disabled"
 }
