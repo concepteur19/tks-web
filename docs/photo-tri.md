@@ -180,3 +180,25 @@ Aucune photo utilisable n'a été trouvée pour :
 | `L12-23` | Ambiance, hero, plages et couchers de soleil | `photo_23_2026-09-25_12-11-29.jpg` | ⚠️ oui |
 
 **Correction du 2026-10-06** (Franck, relayé par Zobel) : les photos de la petite cascade où l'on se baigne sont le **jacuzzi naturel**, pas les chutes de la Lobé. 11 photos reclassées et déplacées dans `Elements/tri-par-activite/jacuzzi-naturel/`.
+
+## Réexamen du 2026-10-11 (questionnaire 4 et audio de Franck)
+
+Franck signale que beaucoup de photos redemandées sont déjà dans ses envois Telegram. Les 172 fichiers de `tri-par-activite/` et de `nouvelles images/` (lots du 2026-09-25 et du 2026-10-06, ce dernier présent dans les deux dossiers) et les 5 photos HEIC restées dans `~/Downloads/Telegram Desktop` ont été revues une à une.
+
+| Prestation | Photo trouvée | Statut |
+|---|---|---|
+| Débarcadère de Mboa-Manga | `L1-01`, `L14-01` (pirogues de pêcheurs) | identifiées par Franck (P16, P19) |
+| Village Mayi, monument | `L13-01` | identifiée par Franck (P17) ; groupe de personnes identifiables |
+| Village Mayi, pont des Esclaves | `L13-05` (jetée de pierre) | identifiée par Franck (P18). L'audio parle de **deux** angles : un seul est dans les fichiers |
+| Village Mayi, phare | `L13-02`, `L13-03`, `L13-04` | **filigranées, inutilisables** |
+| Chutes de la Lobé | `L10-08`, `L10-09` (statue de sirène) | font partie du site des chutes, selon Franck (P20) |
+| Feu de plage | `NEW/feu/photo_2026-10-06_01-53-03` + 5 HEIC `IMG_2056` à `IMG_2061` (Telegram Desktop, non importées) | vrai feu de plage de nuit ; remplace l'image Stitch |
+| Pique-nique / bivouac | `feux-de-plage/L11-04`, `L6-06` | pique-nique sur la plage (classées à tort en « feu ») |
+| Chaloupe / mini-bateau | `croisiere/L6-08` (homme assis à la proue d'un bateau à moteur blanc) | **à confirmer** : chaloupe probable, classée à tort en « croisière » |
+| Bouée tractée | `ambiance/L11-02` (personne allongée sur une bouée dans les vagues) ; `L7-02` filigranée | **à confirmer** |
+| Séance photo | `jacuzzi-naturel/L9-14` (deux jeunes femmes en bikini), `quad/L7-05`, `quad/L7-10`, `ambiance/L11-10`, `L11-12` | personnes qui posent, choix de Franck |
+| Plage du village Batanga | une photo de plage de Kribi | à la demande de Franck (« utilise une photo de plage ») |
+| Kayak | `excursion-en-pirogue/L7-04` | déjà utilisée par le site |
+| Hébergements, véhicules TKS® | `NEW/appart:studio`, `NEW/villa`, `NEW/voitures` | pour les features 005 et 006 |
+
+Toujours sans photo : Village Ebodjé, Port Autonome, Hôtel Golden K (Franck l'envoie), Musée Batanga, bateau de croisière, spécialités culinaires. Pour les deux derniers, Franck demande des **illustrations réalistes harmonisées, marquées « Photo illustrative »**, en attendant de vraies photos.

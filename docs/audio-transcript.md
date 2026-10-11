@@ -107,3 +107,50 @@ Deux intentions explicites :
 2. **Permettre au visiteur de se situer avec son budget** avant de contacter. C'est le déclencheur de conversion qu'il décrit : « il s'imagine déjà avec son budget… et il choisit directement ».
 
 ⚠️ Comme tout matériel informel, ces éléments sont des **hypothèses à confirmer** : les montants cités sont des exemples parlés, pas une grille validée. Voir les questions ajoutées en section L de [client-questions-kibreeze.md](./client-questions-kibreeze.md).
+
+---
+
+# Transcription — Audio du 2026-10-11 (photos)
+
+**Fichier** : `Elements/Audio2026-10-11 at 09.49.14.opus` (2 min 20) · **Transcription** : faster-whisper `medium`, français, 2026-10-11 · Réponse de Franck au questionnaire 4, onglet Photos.
+
+## Texte brut (horodaté)
+
+```text
+[   0.0-   7.5] Yo boy, tu vas me poser la question de savoir que je t'ai envoyé les photos par WhatsApp.
+[   7.5-  10.6] Je pense que toutes les photos que je t'ai envoyé, ce n'est pas en télégramme.
+[  10.6-  16.2] La majorité des photos sont encore sous qualité puisque le télégramme conserve la qualité.
+[  16.2-  23.4] Si je t'ai envoyé une photo avant sur le télégramme, ce n'est pas de qualité, c'est que c'est le fichier de base.
+[  23.4-  24.9] Donc je n'ai rien que ça.
+[  24.9-  28.6] Si toutes les images que je t'ai envoyé, je vais vérifier.
+[  28.6-  35.5] La majorité des images que je t'ai envoyé, je vais vérifier que la qualité soit ok.
+[  35.5-  39.0] Avant de t'envoyer ça, on se télégramme normalement sur WhatsApp.
+[  39.0-  43.1] Avant que le télégramme ait changé, ça m'aide de se comporter avec les photos.
+[  43.1-  50.0] Et pour beaucoup d'images là, il y a beaucoup d'images que tu me demandes que je t'ai déjà envoyé sur Facebook, sur le télégramme.
+[  50.0-  52.2] Il y a plein d'images que tu me demandes.
+[  52.3-  61.9] Si il y a un truc que tu n'arrives pas à mettre, on demande, je te propose, si j'ai ça dans notre télégramme, là tu vas me voir mieux.
+[  61.9-  66.9] Parce qu'il y a plein de trucs là, il y a plein de trucs que tu me demandes que je t'ai déjà envoyé.
+[  66.9-  71.4] Il y a plein de trucs que tu me demandes que je t'ai déjà envoyé en principe.
+[  71.4-  73.5] Donc on va faire comme ça.
+[  73.5-  81.7] Si c'est que tu as une image par exemple que je t'ai déjà envoyé et que tu ne le trouves pas,
+[  81.7-  84.4] tu me dis que je dois préciser ça dans le truc.
+[  84.4-  88.1] Même le truc de Pong, le Pong des Esclaves, là, je t'ai envoyé ça.
+[  88.1-  94.2] Il y a même deux, il y a une qui est un peu sombre, il y a une qui est plus lumineuse, mais les deux sont de bonne qualité.
+[  94.2-  96.9] Les deux peuvent être suivisées, ce sont deux angles.
+[  98.9- 102.6] Il y a plein de trucs que tu me demandes que je t'ai déjà envoyé.
+[ 102.6- 109.1] Il y a des photos, même des séances de photos, là tu utilises des photos, il y a une fille qui pose comme ça sur la photo, elle est brune comme ça.
+[ 109.2- 114.0] En bikini là, tu peux mettre ça, tu mets des photos des gens qui sont sur les quadres là.
+[ 114.0- 117.9] Tu dis que bon voilà, les photos, tu veux des photographes qu'ils peuvent faire là-bas et tout.
+[ 117.9- 121.0] Tu vois un peu, on balance tout ça là-bas.
+[ 121.0- 126.1] Tu mets les photos peut-être pour illustrer la photographie, ça je parle de la rubrique photographie.
+[ 126.1- 130.2] Ceux qui vont peut-être besoin de des photos, des photos pour faire des photos.
+[ 130.2- 135.5] Donc tu prends les photos des gens qui posent là, tu mets tout ça là-bas, j'essaie de vous prendre comme ça.
+[ 135.5- 139.4] Donc ça peut peut-être être ici, ici, ou ici, ou là, ou là, ou là, ou là, ou là.
+```
+
+## Ce que ça veut dire pour le site
+
+- **Qualité** : les photos envoyées par Telegram sont les fichiers d'origine ; Franck n'a pas de meilleure version. Celles du 2026-09-25 (`photo_…_2026-09-25`) et du 2026-10-06 viennent de Telegram.
+- **Photos déjà envoyées** : beaucoup de celles redemandées dans le questionnaire 4 sont déjà dans ses envois. Réexamen fait le 2026-10-11, voir `docs/photo-tri.md`.
+- **Pont des Esclaves** (Village Mayi) : deux photos, deux angles, l'une sombre et l'autre lumineuse.
+- **Séance photo** : illustrer avec les photos de personnes qui posent (la jeune femme en bikini, les personnes sur les quads).
