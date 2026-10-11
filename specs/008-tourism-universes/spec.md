@@ -111,7 +111,7 @@ Un couple regarde la visite du Village Bagyeli. La fiche indique « À partir de
 
 #### Effets sur les fiches, l'accueil et la navigation
 
-- **FR-008**: Sur une fiche, le fil d'Ariane DOIT devenir « Tourisme › univers › nom », le badge de catégorie DOIT devenir un badge d'univers, et « Vous aimerez aussi » DOIT proposer en priorité des prestations du même univers.
+- **FR-008**: Sur une fiche, le fil d'Ariane DOIT devenir « <libellé de l'onglet> › univers › nom » (« Expériences › Activités & Loisirs › Quad » tant que U1 est ouverte), le badge de catégorie DOIT devenir un badge d'univers, et « Vous aimerez aussi » DOIT proposer en priorité des prestations du même univers.
 - **FR-009**: Sur l'accueil, la section des catégories DOIT présenter les trois univers à la place des trois catégories, chaque carte menant à la page de son univers. Le reste de l'accueil NE DOIT PAS changer.
 - **FR-010**: Le libellé de l'onglet du Tourisme dans la barre à onglets et la navigation ordinateur DOIT rester « Expériences » / « Experiences » tant que Franck n'a pas répondu à U1 ; il DOIT pouvoir changer sans toucher aux adresses.
 
