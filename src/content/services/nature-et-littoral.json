@@ -1,0 +1,88 @@
+{
+  "title": {
+    "fr": "Kribi Nature & Littoral",
+    "en": "Kribi Nature & Coast"
+  },
+  "section": "parcours",
+  "shortDescription": {
+    "fr": "Les chutes, le fleuve Lobé, le village Bagyeli et la plage de Batanga",
+    "en": "The falls, the Lobé River, Bagyeli village and Batanga beach"
+  },
+  "description": {
+    "fr": "Un parcours nature entre les chutes, le fleuve Lobé, le village Bagyeli et la plage du village Batanga.",
+    "en": "A nature tour taking in the falls, the Lobé River, Bagyeli village and the beach of Batanga village."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/chutes-de-la-lobe.jpg",
+      "alt": {
+        "fr": "Les chutes de la Lobé vues depuis une pirogue",
+        "en": "The Lobé Falls seen from a dugout canoe"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 25000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 2,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "steps": [
+    {
+      "label": {
+        "fr": "Chutes de la Lobé",
+        "en": "Lobé Falls"
+      },
+      "serviceId": "chutes-de-la-lobe"
+    },
+    {
+      "label": {
+        "fr": "Fleuve Lobé",
+        "en": "Lobé River"
+      }
+    },
+    {
+      "label": {
+        "fr": "Village Bagyeli",
+        "en": "Bagyeli Village"
+      },
+      "serviceId": "campement-bagyeli"
+    },
+    {
+      "label": {
+        "fr": "Plage du village Batanga",
+        "en": "Batanga village beach"
+      },
+      "serviceId": "plage-de-batanga"
+    }
+  ],
+  "location": {
+    "fr": "Départ à convenir avec vous",
+    "en": "Departure to be agreed with you"
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Transport, repas et extras, sauf mention contraire dans le devis",
+        "en": "Transport, meals and extras, unless stated otherwise in the quote"
+      }
+    ],
+    "included": [
+      {
+        "fr": "Les visites listées dans le parcours",
+        "en": "The visits listed in the tour"
+      }
+    ]
+  },
+  "degressive": true,
+  "order": 20
+}

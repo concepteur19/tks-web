@@ -108,6 +108,8 @@ export const fr = {
   'packages.groups.title': "Groupes jusqu'à 8 personnes sur demande",
   'packages.groups.text': 'Chaque formule est ajustable : dites-nous ce que vous voulez changer.',
   'packages.request': 'Demander sur WhatsApp',
+  'packages.requestMessage':
+    'Bonjour Kibreeze, je suis intéressé par « {title} ». Pouvez-vous me le proposer ? {url}',
   'experiences.toursEntry.title': 'Parcours Kibreeze',
   'experiences.toursEntry.text': 'Six circuits déjà composés pour découvrir Kribi en une journée.',
 

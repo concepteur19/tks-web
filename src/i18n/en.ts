@@ -107,6 +107,8 @@ export const en = {
   'packages.groups.title': 'Groups of up to 8 on request',
   'packages.groups.text': "Every package can be adjusted: tell us what you'd like to change.",
   'packages.request': 'Ask on WhatsApp',
+  'packages.requestMessage':
+    'Hello Kibreeze, I am interested in “{title}”. Could you arrange it for me? {url}',
   'experiences.toursEntry.title': 'Kibreeze tours',
   'experiences.toursEntry.text': 'Six ready-made tours to discover Kribi in a day.',
 

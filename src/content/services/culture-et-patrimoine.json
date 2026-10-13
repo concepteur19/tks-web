@@ -1,0 +1,82 @@
+{
+  "title": {
+    "fr": "Kribi Culture & Patrimoine",
+    "en": "Kribi Culture & Heritage"
+  },
+  "section": "parcours",
+  "shortDescription": {
+    "fr": "Le village Mayi, le Musée Batanga et le débarcadère de Mboa-Manga",
+    "en": "Mayi village, the Batanga Museum and the Mboa-Manga landing stage"
+  },
+  "description": {
+    "fr": "Un parcours consacré au patrimoine : village Mayi, Musée Batanga et débarcadère de Mboa-Manga.",
+    "en": "A heritage tour: Mayi village, the Batanga Museum and the Mboa-Manga landing stage."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/village-mayi.jpg",
+      "alt": {
+        "fr": "Une jetée de pierre qui avance dans l'océan, le pont de l'Esclavage",
+        "en": "A stone jetty reaching into the ocean, the Slavery Bridge"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 10000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 2,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "steps": [
+    {
+      "label": {
+        "fr": "Village Mayi",
+        "en": "Mayi Village"
+      },
+      "serviceId": "village-mayi"
+    },
+    {
+      "label": {
+        "fr": "Musée Batanga",
+        "en": "Batanga Museum"
+      },
+      "serviceId": "musee-batanga"
+    },
+    {
+      "label": {
+        "fr": "Débarcadère de Mboa-Manga",
+        "en": "Mboa-Manga landing stage"
+      },
+      "serviceId": "debarcadere-de-mboa-manga"
+    }
+  ],
+  "location": {
+    "fr": "Départ à convenir avec vous",
+    "en": "Departure to be agreed with you"
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Transport, repas et extras, sauf mention contraire dans le devis",
+        "en": "Transport, meals and extras, unless stated otherwise in the quote"
+      }
+    ],
+    "included": [
+      {
+        "fr": "Les visites listées dans le parcours",
+        "en": "The visits listed in the tour"
+      }
+    ]
+  },
+  "degressive": true,
+  "order": 30
+}

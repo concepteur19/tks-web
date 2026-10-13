@@ -40,6 +40,7 @@ export const IMPLEMENTED_ROUTES: readonly RouteKey[] = [
   'home',
   'experiences',
   'accommodation',
+  'packages',
   'stay',
   'contact',
   'legalNotice',

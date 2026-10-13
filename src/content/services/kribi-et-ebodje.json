@@ -1,0 +1,83 @@
+{
+  "title": {
+    "fr": "Kribi & Ebodjé",
+    "en": "Kribi & Ebodjé"
+  },
+  "section": "parcours",
+  "shortDescription": {
+    "fr": "Le village d'Ebodjé et, selon la période, l'observation des tortues marines",
+    "en": "Ebodjé village and, in season, sea turtle watching"
+  },
+  "description": {
+    "fr": "Partez à la découverte d'Ebodjé et de son village, avec une observation des tortues si la période et les conditions le permettent.",
+    "en": "Discover Ebodjé and its village, with turtle watching when the season and conditions allow."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/sections/kribi-vue-aerienne.jpg",
+      "alt": {
+        "fr": "Vue aérienne de la côte de Kribi",
+        "en": "Aerial view of the Kribi coast"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 2,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "steps": [
+    {
+      "label": {
+        "fr": "Kribi",
+        "en": "Kribi"
+      }
+    },
+    {
+      "label": {
+        "fr": "Village Ebodjé et tortues marines",
+        "en": "Ebodjé village and sea turtles"
+      },
+      "serviceId": "village-ebodje"
+    },
+    {
+      "label": {
+        "fr": "Observation des tortues selon la période",
+        "en": "Turtle watching in season"
+      }
+    },
+    {
+      "label": {
+        "fr": "Retour",
+        "en": "Return"
+      }
+    }
+  ],
+  "location": {
+    "fr": "Départ à convenir avec vous",
+    "en": "Departure to be agreed with you"
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Transport, repas et extras, sauf mention contraire dans le devis",
+        "en": "Transport, meals and extras, unless stated otherwise in the quote"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "L'observation des tortues dépend de la période et des conditions locales",
+        "en": "Turtle watching depends on the season and local conditions"
+      }
+    ]
+  },
+  "order": 40
+}
