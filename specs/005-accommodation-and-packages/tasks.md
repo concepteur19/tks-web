@@ -28,19 +28,19 @@ Celles des 002 à 008 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 ## Phase 1: Setup
 
-- [ ] T001 Choisir dans `Elements/tri-par-activite/hebergements-franck/` une photo d'appartement (salon ou salle à manger, lot du 2026-10-06), la contrôler en pleine résolution (aucun filigrane, aucune personne identifiable), l'ajouter à `src/assets/photos/sources.json` sous `accommodation/appartement.jpg`, lancer `npm run photos:import`, noter la source dans `src/assets/photos/README.md`
+- [X] T001 Choisir dans `Elements/tri-par-activite/hebergements-franck/` une photo d'appartement (salon ou salle à manger, lot du 2026-10-06), la contrôler en pleine résolution (aucun filigrane, aucune personne identifiable), l'ajouter à `src/assets/photos/sources.json` sous `accommodation/appartement.jpg`, lancer `npm run photos:import`, noter la source dans `src/assets/photos/README.md`
 
 ---
 
 ## Phase 2: Foundational (bloquant pour toutes les stories)
 
-- [ ] T002 [P] Étendre `tests/unit/content-schema.test.ts` (doit échouer) selon [contracts/content.md](./contracts/content.md) : section `parcours` acceptée ; unité `per_couple` acceptée ; `accommodationType` (`chambre` | `studio` | `appartement` | `villa`) obligatoire pour `section: hebergement` et refusé ailleurs ; `steps` (`{ label { fr, en }, serviceId? }[]`, « 2 au moins ») obligatoire pour `section: parcours` et refusé ailleurs ; `serviceIds` (`string[]`, « 2 au moins ») obligatoire pour `section: formule` et refusé ailleurs ; `badge` `{ fr, en }` facultatif ; `catalogIssues` signale une étape ou une référence de formule vers une prestation inconnue ou désactivée, avec les messages du contrat, et accepte une référence vers une option publiée ; signale un hébergement dont le titre ne cite pas son prix formaté dans chaque langue (« 30 000 » en français, « 30,000 » en anglais)
-- [ ] T003 Modifier `src/content/schemas.ts` conformément à T002 (enum `SECTIONS`, `PRICE_UNITS`, champs, règles par section dans le `superRefine` existant, `catalogIssues` élargi) ; couverture 100 % maintenue
-- [ ] T004 Adapter `scripts/check-content.ts` : passer à `catalogIssues` la liste des prestations publiées (expériences et options non désactivées) pour la vérification des références
-- [ ] T005 [P] Chaînes de [contracts/content.md](./contracts/content.md) dans `src/i18n/fr.ts` et `src/i18n/en.ts` (dont `price.unit.per_couple`, le dictionnaire étant typé sur les unités)
-- [ ] T006 Ajouter à `src/lib/catalog.ts` `getAccommodation()`, `getTours()`, `getPackages()` (publiés, triés par ordre puis nom) ; étendre `src/lib/pageCatalog.ts` aux trois sections, vignettes comprises, avec les adresses par section du contrat (`/hebergements#<id>`, `/formules#<id>` et leurs équivalents anglais) ; mettre à jour `tests/unit/island-catalog.test.ts` si la forme change
-- [ ] T007 [P] Ajouter la prop `wide` à `src/features/selection/QuickAdd.tsx` (pleine largeur, libellé `stay.add`) et son test dans `tests/component/selection-islands.test.tsx`
-- [ ] T008 Vérifier : `npm run check` et `npm run build` passent, aucune page modifiée
+- [X] T002 [P] Étendre `tests/unit/content-schema.test.ts` (doit échouer) selon [contracts/content.md](./contracts/content.md) : section `parcours` acceptée ; unité `per_couple` acceptée ; `accommodationType` (`chambre` | `studio` | `appartement` | `villa`) obligatoire pour `section: hebergement` et refusé ailleurs ; `steps` (`{ label { fr, en }, serviceId? }[]`, « 2 au moins ») obligatoire pour `section: parcours` et refusé ailleurs ; `serviceIds` (`string[]`, « 2 au moins ») obligatoire pour `section: formule` et refusé ailleurs ; `badge` `{ fr, en }` facultatif ; `catalogIssues` signale une étape ou une référence de formule vers une prestation inconnue ou désactivée, avec les messages du contrat, et accepte une référence vers une option publiée ; signale un hébergement dont le titre ne cite pas son prix formaté dans chaque langue (« 30 000 » en français, « 30,000 » en anglais)
+- [X] T003 Modifier `src/content/schemas.ts` conformément à T002 (enum `SECTIONS`, `PRICE_UNITS`, champs, règles par section dans le `superRefine` existant, `catalogIssues` élargi) ; couverture 100 % maintenue
+- [X] T004 Adapter `scripts/check-content.ts` : passer à `catalogIssues` la liste des prestations publiées (expériences et options non désactivées) pour la vérification des références
+- [X] T005 [P] Chaînes de [contracts/content.md](./contracts/content.md) dans `src/i18n/fr.ts` et `src/i18n/en.ts` (dont `price.unit.per_couple`, le dictionnaire étant typé sur les unités)
+- [X] T006 Ajouter à `src/lib/catalog.ts` `getAccommodation()`, `getTours()`, `getPackages()` (publiés, triés par ordre puis nom) ; étendre `src/lib/pageCatalog.ts` aux trois sections, vignettes comprises, avec les adresses par section du contrat (`/hebergements#<id>`, `/formules#<id>` et leurs équivalents anglais) ; mettre à jour `tests/unit/island-catalog.test.ts` si la forme change
+- [X] T007 [P] Ajouter la prop `wide` à `src/features/selection/QuickAdd.tsx` (pleine largeur, libellé `stay.add`) et son test dans `tests/component/selection-islands.test.tsx`
+- [X] T008 Vérifier : `npm run check` et `npm run build` passent, aucune page modifiée
 
 **Checkpoint**: le schéma et le catalogue des îlots connaissent les trois nouvelles sortes de prestations.
 

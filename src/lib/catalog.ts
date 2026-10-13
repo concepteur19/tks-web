@@ -87,3 +87,21 @@ export async function categoryCount(categoryId: string): Promise<number | undefi
 export function universePath(universe: CollectionEntry<'categories'>, locale: Locale): string {
   return `${getRoutePath('experiences', locale)}/${universe.data.urlSlug[locale]}`;
 }
+
+/** Prestations publiées d'une section autre que les expériences, par ordre puis nom (005). */
+async function publishedIn(section: 'hebergement' | 'parcours' | 'formule') {
+  const services = await getCollection(
+    'services',
+    (service) => service.data.section === section && service.data.availability !== 'disabled',
+  );
+  return services.sort(byOrderThenName);
+}
+
+/** Paliers d'hébergement (005, FR-001). */
+export const getAccommodation = () => publishedIn('hebergement');
+
+/** Parcours Kibreeze (005, FR-008). */
+export const getTours = () => publishedIn('parcours');
+
+/** Formules d'activités (005, FR-014). */
+export const getPackages = () => publishedIn('formule');

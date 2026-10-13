@@ -431,3 +431,170 @@ describe('cohérence du catalogue', () => {
     ).toEqual(['categories/saveurs → urlSlug.en : déjà utilisé par l’univers « activites »']);
   });
 });
+
+describe('hébergements, parcours et formules (005)', () => {
+  const base = {
+    title: {
+      fr: 'Studio, à partir de 30 000 FCFA la nuit',
+      en: 'Studio, from 30,000 FCFA a night',
+    },
+    shortDescription: { fr: 'Un studio', en: 'A studio' },
+    description: { fr: 'Un studio.', en: 'A studio.' },
+    images: [{ src: 'studio.jpg', alt: { fr: 'Studio', en: 'Studio' } }],
+  };
+  const studio = {
+    ...base,
+    section: 'hebergement',
+    accommodationType: 'studio',
+    pricing: { kind: 'from', amount: 30000, unit: 'per_night' },
+    quantity: { dimensions: [{ kind: 'nights', min: 1, max: 30, default: 1 }] },
+  };
+  const tour = {
+    ...base,
+    section: 'parcours',
+    steps: [
+      { label: { fr: 'Chutes', en: 'Falls' }, serviceId: 'chutes-de-la-lobe' },
+      { label: { fr: 'Fleuve Lobé', en: 'Lobé River' } },
+    ],
+    pricing: { kind: 'from', amount: 30000, unit: 'per_person' },
+    quantity: { dimensions: [{ kind: 'persons', min: 2, max: 20, default: 2 }] },
+    degressive: true,
+  };
+  const formule = {
+    ...base,
+    section: 'formule',
+    serviceIds: ['chutes-de-la-lobe', 'guide-touristique'],
+    pricing: { kind: 'fixed', amount: 100000, unit: 'per_couple' },
+    quantity: { dimensions: [] },
+    badge: { fr: 'Le plus complet', en: 'The most complete' },
+  };
+
+  it('accepte un palier, un parcours et une formule conformes', () => {
+    expect(messages(studio)).toEqual([]);
+    expect(messages(tour)).toEqual([]);
+    expect(messages(formule)).toEqual([]);
+  });
+
+  it('exige le champ propre à chaque section', () => {
+    expect(messages(omit(studio, 'accommodationType')).join()).toContain(
+      'accommodationType est obligatoire pour un hébergement',
+    );
+    expect(messages(omit(tour, 'steps')).join()).toContain(
+      'steps est obligatoire pour un parcours',
+    );
+    expect(messages(omit(formule, 'serviceIds')).join()).toContain(
+      'serviceIds est obligatoire pour une formule',
+    );
+  });
+
+  it('refuse ces champs hors de leur section', () => {
+    expect(messages({ ...kayak, accommodationType: 'villa' }).join()).toContain(
+      'accommodationType n’est permis que pour un hébergement',
+    );
+    expect(messages({ ...kayak, steps: tour.steps }).join()).toContain(
+      'steps n’est permis que pour un parcours',
+    );
+    expect(messages({ ...kayak, serviceIds: ['quad', 'kayak'] }).join()).toContain(
+      'serviceIds n’est permis que pour une formule',
+    );
+  });
+
+  it('exige deux étapes et deux prestations au moins, et un type connu', () => {
+    expect(messages({ ...tour, steps: [tour.steps[0]] }).length).toBeGreaterThan(0);
+    expect(messages({ ...formule, serviceIds: ['quad'] }).length).toBeGreaterThan(0);
+    expect(messages({ ...studio, accommodationType: 'chalet' }).length).toBeGreaterThan(0);
+  });
+});
+
+describe('références et titres (005)', () => {
+  const universes = [{ id: 'visites', urlSlug: { fr: 'visites', en: 'visits' } }];
+  const published = [
+    { id: 'chutes-de-la-lobe', data: { categoryId: 'visites', section: 'experience' as const } },
+    { id: 'guide-touristique', data: { section: 'experience' as const, isOption: true } },
+    {
+      id: 'bateau-de-plaisance',
+      data: {
+        categoryId: 'visites',
+        section: 'experience' as const,
+        availability: 'disabled' as const,
+      },
+    },
+  ];
+
+  it('accepte des références vers une expérience ou une option publiées', () => {
+    expect(
+      catalogIssues(universes, [
+        ...published,
+        {
+          id: 'essentiel',
+          data: {
+            section: 'parcours' as const,
+            steps: [
+              { label: { fr: 'Chutes' }, serviceId: 'chutes-de-la-lobe' },
+              { label: { fr: 'Fleuve' } },
+            ],
+          },
+        },
+        {
+          id: 'formule-decouverte',
+          data: {
+            section: 'formule' as const,
+            serviceIds: ['chutes-de-la-lobe', 'guide-touristique'],
+          },
+        },
+      ]),
+    ).toEqual([]);
+  });
+
+  it('signale une étape ou une formule vers une prestation inconnue ou désactivée', () => {
+    expect(
+      catalogIssues(universes, [
+        ...published,
+        {
+          id: 'essentiel',
+          data: {
+            section: 'parcours' as const,
+            steps: [
+              { label: { fr: 'A' }, serviceId: 'chutes-de-la-lobe' },
+              { label: { fr: 'B' }, serviceId: 'inconnue' },
+            ],
+          },
+        },
+        {
+          id: 'formule-premium',
+          data: {
+            section: 'formule' as const,
+            serviceIds: ['chutes-de-la-lobe', 'bateau-de-plaisance'],
+          },
+        },
+      ]),
+    ).toEqual([
+      'services/essentiel → steps[1] : « inconnue » ne correspond à aucune prestation publiée',
+      'services/formule-premium → serviceIds : « bateau-de-plaisance » ne correspond à aucune prestation publiée',
+    ]);
+  });
+
+  it('signale un hébergement dont le titre ne cite pas son prix', () => {
+    const palier = (fr: string, en: string) => ({
+      id: 'studio-30000',
+      data: {
+        section: 'hebergement' as const,
+        title: { fr, en },
+        pricing: { kind: 'from' as const, amount: 30000, unit: 'per_night' as const },
+      },
+    });
+    expect(
+      catalogIssues(universes, [
+        palier('Studio, à partir de 30 000 FCFA la nuit', 'Studio, from 30,000 FCFA a night'),
+      ]),
+    ).toEqual([]);
+    expect(
+      catalogIssues(universes, [
+        palier('Studio, à partir de 300 000 FCFA la nuit', 'Studio, from 35,000 FCFA a night'),
+      ]),
+    ).toEqual([
+      'services/studio-30000 → title.fr : le titre doit citer le prix « 30 000 »',
+      'services/studio-30000 → title.en : le titre doit citer le prix « 30,000 »',
+    ]);
+  });
+});

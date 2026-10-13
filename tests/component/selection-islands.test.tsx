@@ -3,6 +3,7 @@ import axe from 'axe-core';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import ExperienceConfigurator from '../../src/features/selection/ExperienceConfigurator.tsx';
 import QuantityStepper from '../../src/features/selection/QuantityStepper.tsx';
+import QuickAdd from '../../src/features/selection/QuickAdd.tsx';
 import RequestBar from '../../src/features/selection/RequestBar.tsx';
 import StayPage from '../../src/features/selection/StayPage.tsx';
 import { $draft } from '../../src/features/selection/draft.ts';
@@ -144,5 +145,21 @@ describe('page Mon séjour', () => {
     page();
     fireEvent.click(screen.getByRole('button', { name: 'Retirer Quad de mon séjour' }));
     expect($selection.get().items).toEqual([]);
+  });
+});
+
+describe('ajout rapide pleine largeur (005)', () => {
+  it('affiche « Ajouter à mon séjour », ajoute la formule, puis la bloque', () => {
+    render(
+      <QuickAdd service={service('formule-evasion')} locale="fr" title="Formule Évasion" wide />,
+    );
+    const button = screen.getByTestId('quick-add');
+    expect(button.textContent).toBe('Ajouter à mon séjour');
+    expect(button.className).toContain('w-full');
+    fireEvent.click(button);
+    expect($selection.get().items).toEqual([
+      { serviceId: 'formule-evasion', quantities: [], optionIds: [] },
+    ]);
+    expect(screen.getByTestId('quick-add').textContent).toBe('Déjà dans mon séjour');
   });
 });

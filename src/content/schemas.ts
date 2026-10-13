@@ -13,7 +13,9 @@ export const localizedString = z.object({
   en: z.string().trim().min(1).optional(),
 });
 
-export const SECTIONS = ['experience', 'hebergement', 'formule', 'mobilite'] as const;
+export const SECTIONS = ['experience', 'hebergement', 'parcours', 'formule', 'mobilite'] as const;
+
+export const ACCOMMODATION_TYPES = ['chambre', 'studio', 'appartement', 'villa'] as const;
 
 export const PRICE_UNITS = [
   'per_person',
@@ -25,6 +27,8 @@ export const PRICE_UNITS = [
   'per_session',
   'per_trip',
   'per_service',
+  /** Formules : prix pour deux personnes (005). */
+  'per_couple',
 ] as const;
 export type PriceUnit = (typeof PRICE_UNITS)[number];
 
@@ -220,6 +224,19 @@ export function serviceSchema<Src extends z.ZodTypeAny>(src: Src) {
         .strict()
         .optional(),
       provisional: z.boolean().optional(),
+      /** Hébergement (005) : type de logement, qui groupe les paliers sur la page. */
+      accommodationType: z.enum(ACCOMMODATION_TYPES).optional(),
+      /** Parcours (005) : étapes dans l'ordre ; `serviceId` mène à la fiche quand elle existe. */
+      steps: z
+        .array(
+          z.object({ label: localizedString, serviceId: z.string().min(1).optional() }).strict(),
+        )
+        .min(2, 'au moins deux étapes')
+        .optional(),
+      /** Formule (005) : prestations du catalogue qu'elle contient. */
+      serviceIds: z.array(z.string().min(1)).min(2, 'au moins deux prestations').optional(),
+      /** Étiquette de carte (« Le plus complet »). */
+      badge: localizedString.optional(),
     })
     .strict()
     .superRefine((service, ctx) => {
@@ -228,6 +245,20 @@ export function serviceSchema<Src extends z.ZodTypeAny>(src: Src) {
 
       if (service.section === 'experience' && !service.isOption && !service.categoryId) {
         fail('categoryId est obligatoire pour une expérience', ['categoryId']);
+      }
+      const sectionFields = [
+        ['accommodationType', 'hebergement', 'un hébergement'],
+        ['steps', 'parcours', 'un parcours'],
+        ['serviceIds', 'formule', 'une formule'],
+      ] as const;
+      for (const [field, section, label] of sectionFields) {
+        const present = service[field] !== undefined;
+        if (service.section === section && !present) {
+          fail(`${field} est obligatoire pour ${label}`, [field]);
+        }
+        if (service.section !== section && present) {
+          fail(`${field} n’est permis que pour ${label}`, [field]);
+        }
       }
       if (!service.isOption && !service.images) {
         fail('au moins une image', ['images']);
@@ -248,17 +279,53 @@ export function serviceSchema<Src extends z.ZodTypeAny>(src: Src) {
 }
 export type Service = z.infer<ReturnType<typeof serviceSchema<z.ZodString>>>;
 
+/** Montant groupé par milliers : `30000` → « 30 000 » (séparateur au choix). */
+const groupThousands = (amount: number, separator: string) =>
+  String(amount).replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+
+/** Le titre cite-t-il le montant, en entier (« 30 000 » mais pas « 300 000 ») ? */
+function citesAmount(title: string, amount: number, separators: string): boolean {
+  const digits = groupThousands(amount, '|').split('|').join(`[${separators}]`);
+  return new RegExp(`(?<!\\d[${separators}]?)${digits}(?![${separators}]?\\d)`).test(title);
+}
+
+type CatalogEntry = {
+  id: string;
+  data: Partial<
+    Pick<
+      Service,
+      | 'categoryId'
+      | 'section'
+      | 'isOption'
+      | 'availability'
+      | 'title'
+      | 'pricing'
+      | 'steps'
+      | 'serviceIds'
+    >
+  >;
+};
+
 /** Contrôle transversal, que le schéma d'un fichier isolé ne peut pas faire. */
 export function catalogIssues(
   universes: { id: string; urlSlug: { fr: string; en: string } }[],
-  services: { id: string; data: Pick<Service, 'categoryId'> }[],
+  services: CatalogEntry[],
 ): string[] {
   const issues: string[] = [];
   const known = new Set(universes.map((universe) => universe.id));
+  // Ce qu'un parcours ou une formule peut citer : expériences et options publiées (005).
+  const published = new Set(
+    services
+      .filter((service) => (service.data.section ?? 'experience') === 'experience')
+      .filter((service) => service.data.availability !== 'disabled')
+      .map((service) => service.id),
+  );
+  const unknown = (id: string) => `« ${id} » ne correspond à aucune prestation publiée`;
   for (const service of services) {
-    if (service.data.categoryId && !known.has(service.data.categoryId)) {
+    const { data } = service;
+    if (data.categoryId && !known.has(data.categoryId)) {
       issues.push(
-        `services/${service.id} : categoryId « ${service.data.categoryId} » ne correspond à aucun univers`,
+        `services/${service.id} : categoryId « ${data.categoryId} » ne correspond à aucun univers`,
       );
     }
     const clash = universes.find(
@@ -268,6 +335,29 @@ export function catalogIssues(
       issues.push(
         `services/${service.id} : identifiant identique à l’adresse de l’univers « ${clash.id} »`,
       );
+    }
+    data.steps?.forEach((step, index) => {
+      if (step.serviceId && !published.has(step.serviceId)) {
+        issues.push(`services/${service.id} → steps[${index}] : ${unknown(step.serviceId)}`);
+      }
+    });
+    for (const id of data.serviceIds ?? []) {
+      if (!published.has(id)) issues.push(`services/${service.id} → serviceIds : ${unknown(id)}`);
+    }
+    // Le titre d'un palier cite son prix (ligne de séjour, message) : il doit rester juste (005).
+    if (data.section === 'hebergement' && data.title && data.pricing?.kind === 'from') {
+      const { amount } = data.pricing;
+      const rules = [
+        ['fr', ' \\u00a0\\u202f', ' '],
+        ['en', ',', ','],
+      ] as const;
+      for (const [locale, separators, shown] of rules) {
+        if (!citesAmount(data.title[locale] ?? '', amount, separators)) {
+          issues.push(
+            `services/${service.id} → title.${locale} : le titre doit citer le prix « ${groupThousands(amount, shown)} »`,
+          );
+        }
+      }
     }
   }
   for (const locale of ['fr', 'en'] as const) {

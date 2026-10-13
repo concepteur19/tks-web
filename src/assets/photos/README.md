@@ -53,6 +53,7 @@ Nouvelles photos reçues le 2026-10-06 (`Elements/Images ett vidéos du projet/n
 | Aperçu Chambre | `accommodation/chambre.jpg` | `hebergements-franck/photo_2026-10-06_02-14-24` |
 | Aperçu Studio | `accommodation/studio.jpg` | `hebergements-franck/photo_2026-10-06_02-14-21` |
 | Aperçu Villa | `accommodation/villa.jpg` | `hebergements-franck/villa_photo_2026-10-06_01-21-02` |
+| Appartement (feature 005) | `accommodation/appartement.jpg` | `hebergements-franck/photo_2026-10-06_02-14-35` (salle à manger), contrôlée en pleine résolution |
 
 Autres photos reçues, gardées pour plus tard : 4 autres photos d'appartement ou studio et 9 autres photos de villa (feature 005), la vue aérienne et le panneau des chutes, 7 photos de voitures TKS® (feature 006, `voitures-tks/`).
 

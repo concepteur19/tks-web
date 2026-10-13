@@ -82,6 +82,22 @@ export const SERVICES: IslandService[] = [
     href: href('feu-de-plage'),
   },
   {
+    id: 'essentiel-de-kribi',
+    title: { fr: "L'Essentiel de Kribi", en: 'The Essence of Kribi' },
+    pricing: { kind: 'from', amount: 30000, unit: 'per_person' },
+    quantity: { dimensions: [{ kind: 'persons', min: 2, max: 20, default: 2 }] },
+    isOption: false,
+    href: href('essentiel-de-kribi'),
+  },
+  {
+    id: 'formule-evasion',
+    title: { fr: 'Formule Évasion', en: 'Escape package' },
+    pricing: { kind: 'fixed', amount: 120000, unit: 'per_couple' },
+    quantity: { dimensions: [] },
+    isOption: false,
+    href: href('formule-evasion'),
+  },
+  {
     id: 'jet-ski',
     title: { fr: 'Jet-ski', en: 'Jet ski' },
     pricing: { kind: 'quote' },
