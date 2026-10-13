@@ -1,0 +1,46 @@
+{
+  "title": {
+    "fr": "Chambre, à partir de 15 000 FCFA la nuit",
+    "en": "Room, from 15,000 FCFA a night"
+  },
+  "section": "hebergement",
+  "accommodationType": "chambre",
+  "shortDescription": {
+    "fr": "Une chambre pour une ou deux personnes, au calme",
+    "en": "A room for one or two, somewhere quiet"
+  },
+  "description": {
+    "fr": "Une chambre pour une ou deux personnes, au calme. Indiquez-nous vos dates : nous réservons pour vous, chez nos partenaires à Kribi, le logement qui correspond à ce budget.",
+    "en": "A room for one or two, somewhere quiet. Tell us your dates: we book for you, with our partners in Kribi, a place that matches this budget."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/chambre-15000.jpg",
+      "alt": {
+        "fr": "Une chambre simple et soignée, lit double, ventilateur au plafond",
+        "en": "A simple, neat room with a double bed and a ceiling fan"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 15000,
+    "unit": "per_night"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "nights",
+        "min": 1,
+        "max": 30,
+        "default": 1
+      }
+    ]
+  },
+  "capacity": {
+    "min": 1,
+    "max": 2
+  },
+  "order": 10
+}

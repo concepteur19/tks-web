@@ -1,6 +1,8 @@
 ---
 import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
+import { cardPrice } from '../../features/estimation/cardPrice.ts';
+import { getPackages } from '../../lib/catalog.ts';
 import { homeTeasers } from '../../lib/site.ts';
 import Price from '../Price.astro';
 import SmartLink from '../SmartLink.astro';
@@ -10,6 +12,12 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+// Prix d'une formule : lu dans la formule `formule-<id>` (005), plus dans home.json.
+const packs = await getPackages();
+const priceOf = (id: string) => {
+  const pack = packs.find((entry) => entry.id === `formule-${id}`);
+  return pack ? cardPrice(pack.data) : undefined;
+};
 ---
 
 <section data-section="packages" class="bg-brand-warm text-brand-contrast">
@@ -22,9 +30,11 @@ const { locale } = Astro.props;
           {card.summary && (
             <p class="mt-1 text-sm text-fg-muted">{localize(card.summary, locale)}</p>
           )}
-          <div class="mt-3">
-            <Price price={card.price} locale={locale} />
-          </div>
+          {priceOf(card.id) && (
+            <div class="mt-3">
+              <Price price={priceOf(card.id)!} locale={locale} />
+            </div>
+          )}
         </li>
       ))}
     </ul>

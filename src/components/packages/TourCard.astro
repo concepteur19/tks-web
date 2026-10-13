@@ -1,0 +1,108 @@
+---
+/**
+ * Carte de parcours (005, FR-009 à FR-011 ; cahier, page 6) : étapes dans l'ordre, prix de
+ * départ par personne ou sur devis, minimum, dégressivité, note de calcul, personnalisation.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { minimumParticipants } from '../../features/catalog/minimumParticipants.ts';
+import { cardPrice } from '../../features/estimation/cardPrice.ts';
+import TourCustomizer from '../../features/selection/TourCustomizer.tsx';
+import { getRoutePath } from '../../i18n/routes.ts';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import { env } from '../../lib/env.ts';
+import { getPageCatalog } from '../../lib/pageCatalog.ts';
+import { buildWhatsAppUrl } from '../../lib/seo.ts';
+import IllustrativeTag from '../experiences/IllustrativeTag.astro';
+import Price from '../Price.astro';
+
+interface Props {
+  tour: CollectionEntry<'services'>;
+  locale: Locale;
+}
+
+const { tour, locale } = Astro.props;
+const { data } = tour;
+const title = localize(data.title, locale);
+const image = data.images?.[0];
+const minimum = minimumParticipants(data);
+const islandService = (await getPageCatalog()).find((entry) => entry.id === tour.id)!;
+const pageUrl = new URL(getRoutePath('packages', locale), `${env.siteUrl}/`).toString();
+const requestHref = buildWhatsAppUrl(
+  env.whatsappNumber,
+  t(locale, 'packages.requestMessage', { title, url: `${pageUrl}#${tour.id}` }),
+);
+const experiencesPath = getRoutePath('experiences', locale);
+---
+
+<article
+  id={tour.id}
+  class="flex w-full scroll-mt-(--size-header) flex-col overflow-hidden rounded-card bg-bg shadow-card"
+  data-testid="tour-card"
+>
+  {image && (
+    <div class="relative aspect-16/9 w-full overflow-hidden bg-bg-muted">
+      <Image
+        src={image.src}
+        alt={localize(image.alt, locale)}
+        widths={[400, 720]}
+        quality={70}
+        sizes="(min-width: 64rem) 33vw, 100vw"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+      {image.illustrative && <IllustrativeTag label={t(locale, 'experiences.illustrative')} />}
+    </div>
+  )}
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <h3 class="font-display text-xl font-bold text-fg">{title}</h3>
+    <ol class="space-y-1.5 text-sm text-fg">
+      {data.steps?.map((step, index) => (
+        <li class="flex items-baseline gap-2">
+          <span
+            class="inline-flex size-5 shrink-0 items-center justify-center rounded-sm bg-accent-soft text-xs font-bold text-accent"
+            aria-hidden="true"
+          >
+            {index + 1}
+          </span>
+          {step.serviceId ? (
+            <a href={`${experiencesPath}/${step.serviceId}`} class="underline underline-offset-2">
+              {localize(step.label, locale)}
+            </a>
+          ) : (
+            <span>{localize(step.label, locale)}</span>
+          )}
+        </li>
+      ))}
+    </ol>
+    <div class="mt-auto border-t border-border pt-3">
+      <Price price={cardPrice(data)} locale={locale} />
+      <div class="mt-2 flex flex-wrap gap-2">
+        {minimum && (
+          <span class="rounded-sm bg-accent-soft px-2.5 py-1 text-xs font-semibold text-accent">
+            {t(locale, 'price.minimum', { count: minimum })}
+          </span>
+        )}
+      </div>
+      {data.degressive && (
+        <p class="mt-2 text-xs text-fg-muted" data-degressive>
+          {t(locale, 'price.degressive')}
+        </p>
+      )}
+      {data.pricing?.kind !== 'quote' && (
+        <p class="mt-1 text-xs text-fg-muted">{t(locale, 'packages.tours.note')}</p>
+      )}
+    </div>
+    <TourCustomizer client:visible service={islandService} locale={locale} title={title} />
+    <noscript>
+      <a
+        href={requestHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-11 items-center text-sm font-semibold text-brand underline"
+      >
+        {t(locale, 'packages.request')}
+      </a>
+    </noscript>
+  </div>
+</article>

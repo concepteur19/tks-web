@@ -158,7 +158,9 @@ Règles :
 
 Mobilité TKS® : ⏳ **aucun tarif n'a jamais été fourni**. Tous les services de mobilité sont `quote` jusqu'à nouvel ordre.
 
-### `Package`
+### `Package` et parcours
+
+Depuis la feature 005, paliers d'hébergement, parcours et formules sont des entrées de `services`, distinguées par leur `section` (`hebergement`, `parcours`, `formule`) ; les formules utilisent l'unité `per_couple` (« / 2 personnes »). Détail : [specs/005-accommodation-and-packages/data-model.md](../specs/005-accommodation-and-packages/data-model.md). Le type ci-dessous est la conception d'origine.
 
 Quatre packages existent avec leurs prix (guide tarifaire, contrairement à la réponse M1 du 2026-09-25).
 

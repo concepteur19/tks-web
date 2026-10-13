@@ -1,0 +1,88 @@
+{
+  "title": {
+    "fr": "Kribi Authentique",
+    "en": "Authentic Kribi"
+  },
+  "section": "parcours",
+  "shortDescription": {
+    "fr": "Les villages Bagyeli, Mayi et Batanga, et le débarcadère de Mboa-Manga",
+    "en": "The Bagyeli, Mayi and Batanga villages, and the Mboa-Manga landing stage"
+  },
+  "description": {
+    "fr": "Un parcours à la rencontre des villages Bagyeli, Mayi et Batanga, avec une étape au débarcadère de Mboa-Manga.",
+    "en": "A tour to meet the people of the Bagyeli, Mayi and Batanga villages, with a stop at the Mboa-Manga landing stage."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/campement-bagyeli.jpg",
+      "alt": {
+        "fr": "Des visiteurs avec des habitants du campement Bagyeli, devant une case",
+        "en": "Visitors with residents of the Bagyeli camp in front of a hut"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 25000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 2,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "steps": [
+    {
+      "label": {
+        "fr": "Village Bagyeli",
+        "en": "Bagyeli Village"
+      },
+      "serviceId": "campement-bagyeli"
+    },
+    {
+      "label": {
+        "fr": "Village Mayi",
+        "en": "Mayi Village"
+      },
+      "serviceId": "village-mayi"
+    },
+    {
+      "label": {
+        "fr": "Village Batanga",
+        "en": "Batanga village"
+      }
+    },
+    {
+      "label": {
+        "fr": "Débarcadère de Mboa-Manga",
+        "en": "Mboa-Manga landing stage"
+      },
+      "serviceId": "debarcadere-de-mboa-manga"
+    }
+  ],
+  "location": {
+    "fr": "Départ à convenir avec vous",
+    "en": "Departure to be agreed with you"
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Transport, repas et extras, sauf mention contraire dans le devis",
+        "en": "Transport, meals and extras, unless stated otherwise in the quote"
+      }
+    ],
+    "included": [
+      {
+        "fr": "Les visites listées dans le parcours",
+        "en": "The visits listed in the tour"
+      }
+    ]
+  },
+  "degressive": true,
+  "order": 50
+}

@@ -1,0 +1,103 @@
+---
+/**
+ * Page Formules (005, FR-013, écran 07) : parcours de visite, puis formules d'activités et
+ * encadré des groupes.
+ */
+import { Image } from 'astro:assets';
+import banner from '../../assets/photos/sections/lobe-en-pirogue.jpg';
+import { t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPackages, getTours } from '../../lib/catalog.ts';
+import { env } from '../../lib/env.ts';
+import { buildWhatsAppUrl } from '../../lib/seo.ts';
+import WhatsAppIcon from '../WhatsAppIcon.astro';
+import PackageCard from './PackageCard.astro';
+import TourCard from './TourCard.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const [tours, packs] = await Promise.all([getTours(), getPackages()]);
+const groupsHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.genericMessage'));
+---
+
+<BaseLayout
+  locale={locale}
+  routeKey="packages"
+  title={t(locale, 'packages.title')}
+  description={t(locale, 'packages.description')}
+  ogImage={banner}
+  ogImageAlt={t(locale, 'packages.bannerAlt')}
+>
+  <section class="relative isolate flex h-56 items-end overflow-hidden" data-section="banner">
+    <Image
+      src={banner}
+      alt={t(locale, 'packages.bannerAlt')}
+      widths={[480, 960, 1440]}
+      width={960}
+      height={540}
+      fit="cover"
+      quality={60}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 -z-10 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 -z-10 bg-linear-to-t from-fg/80 to-fg/20"></div>
+    <div class="mx-auto w-full max-w-(--size-content) px-4 pb-6 text-brand-contrast">
+      <h1 class="font-display text-4xl font-extrabold">{t(locale, 'packages.title')}</h1>
+      <p class="mt-1 text-lg">{t(locale, 'packages.tagline')}</p>
+    </div>
+  </section>
+
+  <section
+    id="parcours"
+    class="mx-auto max-w-(--size-content) scroll-mt-(--size-header) px-4 lg:scroll-mt-(--size-header-desktop) py-8"
+    data-section="tours"
+  >
+    <h2 class="font-display text-2xl font-extrabold text-fg lg:text-3xl">
+      {t(locale, 'packages.tours.title')}
+    </h2>
+    <ul class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {tours.map((tour) => (
+        <li class="flex">
+          <TourCard tour={tour} locale={locale} />
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section
+    id="formules"
+    class="mx-auto max-w-(--size-content) scroll-mt-(--size-header) px-4 lg:scroll-mt-(--size-header-desktop) pb-10"
+    data-section="packages"
+  >
+    <h2 class="font-display text-2xl font-extrabold text-fg lg:text-3xl">
+      {t(locale, 'packages.activities.title')}
+    </h2>
+    <p class="mt-2 text-sm text-fg-muted">{t(locale, 'packages.base')}</p>
+    <ul class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {packs.map((pack) => (
+        <li class="flex">
+          <PackageCard pack={pack} locale={locale} />
+        </li>
+      ))}
+    </ul>
+    <div class="mt-8 rounded-card bg-bg-muted p-5" data-section="groups">
+      <h3 class="font-bold text-fg">{t(locale, 'packages.groups.title')}</h3>
+      <p class="mt-1 text-sm text-fg-muted">{t(locale, 'packages.groups.text')}</p>
+      <a
+        href={groupsHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-4 inline-flex min-h-12 items-center gap-2 rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
+      >
+        <WhatsAppIcon size={22} />
+        {t(locale, 'whatsapp.label')}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

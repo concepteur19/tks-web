@@ -74,6 +74,44 @@ export const fr = {
   'price.unit.per_session': '/ session',
   'price.unit.per_trip': '/ trajet',
   'price.unit.per_service': '/ prestation',
+  'price.unit.per_couple': '/ 2 personnes',
+  'accommodation.title': 'Hébergements',
+  'accommodation.tagline': 'Dites-nous votre budget, nous trouvons le logement',
+  'accommodation.description':
+    'Chambre, studio, appartement ou villa à Kribi : choisissez le type et le budget, Kibreeze réserve pour vous chez ses partenaires.',
+  'accommodation.bannerAlt': 'Une villa avec piscine, entourée de verdure',
+  'accommodation.intro':
+    'Choisissez le type de logement et le budget qui vous convient. Nous cherchons ensuite la meilleure option disponible chez nos partenaires à Kribi.',
+  'accommodation.example': 'Exemple de logement à ce budget · photo illustrative',
+  'accommodation.capacity': '{min} à {max} personnes',
+  'accommodation.type.chambre': 'Chambre',
+  'accommodation.type.studio': 'Studio',
+  'accommodation.type.appartement': 'Appartement',
+  'accommodation.type.villa': 'Villa',
+  'accommodation.premium.title': 'Plus grand, plus haut de gamme ?',
+  'accommodation.premium.text':
+    "Appartements et villas d'exception, jusqu'à 300 000 FCFA la nuit. Nous réservons pour vous.",
+  'accommodation.request': 'Demander ce logement',
+  'accommodation.requestMessage':
+    'Bonjour Kibreeze, je souhaite réserver un logement : « {title} ». Pouvez-vous me proposer une option ? {url}',
+  'packages.title': 'Formules',
+  'packages.tagline': 'Des séjours déjà composés, ajustables avec nous',
+  'packages.description':
+    'Parcours de visite et formules d’activités à Kribi, déjà composés et ajustables avec Kibreeze.',
+  'packages.bannerAlt': 'Une pirogue sur la Lobé, entre forêt et reflets',
+  'packages.tours.title': 'Parcours de visite',
+  'packages.tours.note':
+    'Prix de départ par personne : il dépend du groupe, des étapes et de la saison.',
+  'packages.customise': 'Personnaliser ce parcours',
+  'packages.activities.title': "Formules d'activités",
+  'packages.base': 'Tous nos forfaits sont calculés sur une base de 2 personnes.',
+  'packages.groups.title': "Groupes jusqu'à 8 personnes sur demande",
+  'packages.groups.text': 'Chaque formule est ajustable : dites-nous ce que vous voulez changer.',
+  'packages.request': 'Demander sur WhatsApp',
+  'packages.requestMessage':
+    'Bonjour Kibreeze, je suis intéressé par « {title} ». Pouvez-vous me le proposer ? {url}',
+  'experiences.toursEntry.title': 'Parcours Kibreeze',
+  'experiences.toursEntry.text': 'Six circuits déjà composés pour découvrir Kribi en une journée.',
 
   'contact.title': 'Contactez Kibreeze',
   'contact.metaTitle': 'Contact',

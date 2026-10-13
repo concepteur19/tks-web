@@ -3,6 +3,8 @@ import axe from 'axe-core';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import ExperienceConfigurator from '../../src/features/selection/ExperienceConfigurator.tsx';
 import QuantityStepper from '../../src/features/selection/QuantityStepper.tsx';
+import QuickAdd from '../../src/features/selection/QuickAdd.tsx';
+import TourCustomizer from '../../src/features/selection/TourCustomizer.tsx';
 import RequestBar from '../../src/features/selection/RequestBar.tsx';
 import StayPage from '../../src/features/selection/StayPage.tsx';
 import { $draft } from '../../src/features/selection/draft.ts';
@@ -144,5 +146,44 @@ describe('page Mon séjour', () => {
     page();
     fireEvent.click(screen.getByRole('button', { name: 'Retirer Quad de mon séjour' }));
     expect($selection.get().items).toEqual([]);
+  });
+});
+
+describe('ajout rapide pleine largeur (005)', () => {
+  it('affiche « Ajouter à mon séjour », ajoute la formule, puis la bloque', () => {
+    render(
+      <QuickAdd service={service('formule-evasion')} locale="fr" title="Formule Évasion" wide />,
+    );
+    const button = screen.getByTestId('quick-add');
+    expect(button.textContent).toBe('Ajouter à mon séjour');
+    expect(button.className).toContain('w-full');
+    fireEvent.click(button);
+    expect($selection.get().items).toEqual([
+      { serviceId: 'formule-evasion', quantities: [], optionIds: [] },
+    ]);
+    expect(screen.getByTestId('quick-add').textContent).toBe('Déjà dans mon séjour');
+  });
+});
+
+describe('personnalisation d’un parcours (005)', () => {
+  it('part de 2 personnes, ne descend pas en dessous et ajoute le nombre choisi', async () => {
+    const { container } = render(
+      <TourCustomizer
+        service={service('essentiel-de-kribi')}
+        locale="fr"
+        title="L'Essentiel de Kribi"
+      />,
+    );
+    const less = screen.getByRole('button', { name: 'Diminuer : Nombre de personnes' });
+    const more = screen.getByRole('button', { name: 'Augmenter : Nombre de personnes' });
+    expect(less).toHaveProperty('disabled', true);
+    fireEvent.click(more);
+    fireEvent.click(more);
+    fireEvent.click(screen.getByRole('button', { name: /^Personnaliser ce parcours/ }));
+    expect($selection.get().items).toEqual([
+      { serviceId: 'essentiel-de-kribi', quantities: [4], optionIds: [] },
+    ]);
+    const results = await axe.run(container, AXE);
+    expect(results.violations).toEqual([]);
   });
 });

@@ -9,7 +9,12 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
-import { catalogIssues, categorySchema, serviceSchema } from '../src/content/schemas.ts';
+import {
+  catalogIssues,
+  categorySchema,
+  serviceSchema,
+  type Service,
+} from '../src/content/schemas.ts';
 
 type Entry = { id: string; data: unknown };
 
@@ -46,10 +51,7 @@ export function checkContent(contentDir: string): string[] {
       }
     }
   }
-  const valid: {
-    id: string;
-    data: { categoryId?: string | undefined; featured?: boolean | undefined };
-  }[] = [];
+  const valid: { id: string; data: Service }[] = [];
   for (const service of services) {
     const result = schema.safeParse(service.data);
     if (result.success) {

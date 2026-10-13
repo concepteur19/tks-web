@@ -1,0 +1,110 @@
+---
+/**
+ * Carte de formule (005, FR-014, écran 07) : prestations cochées, prix pour 2 personnes,
+ * ajout pleine largeur. Une formule est une ligne unique du séjour.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { cardPrice } from '../../features/estimation/cardPrice.ts';
+import QuickAdd from '../../features/selection/QuickAdd.tsx';
+import { getRoutePath } from '../../i18n/routes.ts';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import { getExperiences, getOptions } from '../../lib/catalog.ts';
+import { env } from '../../lib/env.ts';
+import { getPageCatalog } from '../../lib/pageCatalog.ts';
+import { buildWhatsAppUrl } from '../../lib/seo.ts';
+import Icon from '../Icon.astro';
+import IllustrativeTag from '../experiences/IllustrativeTag.astro';
+import Price from '../Price.astro';
+
+interface Props {
+  pack: CollectionEntry<'services'>;
+  locale: Locale;
+}
+
+const { pack, locale } = Astro.props;
+const { data } = pack;
+const title = localize(data.title, locale);
+const image = data.images?.[0];
+const [experiences, options, islandCatalog] = await Promise.all([
+  getExperiences(),
+  getOptions(),
+  getPageCatalog(),
+]);
+const experienceIds = new Set(experiences.map((entry) => entry.id));
+const items = (data.serviceIds ?? []).map((id) => {
+  const entry = [...experiences, ...options].find((service) => service.id === id)!;
+  return {
+    title: localize(entry.data.title, locale),
+    href: experienceIds.has(id) ? `${getRoutePath('experiences', locale)}/${id}` : undefined,
+  };
+});
+const islandService = islandCatalog.find((entry) => entry.id === pack.id)!;
+const pageUrl = new URL(getRoutePath('packages', locale), `${env.siteUrl}/`).toString();
+const requestHref = buildWhatsAppUrl(
+  env.whatsappNumber,
+  t(locale, 'packages.requestMessage', { title, url: `${pageUrl}#${pack.id}` }),
+);
+---
+
+<article
+  id={pack.id}
+  class:list={[
+    'flex w-full scroll-mt-(--size-header) flex-col overflow-hidden rounded-card bg-bg shadow-card',
+    data.badge && 'border border-brand',
+  ]}
+  data-testid="package-card"
+>
+  {image && (
+    <div class="relative aspect-16/9 w-full overflow-hidden bg-bg-muted">
+      <Image
+        src={image.src}
+        alt={localize(image.alt, locale)}
+        widths={[400, 720]}
+        quality={70}
+        sizes="(min-width: 64rem) 33vw, 100vw"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+      {image.illustrative && <IllustrativeTag label={t(locale, 'experiences.illustrative')} />}
+      {data.badge && (
+        <span class="absolute top-2 right-2 rounded-sm bg-brand px-2 py-1 text-xs font-semibold text-brand-contrast">
+          {localize(data.badge, locale)}
+        </span>
+      )}
+    </div>
+  )}
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <h3 class="font-display text-xl font-bold text-fg uppercase">{title}</h3>
+    <ul class="space-y-1.5 text-sm text-fg">
+      {items.map((item) => (
+        <li class="flex items-center gap-2">
+          <span class="text-brand">
+            <Icon name="check" size={16} />
+          </span>
+          {item.href ? (
+            <a href={item.href} class="underline underline-offset-2">
+              {item.title}
+            </a>
+          ) : (
+            <span>{item.title}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+    <div class="mt-auto border-t border-border pt-3">
+      <Price price={cardPrice(data)} locale={locale} />
+    </div>
+    <QuickAdd client:visible service={islandService} locale={locale} title={title} wide />
+    <noscript>
+      <a
+        href={requestHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-11 items-center text-sm font-semibold text-brand underline"
+      >
+        {t(locale, 'packages.request')}
+      </a>
+    </noscript>
+  </div>
+</article>

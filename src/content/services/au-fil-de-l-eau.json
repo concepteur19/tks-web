@@ -1,0 +1,73 @@
+{
+  "title": {
+    "fr": "Kribi au fil de l'eau",
+    "en": "Kribi by the Water"
+  },
+  "section": "parcours",
+  "shortDescription": {
+    "fr": "Les chutes de la Lobé, une sortie sur le fleuve et la plage de Batanga",
+    "en": "The Lobé Falls, a river outing and Batanga beach"
+  },
+  "description": {
+    "fr": "Un parcours entre les chutes de la Lobé, une excursion sur le fleuve et la plage du village Batanga.",
+    "en": "A tour between the Lobé Falls, a river excursion and the beach of Batanga village."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/excursion-en-pirogue.jpg",
+      "alt": {
+        "fr": "Une pirogue glisse sur la Lobé, entre forêt et reflets",
+        "en": "A dugout canoe glides along the Lobé between forest and reflections"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 2,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "steps": [
+    {
+      "label": {
+        "fr": "Chutes de la Lobé",
+        "en": "Lobé Falls"
+      },
+      "serviceId": "chutes-de-la-lobe"
+    },
+    {
+      "label": {
+        "fr": "Excursion sur le fleuve Lobé",
+        "en": "Excursion on the Lobé River"
+      },
+      "serviceId": "excursion-en-pirogue"
+    },
+    {
+      "label": {
+        "fr": "Plage du village Batanga",
+        "en": "Batanga village beach"
+      },
+      "serviceId": "plage-de-batanga"
+    }
+  ],
+  "location": {
+    "fr": "Départ à convenir avec vous",
+    "en": "Departure to be agreed with you"
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Transport, repas et extras, sauf mention contraire dans le devis",
+        "en": "Transport, meals and extras, unless stated otherwise in the quote"
+      }
+    ]
+  },
+  "order": 60
+}

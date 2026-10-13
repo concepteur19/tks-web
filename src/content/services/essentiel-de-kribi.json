@@ -1,0 +1,93 @@
+{
+  "title": {
+    "fr": "L'Essentiel de Kribi",
+    "en": "The Essence of Kribi"
+  },
+  "section": "parcours",
+  "shortDescription": {
+    "fr": "Les chutes de la Lobé, les villages Bagyeli et Mayi et la plage de Batanga en une journée",
+    "en": "The Lobé Falls, the Bagyeli and Mayi villages and Batanga beach in a day"
+  },
+  "description": {
+    "fr": "Un parcours d'une journée réunissant les chutes de la Lobé, le village Bagyeli, le village Mayi et la plage du village Batanga.",
+    "en": "A one-day tour bringing together the Lobé Falls, Bagyeli village, Mayi village and the beach of Batanga village."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/chutes-de-la-lobe.jpg",
+      "alt": {
+        "fr": "Les chutes de la Lobé vues depuis une pirogue",
+        "en": "The Lobé Falls seen from a dugout canoe"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 30000,
+    "unit": "per_person"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 2,
+        "max": 20,
+        "default": 2
+      }
+    ]
+  },
+  "steps": [
+    {
+      "label": {
+        "fr": "Chutes de la Lobé",
+        "en": "Lobé Falls"
+      },
+      "serviceId": "chutes-de-la-lobe"
+    },
+    {
+      "label": {
+        "fr": "Village Bagyeli",
+        "en": "Bagyeli Village"
+      },
+      "serviceId": "campement-bagyeli"
+    },
+    {
+      "label": {
+        "fr": "Village Mayi",
+        "en": "Mayi Village"
+      },
+      "serviceId": "village-mayi"
+    },
+    {
+      "label": {
+        "fr": "Plage du village Batanga",
+        "en": "Batanga village beach"
+      },
+      "serviceId": "plage-de-batanga"
+    }
+  ],
+  "location": {
+    "fr": "Départ à convenir avec vous",
+    "en": "Departure to be agreed with you"
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Transport, repas et extras, sauf mention contraire dans le devis",
+        "en": "Transport, meals and extras, unless stated otherwise in the quote"
+      }
+    ],
+    "included": [
+      {
+        "fr": "Les visites listées dans le parcours",
+        "en": "The visits listed in the tour"
+      }
+    ]
+  },
+  "duration": {
+    "fr": "Une journée",
+    "en": "One day"
+  },
+  "degressive": true,
+  "order": 10
+}

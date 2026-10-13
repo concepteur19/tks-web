@@ -1,0 +1,40 @@
+{
+  "title": {
+    "fr": "Formule Évasion",
+    "en": "Escape package"
+  },
+  "section": "formule",
+  "shortDescription": {
+    "fr": "Les chutes, la pirogue, le kayak, le cheval et le jacuzzi naturel",
+    "en": "The falls, a canoe trip, kayaking, horse riding and the natural jacuzzi"
+  },
+  "description": {
+    "fr": "Les chutes, la pirogue, le kayak, le cheval et le jacuzzi naturel. Une formule à prix fixe pour 2 personnes, ajustable avec nous.",
+    "en": "The falls, a canoe trip, kayaking, horse riding and the natural jacuzzi. A fixed-price package for 2 people, which we can adjust with you."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/balade-a-cheval.jpg",
+      "alt": {
+        "fr": "Une cavalière sur un cheval, au bord de l'eau",
+        "en": "A rider on a horse at the water's edge"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 120000,
+    "unit": "per_couple"
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "serviceIds": [
+    "chutes-de-la-lobe",
+    "excursion-en-pirogue",
+    "kayak",
+    "balade-a-cheval",
+    "jacuzzi-naturel"
+  ],
+  "order": 20
+}

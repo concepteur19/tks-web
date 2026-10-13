@@ -139,3 +139,13 @@ Réglé le 2026-09-16 : l'excursion en pirogue est gardée, il n'y a pas de cat�
 | Photos réelles des 10 spécialités culinaires et du bateau de croisière | 🔄 illustrations générées, marquées « Photo illustrative » |
 | Durées (sessions de quad, jet-ski, bouée ; visites ; parcours) | ⏳ jamais données : rubrique omise |
 | Textes anglais des 21 nouvelles prestations | 🔄 traduits par IA, à relire par Zobel (T042) |
+
+## Hébergements, parcours et formules (feature 005, 2026-10-13)
+
+| Élément | État |
+|---|---|
+| Photos d'hébergement par budget (L1) | 🔄 une illustration générée par budget (6), marquée « Exemple de logement à ce budget · photo illustrative » ; les photos réelles de Franck restent sur l'accueil et en bandeau ; une vraie photo par budget toujours attendue |
+| Ce qui est inclus par palier (L2) | ⏳ non fourni : rien n'est affiché |
+| Prix de la formule Premium | ⏳ 300 000 FCFA du guide, à confirmer : le bateau de croisière (150 000 FCFA l'heure) y remplace le bateau de plaisance |
+| Formules complètes avec hébergement et transport (R3) | ⏳ sans prix, non publiées |
+| Textes anglais des 16 nouvelles prestations | 🔄 à relire par Zobel |

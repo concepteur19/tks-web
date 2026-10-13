@@ -1,0 +1,46 @@
+{
+  "title": {
+    "fr": "Appartement, à partir de 100 000 FCFA la nuit",
+    "en": "Apartment, from 100,000 FCFA a night"
+  },
+  "section": "hebergement",
+  "accommodationType": "appartement",
+  "shortDescription": {
+    "fr": "Un appartement pour la famille ou entre amis",
+    "en": "An apartment for a family or friends"
+  },
+  "description": {
+    "fr": "Un appartement pour la famille ou entre amis. Indiquez-nous vos dates : nous réservons pour vous, chez nos partenaires à Kribi, le logement qui correspond à ce budget.",
+    "en": "An apartment for a family or friends. Tell us your dates: we book for you, with our partners in Kribi, a place that matches this budget."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/appartement-100000.jpg",
+      "alt": {
+        "fr": "Un appartement haut de gamme ouvert sur une terrasse face à l’océan",
+        "en": "An upmarket apartment opening onto a terrace facing the ocean"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 100000,
+    "unit": "per_night"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "nights",
+        "min": 1,
+        "max": 30,
+        "default": 1
+      }
+    ]
+  },
+  "capacity": {
+    "min": 2,
+    "max": 6
+  },
+  "order": 32
+}

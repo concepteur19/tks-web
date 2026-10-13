@@ -1,0 +1,40 @@
+{
+  "title": {
+    "fr": "Formule Découverte",
+    "en": "Discovery package"
+  },
+  "section": "formule",
+  "shortDescription": {
+    "fr": "Les chutes, la pirogue, le village Bagyeli et le musée, avec un guide",
+    "en": "The falls, a canoe trip, Bagyeli village and the museum, with a guide"
+  },
+  "description": {
+    "fr": "Les chutes, la pirogue, le village Bagyeli et le musée, avec un guide. Une formule à prix fixe pour 2 personnes, ajustable avec nous.",
+    "en": "The falls, a canoe trip, Bagyeli village and the museum, with a guide. A fixed-price package for 2 people, which we can adjust with you."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/excursion-en-pirogue.jpg",
+      "alt": {
+        "fr": "Une pirogue glisse sur la Lobé, entre forêt et reflets",
+        "en": "A dugout canoe glides along the Lobé between forest and reflections"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 100000,
+    "unit": "per_couple"
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "serviceIds": [
+    "chutes-de-la-lobe",
+    "excursion-en-pirogue",
+    "campement-bagyeli",
+    "musee-batanga",
+    "guide-touristique"
+  ],
+  "order": 10
+}

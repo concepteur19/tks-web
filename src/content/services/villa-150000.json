@@ -1,0 +1,46 @@
+{
+  "title": {
+    "fr": "Villa, à partir de 150 000 FCFA la nuit",
+    "en": "Villa, from 150,000 FCFA a night"
+  },
+  "section": "hebergement",
+  "accommodationType": "villa",
+  "shortDescription": {
+    "fr": "Une villa pour un grand groupe",
+    "en": "A villa for a large group"
+  },
+  "description": {
+    "fr": "Une villa pour un grand groupe. Indiquez-nous vos dates : nous réservons pour vous, chez nos partenaires à Kribi, le logement qui correspond à ce budget.",
+    "en": "A villa for a large group. Tell us your dates: we book for you, with our partners in Kribi, a place that matches this budget."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/villa-150000.jpg",
+      "alt": {
+        "fr": "Une villa blanche avec piscine et transats, entourée de palmiers",
+        "en": "A white villa with a pool and sun loungers, surrounded by palm trees"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 150000,
+    "unit": "per_night"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "nights",
+        "min": 1,
+        "max": 30,
+        "default": 1
+      }
+    ]
+  },
+  "capacity": {
+    "min": 6,
+    "max": 12
+  },
+  "order": 40
+}

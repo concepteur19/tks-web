@@ -10,11 +10,6 @@
         "fr": "1 à 2 personnes",
         "en": "1 to 2 guests"
       },
-      "price": {
-        "kind": "from",
-        "amount": 15000,
-        "unit": "per_night"
-      },
       "image": {
         "src": "accommodation/chambre.jpg",
         "alt": {
@@ -33,11 +28,6 @@
         "fr": "2 à 3 personnes",
         "en": "2 to 3 guests"
       },
-      "price": {
-        "kind": "from",
-        "amount": 30000,
-        "unit": "per_night"
-      },
       "image": {
         "src": "accommodation/studio.jpg",
         "alt": {
@@ -55,11 +45,6 @@
       "summary": {
         "fr": "6 à 12 personnes",
         "en": "6 to 12 guests"
-      },
-      "price": {
-        "kind": "from",
-        "amount": 150000,
-        "unit": "per_night"
       },
       "image": {
         "src": "accommodation/villa.jpg",
@@ -80,12 +65,6 @@
       "summary": {
         "fr": "Chutes, pirogue, campement, musée, guide",
         "en": "Falls, canoe, camp, museum, guide"
-      },
-      "price": {
-        "kind": "fixed",
-        "amount": 100000,
-        "unit": "per_group",
-        "basePersons": 2
       }
     },
     {
@@ -97,12 +76,6 @@
       "summary": {
         "fr": "Chutes, pirogue, quad, jet-ski, kayak, cheval",
         "en": "Falls, canoe, quad bike, jet ski, kayak, horse riding"
-      },
-      "price": {
-        "kind": "fixed",
-        "amount": 150000,
-        "unit": "per_group",
-        "basePersons": 2
       }
     }
   ]

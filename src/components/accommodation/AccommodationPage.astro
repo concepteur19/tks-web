@@ -1,0 +1,197 @@
+---
+/**
+ * Page Hébergements (005, FR-001 à FR-007, écran 06a) : explication du principe, paliers par
+ * type, haut de gamme en encadré après tous les paliers. Kibreeze réserve pour le client.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import banner from '../../assets/photos/accommodation/villa.jpg';
+import { cardPrice } from '../../features/estimation/cardPrice.ts';
+import QuickAdd from '../../features/selection/QuickAdd.tsx';
+import { getRoutePath } from '../../i18n/routes.ts';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAccommodation } from '../../lib/catalog.ts';
+import { env } from '../../lib/env.ts';
+import { getPageCatalog } from '../../lib/pageCatalog.ts';
+import { buildWhatsAppUrl } from '../../lib/seo.ts';
+import IllustrativeTag from '../experiences/IllustrativeTag.astro';
+import Price from '../Price.astro';
+import WhatsAppIcon from '../WhatsAppIcon.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const [tiers, islandCatalog] = await Promise.all([getAccommodation(), getPageCatalog()]);
+const pageUrl = new URL(getRoutePath('accommodation', locale), `${env.siteUrl}/`).toString();
+
+// Un groupe par type, dans l'ordre des paliers (chambre, studio, appartement, villa). Un type à
+// plusieurs budgets montre en plus une vignette par budget.
+const groups: { type: string; tiers: CollectionEntry<'services'>[] }[] = [];
+for (const tier of tiers) {
+  const type = tier.data.accommodationType!;
+  const group = groups.find((entry) => entry.type === type);
+  if (group) group.tiers.push(tier);
+  else groups.push({ type, tiers: [tier] });
+}
+
+const requestHref = (tier: CollectionEntry<'services'>) =>
+  buildWhatsAppUrl(
+    env.whatsappNumber,
+    t(locale, 'accommodation.requestMessage', {
+      title: localize(tier.data.title, locale),
+      url: `${pageUrl}#${tier.id}`,
+    }),
+  );
+const premiumHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.genericMessage'));
+---
+
+<BaseLayout
+  locale={locale}
+  routeKey="accommodation"
+  title={t(locale, 'accommodation.title')}
+  description={t(locale, 'accommodation.description')}
+  ogImage={banner}
+  ogImageAlt={t(locale, 'accommodation.bannerAlt')}
+>
+  <section class="relative isolate flex h-56 items-end overflow-hidden" data-section="banner">
+    <Image
+      src={banner}
+      alt={t(locale, 'accommodation.bannerAlt')}
+      widths={[480, 960, 1440]}
+      width={960}
+      height={540}
+      fit="cover"
+      quality={60}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 -z-10 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 -z-10 bg-linear-to-t from-fg/80 to-fg/20"></div>
+    <div class="mx-auto w-full max-w-(--size-content) px-4 pb-6 text-brand-contrast">
+      <h1 class="font-display text-4xl font-extrabold">{t(locale, 'accommodation.title')}</h1>
+      <p class="mt-1 text-lg">{t(locale, 'accommodation.tagline')}</p>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-(--size-content) px-4 py-6">
+    <p class="rounded-sm border-l-4 border-accent bg-bg-muted p-4 text-sm leading-relaxed text-fg">
+      {t(locale, 'accommodation.intro')}
+    </p>
+
+    <ul class="mt-6 grid gap-5 lg:grid-cols-2">
+      {groups.map(({ type, tiers: typeTiers }) => {
+        const first = typeTiers[0]!;
+        const image = first.data.images?.[0];
+        const capacity = first.data.capacity;
+        return (
+          <li
+            class="overflow-hidden rounded-card bg-bg shadow-card"
+            data-testid="accommodation-type"
+          >
+            <div class="relative aspect-16/9 w-full overflow-hidden bg-bg-muted">
+              {image && (
+                <Image
+                  src={image.src}
+                  alt={localize(image.alt, locale)}
+                  widths={[400, 720]}
+                  quality={70}
+                  sizes="(min-width: 64rem) 50vw, 100vw"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+              )}
+              <IllustrativeTag label={t(locale, 'accommodation.example')} top />
+            </div>
+            <div class="p-4">
+              <div class="flex items-baseline justify-between gap-3">
+                <h2 class="font-display text-xl font-bold text-fg uppercase">
+                  {t(locale, `accommodation.type.${type}` as 'accommodation.type.chambre')}
+                </h2>
+                {capacity?.min && capacity.max && (
+                  <p class="text-sm text-fg-muted">
+                    {t(locale, 'accommodation.capacity', {
+                      min: capacity.min,
+                      max: capacity.max,
+                    })}
+                  </p>
+                )}
+              </div>
+              <ul class="mt-3 divide-y divide-border">
+                {typeTiers.map((tier) => {
+                  const islandService = islandCatalog.find((entry) => entry.id === tier.id)!;
+                  const included = tier.data.conditions?.included;
+                  return (
+                    <li
+                      id={tier.id}
+                      class="flex scroll-mt-(--size-header) items-center justify-between gap-3 py-3"
+                    >
+                      {typeTiers.length > 1 && tier.data.images?.[0] && (
+                        <Image
+                          src={tier.data.images[0].src}
+                          alt={localize(tier.data.images[0].alt, locale)}
+                          width={160}
+                          height={120}
+                          fit="cover"
+                          quality={65}
+                          class="h-15 w-20 shrink-0 rounded-sm object-cover"
+                        />
+                      )}
+                      <div class="min-w-0 flex-1">
+                        <Price price={cardPrice(tier.data)} locale={locale} />
+                        {included && (
+                          <p class="mt-1 text-xs text-fg-muted">
+                            {included.map((item) => localize(item, locale)).join(', ')}
+                          </p>
+                        )}
+                      </div>
+                      <div class="flex shrink-0 flex-col items-end">
+                        <QuickAdd
+                          client:visible
+                          service={islandService}
+                          locale={locale}
+                          title={localize(tier.data.title, locale)}
+                        />
+                        <noscript>
+                          <a
+                            href={requestHref(tier)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex min-h-11 items-center text-sm font-semibold text-brand underline"
+                          >
+                            {t(locale, 'accommodation.request')}
+                          </a>
+                        </noscript>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+
+    <p class="mt-6 text-center text-xs text-fg-muted">{t(locale, 'detail.priceNote')}</p>
+
+    <section class="mt-8 rounded-card bg-footer-bg p-6 text-brand-contrast" data-section="premium">
+      <h2 class="font-display text-2xl font-extrabold">
+        {t(locale, 'accommodation.premium.title')}
+      </h2>
+      <p class="mt-2 max-w-xl">{t(locale, 'accommodation.premium.text')}</p>
+      <a
+        href={premiumHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-5 inline-flex min-h-12 items-center gap-2 rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
+      >
+        <WhatsAppIcon size={22} />
+        {t(locale, 'whatsapp.label')}
+      </a>
+    </section>
+  </div>
+</BaseLayout>

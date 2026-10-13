@@ -81,11 +81,15 @@ for (const [path, lang, title, ctas] of [
     });
 
     test('renvoie vers WhatsApp les liens dont la page n’est pas livrée', async ({ page }) => {
-      // Les hébergements (feature 005) ne sont pas encore livrés : leur lien ouvre WhatsApp.
+      // La mobilité TKS® (feature 006) n'est pas encore livrée : son lien ouvre WhatsApp.
       await page.goto(path);
-      const cta = page.locator('[data-section="accommodation"] a[data-link-kind]');
+      const cta = page.locator('[data-section="mobility"] a[data-link-kind]');
       await expect(cta).toHaveAttribute('data-link-kind', 'whatsapp');
       await expect(cta).toHaveAttribute('href', /^https:\/\/wa\.me\//);
+      // Les hébergements, livrés par la 005, mènent à leur page.
+      await expect(
+        page.locator('[data-section="accommodation"] a[data-link-kind]'),
+      ).toHaveAttribute('data-link-kind', 'internal');
     });
   });
 }
