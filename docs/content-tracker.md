@@ -144,7 +144,7 @@ Réglé le 2026-09-16 : l'excursion en pirogue est gardée, il n'y a pas de cat�
 
 | Élément | État |
 |---|---|
-| Photos d'hébergement par budget (L1) | 🔄 une photo par type (chambre, studio, appartement, villa), lot du 2026-10-06, marquée « Exemple de logement à ce budget » ; une photo par budget toujours attendue |
+| Photos d'hébergement par budget (L1) | 🔄 une illustration générée par budget (6), marquée « Exemple de logement à ce budget · photo illustrative » ; les photos réelles de Franck restent sur l'accueil et en bandeau ; une vraie photo par budget toujours attendue |
 | Ce qui est inclus par palier (L2) | ⏳ non fourni : rien n'est affiché |
 | Prix de la formule Premium | ⏳ 300 000 FCFA du guide, à confirmer : le bateau de croisière (150 000 FCFA l'heure) y remplace le bateau de plaisance |
 | Formules complètes avec hébergement et transport (R3) | ⏳ sans prix, non publiées |

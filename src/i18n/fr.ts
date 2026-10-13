@@ -82,7 +82,7 @@ export const fr = {
   'accommodation.bannerAlt': 'Une villa avec piscine, entourée de verdure',
   'accommodation.intro':
     'Choisissez le type de logement et le budget qui vous convient. Nous cherchons ensuite la meilleure option disponible chez nos partenaires à Kribi.',
-  'accommodation.example': 'Exemple de logement à ce budget',
+  'accommodation.example': 'Exemple de logement à ce budget · photo illustrative',
   'accommodation.capacity': '{min} à {max} personnes',
   'accommodation.type.chambre': 'Chambre',
   'accommodation.type.studio': 'Studio',

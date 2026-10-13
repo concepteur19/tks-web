@@ -15,11 +15,12 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/accommodation/appartement.jpg",
+      "src": "../../assets/photos/illustrations/appartement-50000.jpg",
       "alt": {
-        "fr": "Une salle à manger lumineuse, table dressée pour six",
-        "en": "A bright dining room with a table set for six"
-      }
+        "fr": "Le salon meublé d’un appartement, cuisine ouverte et balcon",
+        "en": "The furnished living room of an apartment with an open kitchen and balcony"
+      },
+      "illustrative": true
     }
   ],
   "pricing": {

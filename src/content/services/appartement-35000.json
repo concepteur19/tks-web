@@ -15,11 +15,12 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/accommodation/appartement.jpg",
+      "src": "../../assets/photos/illustrations/appartement-35000.jpg",
       "alt": {
-        "fr": "Une salle à manger lumineuse, table dressée pour six",
-        "en": "A bright dining room with a table set for six"
-      }
+        "fr": "Le salon d’un appartement simple, canapé, table à manger et télévision",
+        "en": "The living room of a simple apartment with a sofa, dining table and TV"
+      },
+      "illustrative": true
     }
   ],
   "pricing": {

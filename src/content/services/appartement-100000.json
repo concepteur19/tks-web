@@ -15,11 +15,12 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/accommodation/appartement.jpg",
+      "src": "../../assets/photos/illustrations/appartement-100000.jpg",
       "alt": {
-        "fr": "Une salle à manger lumineuse, table dressée pour six",
-        "en": "A bright dining room with a table set for six"
-      }
+        "fr": "Un appartement haut de gamme ouvert sur une terrasse face à l’océan",
+        "en": "An upmarket apartment opening onto a terrace facing the ocean"
+      },
+      "illustrative": true
     }
   ],
   "pricing": {

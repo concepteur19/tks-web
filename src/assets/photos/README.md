@@ -53,7 +53,6 @@ Nouvelles photos reçues le 2026-10-06 (`Elements/Images ett vidéos du projet/n
 | Aperçu Chambre | `accommodation/chambre.jpg` | `hebergements-franck/photo_2026-10-06_02-14-24` |
 | Aperçu Studio | `accommodation/studio.jpg` | `hebergements-franck/photo_2026-10-06_02-14-21` |
 | Aperçu Villa | `accommodation/villa.jpg` | `hebergements-franck/villa_photo_2026-10-06_01-21-02` |
-| Appartement (feature 005) | `accommodation/appartement.jpg` | `hebergements-franck/photo_2026-10-06_02-14-35` (salle à manger), contrôlée en pleine résolution |
 
 Autres photos reçues, gardées pour plus tard : 4 autres photos d'appartement ou studio et 9 autres photos de villa (feature 005), la vue aérienne et le panneau des chutes, 7 photos de voitures TKS® (feature 006, `voitures-tks/`).
 
@@ -89,6 +88,7 @@ Consigne commune : *Realistic documentary food photograph taken in Kribi, Camero
 | `illustrations/grillades-de-plage.jpg` | barbecue sur le sable : brochettes de poisson et de viande, maïs |
 | `illustrations/degustation-fruits-de-mer.jpg` | plateau de fruits de mer à partager sur la plage |
 | `illustrations/repas-local.jpg` | repas camerounais sous une paillote de village (poisson en sauce, légumes, manioc, plantain, bâton de manioc) |
+| `illustrations/chambre-15000.jpg` … `villa-150000.jpg` | une illustration par palier d'hébergement (005), de la chambre simple à la villa avec piscine, consigne d'intérieur ou d'extérieur « real-estate style », sans personne ; marquées « Exemple de logement à ce budget · photo illustrative » |
 | `illustrations/croisiere-en-haute-mer.jpg` | bateau de croisière blanc en mer au large de la côte de Kribi (consigne de voyage, sans nourriture) |
 
 ## Images générées par Google Stitch (provisoires)

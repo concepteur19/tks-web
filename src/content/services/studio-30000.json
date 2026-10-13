@@ -15,11 +15,12 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/accommodation/studio.jpg",
+      "src": "../../assets/photos/illustrations/studio-30000.jpg",
       "alt": {
-        "fr": "Le salon d'un studio, canapés en cuir et télévision",
-        "en": "A studio living room with leather sofas and a TV"
-      }
+        "fr": "Un studio avec lit, petit salon et kitchenette",
+        "en": "A studio with a bed, a small lounge and a kitchenette"
+      },
+      "illustrative": true
     }
   ],
   "pricing": {

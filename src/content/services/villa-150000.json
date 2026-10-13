@@ -15,11 +15,12 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/accommodation/villa.jpg",
+      "src": "../../assets/photos/illustrations/villa-150000.jpg",
       "alt": {
-        "fr": "Une villa blanche avec piscine et jardin",
-        "en": "A white villa with a pool and garden"
-      }
+        "fr": "Une villa blanche avec piscine et transats, entourée de palmiers",
+        "en": "A white villa with a pool and sun loungers, surrounded by palm trees"
+      },
+      "illustrative": true
     }
   ],
   "pricing": {

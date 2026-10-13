@@ -28,7 +28,8 @@ const { locale } = Astro.props;
 const [tiers, islandCatalog] = await Promise.all([getAccommodation(), getPageCatalog()]);
 const pageUrl = new URL(getRoutePath('accommodation', locale), `${env.siteUrl}/`).toString();
 
-// Un groupe par type, dans l'ordre des paliers (chambre, studio, appartement, villa).
+// Un groupe par type, dans l'ordre des paliers (chambre, studio, appartement, villa). Un type à
+// plusieurs budgets montre en plus une vignette par budget.
 const groups: { type: string; tiers: CollectionEntry<'services'>[] }[] = [];
 for (const tier of tiers) {
   const type = tier.data.accommodationType!;
@@ -128,7 +129,18 @@ const premiumHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.gen
                       id={tier.id}
                       class="flex scroll-mt-(--size-header) items-center justify-between gap-3 py-3"
                     >
-                      <div>
+                      {typeTiers.length > 1 && tier.data.images?.[0] && (
+                        <Image
+                          src={tier.data.images[0].src}
+                          alt={localize(tier.data.images[0].alt, locale)}
+                          width={160}
+                          height={120}
+                          fit="cover"
+                          quality={65}
+                          class="h-15 w-20 shrink-0 rounded-sm object-cover"
+                        />
+                      )}
+                      <div class="min-w-0 flex-1">
                         <Price price={cardPrice(tier.data)} locale={locale} />
                         {included && (
                           <p class="mt-1 text-xs text-fg-muted">

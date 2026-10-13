@@ -15,11 +15,12 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/accommodation/chambre.jpg",
+      "src": "../../assets/photos/illustrations/chambre-15000.jpg",
       "alt": {
-        "fr": "Une chambre lumineuse, lit fait, avec rideaux roses",
-        "en": "A bright bedroom with a made bed and pink curtains"
-      }
+        "fr": "Une chambre simple et soignée, lit double, ventilateur au plafond",
+        "en": "A simple, neat room with a double bed and a ceiling fan"
+      },
+      "illustrative": true
     }
   ],
   "pricing": {
