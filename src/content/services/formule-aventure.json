@@ -1,0 +1,41 @@
+{
+  "title": {
+    "fr": "Formule Aventure",
+    "en": "Adventure package"
+  },
+  "section": "formule",
+  "shortDescription": {
+    "fr": "Les chutes, la pirogue, le quad, le jet-ski, le kayak et le cheval",
+    "en": "The falls, a canoe trip, quad, jet ski, kayaking and horse riding"
+  },
+  "description": {
+    "fr": "Les chutes, la pirogue, le quad, le jet-ski, le kayak et le cheval. Une formule à prix fixe pour 2 personnes, ajustable avec nous.",
+    "en": "The falls, a canoe trip, quad, jet ski, kayaking and horse riding. A fixed-price package for 2 people, which we can adjust with you."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/quad.jpg",
+      "alt": {
+        "fr": "Une pilote sur un quad bleu, au bord de l'eau",
+        "en": "A rider on a blue quad bike at the water's edge"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 150000,
+    "unit": "per_couple"
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "serviceIds": [
+    "chutes-de-la-lobe",
+    "excursion-en-pirogue",
+    "quad",
+    "jet-ski",
+    "kayak",
+    "balade-a-cheval"
+  ],
+  "order": 30
+}

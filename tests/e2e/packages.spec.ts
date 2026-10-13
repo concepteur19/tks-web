@@ -104,3 +104,68 @@ test.describe('parcours de visite', () => {
     expect(overflow).toBe(false);
   });
 });
+
+test.describe('formules d’activités', () => {
+  test('après les parcours : base de 2 personnes, quatre formules, badge, groupes', async ({
+    page,
+  }) => {
+    await page.goto('/formules');
+    const text = plain(await page.locator('main').innerText());
+    expect(text.indexOf('Parcours de visite')).toBeLessThan(text.indexOf("Formules d'activités"));
+    expect(text).toContain('Tous nos forfaits sont calculés sur une base de 2 personnes.');
+    const cards = page.getByTestId('package-card');
+    await expect(cards).toHaveCount(4);
+    const evasion = page.locator('[id="formule-evasion"]');
+    expect(plain(await evasion.textContent())).toContain('120 000 FCFA / 2 personnes');
+    await expect(evasion.locator('ul a')).toHaveCount(5);
+    await expect(page.locator('[id="formule-premium"]')).toContainText('Le plus complet');
+    await expect(page.locator('[data-section="groups"]').getByRole('link')).toHaveAttribute(
+      'href',
+      /^https:\/\/wa\.me\//,
+    );
+  });
+
+  test('ajouter Évasion : une ligne, puis « Déjà dans mon séjour »', async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 800 });
+    await page.goto('/formules');
+    await waitForIslands(page);
+    const button = page.locator('[id="formule-evasion"]').getByTestId('quick-add');
+    await button.scrollIntoViewIfNeeded();
+    await expect(button.locator('xpath=ancestor::astro-island[1]')).not.toHaveAttribute(
+      'ssr',
+      /.*/,
+    );
+    await expect(button).toHaveText('Ajouter à mon séjour');
+    await button.click();
+    await expect(button).toHaveText('Déjà dans mon séjour');
+    await page.goto('/sejour');
+    const line = page.getByTestId('stay-line');
+    await expect(line).toHaveCount(1);
+    expect(plain(await line.textContent())).toContain('120 000 FCFA');
+  });
+
+  test('séjour logement + parcours + formule + expérience : message complet', async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 800 });
+    await seedSelection(page, [
+      { serviceId: 'studio-30000', quantities: [3] },
+      { serviceId: 'essentiel-de-kribi', quantities: [4] },
+      { serviceId: 'formule-evasion', quantities: [] },
+      { serviceId: 'kayak', quantities: [2] },
+    ]);
+    await expect(page.getByTestId('stay-line')).toHaveCount(4);
+    const message = decodedMessage(
+      await page.locator('[data-testid="send-stay"]:visible').getAttribute('href'),
+    );
+    expect(message).toContain('Studio, à partir de 30 000 FCFA la nuit — 3 nuits');
+    expect(message).toContain("L'Essentiel de Kribi — 4 personnes");
+    expect(message).toContain('Formule Évasion');
+    expect(message).toContain('Kayak — 2 personnes');
+  });
+
+  test('l’accueil affiche les prix des formules, tirés des formules', async ({ page }) => {
+    await page.goto('/');
+    const teaser = plain(await page.locator('[data-section="packages"]').textContent());
+    expect(teaser).toContain('100 000 FCFA');
+    expect(teaser).toContain('150 000 FCFA');
+  });
+});

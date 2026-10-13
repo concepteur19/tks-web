@@ -1,13 +1,18 @@
 ---
 /**
- * Page Formules (005, FR-013, écran 07) : parcours de visite, puis formules d'activités.
+ * Page Formules (005, FR-013, écran 07) : parcours de visite, puis formules d'activités et
+ * encadré des groupes.
  */
 import { Image } from 'astro:assets';
 import banner from '../../assets/photos/sections/lobe-en-pirogue.jpg';
 import { t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getTours } from '../../lib/catalog.ts';
+import { getPackages, getTours } from '../../lib/catalog.ts';
+import { env } from '../../lib/env.ts';
+import { buildWhatsAppUrl } from '../../lib/seo.ts';
+import WhatsAppIcon from '../WhatsAppIcon.astro';
+import PackageCard from './PackageCard.astro';
 import TourCard from './TourCard.astro';
 
 interface Props {
@@ -15,7 +20,8 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const tours = await getTours();
+const [tours, packs] = await Promise.all([getTours(), getPackages()]);
+const groupsHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.genericMessage'));
 ---
 
 <BaseLayout
@@ -62,5 +68,36 @@ const tours = await getTours();
         </li>
       ))}
     </ul>
+  </section>
+
+  <section
+    id="formules"
+    class="mx-auto max-w-(--size-content) scroll-mt-(--size-header) px-4 pb-10"
+    data-section="packages"
+  >
+    <h2 class="font-display text-2xl font-extrabold text-fg lg:text-3xl">
+      {t(locale, 'packages.activities.title')}
+    </h2>
+    <p class="mt-2 text-sm text-fg-muted">{t(locale, 'packages.base')}</p>
+    <ul class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {packs.map((pack) => (
+        <li class="flex">
+          <PackageCard pack={pack} locale={locale} />
+        </li>
+      ))}
+    </ul>
+    <div class="mt-8 rounded-card bg-bg-muted p-5" data-section="groups">
+      <h3 class="font-bold text-fg">{t(locale, 'packages.groups.title')}</h3>
+      <p class="mt-1 text-sm text-fg-muted">{t(locale, 'packages.groups.text')}</p>
+      <a
+        href={groupsHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-4 inline-flex min-h-12 items-center gap-2 rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
+      >
+        <WhatsAppIcon size={22} />
+        {t(locale, 'whatsapp.label')}
+      </a>
+    </div>
   </section>
 </BaseLayout>

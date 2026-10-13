@@ -1,0 +1,48 @@
+{
+  "title": {
+    "fr": "Formule Premium",
+    "en": "Premium package"
+  },
+  "section": "formule",
+  "shortDescription": {
+    "fr": "La formule la plus complète, avec une sortie en mer en bateau de croisière",
+    "en": "The most complete package, with a cruise boat outing at sea"
+  },
+  "description": {
+    "fr": "La formule la plus complète, avec une sortie en mer en bateau de croisière. Une formule à prix fixe pour 2 personnes, ajustable avec nous.",
+    "en": "The most complete package, with a cruise boat outing at sea. A fixed-price package for 2 people, which we can adjust with you."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/illustrations/croisiere-en-haute-mer.jpg",
+      "alt": {
+        "fr": "Un bateau de croisière blanc en mer, au large d'une côte tropicale",
+        "en": "A white cruise boat at sea off a tropical coast"
+      },
+      "illustrative": true
+    }
+  ],
+  "pricing": {
+    "kind": "fixed",
+    "amount": 300000,
+    "unit": "per_couple"
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "serviceIds": [
+    "chutes-de-la-lobe",
+    "excursion-en-chaloupe",
+    "croisiere-en-haute-mer",
+    "quad",
+    "jet-ski",
+    "kayak",
+    "balade-a-cheval",
+    "jacuzzi-naturel"
+  ],
+  "order": 40,
+  "badge": {
+    "fr": "Le plus complet",
+    "en": "The most complete"
+  }
+}
