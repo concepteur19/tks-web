@@ -21,6 +21,7 @@ Messages d'erreur (par fichier), en français : « accommodationType est obligat
 |---|---|
 | étape de parcours vers une prestation inconnue ou désactivée | `services/<id> → steps[n] : « x » ne correspond à aucune prestation publiée` |
 | formule vers une prestation inconnue ou désactivée | `services/<id> → serviceIds : « x » ne correspond à aucune prestation publiée` |
+| titre d'hébergement qui ne contient pas son prix formaté (FR « 30 000 », EN « 30,000 ») | `services/<id> → title.<langue> : le titre doit citer le prix « x »` |
 
 Une prestation publiée est une expérience ou une option dont `availability` n'est pas `disabled`.
 
@@ -59,6 +60,8 @@ Contient expériences, options, paliers, parcours et formules publiés. Adresse 
 | `packages.tours.title` | Parcours de visite | Guided tours |
 | `packages.tours.note` | Prix de départ par personne : il dépend du groupe, des étapes et de la saison. | Starting price per person: it depends on the group, the stops and the season. |
 | `packages.customise` | Personnaliser ce parcours | Customise this tour |
+| `accommodation.request` | Demander ce logement | Ask about this accommodation |
+| `packages.request` | Demander sur WhatsApp | Ask on WhatsApp |
 | `packages.activities.title` | Formules d'activités | Activity packages |
 | `packages.base` | Tous nos forfaits sont calculés sur une base de 2 personnes. | All our packages are priced for 2 people. |
 | `packages.groups.title` | Groupes jusqu'à 8 personnes sur demande | Groups of up to 8 on request |

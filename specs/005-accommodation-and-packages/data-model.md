@@ -28,7 +28,7 @@ Prix `{ kind: "from", unit: "per_night" }`, quantité `nights` 1 à 30, défaut 
 | `appartement-100000` | appartement | 100 000 | 2 à 6 | 32 | idem |
 | `villa-150000` | villa | 150 000 | 6 à 12 | 40 | `accommodation/villa.jpg` |
 
-Titre (ligne de séjour et message) : « Chambre, à partir de 15 000 FCFA la nuit » / « Room, from 15,000 FCFA a night », sur ce modèle pour chaque palier. Pas de haut de gamme chiffré : encadré WhatsApp.
+Titre (ligne de séjour et message) : « Chambre, à partir de 15 000 FCFA la nuit » / « Room, from 15,000 FCFA a night », sur ce modèle pour chaque palier. Le contrôle au build vérifie que le titre cite le prix (contracts/content.md). Pas de haut de gamme chiffré : encadré WhatsApp.
 
 ## Parcours (`section: parcours`)
 
@@ -56,7 +56,7 @@ Prix `{ kind: "fixed", unit: "per_couple" }`, aucune dimension.
 | 30 | `formule-aventure` | Formule Aventure | `chutes-de-la-lobe`, `excursion-en-pirogue`, `quad`, `jet-ski`, `kayak`, `balade-a-cheval` | 150 000 | quad |
 | 40 | `formule-premium` | Formule Premium, badge « Le plus complet » | `chutes-de-la-lobe`, `excursion-en-chaloupe`, `croisiere-en-haute-mer`, `quad`, `jet-ski`, `kayak`, `balade-a-cheval`, `jacuzzi-naturel` | 300 000 | illustration du bateau de croisière |
 
-Musée d'art → `musee-batanga` (Q3) ; bateau de plaisance → `croisiere-en-haute-mer` (Q2). Prix de la Premium à faire confirmer par Franck.
+« Formule » remplace « Package » du guide tarifaire et de l'écran 07, par cohérence avec l'onglet ; écart de libellé accepté. Musée d'art → `musee-batanga` (Q3) ; bateau de plaisance → `croisiere-en-haute-mer` (Q2). Prix de la Premium à faire confirmer par Franck.
 
 ## Totaux
 

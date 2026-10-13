@@ -13,10 +13,14 @@ Référence : écrans validés [06a](../../../docs/design-exports/06a-hebergemen
 
 L'ajout affiche le message de confirmation de la 004 (écran 06b).
 
+Vocabulaire (FR-007) : « nous réservons », « Kibreeze réserve » ; jamais « propriétaire », « mise en relation », « contacter l'hôte ».
+
+Sans JavaScript : sous chaque `QuickAdd`, un `<noscript>` offre un lien WhatsApp « Demander ce logement » (`accommodation.request`) dont le message nomme le palier. Même principe sur les cartes de parcours et de formules (`packages.request`).
+
 ## Page Formules (`/formules`, `/en/packages`)
 
 1. Bandeau : titre `packages.title`, phrase `packages.tagline`.
-2. Section `id="parcours"`, titre `packages.tours.title`, note `packages.tours.note`. Une carte par parcours (`data-testid="tour-card"`, `id` = identifiant) : photo, nom, étapes numérotées dans l'ordre (lien vers la fiche quand elle existe), « À partir de X FCFA / personne » ou « Sur devis », pastille « Minimum 2 personnes », mention dégressive, puis l'îlot `TourCustomizer`.
+2. Section `id="parcours"`, titre `packages.tours.title`. Une carte par parcours (`data-testid="tour-card"`, `id` = identifiant) : photo, nom, étapes numérotées dans l'ordre (lien vers la fiche quand elle existe), « À partir de X FCFA / personne » ou « Sur devis », pastille « Minimum 2 personnes », mention dégressive, note `packages.tours.note` (sur chaque carte, comme l'exige le cahier, page 6), puis l'îlot `TourCustomizer`.
 3. Section `id="formules"`, titre `packages.activities.title`, mention `packages.base`. Une carte par formule (`data-testid="package-card"`, `id` = identifiant) : photo, nom, badge éventuel, liste cochée de ses prestations (liens vers les fiches), « X FCFA / 2 personnes », euro, `QuickAdd` pleine largeur (« Ajouter à mon séjour »).
 4. Encadré `packages.groups.*` avec bouton WhatsApp.
 
@@ -31,6 +35,10 @@ Prop facultative `wide` : bouton pleine largeur, libellé `stay.add` (« Ajouter
 ## Page Tourisme (`ExperiencesPage.astro`)
 
 Après les cartes d'univers : carte « Parcours Kibreeze » (`experiences.toursEntry.*`), lien vers `/formules#parcours`. `data-testid="tours-entry"`.
+
+## Accueil
+
+L'aperçu Hébergements de l'accueil (`AccommodationTeaser.astro`) lit ses prix dans les paliers (`getAccommodation()`, plus petit palier de chaque type) au lieu de `src/content/site/home.json` : une seule source pour les prix. `home.json` ne garde que les photos et textes de l'aperçu.
 
 ## Navigation
 
