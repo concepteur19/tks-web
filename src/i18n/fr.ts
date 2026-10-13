@@ -92,6 +92,8 @@ export const fr = {
   'accommodation.premium.text':
     "Appartements et villas d'exception, jusqu'à 300 000 FCFA la nuit. Nous réservons pour vous.",
   'accommodation.request': 'Demander ce logement',
+  'accommodation.requestMessage':
+    'Bonjour Kibreeze, je souhaite réserver un logement : « {title} ». Pouvez-vous me proposer une option ? {url}',
   'packages.title': 'Formules',
   'packages.tagline': 'Des séjours déjà composés, ajustables avec nous',
   'packages.description':

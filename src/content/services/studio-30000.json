@@ -1,0 +1,45 @@
+{
+  "title": {
+    "fr": "Studio, à partir de 30 000 FCFA la nuit",
+    "en": "Studio, from 30,000 FCFA a night"
+  },
+  "section": "hebergement",
+  "accommodationType": "studio",
+  "shortDescription": {
+    "fr": "Un studio équipé pour deux ou trois personnes",
+    "en": "A fitted studio for two or three"
+  },
+  "description": {
+    "fr": "Un studio équipé pour deux ou trois personnes. Indiquez-nous vos dates : nous réservons pour vous, chez nos partenaires à Kribi, le logement qui correspond à ce budget.",
+    "en": "A fitted studio for two or three. Tell us your dates: we book for you, with our partners in Kribi, a place that matches this budget."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/accommodation/studio.jpg",
+      "alt": {
+        "fr": "Le salon d'un studio, canapés en cuir et télévision",
+        "en": "A studio living room with leather sofas and a TV"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 30000,
+    "unit": "per_night"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "nights",
+        "min": 1,
+        "max": 30,
+        "default": 1
+      }
+    ]
+  },
+  "capacity": {
+    "min": 2,
+    "max": 3
+  },
+  "order": 20
+}

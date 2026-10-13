@@ -3,6 +3,8 @@ import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
+import { cardPrice } from '../../features/estimation/cardPrice.ts';
+import { getAccommodation } from '../../lib/catalog.ts';
 import { homeTeasers } from '../../lib/site.ts';
 import Icon from '../Icon.astro';
 import Price from '../Price.astro';
@@ -21,6 +23,12 @@ const photos = import.meta.glob<{ default: ImageMetadata }>(
   },
 );
 const photo = (src: string) => photos[`../../assets/photos/${src}`]?.default;
+// Prix d'un type : son palier le moins cher, lu dans le catalogue (005) et non dans home.json.
+const tiers = await getAccommodation();
+const priceOf = (type: string) => {
+  const cheapest = tiers.find((tier) => tier.data.accommodationType === type);
+  return cheapest ? cardPrice(cheapest.data) : undefined;
+};
 ---
 
 <section data-section="accommodation" class="mx-auto max-w-(--size-content) px-4 py-12">
@@ -56,9 +64,11 @@ const photo = (src: string) => photos[`../../assets/photos/${src}`]?.default;
           <div class="p-4">
             <h3 class="font-display text-lg font-bold text-fg">{localize(card.title, locale)}</h3>
             {card.summary && <p class="text-sm text-fg-muted">{localize(card.summary, locale)}</p>}
-            <div class="mt-2">
-              <Price price={card.price} locale={locale} />
-            </div>
+            {priceOf(card.id) && (
+              <div class="mt-2">
+                <Price price={priceOf(card.id)!} locale={locale} />
+              </div>
+            )}
           </div>
         </li>
       ))}

@@ -91,6 +91,8 @@ export const en = {
   'accommodation.premium.text':
     'Exceptional apartments and villas, up to 300,000 FCFA a night. We book for you.',
   'accommodation.request': 'Ask about this accommodation',
+  'accommodation.requestMessage':
+    'Hello Kibreeze, I would like to book accommodation: “{title}”. Could you suggest an option? {url}',
   'packages.title': 'Packages',
   'packages.tagline': 'Ready-made trips you can adjust with us',
   'packages.description':

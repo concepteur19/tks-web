@@ -430,19 +430,25 @@ export function homeSchema<Src extends z.ZodTypeAny>(src: Src) {
       id: z.string().min(1),
       title: localizedString,
       summary: localizedString.optional(),
-      price: z.discriminatedUnion('unit', [
-        z
-          .object({ kind: z.enum(['from', 'fixed']), amount, unit: z.literal('per_night') })
-          .strict(),
-        z
-          .object({
-            kind: z.enum(['from', 'fixed']),
-            amount,
-            unit: z.literal('per_group'),
-            basePersons: z.number().int().positive(),
-          })
-          .strict(),
-      ]),
+      /**
+       * Facultatif : l'aperçu Hébergements lit ses prix dans les paliers (005), l'aperçu Formules
+       * dans les formules ; une seule source pour chaque prix.
+       */
+      price: z
+        .discriminatedUnion('unit', [
+          z
+            .object({ kind: z.enum(['from', 'fixed']), amount, unit: z.literal('per_night') })
+            .strict(),
+          z
+            .object({
+              kind: z.enum(['from', 'fixed']),
+              amount,
+              unit: z.literal('per_group'),
+              basePersons: z.number().int().positive(),
+            })
+            .strict(),
+        ])
+        .optional(),
       /** Facultative : aucune photo d'hébergement n'est utilisable à ce jour (src/assets/photos/README.md). */
       image: imageSchema(src).optional(),
     })

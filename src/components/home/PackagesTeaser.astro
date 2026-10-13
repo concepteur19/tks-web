@@ -22,9 +22,11 @@ const { locale } = Astro.props;
           {card.summary && (
             <p class="mt-1 text-sm text-fg-muted">{localize(card.summary, locale)}</p>
           )}
-          <div class="mt-3">
-            <Price price={card.price} locale={locale} />
-          </div>
+          {card.price && (
+            <div class="mt-3">
+              <Price price={card.price} locale={locale} />
+            </div>
+          )}
         </li>
       ))}
     </ul>
