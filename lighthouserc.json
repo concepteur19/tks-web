@@ -13,7 +13,9 @@
         "http://localhost/experiences/excursion-en-pirogue.html",
         "http://localhost/sejour.html",
         "http://localhost/experiences/visites.html",
-        "http://localhost/experiences/village-mayi.html"
+        "http://localhost/experiences/village-mayi.html",
+        "http://localhost/hebergements.html",
+        "http://localhost/formules.html"
       ],
       "numberOfRuns": 3
     },

@@ -38,7 +38,7 @@ const experiencesPath = getRoutePath('experiences', locale);
 
 <article
   id={tour.id}
-  class="flex scroll-mt-(--size-header) flex-col overflow-hidden rounded-card bg-bg shadow-card"
+  class="flex w-full scroll-mt-(--size-header) flex-col overflow-hidden rounded-card bg-bg shadow-card"
   data-testid="tour-card"
 >
   {image && (
@@ -89,7 +89,9 @@ const experiencesPath = getRoutePath('experiences', locale);
           {t(locale, 'price.degressive')}
         </p>
       )}
-      <p class="mt-1 text-xs text-fg-muted">{t(locale, 'packages.tours.note')}</p>
+      {data.pricing?.kind !== 'quote' && (
+        <p class="mt-1 text-xs text-fg-muted">{t(locale, 'packages.tours.note')}</p>
+      )}
     </div>
     <TourCustomizer client:visible service={islandService} locale={locale} title={title} />
     <noscript>

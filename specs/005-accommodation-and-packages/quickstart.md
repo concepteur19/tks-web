@@ -37,4 +37,30 @@ En 360 × 800 puis en 1 440 × 1 024, en français puis en anglais.
 
 ## Résultats relevés
 
-À compléter en fin d'implémentation.
+Contrôles automatiques du 2026-10-13 (T031) :
+
+| Contrôle | Résultat |
+|---|---|
+| `npm run check` | 188 tests unitaires (couverture 100 %), 39 tests de composants et d'îlots, lint, types, contrastes : tout passe |
+| `npm run build:prod` | 90 pages, traductions complètes |
+| `npm run check:links` | 3 372 liens internes, aucun cassé |
+| `npm run check:bundle` | Hébergements 21,9 Ko, Formules 23,0 Ko (budget 50 Ko) ; la plus lourde, Mon séjour, 26,9 Ko |
+| `npm run test:e2e` | 413 parcours, Chromium et WebKit : tout passe (3 ignorés sous WebKit, comme avant) |
+
+Lighthouse, profil mobile, médiane de trois passages :
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO | LCP simulé | CLS |
+|---|---|---|---|---|---|---|
+| `/hebergements` | 98 | 100 | 100 | 100 | 2,25 s | 0 |
+| `/formules` | 97 | 100 | 100 | 100 | 2,55 s | 0 |
+
+## Comparaison visuelle (T032)
+
+Captures à 390 px (2x) et 1 440 px, comparées aux écrans 06a et 07 et à l'illustration de parcours du cahier (page 6).
+
+- Hébergements : conforme à 06a (explication en tête, une carte par type, budgets en rangées, encadré haut de gamme sombre en fin de page).
+- Formules : conforme à 07 (base de 2 personnes, prestations cochées, prix « / 2 personnes », bouton pleine largeur, badge « Le plus complet », encadré des groupes), précédé des parcours.
+- Corrigé : les cartes de formule n'avaient pas toutes la même largeur ; trois parcours montraient la même photo des chutes (Nature & Littoral et Au fil de l'eau ont désormais leur propre photo) ; la note « Prix de départ par personne » s'affichait sur les parcours sur devis ; sur ordinateur, l'ancre `#formules` masquait le titre sous l'en-tête.
+- Écarts conservés : bouton « Ajouter » plein (06a le montre au trait), par cohérence avec les cartes d'expérience ; « Formule » au lieu de « Package » (07), par cohérence avec l'onglet.
+
+Scénarios manuels 1 à 13 : à dérouler par Zobel (T033).

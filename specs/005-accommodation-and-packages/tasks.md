@@ -112,10 +112,10 @@ Celles des 002 à 008 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 ## Phase 6: Polish & vérification
 
-- [ ] T029 [P] Ajouter `/hebergements.html` et `/formules.html` à `lighthouserc.json`
-- [ ] T030 [P] Documentation : `docs/functional-requirements.md` (FR-PACK : parcours à côté des formules, section « Parcours de visite » ; FR-HEB-6 : étiquette « Exemple de logement à ce budget ») ; `docs/data-model.md` (sections `hebergement`, `parcours`, `formule`, unité `per_couple`, renvoi vers [data-model.md](./data-model.md)) ; `docs/content-tracker.md` (photos d'hébergement par budget toujours attendues, prix de la formule Premium à confirmer, formules complètes sans prix) ; `specs/README.md` (statut 005 ; statut 008 « Livrée (PR #7) »)
-- [ ] T031 Lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; consigner les résultats dans [quickstart.md](./quickstart.md)
-- [ ] T032 Comparer, captures à 390 px (2x) et 1 440 px, les pages Hébergements et Formules aux écrans 06a, 06b et 07, et la carte de parcours à l'illustration du cahier (page 6) ; corriger les écarts non justifiés et les consigner dans [quickstart.md](./quickstart.md)
+- [X] T029 [P] Ajouter `/hebergements.html` et `/formules.html` à `lighthouserc.json`
+- [X] T030 [P] Documentation : `docs/functional-requirements.md` (FR-PACK : parcours à côté des formules, section « Parcours de visite » ; FR-HEB-6 : étiquette « Exemple de logement à ce budget ») ; `docs/data-model.md` (sections `hebergement`, `parcours`, `formule`, unité `per_couple`, renvoi vers [data-model.md](./data-model.md)) ; `docs/content-tracker.md` (photos d'hébergement par budget toujours attendues, prix de la formule Premium à confirmer, formules complètes sans prix) ; `specs/README.md` (statut 005 ; statut 008 « Livrée (PR #7) »)
+- [X] T031 Lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; consigner les résultats dans [quickstart.md](./quickstart.md)
+- [X] T032 Comparer, captures à 390 px (2x) et 1 440 px, les pages Hébergements et Formules aux écrans 06a, 06b et 07, et la carte de parcours à l'illustration du cahier (page 6) ; corriger les écarts non justifiés et les consigner dans [quickstart.md](./quickstart.md)
 - [ ] T033 Dérouler les 13 scénarios manuels de [quickstart.md](./quickstart.md) et relire les textes anglais (Zobel)
 - [ ] T034 Ouvrir la PR `005-accommodation-and-packages` → `main` (Zobel)
 

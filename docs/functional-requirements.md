@@ -191,6 +191,8 @@ Modèle confirmé par Franck le 2026-09-25 (vocal) : le site n'affiche **pas de 
 
 **FR-PACK-5** ⏳ Les formules incluant hébergement et transport (client R3, « les deux versions ») attendent leurs prix. Tant qu'ils manquent, seules les formules d'activités sont publiées.
 
+**FR-PACK-6** La page Formules présente d'abord les six **parcours de visite** du cahier d'octobre 2026 (prix de départ par personne, minimum 2, tarif dégressif ou sur devis, étapes liées aux fiches), puis les formules d'activités. « Personnaliser ce parcours » ajoute le parcours à Mon séjour avec un nombre de personnes ; la page Tourisme y mène par une carte « Parcours Kibreeze » (feature 005, réponses U2 à U4).
+
 ---
 
 ## MOB — TKS® Mobilité (spec 006)

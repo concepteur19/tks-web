@@ -42,6 +42,7 @@ test.describe('parcours de visite', () => {
       for (const id of ['kribi-et-ebodje', 'au-fil-de-l-eau']) {
         const card = page.locator(`[id="${id}"]`);
         expect(plain(await card.textContent())).toContain(quote);
+        expect(plain(await card.textContent())).not.toContain(note);
         await expect(card.getByTestId('tour-customizer')).toHaveCount(1);
       }
       // « Fleuve Lobé » n'a pas de fiche : texte sans lien.
