@@ -72,3 +72,6 @@ id_*
 *_key.pub
 
 # Spec Kit machine-local state (see .specify/.gitignore)
+
+# Captures de pré-vérification des scénarios manuels (non versionnées)
+Elements/verification/

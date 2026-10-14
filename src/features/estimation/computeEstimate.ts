@@ -11,7 +11,11 @@ export type EstimateLine = {
   serviceId: string;
   title: LocalizedString;
   quantities: number[];
-  dimensions: { kind: QuantityDimension['kind']; label?: LocalizedString | undefined }[];
+  dimensions: {
+    kind: QuantityDimension['kind'];
+    label?: LocalizedString | undefined;
+    labelOne?: LocalizedString | undefined;
+  }[];
   tier?: { id: string; label: LocalizedString } | undefined;
   pricingKind: 'fixed' | 'from' | 'quote';
   unit: PriceUnit | null;
@@ -74,7 +78,12 @@ export function computeEstimate(
       quantities: [...item.quantities],
       dimensions: rule.dimensions.map((dimension) => ({
         kind: dimension.kind,
-        ...(dimension.kind === 'units' ? { label: dimension.label } : {}),
+        ...(dimension.kind === 'units'
+          ? {
+              label: dimension.label,
+              ...(dimension.labelOne ? { labelOne: dimension.labelOne } : {}),
+            }
+          : {}),
       })),
       ...(tier ? { tier: { id: tier.id, label: tier.label } } : {}),
       pricingKind: isQuote ? 'quote' : priced.kind,

@@ -57,7 +57,11 @@ describe('cas de référence du data-model 004', () => {
     const result = estimate(line('quad', [3]));
     expect(result.total).toBe(30000);
     expect(result.lines[0]?.dimensions).toEqual([
-      { kind: 'units', label: { fr: 'sessions', en: 'sessions' } },
+      {
+        kind: 'units',
+        label: { fr: 'sessions', en: 'sessions' },
+        labelOne: { fr: 'session', en: 'session' },
+      },
     ]);
   });
 

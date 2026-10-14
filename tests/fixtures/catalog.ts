@@ -54,7 +54,14 @@ export const SERVICES: IslandService[] = [
     pricing: { kind: 'fixed', amount: 10000, unit: 'per_session' },
     quantity: {
       dimensions: [
-        { kind: 'units', label: { fr: 'sessions', en: 'sessions' }, min: 1, max: 10, default: 1 },
+        {
+          kind: 'units',
+          label: { fr: 'sessions', en: 'sessions' },
+          labelOne: { fr: 'session', en: 'session' },
+          min: 1,
+          max: 10,
+          default: 1,
+        },
       ],
     },
     isOption: false,
