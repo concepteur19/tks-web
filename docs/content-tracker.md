@@ -134,7 +134,7 @@ Réglé le 2026-09-16 : l'excursion en pirogue est gardée, il n'y a pas de cat�
 | Élément | État |
 |---|---|
 | Photos du Village Ebodjé, du Port Autonome, de l'Hôtel Golden K (Franck l'envoie), du Musée Batanga | ⏳ photo d'ambiance (vue aérienne de Kribi) en attendant |
-| Photo du débarcadère de Mboa-Manga et du monument du village Mayi | ⏳ celles identifiées par Franck (P16, P17, P19) portent le filigrane « The Tourist Guide » : il faut les siennes |
+| Photo du débarcadère de Mboa-Manga et du monument du village Mayi | 🔄 publiées à titre provisoire (décision de Zobel, 2026-10-11) : celles identifiées par Franck (P16, P17, P19), qui portent le filigrane « The Tourist Guide » ; à remplacer par les siennes |
 | Second angle du pont des Esclaves | ⏳ introuvable dans les fichiers (Zobel, 2026-10-11 : on passe) |
 | Photos réelles des 10 spécialités culinaires et du bateau de croisière | 🔄 illustrations générées, marquées « Photo illustrative » |
 | Durées (sessions de quad, jet-ski, bouée ; visites ; parcours) | ⏳ jamais données : rubrique omise |
