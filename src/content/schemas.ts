@@ -42,7 +42,13 @@ const bounds = {
 
 export const quantityDimension = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('persons'), ...bounds }),
-  z.object({ kind: z.literal('units'), label: localizedString, ...bounds }),
+  z.object({
+    kind: z.literal('units'),
+    label: localizedString,
+    /** Libellé au singulier (« session »), utilisé quand la quantité vaut 1. */
+    labelOne: localizedString.optional(),
+    ...bounds,
+  }),
   z.object({ kind: z.literal('days'), ...bounds }),
   z.object({ kind: z.literal('nights'), ...bounds }),
   z.object({ kind: z.literal('hours'), ...bounds }),

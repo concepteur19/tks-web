@@ -151,6 +151,9 @@ describe('message récapitulatif', () => {
     const estimate = computeEstimate({ items: [line('quad', [2])] }, CATALOG);
     const first = estimate.lines[0]!;
     expect(describeQuantities(first, 'en')).toBe('2 sessions');
+    const one = computeEstimate({ items: [line('quad', [1])] }, CATALOG).lines[0]!;
+    expect(describeQuantities(one, 'fr')).toBe('1 session');
+    expect(describeQuantities(one, 'en')).toBe('1 session');
     expect(
       describeQuantities({ ...first, dimensions: [{ kind: 'units' }], quantities: [] }, 'fr'),
     ).toBe('0');

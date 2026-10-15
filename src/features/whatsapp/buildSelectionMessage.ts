@@ -26,7 +26,8 @@ export function describeQuantities(line: EstimateLine, locale: Locale): string {
   const parts = line.dimensions.map((dimension, index) => {
     const count = line.quantities[index] ?? 0;
     if (dimension.kind === 'units') {
-      return `${count} ${dimension.label ? localize(dimension.label, locale) : ''}`.trim();
+      const label = count === 1 && dimension.labelOne ? dimension.labelOne : dimension.label;
+      return `${count} ${label ? localize(label, locale) : ''}`.trim();
     }
     return t(locale, `quantity.${dimension.kind}`, { count });
   });
