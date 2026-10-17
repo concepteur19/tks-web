@@ -28,7 +28,7 @@ type LocalizedString = { fr: string; en?: string };
 ### `Section`
 
 ```ts
-type Section = 'experience' | 'hebergement' | 'formule' | 'mobilite';
+type Section = 'experience' | 'hebergement' | 'parcours' | 'formule' | 'mobilite';
 ```
 
 Remplace l'ancien `Pole = 'transport' | 'tourisme' | 'livraison'` depuis le pivot Kibreeze du 2026-09-25. Le site n'est plus organisé en trois pôles d'égale importance mais en un catalogue d'expériences dominant, deux rubriques complémentaires, et une section de mobilité secondaire. **La livraison n'est plus une section** : elle appartient à Breezy Delivery, marque sœur du groupe, et ne figure pas sur ce site.
@@ -160,7 +160,7 @@ Mobilité TKS® : ⏳ **aucun tarif n'a jamais été fourni**. Tous les services
 
 ### `Package` et parcours
 
-Depuis la feature 005, paliers d'hébergement, parcours et formules sont des entrées de `services`, distinguées par leur `section` (`hebergement`, `parcours`, `formule`) ; les formules utilisent l'unité `per_couple` (« / 2 personnes »). Détail : [specs/005-accommodation-and-packages/data-model.md](../specs/005-accommodation-and-packages/data-model.md). Le type ci-dessous est la conception d'origine.
+Depuis la feature 005, paliers d'hébergement, parcours et formules sont des entrées de `services`, distinguées par leur `section` (`hebergement`, `parcours`, `formule`) ; les formules utilisent l'unité `per_couple` (« / 2 personnes »). Détail : [specs/005-accommodation-and-packages/data-model.md](../specs/005-accommodation-and-packages/data-model.md). La mobilité (feature 006) suit le même principe dans la section `mobilite` : une catégorie de véhicule porte `models` (`string[]`, réservé à cette section), un prix `from` + `per_day` et les dimensions véhicules × jours ; un service sans `models` est sur devis. Détail : [specs/006-tks-mobility/data-model.md](../specs/006-tks-mobility/data-model.md). Le type ci-dessous est la conception d'origine.
 
 Quatre packages existent avec leurs prix (guide tarifaire, contrairement à la réponse M1 du 2026-09-25).
 

@@ -89,7 +89,7 @@ export function universePath(universe: CollectionEntry<'categories'>, locale: Lo
 }
 
 /** Prestations publiées d'une section autre que les expériences, par ordre puis nom (005). */
-async function publishedIn(section: 'hebergement' | 'parcours' | 'formule') {
+async function publishedIn(section: 'hebergement' | 'parcours' | 'formule' | 'mobilite') {
   const services = await getCollection(
     'services',
     (service) => service.data.section === section && service.data.availability !== 'disabled',
@@ -105,3 +105,6 @@ export const getTours = () => publishedIn('parcours');
 
 /** Formules d'activités (005, FR-014). */
 export const getPackages = () => publishedIn('formule');
+
+/** Mobilité TKS® (006) : catégories de véhicules (avec `models`) puis services sur devis. */
+export const getMobility = () => publishedIn('mobilite');

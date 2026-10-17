@@ -6,19 +6,27 @@ import { getImage } from 'astro:assets';
 import { toIslandCatalog, type IslandService } from '../features/selection/islandCatalog.ts';
 import { getRoutePath } from '../i18n/routes.ts';
 import { LOCALES, type Locale } from '../i18n/types.ts';
-import { getAccommodation, getExperiences, getOptions, getPackages, getTours } from './catalog.ts';
+import {
+  getAccommodation,
+  getExperiences,
+  getMobility,
+  getOptions,
+  getPackages,
+  getTours,
+} from './catalog.ts';
 
 let cache: Promise<IslandService[]> | undefined;
 
 async function build(): Promise<IslandService[]> {
-  const [experiences, options, accommodation, tours, packages] = await Promise.all([
+  const [experiences, options, accommodation, tours, packages, mobility] = await Promise.all([
     getExperiences(),
     getOptions(),
     getAccommodation(),
     getTours(),
     getPackages(),
+    getMobility(),
   ]);
-  const withCards = [...experiences, ...accommodation, ...tours, ...packages];
+  const withCards = [...experiences, ...accommodation, ...tours, ...packages, ...mobility];
   const thumbnails: Record<string, string> = {};
   for (const service of withCards) {
     const first = service.data.images?.[0];
@@ -33,8 +41,8 @@ async function build(): Promise<IslandService[]> {
       thumbnails[service.id] = image.src;
     }
   }
-  // Adresse d'une ligne de séjour : la fiche d'une expérience, la carte d'un palier, d'un parcours
-  // ou d'une formule sur sa page (005, contracts/content.md).
+  // Adresse d'une ligne de séjour : la fiche d'une expérience, la carte d'un palier, d'un parcours,
+  // d'une formule ou d'une prestation de mobilité sur sa page (005 et 006, contracts/content.md).
   const sectionOf = new Map(withCards.map((service) => [service.id, service.data.section]));
   const hrefs = (id: string) =>
     Object.fromEntries(
@@ -45,7 +53,9 @@ async function build(): Promise<IslandService[]> {
             ? `${getRoutePath('accommodation', locale)}#${id}`
             : section === 'parcours' || section === 'formule'
               ? `${getRoutePath('packages', locale)}#${id}`
-              : `${getRoutePath('experiences', locale)}/${id}`;
+              : section === 'mobilite'
+                ? `${getRoutePath('mobility', locale)}#${id}`
+                : `${getRoutePath('experiences', locale)}/${id}`;
         return [locale, href];
       }),
     ) as Record<Locale, string>;

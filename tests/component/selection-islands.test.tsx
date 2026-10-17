@@ -3,8 +3,8 @@ import axe from 'axe-core';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import ExperienceConfigurator from '../../src/features/selection/ExperienceConfigurator.tsx';
 import QuantityStepper from '../../src/features/selection/QuantityStepper.tsx';
+import LineCustomizer from '../../src/features/selection/LineCustomizer.tsx';
 import QuickAdd from '../../src/features/selection/QuickAdd.tsx';
-import TourCustomizer from '../../src/features/selection/TourCustomizer.tsx';
 import RequestBar from '../../src/features/selection/RequestBar.tsx';
 import StayPage from '../../src/features/selection/StayPage.tsx';
 import { $draft } from '../../src/features/selection/draft.ts';
@@ -165,13 +165,14 @@ describe('ajout rapide pleine largeur (005)', () => {
   });
 });
 
-describe('personnalisation d’un parcours (005)', () => {
-  it('part de 2 personnes, ne descend pas en dessous et ajoute le nombre choisi', async () => {
+describe('réglage avant ajout : parcours (005) et véhicules (006)', () => {
+  it('parcours : part de 2 personnes, ne descend pas en dessous et ajoute le nombre choisi', async () => {
     const { container } = render(
-      <TourCustomizer
+      <LineCustomizer
         service={service('essentiel-de-kribi')}
         locale="fr"
         title="L'Essentiel de Kribi"
+        buttonLabel="Personnaliser ce parcours"
       />,
     );
     const less = screen.getByRole('button', { name: 'Diminuer : Nombre de personnes' });
@@ -179,9 +180,38 @@ describe('personnalisation d’un parcours (005)', () => {
     expect(less).toHaveProperty('disabled', true);
     fireEvent.click(more);
     fireEvent.click(more);
-    fireEvent.click(screen.getByRole('button', { name: /^Personnaliser ce parcours/ }));
+    fireEvent.click(
+      screen.getByRole('button', { name: "Personnaliser ce parcours : L'Essentiel de Kribi" }),
+    );
     expect($selection.get().items).toEqual([
       { serviceId: 'essentiel-de-kribi', quantities: [4], optionIds: [] },
+    ]);
+    const results = await axe.run(container, AXE);
+    expect(results.violations).toEqual([]);
+  });
+
+  it('véhicule : règle véhicules et jours dans leurs bornes, puis ajoute la ligne', async () => {
+    const { container } = render(
+      <LineCustomizer
+        service={service('vehicule-premium')}
+        locale="fr"
+        title="Premium"
+        buttonLabel="Ajouter à mon séjour"
+      />,
+    );
+    expect(screen.getByText('Nombre de véhicules')).toBeTruthy();
+    expect(screen.getByText('Nombre de jours')).toBeTruthy();
+    const fewerVehicles = screen.getByRole('button', { name: 'Diminuer : Nombre de véhicules' });
+    const moreVehicles = screen.getByRole('button', { name: 'Augmenter : Nombre de véhicules' });
+    const moreDays = screen.getByRole('button', { name: 'Augmenter : Nombre de jours' });
+    expect(fewerVehicles).toHaveProperty('disabled', true);
+    for (let i = 0; i < 6; i += 1) fireEvent.click(moreVehicles);
+    expect(moreVehicles).toHaveProperty('disabled', true);
+    for (let i = 0; i < 4; i += 1) fireEvent.click(fewerVehicles);
+    for (let i = 0; i < 3; i += 1) fireEvent.click(moreDays);
+    fireEvent.click(screen.getByRole('button', { name: 'Ajouter à mon séjour : Premium' }));
+    expect($selection.get().items).toEqual([
+      { serviceId: 'vehicule-premium', quantities: [1, 4], optionIds: [] },
     ]);
     const results = await axe.run(container, AXE);
     expect(results.violations).toEqual([]);

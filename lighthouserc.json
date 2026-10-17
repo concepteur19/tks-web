@@ -15,7 +15,8 @@
         "http://localhost/experiences/visites.html",
         "http://localhost/experiences/village-mayi.html",
         "http://localhost/hebergements.html",
-        "http://localhost/formules.html"
+        "http://localhost/formules.html",
+        "http://localhost/mobilite.html"
       ],
       "numberOfRuns": 3
     },

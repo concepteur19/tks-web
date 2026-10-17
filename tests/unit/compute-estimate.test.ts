@@ -88,6 +88,30 @@ describe('cas de référence du data-model 004', () => {
   });
 });
 
+describe('cas de référence du data-model 006', () => {
+  it('Premium, 1 véhicule × 4 jours : 140 000, estimatif', () => {
+    const result = estimate(line('vehicule-premium', [1, 4]));
+    expect(result.lines[0]?.lineAmount).toBe(140000);
+    expect(result.total).toBe(140000);
+    expect(result.hasFromPrices).toBe(true);
+  });
+
+  it('Yaris, 2 véhicules × 3 jours : 150 000', () => {
+    expect(estimate(line('vehicule-yaris', [2, 3])).total).toBe(150000);
+  });
+
+  it('transferts et chauffeur privé : sur devis, hors du total', () => {
+    const result = estimate(
+      line('vehicule-premium', [1, 4]),
+      line('transferts', []),
+      line('chauffeur-prive', [4]),
+    );
+    expect(result.total).toBe(140000);
+    expect(result.quoteCount).toBe(2);
+    expect(result.lines.map((item) => item.lineAmount)).toEqual([140000, null, null]);
+  });
+});
+
 describe('autres règles', () => {
   it('multiplie le prix par toutes les dimensions et repère les prix « à partir de »', () => {
     const result = estimate(line('location', [2, 3]));
