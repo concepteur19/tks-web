@@ -25,7 +25,7 @@
     "check:bundle": "node scripts/check-bundle-size.mjs",
     "check:links": "node scripts/check-links.mjs",
     "check:legal": "node --experimental-strip-types scripts/check-legal.ts",
-    "photos:import": "node scripts/import-photos.mjs",
+    "photos:import": "node --experimental-strip-types scripts/import-photos.ts",
     "lighthouse": "lhci autorun",
     "prepare": "husky",
     "test:coverage": "vitest run --project unit --coverage"

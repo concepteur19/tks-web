@@ -26,7 +26,7 @@ Ajoute les prestations de mobilité, avec vignette. Adresse d'une ligne :
 |---|---|---|
 | `mobilite` | `/mobilite#<id>` | `/en/mobility#<id>` |
 
-## Import des photos (`scripts/import-photos.mjs`)
+## Import des photos (`scripts/import-photos.ts`)
 
 Une entrée de `sources.json` est une chaîne (source) ou un objet :
 

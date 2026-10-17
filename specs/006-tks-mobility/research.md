@@ -57,7 +57,7 @@ Pas d'inconnue technique. Le schéma prévoit la section `mobilite` depuis la 00
 
 ## 7. Photos : plaques floutées à l'import
 
-**Decision**: `scripts/import-photos.mjs` accepte, dans `sources.json`, une entrée objet `{ "source": "…", "blur": [{ "left", "top", "width", "height" }] }` en fractions de l'image (0 à 1, après rotation EXIF) ; chaque zone est extraite, floutée (`sharp.blur`), recomposée avant la réduction. Les entrées chaîne restent valides.
+**Decision**: `scripts/import-photos.ts` accepte, dans `sources.json`, une entrée objet `{ "source": "…", "blur": [{ "left", "top", "width", "height" }] }` en fractions de l'image (0 à 1, après rotation EXIF) ; chaque zone est extraite, floutée (`sharp.blur`), recomposée avant la réduction. Les entrées chaîne restent valides.
 
 | Destination | Source (`voitures-tks/`) | Véhicule |
 |---|---|---|

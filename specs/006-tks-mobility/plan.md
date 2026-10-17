@@ -81,7 +81,7 @@ src/
 ├── i18n/{fr,en}.ts, routes.ts           # chaînes mobility.* ; IMPLEMENTED_ROUTES
 └── assets/photos/mobility/              # 5 photos, plaques floutées
 
-scripts/import-photos.mjs                # entrées { source, blur }
+scripts/import-photos.ts                # entrées { source, blur }
 src/assets/photos/sources.json           # 5 entrées
 lighthouserc.json                        # + /mobilite
 ```

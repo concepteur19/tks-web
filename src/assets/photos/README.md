@@ -91,6 +91,20 @@ Consigne commune : *Realistic documentary food photograph taken in Kribi, Camero
 | `illustrations/chambre-15000.jpg` … `villa-150000.jpg` | une illustration par palier d'hébergement (005), de la chambre simple à la villa avec piscine, consigne d'intérieur ou d'extérieur « real-estate style », sans personne ; marquées « Exemple de logement à ce budget · photo illustrative » |
 | `illustrations/croisiere-en-haute-mer.jpg` | bateau de croisière blanc en mer au large de la côte de Kribi (consigne de voyage, sans nourriture) |
 
+## Véhicules TKS® (feature 006)
+
+Photos des cinq véhicules envoyées par Franck le 2026-10-06 (`voitures-tks/`). Les plaques d'immatriculation sont floutées **à l'import** : l'entrée de `sources.json` donne les zones à flouter (`blur`, fractions de l'image après rotation), si bien qu'un réimport ne republie jamais une plaque lisible. Contrôlées en pleine résolution le 2026-10-17, plaques des taxis en arrière-plan comprises.
+
+| Usage | Fichier | Source | Zones floutées |
+|---|---|---|---|
+| Luxe (Land Cruiser Prado TXL), chauffeur privé | `mobility/luxe.jpg` | `photo_2026-10-06_06-34-19` | plaque avant |
+| Luxe (Land Cruiser), location avec chauffeur | `mobility/luxe-2.jpg` | `photo_2026-10-06_06-34-25` | plaque avant |
+| Premium (RAV4, arrière), prestations professionnelles | `mobility/premium.jpg` | `photo_2026-10-06_06-34-13` | plaque arrière |
+| Premium (Avensis), transferts | `mobility/premium-2.jpg` | `photo_2026-10-06_06-33-08` | plaque avant, deux taxis en arrière-plan |
+| Yaris | `mobility/yaris.jpg` | `photo_2026-10-06_06-34-31` | plaque avant |
+
+Non publiées : Avensis vue de l'arrière (`06-33-27`), RAV4 vu de l'avant (`06-33-48`).
+
 ## Images générées par Google Stitch (provisoires)
 
 Décision de Zobel du 2026-10-05 : en attendant les photos de Franck, les sujets sans photo prennent l'image générée par Stitch pour les écrans validés. Les liens d'origine de ces images sont privés : elles sont découpées dans les captures validées de `docs/design-exports/`, sans les badges incrustés. À remplacer une à une dès réception des photos (questionnaire `docs/questions-kibreeze-franck-3.xlsx`, onglet Photos).

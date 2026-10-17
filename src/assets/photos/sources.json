@@ -43,5 +43,72 @@
   "experiences/quad-3.jpg": "quad/photo_2026-10-11_18-55-21.jpg",
   "experiences/jet-ski-2.jpg": "jet-ski/photo_2026-10-11_18-55-46.jpg",
   "experiences/jet-ski-3.jpg": "jet-ski/photo_2026-10-11_18-55-04.jpg",
-  "sections/plage-kribi.jpg": "ambiance-hero-plages-couchers/L11-06.jpg"
+  "sections/plage-kribi.jpg": "ambiance-hero-plages-couchers/L11-06.jpg",
+  "mobility/luxe.jpg": {
+    "source": "voitures-tks/photo_2026-10-06_06-34-19.jpg",
+    "blur": [
+      {
+        "left": 0.69,
+        "top": 0.58,
+        "width": 0.215,
+        "height": 0.095
+      }
+    ]
+  },
+  "mobility/luxe-2.jpg": {
+    "source": "voitures-tks/photo_2026-10-06_06-34-25.jpg",
+    "blur": [
+      {
+        "left": 0.07,
+        "top": 0.77,
+        "width": 0.15,
+        "height": 0.095
+      }
+    ]
+  },
+  "mobility/premium.jpg": {
+    "source": "voitures-tks/photo_2026-10-06_06-34-13.jpg",
+    "blur": [
+      {
+        "left": 0.535,
+        "top": 0.635,
+        "width": 0.21,
+        "height": 0.075
+      }
+    ]
+  },
+  "mobility/premium-2.jpg": {
+    "source": "voitures-tks/photo_2026-10-06_06-33-08.jpg",
+    "blur": [
+      {
+        "left": 0.13,
+        "top": 0.7,
+        "width": 0.4,
+        "height": 0.09
+      },
+      {
+        "left": 0.78,
+        "top": 0.235,
+        "width": 0.06,
+        "height": 0.03
+      },
+      {
+        "left": 0.935,
+        "top": 0.255,
+        "width": 0.06,
+        "height": 0.03
+      }
+    ]
+  },
+  "mobility/yaris.jpg": {
+    "source": "voitures-tks/photo_2026-10-06_06-34-31.jpg",
+    "blur": [
+      {
+        "left": 0.81,
+        "top": 0.555,
+        "width": 0.105,
+        "height": 0.13
+      }
+    ]
+  }
 }
