@@ -40,3 +40,27 @@ En 360 × 800 puis en 1 440 × 1 024, en français puis en anglais.
 | 11 | Photos en pleine résolution | aucune plaque lisible | FR-006 |
 | 12 | JavaScript désactivé | chaque prestation a un lien WhatsApp qui la nomme | FR-011 |
 | 13 | Parcours sur la page Formules | « Personnaliser ce parcours » fonctionne comme avant | non-régression |
+
+## Résultats (2026-10-17)
+
+| Contrôle | Résultat |
+|---|---|
+| `npm run check` | lint, format, types, tokens, contenu ; 40 tests de composants et d'îlots, 205 tests unitaires, couverture 100 % |
+| `npm run build:prod` | 92 pages, traductions complètes |
+| `npm run check:links` | 3 632 liens internes, aucun cassé ; plus aucun lien vers WhatsApp faute de page (SC-003) |
+| `npm run check:bundle` | `/mobilite` : 23,5 kB compressés (budget 50 kB) |
+| `npm run test:e2e` | 461 tests passés (desktop-chromium, mobile-webkit) |
+| `npm run lighthouse` | `/mobilite` : performance 99–100, accessibilité 100, bonnes pratiques 96, référencement 100 (SC-004) |
+
+Les tests de la page Mobilité attendent l'hydratation de l'îlot (`reveal`) avant de cliquer : un premier passage de la suite complète avait cliqué trop tôt sous charge.
+
+## Comparaison avec l'écran 08 (2026-10-17)
+
+Captures à 390 px (2x, WebKit) et 1 440 px (Chromium) : `Elements/verification/006-*.png` (dossier ignoré par Git).
+
+| Écart | Décision |
+|---|---|
+| Location de véhicules : trois cartes chiffrées avec sélecteurs véhicules × jours, au lieu d'une ligne « Sur devis » | voulu : prix reçus après l'écran (spec, contexte), réglage avant ajout (US1) |
+| Services : ligne compacte, vignette carrée, pastille « Sur devis », bouton « Ajouter » au lieu du chevron | voulu : ajout au séjour (FR-007) ; le chevron de l'écran menait à une fiche qui n'existe pas |
+| Flèches natives dans les champs des sélecteurs (Safari et Firefox sur ordinateur, toutes les pages depuis la 004) | corrigé : masquées dans `src/styles/global.css` |
+| En-tête, mention Breezy Groupe, encadré sur mesure | conformes |

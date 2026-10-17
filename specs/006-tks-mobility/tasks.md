@@ -101,10 +101,10 @@ Celles des 002 à 008 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 ## Phase 6: Polish & vérification
 
-- [ ] T022 [P] Ajouter `/mobilite.html` à `lighthouserc.json`
-- [ ] T023 [P] Documentation : `docs/functional-requirements.md` (FR-MOB : catégories chiffrées, services sur devis) ; `docs/data-model.md` (section `mobilite`, champ `models`, renvoi vers [data-model.md](./data-model.md)) ; `docs/content-tracker.md` (hypothèses M1 à M5 en attente du questionnaire 6, photos des services) ; `src/assets/photos/README.md` (flou des plaques) ; `specs/README.md` (statut 006)
-- [ ] T024 Lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; consigner les résultats dans [quickstart.md](./quickstart.md)
-- [ ] T025 Comparer, captures à 390 px (2x) et 1 440 px, la page Mobilité à l'écran 08 (écart voulu : catégories chiffrées au lieu de « Sur devis ») ; corriger les écarts non justifiés et les consigner dans [quickstart.md](./quickstart.md)
+- [X] T022 [P] Ajouter `/mobilite.html` à `lighthouserc.json`
+- [X] T023 [P] Documentation : `docs/functional-requirements.md` (FR-MOB : catégories chiffrées, services sur devis) ; `docs/data-model.md` (section `mobilite`, champ `models`, renvoi vers [data-model.md](./data-model.md)) ; `docs/content-tracker.md` (hypothèses M1 à M5 en attente du questionnaire 6, photos des services) ; `src/assets/photos/README.md` (flou des plaques) ; `specs/README.md` (statut 006)
+- [X] T024 Lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; consigner les résultats dans [quickstart.md](./quickstart.md)
+- [X] T025 Comparer, captures à 390 px (2x) et 1 440 px, la page Mobilité à l'écran 08 (écart voulu : catégories chiffrées au lieu de « Sur devis ») ; corriger les écarts non justifiés et les consigner dans [quickstart.md](./quickstart.md)
 - [ ] T026 Dérouler les 13 scénarios manuels de [quickstart.md](./quickstart.md) et relire les textes anglais (Zobel)
 - [ ] T027 Ouvrir la PR `006-tks-mobility` → `main`, après la fusion de `fix-units-singular` (Zobel)
 

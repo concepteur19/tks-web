@@ -1,5 +1,12 @@
 import { expect, test } from '@playwright/test';
-import { decodedMessage, plain, seedSelection, storedSelection, waitForIslands } from './stay.ts';
+import {
+  decodedMessage,
+  plain,
+  reveal,
+  seedSelection,
+  storedSelection,
+  waitForIslands,
+} from './stay.ts';
 
 /** Page Mobilité TKS® (006) : section secondaire, location de véhicules, services sur devis. */
 for (const [path, lang, title, tagline, brand, categories, perDay, custom] of [
@@ -106,7 +113,7 @@ test.describe('location de véhicules', () => {
     await waitForIslands(page);
     const row = page.locator('[id="vehicule-premium"]');
     const moreDays = row.getByRole('button', { name: 'Augmenter : Nombre de jours' });
-    await moreDays.scrollIntoViewIfNeeded();
+    await reveal(moreDays);
     for (let i = 0; i < 3; i += 1) await moreDays.click();
     await row.getByRole('button', { name: 'Ajouter à mon séjour : Premium' }).click();
     await expect(page.getByTestId('toast')).toContainText('ajouté');
@@ -141,7 +148,7 @@ test.describe('location de véhicules', () => {
     const add = page
       .locator('[id="vehicule-premium"]')
       .getByRole('button', { name: 'Ajouter à mon séjour : Premium' });
-    await add.scrollIntoViewIfNeeded();
+    await reveal(add);
     await add.click();
     await add.click();
     await expect
@@ -192,10 +199,10 @@ test.describe('transport sur devis (US2)', () => {
     const premium = page
       .locator('[id="vehicule-premium"]')
       .getByRole('button', { name: 'Ajouter à mon séjour : Premium' });
-    await premium.scrollIntoViewIfNeeded();
+    await reveal(premium);
     await premium.click();
     const button = page.locator('[id="transferts"]').getByTestId('quick-add');
-    await button.scrollIntoViewIfNeeded();
+    await reveal(button);
     await button.click();
     await expect(button).toHaveText('Déjà dans mon séjour');
     await page.goto('/sejour');

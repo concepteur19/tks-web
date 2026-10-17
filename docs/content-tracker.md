@@ -39,7 +39,7 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 | Nom de domaine | global | ⏳ | — | | variable `PUBLIC_SITE_URL`, DNS Cloudflare. Adresse provisoire en service : `https://tks-web-1h2.pages.dev` | Oui |
 | Photos (fonds global) | toutes pages | 📝 **113 photos reçues et triées** par activité, voir [photo-tri.md](./photo-tri.md). 🛑 **20 d'entre elles sont inutilisables** : Franck confirme le 2026-09-25 n'avoir **aucune autorisation** du photographe. Ni le retrait du filigrane ni un crédit ne règlent la question : il faut son accord, ou refaire les photos | ✅ textes alternatifs des photos publiées | 2026-09-25 | 13 photos optimisées dans `src/assets/photos/` (feature 002), liste et limites dans son README. ⚠️ Résolution faible (680 à 1 280 px) : demander les originaux | Oui |
 | Photos d'hébergements (chambre, appartement, villa) | hébergements | ⏳ **aucune reçue de Franck** (question L1). L'accueil illustre Chambre et Villa avec `L12-15` et `L12-24` (Zobel, 2026-10-05) en attendant ses photos par budget. `L11-01` porte un filigrane non repéré au tri | ⏳ | | `src/assets/photos/accommodation/` | Oui |
-| Photos de véhicules et de chauffeurs | TKS® mobilité | 📝 5 véhicules reçus le 2026-10-06 (Prado TXL, Land Cruiser, RAV4, Avensis, Yaris), 3 catégories de prix (client-answers 1 sexies) | ⏳ | | `src/assets/mobilite/` | Oui |
+| Photos de véhicules et de chauffeurs | TKS® mobilité | ✅ 5 véhicules reçus le 2026-10-06, publiés plaques floutées (feature 006). ⏳ Photos propres aux transferts et au chauffeur (questionnaire 6, P2) : en attendant, photos des véhicules | ✅ | 2026-10-17 | `src/assets/photos/mobility/` | Non |
 | Photo d'équipe Kibreeze | accueil, bloc À propos | ⏳ **aucune reçue** | — | | `src/assets/home/` | Non |
 | Vidéo d'accueil courte et légère | accueil | 📝 **17 vidéos reçues** (MOV et MP4), à visionner et à sélectionner, poids à vérifier | — | 2026-09-25 | `src/assets/home/` | Non |
 | Photos de bandeau des rubriques | expériences, hébergements, formules, TKS mobilité | ⏳ à choisir dans le lot reçu | ⏳ textes alternatifs | | `src/assets/sections/` | Oui |
@@ -82,6 +82,8 @@ Pour chaque service, Franck doit fournir : le tarif avec son mode et son unité,
 Les unités et les dimensions de quantité ont été arrêtées avec Franck le 2026-09-16, service par service. Elles figurent dans les tableaux ci-dessous et dans [data-model.md](./data-model.md). Ce qui manque encore, ce sont les montants.
 
 ### Transport
+
+**Feature 006 (2026-10-17)** : la page Mobilité publie 3 catégories de véhicules (`vehicule-luxe` 100 000, `vehicule-premium` 35 000, `vehicule-yaris` 25 000 FCFA « à partir de » par jour) et 4 services sur devis (`location-avec-chauffeur`, `transferts`, `chauffeur-prive`, `prestations-professionnelles`), textes FR et EN. ⏳ Questionnaire 6 : unité des prix, chauffeur, carburant, caution et permis, prix des transferts par trajet, prix du chauffeur privé. Courses dans Kribi et transport scolaire ne sont pas publiés (spec 006, hors périmètre). Le tableau ci-dessous est l'inventaire du 2026-09-16.
 
 | Service | Fichier | Unité | Dimensions | Montant | Photos | Texte FR | Texte EN |
 |---|---|---|---|---|---|---|---|

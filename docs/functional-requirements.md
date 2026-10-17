@@ -197,11 +197,11 @@ Modèle confirmé par Franck le 2026-09-25 (vocal) : le site n'affiche **pas de 
 
 ## MOB — TKS® Mobilité (spec 006)
 
-**FR-MOB-1** La page Mobilité présente les services TKS® en **liste compacte**, sans photographie plein écran ni traitement visuel des cartes d'expérience : location de véhicules, location avec chauffeur, transferts, chauffeur privé, prestations professionnelles.
+**FR-MOB-1** La page Mobilité présente les services TKS® en **liste compacte**, sans photographie plein écran ni traitement visuel des cartes d'expérience : d'abord la location de véhicules en trois catégories (Luxe, Premium, Yaris), avec leurs modèles et un prix de départ par jour ; puis, sur devis, location avec chauffeur, transferts, chauffeur privé, prestations professionnelles. Les plaques d'immatriculation des photos sont floutées.
 
-**FR-MOB-2** Un service de mobilité s'ajoute à Mon séjour comme prestation complémentaire, avec les mêmes règles de quantité que les expériences.
+**FR-MOB-2** Un service de mobilité s'ajoute à Mon séjour comme prestation complémentaire, avec les mêmes règles de quantité que les expériences : une catégorie de véhicule se règle en véhicules × jours avant l'ajout ; un service sur devis peut porter une quantité informative (jours pour la location avec chauffeur, heures pour le chauffeur privé).
 
-**FR-MOB-3** ⏳ **Aucun tarif de mobilité n'a jamais été fourni.** Tant que c'est le cas, tous les services de la page sont `quote` et la page ne propose que le contact WhatsApp. Cette exigence est le seul blocage restant de la spec 006.
+**FR-MOB-3** Tarifs : trois catégories de véhicules avec un prix « à partir de » (Franck, 2026-10-06), affiché par jour et par véhicule, sans chauffeur ; les autres services restent `quote`. ⏳ Unité, chauffeur, carburant, caution, prix des transferts et du chauffeur privé : hypothèses M1 à M5 de la spec 006, en attente du questionnaire 6 (`docs/questions-kibreeze-franck-6.xlsx`).
 
 ---
 
