@@ -12,6 +12,9 @@ import { IMPLEMENTED_ROUTES, type RouteKey } from '../../src/i18n/routes.ts';
 
 const NUMBER = '237697135388';
 
+/** Routes livrées avant la 006 : sert d'exemple de page non livrée. */
+const WITHOUT_MOBILITY = IMPLEMENTED_ROUTES.filter((key) => key !== 'mobility');
+
 describe('listes de navigation', () => {
   it('ordonne les onglets mobiles comme la maquette validée', () => {
     expect(TAB_BAR).toEqual(['home', 'experiences', 'accommodation', 'packages', 'stay']);
@@ -42,7 +45,9 @@ describe('état livré', () => {
 
   it("reconnaît une page livrée et une page qui ne l'est pas", () => {
     expect(isImplemented('home')).toBe(true);
-    expect(isImplemented('mobility')).toBe(false);
+    // Depuis la 006, toutes les pages sont livrées : la liste est passée en paramètre.
+    expect(isImplemented('mobility')).toBe(true);
+    expect(isImplemented('mobility', WITHOUT_MOBILITY)).toBe(false);
   });
 });
 
@@ -53,7 +58,7 @@ describe('resolveLink', () => {
   });
 
   it('renvoie WhatsApp avec le message générique pour une page non livrée', () => {
-    const french = resolveLink('mobility', 'fr', NUMBER);
+    const french = resolveLink('mobility', 'fr', NUMBER, WITHOUT_MOBILITY);
     expect(french.kind).toBe('whatsapp');
     expect(french.href).toBe(
       `https://wa.me/${NUMBER}?text=${encodeURIComponent(
@@ -61,7 +66,7 @@ describe('resolveLink', () => {
       )}`,
     );
 
-    const english = resolveLink('mobility', 'en', NUMBER);
+    const english = resolveLink('mobility', 'en', NUMBER, WITHOUT_MOBILITY);
     expect(decodeURIComponent(english.href)).toContain(
       'Hello Kibreeze, I would like some information about your experiences in Kribi.',
     );

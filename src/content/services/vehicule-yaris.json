@@ -1,0 +1,55 @@
+{
+  "title": {
+    "fr": "Yaris",
+    "en": "Yaris"
+  },
+  "section": "mobilite",
+  "models": ["Toyota Yaris"],
+  "shortDescription": {
+    "fr": "Citadine Toyota, simple et économique",
+    "en": "A simple, economical Toyota city car"
+  },
+  "description": {
+    "fr": "Toyota Yaris, à la journée. Le prix de départ est confirmé par Kibreeze sur WhatsApp selon vos dates et votre trajet.",
+    "en": "Toyota Yaris, by the day. Kibreeze confirms the starting price on WhatsApp for your dates and route."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/mobility/yaris.jpg",
+      "alt": {
+        "fr": "Une Toyota Yaris grise garée sur du gravier",
+        "en": "A grey Toyota Yaris parked on gravel"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 25000,
+    "unit": "per_day"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "units",
+        "label": {
+          "fr": "véhicules",
+          "en": "vehicles"
+        },
+        "labelOne": {
+          "fr": "véhicule",
+          "en": "vehicle"
+        },
+        "min": 1,
+        "max": 5,
+        "default": 1
+      },
+      {
+        "kind": "days",
+        "min": 1,
+        "max": 30,
+        "default": 1
+      }
+    ]
+  },
+  "order": 30
+}

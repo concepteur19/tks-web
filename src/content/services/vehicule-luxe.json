@@ -1,0 +1,62 @@
+{
+  "title": {
+    "fr": "Luxe",
+    "en": "Luxury"
+  },
+  "section": "mobilite",
+  "models": ["Toyota Land Cruiser Prado TXL", "Toyota Land Cruiser"],
+  "shortDescription": {
+    "fr": "Grands 4×4 Toyota, pour voyager loin dans le confort",
+    "en": "Large Toyota 4×4s, for long journeys in comfort"
+  },
+  "description": {
+    "fr": "Toyota Land Cruiser Prado TXL ou Land Cruiser, à la journée. Le prix de départ est confirmé par Kibreeze sur WhatsApp selon vos dates et votre trajet.",
+    "en": "Toyota Land Cruiser Prado TXL or Land Cruiser, by the day. Kibreeze confirms the starting price on WhatsApp for your dates and route."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/mobility/luxe.jpg",
+      "alt": {
+        "fr": "Un Toyota Land Cruiser Prado noir garé au bord d'une route bordée de palmiers",
+        "en": "A black Toyota Land Cruiser Prado parked by a palm-lined road"
+      }
+    },
+    {
+      "src": "../../assets/photos/mobility/luxe-2.jpg",
+      "alt": {
+        "fr": "Un Toyota Land Cruiser noir garé devant une haie",
+        "en": "A black Toyota Land Cruiser parked in front of a hedge"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 100000,
+    "unit": "per_day"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "units",
+        "label": {
+          "fr": "véhicules",
+          "en": "vehicles"
+        },
+        "labelOne": {
+          "fr": "véhicule",
+          "en": "vehicle"
+        },
+        "min": 1,
+        "max": 5,
+        "default": 1
+      },
+      {
+        "kind": "days",
+        "min": 1,
+        "max": 30,
+        "default": 1
+      }
+    ]
+  },
+  "order": 10
+}
