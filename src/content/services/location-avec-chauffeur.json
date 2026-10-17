@@ -1,0 +1,38 @@
+{
+  "title": {
+    "fr": "Location avec chauffeur",
+    "en": "Car hire with driver"
+  },
+  "section": "mobilite",
+  "shortDescription": {
+    "fr": "Un véhicule et son chauffeur à la journée ou au séjour",
+    "en": "A vehicle and its driver by the day or for your whole stay"
+  },
+  "description": {
+    "fr": "Un véhicule et son chauffeur, à la journée ou pour tout votre séjour. Indiquez le nombre de jours : Kibreeze vous répond avec un prix sur WhatsApp.",
+    "en": "A vehicle and its driver, by the day or for your whole stay. Tell us how many days: Kibreeze replies with a price on WhatsApp."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/mobility/luxe-2.jpg",
+      "alt": {
+        "fr": "Un Toyota Land Cruiser noir garé devant une haie",
+        "en": "A black Toyota Land Cruiser parked in front of a hedge"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "days",
+        "min": 1,
+        "max": 30,
+        "default": 1
+      }
+    ]
+  },
+  "order": 40
+}

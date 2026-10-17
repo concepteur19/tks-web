@@ -78,13 +78,13 @@ Celles des 002 à 008 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 ### Tests
 
-- [ ] T016 [P] [US2] Compléter `tests/e2e/mobility.spec.ts`, partie services, FR et EN : la section « Transport sur devis » suit les véhicules ; 4 `mobility-service` dans l'ordre Location avec chauffeur, Transferts, Chauffeur privé, Prestations professionnelles, chacun avec photo, phrase et « Sur devis » ; ajouter Transferts → ligne « sur devis », hors du total, « + 1 prestation sur devis » ; second ajout → « Déjà dans mon séjour » ; séjour Premium 1 × 4 + Transferts + Chauffeur privé → message WhatsApp qui nomme chacun avec ses quantités ; sans JavaScript, chaque service offre un lien WhatsApp qui le nomme
+- [X] T016 [P] [US2] Compléter `tests/e2e/mobility.spec.ts`, partie services, FR et EN : la section « Transport sur devis » suit les véhicules ; 4 `mobility-service` dans l'ordre Location avec chauffeur, Transferts, Chauffeur privé, Prestations professionnelles, chacun avec photo, phrase et « Sur devis » ; ajouter Transferts → ligne « sur devis », hors du total, « + 1 prestation sur devis » ; second ajout → « Déjà dans mon séjour » ; séjour Premium 1 × 4 + Transferts + Chauffeur privé → message WhatsApp qui nomme chacun avec ses quantités ; sans JavaScript, chaque service offre un lien WhatsApp qui le nomme
 
 ### Implementation
 
-- [ ] T017 [P] [US2] Créer les 4 services dans `src/content/services/` (`location-avec-chauffeur`, `transferts`, `chauffeur-prive`, `prestations-professionnelles`) : `section: "mobilite"`, sans `models`, `pricing: { kind: "quote" }`, quantités de [data-model.md](./data-model.md) (`days` « 1 à 30, défaut 1 » ; `hours` « 1 à 24, défaut 4 » ; aucune), `order`, phrases de l'écran 08 en `shortDescription`, descriptions et textes alternatifs FR et EN, photos
-- [ ] T018 [US2] Ajouter à `MobilityPage.astro` la section `id="services"` (`mobility.services.title`) : liste compacte `data-testid="mobility-service"` avec `id` = identifiant, vignette, nom, phrase, `Price` (« Sur devis »), `QuickAdd`, `<noscript>` WhatsApp `mobility.request` ; avant l'encadré final
-- [ ] T019 [US2] `npm run check`, `npm run build` ; T016 passe
+- [X] T017 [P] [US2] Créer les 4 services dans `src/content/services/` (`location-avec-chauffeur`, `transferts`, `chauffeur-prive`, `prestations-professionnelles`) : `section: "mobilite"`, sans `models`, `pricing: { kind: "quote" }`, quantités de [data-model.md](./data-model.md) (`days` « 1 à 30, défaut 1 » ; `hours` « 1 à 24, défaut 4 » ; aucune), `order`, phrases de l'écran 08 en `shortDescription`, descriptions et textes alternatifs FR et EN, photos
+- [X] T018 [US2] Ajouter à `MobilityPage.astro` la section `id="services"` (`mobility.services.title`) : liste compacte `data-testid="mobility-service"` avec `id` = identifiant, vignette, nom, phrase, `Price` (« Sur devis »), `QuickAdd`, `<noscript>` WhatsApp `mobility.request` ; avant l'encadré final
+- [X] T019 [US2] `npm run check`, `npm run build` ; T016 passe
 
 ---
 

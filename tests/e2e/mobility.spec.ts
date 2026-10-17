@@ -150,6 +150,97 @@ test.describe('location de véhicules', () => {
   });
 });
 
+test.describe('transport sur devis (US2)', () => {
+  for (const [path, title, names, quote] of [
+    [
+      '/mobilite',
+      'Transport sur devis',
+      ['Location avec chauffeur', 'Transferts', 'Chauffeur privé', 'Prestations professionnelles'],
+      'Sur devis',
+    ],
+    [
+      '/en/mobility',
+      'Transport on request',
+      ['Car hire with driver', 'Transfers', 'Private driver', 'Business services'],
+      'On request',
+    ],
+  ] as const) {
+    test(`quatre services après les véhicules (${path})`, async ({ page }) => {
+      await page.goto(path);
+      const services = page.getByTestId('mobility-service');
+      await expect(services).toHaveCount(4);
+      for (const [index, name] of names.entries()) {
+        const row = services.nth(index);
+        await expect(row.getByRole('heading')).toHaveText(name);
+        await expect(row.locator('img')).toHaveCount(1);
+        expect(plain(await row.textContent())).toContain(quote);
+      }
+      const text = plain(await page.locator('main').textContent());
+      expect(text.indexOf(title)).toBeGreaterThan(text.lastIndexOf('Yaris'));
+      expect(text.indexOf(title)).toBeLessThan(
+        text.indexOf(path === '/mobilite' ? "Besoin d'un transport" : 'Need tailored transport'),
+      );
+    });
+  }
+
+  test('Transferts : ligne sur devis hors du total, puis « Déjà dans mon séjour »', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 360, height: 800 });
+    await page.goto('/mobilite');
+    await waitForIslands(page);
+    const premium = page
+      .locator('[id="vehicule-premium"]')
+      .getByRole('button', { name: 'Ajouter à mon séjour : Premium' });
+    await premium.scrollIntoViewIfNeeded();
+    await premium.click();
+    const button = page.locator('[id="transferts"]').getByTestId('quick-add');
+    await button.scrollIntoViewIfNeeded();
+    await button.click();
+    await expect(button).toHaveText('Déjà dans mon séjour');
+    await page.goto('/sejour');
+    const line = page.getByTestId('stay-line').filter({ hasText: 'Transferts' });
+    expect(plain(await line.textContent())).toContain('Sur devis');
+    const total = plain(await page.locator('[data-testid="stay-total"]:visible').textContent());
+    expect(total).toContain('35 000 FCFA');
+    expect(total).toContain('1 prestation sur devis');
+  });
+
+  test('le message nomme chaque prestation de mobilité avec ses quantités', async ({ page }) => {
+    await seedSelection(page, [
+      { serviceId: 'vehicule-premium', quantities: [1, 4] },
+      { serviceId: 'transferts', quantities: [] },
+      { serviceId: 'chauffeur-prive', quantities: [4] },
+    ]);
+    const message = plain(
+      decodedMessage(await page.locator('[data-testid="send-stay"]:visible').getAttribute('href')),
+    );
+    expect(message).toContain('Premium — 1 véhicule × 4 jours : 140 000 FCFA');
+    expect(message).toContain('Transferts : sur devis');
+    expect(message).toContain('Chauffeur privé — 4 heures : sur devis');
+  });
+
+  test('sans JavaScript : chaque service offre une demande WhatsApp qui le nomme', async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto('/mobilite');
+    for (const [id, name] of [
+      ['location-avec-chauffeur', 'Location avec chauffeur'],
+      ['transferts', 'Transferts'],
+      ['chauffeur-prive', 'Chauffeur privé'],
+      ['prestations-professionnelles', 'Prestations professionnelles'],
+    ]) {
+      const fallback = page.locator(`[id="${id}"]`).getByRole('link', {
+        name: 'Demander ce service',
+      });
+      expect(decodedMessage(await fallback.getAttribute('href'))).toContain(`« ${name} »`);
+    }
+    await context.close();
+  });
+});
+
 test('sans JavaScript : chaque catégorie offre une demande WhatsApp qui la nomme', async ({
   browser,
 }) => {

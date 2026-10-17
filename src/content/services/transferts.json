@@ -1,0 +1,31 @@
+{
+  "title": {
+    "fr": "Transferts",
+    "en": "Transfers"
+  },
+  "section": "mobilite",
+  "shortDescription": {
+    "fr": "Douala, Yaoundé, aéroport",
+    "en": "Douala, Yaoundé, airport"
+  },
+  "description": {
+    "fr": "Transfert entre Kribi et Douala, Yaoundé ou l'aéroport. Dites-nous votre trajet et votre date : Kibreeze vous répond avec un prix sur WhatsApp.",
+    "en": "Transfer between Kribi and Douala, Yaoundé or the airport. Tell us your route and date: Kibreeze replies with a price on WhatsApp."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/mobility/premium-2.jpg",
+      "alt": {
+        "fr": "Une Toyota Avensis grise vue de face",
+        "en": "A grey Toyota Avensis seen from the front"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "order": 50
+}

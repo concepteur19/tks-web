@@ -1,0 +1,38 @@
+{
+  "title": {
+    "fr": "Chauffeur privé",
+    "en": "Private driver"
+  },
+  "section": "mobilite",
+  "shortDescription": {
+    "fr": "À l'heure ou à la journée",
+    "en": "By the hour or by the day"
+  },
+  "description": {
+    "fr": "Un chauffeur à votre disposition, à l'heure ou à la journée. Indiquez le nombre d'heures : Kibreeze vous répond avec un prix sur WhatsApp.",
+    "en": "A driver at your disposal, by the hour or by the day. Tell us how many hours: Kibreeze replies with a price on WhatsApp."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/mobility/luxe.jpg",
+      "alt": {
+        "fr": "Un Toyota Land Cruiser Prado noir garé au bord d'une route bordée de palmiers",
+        "en": "A black Toyota Land Cruiser Prado parked by a palm-lined road"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "hours",
+        "min": 1,
+        "max": 24,
+        "default": 4
+      }
+    ]
+  },
+  "order": 60
+}

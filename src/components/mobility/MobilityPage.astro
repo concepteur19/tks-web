@@ -10,6 +10,7 @@ import tksMark from '../../assets/brand/tks-mark.png';
 import shareImage from '../../assets/photos/mobility/luxe.jpg';
 import { cardPrice } from '../../features/estimation/cardPrice.ts';
 import LineCustomizer from '../../features/selection/LineCustomizer.tsx';
+import QuickAdd from '../../features/selection/QuickAdd.tsx';
 import { getRoutePath } from '../../i18n/routes.ts';
 import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
@@ -28,6 +29,7 @@ interface Props {
 const { locale } = Astro.props;
 const [mobility, islandCatalog] = await Promise.all([getMobility(), getPageCatalog()]);
 const vehicles = mobility.filter((service) => service.data.models);
+const services = mobility.filter((service) => !service.data.models);
 const pageUrl = new URL(getRoutePath('mobility', locale), `${env.siteUrl}/`).toString();
 
 const islandOf = (service: CollectionEntry<'services'>) =>
@@ -128,6 +130,65 @@ const shareAlt = vehicles[0]?.data.images?.[0]?.alt;
         })}
       </ul>
       <p class="mt-3 text-xs text-fg-muted">{t(locale, 'mobility.vehicles.note')}</p>
+    </section>
+
+    <section
+      id="services"
+      class="mt-8 scroll-mt-(--size-header) lg:scroll-mt-(--size-header-desktop)"
+    >
+      <h2 class="text-lg font-bold text-fg">{t(locale, 'mobility.services.title')}</h2>
+      <ul class="mt-3 divide-y divide-border border-y border-border">
+        {services.map((service) => {
+          const image = service.data.images?.[0];
+          const title = localize(service.data.title, locale);
+          return (
+            <li
+              id={service.id}
+              class="flex min-h-18 scroll-mt-(--size-header) items-center gap-3 py-2.5"
+              data-testid="mobility-service"
+            >
+              {image && (
+                <Image
+                  src={image.src}
+                  alt={localize(image.alt, locale)}
+                  width={112}
+                  height={112}
+                  fit="cover"
+                  quality={65}
+                  class="h-14 w-14 shrink-0 rounded-sm object-cover"
+                />
+              )}
+              <div class="min-w-0 flex-1">
+                <h3 class="text-sm leading-tight font-semibold text-fg">{title}</h3>
+                <p class="mt-0.5 text-xs leading-snug text-fg-muted">
+                  {localize(service.data.shortDescription, locale)}
+                </p>
+                <div class="mt-1">
+                  <Price price={cardPrice(service.data)} locale={locale} />
+                </div>
+              </div>
+              <div class="flex shrink-0 flex-col items-end">
+                <QuickAdd
+                  client:visible
+                  service={islandOf(service)}
+                  locale={locale}
+                  title={title}
+                />
+                <noscript>
+                  <a
+                    href={requestHref(service)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex min-h-11 items-center text-sm font-semibold text-brand underline"
+                  >
+                    {t(locale, 'mobility.request')}
+                  </a>
+                </noscript>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </section>
 
     <section class="mt-8 rounded-card bg-footer-bg p-6 text-brand-contrast" data-section="custom">
