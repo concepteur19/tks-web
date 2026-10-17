@@ -86,7 +86,7 @@
         "width": 0.4,
         "height": 0.09
       },
-      {
+      {,  
         "left": 0.78,
         "top": 0.235,
         "width": 0.06,
@@ -111,4 +111,6 @@
       }
     ]
   }
+  "experiences/village-mayi-2.jpg": "decouverte-de-kribi/L13-01_PROVISOIRE.jpg",
+  "experiences/debarcadere-de-mboa-manga.jpg": "decouverte-de-kribi/L1-01_PROVISOIRE.jpg"
 }

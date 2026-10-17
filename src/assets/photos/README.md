@@ -60,7 +60,8 @@ Photos retrouvées ou reçues le 2026-10-11 (feature 008, voir `docs/photo-tri.m
 
 | Usage | Fichiers | Source |
 |---|---|---|
-| Village Mayi | `experiences/village-mayi.jpg` | `decouverte-de-kribi/L13-05` (pont des Esclaves) |
+| Village Mayi | `experiences/village-mayi.jpg`, `-2` | `decouverte-de-kribi/L13-05` (pont des Esclaves) ; `-2` : `L13-01` (monument), **provisoire**, filigrane « The Tourist Guide », remise à la demande de Zobel le 2026-10-11 en attendant la photo de Franck |
+| Débarcadère de Mboa-Manga | `experiences/debarcadere-de-mboa-manga.jpg` | `decouverte-de-kribi/L1-01`, **provisoire**, filigrane « The Tourist Guide », même décision |
 | Plage du village Batanga | `experiences/plage-de-batanga.jpg` | `ambiance-hero-plages-couchers/L11-05` (plage de Kribi, à la demande de Franck) |
 | Excursion en chaloupe | `experiences/excursion-en-chaloupe.jpg`, `-2`, `-3` | `chaloupe/photo_2026-10-11_18-56-09`, `18-55-32`, `18-54-10` |
 | Feu de plage, galerie | `experiences/feu-de-plage-2.jpg`, `-3` | `feux-de-plage/IMG_2058`, `IMG_2060` |

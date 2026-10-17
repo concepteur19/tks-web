@@ -219,3 +219,5 @@ Les fichiers sont renommés `_FILIGRANE` dans `Elements/tri-par-activite/`, ce q
 Les 21 autres photos du lot du 2026-09-25 publiées par le site ont été contrôlées en pleine résolution le même jour : aucune autre mention. Le traitement très contrasté (HDR) est un indice : la plupart des photos du photographe l'ont, les photos de téléphone de Franck non.
 
 **À dire à Franck** : le monument du village Mayi et les pirogues de Mboa-Manga qu'il a identifiés (P16, P17, P19) viennent du photographe, pas de lui. Il faut ses propres photos de ces deux lieux.
+
+**Décision de Zobel, 2026-10-11** : `L13-01` (monument de Mayi) et `L1-01` (pirogues de Mboa-Manga) sont remises sur le site à titre provisoire, en attendant les photos de Franck. Elles sont importées depuis des copies `_PROVISOIRE` ; les fichiers `_FILIGRANE` restent bloqués par le script d'import.
