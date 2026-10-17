@@ -55,7 +55,7 @@ Chaque zone est floutée avant réduction. Une zone hors de l'image fait échoue
 | `mobility.custom.text` | Dites-nous vos dates et votre trajet, nous vous répondons avec un prix. | Tell us your dates and route, we reply with a price. |
 | `mobility.custom.cta` | Contacter Kibreeze sur WhatsApp | Contact Kibreeze on WhatsApp |
 | `mobility.request` | Demander ce service | Ask for this service |
-| `mobility.requestMessage` | Bonjour Kibreeze, je souhaite un prix pour : {title}. | Hello Kibreeze, I would like a price for: {title}. |
+| `mobility.requestMessage` | Bonjour Kibreeze, je souhaite un prix pour « {title} ». {url} | Hello Kibreeze, I would like a price for “{title}”. {url} |
 | `mobility.seo.title` | Mobilité TKS® à Kribi : location, transferts, chauffeur | TKS® mobility in Kribi: car hire, transfers, driver |
 | `mobility.seo.description` | Louez un véhicule (Luxe, Premium, Yaris) ou demandez un transfert ou un chauffeur privé pour votre séjour à Kribi. | Hire a vehicle (Luxury, Premium, Yaris) or ask for a transfer or a private driver for your stay in Kribi. |
 

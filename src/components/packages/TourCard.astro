@@ -7,7 +7,7 @@ import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import { minimumParticipants } from '../../features/catalog/minimumParticipants.ts';
 import { cardPrice } from '../../features/estimation/cardPrice.ts';
-import TourCustomizer from '../../features/selection/TourCustomizer.tsx';
+import LineCustomizer from '../../features/selection/LineCustomizer.tsx';
 import { getRoutePath } from '../../i18n/routes.ts';
 import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
@@ -93,7 +93,13 @@ const experiencesPath = getRoutePath('experiences', locale);
         <p class="mt-1 text-xs text-fg-muted">{t(locale, 'packages.tours.note')}</p>
       )}
     </div>
-    <TourCustomizer client:visible service={islandService} locale={locale} title={title} />
+    <LineCustomizer
+      client:visible
+      service={islandService}
+      locale={locale}
+      title={title}
+      buttonLabel={t(locale, 'packages.customise')}
+    />
     <noscript>
       <a
         href={requestHref}

@@ -2,6 +2,14 @@ import { catalogMap, type IslandService } from '../../src/features/selection/isl
 
 const href = (id: string) => ({ fr: `/experiences/${id}`, en: `/en/experiences/${id}` });
 const persons = { kind: 'persons' as const, min: 1, max: 20, default: 2 };
+const vehicles = {
+  kind: 'units' as const,
+  label: { fr: 'véhicules', en: 'vehicles' },
+  labelOne: { fr: 'véhicule', en: 'vehicle' },
+  min: 1,
+  max: 5,
+  default: 1,
+};
 
 /** Extrait du guide tarifaire de Franck, pour les tests de sélection, d'estimation et de message. */
 export const SERVICES: IslandService[] = [
@@ -79,6 +87,36 @@ export const SERVICES: IslandService[] = [
     },
     isOption: false,
     href: href('location'),
+  },
+  // Mobilité (006) : catégories de véhicules et services sur devis, valeurs du data-model.
+  ...(
+    [
+      ['vehicule-premium', 'Premium', 'Premium', 35000],
+      ['vehicule-yaris', 'Yaris', 'Yaris', 25000],
+    ] as const
+  ).map(([id, fr, en, amount]): IslandService => ({
+    id,
+    title: { fr, en },
+    pricing: { kind: 'from', amount, unit: 'per_day' },
+    quantity: { dimensions: [vehicles, { kind: 'days', min: 1, max: 30, default: 1 }] },
+    isOption: false,
+    href: { fr: `/mobilite#${id}`, en: `/en/mobility#${id}` },
+  })),
+  {
+    id: 'transferts',
+    title: { fr: 'Transferts', en: 'Transfers' },
+    pricing: { kind: 'quote' },
+    quantity: { dimensions: [] },
+    isOption: false,
+    href: { fr: '/mobilite#transferts', en: '/en/mobility#transferts' },
+  },
+  {
+    id: 'chauffeur-prive',
+    title: { fr: 'Chauffeur privé', en: 'Private driver' },
+    pricing: { kind: 'quote' },
+    quantity: { dimensions: [{ kind: 'hours', min: 1, max: 24, default: 4 }] },
+    isOption: false,
+    href: { fr: '/mobilite#chauffeur-prive', en: '/en/mobility#chauffeur-prive' },
   },
   {
     id: 'feu-de-plage',

@@ -109,6 +109,22 @@ export const en = {
   'packages.request': 'Ask on WhatsApp',
   'packages.requestMessage':
     'Hello Kibreeze, I am interested in “{title}”. Could you arrange it for me? {url}',
+  'mobility.title': 'Mobility & transport',
+  'mobility.tagline': 'Car hire, transfers and private driver to complete your trip',
+  'mobility.brand': "TKS® is Breezy Groupe's mobility brand, alongside Kibreeze.",
+  'mobility.vehicles.title': 'Vehicle hire',
+  'mobility.vehicles.note':
+    'Starting prices per day and per vehicle, confirmed by Kibreeze on WhatsApp.',
+  'mobility.services.title': 'Transport on request',
+  'mobility.add': 'Add to my trip',
+  'mobility.custom.title': 'Need tailored transport?',
+  'mobility.custom.text': 'Tell us your dates and route, we reply with a price.',
+  'mobility.custom.cta': 'Contact Kibreeze on WhatsApp',
+  'mobility.request': 'Ask for this service',
+  'mobility.requestMessage': 'Hello Kibreeze, I would like a price for “{title}”. {url}',
+  'mobility.seo.title': 'TKS® mobility in Kribi: car hire, transfers, driver',
+  'mobility.seo.description':
+    'Hire a vehicle (Luxury, Premium, Yaris) or ask for a transfer or a private driver for your stay in Kribi.',
   'experiences.toursEntry.title': 'Kibreeze tours',
   'experiences.toursEntry.text': 'Six ready-made tours to discover Kribi in a day.',
 
