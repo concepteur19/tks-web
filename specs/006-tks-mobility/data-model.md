@@ -62,8 +62,8 @@ Entrée objet pour flouter une plaque :
 ```json
 "mobility/luxe.jpg": {
   "source": "voitures-tks/photo_2026-10-06_06-34-19.jpg",
-  "blur": [{ "left": 0.0, "top": 0.0, "width": 0.0, "height": 0.0 }]
+  "blur": [{ "left": 0.38, "top": 0.78, "width": 0.16, "height": 0.07 }]
 }
 ```
 
-Fractions de l'image (0 à 1) ; valeurs relevées à l'import, une zone par plaque visible.
+Valeurs **d'exemple** : les vraies zones sont relevées sur chaque original à l'import (fractions de l'image, 0 à 1), une zone par plaque visible.

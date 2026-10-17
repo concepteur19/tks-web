@@ -43,7 +43,7 @@ Une famille arrive à Kribi pour quatre jours. Depuis l'onglet Mobilité, elle v
 
 ### User Story 2 - Demander un transfert ou un chauffeur (Priority: P2)
 
-Un couple atterrit à Douala et veut rejoindre Kribi. Sur la page Mobilité, il ajoute « Transfert » à son séjour ; la ligne apparaît « sur devis » et le message WhatsApp le nomme, pour que Kibreeze réponde avec un prix.
+Un couple atterrit à Douala et veut rejoindre Kribi. Sur la page Mobilité, il ajoute « Transferts » à son séjour ; la ligne apparaît « sur devis » et le message WhatsApp le nomme, pour que Kibreeze réponde avec un prix.
 
 **Why this priority**: Les transferts et le chauffeur font partie de l'offre que Franck garde (cahier d'octobre, section 9), mais sans prix : ils servent la demande, pas l'estimation.
 
@@ -118,7 +118,7 @@ Sur l'accueil, le bandeau TKS® Mobilité mène à la page ; l'onglet Mobilité 
 
 ### Measurable Outcomes
 
-- **SC-001**: Un visiteur ajoute un véhicule avec ses jours à son séjour en trois gestes au plus depuis la page Mobilité.
+- **SC-001**: Un visiteur ajoute un véhicule avec ses jours à son séjour sans quitter la page Mobilité : il règle le nombre de véhicules et de jours sur la carte de la catégorie, puis un seul bouton l'ajoute.
 - **SC-002**: Les trois catégories et leurs prix de départ s'affichent à l'identique de la réponse de Franck du 2026-10-06.
 - **SC-003**: Plus aucun lien du site ne renvoie vers WhatsApp faute de page Mobilité.
 - **SC-004**: La page Mobilité atteint au moins 90 sur 100 aux audits automatiques de performance, accessibilité, bonnes pratiques et référencement, sur profil mobile.
