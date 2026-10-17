@@ -94,8 +94,8 @@ Celles des 002 à 008 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 **Independent Test**: depuis l'accueil et la navigation, atteindre la page Mobilité ; aucun lien n'ouvre plus WhatsApp faute de page (quickstart, scénarios 1 et 2).
 
-- [ ] T020 [P] [US3] Compléter `tests/e2e/mobility.spec.ts` : à 1 440 px, l'entrée « Mobilité TKS® » de la navigation mène à la page ; à 390 px, la barre à onglets compte 5 onglets, sans Mobilité
-- [ ] T021 [US3] `npm run check`, `npm run build:prod`, `npm run check:links` (SC-003) ; T020 passe
+- [X] T020 [P] [US3] Compléter `tests/e2e/mobility.spec.ts` : à 1 440 px, l'entrée « Mobilité TKS® » de la navigation mène à la page ; à 390 px, la barre à onglets compte 5 onglets, sans Mobilité
+- [X] T021 [US3] `npm run check`, `npm run build:prod`, `npm run check:links` (SC-003) ; T020 passe
 
 ---
 

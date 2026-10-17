@@ -269,3 +269,21 @@ test('pas de défilement horizontal à 320 px', async ({ page }) => {
   );
   expect(overflow).toBe(false);
 });
+
+test.describe('accès à la page (US3)', () => {
+  test('ordinateur : l’entrée Mobilité TKS® de la navigation mène à la page', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 1024 });
+    await page.goto('/');
+    await page.getByTestId('site-header').getByRole('link', { name: 'Mobilité TKS®' }).click();
+    await expect(page).toHaveURL(/\/mobilite$/);
+    await expect(page.locator('main h1')).toHaveText('Mobilité & transport');
+  });
+
+  test('téléphone : cinq onglets, sans Mobilité', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/mobilite');
+    const tabs = page.getByTestId('tab-bar').getByRole('link');
+    await expect(tabs).toHaveCount(5);
+    await expect(tabs.filter({ hasText: /Mobilité/ })).toHaveCount(0);
+  });
+});
