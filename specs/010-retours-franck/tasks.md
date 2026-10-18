@@ -84,7 +84,7 @@ Celles des 002 à 009 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 - [ ] T020 [P] [US2] Parcours dans `src/content/services/` : `duration` FR et EN des six selon [data-model.md](./data-model.md) (aucune pour `au-fil-de-l-eau`) ; libellé de l'étape Mayi détaillé dans les parcours qui y passent ; étape « Fleuve Lobé (inclus dans l'expérience Bagyeli) » dans `nature-et-littoral`
 - [ ] T021 [US2] Créer `src/features/selection/TourActions.tsx` conforme à T019 et [contracts/ui.md](./contracts/ui.md) (message par `buildTourRequestMessage`, `data-guide="add"` sur l'ajout)
-- [ ] T022 [US2] Créer `src/components/packages/TourDetail.astro` et `src/pages/formules/[id].astro`, `src/pages/en/packages/[id].astro` (une page par parcours publié, métadonnées, fil d'Ariane, `TourActions` en `client:visible`, `<noscript>` WhatsApp) ; dans `TourCard.astro`, photo et titre vers la fiche (`tour-link`) ; dans `src/lib/pageCatalog.ts`, adresse des lignes de parcours vers la fiche ; vérifier le plan du site
+- [ ] T022 [US2] Créer `src/components/packages/TourDetail.astro` et `src/pages/formules/[id].astro`, `src/pages/en/packages/[id].astro` (une page par parcours publié, métadonnées, fil d'Ariane, `TourActions` en `client:visible`, `<noscript>` WhatsApp) ; dans `TourCard.astro`, photo et titre vers la fiche (`tour-link`), bouton d'ajout libellé `stay.add` (plus « Personnaliser ce parcours », réservé à WhatsApp) ; adapter `tests/e2e/packages.spec.ts` (bouton d'ajout, adresse de la ligne vers la fiche) ; dans `src/lib/pageCatalog.ts`, adresse des lignes de parcours vers la fiche ; vérifier le plan du site
 - [ ] T023 [US2] `npm run check`, `npm run build`, `npm run check:links` ; T018 et T019 passent
 
 ---
@@ -114,7 +114,7 @@ Celles des 002 à 009 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 **Independent Test**: quickstart, scénario 10.
 
-- [ ] T029 [P] [US4] Compléter `tests/component/selection-islands.test.tsx` et `tests/e2e/stay-page.spec.ts` (doivent échouer) : `StayPage` montre deux champs `type="date"` Arrivée et Départ, le `min` du départ suit l'arrivée ; saisir 2026-12-12 et 2026-12-16 → message « du 12 au 16 décembre 2026 » ; un séjour enregistré avec `dates: "12-16 déc."` garde ce texte dans le message ; le rappel « ajoutez vos dates » disparaît quand l'arrivée est choisie
+- [ ] T029 [P] [US4] Compléter `tests/component/selection-islands.test.tsx` et `tests/e2e/stay-page.spec.ts` (doivent échouer) : `StayPage` montre deux champs `type="date"` Arrivée et Départ, le `min` du départ suit l'arrivée ; saisir 2026-12-12 et 2026-12-16 → message « du 12 au 16 décembre 2026 » ; un séjour enregistré avec `dates: "12-16 déc."` garde ce texte dans le message ; le rappel « ajoutez vos dates » disparaît quand l'arrivée est choisie ; choisir les deux dates ne demande aucune saisie au clavier (deux champs calendrier, SC-004)
 - [ ] T030 [US4] `src/features/selection/StayPage.tsx` : champs Arrivée et Départ (`setStay` avec `arrival` / `departure`), rappel fondé sur `arrival` ou l'ancien `dates`
 - [ ] T031 [US4] `npm run check` ; T029 passe
 

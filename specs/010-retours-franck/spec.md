@@ -64,8 +64,9 @@ Sur l'accueil, trois ou quatre photos de Kribi se succèdent en fondu dans le he
 
 1. **Given** l'accueil, **When** il s'ouvre, **Then** la première photo du hero s'affiche sans attente, puis 3 ou 4 photos se succèdent en fondu lent ; le texte et les boutons restent lisibles sur chacune.
 2. **Given** « réduire les animations », **When** l'accueil s'ouvre, **Then** le hero reste sur la première photo.
-3. **Given** l'aperçu Hébergements, **When** il s'affiche, **Then** il montre Chambre, Studio, Appartement et Villa, chacun avec son prix de départ.
-4. **Given** l'aperçu Mobilité, **When** il s'affiche, **Then** il montre Luxe, Premium et Yaris avec photo, modèles et « À partir de X FCFA / jour », chaque carte menant à sa catégorie sur la page Mobilité ; il reste placé après les sections Kibreeze.
+3. **Given** le diaporama en cours, **When** le visiteur touche le bouton Pause, **Then** il s'arrête sur la photo affichée ; « Lecture » le relance (accessibilité : tout contenu qui défile seul doit pouvoir s'arrêter).
+4. **Given** l'aperçu Hébergements, **When** il s'affiche, **Then** il montre Chambre, Studio, Appartement et Villa, chacun avec son prix de départ.
+5. **Given** l'aperçu Mobilité, **When** il s'affiche, **Then** il montre Luxe, Premium et Yaris avec photo, modèles et « À partir de X FCFA / jour », chaque carte menant à sa catégorie sur la page Mobilité ; il reste placé après les sections Kibreeze.
 
 ---
 
@@ -134,7 +135,7 @@ Sur la fiche du pique-nique, la photo est cadrée sur le pique-nique et non sur 
 
 #### Accueil
 
-- **FR-011**: Le hero DOIT faire se succéder 3 ou 4 photos en fondu lent ; la première s'affiche sans attente ; rien ne bouge sous « réduire les animations » ; sans JavaScript, la première photo seule.
+- **FR-011**: Le hero DOIT faire se succéder 3 ou 4 photos en fondu lent, avec un bouton pour le mettre en pause ; la première s'affiche sans attente ; rien ne bouge sous « réduire les animations » ; sans JavaScript, la première photo seule.
 - **FR-012**: L'aperçu Hébergements DOIT montrer les quatre types, appartement compris, avec leur prix de départ lu dans les paliers.
 - **FR-013**: L'aperçu Mobilité DOIT présenter les trois catégories de véhicules (photo, modèles, prix de départ par jour), à l'échelle de l'aperçu Hébergements, chaque carte menant à la catégorie sur la page Mobilité ; il reste après les sections Kibreeze.
 
@@ -170,7 +171,7 @@ Sur la fiche du pique-nique, la photo est cadrée sur le pique-nique et non sur 
 ## Assumptions
 
 - **Photos du hero** : 3 ou 4 photos de Franck sans filigrane, choisies par Claude parmi celles déjà triées (coucher de soleil actuel en premier) ; remplacées par celles de Franck quand il aura fait sa sélection (questionnaire 7). Rythme : une photo toutes les 6 secondes environ.
-- **Bouton « Personnaliser ce parcours »** : la consigne de Franck l'envoie sur WhatsApp ; l'ajout au séjour, voulu depuis le questionnaire 4, garde son propre bouton « Ajouter à mon séjour ».
+- **Bouton « Personnaliser ce parcours »** : la consigne de Franck l'envoie sur WhatsApp, sur la fiche comme sur la carte de la page Formules ; l'ajout au séjour, voulu depuis le questionnaire 4, prend partout le libellé « Ajouter à mon séjour ».
 - **Fiches de parcours** : sous la page Formules (`/formules/<parcours>`), sur le modèle des fiches d'expérience.
 - **Image du maban et de l'Ebanjea** : en attente d'une photo ou d'une description de Franck (questionnaire 7) ; régénérée alors, avec l'accord de Zobel pour toute génération payante.
 - **Traduction anglaise** des descriptions de Franck : faite par Claude, relue par Zobel.
