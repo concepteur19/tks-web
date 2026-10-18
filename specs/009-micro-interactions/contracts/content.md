@@ -38,7 +38,7 @@ L'anglais est relu par Zobel ; Franck valide les textes dans son cahier de test.
 
 ## Configuration
 
-`astro.config.mjs` : `prefetch: { prefetchAll: true, defaultStrategy: 'viewport' }`. Les cartes des grilles d'univers portent `data-astro-prefetch="hover"`.
+`astro.config.mjs` : `prefetch: { prefetchAll: true, defaultStrategy: 'viewport' }`, pour tous les liens internes (voir research.md §3).
 
 ## Stockage
 

@@ -190,3 +190,57 @@ test('Mon séjour : une ligne retirée se replie puis disparaît', async ({ page
   await page.getByRole('button', { name: 'Retirer Quad de mon séjour' }).click();
   await expect(page.getByTestId('stay-line')).toHaveCount(1);
 });
+
+test.describe('préchargement et partage (US3)', () => {
+  test('les fiches visibles d’un univers sont préchargées, jamais WhatsApp', async ({
+    page,
+    browserName,
+  }) => {
+    test.skip(browserName !== 'chromium', 'préchargement observé sur Chromium');
+    const prefetched: string[] = [];
+    page.on('request', (request) => {
+      if (request.resourceType() !== 'document' || request.frame() !== page.mainFrame()) {
+        prefetched.push(request.url());
+      }
+    });
+    await page.goto('/experiences/visites');
+    await expect
+      .poll(async () =>
+        (
+          await page.evaluate(() =>
+            [...document.querySelectorAll('link[rel="prefetch"]')].map((link) =>
+              link.getAttribute('href'),
+            ),
+          )
+        ).concat(prefetched),
+      )
+      .toContainEqual(expect.stringMatching(/\/experiences\/[a-z-]+$/));
+    expect(prefetched.some((url) => url.includes('wa.me'))).toBe(false);
+  });
+
+  test('sur ordinateur, « Partager » copie le lien et le confirme', async ({
+    page,
+    context,
+    browserName,
+  }) => {
+    test.skip(browserName !== 'chromium', 'presse-papiers accordé sur Chromium');
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await page.addInitScript(() =>
+      Object.defineProperty(navigator, 'share', { value: undefined, configurable: true }),
+    );
+    await page.goto('/experiences/excursion-en-pirogue');
+    await page.getByTestId('share').click();
+    await expect(page.getByTestId('toast')).toContainText('Lien copié');
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(
+      /\/experiences\/excursion-en-pirogue$/,
+    );
+  });
+
+  test('sans JavaScript, pas de bouton Partager', async ({ browser }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto('/experiences/excursion-en-pirogue');
+    await expect(page.getByTestId('share')).toHaveCount(0);
+    await context.close();
+  });
+});

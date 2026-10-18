@@ -4,6 +4,7 @@ import { atom } from 'nanostores';
 import { useEffect, useState } from 'preact/hooks';
 import { localize, t } from '../../i18n/t.ts';
 import { prefersReducedMotion } from '../../lib/motion.ts';
+import { $notice } from '../feedback/notice.ts';
 import type { Locale } from '../../i18n/types.ts';
 import { isAddition, VIBRATION_MS } from './feedback.tsx';
 import type { SelectionEvent } from './selection.ts';
@@ -44,6 +45,7 @@ export function describe(
 
 export default function Toasts({ locale }: Props) {
   const event = useStore($lastEvent);
+  const notice = useStore($notice);
   const [message, setMessage] = useState('');
   const [leaving, setLeaving] = useState(false);
   // Sortie : fondu puis retrait à la fin de l'animation ; immédiat sous « réduire les animations ».
@@ -63,6 +65,14 @@ export default function Toasts({ locale }: Props) {
     const timer = setTimeout(dismiss, DURATION_MS);
     return () => clearTimeout(timer);
   }, [event]);
+  // Notifications hors sélection (« Lien copié », 009).
+  useEffect(() => {
+    if (!notice) return;
+    setMessage(t(locale, notice.key));
+    setLeaving(false);
+    const timer = setTimeout(dismiss, DURATION_MS);
+    return () => clearTimeout(timer);
+  }, [notice]);
   useEffect(() => $toastVisible.set(message !== ''), [message]);
   return (
     <div

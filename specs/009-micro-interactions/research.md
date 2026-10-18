@@ -24,7 +24,7 @@ Le site est statique (Astro 5.18, une page HTML par adresse) avec des îlots Pre
 
 ## 3. Préchargement
 
-**Decision**: `prefetch: { prefetchAll: true, defaultStrategy: 'viewport' }` dans `astro.config.mjs` ; stratégie `hover` sur les liens des grilles longues (univers, 10 à 12 cartes) pour ne pas tout charger d'un coup.
+**Decision**: `prefetch: { prefetchAll: true, defaultStrategy: 'viewport' }` dans `astro.config.mjs`, pour tous les liens. Seuls les liens à l'écran sont préchargés, si bien que la quantité ne grandit qu'avec le défilement (une fiche pèse environ 22 kB compressée). Une stratégie « au survol » sur les grilles, envisagée d'abord, ne déclencherait rien sur téléphone : écartée à l'implémentation.
 
 **Rationale**: fonction intégrée d'Astro (≈ 1,5 kB) ; elle ignore les liens externes (WhatsApp) et ne précharge rien quand l'appareil signale l'économie de données ou une connexion lente (FR-015). Les pages font 20 à 60 kB de HTML : précharger les liens visibles coûte peu.
 

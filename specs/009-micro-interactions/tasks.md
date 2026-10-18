@@ -99,16 +99,16 @@ Celles des 002 à 008 (aucun texte en dur, tokens, aucune règle métier dans un
 
 ### Tests
 
-- [ ] T023 [P] [US3] Créer `tests/unit/notice.test.ts` (doit échouer) : `notify(key)` publie `{ key, at }` dans `$notice`, deux notifications identiques successives restent distinctes
-- [ ] T024 [P] [US3] Créer `tests/component/share.test.tsx` (doit échouer) : avec `navigator.share`, appel `{ title, url }` ; sans, copie via `navigator.clipboard.writeText` et `notify('share.copied')` ; sans les deux, ouverture de `https://wa.me/?text=` ; partage annulé (`AbortError`) : rien ; `aria-label` « Partager : <titre> » ; aucune violation axe
-- [ ] T025 [P] [US3] Compléter `tests/e2e/motion.spec.ts` : après chargement d'un univers, au moins une fiche préchargée (`link[rel="prefetch"]` ou requête observée) ; aucune requête de préchargement vers `wa.me` ; sur ordinateur, « Partager » copie le lien et affiche « Lien copié » (permission presse-papiers accordée) ; sans JavaScript, pas de bouton Partager
+- [X] T023 [P] [US3] Créer `tests/unit/notice.test.ts` (doit échouer) : `notify(key)` publie `{ key, at }` dans `$notice`, deux notifications identiques successives restent distinctes
+- [X] T024 [P] [US3] Créer `tests/component/share.test.tsx` (doit échouer) : avec `navigator.share`, appel `{ title, url }` ; sans, copie via `navigator.clipboard.writeText` et `notify('share.copied')` ; sans les deux, ouverture de `https://wa.me/?text=` ; partage annulé (`AbortError`) : rien ; `aria-label` « Partager : <titre> » ; aucune violation axe
+- [X] T025 [P] [US3] Compléter `tests/e2e/motion.spec.ts` : après chargement d'un univers, au moins une fiche préchargée (`link[rel="prefetch"]` ou requête observée) ; aucune requête de préchargement vers `wa.me` ; sur ordinateur, « Partager » copie le lien et affiche « Lien copié » (permission presse-papiers accordée) ; sans JavaScript, pas de bouton Partager
 
 ### Implementation
 
-- [ ] T026 [US3] Ajouter `prefetch: { prefetchAll: true, defaultStrategy: 'viewport' }` à `astro.config.mjs` et `data-astro-prefetch="hover"` aux liens des cartes des grilles d'univers
-- [ ] T027 [US3] Créer `src/features/feedback/notice.ts` (`$notice`, `notify`) conforme à T023 ; faire afficher `$notice` par `Toasts.tsx`, à côté de `$lastEvent`
-- [ ] T028 [US3] Créer `src/features/share/ShareButton.tsx` conforme à T024 et l'insérer en `client:only="preact"` dans `src/components/experiences/ExperienceDetail.astro`, à côté du titre (`data-testid="share"`, `press`)
-- [ ] T029 [US3] `npm run check`, `npm run build`, `npm run check:bundle` ; T023 à T025 passent
+- [X] T026 [US3] Ajouter `prefetch: { prefetchAll: true, defaultStrategy: 'viewport' }` à `astro.config.mjs` (tous les liens internes ; la stratégie « au survol » envisagée pour les grilles ne déclencherait rien sur téléphone)
+- [X] T027 [US3] Créer `src/features/feedback/notice.ts` (`$notice`, `notify`) conforme à T023 ; faire afficher `$notice` par `Toasts.tsx`, à côté de `$lastEvent`
+- [X] T028 [US3] Créer `src/features/share/ShareButton.tsx` conforme à T024 et l'insérer en `client:only="preact"` dans `src/components/experiences/ExperienceDetail.astro`, à côté du titre (`data-testid="share"`, `press`)
+- [X] T029 [US3] `npm run check`, `npm run build`, `npm run check:bundle` ; T023 à T025 passent
 
 ---
 
