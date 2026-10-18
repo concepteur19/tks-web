@@ -6,12 +6,12 @@
   "section": "experience",
   "categoryId": "specialites-culinaires",
   "shortDescription": {
-    "fr": "Des grillades ou un barbecue sur la plage, dans une ambiance conviviale",
-    "en": "A grill or barbecue on the beach, in a friendly atmosphere"
+    "fr": "Imaginez le crépitement du feu, les parfums des grillades et la brise marine.",
+    "en": "Picture the crackling fire, the smell of the grill and the sea breeze."
   },
   "description": {
-    "fr": "Partagez des grillades ou un barbecue de plage dans une ambiance conviviale.",
-    "en": "Share a grill or a beach barbecue in a friendly atmosphere."
+    "fr": "Imaginez le crépitement du feu, les parfums des grillades et la brise marine. Le barbecue de plage transforme un repas en un moment de partage, idéal entre amis, en famille ou lors d’une escapade à Kribi.",
+    "en": "Picture the crackling fire, the smell of the grill and the sea breeze. A beach barbecue turns a meal into a moment to share, ideal with friends, with family or on a getaway to Kribi."
   },
   "images": [
     {
@@ -29,10 +29,18 @@
   "quantity": {
     "dimensions": [
       {
-        "kind": "persons",
+        "kind": "units",
+        "label": {
+          "fr": "plats",
+          "en": "dishes"
+        },
+        "labelOne": {
+          "fr": "plat",
+          "en": "dish"
+        },
         "min": 1,
         "max": 30,
-        "default": 2
+        "default": 1
       }
     ]
   },

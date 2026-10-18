@@ -139,6 +139,11 @@ Réglé le 2026-09-16 : l'excursion en pirogue est gardée, il n'y a pas de cat�
 | Photo du débarcadère de Mboa-Manga et du monument du village Mayi | 🔄 publiées à titre provisoire (décision de Zobel, 2026-10-11) : celles identifiées par Franck (P16, P17, P19), qui portent le filigrane « The Tourist Guide » ; à remplacer par les siennes |
 | Second angle du pont des Esclaves | ⏳ introuvable dans les fichiers (Zobel, 2026-10-11 : on passe) |
 | Photos réelles des 10 spécialités culinaires et du bateau de croisière | 🔄 illustrations générées, marquées « Photo illustrative » |
+| Descriptions des spécialités culinaires | ✅ reçues le 2026-10-18 (11 plats, Ebanjea compris), intégrées en 010 |
+| Photo ou description du maban et de l'Ebanjea | ⏳ questionnaire 7 ; en attendant, photo de la côte « Photo à venir » |
+| Prix par personne : pirogue, chaloupe, feu de plage | ⏳ questionnaire 7 |
+| Lien du catalogue WhatsApp, numéro pour le tourisme | ⏳ questionnaire 7 |
+| Sélection des photos par rubrique, diaporama de l'accueil | ⏳ questionnaire 7 (photos de clients conservées) |
 | Durées (sessions de quad, jet-ski, bouée ; visites ; parcours) | ⏳ jamais données : rubrique omise |
 | Textes anglais des 21 nouvelles prestations | 🔄 traduits par IA, à relire par Zobel (T042) |
 

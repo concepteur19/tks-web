@@ -4,10 +4,11 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import { cardPrice } from '../../features/estimation/cardPrice.ts';
 import { getRoutePath } from '../../i18n/routes.ts';
-import { localize, t } from '../../i18n/t.ts';
+import { localize } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
 import Price from '../Price.astro';
 import IllustrativeTag from './IllustrativeTag.astro';
+import { imageTag } from '../../lib/imageTag.ts';
 
 interface Props {
   service: CollectionEntry<'services'>;
@@ -31,11 +32,9 @@ const image = service.data.images?.[0];
         width={192}
         quality={60}
         class="size-24 rounded-sm object-cover"
-        style={`view-transition-name: exp-${service.id}`}
+        style={`view-transition-name: exp-${service.id}${image.focus ? `; object-position: ${image.focus}` : ''}`}
       />
-      {image.illustrative && (
-        <IllustrativeTag label={t(locale, 'experiences.illustrative')} small />
-      )}
+      {imageTag(image, locale) && <IllustrativeTag label={imageTag(image, locale)!} small />}
     </span>
   )}
   <span class="flex min-w-0 flex-col justify-center gap-1">

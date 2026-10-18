@@ -51,11 +51,13 @@ async function build(): Promise<IslandService[]> {
         const href =
           section === 'hebergement'
             ? `${getRoutePath('accommodation', locale)}#${id}`
-            : section === 'parcours' || section === 'formule'
-              ? `${getRoutePath('packages', locale)}#${id}`
-              : section === 'mobilite'
-                ? `${getRoutePath('mobility', locale)}#${id}`
-                : `${getRoutePath('experiences', locale)}/${id}`;
+            : section === 'parcours'
+              ? `${getRoutePath('packages', locale)}/${id}`
+              : section === 'formule'
+                ? `${getRoutePath('packages', locale)}#${id}`
+                : section === 'mobilite'
+                  ? `${getRoutePath('mobility', locale)}#${id}`
+                  : `${getRoutePath('experiences', locale)}/${id}`;
         return [locale, href];
       }),
     ) as Record<Locale, string>;

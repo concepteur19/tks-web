@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { deliveredPaths, experiencePaths, universePaths } from './delivered.ts';
+import { deliveredPaths, experiencePaths, tourPaths, universePaths } from './delivered.ts';
 
 test('chaque page livrée a un titre et une description uniques', async ({ page }) => {
   const titles = new Map<string, string>();
@@ -48,7 +48,9 @@ test('le plan du site liste les pages livrées dans les deux langues, sans 404',
     locs.push(...[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1] ?? ''));
   }
   const paths = locs.map((loc) => new URL(loc).pathname).sort();
-  expect(paths).toEqual([...deliveredPaths(), ...experiencePaths(), ...universePaths()].sort());
+  expect(paths).toEqual(
+    [...deliveredPaths(), ...experiencePaths(), ...universePaths(), ...tourPaths()].sort(),
+  );
 });
 
 test('chaque fiche a son image de partage et ses données structurées TouristTrip', async ({

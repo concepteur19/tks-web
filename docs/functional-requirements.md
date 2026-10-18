@@ -221,6 +221,20 @@ Modèle confirmé par Franck le 2026-09-25 (vocal) : le site n'affiche **pas de 
 Catalogue détaillé : [specs/009-micro-interactions/contracts/ui.md](../specs/009-micro-interactions/contracts/ui.md).
 ---
 
+## RF — Retours de Franck (spec 010)
+
+**FR-RF-1** Les spécialités culinaires se comptent en plats ; chaque plat porte la description de Franck ; une photo de remplacement est étiquetée « Photo à venir ».
+
+**FR-RF-2** Chaque parcours a sa fiche (`/formules/<parcours>`) : étapes, tarif indicatif, durée, minimum, mention « Prix indicatif, sous réserve de disponibilité et de confirmation par KIBREEZE », ajout au séjour et « Personnaliser ce parcours » sur WhatsApp.
+
+**FR-RF-3** Dans Mon séjour, une ligne au prix par personne part du nombre de voyageurs ; arrivée et départ se choisissent dans un calendrier.
+
+**FR-RF-4** L'accueil fait défiler 4 photos (pause visible, immobile sous « réduire les animations ») et présente les quatre types d'hébergement et les trois catégories de véhicules.
+
+**FR-RF-5** Chaque photo peut porter son cadrage ; les photos d'une fiche s'ouvrent en grand au toucher.
+
+---
+
 ## EUR — Affichage en euros (spec 004)
 
 **FR-EUR-1** Chaque montant affiche, sous le montant en FCFA et en plus petit, son équivalent indicatif en euros (client R7, qui renverse la réponse C5). Le FCFA reste la devise de référence : le total, le panier et le message WhatsApp sont en FCFA.

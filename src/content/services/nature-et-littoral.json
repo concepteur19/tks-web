@@ -46,8 +46,8 @@
     },
     {
       "label": {
-        "fr": "Fleuve Lobé",
-        "en": "Lobé River"
+        "fr": "Fleuve Lobé (inclus dans l’expérience Bagyeli)",
+        "en": "Lobé River (included in the Bagyeli experience)"
       }
     },
     {
@@ -84,5 +84,9 @@
     ]
   },
   "degressive": true,
-  "order": 20
+  "order": 20,
+  "duration": {
+    "fr": "Une journée",
+    "en": "One day"
+  }
 }

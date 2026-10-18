@@ -6,21 +6,21 @@
   "section": "experience",
   "categoryId": "specialites-culinaires",
   "shortDescription": {
-    "fr": "Le maban, spécialité de poisson pimenté de Kribi",
-    "en": "Maban, Kribi’s spicy fish speciality"
+    "fr": "Découvrez une spécialité qui met le piment à l’honneur !",
+    "en": "Discover a speciality that puts chilli in the spotlight!"
   },
   "description": {
-    "fr": "Découvrez le maban, spécialité de poisson pimenté associée à la cuisine de Kribi.",
-    "en": "Discover maban, a spicy fish speciality of Kribi cooking."
+    "fr": "Découvrez une spécialité qui met le piment à l’honneur ! Le Maban invite les amateurs de sensations relevées à explorer une autre facette des saveurs locales. Une dégustation de caractère, pour les palais qui aiment quand ça chauffe.",
+    "en": "Discover a speciality that puts chilli in the spotlight! Maban invites lovers of spicy food to explore another side of local flavours. A dish with character, for palates that like it hot."
   },
   "images": [
     {
-      "src": "../../assets/photos/illustrations/maban.jpg",
+      "src": "../../assets/photos/sections/plage-kribi.jpg",
       "alt": {
-        "fr": "Du poisson pimenté aux épices, servi dans un pot de terre sur une feuille de bananier",
-        "en": "Spicy fish with spices, served in a clay pot on a banana leaf"
+        "fr": "La côte de Kribi, en attendant une photo du plat",
+        "en": "The Kribi coast, until we have a photo of the dish"
       },
-      "illustrative": true
+      "upcoming": true
     }
   ],
   "pricing": {
@@ -29,10 +29,18 @@
   "quantity": {
     "dimensions": [
       {
-        "kind": "persons",
+        "kind": "units",
+        "label": {
+          "fr": "plats",
+          "en": "dishes"
+        },
+        "labelOne": {
+          "fr": "plat",
+          "en": "dish"
+        },
         "min": 1,
         "max": 30,
-        "default": 2
+        "default": 1
       }
     ]
   },

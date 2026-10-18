@@ -6,12 +6,12 @@
   "section": "experience",
   "categoryId": "specialites-culinaires",
   "shortDescription": {
-    "fr": "Du poisson frais ou braisé, préparé par un partenaire local",
-    "en": "Fresh or braised fish, prepared by a local partner"
+    "fr": "Le goût authentique de la côte, dans toute sa simplicité.",
+    "en": "The authentic taste of the coast, in all its simplicity."
   },
   "description": {
-    "fr": "Dégustez du poisson frais ou braisé, préparé selon les possibilités du partenaire local.",
-    "en": "Enjoy fresh or braised fish, prepared as our local partner sees fit."
+    "fr": "Le goût authentique de la côte, dans toute sa simplicité. Savourez un poisson frais braisé à la cuisson dorée, accompagné de ses garnitures et relevé selon vos envies. Une expérience incontournable pour les amateurs de cuisine au bord de l’océan.",
+    "en": "The authentic taste of the coast, in all its simplicity. Enjoy a fresh fish, braised until golden, served with its sides and spiced to your liking. A must for lovers of food by the ocean."
   },
   "images": [
     {
@@ -29,10 +29,18 @@
   "quantity": {
     "dimensions": [
       {
-        "kind": "persons",
+        "kind": "units",
+        "label": {
+          "fr": "plats",
+          "en": "dishes"
+        },
+        "labelOne": {
+          "fr": "plat",
+          "en": "dish"
+        },
         "min": 1,
         "max": 30,
-        "default": 2
+        "default": 1
       }
     ]
   },

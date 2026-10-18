@@ -1,0 +1,61 @@
+{
+  "title": {
+    "fr": "Pique-nique en bord de mer",
+    "en": "Beach picnic"
+  },
+  "section": "experience",
+  "categoryId": "activites",
+  "shortDescription": {
+    "fr": "Un pique-nique sur la plage, organisé selon vos envies",
+    "en": "A picnic on the beach, organised your way"
+  },
+  "description": {
+    "fr": "Profitez d’un pique-nique en bord de mer, organisé selon vos envies.",
+    "en": "Enjoy a picnic by the sea, organised the way you like."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/experiences/pique-nique-bivouac.jpg",
+      "alt": {
+        "fr": "Un pique-nique installé sous une paillote, sur la plage au coucher du soleil",
+        "en": "A picnic set up under a thatched shelter on the beach at sunset"
+      },
+      "focus": "50% 82%"
+    },
+    {
+      "src": "../../assets/photos/experiences/pique-nique-bivouac-2.jpg",
+      "alt": {
+        "fr": "Un repas servi sur une natte, au bord de la mer",
+        "en": "A meal served on a mat by the sea"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "persons",
+        "min": 1,
+        "max": 30,
+        "default": 2
+      }
+    ]
+  },
+  "order": 120,
+  "conditions": {
+    "included": [
+      {
+        "fr": "Organisation sur mesure",
+        "en": "Tailor-made organisation"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Tarif selon le nombre de personnes, le matériel, le menu et la durée",
+        "en": "Price depends on the number of people, equipment, menu and duration"
+      }
+    ]
+  }
+}

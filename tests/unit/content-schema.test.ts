@@ -269,6 +269,26 @@ describe('dégressivité et images illustratives (008)', () => {
   });
 });
 
+describe('cadrage et photo à venir (010)', () => {
+  const photo = pirogue.images[0]!;
+  const withImage = (image: object) => ({ ...kayak, images: [{ ...photo, ...image }] });
+
+  it('accepte un cadrage « X% Y% » de 0 à 100 %, refuse le reste', () => {
+    expect(messages(withImage({ focus: '50% 70%' }))).toEqual([]);
+    expect(messages(withImage({ focus: '0% 100%' }))).toEqual([]);
+    for (const focus of ['50 %', '120% 10%', 'haut', '50%', '-5% 10%']) {
+      expect(messages(withImage({ focus })).length, focus).toBeGreaterThan(0);
+    }
+  });
+
+  it('accepte une photo à venir, jamais en même temps qu’illustrative', () => {
+    expect(messages(withImage({ upcoming: true }))).toEqual([]);
+    expect(messages(withImage({ upcoming: true, illustrative: true })).join()).toContain(
+      'upcoming et illustrative s’excluent',
+    );
+  });
+});
+
 describe('coordonnées et identité de Kibreeze', () => {
   const company = {
     brand: 'Kibreeze',

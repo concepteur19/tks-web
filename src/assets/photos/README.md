@@ -92,6 +92,19 @@ Consigne commune : *Realistic documentary food photograph taken in Kribi, Camero
 | `illustrations/chambre-15000.jpg` … `villa-150000.jpg` | une illustration par palier d'hébergement (005), de la chambre simple à la villa avec piscine, consigne d'intérieur ou d'extérieur « real-estate style », sans personne ; marquées « Exemple de logement à ce budget · photo illustrative » |
 | `illustrations/croisiere-en-haute-mer.jpg` | bateau de croisière blanc en mer au large de la côte de Kribi (consigne de voyage, sans nourriture) |
 
+## Retours de Franck (feature 010)
+
+Contrôlées en pleine résolution le 2026-10-18, sans filigrane. Provisoires : Franck choisira lui-même (questionnaire 7, onglets Photos et Diaporama).
+
+| Usage | Fichier | Source | Remarque |
+|---|---|---|---|
+| Diaporama de l'accueil, photo 2 | `hero/kribi-2.jpg` | `ambiance-hero-plages-couchers/L11-10` | Franck sur une pirogue, plage |
+| Diaporama, photo 3 | `hero/kribi-3.jpg` | `ambiance-hero-plages-couchers/L11-05` | plage au soleil |
+| Diaporama, photo 4 | `hero/kribi-4.jpg` | `chutes-de-la-lobe/L10-10` | chutes, sans personne |
+| Aperçu Appartement (accueil) | `accommodation/appartement.jpg` | `hebergements-franck/photo_2026-10-06_02-14-35` | salle à manger et salon |
+
+`chutes-de-la-lobe/L9-15` (Franck en gilet aux chutes) n'est pas dans le diaporama : son visage tomberait sous le titre du hero.
+
 ## Véhicules TKS® (feature 006)
 
 Photos des cinq véhicules envoyées par Franck le 2026-10-06 (`voitures-tks/`). Les plaques d'immatriculation sont floutées **à l'import** : l'entrée de `sources.json` donne les zones à flouter (`blur`, fractions de l'image après rotation), si bien qu'un réimport ne republie jamais une plaque lisible. Contrôlées en pleine résolution le 2026-10-17, plaques des taxis en arrière-plan comprises.

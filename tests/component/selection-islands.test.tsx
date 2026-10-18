@@ -11,7 +11,14 @@ import { ADDED_FLASH_MS } from '../../src/features/selection/feedback.tsx';
 import RequestBar from '../../src/features/selection/RequestBar.tsx';
 import StayPage from '../../src/features/selection/StayPage.tsx';
 import { $draft } from '../../src/features/selection/draft.ts';
-import { $selection, add, clear, hydrate, remove } from '../../src/features/selection/store.ts';
+import {
+  $selection,
+  add,
+  clear,
+  hydrate,
+  remove,
+  setStay,
+} from '../../src/features/selection/store.ts';
 import { CATALOG, SERVICES } from '../fixtures/catalog.ts';
 
 const plain = (value: string | null) => (value ?? '').replace(/[\s\u202f\u00a0]+/g, ' ');
@@ -336,5 +343,82 @@ describe('retours d’ajout (009)', () => {
       />,
     );
     expect(screen.getByRole('spinbutton').getAttribute('data-roll')).toBe('down');
+  });
+});
+
+describe('voyageurs et libellé des personnes (010)', () => {
+  it('l’ajout rapide part du nombre de voyageurs du séjour', () => {
+    setStay({ travelers: 3 });
+    render(
+      <QuickAdd service={service('chutes-de-la-lobe')} locale="fr" title="Chutes de la Lobé" />,
+    );
+    fireEvent.click(screen.getByTestId('quick-add'));
+    expect($selection.get().items).toEqual([
+      { serviceId: 'chutes-de-la-lobe', quantities: [3], optionIds: [] },
+    ]);
+  });
+
+  it('Mon séjour titre « Personnes pour cette activité » au-dessus des personnes seulement', () => {
+    add({ serviceId: 'chutes-de-la-lobe', quantities: [2], optionIds: [] });
+    add({ serviceId: 'quad', quantities: [1], optionIds: [] });
+    render(
+      <StayPage
+        locale="fr"
+        whatsappNumber="237697135388"
+        eurToXaf={655.957}
+        experiencesHref="/experiences"
+        emptyImage={{ src: '/vide.webp', width: 560, height: 560 }}
+      />,
+    );
+    expect(screen.getAllByText('Personnes pour cette activité')).toHaveLength(1);
+  });
+});
+
+describe('dates du séjour au calendrier (010)', () => {
+  const page = () =>
+    render(
+      <StayPage
+        locale="fr"
+        whatsappNumber="237697135388"
+        eurToXaf={655.957}
+        experiencesHref="/experiences"
+        emptyImage={{ src: '/vide.webp', width: 560, height: 560 }}
+      />,
+    );
+  const message = () =>
+    decodeURIComponent(
+      screen.getAllByTestId('send-stay')[0]!.getAttribute('href')!.split('?text=')[1]!,
+    );
+
+  beforeEach(() => {
+    setStay({});
+    add({ serviceId: 'chutes-de-la-lobe', quantities: [2], optionIds: [] });
+  });
+
+  it('deux champs calendrier, le départ ne précède jamais l’arrivée, message en toutes lettres', () => {
+    page();
+    const arrival = screen.getByLabelText('Arrivée') as HTMLInputElement;
+    const departure = screen.getByLabelText('Départ') as HTMLInputElement;
+    expect(arrival.type).toBe('date');
+    expect(departure.type).toBe('date');
+    fireEvent.change(arrival, { target: { value: '2026-12-12' } });
+    expect((screen.getByLabelText('Départ') as HTMLInputElement).min).toBe('2026-12-12');
+    fireEvent.change(screen.getByLabelText('Départ'), { target: { value: '2026-12-16' } });
+    expect(message().replace(/[\u202f\u00a0]/g, ' ')).toContain('du 12 au 16 décembre 2026');
+  });
+
+  it('garde les dates écrites à la main d’un séjour enregistré avant', () => {
+    setStay({ dates: '12-16 déc.', travelers: 2 });
+    page();
+    expect(message()).toContain('12-16 déc.');
+    expect(screen.queryByText(/Ajoutez vos dates/)).toBeNull();
+  });
+
+  it('le rappel disparaît quand l’arrivée et les voyageurs sont indiqués', () => {
+    page();
+    expect(screen.getByText(/Ajoutez vos dates/)).toBeTruthy();
+    fireEvent.change(screen.getByLabelText('Arrivée'), { target: { value: '2026-12-12' } });
+    fireEvent.change(screen.getByLabelText('Voyageurs'), { target: { value: '3' } });
+    expect(screen.queryByText(/Ajoutez vos dates/)).toBeNull();
   });
 });

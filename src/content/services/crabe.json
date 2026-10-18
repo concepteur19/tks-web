@@ -6,12 +6,12 @@
   "section": "experience",
   "categoryId": "specialites-culinaires",
   "shortDescription": {
-    "fr": "Du crabe cuisiné selon les arrivages",
-    "en": "Crab cooked with the day’s catch"
+    "fr": "Partez à la découverte des saveurs marines avec le crabe, apprécié pour sa chair délicate et sa dégustation pleine de caractère.",
+    "en": "Discover the flavours of the sea with crab, loved for its delicate meat and its full-flavoured tasting."
   },
   "description": {
-    "fr": "Dégustez du crabe cuisiné selon les disponibilités et la préparation proposée.",
-    "en": "Enjoy crab cooked according to availability and the suggested recipe."
+    "fr": "Partez à la découverte des saveurs marines avec le crabe, apprécié pour sa chair délicate et sa dégustation pleine de caractère. Une spécialité à savourer tranquillement, pour prolonger le plaisir autour de la table.",
+    "en": "Discover the flavours of the sea with crab, loved for its delicate meat and its full-flavoured tasting. A speciality to savour slowly, to make the pleasure last around the table."
   },
   "images": [
     {
@@ -29,10 +29,18 @@
   "quantity": {
     "dimensions": [
       {
-        "kind": "persons",
+        "kind": "units",
+        "label": {
+          "fr": "plats",
+          "en": "dishes"
+        },
+        "labelOne": {
+          "fr": "plat",
+          "en": "dish"
+        },
         "min": 1,
         "max": 30,
-        "default": 2
+        "default": 1
       }
     ]
   },

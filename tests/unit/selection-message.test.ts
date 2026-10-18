@@ -97,6 +97,19 @@ describe('message récapitulatif', () => {
     expect(english).toContain('• Premium — 1 vehicle × 4 days: 140,000 FCFA');
   });
 
+  it('écrit les dates d’arrivée et de départ en toutes lettres (010)', () => {
+    const estimate = computeEstimate({ items: [line('chutes-de-la-lobe', [2])] }, CATALOG);
+    const message = plain(
+      buildSelectionMessage({
+        estimate,
+        stay: { arrival: '2026-12-12', departure: '2026-12-16', dates: 'ancien' },
+        intent: 'quote',
+        locale: 'fr',
+      }),
+    );
+    expect(message).toContain('Dates : du 12 au 16 décembre 2026');
+  });
+
   it('n’annonce aucun montant quand tout est sur devis', () => {
     const estimate = computeEstimate(
       {

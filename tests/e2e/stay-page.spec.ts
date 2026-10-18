@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { plain, seedSelection, storedSelection, waitForIslands } from './stay.ts';
+import { decodedMessage, plain, seedSelection, storedSelection, waitForIslands } from './stay.ts';
 
 const FULL = [
   { serviceId: 'excursion-en-pirogue', quantities: [6], optionIds: ['guide-touristique'] },
@@ -61,14 +61,23 @@ test('dates et voyageurs vides : rappel visible, envoi possible ; saisis : conse
   await seedSelection(page, FULL);
   await expect(page.getByText('Ajoutez vos dates')).toBeVisible();
   await expect(page.locator('[data-testid="send-stay"]:visible')).toBeVisible();
-  await page.getByLabel('Dates du séjour').fill('du 12 au 15 décembre');
+  // Calendrier (010) : deux champs date, aucune saisie libre.
+  await expect(page.getByLabel('Arrivée')).toHaveAttribute('type', 'date');
+  await expect(page.getByLabel('Départ')).toHaveAttribute('type', 'date');
+  await page.getByLabel('Arrivée').fill('2026-12-12');
+  await page.getByLabel('Départ').fill('2026-12-16');
   await page.getByLabel('Voyageurs').fill('4');
   await page.getByLabel('Voyageurs').blur();
   await page.reload();
   await waitForIslands(page);
-  await expect(page.getByLabel('Dates du séjour')).toHaveValue('du 12 au 15 décembre');
+  await expect(page.getByLabel('Arrivée')).toHaveValue('2026-12-12');
+  await expect(page.getByLabel('Départ')).toHaveValue('2026-12-16');
   await expect(page.getByLabel('Voyageurs')).toHaveValue('4');
   await expect(page.getByText('Ajoutez vos dates')).toHaveCount(0);
+  const message = decodedMessage(
+    await page.locator('[data-testid="send-stay"]:visible').getAttribute('href'),
+  );
+  expect(plain(message)).toContain('Dates : du 12 au 16 décembre 2026');
 });
 
 test('changer de langue garde les lignes et traduit libellés et montants', async ({ page }) => {

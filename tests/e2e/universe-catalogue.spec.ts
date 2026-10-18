@@ -8,7 +8,8 @@ test('chaque univers publie les prestations du cahier', async ({ page }) => {
   for (const [path, count] of [
     ['/experiences/visites', 9],
     ['/experiences/activites', 13],
-    ['/experiences/specialites-culinaires', 10],
+    // 11 plats depuis l'Ebanjea (010).
+    ['/experiences/specialites-culinaires', 11],
   ] as const) {
     await page.goto(path);
     await expect(cards(page), path).toHaveCount(count);
@@ -32,7 +33,7 @@ test('jet-ski : 10 000 FCFA la session, une personne par engin', async ({ page }
   await expect(page.locator('main')).toContainText('Une personne par engin');
 });
 
-test('spécialités culinaires : sur devis, sans montant ni option, photo illustrative', async ({
+test('spécialités culinaires : sur devis, sans montant ni option, photo étiquetée', async ({
   page,
 }) => {
   await page.goto('/experiences/specialites-culinaires');
@@ -40,7 +41,8 @@ test('spécialités culinaires : sur devis, sans montant ni option, photo illust
   for (let index = 0; index < (await all.count()); index += 1) {
     const text = plain(await all.nth(index).textContent());
     expect(text).not.toMatch(/FCFA|€/);
-    expect(text).toContain('Photo illustrative');
+    // Image générée, ou photo de la côte en attendant le vrai plat (maban, Ebanjea : 010).
+    expect(text).toMatch(/Photo illustrative|Photo à venir/);
   }
   await page.goto('/experiences/langouste');
   await expect(page.getByTestId('options')).toHaveCount(0);

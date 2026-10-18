@@ -49,7 +49,7 @@ const islandCatalog = await getPageCatalog();
                   quality={70}
                   sizes="(min-width: 64rem) 25vw, 17.5rem"
                   class="media-zoom aspect-4/3 w-full object-cover"
-                  style={`view-transition-name: exp-${service.id}`}
+                  style={`view-transition-name: exp-${service.id}${image.focus ? `; object-position: ${image.focus}` : ''}`}
                 />
               )}
               <span class="flex flex-1 flex-col gap-2 px-4 pt-4">

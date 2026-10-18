@@ -9,6 +9,7 @@ import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
 import type { Stay } from '../selection/selection.ts';
 import { buildServiceRequestMessage } from './buildServiceRequestMessage.ts';
+import { formatStayDates } from './formatStayDates.ts';
 
 export const MAX_ENCODED_LENGTH = 1800;
 
@@ -76,7 +77,8 @@ export function buildSelectionMessage({
       ? buildServiceRequestMessage({ title: firstTitle, url: url ?? '', locale })
       : t(locale, 'message.introQuote');
   const header = [intro];
-  if (stay.dates) header.push(t(locale, 'message.dates', { dates: stay.dates }));
+  const dates = formatStayDates(stay, locale);
+  if (dates) header.push(t(locale, 'message.dates', { dates }));
   if (stay.travelers) header.push(t(locale, 'message.travelers', { count: stay.travelers }));
 
   const compose = (shown: number) => {

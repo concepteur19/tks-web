@@ -98,6 +98,7 @@ const premiumHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.gen
               {image && (
                 <Image
                   src={image.src}
+                  style={image.focus ? `object-position: ${image.focus}` : undefined}
                   alt={localize(image.alt, locale)}
                   widths={[400, 720]}
                   quality={70}
@@ -133,6 +134,11 @@ const premiumHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.gen
                       {typeTiers.length > 1 && tier.data.images?.[0] && (
                         <Image
                           src={tier.data.images[0].src}
+                          style={
+                            tier.data.images[0].focus
+                              ? `object-position: ${tier.data.images[0].focus}`
+                              : undefined
+                          }
                           alt={localize(tier.data.images[0].alt, locale)}
                           width={160}
                           height={120}

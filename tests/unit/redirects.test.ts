@@ -15,12 +15,14 @@ const availability = (id: string): string | undefined => {
 const idOf = (path: string) => path.split('/').pop()!;
 
 describe('public/_redirects', () => {
-  it('redirige en 301 les deux anciennes fiches, dans les deux langues', () => {
+  it('redirige en 301 les anciennes fiches, dans les deux langues (008, 010)', () => {
     expect(lines).toEqual([
       ['/experiences/croisiere-en-bateau', '/experiences/croisiere-en-haute-mer', '301'],
       ['/experiences/bateau-de-plaisance', '/experiences/croisiere-en-haute-mer', '301'],
       ['/en/experiences/croisiere-en-bateau', '/en/experiences/croisiere-en-haute-mer', '301'],
       ['/en/experiences/bateau-de-plaisance', '/en/experiences/croisiere-en-haute-mer', '301'],
+      ['/experiences/pique-nique-bivouac', '/experiences/pique-nique-en-bord-de-mer', '301'],
+      ['/en/experiences/pique-nique-bivouac', '/en/experiences/pique-nique-en-bord-de-mer', '301'],
     ]);
   });
 

@@ -80,7 +80,8 @@ export default function StayPage({
     locale,
   });
   const sendHref = buildWhatsAppUrl(whatsappNumber, message);
-  const remindStay = !selection.stay.dates || !selection.stay.travelers;
+  // Rappel tant que ni l'arrivée ni d'anciennes dates écrites à la main ne sont connues (010).
+  const remindStay = !(selection.stay.arrival || selection.stay.dates) || !selection.stay.travelers;
 
   // Ligne retirée (009) : elle se replie, puis quitte la sélection à la fin de la transition ;
   // immédiatement sous « réduire les animations ».
@@ -144,20 +145,24 @@ export default function StayPage({
                 )}
               </div>
               {rule.dimensions.map((dimension, index) => (
-                <QuantityStepper
-                  key={`${dimension.kind}-${index}`}
-                  compact
-                  value={entry.quantities[index] ?? dimension.default}
-                  min={dimension.min}
-                  max={dimension.max}
-                  locale={locale}
-                  label={`${title} — ${describeQuantities({ ...entry, dimensions: [dimension], quantities: [entry.quantities[index] ?? 0], tier: undefined }, locale)}`}
-                  onChange={(value) =>
-                    update(entry.serviceId, {
-                      quantities: entry.quantities.map((q, i) => (i === index ? value : q)),
-                    })
-                  }
-                />
+                <div key={`${dimension.kind}-${index}`}>
+                  {dimension.kind === 'persons' && (
+                    <p class="text-fg-muted mt-1 text-xs">{t(locale, 'stay.personsForActivity')}</p>
+                  )}
+                  <QuantityStepper
+                    compact
+                    value={entry.quantities[index] ?? dimension.default}
+                    min={dimension.min}
+                    max={dimension.max}
+                    locale={locale}
+                    label={`${title} — ${describeQuantities({ ...entry, dimensions: [dimension], quantities: [entry.quantities[index] ?? 0], tier: undefined }, locale)}`}
+                    onChange={(value) =>
+                      update(entry.serviceId, {
+                        quantities: entry.quantities.map((q, i) => (i === index ? value : q)),
+                      })
+                    }
+                  />
+                </div>
               ))}
             </div>
             <div class="flex shrink-0 flex-col items-end justify-between">
@@ -266,14 +271,28 @@ export default function StayPage({
 
         <div class="mt-4 grid grid-cols-2 gap-3">
           <label class="block">
-            <span class="text-fg mb-1 block text-xs font-semibold">{t(locale, 'stay.dates')}</span>
+            <span class="text-fg mb-1 block text-xs font-semibold">
+              {t(locale, 'stay.arrival')}
+            </span>
             <input
-              type="text"
-              maxLength={80}
-              placeholder={t(locale, 'stay.datesPlaceholder')}
-              value={selection.stay.dates ?? ''}
+              type="date"
+              value={selection.stay.arrival ?? ''}
               onChange={(event) =>
-                setStay({ ...selection.stay, dates: (event.target as HTMLInputElement).value })
+                setStay({ ...selection.stay, arrival: (event.target as HTMLInputElement).value })
+              }
+              class="border-border bg-bg text-fg min-h-11 w-full rounded-md border px-3 text-sm"
+            />
+          </label>
+          <label class="block">
+            <span class="text-fg mb-1 block text-xs font-semibold">
+              {t(locale, 'stay.departure')}
+            </span>
+            <input
+              type="date"
+              min={selection.stay.arrival}
+              value={selection.stay.departure ?? ''}
+              onChange={(event) =>
+                setStay({ ...selection.stay, departure: (event.target as HTMLInputElement).value })
               }
               class="border-border bg-bg text-fg min-h-11 w-full rounded-md border px-3 text-sm"
             />

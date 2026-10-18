@@ -3,3 +3,7 @@
 /experiences/bateau-de-plaisance        /experiences/croisiere-en-haute-mer        301
 /en/experiences/croisiere-en-bateau     /en/experiences/croisiere-en-haute-mer     301
 /en/experiences/bateau-de-plaisance     /en/experiences/croisiere-en-haute-mer     301
+
+# Pique-nique renommé, « bivouac » retiré à la demande de Franck (feature 010).
+/experiences/pique-nique-bivouac        /experiences/pique-nique-en-bord-de-mer        301
+/en/experiences/pique-nique-bivouac     /en/experiences/pique-nique-en-bord-de-mer     301

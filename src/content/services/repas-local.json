@@ -6,12 +6,12 @@
   "section": "experience",
   "categoryId": "specialites-culinaires",
   "shortDescription": {
-    "fr": "Un repas local pour découvrir les saveurs de la côte",
-    "en": "A local meal to discover the flavours of the coast"
+    "fr": "Prenez le temps de découvrir Kribi autrement, à travers sa cuisine et ses saveurs.",
+    "en": "Take the time to discover Kribi differently, through its food and flavours."
   },
   "description": {
-    "fr": "Vivez un repas local pour découvrir les saveurs et les habitudes culinaires de la côte.",
-    "en": "Enjoy a local meal and discover the flavours and food customs of the coast."
+    "fr": "Prenez le temps de découvrir Kribi autrement, à travers sa cuisine et ses saveurs. Cette expérience vous invite à vous asseoir autour d’un repas local et à profiter d’un moment authentique, convivial et gourmand.",
+    "en": "Take the time to discover Kribi differently, through its food and flavours. This experience invites you to sit down to a local meal and enjoy an authentic, friendly and delicious moment."
   },
   "images": [
     {
@@ -29,10 +29,18 @@
   "quantity": {
     "dimensions": [
       {
-        "kind": "persons",
+        "kind": "units",
+        "label": {
+          "fr": "plats",
+          "en": "dishes"
+        },
+        "labelOne": {
+          "fr": "plat",
+          "en": "dish"
+        },
         "min": 1,
         "max": 30,
-        "default": 2
+        "default": 1
       }
     ]
   },

@@ -356,3 +356,27 @@ Photos des cinq véhicules reçues, copiées dans `Elements/tri-par-activite/voi
 - **Q5** : guide et maître-nageur proposés sur toutes les visites et activités.
 - **Règles de prix** : minimum de participants (Village Bagyeli : à partir de 15 000 FCFA par personne, minimum 2) et mention « tarif dégressif », sans paliers.
 - **Photos** : Franck a fourni lieux, inclus, non inclus et « à savoir » de chaque prestation ; il demande des illustrations réalistes marquées « Photo illustrative » pour les plats et le bateau de croisière, en attendant de vraies photos.
+
+## 1 octies. Retours de Franck des 11 et 12 octobre (relayés le 2026-10-18)
+
+Notes vocales et captures sur la version du 11 octobre ; transcription dans [audio-transcript.md](./audio-transcript.md). Analyse avec Zobel le 2026-10-18, traitement : feature 010.
+
+| Retour | Suite |
+|---|---|
+| Formules invisibles, « Voir les 4 formules » ouvrait WhatsApp sans détail | déjà réglé (page Formules, 005) |
+| Lien « Voir » de la mobilité vers WhatsApp | déjà réglé (page Mobilité, 006) |
+| Plats comptés en « personnes » | plats comptés en « plats » (010) |
+| Descriptions des plats, plat oublié | descriptions de Franck et Ebanjea intégrées (010) |
+| Image du maban fausse | retirée, photo de la côte « Photo à venir » (010) ; vraie photo ou description demandée (questionnaire 7) |
+| Calendrier pour les dates | Arrivée et Départ au calendrier (010) |
+| « Bivouac », photo du pique-nique mal cadrée | « Pique-nique en bord de mer », cadrage, photo en grand au toucher (010) |
+| Diaporama sur l'accueil, plusieurs photos par activité | diaporama de 4 photos avec pause (010) ; sélection des photos (questionnaire 7) |
+| « Il manque appartement » sur l'aperçu Hébergements | ajouté (010) |
+| Mobilité trop petite sur l'accueil | aperçu avec les 3 véhicules, à l'échelle des hébergements (010, décision de Zobel) |
+| Sessions au lieu de personnes pour les visites | expliqué : le chiffre est le nombre de participants ; chaque ligne part désormais du nombre de voyageurs (010) |
+| Prix individuel pour la pirogue (prix par groupe qui fait fuir) | légitime ; prix par personne demandés (questionnaire 7) |
+| Catalogue WhatsApp pour hébergement et transport, numéro personnel pour le tourisme | liens demandés (questionnaire 7) |
+| Changer les photos soi-même « comme WordPress » | expliqué : pas d'espace d'administration sur un site statique ; à étudier plus tard |
+| Photos de clients en avant plutôt que lui | décision de Zobel : les photos de clients restent utilisées |
+
+Compléments du 2026-10-18 : descriptions des 11 plats, consignes des six parcours (une fiche par parcours, durées, mention « Prix indicatif, sous réserve de disponibilité et de confirmation par KIBREEZE », personnalisation sur WhatsApp, fleuve Lobé inclus dans Bagyeli, phare, monument et ponts inclus dans Mayi).

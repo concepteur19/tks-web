@@ -39,8 +39,8 @@
   "steps": [
     {
       "label": {
-        "fr": "Village Mayi",
-        "en": "Mayi Village"
+        "fr": "Village Mayi (ponts de l’Esclavage et des Enclaves, phare et monument)",
+        "en": "Mayi village (Slavery and Enclaves bridges, lighthouse and monument)"
       },
       "serviceId": "village-mayi"
     },
@@ -78,5 +78,9 @@
     ]
   },
   "degressive": true,
-  "order": 30
+  "order": 30,
+  "duration": {
+    "fr": "Une demi-journée",
+    "en": "Half a day"
+  }
 }

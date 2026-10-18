@@ -39,7 +39,10 @@ export default function RequestBar({
   const stored = useStore($draft);
   const selection = useStore($selection);
   // Rendu serveur et premier rendu : la ligne par défaut, sans attendre l'atome.
-  const draft = stored?.serviceId === serviceId ? stored : defaultLine(service);
+  const draft =
+    stored?.serviceId === serviceId
+      ? stored
+      : defaultLine(service, $selection.get().stay.travelers);
   const catalog = catalogMap([service, ...options]);
 
   const estimate = computeEstimate({ items: [draft] }, catalog);

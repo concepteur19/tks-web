@@ -11,12 +11,12 @@ import { useAddedFlash } from './feedback.tsx';
 import type { IslandService } from './islandCatalog.ts';
 import QuantityStepper from './QuantityStepper.tsx';
 import { defaultLine, quantityRuleOf } from './selection.ts';
-import { add } from './store.ts';
+import { $selection, add } from './store.ts';
 
 type Props = { service: IslandService; locale: Locale; title: string; buttonLabel: string };
 
 export default function LineCustomizer({ service, locale, title, buttonLabel }: Props) {
-  const line = defaultLine(service);
+  const line = defaultLine(service, $selection.get().stay.travelers);
   const { dimensions } = quantityRuleOf(service, line.tierId);
   const [quantities, setQuantities] = useState(line.quantities);
   const [flashing, notify] = useAddedFlash();

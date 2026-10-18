@@ -52,7 +52,7 @@ test.describe('parcours de visite', () => {
     });
   }
 
-  test('personnaliser L’Essentiel pour 4 : une ligne, 120 000 FCFA, total estimatif', async ({
+  test('ajouter L’Essentiel pour 4 depuis sa carte : une ligne, 120 000 FCFA, total estimatif', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 360, height: 800 });
@@ -66,7 +66,8 @@ test.describe('parcours de visite', () => {
     const more = card.getByRole('button', { name: 'Augmenter : Nombre de personnes' });
     await more.click();
     await more.click();
-    await card.getByRole('button', { name: /^Personnaliser ce parcours/ }).click();
+    // « Personnaliser ce parcours » est désormais réservé à WhatsApp, sur la fiche (010).
+    await card.getByRole('button', { name: /^Ajouter à mon séjour/ }).click();
     await expect(page.getByTestId('toast')).toContainText('ajouté');
     await page.goto('/sejour');
     const line = page.getByTestId('stay-line');
