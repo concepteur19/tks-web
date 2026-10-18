@@ -130,8 +130,9 @@ const ogImageUrl = new URL(share.src, `${env.siteUrl}/`).toString();
     <TabBar locale={locale} routeKey={routeKey} />
     <!-- Délai maximal : sur un appareil occupé, une confirmation ne doit pas attendre l’inactivité. -->
     <Toasts client:idle={{ timeout: 1500 }} locale={locale} />
-    <!-- Tuto de première visite (009) : aucun HTML sans JavaScript. -->
-    <FirstVisitGuide client:only="preact" locale={locale} />
+    <!-- Tuto de première visite (009) : chargé après l'affichage, aucun HTML sans JavaScript
+         (l'îlot ne rend rien avant son premier effet). -->
+    <FirstVisitGuide client:idle={{ timeout: 1000 }} locale={locale} />
     <script>
       import '../scripts/reveal.ts';
     </script>

@@ -5,8 +5,9 @@
  */
 
 export const GUIDE_KEY = 'kibreeze.guide.v1';
-/** Délai d'apparition après le chargement (spec : moins de 2 secondes). */
-export const GUIDE_DELAY_MS = 1200;
+/** Délai d'apparition après l'activation de l'îlot, elle-même différée d'une seconde au plus
+ *  (`client:idle`) : la bulle paraît en moins de 2 secondes (spec, US1-1). */
+export const GUIDE_DELAY_MS = 600;
 
 export type GuideStatus = 'new' | 'done';
 export type GuideStepIndex = 0 | 1 | 2;

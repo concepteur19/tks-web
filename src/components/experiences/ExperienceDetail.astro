@@ -134,8 +134,9 @@ const islandOptions = islandCatalog.filter((entry) => entry.isOption && optionId
         <h1 class="mt-4 font-display text-2xl leading-tight font-bold text-fg lg:text-4xl">
           {title}
         </h1>
-        <div class="mt-2">
-          <ShareButton client:only="preact" title={title} url={pageUrl} locale={locale} />
+        <!-- Place réservée : le bouton, rendu après coup, ne décale pas la page. -->
+        <div class="mt-2 min-h-11">
+          <ShareButton client:idle title={title} url={pageUrl} locale={locale} />
         </div>
         {category && (
           <p class="mt-1.5">

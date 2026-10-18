@@ -1,7 +1,9 @@
 /**
  * Partager une fiche (009, FR-016) : menu de partage de l'appareil ; à défaut, copie du lien et
- * notification « Lien copié » ; à défaut encore, WhatsApp. Absent sans JavaScript (client:only).
+ * notification « Lien copié » ; à défaut encore, WhatsApp. Absent sans JavaScript : rien au rendu
+ * serveur, le bouton paraît une fois l'îlot actif.
  */
+import { useEffect, useState } from 'preact/hooks';
 import { t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
 import { notify } from '../feedback/notice.ts';
@@ -37,6 +39,10 @@ async function share(title: string, url: string): Promise<void> {
 }
 
 export default function ShareButton({ title, url, locale }: Props) {
+  // Rien au rendu serveur : sans JavaScript, pas de bouton (FR-018).
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
   return (
     <button
       type="button"
