@@ -68,3 +68,46 @@ test('le pique-nique s’appelle « Pique-nique en bord de mer »', async ({ pag
   await expect(page.locator('h1')).toHaveText('Pique-nique en bord de mer');
   expect(plain(await page.locator('main').innerText()).toLowerCase()).not.toContain('bivouac');
 });
+
+test.describe('photos (US5)', () => {
+  test('la photo du pique-nique est cadrée sur le pique-nique', async ({ page }) => {
+    await page.goto('/experiences/activites');
+    const image = page
+      .getByTestId('experience-card')
+      .filter({ hasText: 'Pique-nique en bord de mer' })
+      .locator('img')
+      .first();
+    expect(await image.evaluate((element) => getComputedStyle(element).objectPosition)).toBe(
+      '50% 82%',
+    );
+  });
+
+  test('toucher une photo de fiche l’ouvre en grand, puis elle se ferme', async ({ page }) => {
+    await page.goto('/experiences/excursion-en-pirogue');
+    const first = page.getByTestId('gallery').locator('a[data-lightbox-open]').first();
+    const lightbox = page.getByTestId('lightbox');
+    await expect(lightbox).toBeHidden();
+    await first.click();
+    await expect(lightbox).toBeVisible();
+    await expect(lightbox.locator('img')).toHaveAttribute('src', /.+/);
+    await lightbox.getByRole('button', { name: 'Fermer' }).click();
+    await expect(lightbox).toBeHidden();
+    await expect(first).toBeFocused();
+    await first.click();
+    await page.keyboard.press('Escape');
+    await expect(lightbox).toBeHidden();
+    await first.click();
+    await page.mouse.click(5, 5);
+    await expect(lightbox).toBeHidden();
+  });
+
+  test('sans JavaScript, la photo est un lien vers l’image en grand', async ({ browser }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto('/experiences/excursion-en-pirogue');
+    await expect(
+      page.getByTestId('gallery').locator('a[data-lightbox-open]').first(),
+    ).toHaveAttribute('href', /\.(jpg|jpeg|webp)$/);
+    await context.close();
+  });
+});

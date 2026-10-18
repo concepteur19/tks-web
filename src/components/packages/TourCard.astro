@@ -54,6 +54,7 @@ const tourPath = `${getRoutePath('packages', locale)}/${tour.id}`;
     >
       <Image
         src={image.src}
+        style={image.focus ? `object-position: ${image.focus}` : undefined}
         alt={localize(image.alt, locale)}
         widths={[400, 720]}
         quality={70}

@@ -32,7 +32,7 @@ const image = service.data.images?.[0];
         width={192}
         quality={60}
         class="size-24 rounded-sm object-cover"
-        style={`view-transition-name: exp-${service.id}`}
+        style={`view-transition-name: exp-${service.id}${image.focus ? `; object-position: ${image.focus}` : ''}`}
       />
       {imageTag(image, locale) && <IllustrativeTag label={imageTag(image, locale)!} small />}
     </span>

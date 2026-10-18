@@ -89,6 +89,7 @@ const shareAlt = vehicles[0]?.data.images?.[0]?.alt;
                 {image && (
                   <Image
                     src={image.src}
+                    style={image.focus ? `object-position: ${image.focus}` : undefined}
                     alt={localize(image.alt, locale)}
                     width={112}
                     height={112}
@@ -152,6 +153,7 @@ const shareAlt = vehicles[0]?.data.images?.[0]?.alt;
               {image && (
                 <Image
                   src={image.src}
+                  style={image.focus ? `object-position: ${image.focus}` : undefined}
                   alt={localize(image.alt, locale)}
                   width={112}
                   height={112}

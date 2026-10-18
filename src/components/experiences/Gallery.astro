@@ -9,13 +9,28 @@ import IllustrativeTag from './IllustrativeTag.astro';
 
 interface Props {
   /** `tag` : étiquette « Photo illustrative » ou « Photo à venir », déjà traduite. */
-  images: { src: ImageMetadata; alt: string; tag?: string | undefined }[];
+  images: {
+    src: ImageMetadata;
+    alt: string;
+    tag?: string | undefined;
+    focus?: string | undefined;
+  }[];
   /** Nom de transition de la première photo, partagé avec la carte qui mène ici (009). */
   transitionName?: string;
+  /** Libellés de la photo en grand (010) : ouvrir, fermer. */
+  openLabel: string;
+  closeLabel: string;
   thumbnailsLabel: string;
 }
 
-const { images, thumbnailsLabel, transitionName } = Astro.props;
+const { images, thumbnailsLabel, transitionName, openLabel, closeLabel } = Astro.props;
+const styleOf = (index: number, focus: string | undefined) =>
+  [
+    index === 0 && transitionName ? `view-transition-name: ${transitionName}` : '',
+    focus ? `object-position: ${focus}` : '',
+  ]
+    .filter(Boolean)
+    .join('; ') || undefined;
 const several = images.length > 1;
 ---
 
@@ -29,19 +44,25 @@ const several = images.length > 1;
         id={`photo-${index + 1}`}
         class="relative w-full shrink-0 snap-start scroll-mt-(--size-header)"
       >
-        <Image
-          src={image.src}
-          alt={image.alt}
-          widths={[480, 960]}
-          quality={65}
-          sizes="(min-width: 64rem) 50vw, 100vw"
-          loading={index === 0 ? 'eager' : 'lazy'}
-          fetchpriority={index === 0 ? 'high' : 'auto'}
-          class="aspect-4/3 w-full object-cover"
-          style={
-            index === 0 && transitionName ? `view-transition-name: ${transitionName}` : undefined
-          }
-        />
+        <!-- Photo en grand (010) : le script l'ouvre dans la fenêtre ; sans lui, le lien mène à l'image. -->
+        <a
+          href={image.src.src}
+          class="block"
+          data-lightbox-open
+          aria-label={`${openLabel} : ${image.alt}`}
+        >
+          <Image
+            src={image.src}
+            alt={image.alt}
+            widths={[480, 960]}
+            quality={65}
+            sizes="(min-width: 64rem) 50vw, 100vw"
+            loading={index === 0 ? 'eager' : 'lazy'}
+            fetchpriority={index === 0 ? 'high' : 'auto'}
+            class="aspect-4/3 w-full object-cover"
+            style={styleOf(index, image.focus)}
+          />
+        </a>
         {image.tag && <IllustrativeTag label={image.tag} />}
         {several && (
           <span
@@ -76,3 +97,24 @@ const several = images.length > 1;
     </ul>
   )}
 </div>
+
+<dialog
+  data-lightbox
+  data-testid="lightbox"
+  class="m-0 h-full max-h-none w-full max-w-none bg-transparent p-0 backdrop:bg-fg/90"
+>
+  <div class="flex h-full w-full items-center justify-center p-4">
+    <img alt="" class="max-h-full max-w-full object-contain" />
+  </div>
+  <button
+    type="button"
+    data-lightbox-close
+    class="press absolute top-4 right-4 inline-flex min-h-11 items-center rounded-md bg-bg px-4 text-sm font-semibold text-fg"
+  >
+    {closeLabel}
+  </button>
+</dialog>
+
+<script>
+  import '../../scripts/lightbox.ts';
+</script>

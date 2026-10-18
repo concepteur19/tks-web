@@ -46,7 +46,7 @@ const islandCatalog = await getPageCatalog();
         quality={70}
         sizes="(min-width: 64rem) 33vw, 100vw"
         class="media-zoom absolute inset-0 h-full w-full object-cover"
-        style={`view-transition-name: exp-${service.id}`}
+        style={`view-transition-name: exp-${service.id}${image.focus ? `; object-position: ${image.focus}` : ''}`}
       />
     )}
     {image && imageTag(image, locale) && <IllustrativeTag label={imageTag(image, locale)!} />}

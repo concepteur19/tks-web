@@ -126,10 +126,10 @@ Celles des 002 à 009 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 **Independent Test**: quickstart, scénarios 4 et 11.
 
-- [ ] T032 [P] [US5] Compléter `tests/e2e/franck-feedback.spec.ts` (doit échouer) : la photo du pique-nique porte son `object-position` ; sur une fiche, toucher une photo ouvre `lightbox` avec l'image entière, fermée par le bouton, par Échap et par un clic hors de l'image, le focus revenant à la photo ; sans JavaScript, la photo est un lien vers l'image en grand
-- [ ] T033 [US5] Appliquer `focus` en `object-position` dans `ExperienceCard`, `CompactCard`, `FeaturedCarousel`, `Gallery`, `TourCard`, `TourDetail`, `UniverseCard` et les aperçus de l'accueil ; relever le cadrage de la photo du pique-nique et le poser dans son fichier
-- [ ] T034 [US5] `Gallery.astro` : chaque photo dans un lien vers l'image en grand ; `src/scripts/lightbox.ts` : ouverture dans un `<dialog>` (`lightbox.open`, `lightbox.close`), fermeture au clic hors de l'image, retour du focus
-- [ ] T035 [US5] `npm run check`, `npm run build` ; T032 passe
+- [X] T032 [P] [US5] Compléter `tests/e2e/franck-feedback.spec.ts` (doit échouer) : la photo du pique-nique porte son `object-position` ; sur une fiche, toucher une photo ouvre `lightbox` avec l'image entière, fermée par le bouton, par Échap et par un clic hors de l'image, le focus revenant à la photo ; sans JavaScript, la photo est un lien vers l'image en grand
+- [X] T033 [US5] Appliquer `focus` en `object-position` dans `ExperienceCard`, `CompactCard`, `FeaturedCarousel`, `Gallery`, `TourCard`, `TourDetail`, `UniverseCard` et les aperçus de l'accueil ; relever le cadrage de la photo du pique-nique et le poser dans son fichier
+- [X] T034 [US5] `Gallery.astro` : chaque photo dans un lien vers l'image en grand ; `src/scripts/lightbox.ts` : ouverture dans un `<dialog>` (`lightbox.open`, `lightbox.close`), fermeture au clic hors de l'image, retour du focus
+- [X] T035 [US5] `npm run check`, `npm run build` ; T032 passe
 
 ---
 

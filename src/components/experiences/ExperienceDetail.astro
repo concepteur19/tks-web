@@ -53,6 +53,7 @@ const images = (data.images ?? []).map((image) => {
     src: image.src,
     alt: tag ? `${localize(image.alt, locale)} (${tag})` : localize(image.alt, locale),
     tag,
+    focus: image.focus,
   };
 });
 const firstImage = images[0];
@@ -128,6 +129,8 @@ const islandOptions = islandCatalog.filter((entry) => entry.isOption && optionId
             images={images}
             thumbnailsLabel={t(locale, 'detail.gallery')}
             transitionName={`exp-${service.id}`}
+            openLabel={t(locale, 'lightbox.open')}
+            closeLabel={t(locale, 'lightbox.close')}
           />
         )}
 
