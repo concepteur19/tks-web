@@ -31,7 +31,7 @@ Une touriste arrive pour la première fois sur Kibreeze depuis Instagram. Une pe
 3. **Given** la bulle ouverte, **When** le visiteur touche « Passer » ou appuie sur Échap, **Then** elle disparaît.
 4. **Given** un tuto terminé ou passé, **When** le visiteur revient le lendemain ou change de page, **Then** la bulle ne réapparaît pas.
 5. **Given** un visiteur qui ajoute une prestation à son séjour pendant le tuto, **When** l'ajout est confirmé, **Then** la bulle passe directement à l'étape 3 (envoyer sur WhatsApp).
-6. **Given** l'accueil, **When** le visiteur fait défiler après le premier écran, **Then** une section « Comment ça marche » présente les trois mêmes étapes avec une icône chacune, et un bouton vers le Tourisme.
+6. **Given** l'accueil, **When** le visiteur a vu les univers du Tourisme, **Then** une section « Comment ça marche » présente les trois mêmes étapes avec une icône chacune, et un bouton vers le Tourisme.
 
 ---
 
@@ -145,7 +145,7 @@ Un visiteur qui hésite entre deux activités ouvre une fiche, revient, en ouvre
 
 - **Forme du tuto** : bulle ancrée en bas de l'écran, au-dessus de la barre à onglets (en haut à droite sur ordinateur), plutôt qu'un écran plein ou un voile sombre, jugés trop intrusifs sur téléphone.
 - **Mémoire du tuto** : sur l'appareil, comme le séjour ; aucune donnée envoyée.
-- **Place de « Comment ça marche »** : juste après le premier écran de l'accueil, avant les univers du Tourisme : c'est la réponse à « comment je réserve ? ».
+- **Place de « Comment ça marche »** (choix laissé à Claude par Zobel le 2026-10-18) : après les univers du Tourisme, avant les expériences mises en avant. Plus haut, elle repousserait l'offre ; plus bas, elle arriverait après la décision.
 - **Partager** : sur les fiches d'expérience seulement ; les pages Hébergements, Formules et Mobilité se partagent par leur adresse.
 - **Vibration** : environ 15 millisecondes, à l'ajout au séjour seulement.
 - **Préchargement** : limité aux pages du site, jamais aux liens externes (WhatsApp).
