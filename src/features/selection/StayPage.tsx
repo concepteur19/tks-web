@@ -12,7 +12,7 @@ import { prefersReducedMotion } from '../../lib/motion.ts';
 import { buildWhatsAppUrl, WHATSAPP_ICON_PATH } from '../../lib/whatsapp.ts';
 import { buildSelectionMessage, describeQuantities } from '../whatsapp/buildSelectionMessage.ts';
 import QuantityStepper from './QuantityStepper.tsx';
-import { quantityRuleOf } from './selection.ts';
+import { MAX_SESSIONS, quantityRuleOf } from './selection.ts';
 import { $selection, clear, getCatalog, remove, setStay, update } from './store.ts';
 
 const INFO_ICON =
@@ -144,26 +144,38 @@ export default function StayPage({
                   </span>
                 )}
               </div>
-              {rule.dimensions.map((dimension, index) => (
-                <div key={`${dimension.kind}-${index}`}>
-                  {dimension.kind === 'persons' && (
-                    <p class="text-fg-muted mt-1 text-xs">{t(locale, 'stay.personsForActivity')}</p>
-                  )}
+              {rule.dimensions.map((dimension, index) =>
+                // Les personnes suivent « Voyageurs » : la ligne ne règle que ses sessions (US6).
+                dimension.kind === 'persons' ? (
+                  <div key={`sessions-${index}`}>
+                    <p class="text-fg-muted mt-1 text-xs">{t(locale, 'stay.sessions')}</p>
+                    <QuantityStepper
+                      compact
+                      value={entry.sessions}
+                      min={1}
+                      max={MAX_SESSIONS}
+                      locale={locale}
+                      label={`${title} — ${t(locale, 'quantity.sessions', { count: entry.sessions })}`}
+                      onChange={(value) => update(entry.serviceId, { sessions: value })}
+                    />
+                  </div>
+                ) : (
                   <QuantityStepper
+                    key={`${dimension.kind}-${index}`}
                     compact
                     value={entry.quantities[index] ?? dimension.default}
                     min={dimension.min}
                     max={dimension.max}
                     locale={locale}
-                    label={`${title} — ${describeQuantities({ ...entry, dimensions: [dimension], quantities: [entry.quantities[index] ?? 0], tier: undefined }, locale)}`}
+                    label={`${title} — ${describeQuantities({ ...entry, dimensions: [dimension], quantities: [entry.quantities[index] ?? 0], tier: undefined, sessions: 1 }, locale)}`}
                     onChange={(value) =>
                       update(entry.serviceId, {
                         quantities: entry.quantities.map((q, i) => (i === index ? value : q)),
                       })
                     }
                   />
-                </div>
-              ))}
+                ),
+              )}
             </div>
             <div class="flex shrink-0 flex-col items-end justify-between">
               <button

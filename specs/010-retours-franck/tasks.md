@@ -133,6 +133,15 @@ Celles des 002 à 009 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 ---
 
+## Phase 7 bis: User Story 6 — Voyageurs en haut, sessions sur chaque ligne (Priority: P1)
+
+**Goal**: retour de Franck du 18 octobre ; décision de Zobel du 2026-10-19.
+
+- [X] T043 [P] [US6] Tests unitaires (doivent échouer) : `tests/unit/selection.test.ts` (sessions normalisées 1 à 10, absentes hors personnes ; `setStay` avec catalogue met les personnes des lignes aux voyageurs, bornées ; réajout = sessions additionnées, plafonnées, personnes remplacées) ; `tests/unit/compute-estimate.test.ts` (chutes 4 × 2 sessions = 40 000, options × sessions, pirogue au-delà de 8 voyageurs sur devis) ; `tests/unit/selection-message.test.ts` (« 4 personnes × 2 sessions », rien à 1 session)
+- [X] T044 [US6] `selection.ts` (`sessions`, `normalize`, `addLine`, `setStay` avec catalogue), `computeEstimate.ts` (`sessions`), `buildSelectionMessage.ts` (`describeQuantities`), `store.ts` (`setStay` passe le catalogue) ; couverture 100 %
+- [X] T045 [US6] `StayPage.tsx` : « pour N personnes » à la place du sélecteur de personnes, sélecteur « Sessions » ; tests d'îlots et de bout en bout mis à jour (réajout de la pirogue et du feu de plage, libellés)
+- [X] T046 [US6] `npm run check`, suite de bout en bout ; chaîne `quantity.sessions` et `stay.sessions` FR / EN
+
 ## Phase 8: Polish & vérification
 
 - [X] T036 [P] `lighthouserc.json` : ajouter `/formules/essentiel-de-kribi.html`

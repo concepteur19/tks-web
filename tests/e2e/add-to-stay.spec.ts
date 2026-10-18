@@ -31,16 +31,20 @@ test('pirogue pour 6 avec guide : total à jour, ajout confirmé, compteur à 1'
   ]);
 });
 
-test('réajouter la pirogue fusionne la ligne et passe sur devis au-delà de 8', async ({ page }) => {
+test('réajouter la pirogue ajoute une session, et passe sur devis au-delà de 8 personnes (US6)', async ({
+  page,
+}) => {
   await openExperience(page, 'excursion-en-pirogue');
   for (let i = 0; i < 4; i += 1) await more(page).click();
   await visible(page, 'add-to-stay').click();
   await page.reload();
   await waitForIslands(page);
-  await more(page).click();
+  for (let i = 0; i < 7; i += 1) await more(page).click();
   await visible(page, 'add-to-stay').click();
   await expect(page.getByTestId('toast')).toContainText('mis à jour');
-  expect((await storedSelection(page))?.items.map((item) => item.quantities)).toEqual([[9]]);
+  expect((await storedSelection(page))?.items).toEqual([
+    { serviceId: 'excursion-en-pirogue', quantities: [9], sessions: 2, optionIds: [] },
+  ]);
   await page.goto('/sejour');
   await expect(page.getByTestId('stay-line')).toHaveCount(1);
   await expect(page.getByTestId('stay-line')).toContainText('Sur devis');

@@ -164,3 +164,28 @@ describe('autres règles', () => {
     expect(estimate(line('chutes-de-la-lobe', [])).total).toBe(10000);
   });
 });
+
+describe('sessions (US6)', () => {
+  it('chutes pour 4 personnes, 2 sessions : 40 000', () => {
+    const result = estimate(line('chutes-de-la-lobe', [4], { sessions: 2 }));
+    expect(result.lines[0]?.sessions).toBe(2);
+    expect(result.total).toBe(40000);
+  });
+
+  it('options multipliées par les sessions', () => {
+    const result = estimate(
+      line('excursion-en-pirogue', [6], { sessions: 2, optionIds: ['guide-touristique'] }),
+    );
+    expect(result.lines[0]?.options[0]?.amount).toBe(10000);
+    expect(result.total).toBe(80000);
+  });
+
+  it('pirogue au-delà de 8 personnes : sur devis, quelles que soient les sessions', () => {
+    const result = estimate(line('excursion-en-pirogue', [10], { sessions: 3 }));
+    expect(result.lines[0]?.lineAmount).toBeNull();
+  });
+
+  it('une ligne sans sessions en compte une', () => {
+    expect(estimate(line('quad', [2])).lines[0]?.sessions).toBe(1);
+  });
+});

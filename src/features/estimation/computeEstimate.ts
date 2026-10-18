@@ -17,6 +17,8 @@ export type EstimateLine = {
     labelOne?: LocalizedString | undefined;
   }[];
   tier?: { id: string; label: LocalizedString } | undefined;
+  /** Sessions (US6) : 1 hors prestation qui compte des personnes. */
+  sessions: number;
   pricingKind: 'fixed' | 'from' | 'quote';
   unit: PriceUnit | null;
   unitAmount: number | null;
@@ -45,6 +47,7 @@ export function computeEstimate(
     const rule = quantityRuleOf(service, item.tierId);
     const pricing = pricingOf(service, item.tierId);
     const tier = service.tiers?.find((entry) => entry.id === item.tierId);
+    const sessions = item.sessions ?? 1;
     const personsIndex = rule.dimensions.findIndex((dimension) => dimension.kind === 'persons');
     const persons = personsIndex === -1 ? undefined : item.quantities[personsIndex];
 
@@ -63,9 +66,9 @@ export function computeEstimate(
       const optionPricing = option.pricing;
       const amount =
         optionPricing && optionPricing.kind !== 'quote'
-          ? optionPricing.unit === 'per_person'
-            ? optionPricing.amount * (persons ?? 1)
-            : optionPricing.amount
+          ? (optionPricing.unit === 'per_person'
+              ? optionPricing.amount * (persons ?? 1)
+              : optionPricing.amount) * sessions
           : null;
       return [{ id, title: option.title, amount }];
     });
@@ -86,11 +89,12 @@ export function computeEstimate(
           : {}),
       })),
       ...(tier ? { tier: { id: tier.id, label: tier.label } } : {}),
+      sessions,
       pricingKind: isQuote ? 'quote' : priced.kind,
       unit: priced ? priced.unit : null,
       unitAmount: priced ? priced.amount : null,
       options,
-      lineAmount: isQuote ? null : priced.amount * multiplier + optionsTotal,
+      lineAmount: isQuote ? null : priced.amount * multiplier * sessions + optionsTotal,
       overCapacity,
     });
   }
