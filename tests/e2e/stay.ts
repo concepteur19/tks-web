@@ -10,14 +10,19 @@ export type SeedLine = {
   optionIds?: string[];
 };
 
-/** Enregistre une sélection dans le stockage du site, puis recharge la page demandée. */
+/**
+ * Enregistre une sélection dans le stockage du site, puis ouvre la page demandée.
+ * L'écriture se fait depuis `robots.txt`, page du même site sans îlot : sur une page du site, un
+ * îlot hydraté en retard pouvait lire la sélection avant le rechargement et la purger, si bien que
+ * la page testée ne voyait plus rien à retirer.
+ */
 export async function seedSelection(
   page: Page,
   items: SeedLine[],
   stay: { dates?: string; travelers?: number } = {},
   path = '/sejour',
 ): Promise<void> {
-  await page.goto(path);
+  await page.goto('/robots.txt');
   await page.evaluate(([key, value]) => localStorage.setItem(key, value), [
     STORAGE_KEY,
     JSON.stringify({
@@ -27,7 +32,7 @@ export async function seedSelection(
       updatedAt: new Date().toISOString(),
     }),
   ] as const);
-  await page.reload();
+  await page.goto(path);
 }
 
 /** Sélection enregistrée, telle que la lit le site. */

@@ -86,8 +86,9 @@ test('une expérience qui n’existe plus est retirée au chargement, avec un me
   page,
 }) => {
   await seedSelection(page, [...FULL, { serviceId: 'experience-retiree', quantities: [2] }]);
-  await expect(page.getByTestId('stay-line')).toHaveCount(3);
+  // Le message s'efface au bout de quelques secondes : on le lit avant d'attendre les lignes.
   await expect(page.getByTestId('toast')).toContainText('n’est plus proposée'.replace('’', "'"));
+  await expect(page.getByTestId('stay-line')).toHaveCount(3);
 });
 
 test('pas de défilement horizontal à 320 px', async ({ page }) => {
