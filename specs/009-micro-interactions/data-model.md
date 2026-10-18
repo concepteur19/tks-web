@@ -22,14 +22,19 @@ type GuideEvent = 'next' | 'skip' | 'finish' | 'added';
 | `skip` ou `finish` : `hidden`, et le statut devient `done` | idem, renvoie `{ state, status }` |
 | `added` pendant les étapes 0 ou 1 : passe à l'étape 2 ; à l'étape 2 : rien | idem |
 | Tout événement sur `hidden` : rien | idem |
+| Lire le statut : `localStorage`, sinon `sessionStorage`, sinon mémoire de page ; une valeur absente ou illisible vaut `new` | `readGuideStatus(storages)` |
+| Mémoriser `done` dans le premier stockage disponible ; une écriture refusée passe au suivant | `markGuideDone(storages)` |
+| Choisir la cible d'une étape : la première cible visible dans l'ordre de préférence de l'étape | `guideTarget(step, isVisible)` |
 
 ### Étapes (`GUIDE_STEPS`)
 
-| # | `id` | Cible téléphone (`data-guide`) | Cible ordinateur | Texte |
-|---|---|---|---|---|
-| 0 | `explore` | barre à onglets (`explore`) | menu du haut (`explore`) | `guide.explore.*` |
-| 1 | `add` | onglet Mon séjour (`stay`) | icône Mon séjour (`stay`) | `guide.add.*` |
-| 2 | `send` | onglet Mon séjour (`stay`) | icône Mon séjour (`stay`) | `guide.send.*` |
+| # | `id` | Cibles, par ordre de préférence (`data-guide`) | Texte |
+|---|---|---|---|
+| 0 | `explore` | `explore` (barre à onglets sur téléphone, menu du haut sur ordinateur : celle qui est visible) | `guide.explore.*` |
+| 1 | `add` | `add` (premier bouton d'ajout visible à l'écran), puis `stay` (onglet ou icône Mon séjour) | `guide.add.*` |
+| 2 | `send` | `send` (bouton WhatsApp de la page Mon séjour), puis `stay` | `guide.send.*` |
+
+Le stockage est passé en paramètre (`storages`), ce qui rend les trois fonctions de mémoire testables sans navigateur.
 
 ### Mémoire
 
@@ -60,3 +65,5 @@ Plafonds (spec, SC-006) : aucune animation au-delà de `--duration-slow` ; casca
 | `GUIDE_DELAY_MS` | 1 500 ms au plus | délai d'apparition du tuto après le chargement |
 | `VIBRATION_MS` | 15 ms | vibration à l'ajout |
 | `REVEAL_INDEX_MAX` | 3 | plafond de la cascade |
+
+Les sorties animées (notification, ligne retirée) attendent la fin réelle de l'animation (`animationend` / `transitionend`), jamais un minuteur : aucune durée d'animation n'est écrite en dur dans un composant.

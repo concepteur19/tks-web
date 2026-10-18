@@ -8,7 +8,7 @@ Le site est statique (Astro 5.18, une page HTML par adresse) avec des îlots Pre
 
 ## 1. Transitions entre pages : View Transitions entre documents
 
-**Decision**: règle CSS `@view-transition { navigation: auto; }` dans `global.css`, sous `@media (prefers-reduced-motion: no-preference)`. Fondu enchaîné par défaut (`::view-transition-old/new(root)`, `--duration-base`). Éléments stables nommés pour ne pas clignoter : en-tête (`site-header`), barre à onglets (`tab-bar`). Photo partagée : la photo d'une `ExperienceCard` et la photo principale de sa fiche portent le même `view-transition-name: exp-<id>`, si bien que le navigateur la fait glisser d'une page à l'autre.
+**Decision**: règle CSS `@view-transition { navigation: auto; }` dans `global.css`, sous `@media (prefers-reduced-motion: no-preference)`. Fondu enchaîné par défaut (`::view-transition-old/new(root)`, `--duration-base`). Éléments stables nommés pour ne pas clignoter : en-tête (`site-header`), barre à onglets (`tab-bar`). Photo partagée : la photo d'une carte d'expérience (`ExperienceCard` des univers, cartes de `FeaturedCarousel` sur l'accueil, `CompactCard` des suggestions) et la photo principale de sa fiche portent le même `view-transition-name: exp-<id>`, si bien que le navigateur la fait glisser d'une page à l'autre.
 
 **Rationale**: zéro JavaScript, zéro changement de navigation : un navigateur qui ne connaît pas la règle (Firefox aujourd'hui) navigue exactement comme avant. Pris en charge par Chrome et Edge 126+, Safari 18.2+ (iPhone compris).
 
@@ -63,7 +63,7 @@ CSS : seuls les éléments `*-pending` sont masqués (opacité 0, décalage de `
 
 - **Bouton** : `QuickAdd`, `LineCustomizer` et le bouton de la barre d'action des fiches affichent « Ajouté ✓ » pendant 1,5 s après un ajout réussi (constante `ADDED_FLASH_MS`), puis reviennent à leur libellé ou passent à « Déjà dans mon séjour » ;
 - **Compteur** : `StayBadge` compare le nombre de lignes au rendu précédent et, s'il augmente, joue une fois l'animation `bump` (échelle 1 → 1,2 → 1, `--duration-slow`) ;
-- **Notification** : `Toasts` entre en glissant depuis le bas et sort en fondu (état `leaving` le temps de `--duration-base`) ;
+- **Notification** : `Toasts` entre en glissant depuis le bas et sort en fondu (état `leaving`, retiré à l'événement `animationend`, immédiatement sous réduire les animations) ;
 - **Vibration** : `Toasts`, présent une seule fois par page, appelle `navigator.vibrate?.(15)` sur un événement `added` ou `merged` de `$lastEvent`.
 
 **Rationale**: `$lastEvent` existe déjà et signale chaque ajout ; brancher la vibration dans l'unique îlot de notifications garantit une seule vibration (le compteur, lui, existe en deux exemplaires : barre à onglets et en-tête). `navigator.vibrate` n'existe pas sur iPhone : l'appel optionnel ne fait rien.
@@ -73,7 +73,7 @@ CSS : seuls les éléments `*-pending` sont masqués (opacité 0, décalage de `
 **Decision**:
 
 - `QuantityStepper` : le champ numérique est enveloppé dans un cadre `overflow-hidden` ; à chaque changement, une clé d'animation `roll-up` ou `roll-down` fait entrer le chiffre par le haut ou le bas (`--duration-fast`) ;
-- `StayPage` : une ligne retirée passe à l'état `leaving` (hauteur repliée par `grid-template-rows: 0fr`, opacité 0, `--duration-base`), puis est réellement retirée ; sous « réduire les animations », le retrait est immédiat ;
+- `StayPage` : une ligne retirée passe à l'état `leaving` (hauteur repliée par `grid-template-rows: 0fr`, opacité 0, `--duration-base`), puis est réellement retirée à l'événement `transitionend` ; sous « réduire les animations », le retrait est immédiat. Aucun minuteur ne double la durée du token (principe VI) ;
 - `html { scroll-behavior: smooth }` sous `prefers-reduced-motion: no-preference`.
 
 **Rationale**: le repli de ligne demande d'attendre la fin de l'animation avant de modifier la sélection ; ce délai est purement visuel et ne touche pas `removeLine`.
@@ -82,10 +82,10 @@ CSS : seuls les éléments `*-pending` sont masqués (opacité 0, décalage de `
 
 **Decision**:
 
-- logique dans `src/features/guide/guide.ts`, fonctions pures couvertes à 100 % : `shouldShowGuide({ status, itemCount })`, `nextGuideState(state, event)` (événements `next`, `skip`, `added`, `finish`), `GUIDE_STEPS` (identifiant, cible téléphone, cible ordinateur, clés de texte) ;
+- logique dans `src/features/guide/guide.ts`, fonctions pures couvertes à 100 % : `shouldShowGuide({ status, itemCount })`, `nextGuideState(state, event)` (événements `next`, `skip`, `added`, `finish`), `GUIDE_STEPS` (identifiant, cibles par ordre de préférence, clés de texte), `guideTarget(step, isVisible)`, et la mémoire `readGuideStatus(storages)` / `markGuideDone(storages)`, stockages passés en paramètre ;
 - îlot `FirstVisitGuide.tsx`, `client:only="preact"` dans `BaseLayout` (aucun HTML sans JavaScript, FR-018), affiché après le premier moment d'inactivité du navigateur, au plus 1,5 s après le chargement ;
 - mémoire : `localStorage['kibreeze.guide.v1'] = "done"` ; si le stockage est indisponible, `sessionStorage`, et à défaut une variable de page (au plus une fois par visite) ;
-- cibles signalées par `data-guide="explore" | "stay"` dans `TabBar` et `Header` : un anneau en couleur d'accent pulse autour de la cible (`outline`, aucun déplacement du contenu) ; l'étape 3 signale l'onglet Mon séjour, où se trouve le bouton WhatsApp ;
+- cibles signalées par `data-guide` : `explore` (navigation de `TabBar` et `Header`), `add` (boutons d'ajout : `QuickAdd`, `LineCustomizer`, `RequestBar`), `send` (bouton WhatsApp de `StayPage`), `stay` (onglet et icône Mon séjour, cible de repli) ; un anneau en couleur d'accent pulse **deux fois** autour de la cible puis reste fixe (`outline`, aucun déplacement du contenu, SC-006) ;
 - position : bulle fixe au-dessus de la barre à onglets (`bottom: calc(var(--size-tabbar) + …)`), en haut à droite sous l'en-tête sur ordinateur ;
 - accessibilité : `role="dialog"`, `aria-modal="false"`, titre relié, focus **non** déplacé à l'ouverture, Échap ferme ;
 - passage à l'étape 3 sur un événement `added` ou `merged` de `$lastEvent` ; pendant qu'une notification est visible, la bulle s'efface puis revient (pas de chevauchement).

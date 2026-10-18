@@ -96,13 +96,13 @@ Un visiteur qui hésite entre deux activités ouvre une fiche, revient, en ouvre
 #### Mini tuto et « Comment ça marche »
 
 - **FR-001**: Au premier passage, le site DOIT présenter un mini tuto de 3 étapes (explorer les prestations ; ajouter à mon séjour ; envoyer sa demande sur WhatsApp et recevoir un devis), dans une bulle qui n'assombrit ni ne bloque la page, avec « Suivant », « Passer » et, à la dernière étape, « C'est parti ».
-- **FR-002**: Chaque étape DOIT signaler l'endroit de l'écran qu'elle décrit (onglets ou menu, bouton d'ajout ou Mon séjour, bouton WhatsApp de Mon séjour) sans déplacer le contenu.
+- **FR-002**: Chaque étape DOIT signaler l'endroit de l'écran qu'elle décrit, sans déplacer le contenu : étape 1, les onglets (téléphone) ou le menu (ordinateur) ; étape 2, un bouton d'ajout visible à l'écran, sinon Mon séjour ; étape 3, le bouton WhatsApp sur la page Mon séjour, sinon l'onglet ou l'icône Mon séjour. Le signal attire l'œil deux fois puis reste fixe.
 - **FR-003**: Le tuto terminé ou passé NE DOIT plus réapparaître sur le même appareil ; il NE DOIT PAS s'afficher à un visiteur dont le séjour contient déjà une prestation.
 - **FR-004**: L'accueil DOIT présenter une section « Comment ça marche » en 3 étapes illustrées, reprenant le tuto, avec un bouton vers le Tourisme.
 
 #### Animations
 
-- **FR-005**: Le passage d'une page à l'autre DOIT se faire en fondu enchaîné ; depuis une carte, la photo DOIT se prolonger dans la photo principale de la page ouverte, quand le navigateur le permet.
+- **FR-005**: Le passage d'une page à l'autre DOIT se faire en fondu enchaîné ; depuis une carte d'expérience (page d'univers, mises en avant de l'accueil, suggestions d'une fiche), la photo DOIT se prolonger dans la photo principale de la fiche ouverte, quand le navigateur le permet.
 - **FR-006**: Les sections et cartes situées sous le premier écran DOIVENT apparaître au défilement (fondu et légère montée, une seule fois, en cascade dans les grilles) ; le contenu du premier écran NE DOIT PAS être animé à l'arrivée.
 - **FR-007**: Les images DOIVENT apparaître en fondu une fois chargées, sur une couleur de fond, sans décaler la mise en page ; l'image principale du premier écran s'affiche sans attente.
 - **FR-008**: Sur les appareils à souris, cartes, boutons et liens DOIVENT réagir au survol (carte soulevée, photo légèrement zoomée dans son cadre, teinte du bouton, soulignement glissant) ; aucun effet de survol sur écran tactile.
@@ -148,6 +148,7 @@ Un visiteur qui hésite entre deux activités ouvre une fiche, revient, en ouvre
 - **Place de « Comment ça marche »** (choix laissé à Claude par Zobel le 2026-10-18) : après les univers du Tourisme, avant les expériences mises en avant. Plus haut, elle repousserait l'offre ; plus bas, elle arriverait après la décision.
 - **Partager** : sur les fiches d'expérience seulement ; les pages Hébergements, Formules et Mobilité se partagent par leur adresse.
 - **Vibration** : environ 15 millisecondes, à l'ajout au séjour seulement.
+- **Trait d'état actif** : un trait fin en couleur de marque marque désormais l'onglet actif (téléphone) et l'entrée active du menu (ordinateur) ; c'est lui qui glisse d'une page à l'autre. Il n'existait pas sur les écrans validés ; Franck le valide dans son cahier de test.
 - **Préchargement** : limité aux pages du site, jamais aux liens externes (WhatsApp).
 - **Textes** : écrits par Claude, anglais relu par Zobel ; Franck les valide dans le cahier de test.
 
