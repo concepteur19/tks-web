@@ -18,7 +18,7 @@ const featured = await getFeatured();
 const islandCatalog = await getPageCatalog();
 ---
 
-<section data-section="featured" class="py-12">
+<section data-section="featured" data-reveal class="py-12">
   <div class="mx-auto max-w-(--size-content) px-4">
     <h2 class="font-display text-3xl font-extrabold text-fg">{t(locale, 'home.featured.title')}</h2>
   </div>
@@ -30,7 +30,10 @@ const islandCatalog = await getPageCatalog();
       const image = service.data.images?.[0];
       return (
         <li class="w-(--size-card-featured) shrink-0 snap-start lg:w-auto">
-          <article class="flex h-full flex-col overflow-hidden rounded-card bg-bg shadow-card">
+          <article
+            data-reveal
+            class="lift flex h-full flex-col overflow-hidden rounded-card bg-bg shadow-card"
+          >
             <SmartLink
               routeKey="experiences"
               subpath={service.id}
@@ -45,7 +48,8 @@ const islandCatalog = await getPageCatalog();
                   widths={[320, 560]}
                   quality={70}
                   sizes="(min-width: 64rem) 25vw, 17.5rem"
-                  class="aspect-4/3 w-full object-cover"
+                  class="media-zoom aspect-4/3 w-full object-cover"
+                  style={`view-transition-name: exp-${service.id}`}
                 />
               )}
               <span class="flex flex-1 flex-col gap-2 px-4 pt-4">

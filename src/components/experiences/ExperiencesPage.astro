@@ -55,7 +55,7 @@ const universes = await categoriesWithExperiences();
     <h2 class="font-display text-2xl font-extrabold text-fg lg:text-3xl">
       {t(locale, 'experiences.universesTitle')}
     </h2>
-    <ul class="mt-6 grid gap-5 lg:grid-cols-3">
+    <ul data-reveal-group class="mt-6 grid gap-5 lg:grid-cols-3">
       {universes.map((universe) => (
         <li>
           <UniverseCard universe={universe} locale={locale} />

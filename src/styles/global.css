@@ -120,6 +120,19 @@ input[type='number']::-webkit-outer-spin-button {
 [data-fade-pending] {
   opacity: 0;
 }
+/* Transitions entre pages (navigateurs qui les connaissent ; ailleurs, navigation inchangée). */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: var(--duration-base);
+    animation-timing-function: var(--ease-standard);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   [data-revealing] {
     animation: reveal-in var(--duration-slow) var(--ease-standard) both;
@@ -162,7 +175,8 @@ input[type='number']::-webkit-outer-spin-button {
     .press:not(:disabled):hover {
       filter: brightness(0.94);
     }
-    .link-slide:hover {
+    .link-slide:hover,
+    :hover > .link-slide {
       background-size: 100% 1px;
     }
     @media (prefers-reduced-motion: no-preference) {

@@ -31,7 +31,7 @@ const priceOf = (type: string) => {
 };
 ---
 
-<section data-section="accommodation" class="mx-auto max-w-(--size-content) px-4 py-12">
+<section data-section="accommodation" data-reveal class="mx-auto max-w-(--size-content) px-4 py-12">
   <h2 class="font-display text-3xl font-extrabold text-fg">
     {t(locale, 'home.accommodation.title')}
   </h2>
@@ -45,7 +45,10 @@ const priceOf = (type: string) => {
   >
     <ul class="flex snap-x gap-4 lg:grid lg:grid-cols-3">
       {homeTeasers.accommodation.map((card) => (
-        <li class="w-(--size-card-featured) shrink-0 snap-start overflow-hidden rounded-card bg-bg shadow-card lg:w-auto">
+        <li
+          data-reveal
+          class="lift w-(--size-card-featured) shrink-0 snap-start overflow-hidden rounded-card bg-bg shadow-card lg:w-auto"
+        >
           {card.image && photo(card.image.src) ? (
             <Image
               src={photo(card.image.src)!}

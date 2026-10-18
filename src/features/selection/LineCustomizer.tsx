@@ -7,6 +7,7 @@ import { useState } from 'preact/hooks';
 import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
 import type { QuantityDimension } from '../../content/schemas.ts';
+import { useAddedFlash } from './feedback.tsx';
 import type { IslandService } from './islandCatalog.ts';
 import QuantityStepper from './QuantityStepper.tsx';
 import { defaultLine, quantityRuleOf } from './selection.ts';
@@ -18,6 +19,7 @@ export default function LineCustomizer({ service, locale, title, buttonLabel }: 
   const line = defaultLine(service);
   const { dimensions } = quantityRuleOf(service, line.tierId);
   const [quantities, setQuantities] = useState(line.quantities);
+  const [flashing, notify] = useAddedFlash();
   const labelOf = (dimension: QuantityDimension) =>
     dimension.kind === 'units'
       ? t(locale, 'detail.dimension.units', { label: localize(dimension.label, locale) })
@@ -41,12 +43,12 @@ export default function LineCustomizer({ service, locale, title, buttonLabel }: 
       ))}
       <button
         type="button"
-        class="bg-brand text-brand-contrast inline-flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold"
+        class="press bg-brand text-brand-contrast inline-flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold"
         aria-label={`${buttonLabel} : ${title}`}
         data-guide="add"
-        onClick={() => add({ ...line, quantities })}
+        onClick={() => notify(add({ ...line, quantities }))}
       >
-        {buttonLabel}
+        {flashing ? t(locale, 'stay.added') : buttonLabel}
       </button>
     </div>
   );

@@ -74,14 +74,15 @@ const shareAlt = vehicles[0]?.data.images?.[0]?.alt;
       class="mt-6 scroll-mt-(--size-header) lg:scroll-mt-(--size-header-desktop)"
     >
       <h2 class="text-lg font-bold text-fg">{t(locale, 'mobility.vehicles.title')}</h2>
-      <ul class="mt-3 grid gap-4 lg:grid-cols-3">
+      <ul data-reveal-group class="mt-3 grid gap-4 lg:grid-cols-3">
         {vehicles.map((vehicle) => {
           const image = vehicle.data.images?.[0];
           const title = localize(vehicle.data.title, locale);
           return (
             <li
               id={vehicle.id}
-              class="scroll-mt-(--size-header) rounded-card bg-bg p-4 shadow-card"
+              data-reveal
+              class="lift scroll-mt-(--size-header) rounded-card bg-bg p-4 shadow-card"
               data-testid="vehicle-category"
             >
               <div class="flex items-center gap-3">
@@ -137,7 +138,7 @@ const shareAlt = vehicles[0]?.data.images?.[0]?.alt;
       class="mt-8 scroll-mt-(--size-header) lg:scroll-mt-(--size-header-desktop)"
     >
       <h2 class="text-lg font-bold text-fg">{t(locale, 'mobility.services.title')}</h2>
-      <ul class="mt-3 divide-y divide-border border-y border-border">
+      <ul data-reveal-group class="mt-3 divide-y divide-border border-y border-border">
         {services.map((service) => {
           const image = service.data.images?.[0];
           const title = localize(service.data.title, locale);
@@ -146,6 +147,7 @@ const shareAlt = vehicles[0]?.data.images?.[0]?.alt;
               id={service.id}
               class="flex min-h-18 scroll-mt-(--size-header) items-center gap-3 py-2.5"
               data-testid="mobility-service"
+              data-reveal
             >
               {image && (
                 <Image
@@ -198,7 +200,7 @@ const shareAlt = vehicles[0]?.data.images?.[0]?.alt;
         href={customHref}
         target="_blank"
         rel="noopener noreferrer"
-        class="mt-5 inline-flex min-h-12 items-center gap-2 rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
+        class="press mt-5 inline-flex min-h-12 items-center gap-2 rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
       >
         <WhatsAppIcon size={22} />
         {t(locale, 'mobility.custom.cta')}

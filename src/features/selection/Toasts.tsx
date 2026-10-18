@@ -3,7 +3,9 @@ import { useStore } from '@nanostores/preact';
 import { atom } from 'nanostores';
 import { useEffect, useState } from 'preact/hooks';
 import { localize, t } from '../../i18n/t.ts';
+import { prefersReducedMotion } from '../../lib/motion.ts';
 import type { Locale } from '../../i18n/types.ts';
+import { isAddition, VIBRATION_MS } from './feedback.tsx';
 import type { SelectionEvent } from './selection.ts';
 import { $lastEvent, getCatalog } from './store.ts';
 
@@ -43,6 +45,9 @@ export function describe(
 export default function Toasts({ locale }: Props) {
   const event = useStore($lastEvent);
   const [message, setMessage] = useState('');
+  const [leaving, setLeaving] = useState(false);
+  // Sortie : fondu puis retrait à la fin de l'animation ; immédiat sous « réduire les animations ».
+  const dismiss = () => (prefersReducedMotion() ? setMessage('') : setLeaving(true));
   useEffect(() => {
     if (!event) return;
     const catalog = getCatalog();
@@ -51,8 +56,11 @@ export default function Toasts({ locale }: Props) {
       return service ? localize(service.title, locale) : id;
     };
     setMessage(describe(event, locale, title));
+    setLeaving(false);
+    // Vibration très courte à l'ajout (Android) ; l'îlot n'existe qu'une fois par page.
+    if (isAddition(event)) navigator.vibrate?.(VIBRATION_MS);
     if (event.type === 'storageUnavailable') return;
-    const timer = setTimeout(() => setMessage(''), DURATION_MS);
+    const timer = setTimeout(dismiss, DURATION_MS);
     return () => clearTimeout(timer);
   }, [event]);
   useEffect(() => $toastVisible.set(message !== ''), [message]);
@@ -64,7 +72,21 @@ export default function Toasts({ locale }: Props) {
       role="status"
       data-testid="toast"
     >
-      {message && <p class="bg-fg text-bg shadow-card rounded-md px-4 py-3 text-sm">{message}</p>}
+      {message && (
+        <p
+          key={message}
+          class="bg-fg text-bg shadow-card rounded-md px-4 py-3 text-sm"
+          data-motion={leaving ? 'leave' : 'enter'}
+          onAnimationEnd={() => {
+            if (leaving) {
+              setLeaving(false);
+              setMessage('');
+            }
+          }}
+        >
+          {message}
+        </p>
+      )}
     </div>
   );
 }

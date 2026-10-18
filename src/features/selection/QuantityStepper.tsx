@@ -1,4 +1,5 @@
 /** Sélecteur de quantité : − / valeur saisissable / +, zones tactiles de 44 px (FR-010). */
+import { useState } from 'preact/hooks';
 import type { Locale } from '../../i18n/types.ts';
 import { t } from '../../i18n/t.ts';
 
@@ -22,6 +23,12 @@ export default function QuantityStepper({
   compact,
 }: Props) {
   const set = (next: number) => onChange(Math.min(max, Math.max(min, Math.round(next) || min)));
+  // Défilement du chiffre (009) : sens du dernier appui ; la clé relance l'animation.
+  const [roll, setRoll] = useState<{ direction: 'up' | 'down'; count: number }>();
+  const step = (direction: 'up' | 'down') => {
+    setRoll((current) => ({ direction, count: (current?.count ?? 0) + 1 }));
+    set(value + (direction === 'up' ? 1 : -1));
+  };
   // Compact (maquette 04) : carré bordé de 24 px dans une zone tactile de 44 px.
   const button = compact
     ? 'inline-flex size-11 items-center justify-center text-xs font-bold text-fg disabled:opacity-40 [&>span]:flex [&>span]:size-6 [&>span]:items-center [&>span]:justify-center [&>span]:rounded-sm [&>span]:border [&>span]:border-border [&>span]:bg-bg-muted'
@@ -33,30 +40,34 @@ export default function QuantityStepper({
         class={button}
         aria-label={t(locale, 'stepper.decrease', { label })}
         disabled={value <= min}
-        onClick={() => set(value - 1)}
+        onClick={() => step('down')}
       >
         <span aria-hidden="true">−</span>
       </button>
-      <input
-        type="number"
-        inputMode="numeric"
-        class={
-          compact
-            ? 'text-fg w-8 bg-transparent text-center text-sm font-semibold'
-            : 'text-fg w-12 bg-transparent text-center text-lg font-bold'
-        }
-        min={min}
-        max={max}
-        value={value}
-        aria-label={label}
-        onChange={(event) => set(Number((event.target as HTMLInputElement).value))}
-      />
+      <span class="inline-flex overflow-hidden">
+        <input
+          key={roll?.count}
+          type="number"
+          inputMode="numeric"
+          class={
+            compact
+              ? 'text-fg w-8 bg-transparent text-center text-sm font-semibold'
+              : 'text-fg w-12 bg-transparent text-center text-lg font-bold'
+          }
+          min={min}
+          max={max}
+          value={value}
+          aria-label={label}
+          data-roll={roll?.direction}
+          onChange={(event) => set(Number((event.target as HTMLInputElement).value))}
+        />
+      </span>
       <button
         type="button"
         class={button}
         aria-label={t(locale, 'stepper.increase', { label })}
         disabled={value >= max}
-        onClick={() => set(value + 1)}
+        onClick={() => step('up')}
       >
         <span aria-hidden="true">+</span>
       </button>

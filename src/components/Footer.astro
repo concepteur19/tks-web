@@ -55,8 +55,8 @@ const NETWORKS = { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok
           <ul class="grid grid-cols-2 gap-x-6 gap-y-1">
             {pages.map((page) => (
               <li>
-                <a href={page.href} class="inline-flex min-h-11 items-center hover:underline">
-                  {page.label}
+                <a href={page.href} class="inline-flex min-h-11 items-center">
+                  <span class="link-slide">{page.label}</span>
                 </a>
               </li>
             ))}
@@ -70,9 +70,9 @@ const NETWORKS = { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok
             href={account.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex min-h-11 items-center hover:underline"
+            class="inline-flex min-h-11 items-center"
           >
-            {NETWORKS[account.network]}
+            <span class="link-slide">{NETWORKS[account.network]}</span>
           </a>
         ))}
       </div>
@@ -91,11 +91,8 @@ const NETWORKS = { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok
           <ul class="flex flex-wrap gap-x-4">
             {legal.map((key) => (
               <li>
-                <a
-                  href={getRoutePath(key, locale)}
-                  class="inline-flex min-h-11 items-center hover:underline"
-                >
-                  {t(locale, `nav.${key}`)}
+                <a href={getRoutePath(key, locale)} class="inline-flex min-h-11 items-center">
+                  <span class="link-slide">{t(locale, `nav.${key}`)}</span>
                 </a>
               </li>
             ))}

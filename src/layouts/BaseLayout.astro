@@ -132,6 +132,9 @@ const ogImageUrl = new URL(share.src, `${env.siteUrl}/`).toString();
     <Toasts client:idle={{ timeout: 1500 }} locale={locale} />
     <!-- Tuto de première visite (009) : aucun HTML sans JavaScript. -->
     <FirstVisitGuide client:only="preact" locale={locale} />
+    <script>
+      import '../scripts/reveal.ts';
+    </script>
     <script type="application/json" id={CATALOG_ELEMENT_ID} set:html={pageCatalog}></script>
     {floatingWhatsApp && <WhatsAppButton locale={locale} />}
   </body>
