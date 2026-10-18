@@ -141,8 +141,18 @@ function imageSchema<Src extends z.ZodTypeAny>(src: Src) {
       alt: localizedString,
       /** Image générée, en attendant une photo réelle : étiquetée « Photo illustrative » (008). */
       illustrative: z.boolean().optional(),
+      /** Photo de remplacement, sans le sujet : étiquetée « Photo à venir » (010). */
+      upcoming: z.boolean().optional(),
+      /** Point gardé visible quand la photo est recadrée, « X% Y% » (010). */
+      focus: z
+        .string()
+        .regex(/^(100|[1-9]?\d)% (100|[1-9]?\d)%$/, 'cadrage « X% Y% », de 0 à 100 %')
+        .optional(),
     })
-    .strict();
+    .strict()
+    .refine((image) => !(image.illustrative && image.upcoming), {
+      message: 'upcoming et illustrative s’excluent',
+    });
 }
 
 /** Segment d'adresse : minuscules, chiffres et tirets, sans tiret au bord. */

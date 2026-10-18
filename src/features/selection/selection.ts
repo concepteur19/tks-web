@@ -19,7 +19,14 @@ export type SelectedLine = {
   optionIds: string[];
 };
 
-export type Stay = { dates?: string | undefined; travelers?: number | undefined };
+export type Stay = {
+  /** Texte libre des séjours enregistrés avant la 010, conservé pour le message. */
+  dates?: string | undefined;
+  /** Arrivée et départ, « AAAA-MM-JJ » (010) ; le départ n'est jamais avant l'arrivée. */
+  arrival?: string | undefined;
+  departure?: string | undefined;
+  travelers?: number | undefined;
+};
 
 export type Selection = {
   version: typeof SELECTION_VERSION;
@@ -73,8 +80,11 @@ export function clampQuantities(rule: QuantityRule, quantities: readonly number[
   });
 }
 
-/** Ligne par défaut : quantités par défaut, tarif le moins cher, aucune option (ajout rapide). */
-export function defaultLine(service: IslandService): SelectedLine {
+/**
+ * Ligne par défaut : quantités par défaut, tarif le moins cher, aucune option (ajout rapide).
+ * Avec le nombre de voyageurs du séjour, la dimension des personnes en part, dans ses bornes (010).
+ */
+export function defaultLine(service: IslandService, travelers?: number): SelectedLine {
   type PricedTier = IslandTier & { pricing: Exclude<Pricing, { kind: 'quote' }> };
   const priced = (service.tiers ?? [])
     .filter((tier): tier is PricedTier => tier.pricing.kind !== 'quote')
@@ -83,7 +93,11 @@ export function defaultLine(service: IslandService): SelectedLine {
   const rule = quantityRuleOf(service, tierId);
   return {
     serviceId: service.id,
-    quantities: rule.dimensions.map((dimension) => dimension.default),
+    quantities: rule.dimensions.map((dimension) =>
+      dimension.kind === 'persons' && travelers !== undefined
+        ? Math.min(dimension.max, Math.max(dimension.min, travelers))
+        : dimension.default,
+    ),
     ...(tierId !== undefined ? { tierId } : {}),
     optionIds: [],
   };
@@ -188,12 +202,23 @@ export function clearSelection(selection: Selection, now: Date): Result {
   };
 }
 
+/** Date réelle au format « AAAA-MM-JJ » (pas de 2026-13-40). */
+function isIsoDate(value: unknown): value is string {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(`${value}T00:00:00Z`);
+  return !Number.isNaN(date.getTime()) && date.toISOString().startsWith(value);
+}
+
 function cleanStay(stay: unknown): Stay {
   if (!stay || typeof stay !== 'object') return {};
-  const { dates, travelers } = stay as Record<string, unknown>;
+  const { dates, arrival, departure, travelers } = stay as Record<string, unknown>;
   const result: Stay = {};
   if (typeof dates === 'string' && dates.trim() !== '') {
     result.dates = dates.trim().slice(0, MAX_DATES_LENGTH);
+  }
+  if (isIsoDate(arrival)) result.arrival = arrival;
+  if (isIsoDate(departure) && !(result.arrival && departure < result.arrival)) {
+    result.departure = departure;
   }
   if (typeof travelers === 'number' && Number.isInteger(travelers)) {
     if (travelers >= 1 && travelers <= MAX_TRAVELERS) result.travelers = travelers;

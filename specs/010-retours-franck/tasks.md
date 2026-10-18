@@ -33,13 +33,13 @@ Celles des 002 à 009 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 ## Phase 2: Foundational (bloquant pour toutes les stories)
 
-- [ ] T003 [P] Étendre `tests/unit/content-schema.test.ts` (doit échouer) : `focus` accepté au format « X% Y% » (0 à 100), refusé sinon (« 50 % », « 120% 10% », « haut ») ; `upcoming` accepté ; `upcoming` et `illustrative` ensemble refusés avec « upcoming et illustrative s'excluent »
-- [ ] T004 Ajouter `focus` et `upcoming` à l'image dans `src/content/schemas.ts` conformément à T003 ; couverture 100 %
-- [ ] T005 [P] Étendre `tests/unit/selection.test.ts` (doit échouer) : `defaultLine(service, 3)` → dimension `persons` à 3 ; borné par `min` et `max` (12 voyageurs, max 8 → 8 ; 1 voyageur, min 2 → 2) ; sans voyageurs → défaut ; dimensions autres que `persons` inchangées ; `applyStay` et `parseSelection` : `arrival` / `departure` acceptés au format `AAAA-MM-JJ`, refusés sinon, départ antérieur à l'arrivée effacé, `dates` (texte ancien) conservé
-- [ ] T006 Modifier `src/features/selection/selection.ts` (`Stay`, `defaultLine`, `applyStay`, lecture du stockage) conformément à T005 ; couverture 100 %
-- [ ] T007 [P] Créer `tests/unit/stay-dates.test.ts` et `tests/unit/tour-request-message.test.ts` (doivent échouer) : `formatStayDates` sur les exemples de [data-model.md](./data-model.md) (même mois, mois différents, années différentes, arrivée seule, ancien texte, rien) en français et en anglais ; `buildTourRequestMessage` : message FR et EN du contrat, singulier pour 1 personne ; et dans `tests/unit/selection-message.test.ts`, le message utilise les dates d'arrivée et de départ quand elles existent
-- [ ] T008 Créer `src/features/whatsapp/formatStayDates.ts` et `src/features/whatsapp/buildTourRequestMessage.ts`, et faire utiliser `formatStayDates` par `buildSelectionMessage.ts` ; couverture 100 %
-- [ ] T009 Vérifier : `npm run check`, `npm run build`, et la suite de bout en bout existante passent
+- [X] T003 [P] Étendre `tests/unit/content-schema.test.ts` (doit échouer) : `focus` accepté au format « X% Y% » (0 à 100), refusé sinon (« 50 % », « 120% 10% », « haut ») ; `upcoming` accepté ; `upcoming` et `illustrative` ensemble refusés avec « upcoming et illustrative s'excluent »
+- [X] T004 Ajouter `focus` et `upcoming` à l'image dans `src/content/schemas.ts` conformément à T003 ; couverture 100 %
+- [X] T005 [P] Étendre `tests/unit/selection.test.ts` (doit échouer) : `defaultLine(service, 3)` → dimension `persons` à 3 ; borné par `min` et `max` (12 voyageurs, max 8 → 8 ; 1 voyageur, min 2 → 2) ; sans voyageurs → défaut ; dimensions autres que `persons` inchangées ; `applyStay` et `parseSelection` : `arrival` / `departure` acceptés au format `AAAA-MM-JJ`, refusés sinon, départ antérieur à l'arrivée effacé, `dates` (texte ancien) conservé
+- [X] T006 Modifier `src/features/selection/selection.ts` (`Stay`, `defaultLine`, `applyStay`, lecture du stockage) conformément à T005 ; couverture 100 %
+- [X] T007 [P] Créer `tests/unit/stay-dates.test.ts` et `tests/unit/tour-request-message.test.ts` (doivent échouer) : `formatStayDates` sur les exemples de [data-model.md](./data-model.md) (même mois, mois différents, années différentes, arrivée seule, ancien texte, rien) en français et en anglais ; `buildTourRequestMessage` : message FR et EN du contrat, singulier pour 1 personne ; et dans `tests/unit/selection-message.test.ts`, le message utilise les dates d'arrivée et de départ quand elles existent
+- [X] T008 Créer `src/features/whatsapp/formatStayDates.ts` et `src/features/whatsapp/buildTourRequestMessage.ts`, et faire utiliser `formatStayDates` par `buildSelectionMessage.ts` ; couverture 100 %
+- [X] T009 Vérifier : `npm run check`, `npm run build`, et la suite de bout en bout existante passent
 
 **Checkpoint**: schéma, sélection et messages savent porter les nouveautés.
 

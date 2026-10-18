@@ -180,9 +180,38 @@ describe('dates et voyageurs', () => {
     expect(setStay(sel, { travelers: 2.5 }, NOW).stay).toEqual({});
     expect(setStay(sel, { travelers: 4 }, NOW).stay).toEqual({ travelers: 4 });
   });
+
+  it('accepte arrivée et départ au format AAAA-MM-JJ, départ jamais avant l’arrivée (010)', () => {
+    const sel = emptySelection(NOW);
+    expect(setStay(sel, { arrival: '2026-12-12', departure: '2026-12-16' }, NOW).stay).toEqual({
+      arrival: '2026-12-12',
+      departure: '2026-12-16',
+    });
+    expect(setStay(sel, { arrival: '2026-12-12', departure: '2026-12-10' }, NOW).stay).toEqual({
+      arrival: '2026-12-12',
+    });
+    expect(setStay(sel, { arrival: '12/12/2026', departure: '2026-13-40' }, NOW).stay).toEqual({});
+    expect(setStay(sel, { departure: '2026-12-16' }, NOW).stay).toEqual({
+      departure: '2026-12-16',
+    });
+    expect(
+      setStay(sel, { dates: '12-16 déc.', arrival: '2026-12-12', travelers: 3 }, NOW).stay,
+    ).toEqual({ dates: '12-16 déc.', arrival: '2026-12-12', travelers: 3 });
+  });
 });
 
 describe('ligne par défaut', () => {
+  it('part du nombre de voyageurs pour les personnes, dans les bornes (010)', () => {
+    expect(defaultLine(service('chutes-de-la-lobe'), 3)).toEqual(line('chutes-de-la-lobe', [3]));
+    expect(defaultLine(service('chutes-de-la-lobe'), 25)).toEqual(line('chutes-de-la-lobe', [20]));
+    expect(defaultLine(service('essentiel-de-kribi'), 1)).toEqual(line('essentiel-de-kribi', [2]));
+    expect(defaultLine(service('chutes-de-la-lobe'), undefined)).toEqual(
+      line('chutes-de-la-lobe', [2]),
+    );
+    expect(defaultLine(service('quad'), 4)).toEqual(line('quad', [1]));
+    expect(defaultLine(service('vehicule-premium'), 4)).toEqual(line('vehicule-premium', [1, 1]));
+  });
+
   it('prend les quantités par défaut, le tarif le moins cher et aucune option', () => {
     expect(defaultLine(service('chutes-de-la-lobe'))).toEqual(line('chutes-de-la-lobe', [2]));
     expect(defaultLine(service('campement-bagyeli'))).toEqual(
