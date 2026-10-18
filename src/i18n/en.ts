@@ -292,8 +292,6 @@ export const en = {
   'stay.clearConfirm': 'Clear your whole trip?',
   'stay.clearConfirmButton': 'Clear trip',
   'stay.cancel': 'Cancel',
-  'stay.dates': 'Travel dates',
-  'stay.datesPlaceholder': 'E.g. 12-15 Dec',
   'stay.travelers': 'Travellers',
   'stay.travelersPlaceholder': 'How many?',
   'stay.reminder': 'Add your dates and number of travellers for a faster reply',

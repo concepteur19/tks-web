@@ -373,3 +373,52 @@ describe('voyageurs et libellé des personnes (010)', () => {
     expect(screen.getAllByText('Personnes pour cette activité')).toHaveLength(1);
   });
 });
+
+describe('dates du séjour au calendrier (010)', () => {
+  const page = () =>
+    render(
+      <StayPage
+        locale="fr"
+        whatsappNumber="237697135388"
+        eurToXaf={655.957}
+        experiencesHref="/experiences"
+        emptyImage={{ src: '/vide.webp', width: 560, height: 560 }}
+      />,
+    );
+  const message = () =>
+    decodeURIComponent(
+      screen.getAllByTestId('send-stay')[0]!.getAttribute('href')!.split('?text=')[1]!,
+    );
+
+  beforeEach(() => {
+    setStay({});
+    add({ serviceId: 'chutes-de-la-lobe', quantities: [2], optionIds: [] });
+  });
+
+  it('deux champs calendrier, le départ ne précède jamais l’arrivée, message en toutes lettres', () => {
+    page();
+    const arrival = screen.getByLabelText('Arrivée') as HTMLInputElement;
+    const departure = screen.getByLabelText('Départ') as HTMLInputElement;
+    expect(arrival.type).toBe('date');
+    expect(departure.type).toBe('date');
+    fireEvent.change(arrival, { target: { value: '2026-12-12' } });
+    expect((screen.getByLabelText('Départ') as HTMLInputElement).min).toBe('2026-12-12');
+    fireEvent.change(screen.getByLabelText('Départ'), { target: { value: '2026-12-16' } });
+    expect(message().replace(/[\u202f\u00a0]/g, ' ')).toContain('du 12 au 16 décembre 2026');
+  });
+
+  it('garde les dates écrites à la main d’un séjour enregistré avant', () => {
+    setStay({ dates: '12-16 déc.', travelers: 2 });
+    page();
+    expect(message()).toContain('12-16 déc.');
+    expect(screen.queryByText(/Ajoutez vos dates/)).toBeNull();
+  });
+
+  it('le rappel disparaît quand l’arrivée et les voyageurs sont indiqués', () => {
+    page();
+    expect(screen.getByText(/Ajoutez vos dates/)).toBeTruthy();
+    fireEvent.change(screen.getByLabelText('Arrivée'), { target: { value: '2026-12-12' } });
+    fireEvent.change(screen.getByLabelText('Voyageurs'), { target: { value: '3' } });
+    expect(screen.queryByText(/Ajoutez vos dates/)).toBeNull();
+  });
+});

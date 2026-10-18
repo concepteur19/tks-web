@@ -114,9 +114,9 @@ Celles des 002 à 009 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 **Independent Test**: quickstart, scénario 10.
 
-- [ ] T029 [P] [US4] Compléter `tests/component/selection-islands.test.tsx` et `tests/e2e/stay-page.spec.ts` (doivent échouer) : `StayPage` montre deux champs `type="date"` Arrivée et Départ, le `min` du départ suit l'arrivée ; saisir 2026-12-12 et 2026-12-16 → message « du 12 au 16 décembre 2026 » ; un séjour enregistré avec `dates: "12-16 déc."` garde ce texte dans le message ; le rappel « ajoutez vos dates » disparaît quand l'arrivée est choisie ; choisir les deux dates ne demande aucune saisie au clavier (deux champs calendrier, SC-004)
-- [ ] T030 [US4] `src/features/selection/StayPage.tsx` : champs Arrivée et Départ (`setStay` avec `arrival` / `departure`), rappel fondé sur `arrival` ou l'ancien `dates`
-- [ ] T031 [US4] `npm run check` ; T029 passe
+- [X] T029 [P] [US4] Compléter `tests/component/selection-islands.test.tsx` et `tests/e2e/stay-page.spec.ts` (doivent échouer) : `StayPage` montre deux champs `type="date"` Arrivée et Départ, le `min` du départ suit l'arrivée ; saisir 2026-12-12 et 2026-12-16 → message « du 12 au 16 décembre 2026 » ; un séjour enregistré avec `dates: "12-16 déc."` garde ce texte dans le message ; le rappel « ajoutez vos dates » disparaît quand l'arrivée est choisie ; choisir les deux dates ne demande aucune saisie au clavier (deux champs calendrier, SC-004)
+- [X] T030 [US4] `src/features/selection/StayPage.tsx` : champs Arrivée et Départ (`setStay` avec `arrival` / `departure`), rappel fondé sur `arrival` ou l'ancien `dates`
+- [X] T031 [US4] `npm run check` ; T029 passe
 
 ---
 

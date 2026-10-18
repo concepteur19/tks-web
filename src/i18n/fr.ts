@@ -301,8 +301,6 @@ export const fr = {
   'stay.clearConfirm': 'Vider tout votre séjour ?',
   'stay.clearConfirmButton': 'Vider le séjour',
   'stay.cancel': 'Annuler',
-  'stay.dates': 'Dates du séjour',
-  'stay.datesPlaceholder': 'Ex. 12-15 déc.',
   'stay.travelers': 'Voyageurs',
   'stay.travelersPlaceholder': 'Combien ?',
   'stay.reminder': 'Ajoutez vos dates et le nombre de voyageurs pour une réponse plus rapide',

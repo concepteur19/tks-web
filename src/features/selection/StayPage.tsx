@@ -80,7 +80,8 @@ export default function StayPage({
     locale,
   });
   const sendHref = buildWhatsAppUrl(whatsappNumber, message);
-  const remindStay = !selection.stay.dates || !selection.stay.travelers;
+  // Rappel tant que ni l'arrivée ni d'anciennes dates écrites à la main ne sont connues (010).
+  const remindStay = !(selection.stay.arrival || selection.stay.dates) || !selection.stay.travelers;
 
   // Ligne retirée (009) : elle se replie, puis quitte la sélection à la fin de la transition ;
   // immédiatement sous « réduire les animations ».
@@ -270,14 +271,28 @@ export default function StayPage({
 
         <div class="mt-4 grid grid-cols-2 gap-3">
           <label class="block">
-            <span class="text-fg mb-1 block text-xs font-semibold">{t(locale, 'stay.dates')}</span>
+            <span class="text-fg mb-1 block text-xs font-semibold">
+              {t(locale, 'stay.arrival')}
+            </span>
             <input
-              type="text"
-              maxLength={80}
-              placeholder={t(locale, 'stay.datesPlaceholder')}
-              value={selection.stay.dates ?? ''}
+              type="date"
+              value={selection.stay.arrival ?? ''}
               onChange={(event) =>
-                setStay({ ...selection.stay, dates: (event.target as HTMLInputElement).value })
+                setStay({ ...selection.stay, arrival: (event.target as HTMLInputElement).value })
+              }
+              class="border-border bg-bg text-fg min-h-11 w-full rounded-md border px-3 text-sm"
+            />
+          </label>
+          <label class="block">
+            <span class="text-fg mb-1 block text-xs font-semibold">
+              {t(locale, 'stay.departure')}
+            </span>
+            <input
+              type="date"
+              min={selection.stay.arrival}
+              value={selection.stay.departure ?? ''}
+              onChange={(event) =>
+                setStay({ ...selection.stay, departure: (event.target as HTMLInputElement).value })
               }
               class="border-border bg-bg text-fg min-h-11 w-full rounded-md border px-3 text-sm"
             />
