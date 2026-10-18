@@ -1,0 +1,14 @@
+---
+/** Fiche d'un parcours (010) : une page par parcours publié. */
+import TourDetail from '../../components/packages/TourDetail.astro';
+import { getTours } from '../../lib/catalog.ts';
+
+export async function getStaticPaths() {
+  const tours = await getTours();
+  return tours.map((tour) => ({ params: { id: tour.id }, props: { tour } }));
+}
+
+const { tour } = Astro.props;
+---
+
+<TourDetail tour={tour} locale="fr" />

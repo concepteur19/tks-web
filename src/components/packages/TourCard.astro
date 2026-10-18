@@ -35,6 +35,7 @@ const requestHref = buildWhatsAppUrl(
   t(locale, 'packages.requestMessage', { title, url: `${pageUrl}#${tour.id}` }),
 );
 const experiencesPath = getRoutePath('experiences', locale);
+const tourPath = `${getRoutePath('packages', locale)}/${tour.id}`;
 ---
 
 <article
@@ -44,7 +45,13 @@ const experiencesPath = getRoutePath('experiences', locale);
   data-testid="tour-card"
 >
   {image && (
-    <div class="relative aspect-16/9 w-full overflow-hidden bg-bg-muted">
+    <a
+      href={tourPath}
+      class="relative block aspect-16/9 w-full overflow-hidden bg-bg-muted"
+      data-testid="tour-link"
+      tabindex="-1"
+      aria-hidden="true"
+    >
       <Image
         src={image.src}
         alt={localize(image.alt, locale)}
@@ -54,10 +61,14 @@ const experiencesPath = getRoutePath('experiences', locale);
         class="absolute inset-0 h-full w-full object-cover"
       />
       {imageTag(image, locale) && <IllustrativeTag label={imageTag(image, locale)!} />}
-    </div>
+    </a>
   )}
   <div class="flex flex-1 flex-col gap-3 p-5">
-    <h3 class="font-display text-xl font-bold text-fg">{title}</h3>
+    <h3 class="font-display text-xl font-bold text-fg">
+      <a href={tourPath} class="hover:underline" data-testid="tour-link">
+        {title}
+      </a>
+    </h3>
     <ol class="space-y-1.5 text-sm text-fg">
       {data.steps?.map((step, index) => (
         <li class="flex items-baseline gap-2">
@@ -100,7 +111,7 @@ const experiencesPath = getRoutePath('experiences', locale);
       service={islandService}
       locale={locale}
       title={title}
-      buttonLabel={t(locale, 'packages.customise')}
+      buttonLabel={t(locale, 'stay.add')}
     />
     <noscript>
       <a

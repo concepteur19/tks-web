@@ -44,3 +44,17 @@ export function universePaths(): string[] {
       return LOCALES.map((locale) => `${ROUTES.experiences[locale]}/${urlSlug[locale]}`);
     });
 }
+
+/** Fiches de parcours publiés, dans les deux langues (010). */
+export function tourPaths(): string[] {
+  return readdirSync('src/content/services')
+    .filter((file) => file.endsWith('.json'))
+    .filter((file) => {
+      const data = JSON.parse(readFileSync(`src/content/services/${file}`, 'utf8'));
+      return data.section === 'parcours' && data.availability !== 'disabled';
+    })
+    .flatMap((file) => {
+      const id = file.slice(0, -'.json'.length);
+      return LOCALES.map((locale) => `${ROUTES.packages[locale]}/${id}`);
+    });
+}

@@ -79,5 +79,9 @@
       }
     ]
   },
-  "order": 40
+  "order": 40,
+  "duration": {
+    "fr": "Une journée complète",
+    "en": "A full day"
+  }
 }
