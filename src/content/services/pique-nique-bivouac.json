@@ -56,5 +56,6 @@
         "en": "Price depends on the number of people, equipment, menu and duration"
       }
     ]
-  }
+  },
+  "availability": "disabled"
 }

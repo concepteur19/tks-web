@@ -6,12 +6,12 @@
   "section": "experience",
   "categoryId": "specialites-culinaires",
   "shortDescription": {
-    "fr": "Une noix de coco fraîche, ouverte devant vous",
-    "en": "A fresh coconut, opened in front of you"
+    "fr": "Une pause naturelle et rafraîchissante sous le soleil de Kribi.",
+    "en": "A natural, refreshing break under the Kribi sun."
   },
   "description": {
-    "fr": "Rafraîchissez-vous avec une noix de coco fraîche à boire.",
-    "en": "Cool down with a fresh coconut to drink."
+    "fr": "Une pause naturelle et rafraîchissante sous le soleil de Kribi. Savourez l’eau d’une noix de coco fraîche et profitez d’un instant simple, entre air marin, détente et douceur tropicale.",
+    "en": "A natural, refreshing break under the Kribi sun. Sip the water of a fresh coconut and enjoy a simple moment of sea air, relaxation and tropical sweetness."
   },
   "images": [
     {
@@ -29,10 +29,18 @@
   "quantity": {
     "dimensions": [
       {
-        "kind": "persons",
+        "kind": "units",
+        "label": {
+          "fr": "plats",
+          "en": "dishes"
+        },
+        "labelOne": {
+          "fr": "plat",
+          "en": "dish"
+        },
         "min": 1,
         "max": 30,
-        "default": 2
+        "default": 1
       }
     ]
   },

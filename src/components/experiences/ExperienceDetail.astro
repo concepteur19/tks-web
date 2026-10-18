@@ -15,6 +15,7 @@ import { buildExperienceJsonLd, buildWhatsAppUrl } from '../../lib/seo.ts';
 import CompactCard from './CompactCard.astro';
 import Conditions from './Conditions.astro';
 import ShareButton from '../../features/share/ShareButton.tsx';
+import { imageTag } from '../../lib/imageTag.ts';
 import Gallery from './Gallery.astro';
 import InfoRow from './InfoRow.astro';
 import OptionsList from './OptionsList.astro';
@@ -46,14 +47,14 @@ const alternatePaths = Object.fromEntries(
 ) as Record<Locale, string>;
 const pageUrl = new URL(alternatePaths[locale], `${env.siteUrl}/`).toString();
 const price = cardPrice(data);
-const illustrativeLabel = t(locale, 'experiences.illustrative');
-const images = (data.images ?? []).map((image) => ({
-  src: image.src,
-  alt: image.illustrative
-    ? `${localize(image.alt, locale)} (${illustrativeLabel})`
-    : localize(image.alt, locale),
-  illustrative: image.illustrative === true,
-}));
+const images = (data.images ?? []).map((image) => {
+  const tag = imageTag(image, locale);
+  return {
+    src: image.src,
+    alt: tag ? `${localize(image.alt, locale)} (${tag})` : localize(image.alt, locale),
+    tag,
+  };
+});
 const firstImage = images[0];
 const share = firstImage
   ? await getImage({ src: firstImage.src, width: 1200, height: 630, fit: 'cover', format: 'jpg' })
@@ -126,7 +127,6 @@ const islandOptions = islandCatalog.filter((entry) => entry.isOption && optionId
           <Gallery
             images={images}
             thumbnailsLabel={t(locale, 'detail.gallery')}
-            illustrativeLabel={illustrativeLabel}
             transitionName={`exp-${service.id}`}
           />
         )}

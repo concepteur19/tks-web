@@ -6,12 +6,12 @@
   "section": "experience",
   "categoryId": "specialites-culinaires",
   "shortDescription": {
-    "fr": "Des gambas préparées selon les arrivages",
-    "en": "King prawns prepared with the day’s catch"
+    "fr": "Généreuses, savoureuses et délicieusement grillées, les gambas invitent à un moment de gourmandise aux accents marins.",
+    "en": "Generous, tasty and beautifully grilled, king prawns make for an indulgent moment with a taste of the sea."
   },
   "description": {
-    "fr": "Savourez des gambas préparées selon les arrivages et les propositions du partenaire.",
-    "en": "Savour king prawns prepared with the day’s catch and our partner’s suggestions."
+    "fr": "Généreuses, savoureuses et délicieusement grillées, les gambas invitent à un moment de gourmandise aux accents marins. À déguster dans une ambiance conviviale, pour un repas qui célèbre les plaisirs de la côte.",
+    "en": "Generous, tasty and beautifully grilled, king prawns make for an indulgent moment with a taste of the sea. Enjoy them in a friendly atmosphere, for a meal that celebrates the pleasures of the coast."
   },
   "images": [
     {
@@ -29,10 +29,18 @@
   "quantity": {
     "dimensions": [
       {
-        "kind": "persons",
+        "kind": "units",
+        "label": {
+          "fr": "plats",
+          "en": "dishes"
+        },
+        "labelOne": {
+          "fr": "plat",
+          "en": "dish"
+        },
         "min": 1,
         "max": 30,
-        "default": 2
+        "default": 1
       }
     ]
   },

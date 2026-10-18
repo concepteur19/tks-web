@@ -11,6 +11,7 @@ import QuickAdd from '../../features/selection/QuickAdd.tsx';
 import { getPageCatalog } from '../../lib/pageCatalog.ts';
 import Price from '../Price.astro';
 import IllustrativeTag from './IllustrativeTag.astro';
+import { imageTag } from '../../lib/imageTag.ts';
 
 interface Props {
   service: CollectionEntry<'services'>;
@@ -37,8 +38,8 @@ const islandCatalog = await getPageCatalog();
       <Image
         src={image.src}
         alt={
-          image.illustrative
-            ? `${localize(image.alt, locale)} (${t(locale, 'experiences.illustrative')})`
+          imageTag(image, locale)
+            ? `${localize(image.alt, locale)} (${imageTag(image, locale)})`
             : localize(image.alt, locale)
         }
         widths={[400, 720]}
@@ -48,7 +49,7 @@ const islandCatalog = await getPageCatalog();
         style={`view-transition-name: exp-${service.id}`}
       />
     )}
-    {image?.illustrative && <IllustrativeTag label={t(locale, 'experiences.illustrative')} />}
+    {image && imageTag(image, locale) && <IllustrativeTag label={imageTag(image, locale)!} />}
     <div class="absolute top-3 left-3 flex flex-col items-start gap-1">
       {maxCapacity && (
         <span class="rounded-sm bg-accent px-2 py-1 text-xs font-semibold text-bg">

@@ -8,6 +8,7 @@ import { formatXaf } from '../estimation/formatPrice.ts';
 import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
 import { $draft } from './draft.ts';
+import { $selection } from './store.ts';
 import QuantityStepper from './QuantityStepper.tsx';
 import type { IslandService } from './islandCatalog.ts';
 import { defaultLine, quantityRuleOf, type SelectedLine } from './selection.ts';
@@ -29,10 +30,14 @@ export default function ExperienceConfigurator({
   const serviceId = service.id;
   const stored = useStore($draft);
   // Rendu serveur et premier rendu : la ligne par défaut, sans attendre l'atome.
-  const draft = stored?.serviceId === serviceId ? stored : defaultLine(service);
+  const draft =
+    stored?.serviceId === serviceId
+      ? stored
+      : defaultLine(service, $selection.get().stay.travelers);
 
   useEffect(() => {
-    if ($draft.get()?.serviceId !== serviceId) $draft.set(defaultLine(service));
+    if ($draft.get()?.serviceId !== serviceId)
+      $draft.set(defaultLine(service, $selection.get().stay.travelers));
   }, [serviceId]);
 
   const rule = quantityRuleOf(service, draft.tierId);

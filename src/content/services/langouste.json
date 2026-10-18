@@ -6,12 +6,12 @@
   "section": "experience",
   "categoryId": "specialites-culinaires",
   "shortDescription": {
-    "fr": "Une langouste préparée selon les arrivages",
-    "en": "A spiny lobster prepared with the day’s catch"
+    "fr": "Pour une expérience gourmande qui sort de l’ordinaire, laissez-vous tenter par la langouste.",
+    "en": "For a treat out of the ordinary, let yourself be tempted by spiny lobster."
   },
   "description": {
-    "fr": "Savourez une langouste préparée selon les arrivages et la proposition du partenaire.",
-    "en": "Savour a spiny lobster prepared with the day’s catch and our partner’s suggestion."
+    "fr": "Pour une expérience gourmande qui sort de l’ordinaire, laissez-vous tenter par la langouste. Sa chair raffinée et sa présentation généreuse en font une invitation à profiter pleinement des plaisirs de la mer.",
+    "en": "For a treat out of the ordinary, let yourself be tempted by spiny lobster. Its refined meat and generous presentation invite you to make the most of the pleasures of the sea."
   },
   "images": [
     {
@@ -29,10 +29,18 @@
   "quantity": {
     "dimensions": [
       {
-        "kind": "persons",
+        "kind": "units",
+        "label": {
+          "fr": "plats",
+          "en": "dishes"
+        },
+        "labelOne": {
+          "fr": "plat",
+          "en": "dish"
+        },
         "min": 1,
         "max": 30,
-        "default": 2
+        "default": 1
       }
     ]
   },

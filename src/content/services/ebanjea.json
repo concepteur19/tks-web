@@ -1,0 +1,62 @@
+{
+  "title": {
+    "fr": "Ebanjea, spécialité batanga",
+    "en": "Ebanjea, a Batanga speciality"
+  },
+  "section": "experience",
+  "categoryId": "specialites-culinaires",
+  "shortDescription": {
+    "fr": "Osez une spécialité de caractère !",
+    "en": "Dare to try a dish with character!"
+  },
+  "description": {
+    "fr": "Osez une spécialité de caractère ! L’Ebanjea associe le poisson frais, le piment et le citron dans une préparation relevée qui s’adresse aux amateurs de sensations fortes. Une occasion de découvrir une facette singulière de la cuisine batanga.",
+    "en": "Dare to try a dish with character! Ebanjea brings together fresh fish, chilli and lemon in a spicy preparation for lovers of strong flavours. A chance to discover a unique side of Batanga cooking."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/sections/plage-kribi.jpg",
+      "alt": {
+        "fr": "La côte de Kribi, en attendant une photo du plat",
+        "en": "The Kribi coast, until we have a photo of the dish"
+      },
+      "upcoming": true
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "units",
+        "label": {
+          "fr": "plats",
+          "en": "dishes"
+        },
+        "labelOne": {
+          "fr": "plat",
+          "en": "dish"
+        },
+        "min": 1,
+        "max": 30,
+        "default": 1
+      }
+    ]
+  },
+  "conditions": {
+    "excluded": [
+      {
+        "fr": "Accompagnements, boissons et transport, sauf mention contraire",
+        "en": "Sides, drinks and transport, unless stated otherwise"
+      }
+    ],
+    "notes": [
+      {
+        "fr": "Sur demande, selon la disponibilité de nos partenaires et du plat",
+        "en": "On request, depending on our partners and the dish"
+      }
+    ]
+  },
+  "order": 65
+}

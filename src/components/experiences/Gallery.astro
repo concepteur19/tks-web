@@ -8,14 +8,14 @@ import { Image } from 'astro:assets';
 import IllustrativeTag from './IllustrativeTag.astro';
 
 interface Props {
-  images: { src: ImageMetadata; alt: string; illustrative?: boolean }[];
+  /** `tag` : étiquette « Photo illustrative » ou « Photo à venir », déjà traduite. */
+  images: { src: ImageMetadata; alt: string; tag?: string | undefined }[];
   /** Nom de transition de la première photo, partagé avec la carte qui mène ici (009). */
   transitionName?: string;
   thumbnailsLabel: string;
-  illustrativeLabel: string;
 }
 
-const { images, thumbnailsLabel, illustrativeLabel, transitionName } = Astro.props;
+const { images, thumbnailsLabel, transitionName } = Astro.props;
 const several = images.length > 1;
 ---
 
@@ -42,7 +42,7 @@ const several = images.length > 1;
             index === 0 && transitionName ? `view-transition-name: ${transitionName}` : undefined
           }
         />
-        {image.illustrative && <IllustrativeTag label={illustrativeLabel} />}
+        {image.tag && <IllustrativeTag label={image.tag} />}
         {several && (
           <span
             class="absolute right-2.5 bottom-2.5 rounded-sm bg-fg/70 px-2 py-0.5 text-xs font-medium text-bg"

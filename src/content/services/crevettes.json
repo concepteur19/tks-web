@@ -6,12 +6,12 @@
   "section": "experience",
   "categoryId": "specialites-culinaires",
   "shortDescription": {
-    "fr": "Des crevettes cuisinées selon la recette du jour",
-    "en": "Shrimps cooked to the recipe of the day"
+    "fr": "De petites bouchées pleines de saveur !",
+    "en": "Small bites full of flavour!"
   },
   "description": {
-    "fr": "Découvrez des crevettes préparées selon la recette et les produits disponibles.",
-    "en": "Discover shrimps prepared with the recipe and produce of the day."
+    "fr": "De petites bouchées pleines de saveur ! Grillées ou préparées selon la recette proposée, les crevettes séduisent par leur goût délicat et leur place incontournable dans les plaisirs culinaires de Kribi.",
+    "en": "Small bites full of flavour! Grilled or cooked to the recipe of the day, shrimps win you over with their delicate taste and their essential place among Kribi’s culinary pleasures."
   },
   "images": [
     {
@@ -29,10 +29,18 @@
   "quantity": {
     "dimensions": [
       {
-        "kind": "persons",
+        "kind": "units",
+        "label": {
+          "fr": "plats",
+          "en": "dishes"
+        },
+        "labelOne": {
+          "fr": "plat",
+          "en": "dish"
+        },
         "min": 1,
         "max": 30,
-        "default": 2
+        "default": 1
       }
     ]
   },

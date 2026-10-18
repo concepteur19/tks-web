@@ -6,12 +6,12 @@
   "section": "experience",
   "categoryId": "specialites-culinaires",
   "shortDescription": {
-    "fr": "Une sélection de fruits de mer à partager, au bord de la mer",
-    "en": "A selection of seafood to share by the sea"
+    "fr": "Offrez-vous une parenthèse gourmande face à l’océan.",
+    "en": "Treat yourself to a gourmet break facing the ocean."
   },
   "description": {
-    "fr": "Dégustez une sélection de fruits de mer en bord de mer, selon les produits disponibles.",
-    "en": "Taste a selection of seafood by the sea, depending on the produce available."
+    "fr": "Offrez-vous une parenthèse gourmande face à l’océan. Poissons et fruits de mer se retrouvent autour d’une expérience placée sous le signe de la découverte, du partage et des plaisirs de la côte camerounaise.",
+    "en": "Treat yourself to a gourmet break facing the ocean. Fish and seafood come together in an experience of discovery, sharing and the pleasures of the Cameroonian coast."
   },
   "images": [
     {
@@ -29,10 +29,18 @@
   "quantity": {
     "dimensions": [
       {
-        "kind": "persons",
+        "kind": "units",
+        "label": {
+          "fr": "plats",
+          "en": "dishes"
+        },
+        "labelOne": {
+          "fr": "plat",
+          "en": "dish"
+        },
         "min": 1,
         "max": 30,
-        "default": 2
+        "default": 1
       }
     ]
   },

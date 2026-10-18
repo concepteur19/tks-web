@@ -144,20 +144,24 @@ export default function StayPage({
                 )}
               </div>
               {rule.dimensions.map((dimension, index) => (
-                <QuantityStepper
-                  key={`${dimension.kind}-${index}`}
-                  compact
-                  value={entry.quantities[index] ?? dimension.default}
-                  min={dimension.min}
-                  max={dimension.max}
-                  locale={locale}
-                  label={`${title} — ${describeQuantities({ ...entry, dimensions: [dimension], quantities: [entry.quantities[index] ?? 0], tier: undefined }, locale)}`}
-                  onChange={(value) =>
-                    update(entry.serviceId, {
-                      quantities: entry.quantities.map((q, i) => (i === index ? value : q)),
-                    })
-                  }
-                />
+                <div key={`${dimension.kind}-${index}`}>
+                  {dimension.kind === 'persons' && (
+                    <p class="text-fg-muted mt-1 text-xs">{t(locale, 'stay.personsForActivity')}</p>
+                  )}
+                  <QuantityStepper
+                    compact
+                    value={entry.quantities[index] ?? dimension.default}
+                    min={dimension.min}
+                    max={dimension.max}
+                    locale={locale}
+                    label={`${title} — ${describeQuantities({ ...entry, dimensions: [dimension], quantities: [entry.quantities[index] ?? 0], tier: undefined }, locale)}`}
+                    onChange={(value) =>
+                      update(entry.serviceId, {
+                        quantities: entry.quantities.map((q, i) => (i === index ? value : q)),
+                      })
+                    }
+                  />
+                </div>
               ))}
             </div>
             <div class="flex shrink-0 flex-col items-end justify-between">

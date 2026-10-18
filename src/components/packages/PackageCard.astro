@@ -17,6 +17,7 @@ import { buildWhatsAppUrl } from '../../lib/seo.ts';
 import Icon from '../Icon.astro';
 import IllustrativeTag from '../experiences/IllustrativeTag.astro';
 import Price from '../Price.astro';
+import { imageTag } from '../../lib/imageTag.ts';
 
 interface Props {
   pack: CollectionEntry<'services'>;
@@ -67,7 +68,7 @@ const requestHref = buildWhatsAppUrl(
         sizes="(min-width: 64rem) 33vw, 100vw"
         class="absolute inset-0 h-full w-full object-cover"
       />
-      {image.illustrative && <IllustrativeTag label={t(locale, 'experiences.illustrative')} />}
+      {imageTag(image, locale) && <IllustrativeTag label={imageTag(image, locale)!} />}
       {data.badge && (
         <span class="absolute top-2 right-2 rounded-sm bg-brand px-2 py-1 text-xs font-semibold text-brand-contrast">
           {localize(data.badge, locale)}

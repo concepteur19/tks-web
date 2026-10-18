@@ -16,6 +16,7 @@ import { getPageCatalog } from '../../lib/pageCatalog.ts';
 import { buildWhatsAppUrl } from '../../lib/seo.ts';
 import IllustrativeTag from '../experiences/IllustrativeTag.astro';
 import Price from '../Price.astro';
+import { imageTag } from '../../lib/imageTag.ts';
 
 interface Props {
   tour: CollectionEntry<'services'>;
@@ -52,7 +53,7 @@ const experiencesPath = getRoutePath('experiences', locale);
         sizes="(min-width: 64rem) 33vw, 100vw"
         class="absolute inset-0 h-full w-full object-cover"
       />
-      {image.illustrative && <IllustrativeTag label={t(locale, 'experiences.illustrative')} />}
+      {imageTag(image, locale) && <IllustrativeTag label={imageTag(image, locale)!} />}
     </div>
   )}
   <div class="flex flex-1 flex-col gap-3 p-5">

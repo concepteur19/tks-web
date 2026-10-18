@@ -19,7 +19,8 @@ export default function QuickAdd({ service, locale, title, wide = false }: Props
   const selection = useStore($selection);
   const [flashing, notify] = useAddedFlash();
   const serviceId = service.id;
-  const line = defaultLine(service);
+  // Les personnes partent du nombre de voyageurs du séjour (010).
+  const line = defaultLine(service, selection.stay.travelers);
   const blocked =
     selection.items.some((item) => item.serviceId === serviceId) &&
     !isDuplicable(service, line.tierId);

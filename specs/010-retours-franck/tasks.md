@@ -53,17 +53,17 @@ Celles des 002 à 009 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 ### Tests
 
-- [ ] T010 [P] [US1] Créer `tests/e2e/franck-feedback.spec.ts` (doit échouer), FR et EN : l'univers Spécialités culinaires compte 11 plats dont l'Ebanjea ; chaque carte de plat a une description différente de son titre ; le maban et l'Ebanjea portent « Photo à venir » ; Mon séjour avec crabe à 2 → « 2 plats », et le message « Crabe — 2 plats : sur devis » ; 3 voyageurs indiqués puis ajout des chutes → ligne à 3 et libellé « Personnes pour cette activité » ; la fiche `/experiences/pique-nique-en-bord-de-mer` s'appelle « Pique-nique en bord de mer »
-- [ ] T011 [P] [US1] Dans `tests/unit/redirects.test.ts`, attendre les deux redirections du pique-nique (doit échouer)
-- [ ] T012 [P] [US1] Compléter `tests/component/selection-islands.test.tsx` (doit échouer) : avec 3 voyageurs dans le séjour, `QuickAdd` d'une prestation par personne ajoute `[3]` ; `StayPage` affiche « Personnes pour cette activité » au-dessus du sélecteur d'une dimension `persons`, pas d'une dimension `units`
+- [X] T010 [P] [US1] Créer `tests/e2e/franck-feedback.spec.ts` (doit échouer), FR et EN : l'univers Spécialités culinaires compte 11 plats dont l'Ebanjea ; chaque carte de plat a une description différente de son titre ; le maban et l'Ebanjea portent « Photo à venir » ; Mon séjour avec crabe à 2 → « 2 plats », et le message « Crabe — 2 plats : sur devis » ; 3 voyageurs indiqués puis ajout des chutes → ligne à 3 et libellé « Personnes pour cette activité » ; la fiche `/experiences/pique-nique-en-bord-de-mer` s'appelle « Pique-nique en bord de mer »
+- [X] T011 [P] [US1] Dans `tests/unit/redirects.test.ts`, attendre les deux redirections du pique-nique (doit échouer)
+- [X] T012 [P] [US1] Compléter `tests/component/selection-islands.test.tsx` (doit échouer) : avec 3 voyageurs dans le séjour, `QuickAdd` d'une prestation par personne ajoute `[3]` ; `StayPage` affiche « Personnes pour cette activité » au-dessus du sélecteur d'une dimension `persons`, pas d'une dimension `units`
 
 ### Implementation
 
-- [ ] T013 [P] [US1] Plats dans `src/content/services/` : les 10 passent à la dimension plats de [data-model.md](./data-model.md) ; `shortDescription` et `description` FR de Franck, EN traduits ; créer `ebanjea.json` (univers spécialités culinaires, `quote`, description de Franck) ; maban et Ebanjea : image côte de Kribi de Franck (`sections/plage-kribi.jpg` ou équivalente) avec `upcoming: true`
-- [ ] T014 [P] [US1] Renommer `pique-nique-bivouac.json` en `pique-nique-en-bord-de-mer.json` (titres FR « Pique-nique en bord de mer », EN « Beach picnic », description sans « bivouac ») ; ajouter les deux redirections à `public/_redirects` ; mettre à jour toute référence (`serviceIds`, `steps`, tests, fixtures)
-- [ ] T015 [US1] Étiquette « Photo à venir » : `IllustrativeTag` et les composants qui l'affichent (`ExperienceCard`, `CompactCard`, `Gallery`, `UniverseCard` si concerné) lisent `upcoming` et prennent `experiences.upcoming`
-- [ ] T016 [US1] Voyageurs : `QuickAdd.tsx`, `LineCustomizer.tsx` et le brouillon de `ExperienceConfigurator.tsx` / `draft.ts` passent `$selection.get().stay.travelers` à `defaultLine` ; `StayPage.tsx` affiche `stay.personsForActivity` au-dessus du sélecteur d'une dimension `persons`
-- [ ] T017 [US1] `npm run check`, `npm run build` ; T010 à T012 passent
+- [X] T013 [P] [US1] Plats dans `src/content/services/` : les 10 passent à la dimension plats de [data-model.md](./data-model.md) ; `shortDescription` et `description` FR de Franck, EN traduits ; créer `ebanjea.json` (univers spécialités culinaires, `quote`, description de Franck) ; maban et Ebanjea : image côte de Kribi de Franck (`sections/plage-kribi.jpg` ou équivalente) avec `upcoming: true`
+- [X] T014 [P] [US1] Renommer `pique-nique-bivouac.json` en `pique-nique-en-bord-de-mer.json` (titres FR « Pique-nique en bord de mer », EN « Beach picnic », description sans « bivouac ») ; ajouter les deux redirections à `public/_redirects` ; mettre à jour toute référence (`serviceIds`, `steps`, tests, fixtures)
+- [X] T015 [US1] Étiquette « Photo à venir » : `IllustrativeTag` et les composants qui l'affichent (`ExperienceCard`, `CompactCard`, `Gallery`, `UniverseCard` si concerné) lisent `upcoming` et prennent `experiences.upcoming`
+- [X] T016 [US1] Voyageurs : `QuickAdd.tsx`, `LineCustomizer.tsx` et le brouillon de `ExperienceConfigurator.tsx` / `draft.ts` passent `$selection.get().stay.travelers` à `defaultLine` ; `StayPage.tsx` affiche `stay.personsForActivity` au-dessus du sélecteur d'une dimension `persons`
+- [X] T017 [US1] `npm run check`, `npm run build` ; T010 à T012 passent
 
 **Checkpoint**: US1 livrable seule.
 

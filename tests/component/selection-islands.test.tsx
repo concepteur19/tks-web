@@ -11,7 +11,14 @@ import { ADDED_FLASH_MS } from '../../src/features/selection/feedback.tsx';
 import RequestBar from '../../src/features/selection/RequestBar.tsx';
 import StayPage from '../../src/features/selection/StayPage.tsx';
 import { $draft } from '../../src/features/selection/draft.ts';
-import { $selection, add, clear, hydrate, remove } from '../../src/features/selection/store.ts';
+import {
+  $selection,
+  add,
+  clear,
+  hydrate,
+  remove,
+  setStay,
+} from '../../src/features/selection/store.ts';
 import { CATALOG, SERVICES } from '../fixtures/catalog.ts';
 
 const plain = (value: string | null) => (value ?? '').replace(/[\s\u202f\u00a0]+/g, ' ');
@@ -336,5 +343,33 @@ describe('retours d’ajout (009)', () => {
       />,
     );
     expect(screen.getByRole('spinbutton').getAttribute('data-roll')).toBe('down');
+  });
+});
+
+describe('voyageurs et libellé des personnes (010)', () => {
+  it('l’ajout rapide part du nombre de voyageurs du séjour', () => {
+    setStay({ travelers: 3 });
+    render(
+      <QuickAdd service={service('chutes-de-la-lobe')} locale="fr" title="Chutes de la Lobé" />,
+    );
+    fireEvent.click(screen.getByTestId('quick-add'));
+    expect($selection.get().items).toEqual([
+      { serviceId: 'chutes-de-la-lobe', quantities: [3], optionIds: [] },
+    ]);
+  });
+
+  it('Mon séjour titre « Personnes pour cette activité » au-dessus des personnes seulement', () => {
+    add({ serviceId: 'chutes-de-la-lobe', quantities: [2], optionIds: [] });
+    add({ serviceId: 'quad', quantities: [1], optionIds: [] });
+    render(
+      <StayPage
+        locale="fr"
+        whatsappNumber="237697135388"
+        eurToXaf={655.957}
+        experiencesHref="/experiences"
+        emptyImage={{ src: '/vide.webp', width: 560, height: 560 }}
+      />,
+    );
+    expect(screen.getAllByText('Personnes pour cette activité')).toHaveLength(1);
   });
 });
