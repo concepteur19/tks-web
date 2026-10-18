@@ -37,5 +37,6 @@ Il utilise un seul stockage sur votre appareil, indispensable au service que vou
 | Nom | Type | Contenu et finalité | Durée |
 | --- | --- | --- | --- |
 | `kibreeze.selection.v1` | stockage local du navigateur | votre sélection Mon séjour : prestations, quantités, options, dates et nombre de voyageurs | 30 jours après votre dernière modification ; effacée par « Vider » ou par les réglages de votre navigateur |
+| `kibreeze.guide.v1` | stockage local du navigateur (à défaut, stockage de session) | la mention « done » : le petit guide de première visite a été vu ou passé, et ne doit plus s'afficher | jusqu'à l'effacement par les réglages de votre navigateur |
 
 Si un outil de mesure d'audience ou un service tiers nécessitant votre consentement devait être ajouté, cette section serait mise à jour avant sa mise en service, et votre accord vous serait demandé au préalable.

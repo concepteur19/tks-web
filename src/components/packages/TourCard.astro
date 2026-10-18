@@ -38,7 +38,8 @@ const experiencesPath = getRoutePath('experiences', locale);
 
 <article
   id={tour.id}
-  class="flex w-full scroll-mt-(--size-header) flex-col overflow-hidden rounded-card bg-bg shadow-card"
+  data-reveal
+  class="lift flex w-full scroll-mt-(--size-header) flex-col overflow-hidden rounded-card bg-bg shadow-card"
   data-testid="tour-card"
 >
   {image && (

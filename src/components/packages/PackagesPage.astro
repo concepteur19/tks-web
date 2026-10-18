@@ -61,7 +61,7 @@ const groupsHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.gene
     <h2 class="font-display text-2xl font-extrabold text-fg lg:text-3xl">
       {t(locale, 'packages.tours.title')}
     </h2>
-    <ul class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <ul data-reveal-group class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {tours.map((tour) => (
         <li class="flex">
           <TourCard tour={tour} locale={locale} />
@@ -79,7 +79,7 @@ const groupsHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.gene
       {t(locale, 'packages.activities.title')}
     </h2>
     <p class="mt-2 text-sm text-fg-muted">{t(locale, 'packages.base')}</p>
-    <ul class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    <ul data-reveal-group class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {packs.map((pack) => (
         <li class="flex">
           <PackageCard pack={pack} locale={locale} />
@@ -93,7 +93,7 @@ const groupsHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.gene
         href={groupsHref}
         target="_blank"
         rel="noopener noreferrer"
-        class="mt-4 inline-flex min-h-12 items-center gap-2 rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
+        class="press mt-4 inline-flex min-h-12 items-center gap-2 rounded-md bg-whatsapp px-5 font-semibold text-whatsapp-ink"
       >
         <WhatsAppIcon size={22} />
         {t(locale, 'whatsapp.label')}

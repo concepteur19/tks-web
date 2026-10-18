@@ -49,9 +49,10 @@ const requestHref = buildWhatsAppUrl(
 ---
 
 <article
+  data-reveal
   id={pack.id}
   class:list={[
-    'flex w-full scroll-mt-(--size-header) flex-col overflow-hidden rounded-card bg-bg shadow-card',
+    'lift flex w-full scroll-mt-(--size-header) flex-col overflow-hidden rounded-card bg-bg shadow-card',
     data.badge && 'border border-brand',
   ]}
   data-testid="package-card"

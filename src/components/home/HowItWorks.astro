@@ -1,0 +1,54 @@
+---
+/**
+ * « Comment ça marche » (009, FR-004) : les trois étapes du tuto, sur l'accueil, entre les univers
+ * (ce que l'on peut faire) et les mises en avant (les premières choses à ajouter). Kibreeze ne
+ * vend rien en ligne : la section répond à « comment je réserve ? ».
+ */
+import { getRoutePath } from '../../i18n/routes.ts';
+import { t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import Icon from '../Icon.astro';
+import WhatsAppIcon from '../WhatsAppIcon.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const steps = [1, 2, 3] as const;
+---
+
+<section data-section="how-it-works" class="bg-bg-muted">
+  <div class="mx-auto max-w-(--size-content) px-4 py-12">
+    <h2 class="font-display text-3xl font-extrabold text-fg" data-reveal>
+      {t(locale, 'home.how.title')}
+    </h2>
+    <ol class="mt-6 grid gap-4 lg:grid-cols-3" data-reveal-group>
+      {steps.map((step) => (
+        <li class="flex gap-4 rounded-card bg-bg p-5 shadow-card" data-reveal>
+          <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-pill bg-brand text-brand-contrast">
+            {step === 1 && <Icon name="explore" />}
+            {step === 2 && <Icon name="luggage" />}
+            {step === 3 && <WhatsAppIcon size={22} />}
+          </span>
+          <div>
+            <h3 class="font-bold text-fg">
+              <span class="sr-only">{step}. </span>
+              {t(locale, `home.how.${step}.title`)}
+            </h3>
+            <p class="mt-1 text-sm leading-relaxed text-fg-muted">
+              {t(locale, `home.how.${step}.text`)}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <a
+      href={getRoutePath('experiences', locale)}
+      class="press mt-6 inline-flex min-h-12 items-center gap-2 rounded-md bg-brand px-5 font-semibold text-brand-contrast"
+    >
+      {t(locale, 'home.how.cta')}
+      <Icon name="arrow" size={20} />
+    </a>
+  </div>
+</section>

@@ -20,7 +20,8 @@ const image = service.data.images?.[0];
 
 <a
   href={`${getRoutePath('experiences', locale)}/${service.id}`}
-  class="flex h-full gap-3 overflow-hidden rounded-card bg-bg p-2 shadow-card"
+  data-reveal
+  class="lift flex h-full gap-3 overflow-hidden rounded-card bg-bg p-2 shadow-card"
 >
   {image && (
     <span class="relative shrink-0">
@@ -30,6 +31,7 @@ const image = service.data.images?.[0];
         width={192}
         quality={60}
         class="size-24 rounded-sm object-cover"
+        style={`view-transition-name: exp-${service.id}`}
       />
       {image.illustrative && (
         <IllustrativeTag label={t(locale, 'experiences.illustrative')} small />

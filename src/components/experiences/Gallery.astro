@@ -9,11 +9,13 @@ import IllustrativeTag from './IllustrativeTag.astro';
 
 interface Props {
   images: { src: ImageMetadata; alt: string; illustrative?: boolean }[];
+  /** Nom de transition de la première photo, partagé avec la carte qui mène ici (009). */
+  transitionName?: string;
   thumbnailsLabel: string;
   illustrativeLabel: string;
 }
 
-const { images, thumbnailsLabel, illustrativeLabel } = Astro.props;
+const { images, thumbnailsLabel, illustrativeLabel, transitionName } = Astro.props;
 const several = images.length > 1;
 ---
 
@@ -36,6 +38,9 @@ const several = images.length > 1;
           loading={index === 0 ? 'eager' : 'lazy'}
           fetchpriority={index === 0 ? 'high' : 'auto'}
           class="aspect-4/3 w-full object-cover"
+          style={
+            index === 0 && transitionName ? `view-transition-name: ${transitionName}` : undefined
+          }
         />
         {image.illustrative && <IllustrativeTag label={illustrativeLabel} />}
         {several && (

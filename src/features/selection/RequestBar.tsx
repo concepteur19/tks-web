@@ -10,6 +10,7 @@ import type { Locale } from '../../i18n/types.ts';
 import { buildWhatsAppUrl } from '../../lib/whatsapp.ts';
 import { buildSelectionMessage } from '../whatsapp/buildSelectionMessage.ts';
 import { $draft } from './draft.ts';
+import { useAddedFlash } from './feedback.tsx';
 import { catalogMap, type IslandService } from './islandCatalog.ts';
 import { defaultLine, isDuplicable } from './selection.ts';
 import { $selection, add } from './store.ts';
@@ -33,6 +34,7 @@ export default function RequestBar({
   whatsappNumber,
   eurToXaf,
 }: Props) {
+  const [flashing, notify] = useAddedFlash();
   const serviceId = service.id;
   const stored = useStore($draft);
   const selection = useStore($selection);
@@ -69,12 +71,17 @@ export default function RequestBar({
     <div class={variant === 'bar' ? 'flex flex-col items-center' : 'flex flex-col gap-2'}>
       <button
         type="button"
-        class="bg-brand text-brand-contrast disabled:bg-fg-muted inline-flex min-h-11 items-center justify-center rounded-md px-5 text-sm font-semibold"
+        class={`press bg-brand text-brand-contrast ${flashing ? '' : 'disabled:bg-fg-muted'} inline-flex min-h-11 items-center justify-center rounded-md px-5 text-sm font-semibold`}
         disabled={blocked}
-        onClick={() => add(draft)}
+        onClick={() => notify(add(draft))}
         data-testid="add-to-stay"
+        data-guide="add"
       >
-        {blocked ? t(locale, 'stay.alreadyThere') : t(locale, 'stay.add')}
+        {flashing
+          ? t(locale, 'stay.added')
+          : blocked
+            ? t(locale, 'stay.alreadyThere')
+            : t(locale, 'stay.add')}
       </button>
       <a
         href={href}

@@ -3,6 +3,7 @@ import { expect, test } from '@playwright/test';
 const SECTION_ORDER = [
   'hero',
   'categories',
+  'how-it-works',
   'featured',
   'strip',
   'accommodation',
@@ -78,6 +79,16 @@ for (const [path, lang, title, ctas] of [
       await expect(
         page.locator('[data-section="categories"]').getByText(/\d+ (expériences?|experiences?)/),
       ).toHaveCount(count);
+    });
+
+    test('« Comment ça marche » : trois étapes et un bouton vers le Tourisme', async ({ page }) => {
+      await page.goto(path);
+      const section = page.locator('[data-section="how-it-works"]');
+      await expect(section.locator('li')).toHaveCount(3);
+      await expect(section.getByRole('link')).toHaveAttribute(
+        'href',
+        lang === 'fr' ? '/experiences' : '/en/experiences',
+      );
     });
 
     test('le bandeau TKS® mène à la page Mobilité, plus à WhatsApp', async ({ page }) => {

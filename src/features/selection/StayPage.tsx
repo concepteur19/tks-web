@@ -3,11 +3,12 @@
  * WhatsApp, états vide et tout sur devis. Calculs et message viennent des fonctions pures.
  */
 import { useStore } from '@nanostores/preact';
-import { useEffect, useRef } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { computeEstimate, type EstimateLine } from '../estimation/computeEstimate.ts';
 import { formatEurEquivalent, formatXaf } from '../estimation/formatPrice.ts';
 import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
+import { prefersReducedMotion } from '../../lib/motion.ts';
 import { buildWhatsAppUrl, WHATSAPP_ICON_PATH } from '../../lib/whatsapp.ts';
 import { buildSelectionMessage, describeQuantities } from '../whatsapp/buildSelectionMessage.ts';
 import QuantityStepper from './QuantityStepper.tsx';
@@ -81,6 +82,12 @@ export default function StayPage({
   const sendHref = buildWhatsAppUrl(whatsappNumber, message);
   const remindStay = !selection.stay.dates || !selection.stay.travelers;
 
+  // Ligne retirée (009) : elle se replie, puis quitte la sélection à la fin de la transition ;
+  // immédiatement sous « réduire les animations ».
+  const [leaving, setLeaving] = useState<ReadonlySet<string>>(new Set());
+  const removeLine = (serviceId: string) =>
+    prefersReducedMotion() ? remove(serviceId) : setLeaving((ids) => new Set(ids).add(serviceId));
+
   const line = (entry: EstimateLine) => {
     const service = catalog.get(entry.serviceId);
     if (!service) return null;
@@ -89,74 +96,94 @@ export default function StayPage({
     return (
       <li
         key={entry.serviceId}
-        class="border-border bg-bg flex gap-3 rounded-md border p-2.5"
+        class="grid transition-[grid-template-rows,opacity] duration-(--duration-base) ease-(--ease-standard)"
+        style={{
+          gridTemplateRows: leaving.has(entry.serviceId) ? '0fr' : '1fr',
+          opacity: leaving.has(entry.serviceId) ? 0 : 1,
+        }}
         data-testid="stay-line"
+        data-leaving={leaving.has(entry.serviceId) ? '' : undefined}
+        onTransitionEnd={(event) => {
+          if (event.target === event.currentTarget && leaving.has(entry.serviceId)) {
+            remove(entry.serviceId);
+          }
+        }}
       >
-        {service.thumbnail && (
-          <img
-            src={service.thumbnail}
-            alt=""
-            width={80}
-            height={80}
-            class="size-20 shrink-0 rounded-md object-cover"
-          />
-        )}
-        <div class="flex min-w-0 flex-1 flex-col justify-between">
-          <div>
-            <a
-              href={service.href[locale]}
-              class="text-fg text-sm leading-snug font-bold hover:underline"
-            >
-              {title}
-            </a>
-            <p class="text-fg-muted text-xs">
-              {describeQuantities(entry, locale)}
-              {entry.overCapacity && ` — ${t(locale, 'stay.overCapacity')}`}
-            </p>
-            {entry.options.length > 0 && (
-              <p class="text-fg-muted text-xs">
-                + {entry.options.map((option) => localize(option.title, locale)).join(', ')}
-              </p>
+        <div class="min-h-0 overflow-hidden">
+          <div class="border-border bg-bg flex gap-3 rounded-md border p-2.5">
+            {service.thumbnail && (
+              <img
+                src={service.thumbnail}
+                alt=""
+                width={80}
+                height={80}
+                class="size-20 shrink-0 rounded-md object-cover"
+              />
             )}
-            {entry.lineAmount === null && (
-              <span class="bg-accent-soft text-accent mt-1.5 inline-block rounded-sm px-2 py-1 text-xs font-semibold">
-                {t(locale, 'price.quote')}
-              </span>
-            )}
+            <div class="flex min-w-0 flex-1 flex-col justify-between">
+              <div>
+                <a
+                  href={service.href[locale]}
+                  class="text-fg text-sm leading-snug font-bold hover:underline"
+                >
+                  {title}
+                </a>
+                <p class="text-fg-muted text-xs">
+                  {describeQuantities(entry, locale)}
+                  {entry.overCapacity && ` — ${t(locale, 'stay.overCapacity')}`}
+                </p>
+                {entry.options.length > 0 && (
+                  <p class="text-fg-muted text-xs">
+                    + {entry.options.map((option) => localize(option.title, locale)).join(', ')}
+                  </p>
+                )}
+                {entry.lineAmount === null && (
+                  <span class="bg-accent-soft text-accent mt-1.5 inline-block rounded-sm px-2 py-1 text-xs font-semibold">
+                    {t(locale, 'price.quote')}
+                  </span>
+                )}
+              </div>
+              {rule.dimensions.map((dimension, index) => (
+                <QuantityStepper
+                  key={`${dimension.kind}-${index}`}
+                  compact
+                  value={entry.quantities[index] ?? dimension.default}
+                  min={dimension.min}
+                  max={dimension.max}
+                  locale={locale}
+                  label={`${title} — ${describeQuantities({ ...entry, dimensions: [dimension], quantities: [entry.quantities[index] ?? 0], tier: undefined }, locale)}`}
+                  onChange={(value) =>
+                    update(entry.serviceId, {
+                      quantities: entry.quantities.map((q, i) => (i === index ? value : q)),
+                    })
+                  }
+                />
+              ))}
+            </div>
+            <div class="flex shrink-0 flex-col items-end justify-between">
+              <button
+                type="button"
+                class="text-fg-muted hover:text-danger inline-flex size-11 items-center justify-center"
+                aria-label={t(locale, 'stay.remove', { title })}
+                onClick={() => removeLine(entry.serviceId)}
+              >
+                <svg
+                  aria-hidden="true"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d={TRASH_ICON} />
+                </svg>
+              </button>
+              {entry.lineAmount !== null && (
+                <span class="text-brand text-sm font-bold whitespace-nowrap">
+                  {formatXaf(entry.lineAmount, locale)}
+                </span>
+              )}
+            </div>
           </div>
-          {rule.dimensions.map((dimension, index) => (
-            <QuantityStepper
-              key={`${dimension.kind}-${index}`}
-              compact
-              value={entry.quantities[index] ?? dimension.default}
-              min={dimension.min}
-              max={dimension.max}
-              locale={locale}
-              label={`${title} — ${describeQuantities({ ...entry, dimensions: [dimension], quantities: [entry.quantities[index] ?? 0], tier: undefined }, locale)}`}
-              onChange={(value) =>
-                update(entry.serviceId, {
-                  quantities: entry.quantities.map((q, i) => (i === index ? value : q)),
-                })
-              }
-            />
-          ))}
-        </div>
-        <div class="flex shrink-0 flex-col items-end justify-between">
-          <button
-            type="button"
-            class="text-fg-muted hover:text-danger inline-flex size-11 items-center justify-center"
-            aria-label={t(locale, 'stay.remove', { title })}
-            onClick={() => remove(entry.serviceId)}
-          >
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d={TRASH_ICON} />
-            </svg>
-          </button>
-          {entry.lineAmount !== null && (
-            <span class="text-brand text-sm font-bold whitespace-nowrap">
-              {formatXaf(entry.lineAmount, locale)}
-            </span>
-          )}
         </div>
       </li>
     );
@@ -200,6 +227,7 @@ export default function StayPage({
         rel="noopener noreferrer"
         class="bg-whatsapp text-whatsapp-ink flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-4 text-sm font-bold"
         data-testid="send-stay"
+        data-guide="send"
       >
         <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
           <path d={WHATSAPP_ICON_PATH} />

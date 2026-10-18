@@ -13,6 +13,7 @@ import AccommodationTeaser from './AccommodationTeaser.astro';
 import CategoryCards from './CategoryCards.astro';
 import FeaturedCarousel from './FeaturedCarousel.astro';
 import Hero from './Hero.astro';
+import HowItWorks from './HowItWorks.astro';
 import ImmersiveStrip from './ImmersiveStrip.astro';
 import MobilityStrip from './MobilityStrip.astro';
 import PackagesTeaser from './PackagesTeaser.astro';
@@ -36,6 +37,7 @@ const jsonLd = buildLocalBusinessJsonLd({
 <BaseLayout locale={locale} routeKey="home" title={t(locale, 'home.title')} jsonLd={[jsonLd]}>
   <Hero locale={locale} />
   <CategoryCards locale={locale} />
+  <HowItWorks locale={locale} />
   <FeaturedCarousel locale={locale} />
   <ImmersiveStrip locale={locale} />
   <AccommodationTeaser locale={locale} />

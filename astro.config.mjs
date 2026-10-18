@@ -27,6 +27,8 @@ if (whatsappNumber.source !== 'explicit') {
 export default defineConfig({
   site: siteUrl.value,
   output: 'static',
+  // Préchargement des liens internes visibles (009, FR-015) ; ignoré en mode économie de données.
+  prefetch: { prefetchAll: true, defaultStrategy: 'viewport' },
   // 'preserve' garde l'arborescence des pages : en/404.astro devient en/404.html,
   // que l'hébergeur sert bien comme page d'erreur des adresses sous /en/.
   build: { format: 'preserve' },

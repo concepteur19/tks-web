@@ -20,12 +20,12 @@ const priceOf = (id: string) => {
 };
 ---
 
-<section data-section="packages" class="bg-brand-warm text-brand-contrast">
+<section data-section="packages" data-reveal class="bg-brand-warm text-brand-contrast">
   <div class="mx-auto max-w-(--size-content) px-4 py-12">
     <h2 class="font-display text-3xl font-extrabold">{t(locale, 'home.packages.title')}</h2>
-    <ul class="mt-6 grid gap-4 lg:grid-cols-2">
+    <ul data-reveal-group class="mt-6 grid gap-4 lg:grid-cols-2">
       {homeTeasers.packages.map((card) => (
-        <li class="rounded-card bg-bg p-5 text-fg">
+        <li data-reveal class="lift rounded-card bg-bg p-5 text-fg">
           <h3 class="font-display text-xl font-bold">{localize(card.title, locale)}</h3>
           {card.summary && (
             <p class="mt-1 text-sm text-fg-muted">{localize(card.summary, locale)}</p>

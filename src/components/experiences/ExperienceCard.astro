@@ -28,7 +28,8 @@ const islandCatalog = await getPageCatalog();
 ---
 
 <article
-  class="flex w-full flex-col overflow-hidden rounded-card bg-bg shadow-card"
+  class="lift flex w-full flex-col overflow-hidden rounded-card bg-bg shadow-card"
+  data-reveal
   data-testid="experience-card"
 >
   <div class="relative aspect-16/9 w-full overflow-hidden bg-bg-muted">
@@ -43,7 +44,8 @@ const islandCatalog = await getPageCatalog();
         widths={[400, 720]}
         quality={70}
         sizes="(min-width: 64rem) 33vw, 100vw"
-        class="absolute inset-0 h-full w-full object-cover"
+        class="media-zoom absolute inset-0 h-full w-full object-cover"
+        style={`view-transition-name: exp-${service.id}`}
       />
     )}
     {image?.illustrative && <IllustrativeTag label={t(locale, 'experiences.illustrative')} />}

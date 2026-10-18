@@ -203,6 +203,22 @@ Modèle confirmé par Franck le 2026-09-25 (vocal) : le site n'affiche **pas de 
 
 **FR-MOB-3** Tarifs : trois catégories de véhicules avec un prix « à partir de » (Franck, 2026-10-06), affiché par jour et par véhicule, sans chauffeur ; les autres services restent `quote`. ⏳ Unité, chauffeur, carburant, caution, prix des transferts et du chauffeur privé : hypothèses M1 à M5 de la spec 006, en attente du questionnaire 6 (`docs/questions-kibreeze-franck-6.xlsx`).
 
+
+---
+
+## UX — Micro-interactions et premier passage (spec 009)
+
+**FR-UX-1** Au premier passage, un mini tuto en trois étapes (explorer ; ajouter à Mon séjour ; recevoir son devis sur WhatsApp) s'affiche dans une bulle discrète, au-dessus de la barre à onglets, sans bloquer la page. Il se ferme d'un geste et ne revient plus sur l'appareil ; il ne s'affiche pas à un visiteur dont le séjour est déjà rempli.
+
+**FR-UX-2** L'accueil présente « Comment ça marche » en trois étapes, entre les univers du Tourisme et les expériences mises en avant.
+
+**FR-UX-3** Le site s'anime sobrement : fondu entre les pages (la photo d'une carte se prolonge dans sa fiche), apparition au défilement, survol à la souris, appui, « Ajouté ✓ », rebond du compteur, notification qui glisse, vibration courte à l'ajout (Android), chiffres qui défilent, ligne retirée qui se replie, trait d'onglet qui glisse. Aucune animation ne dépasse un tiers de seconde ; aucun écran de chargement ; rien ne bouge quand le visiteur demande moins d'animations ; tout reste visible sans JavaScript.
+
+**FR-UX-4** Les liens internes visibles sont préchargés, sauf en mode économie de données.
+
+**FR-UX-5** Chaque fiche d'expérience offre « Partager » : menu de partage de l'appareil, ou copie du lien avec « Lien copié ».
+
+Catalogue détaillé : [specs/009-micro-interactions/contracts/ui.md](../specs/009-micro-interactions/contracts/ui.md).
 ---
 
 ## EUR — Affichage en euros (spec 004)

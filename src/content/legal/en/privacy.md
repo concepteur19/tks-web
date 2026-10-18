@@ -37,5 +37,6 @@ The website uses a single storage item on your device, needed for the service yo
 | Name | Type | Content and purpose | Duration |
 | --- | --- | --- | --- |
 | `kibreeze.selection.v1` | browser local storage | your My trip selection: services, quantities, options, dates and number of travellers | 30 days after your last change; erased with "Clear" or from your browser settings |
+| `kibreeze.guide.v1` | browser local storage (otherwise session storage) | the value "done": the short first-visit guide has been seen or skipped and must not show again | until erased from your browser settings |
 
 If an analytics tool or a third-party service requiring your consent were ever added, this section would be updated before it goes live, and your consent would be asked for beforehand.

@@ -28,7 +28,7 @@ const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.ge
 
 <header
   class="sticky top-0 border-b border-border bg-bg"
-  style="z-index: var(--z-nav)"
+  style="z-index: var(--z-nav); view-transition-name: site-header"
   data-testid="site-header"
 >
   <div class="mx-auto flex h-(--size-header) max-w-(--size-content) items-center justify-between gap-4 px-4 lg:h-(--size-header-desktop)">
@@ -38,7 +38,7 @@ const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.ge
     </a>
 
     {links.length > 0 && (
-      <nav aria-label={t(locale, 'nav.label')} class="hidden lg:block">
+      <nav aria-label={t(locale, 'nav.label')} class="hidden lg:block" data-guide="explore">
         <ul class="flex items-center gap-8 text-sm font-medium">
           {links.map((key) => (
             <li>
@@ -46,11 +46,18 @@ const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.ge
                 href={getRoutePath(key, locale)}
                 aria-current={key === routeKey ? 'page' : undefined}
                 class:list={[
-                  'inline-flex min-h-11 items-center',
+                  'relative inline-flex min-h-11 items-center',
                   key === routeKey ? 'text-brand' : 'text-fg-muted hover:text-fg',
                 ]}
               >
                 {t(locale, `nav.${key}`)}
+                {key === routeKey && (
+                  <span
+                    aria-hidden="true"
+                    class="absolute inset-x-0 bottom-1 h-0.5 bg-brand"
+                    style="view-transition-name: nav-indicator"
+                  />
+                )}
               </a>
             </li>
           ))}
@@ -64,6 +71,7 @@ const whatsappHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.ge
         <a
           href={getRoutePath('stay', locale)}
           aria-label={t(locale, 'nav.stay')}
+          data-guide="stay"
           class="hidden min-h-11 min-w-11 items-center justify-center text-fg lg:inline-flex"
         >
           <span class="relative inline-flex">

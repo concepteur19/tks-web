@@ -109,9 +109,10 @@ test.describe('Mon séjour', () => {
       { serviceId: 'croisiere-en-bateau', quantities: [2] },
       { serviceId: 'excursion-en-pirogue', quantities: [4], optionIds: ['musee-d-art'] },
     ]);
+    // Le message s'efface au bout de quelques secondes : on le lit avant d'attendre les lignes.
+    await expect(page.getByTestId('toast')).toContainText('ne sont plus proposées');
     await expect(page.getByTestId('stay-line')).toHaveCount(1);
     await expect(page.getByTestId('stay-line')).not.toContainText('Musée');
-    await expect(page.getByTestId('toast')).toContainText('ne sont plus proposées');
   });
 });
 

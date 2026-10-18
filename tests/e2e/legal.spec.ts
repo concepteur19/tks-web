@@ -6,7 +6,7 @@ import { deliveredPaths } from './delivered.ts';
  * Vide pour la feature 002 ; la feature 004 y ajoutera la clé de la sélection, en même temps
  * que le texte (FR-031).
  */
-const DOCUMENTED_STORAGE: string[] = ['kibreeze.selection.v1'];
+const DOCUMENTED_STORAGE: string[] = ['kibreeze.selection.v1', 'kibreeze.guide.v1'];
 
 const LEGAL = {
   fr: [

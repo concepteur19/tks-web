@@ -30,8 +30,9 @@ const tabs = visible(TAB_BAR);
 <nav
   aria-label={t(locale, 'nav.mobileLabel')}
   class="fixed inset-x-0 bottom-0 h-(--size-tabbar) border-t border-border bg-bg lg:hidden"
-  style="z-index: var(--z-tabbar)"
+  style="z-index: var(--z-tabbar); view-transition-name: tab-bar"
   data-testid="tab-bar"
+  data-guide="explore"
 >
   <ul class="mx-auto flex h-full max-w-(--size-content) items-stretch justify-around">
     {tabs.map((key) => {
@@ -41,8 +42,9 @@ const tabs = visible(TAB_BAR);
           <a
             href={getRoutePath(key, locale)}
             aria-current={active ? 'page' : undefined}
+            data-guide={key === 'stay' ? 'stay' : undefined}
             class:list={[
-              'flex flex-1 flex-col items-center justify-center gap-1 text-xs leading-none',
+              'relative flex flex-1 flex-col items-center justify-center gap-1 text-xs leading-none',
               active ? 'font-bold text-brand' : 'text-fg-muted',
             ]}
           >
@@ -51,6 +53,13 @@ const tabs = visible(TAB_BAR);
               {key === 'stay' && <StayBadge client:idle locale={locale} />}
             </span>
             <span>{t(locale, `nav.${key}`)}</span>
+            {active && (
+              <span
+                aria-hidden="true"
+                class="absolute inset-x-3 top-0 h-0.5 bg-brand"
+                style="view-transition-name: tab-indicator"
+              />
+            )}
           </a>
         </li>
       );
