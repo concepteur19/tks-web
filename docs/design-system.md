@@ -154,6 +154,7 @@ Procédure « Figma → code » : (1) exporter les variables Figma (plugin Varia
 - Prévoir environ 30 % de longueur de texte en plus : aucun libellé ne doit casser la mise en page, ni en français ni en anglais.
 - Focus visible partout, jamais supprimé sans remplacement.
 - `prefers-reduced-motion` : toutes les transitions passent à 0 ms ; aucun élément ne se déplace, ne zoome ni ne rebondit (009).
+- Micro-interactions (009) : catalogue des 18 effets, durées et mécanismes dans [specs/009-micro-interactions/contracts/ui.md](../specs/009-micro-interactions/contracts/ui.md) ; classes `lift`, `media-zoom`, `press`, `link-slide` dans `src/styles/global.css`.
 - Aucune information portée uniquement par la couleur (badge « sur devis » a un texte).
 - Images de contenu avec `alt` descriptif fourni dans les données ; images décoratives avec `alt=""`.
 

@@ -114,8 +114,8 @@ Celles des 002 à 008 (aucun texte en dur, tokens, aucune règle métier dans un
 
 ## Phase 6: Polish & vérification
 
-- [ ] T030 [P] `lighthouserc.json` : assertion `cumulative-layout-shift` ≤ 0,1 sur toutes les adresses
-- [ ] T031 [P] Documentation : `docs/functional-requirements.md` (section UX : FR-UX-1 à 5 résumant tuto, « Comment ça marche », animations, préchargement, partage) ; `docs/design-system.md` (catalogue des micro-interactions, renvoi vers [contracts/ui.md](./contracts/ui.md)) ; `specs/README.md` (statut 009)
+- [X] T030 [P] `lighthouserc.json` : assertion `cumulative-layout-shift` ≤ 0,1 sur toutes les adresses
+- [X] T031 [P] Documentation : `docs/functional-requirements.md` (section UX : FR-UX-1 à 5 résumant tuto, « Comment ça marche », animations, préchargement, partage) ; `docs/design-system.md` (catalogue des micro-interactions, renvoi vers [contracts/ui.md](./contracts/ui.md)) ; `specs/README.md` (statut 009)
 - [ ] T032 [P] Sur la branche `docs-cahier-de-test` : versionner le générateur du cahier sous `docs/tools/build-cahier-de-test.py` (lecture du catalogue pour l'onglet des prix), y ajouter les scénarios du tuto, de « Comment ça marche », du partage, du trait d'onglet et des animations (quickstart, scénarios 1 à 15), plus la question de SC-001 (« Après le tuto, comment obtient-on un prix ? »), puis régénérer `docs/cahier-de-test-kibreeze-franck.xlsx`
 - [ ] T033 Lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; mesurer en 4G simulée le temps d'affichage d'une fiche ouverte depuis un univers, avec et sans préchargement (SC-004 : moins d'une seconde) ; consigner les résultats (dont LCP et CLS avant / après sur l'accueil) dans [quickstart.md](./quickstart.md)
 - [ ] T034 Captures et vidéos courtes à 390 px (WebKit) et 1 440 px (Chromium) : tuto, transition carte → fiche, apparition, ajout ; vérifier qu'aucune animation ne dépasse le tiers de seconde et que rien ne clignote ; consigner dans [quickstart.md](./quickstart.md)
