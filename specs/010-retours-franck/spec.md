@@ -170,6 +170,7 @@ Sur la fiche du pique-nique, la photo est cadrée sur le pique-nique et non sur 
 
 ## Assumptions
 
+- **Démarrage du diaporama** : à la première interaction du visiteur (toucher, défilement, clavier). Avant, Chrome compte toujours l'élément principal affiché ; une photo suivante apparue plus tôt était retenue comme élément principal, plus tard (mesuré le 2026-10-18), ce qui contredirait SC-005. Un visiteur qui ne touche jamais l'écran voit la première photo.
 - **Photos du hero** : 3 ou 4 photos de Franck sans filigrane, choisies par Claude parmi celles déjà triées (coucher de soleil actuel en premier) ; remplacées par celles de Franck quand il aura fait sa sélection (questionnaire 7). Rythme : une photo toutes les 6 secondes environ.
 - **Bouton « Personnaliser ce parcours »** : la consigne de Franck l'envoie sur WhatsApp, sur la fiche comme sur la carte de la page Formules ; l'ajout au séjour, voulu depuis le questionnaire 4, prend partout le libellé « Ajouter à mon séjour ».
 - **Fiches de parcours** : sous la page Formules (`/formules/<parcours>`), sur le modèle des fiches d'expérience.

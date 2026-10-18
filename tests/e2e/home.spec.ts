@@ -71,7 +71,8 @@ for (const [path, lang, title, ctas] of [
       await page.clock.install();
       await page.goto(path);
       const slides = page.locator('[data-section="hero"] [data-slide]');
-      await expect(slides).toHaveCount(4);
+      // Avant toute interaction : la première photo seule, rien d'autre chargé (SC-005).
+      await expect(slides).toHaveCount(1);
       await expect(slides.first().locator('img')).toHaveAttribute('fetchpriority', 'high');
       const active = () =>
         page.evaluate(() =>
@@ -79,7 +80,17 @@ for (const [path, lang, title, ctas] of [
             slide.hasAttribute('data-active'),
           ),
         );
+      await page.clock.runFor(13000);
       expect(await active()).toBe(0);
+      await page.mouse.move(10, 10);
+      await page.mouse.down();
+      await page.mouse.up();
+      await expect(slides).toHaveCount(4);
+      for (const image of await slides.locator('img').all()) {
+        await image.evaluate((element: HTMLImageElement) =>
+          element.complete ? undefined : new Promise((resolve) => (element.onload = resolve)),
+        );
+      }
       await page.clock.runFor(6500);
       expect(await active()).toBe(1);
       const pause = page.getByTestId('hero-pause');

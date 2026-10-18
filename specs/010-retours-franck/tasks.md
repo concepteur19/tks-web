@@ -137,8 +137,8 @@ Celles des 002 à 009 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 - [X] T036 [P] `lighthouserc.json` : ajouter `/formules/essentiel-de-kribi.html`
 - [X] T037 [P] Documentation : `docs/client-answers.md` (retours des 11-12 octobre et compléments du 18, avec renvoi à la transcription) ; `docs/audio-transcript.md` (transcription des 10 notes vocales) ; `docs/functional-requirements.md` (plats en plats, fiches de parcours, calendrier, diaporama, aperçu Mobilité) ; `docs/content-tracker.md` (descriptions des plats reçues, Ebanjea, attentes du questionnaire 7) ; `specs/README.md` (statut 010)
-- [ ] T038 [P] Cahier de test (branche `docs-cahier-de-test`, générateur `docs/tools/build-cahier-de-test.py`) : onglet « Retours déjà reçus » (chaque retour des 11-12 octobre : réglé, expliqué ou en attente) et scénarios mis à jour (plats, dates, fiches de parcours, diaporama, Mobilité de l'accueil)
-- [ ] T039 Lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; consigner les résultats dans [quickstart.md](./quickstart.md)
+- [X] T038 [P] Cahier de test (branche `docs-cahier-de-test`, générateur `docs/tools/build-cahier-de-test.py`) : onglet « Retours déjà reçus » (chaque retour des 11-12 octobre : réglé, expliqué ou en attente) et scénarios mis à jour (plats, dates, fiches de parcours, diaporama, Mobilité de l'accueil)
+- [X] T039 Lancer `npm run check`, `npm run build:prod`, `npm run check:links`, `npm run check:bundle`, `npm run test:e2e`, `npm run lighthouse` ; consigner les résultats dans [quickstart.md](./quickstart.md)
 - [ ] T040 Captures à 390 px (WebKit) et 1 440 px (Chromium) : plats, fiche de parcours, accueil (diaporama, aperçus), dates, photo en grand ; corriger les écarts ; consigner dans [quickstart.md](./quickstart.md)
 - [ ] T041 Dérouler les 11 scénarios manuels de [quickstart.md](./quickstart.md) sur un vrai téléphone et relire l'anglais (Zobel)
 - [ ] T042 Ouvrir la PR `010-retours-franck` → `main` (Zobel)

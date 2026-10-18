@@ -15,7 +15,7 @@ Page Formules : la photo et le titre d'une `TourCard` mènent à la fiche (`data
 
 ## Accueil
 
-- **Hero** : 4 photos empilées, une seule visible (`data-active`) ; fondu `--duration-slow` ; bouton Pause / Lecture (`aria-pressed`, `data-testid="hero-pause"`), dans le coin du hero, au-dessus de l'indication de défilement ; aucun défilement sous réduire les animations ni onglet caché.
+- **Hero** : première photo dans la page, photos 2 à 4 dans un `<template>` insérées à la première interaction (démarrage du défilement) ; une seule visible (`data-active`) ; fondu `--duration-slow` ; bouton Pause / Lecture (`aria-pressed`, `data-testid="hero-pause"`), dans le coin du hero, au-dessus de l'indication de défilement ; aucun défilement sous réduire les animations ni onglet caché.
 - **Aperçu Hébergements** : 4 cartes (chambre, studio, appartement, villa).
 - **Aperçu Mobilité** (`MobilityTeaser`, `data-section="mobility"`) : logo TKS®, titre `home.mobility.title`, phrase, 3 cartes (photo carrée ou 4:3, nom, modèles, prix par jour), lien `home.mobility.cta` vers la page ; même gabarit que l'aperçu Hébergements.
 

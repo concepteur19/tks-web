@@ -48,6 +48,8 @@ Pas d'inconnue technique : chaque retour s'appuie sur un mécanisme existant (un
 
 ## 6. Diaporama du hero
 
+**Mise à jour du 2026-10-18 (mesure)** : les photos 2 à 4 restent dans un `<template>` et n'entrent dans la page qu'à la **première interaction** du visiteur (pointeur, clavier, défilement), moment où le défilement démarre. Insérées dès le chargement, elles étaient demandées en priorité haute et retardaient parfois la première ; insérées à 6 s, leur apparition était comptée comme nouvel élément principal (LCP) par Chrome. Mesuré : 1 mesure sur 5 à 79, puis 16 sur 16 entre 93 et 96 après correction, comme `main`.
+
 **Decision**: `Hero.astro` empile 4 photos ; la première garde `loading="eager"` et `fetchpriority="high"`, les suivantes `loading="lazy"`. Un petit script de page (`src/scripts/hero-slideshow.ts`) passe à la photo suivante toutes les 6 s (fondu `--duration-slow`, opacité seule), **s'arrête** sous « réduire les animations », quand l'onglet est caché, et sur le bouton Pause visible (« Mettre en pause » / « Lecture », `aria-pressed`). Sans JavaScript : la première photo seule.
 
 **Rationale**: WCAG 2.2.2 (contenu qui défile seul plus de 5 s : moyen de le mettre en pause) ; plafond de durée de la 009 respecté (le fondu dure 320 ms, l'intervalle n'est pas une animation) ; l'image prioritaire est la même qu'aujourd'hui, donc le LCP ne bouge pas (SC-005).
