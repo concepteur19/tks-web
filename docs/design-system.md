@@ -73,6 +73,8 @@ Tailwind CSS v4 lit les tokens depuis des custom properties CSS déclarées dans
   /* Mouvement */
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --duration-fast: 120ms; --duration-base: 200ms; --duration-slow: 320ms;
+  --duration-stagger: 60ms;   /* décalage d'une cascade d'apparition (009) */
+  --distance-reveal: 0.75rem; /* montée d'un élément qui apparaît (009) */
 }
 
 /* z-index nommés, hors @theme */
@@ -151,7 +153,7 @@ Procédure « Figma → code » : (1) exporter les variables Figma (plugin Varia
 - Cibles tactiles ≥ 44 × 44 px sur mobile.
 - Prévoir environ 30 % de longueur de texte en plus : aucun libellé ne doit casser la mise en page, ni en français ni en anglais.
 - Focus visible partout, jamais supprimé sans remplacement.
-- `prefers-reduced-motion` : toutes les transitions passent à 0 ms.
+- `prefers-reduced-motion` : toutes les transitions passent à 0 ms ; aucun élément ne se déplace, ne zoome ni ne rebondit (009).
 - Aucune information portée uniquement par la couleur (badge « sur devis » a un texte).
 - Images de contenu avec `alt` descriptif fourni dans les données ; images décoratives avec `alt=""`.
 

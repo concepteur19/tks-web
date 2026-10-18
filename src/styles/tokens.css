@@ -67,12 +67,17 @@
   /* Ombres */
   --shadow-card: 0 1px 2px rgb(28 25 23 / 0.08), 0 4px 12px rgb(28 25 23 / 0.06);
   --shadow-drawer: 0 0 0 1px rgb(28 25 23 / 0.06), -8px 0 24px rgb(28 25 23 / 0.12);
+  /* Carte soulevée au survol (009). */
+  --shadow-lift: 0 2px 4px rgb(28 25 23 / 0.08), 0 10px 24px rgb(28 25 23 / 0.1);
 
   /* Mouvement */
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --duration-fast: 120ms;
   --duration-base: 200ms;
   --duration-slow: 320ms;
+  /* Micro-interactions (009) : décalage entre deux éléments d'une cascade, montée à l'apparition. */
+  --duration-stagger: 60ms;
+  --distance-reveal: 0.75rem;
 }
 
 /* z-index nommés, hors @theme
@@ -83,6 +88,8 @@
   --z-tabbar: 20;
   --z-sticky-cta: 20;
   --z-fab: 30;
+  /* Bulle du tuto (009) : au-dessus des barres et du bouton flottant, sous le menu. */
+  --z-guide: 35;
   --z-nav: 40;
   --z-drawer: 50;
   --z-toast: 60;

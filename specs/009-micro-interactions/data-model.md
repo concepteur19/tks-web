@@ -42,7 +42,7 @@ Le stockage est passé en paramètre (`storages`), ce qui rend les trois fonctio
 |---|---|---|
 | `kibreeze.guide.v1` | `localStorage`, à défaut `sessionStorage`, à défaut variable de page | `"done"` |
 
-Aucune donnée ne quitte l'appareil. Effacer les données du site fait revoir le tuto, ce qui est acceptable.
+Aucune donnée ne quitte l'appareil. Effacer les données du site fait revoir le tuto, ce qui est acceptable. La clé est déclarée dans la politique de confidentialité (`src/content/legal/{fr,en}/privacy.md`, section cookies), comme celle de la sélection : stockage d'interface, sans consentement à recueillir.
 
 ## Tokens de mouvement (`src/styles/tokens.css`)
 

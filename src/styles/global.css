@@ -58,3 +58,146 @@ input[type='number']::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
+
+/* ---------------------------------------------------------------------------------------------
+   Micro-interactions (009). Contrat : specs/009-micro-interactions/contracts/ui.md.
+   Durées, distances et courbe par les tokens ; tout mouvement sous no-preference, la règle
+   globale ci-dessus neutralisant le reste. Rien n'est masqué tant qu'un script ne l'a pas décidé.
+   --------------------------------------------------------------------------------------------- */
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    translate: 0 var(--distance-reveal);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 var(--distance-reveal);
+  }
+}
+@keyframes sink {
+  to {
+    opacity: 0;
+    translate: 0 var(--distance-reveal);
+  }
+}
+@keyframes bump {
+  50% {
+    scale: 1.2;
+  }
+}
+@keyframes roll-up {
+  from {
+    opacity: 0;
+    translate: 0 40%;
+  }
+}
+@keyframes roll-down {
+  from {
+    opacity: 0;
+    translate: 0 -40%;
+  }
+}
+/* Anneau du tuto : peinture seule (ombre), aucun déplacement de mise en page. */
+@keyframes ring {
+  from {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 60%, transparent);
+  }
+  to {
+    box-shadow: 0 0 0 0.5rem transparent;
+  }
+}
+
+/* Apparition au défilement et fondu des images (src/scripts/reveal.ts) */
+[data-reveal-pending],
+[data-fade-pending] {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-revealing] {
+    animation: reveal-in var(--duration-slow) var(--ease-standard) both;
+    animation-delay: calc(var(--reveal-index, 0) * var(--duration-stagger));
+  }
+  [data-fading] {
+    animation: fade-in var(--duration-slow) var(--ease-standard) both;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Survol (souris seulement) et appui */
+@layer components {
+  .lift,
+  .press,
+  .media-zoom {
+    transition:
+      transform var(--duration-base) var(--ease-standard),
+      box-shadow var(--duration-base) var(--ease-standard),
+      filter var(--duration-base) var(--ease-standard);
+  }
+  .link-slide {
+    background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 1px;
+    transition: background-size var(--duration-base) var(--ease-standard);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .lift:active {
+      transform: scale(0.98);
+    }
+    .press:active {
+      transform: scale(0.97);
+    }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .lift:hover {
+      box-shadow: var(--shadow-lift);
+    }
+    .press:not(:disabled):hover {
+      filter: brightness(0.94);
+    }
+    .link-slide:hover {
+      background-size: 100% 1px;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .lift:hover {
+        transform: translateY(-2px);
+      }
+      .lift:hover .media-zoom {
+        transform: scale(1.03);
+      }
+    }
+  }
+}
+
+/* Retours d'état : compteur, chiffres des sélecteurs, notifications, bulle du tuto, cible */
+@media (prefers-reduced-motion: no-preference) {
+  [data-bump] {
+    animation: bump var(--duration-slow) var(--ease-standard);
+  }
+  [data-roll='up'] {
+    animation: roll-up var(--duration-fast) var(--ease-standard);
+  }
+  [data-roll='down'] {
+    animation: roll-down var(--duration-fast) var(--ease-standard);
+  }
+  [data-motion='enter'] {
+    animation: rise var(--duration-slow) var(--ease-standard) both;
+  }
+  [data-motion='leave'] {
+    animation: sink var(--duration-base) var(--ease-standard) both;
+  }
+  [data-guide-active] {
+    animation: ring var(--duration-slow) var(--ease-standard) 2;
+  }
+}
+[data-guide-active] {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

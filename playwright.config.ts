@@ -10,7 +10,9 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : [['list']],
-  use: { baseURL, trace: 'on-first-retry' },
+  // Tuto de première visite (009) déjà vu : sinon sa bulle gênerait les parcours. Les tests du
+  // tuto repartent d'un stockage vide.
+  use: { baseURL, trace: 'on-first-retry', storageState: 'tests/e2e/guide-done.json' },
   projects: [
     { name: 'desktop-chromium', use: { ...devices['Desktop Chrome'] } },
     { name: 'mobile-webkit', use: { ...devices['iPhone 13'] } },

@@ -21,7 +21,7 @@ Celles des 002 à 008 (aucun texte en dur, tokens, aucune règle métier dans un
 - toute durée, distance ou courbe passe par les tokens (`--duration-*`, `--ease-standard`, `--duration-stagger`, `--distance-reveal`) ; aucune animation au-delà de `--duration-slow`, cascade ≤ 500 ms ;
 - toute animation de mouvement est déclarée sous `@media (prefers-reduced-motion: no-preference)` ou neutralisée par la règle globale ;
 - le premier écran (texte et image prioritaire) n'est jamais animé à l'arrivée ; rien n'est masqué tant qu'un script ne l'a pas décidé ;
-- seules `transform` et `opacity` sont animées (exception : repli de ligne par `grid-template-rows`) ;
+- seules `transform`, `translate`, `scale` et `opacity` sont animées (exceptions : repli de ligne par `grid-template-rows`, anneau du tuto par une ombre, soulignement par `background-size` : peinture seule, sans effet sur la mise en page) ;
 - les chaînes sont celles de [contracts/content.md](./contracts/content.md), en français et en anglais ;
 - après chaque phase, `npm run check` et `npm run build` passent.
 
@@ -29,16 +29,16 @@ Celles des 002 à 008 (aucun texte en dur, tokens, aucune règle métier dans un
 
 ## Phase 1: Setup
 
-- [ ] T001 [P] Ajouter `--duration-stagger: 60ms` et `--distance-reveal: 0.75rem` à `src/styles/tokens.css`, dans le bloc Mouvement, et les documenter dans `docs/design-system.md` (section Mouvement)
-- [ ] T002 [P] Créer `tests/e2e/guide-done.json` (état de stockage Playwright : origine `http://localhost:4321`, `localStorage` `kibreeze.guide.v1 = "done"`) et le charger par défaut dans `playwright.config.ts` (`use.storageState`) ; vérifier que la suite existante passe toujours
-- [ ] T003 [P] Chaînes de [contracts/content.md](./contracts/content.md) dans `src/i18n/fr.ts` et `src/i18n/en.ts` (`guide.*`, `home.how.*`, `stay.added`, `share.*`)
+- [X] T001 [P] Ajouter `--duration-stagger: 60ms` et `--distance-reveal: 0.75rem` à `src/styles/tokens.css`, dans le bloc Mouvement, et les documenter dans `docs/design-system.md` (section Mouvement)
+- [X] T002 [P] Créer `tests/e2e/guide-done.json` (état de stockage Playwright : origine `http://localhost:4321`, `localStorage` `kibreeze.guide.v1 = "done"`) et le charger par défaut dans `playwright.config.ts` (`use.storageState`) ; vérifier que la suite existante passe toujours
+- [X] T003 [P] Chaînes de [contracts/content.md](./contracts/content.md) dans `src/i18n/fr.ts` et `src/i18n/en.ts` (`guide.*`, `home.how.*`, `stay.added`, `share.*`)
 
 ---
 
 ## Phase 2: Foundational (bloquant pour toutes les stories)
 
-- [ ] T004 Dans `src/styles/global.css` : keyframes `bump`, `roll-up`, `roll-down`, `toast-in`, `ring`, `rise` ; états `[data-reveal-pending]` et `[data-fade-pending]` (opacité 0, décalage `--distance-reveal`, transition `--duration-slow` avec délai `calc(var(--reveal-index, 0) * var(--duration-stagger))`) ; utilitaires Tailwind v4 `lift`, `media-zoom`, `press`, `link-slide` selon [contracts/ui.md](./contracts/ui.md) ; `scroll-behavior: smooth` ; le tout sous `prefers-reduced-motion: no-preference` sauf les états de repos
-- [ ] T005 Vérifier : `npm run check`, `npm run build` passent, aucune page visuellement modifiée tant que rien n'utilise ces classes
+- [X] T004 Dans `src/styles/global.css` : keyframes `bump`, `roll-up`, `roll-down`, `toast-in`, `ring`, `rise` ; états `[data-reveal-pending]` et `[data-fade-pending]` (opacité 0, décalage `--distance-reveal`, transition `--duration-slow` avec délai `calc(var(--reveal-index, 0) * var(--duration-stagger))`) ; utilitaires Tailwind v4 `lift`, `media-zoom`, `press`, `link-slide` selon [contracts/ui.md](./contracts/ui.md) ; `scroll-behavior: smooth` ; le tout sous `prefers-reduced-motion: no-preference` sauf les états de repos
+- [X] T005 Vérifier : `npm run check`, `npm run build` passent, aucune page visuellement modifiée tant que rien n'utilise ces classes
 
 **Checkpoint**: les briques de mouvement existent, inertes.
 
