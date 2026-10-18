@@ -506,6 +506,53 @@ describe('hébergements, parcours et formules (005)', () => {
   });
 });
 
+describe('mobilité (006)', () => {
+  const vehicle = {
+    title: { fr: 'Premium', en: 'Premium' },
+    section: 'mobilite',
+    models: ['Toyota RAV4', 'Toyota Avensis'],
+    shortDescription: { fr: 'Berlines et SUV', en: 'Saloons and SUVs' },
+    description: { fr: 'Un véhicule.', en: 'A vehicle.' },
+    images: [{ src: 'premium.jpg', alt: { fr: 'RAV4', en: 'RAV4' } }],
+    pricing: { kind: 'from', amount: 35000, unit: 'per_day' },
+    quantity: {
+      dimensions: [
+        {
+          kind: 'units',
+          label: { fr: 'véhicules', en: 'vehicles' },
+          labelOne: { fr: 'véhicule', en: 'vehicle' },
+          min: 1,
+          max: 5,
+          default: 1,
+        },
+        { kind: 'days', min: 1, max: 30, default: 1 },
+      ],
+    },
+  };
+  const driver = {
+    ...omit(vehicle, 'models'),
+    title: { fr: 'Chauffeur privé', en: 'Private driver' },
+    pricing: { kind: 'quote' },
+    quantity: { dimensions: [{ kind: 'hours', min: 1, max: 24, default: 4 }] },
+  };
+
+  it('accepte une catégorie de véhicule (par jour, véhicules × jours) et un service sur devis', () => {
+    expect(messages(vehicle)).toEqual([]);
+    expect(messages(driver)).toEqual([]);
+  });
+
+  it('laisse models facultatif dans la mobilité, mais exige au moins un modèle', () => {
+    expect(messages(omit(vehicle, 'models'))).toEqual([]);
+    expect(messages({ ...vehicle, models: [] }).length).toBeGreaterThan(0);
+  });
+
+  it('refuse models hors de la mobilité', () => {
+    expect(messages({ ...kayak, models: ['Toyota Yaris'] }).join()).toContain(
+      'models n’est permis que pour la mobilité',
+    );
+  });
+});
+
 describe('références et titres (005)', () => {
   const universes = [{ id: 'visites', urlSlug: { fr: 'visites', en: 'visits' } }];
   const published = [

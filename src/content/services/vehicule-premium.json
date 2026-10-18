@@ -1,0 +1,62 @@
+{
+  "title": {
+    "fr": "Premium",
+    "en": "Premium"
+  },
+  "section": "mobilite",
+  "models": ["Toyota RAV4", "Toyota Avensis"],
+  "shortDescription": {
+    "fr": "SUV et berline Toyota, pour vos trajets dans Kribi et ses environs",
+    "en": "Toyota SUV and saloon, for getting around Kribi and nearby"
+  },
+  "description": {
+    "fr": "Toyota RAV4 ou Avensis, à la journée. Le prix de départ est confirmé par Kibreeze sur WhatsApp selon vos dates et votre trajet.",
+    "en": "Toyota RAV4 or Avensis, by the day. Kibreeze confirms the starting price on WhatsApp for your dates and route."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/mobility/premium.jpg",
+      "alt": {
+        "fr": "Un Toyota RAV4 noir vu de l'arrière, roue de secours sur le hayon",
+        "en": "A black Toyota RAV4 seen from behind, spare wheel on the tailgate"
+      }
+    },
+    {
+      "src": "../../assets/photos/mobility/premium-2.jpg",
+      "alt": {
+        "fr": "Une Toyota Avensis grise vue de face",
+        "en": "A grey Toyota Avensis seen from the front"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "from",
+    "amount": 35000,
+    "unit": "per_day"
+  },
+  "quantity": {
+    "dimensions": [
+      {
+        "kind": "units",
+        "label": {
+          "fr": "véhicules",
+          "en": "vehicles"
+        },
+        "labelOne": {
+          "fr": "véhicule",
+          "en": "vehicle"
+        },
+        "min": 1,
+        "max": 5,
+        "default": 1
+      },
+      {
+        "kind": "days",
+        "min": 1,
+        "max": 30,
+        "default": 1
+      }
+    ]
+  },
+  "order": 20
+}

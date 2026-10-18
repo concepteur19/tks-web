@@ -110,6 +110,22 @@ export const fr = {
   'packages.request': 'Demander sur WhatsApp',
   'packages.requestMessage':
     'Bonjour Kibreeze, je suis intéressé par « {title} ». Pouvez-vous me le proposer ? {url}',
+  'mobility.title': 'Mobilité & transport',
+  'mobility.tagline': 'Location, transferts et chauffeur privé pour compléter votre séjour',
+  'mobility.brand': 'TKS® est la marque de mobilité de Breezy Groupe, aux côtés de Kibreeze.',
+  'mobility.vehicles.title': 'Location de véhicules',
+  'mobility.vehicles.note':
+    'Prix de départ par jour et par véhicule, confirmés par Kibreeze sur WhatsApp.',
+  'mobility.services.title': 'Transport sur devis',
+  'mobility.add': 'Ajouter à mon séjour',
+  'mobility.custom.title': "Besoin d'un transport sur mesure ?",
+  'mobility.custom.text': 'Dites-nous vos dates et votre trajet, nous vous répondons avec un prix.',
+  'mobility.custom.cta': 'Contacter Kibreeze sur WhatsApp',
+  'mobility.request': 'Demander ce service',
+  'mobility.requestMessage': 'Bonjour Kibreeze, je souhaite un prix pour « {title} ». {url}',
+  'mobility.seo.title': 'Mobilité TKS® à Kribi : location, transferts, chauffeur',
+  'mobility.seo.description':
+    'Louez un véhicule (Luxe, Premium, Yaris) ou demandez un transfert ou un chauffeur privé pour votre séjour à Kribi.',
   'experiences.toursEntry.title': 'Parcours Kibreeze',
   'experiences.toursEntry.text': 'Six circuits déjà composés pour découvrir Kribi en une journée.',
 

@@ -49,6 +49,13 @@ describe('ajout', () => {
     expect(merged.selection.items[0]?.quantities).toEqual([2, 5]);
   });
 
+  it('Premium ajouté deux fois : véhicules additionnés, jours remplacés (006)', () => {
+    const { selection } = add(emptySelection(NOW), line('vehicule-premium', [1, 4]));
+    const merged = add(selection, line('vehicule-premium', [1, 2]));
+    expect(merged.selection.items).toHaveLength(1);
+    expect(merged.selection.items[0]?.quantities).toEqual([2, 2]);
+  });
+
   it('ne touche qu’à la ligne concernée quand la sélection en compte plusieurs', () => {
     let { selection } = add(emptySelection(NOW), line('quad', [1]));
     selection = add(selection, line('chutes-de-la-lobe', [2])).selection;

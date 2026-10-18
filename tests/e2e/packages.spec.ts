@@ -43,7 +43,7 @@ test.describe('parcours de visite', () => {
         const card = page.locator(`[id="${id}"]`);
         expect(plain(await card.textContent())).toContain(quote);
         expect(plain(await card.textContent())).not.toContain(note);
-        await expect(card.getByTestId('tour-customizer')).toHaveCount(1);
+        await expect(card.getByTestId('line-customizer')).toHaveCount(1);
       }
       // « Fleuve Lobé » n'a pas de fiche : texte sans lien.
       const nature = page.locator('[id="nature-et-littoral"] ol li');
@@ -61,7 +61,7 @@ test.describe('parcours de visite', () => {
     const card = page.locator('[id="essentiel-de-kribi"]');
     await card.scrollIntoViewIfNeeded();
     await expect(
-      card.getByTestId('tour-customizer').locator('xpath=ancestor::astro-island[1]'),
+      card.getByTestId('line-customizer').locator('xpath=ancestor::astro-island[1]'),
     ).not.toHaveAttribute('ssr', /.*/);
     const more = card.getByRole('button', { name: 'Augmenter : Nombre de personnes' });
     await more.click();

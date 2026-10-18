@@ -80,13 +80,12 @@ for (const [path, lang, title, ctas] of [
       ).toHaveCount(count);
     });
 
-    test('renvoie vers WhatsApp les liens dont la page n’est pas livrée', async ({ page }) => {
-      // La mobilité TKS® (feature 006) n'est pas encore livrée : son lien ouvre WhatsApp.
+    test('le bandeau TKS® mène à la page Mobilité, plus à WhatsApp', async ({ page }) => {
+      // Livrée par la 006 : plus aucun lien de l'accueil n'ouvre WhatsApp faute de page.
       await page.goto(path);
       const cta = page.locator('[data-section="mobility"] a[data-link-kind]');
-      await expect(cta).toHaveAttribute('data-link-kind', 'whatsapp');
-      await expect(cta).toHaveAttribute('href', /^https:\/\/wa\.me\//);
-      // Les hébergements, livrés par la 005, mènent à leur page.
+      await expect(cta).toHaveAttribute('data-link-kind', 'internal');
+      await expect(cta).toHaveAttribute('href', lang === 'fr' ? '/mobilite' : '/en/mobility');
       await expect(
         page.locator('[data-section="accommodation"] a[data-link-kind]'),
       ).toHaveAttribute('data-link-kind', 'internal');

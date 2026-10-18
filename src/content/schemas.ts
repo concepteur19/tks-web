@@ -243,6 +243,8 @@ export function serviceSchema<Src extends z.ZodTypeAny>(src: Src) {
       serviceIds: z.array(z.string().min(1)).min(2, 'au moins deux prestations').optional(),
       /** Étiquette de carte (« Le plus complet »). */
       badge: localizedString.optional(),
+      /** Mobilité (006) : modèles d'une catégorie de véhicule. Absent pour un service. */
+      models: z.array(z.string().min(1)).min(1, 'au moins un modèle').optional(),
     })
     .strict()
     .superRefine((service, ctx) => {
@@ -256,10 +258,11 @@ export function serviceSchema<Src extends z.ZodTypeAny>(src: Src) {
         ['accommodationType', 'hebergement', 'un hébergement'],
         ['steps', 'parcours', 'un parcours'],
         ['serviceIds', 'formule', 'une formule'],
+        ['models', 'mobilite', 'la mobilité', { optional: true }],
       ] as const;
-      for (const [field, section, label] of sectionFields) {
+      for (const [field, section, label, rule] of sectionFields) {
         const present = service[field] !== undefined;
-        if (service.section === section && !present) {
+        if (service.section === section && !present && !rule?.optional) {
           fail(`${field} est obligatoire pour ${label}`, [field]);
         }
         if (service.section !== section && present) {

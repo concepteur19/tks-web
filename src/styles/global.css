@@ -47,3 +47,14 @@ body {
 body[data-stay-filled='true'] [data-testid='whatsapp-button'] {
   display: none;
 }
+
+/* Sélecteurs de quantité : les boutons − et + suffisent ; Safari et Firefox sur ordinateur
+   ajouteraient leurs flèches natives dans le champ (relevé à la comparaison de l'écran 08). */
+input[type='number'] {
+  appearance: textfield;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}

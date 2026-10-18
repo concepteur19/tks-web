@@ -1,0 +1,31 @@
+{
+  "title": {
+    "fr": "Prestations professionnelles",
+    "en": "Business services"
+  },
+  "section": "mobilite",
+  "shortDescription": {
+    "fr": "Transport d'équipes et d'entreprises",
+    "en": "Transport for teams and companies"
+  },
+  "description": {
+    "fr": "Transport d'équipes et d'entreprises, pour un séminaire, une mission ou un événement à Kribi. Décrivez votre besoin : Kibreeze vous répond avec un prix sur WhatsApp.",
+    "en": "Transport for teams and companies, for a seminar, an assignment or an event in Kribi. Describe what you need: Kibreeze replies with a price on WhatsApp."
+  },
+  "images": [
+    {
+      "src": "../../assets/photos/mobility/premium.jpg",
+      "alt": {
+        "fr": "Un Toyota RAV4 noir vu de l'arrière, roue de secours sur le hayon",
+        "en": "A black Toyota RAV4 seen from behind, spare wheel on the tailgate"
+      }
+    }
+  ],
+  "pricing": {
+    "kind": "quote"
+  },
+  "quantity": {
+    "dimensions": []
+  },
+  "order": 70
+}

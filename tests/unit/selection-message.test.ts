@@ -75,6 +75,28 @@ describe('message récapitulatif', () => {
     expect(message).toContain('Total estimatif : 170 000 FCFA');
   });
 
+  it('nomme véhicules, jours et services de mobilité (006)', () => {
+    const estimate = computeEstimate(
+      {
+        items: [
+          line('vehicule-premium', [1, 4]),
+          line('vehicule-yaris', [2, 3]),
+          line('transferts', []),
+          line('chauffeur-prive', [4]),
+        ],
+      },
+      CATALOG,
+    );
+    const message = plain(buildSelectionMessage({ estimate, intent: 'quote', locale: 'fr' }));
+    expect(message).toContain('• Premium — 1 véhicule × 4 jours : 140 000 FCFA');
+    expect(message).toContain('• Yaris — 2 véhicules × 3 jours : 150 000 FCFA');
+    expect(message).toContain('• Transferts : sur devis');
+    expect(message).toContain('• Chauffeur privé — 4 heures : sur devis');
+    expect(message).toContain('Total estimatif : 290 000 FCFA');
+    const english = plain(buildSelectionMessage({ estimate, intent: 'quote', locale: 'en' }));
+    expect(english).toContain('• Premium — 1 vehicle × 4 days: 140,000 FCFA');
+  });
+
   it('n’annonce aucun montant quand tout est sur devis', () => {
     const estimate = computeEstimate(
       {
