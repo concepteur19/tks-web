@@ -26,8 +26,8 @@ Celles des 002 à 009 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 ## Phase 1: Setup
 
-- [ ] T001 [P] Photos : importer par `src/assets/photos/sources.json` trois photos de Franck pour le diaporama (`hero/kribi-2.jpg`, `-3`, `-4`, en portrait : `ambiance-hero-plages-couchers/L11-10`, `chutes-de-la-lobe/L9-15`, et une troisième sans visage en gros plan, choisie parmi les plages ou la Lobé) et une photo d'appartement du lot `hebergements-franck/` (`accommodation/appartement.jpg`) ; contrôle en pleine résolution (aucun filigrane) ; à défaut d'appartement convenable, garder `illustrations/appartement-35000.jpg` ; noter les choix dans `src/assets/photos/README.md`
-- [ ] T002 [P] Chaînes de [contracts/content.md](./contracts/content.md) dans `src/i18n/fr.ts` et `src/i18n/en.ts` ; `packages.customise` reste « Personnaliser ce parcours »
+- [X] T001 [P] Photos : importer par `src/assets/photos/sources.json` trois photos de Franck pour le diaporama (`hero/kribi-2.jpg`, `-3`, `-4`, en portrait : `ambiance-hero-plages-couchers/L11-10`, `chutes-de-la-lobe/L9-15`, et une troisième sans visage en gros plan, choisie parmi les plages ou la Lobé) et une photo d'appartement du lot `hebergements-franck/` (`accommodation/appartement.jpg`) ; contrôle en pleine résolution (aucun filigrane) ; à défaut d'appartement convenable, garder `illustrations/appartement-35000.jpg` ; noter les choix dans `src/assets/photos/README.md`
+- [X] T002 [P] Chaînes de [contracts/content.md](./contracts/content.md) dans `src/i18n/fr.ts` et `src/i18n/en.ts` ; `packages.customise` reste « Personnaliser ce parcours »
 
 ---
 

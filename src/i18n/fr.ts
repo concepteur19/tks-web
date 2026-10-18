@@ -50,7 +50,7 @@ export const fr = {
   'home.packages.cta': 'Voir les 4 formules',
   'home.mobility.title': 'Mobilité & transport',
   'home.mobility.text': 'Location, transferts et chauffeur privé pour compléter votre séjour',
-  'home.mobility.cta': 'Voir',
+  'home.mobility.cta': 'Voir la mobilité',
   'home.how.title': 'Comment ça marche',
   'home.how.1.title': 'Choisissez',
   'home.how.1.text':
@@ -135,6 +135,25 @@ export const fr = {
   'mobility.seo.title': 'Mobilité TKS® à Kribi : location, transferts, chauffeur',
   'mobility.seo.description':
     'Louez un véhicule (Luxe, Premium, Yaris) ou demandez un transfert ou un chauffeur privé pour votre séjour à Kribi.',
+  'experiences.upcoming': 'Photo à venir',
+  'stay.arrival': 'Arrivée',
+  'stay.departure': 'Départ',
+  'stay.personsForActivity': 'Personnes pour cette activité',
+  'message.datesRange': 'du {from} au {to}',
+  'message.datesFrom': 'à partir du {from}',
+  'packages.tours.indicative':
+    'Prix indicatif, sous réserve de disponibilité et de confirmation par KIBREEZE.',
+  'packages.tours.finalPrice':
+    'Le prix final dépend du nombre de participants, de la date, du transport, des options choisies et des conditions de réalisation.',
+  'packages.tours.duration': 'Durée',
+  'packages.tours.steps': 'Les étapes',
+  'packages.tours.open': 'Voir le parcours',
+  'packages.customiseMessage':
+    'Bonjour Kibreeze, je souhaite personnaliser le parcours « {title} » pour {persons} personnes. {url}',
+  'home.hero.pause': 'Mettre le diaporama en pause',
+  'home.hero.play': 'Relancer le diaporama',
+  'lightbox.close': 'Fermer',
+  'lightbox.open': 'Voir la photo en grand',
   'experiences.toursEntry.title': 'Parcours Kibreeze',
   'experiences.toursEntry.text': 'Six circuits déjà composés pour découvrir Kribi en une journée.',
 

@@ -49,7 +49,7 @@ export const en = {
   'home.packages.cta': 'See the 4 packages',
   'home.mobility.title': 'Mobility & transport',
   'home.mobility.text': 'Car rental, transfers and private driver to complete your trip',
-  'home.mobility.cta': 'See',
+  'home.mobility.cta': 'See mobility',
   'home.how.title': 'How it works',
   'home.how.1.title': 'Choose',
   'home.how.1.text':
@@ -134,6 +134,25 @@ export const en = {
   'mobility.seo.title': 'TKS® mobility in Kribi: car hire, transfers, driver',
   'mobility.seo.description':
     'Hire a vehicle (Luxury, Premium, Yaris) or ask for a transfer or a private driver for your stay in Kribi.',
+  'experiences.upcoming': 'Photo coming soon',
+  'stay.arrival': 'Arrival',
+  'stay.departure': 'Departure',
+  'stay.personsForActivity': 'People for this activity',
+  'message.datesRange': '{from} to {to}',
+  'message.datesFrom': 'from {from}',
+  'packages.tours.indicative':
+    'Indicative price, subject to availability and confirmation by KIBREEZE.',
+  'packages.tours.finalPrice':
+    'The final price depends on the number of participants, the date, transport, the options chosen and the conditions on the day.',
+  'packages.tours.duration': 'Duration',
+  'packages.tours.steps': 'The stops',
+  'packages.tours.open': 'See the tour',
+  'packages.customiseMessage':
+    'Hello Kibreeze, I would like to customise the “{title}” tour for {persons} people. {url}',
+  'home.hero.pause': 'Pause the slideshow',
+  'home.hero.play': 'Play the slideshow',
+  'lightbox.close': 'Close',
+  'lightbox.open': 'View the photo full size',
   'experiences.toursEntry.title': 'Kibreeze tours',
   'experiences.toursEntry.text': 'Six ready-made tours to discover Kribi in a day.',
 
