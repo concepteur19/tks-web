@@ -1,5 +1,6 @@
 /** Confirmations et annonces de la sélection (FR-SEL-8), en région `aria-live`. */
 import { useStore } from '@nanostores/preact';
+import { atom } from 'nanostores';
 import { useEffect, useState } from 'preact/hooks';
 import { localize, t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
@@ -8,6 +9,9 @@ import { $lastEvent, getCatalog } from './store.ts';
 
 type Props = { locale: Locale };
 const DURATION_MS = 3500;
+
+/** Une notification est-elle affichée ? Le tuto (009) s'efface pendant ce temps. */
+export const $toastVisible = atom(false);
 
 export function describe(
   event: SelectionEvent,
@@ -51,6 +55,7 @@ export default function Toasts({ locale }: Props) {
     const timer = setTimeout(() => setMessage(''), DURATION_MS);
     return () => clearTimeout(timer);
   }, [event]);
+  useEffect(() => $toastVisible.set(message !== ''), [message]);
   return (
     <div
       class="pointer-events-none fixed inset-x-4 bottom-[calc(var(--size-tabbar)+var(--size-sticky-cta)+--spacing(2))] flex justify-center lg:bottom-6"

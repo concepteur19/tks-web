@@ -200,6 +200,7 @@ export default function StayPage({
         rel="noopener noreferrer"
         class="bg-whatsapp text-whatsapp-ink flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-4 text-sm font-bold"
         data-testid="send-stay"
+        data-guide="send"
       >
         <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
           <path d={WHATSAPP_ICON_PATH} />

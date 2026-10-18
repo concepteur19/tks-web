@@ -73,6 +73,7 @@ export default function RequestBar({
         disabled={blocked}
         onClick={() => add(draft)}
         data-testid="add-to-stay"
+        data-guide="add"
       >
         {blocked ? t(locale, 'stay.alreadyThere') : t(locale, 'stay.add')}
       </button>

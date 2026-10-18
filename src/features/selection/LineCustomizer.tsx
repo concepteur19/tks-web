@@ -43,6 +43,7 @@ export default function LineCustomizer({ service, locale, title, buttonLabel }: 
         type="button"
         class="bg-brand text-brand-contrast inline-flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold"
         aria-label={`${buttonLabel} : ${title}`}
+        data-guide="add"
         onClick={() => add({ ...line, quantities })}
       >
         {buttonLabel}

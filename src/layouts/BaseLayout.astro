@@ -6,6 +6,7 @@ import heroPhoto from '../assets/photos/hero/plage-coucher-de-soleil.jpg';
 import Header from '../components/Header.astro';
 import TabBar from '../components/TabBar.astro';
 import Footer from '../components/Footer.astro';
+import FirstVisitGuide from '../features/guide/FirstVisitGuide.tsx';
 import Toasts from '../features/selection/Toasts.tsx';
 import { CATALOG_ELEMENT_ID } from '../features/selection/store.ts';
 import { getPageCatalog } from '../lib/pageCatalog.ts';
@@ -129,6 +130,8 @@ const ogImageUrl = new URL(share.src, `${env.siteUrl}/`).toString();
     <TabBar locale={locale} routeKey={routeKey} />
     <!-- Délai maximal : sur un appareil occupé, une confirmation ne doit pas attendre l’inactivité. -->
     <Toasts client:idle={{ timeout: 1500 }} locale={locale} />
+    <!-- Tuto de première visite (009) : aucun HTML sans JavaScript. -->
+    <FirstVisitGuide client:only="preact" locale={locale} />
     <script type="application/json" id={CATALOG_ELEMENT_ID} set:html={pageCatalog}></script>
     {floatingWhatsApp && <WhatsAppButton locale={locale} />}
   </body>

@@ -29,6 +29,7 @@ export default function QuickAdd({ service, locale, title, wide = false }: Props
       aria-label={`${blocked ? t(locale, 'stay.alreadyThere') : t(locale, 'stay.add')} : ${title}`}
       onClick={() => add(line)}
       data-testid="quick-add"
+      data-guide="add"
     >
       {blocked ? t(locale, 'stay.alreadyThere') : t(locale, wide ? 'stay.add' : 'stay.addShort')}
     </button>
