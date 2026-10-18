@@ -6,7 +6,7 @@
 
 **Status**: Draft
 
-**Input**: Retours de Franck des 11 et 12 octobre 2026 (14 notes vocales, 11 captures, `Elements/retours de franck/`), relayés par Zobel le 18 octobre avec ses compléments : descriptions des plats et nouveau plat Ebanjea, consignes des six parcours (« roadmaps »), « il manque appartement » sur l'aperçu Hébergements, « ça n'illustre pas le maban ». Analyse point par point et réponses de Zobel : conversation du 2026-10-18.
+**Input**: Retours de Franck des 11 et 12 octobre 2026 (10 notes vocales, 11 captures, `Elements/retours de franck/`), relayés par Zobel le 18 octobre avec ses compléments : descriptions des plats et nouveau plat Ebanjea, consignes des six parcours (« roadmaps »), « il manque appartement » sur l'aperçu Hébergements, « ça n'illustre pas le maban ». Analyse point par point et réponses de Zobel : conversation du 2026-10-18.
 
 ## Contexte
 
