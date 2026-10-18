@@ -150,8 +150,10 @@ export const fr = {
   'packages.tours.open': 'Voir le parcours',
   'packages.customiseMessage':
     'Bonjour Kibreeze, je souhaite personnaliser le parcours « {title} » pour {persons} personnes. {url}',
+  'home.hero.alt2': 'Un guide assis sur une pirogue tirée sur la plage, face à la mer',
+  'home.hero.alt3': 'Une plage de Kribi bordée d’arbres, sous un soleil voilé',
+  'home.hero.alt4': 'Les chutes de la Lobé entre les rochers et la forêt',
   'home.hero.pause': 'Mettre le diaporama en pause',
-  'home.hero.play': 'Relancer le diaporama',
   'lightbox.close': 'Fermer',
   'lightbox.open': 'Voir la photo en grand',
   'experiences.toursEntry.title': 'Parcours Kibreeze',

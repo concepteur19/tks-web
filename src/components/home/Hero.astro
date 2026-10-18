@@ -1,6 +1,9 @@
 ---
 import { Picture } from 'astro:assets';
 import heroPhoto from '../../assets/photos/hero/plage-coucher-de-soleil.jpg';
+import heroPhoto2 from '../../assets/photos/hero/kribi-2.jpg';
+import heroPhoto3 from '../../assets/photos/hero/kribi-3.jpg';
+import heroPhoto4 from '../../assets/photos/hero/kribi-4.jpg';
 import { t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
 import BrandLogo from '../BrandLogo.astro';
@@ -12,23 +15,49 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+// Diaporama (010) : la première photo est l'image prioritaire d'avant ; les autres arrivent après.
+const slides = [
+  { src: heroPhoto, alt: t(locale, 'home.hero.alt') },
+  { src: heroPhoto2, alt: t(locale, 'home.hero.alt2') },
+  { src: heroPhoto3, alt: t(locale, 'home.hero.alt3') },
+  { src: heroPhoto4, alt: t(locale, 'home.hero.alt4') },
+];
 ---
 
 <section
   data-section="hero"
   class="relative isolate flex h-(--size-hero-mobile) items-end overflow-hidden lg:max-h-(--size-hero-max)"
 >
-  <Picture
-    src={heroPhoto}
-    alt={t(locale, 'home.hero.alt')}
-    formats={['webp']}
-    widths={[480, 828]}
-    quality={55}
-    sizes="100vw"
-    loading="eager"
-    fetchpriority="high"
-    class="absolute inset-0 -z-10 h-full w-full object-cover"
-  />
+  <div data-slide data-active class="hero-slide absolute inset-0 -z-10">
+    <Picture
+      src={slides[0]!.src}
+      alt={slides[0]!.alt}
+      formats={['webp']}
+      widths={[480, 828]}
+      quality={55}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="h-full w-full object-cover"
+    />
+  </div>
+  <!-- Photos suivantes du diaporama : insérées par le script une fois la page chargée, pour ne
+       pas concurrencer la première (LCP). Sans JavaScript, la première reste seule. -->
+  <template data-hero-more>
+    {slides.slice(1).map((slide) => (
+      <div data-slide class="hero-slide absolute inset-0 -z-10">
+        <Picture
+          src={slide.src}
+          alt={slide.alt}
+          formats={['webp']}
+          widths={[480, 828]}
+          quality={55}
+          sizes="100vw"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    ))}
+  </template>
   <div class="absolute inset-0 -z-10 bg-linear-to-t from-fg/85 via-fg/40 to-transparent"></div>
 
   <div class="mx-auto w-full max-w-(--size-content) px-4 pb-14 text-brand-contrast">
@@ -56,6 +85,35 @@ const { locale } = Astro.props;
       </SmartLink>
     </div>
   </div>
+  <button
+    type="button"
+    hidden
+    class="press absolute right-4 bottom-3 inline-flex size-11 items-center justify-center rounded-pill bg-fg/40 text-brand-contrast"
+    aria-label={t(locale, 'home.hero.pause')}
+    aria-pressed="false"
+    data-testid="hero-pause"
+  >
+    <svg
+      class="hero-icon-pause"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+    </svg>
+    <svg
+      class="hero-icon-play"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M8 5v14l11-7z"></path>
+    </svg>
+  </button>
   <Icon
     name="chevronDown"
     size={32}
@@ -63,7 +121,23 @@ const { locale } = Astro.props;
   />
 </section>
 
+<script>
+  import '../../scripts/hero-slideshow.ts';
+</script>
+
 <style>
+  /* Une seule photo visible ; sans JavaScript, la première (attribut posé au rendu). */
+  .hero-slide {
+    opacity: 0;
+    transition: opacity var(--duration-slow) var(--ease-standard);
+  }
+  .hero-slide[data-active] {
+    opacity: 1;
+  }
+  [aria-pressed='true'] .hero-icon-pause,
+  [aria-pressed='false'] .hero-icon-play {
+    display: none;
+  }
   @keyframes hint {
     0%,
     100% {

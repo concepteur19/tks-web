@@ -97,14 +97,14 @@ Celles des 002 à 009 (aucun texte en dur, tokens, liens par `getRoutePath`, auc
 
 ### Tests
 
-- [ ] T024 [P] [US3] Mettre à jour `tests/e2e/home.spec.ts` (doit échouer) : le hero contient 4 photos dont une seule visible, la première avec `fetchpriority="high"` ; le bouton `hero-pause` bascule `aria-pressed` et arrête le défilement ; sous `reducedMotion: 'reduce'`, la photo active ne change pas en 7 s ; sans JavaScript, seule la première photo est visible ; l'aperçu Hébergements compte 4 cartes dont « Appartement » ; l'aperçu Mobilité (`data-section="mobility"`) compte 3 cartes avec photo, modèles et « / jour », chacune vers `/mobilite#vehicule-…`, et reste après les sections Kibreeze (remplace le test « section TKS® sobre »)
+- [X] T024 [P] [US3] Mettre à jour `tests/e2e/home.spec.ts` (doit échouer) : le hero contient 4 photos dont une seule visible, la première avec `fetchpriority="high"` ; le bouton `hero-pause` bascule `aria-pressed` et arrête le défilement ; sous `reducedMotion: 'reduce'`, la photo active ne change pas en 7 s ; sans JavaScript, seule la première photo est visible ; l'aperçu Hébergements compte 4 cartes dont « Appartement » ; l'aperçu Mobilité (`data-section="mobility"`) compte 3 cartes avec photo, modèles et « / jour », chacune vers `/mobilite#vehicule-…`, et reste après les sections Kibreeze (remplace le test « section TKS® sobre »)
 
 ### Implementation
 
-- [ ] T025 [US3] `src/components/home/Hero.astro` : 4 photos empilées (première `eager` et `fetchpriority="high"`, autres `lazy`), bouton Pause / Lecture (`home.hero.pause`, `home.hero.play`) ; `src/scripts/hero-slideshow.ts` : photo suivante toutes les 6 s, fondu `--duration-slow`, arrêt sous réduire les animations, onglet caché et pause
-- [ ] T026 [P] [US3] `src/content/site/home.json` : carte `appartement` (photo de T001) entre studio et villa ; `AccommodationTeaser.astro` lit son prix dans le palier le moins cher
-- [ ] T027 [P] [US3] Créer `src/components/home/MobilityTeaser.astro` (gabarit de `AccommodationTeaser`, `getMobility()`, catégories avec `models`) et le substituer à `MobilityStrip.astro` dans `HomePage.astro` ; supprimer `MobilityStrip.astro`
-- [ ] T028 [US3] `npm run check`, `npm run build` ; T024 passe ; Lighthouse de l'accueil : LCP comparé à `main` (SC-005)
+- [X] T025 [US3] `src/components/home/Hero.astro` : 4 photos empilées (première `eager` et `fetchpriority="high"`, autres `lazy`), bouton Pause / Lecture (`home.hero.pause`, `home.hero.play`) ; `src/scripts/hero-slideshow.ts` : photo suivante toutes les 6 s, fondu `--duration-slow`, arrêt sous réduire les animations, onglet caché et pause
+- [X] T026 [P] [US3] `src/content/site/home.json` : carte `appartement` (photo de T001) entre studio et villa ; `AccommodationTeaser.astro` lit son prix dans le palier le moins cher
+- [X] T027 [P] [US3] Créer `src/components/home/MobilityTeaser.astro` (gabarit de `AccommodationTeaser`, `getMobility()`, catégories avec `models`) et le substituer à `MobilityStrip.astro` dans `HomePage.astro` ; supprimer `MobilityStrip.astro`
+- [X] T028 [US3] `npm run check`, `npm run build` ; T024 passe ; Lighthouse de l'accueil : LCP comparé à `main` (SC-005)
 
 ---
 

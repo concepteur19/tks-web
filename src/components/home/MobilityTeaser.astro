@@ -1,0 +1,81 @@
+---
+/**
+ * Aperçu Mobilité TKS® de l'accueil (010, FR-013) : à l'échelle de l'aperçu Hébergements, à la
+ * demande de Franck (11-12 octobre). Toujours après les sections Kibreeze : TKS® reste secondaire.
+ */
+import { Image } from 'astro:assets';
+import tksMark from '../../assets/brand/tks-mark.png';
+import { cardPrice } from '../../features/estimation/cardPrice.ts';
+import { getRoutePath } from '../../i18n/routes.ts';
+import { localize, t } from '../../i18n/t.ts';
+import type { Locale } from '../../i18n/types.ts';
+import { getMobility } from '../../lib/catalog.ts';
+import Price from '../Price.astro';
+import SmartLink from '../SmartLink.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const vehicles = (await getMobility()).filter((service) => service.data.models);
+const mobilityPath = getRoutePath('mobility', locale);
+---
+
+<section data-section="mobility" data-reveal class="mx-auto max-w-(--size-content) px-4 py-12">
+  <div class="flex items-center gap-3">
+    <Image src={tksMark} alt="TKS®" height={22} class="h-5.5 w-auto shrink-0" />
+    <h2 class="font-display text-3xl font-extrabold text-fg">{t(locale, 'home.mobility.title')}</h2>
+  </div>
+  <p class="mt-2 text-fg-muted">{t(locale, 'home.mobility.text')}</p>
+  <!-- Défilement horizontal : la zone elle-même est focalisable (axe), comme l'aperçu Hébergements. -->
+  <div
+    role="region"
+    tabindex="0"
+    aria-label={t(locale, 'home.mobility.title')}
+    class="relative -mx-4 mt-6 overflow-x-auto px-4 pb-2 lg:mx-0 lg:px-0"
+  >
+    <ul class="flex snap-x gap-4 lg:grid lg:grid-cols-3">
+      {vehicles.map((vehicle) => {
+        const image = vehicle.data.images?.[0];
+        return (
+          <li
+            data-reveal
+            data-testid="mobility-teaser-card"
+            class="lift w-(--size-card-featured) shrink-0 snap-start overflow-hidden rounded-card bg-bg shadow-card lg:w-auto"
+          >
+            <a href={`${mobilityPath}#${vehicle.id}`} class="block">
+              {image && (
+                <Image
+                  src={image.src}
+                  alt={localize(image.alt, locale)}
+                  widths={[320, 560]}
+                  quality={70}
+                  sizes="(min-width: 64rem) 33vw, 17.5rem"
+                  class="media-zoom aspect-16/9 w-full object-cover"
+                  style={image.focus ? `object-position: ${image.focus}` : undefined}
+                />
+              )}
+              <div class="p-4">
+                <h3 class="font-display text-lg font-bold text-fg">
+                  {localize(vehicle.data.title, locale)}
+                </h3>
+                <p class="text-sm text-fg-muted">{vehicle.data.models!.join(', ')}</p>
+                <div class="mt-2">
+                  <Price price={cardPrice(vehicle.data)} locale={locale} />
+                </div>
+              </div>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+  <SmartLink
+    routeKey="mobility"
+    locale={locale}
+    class="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-brand underline underline-offset-4"
+  >
+    {t(locale, 'home.mobility.cta')}
+  </SmartLink>
+</section>

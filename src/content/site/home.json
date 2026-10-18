@@ -37,6 +37,24 @@
       }
     },
     {
+      "id": "appartement",
+      "title": {
+        "fr": "Appartement",
+        "en": "Apartment"
+      },
+      "summary": {
+        "fr": "2 à 6 personnes",
+        "en": "2 to 6 guests"
+      },
+      "image": {
+        "src": "accommodation/appartement.jpg",
+        "alt": {
+          "fr": "Le séjour d'un appartement : table à manger, chaises et canapé",
+          "en": "An apartment living area with a dining table, chairs and a sofa"
+        }
+      }
+    },
+    {
       "id": "villa",
       "title": {
         "fr": "Villa",

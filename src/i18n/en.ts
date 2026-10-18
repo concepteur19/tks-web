@@ -149,8 +149,10 @@ export const en = {
   'packages.tours.open': 'See the tour',
   'packages.customiseMessage':
     'Hello Kibreeze, I would like to customise the “{title}” tour for {persons} people. {url}',
+  'home.hero.alt2': 'A guide sitting on a canoe pulled up on the beach, facing the sea',
+  'home.hero.alt3': 'A tree-lined beach in Kribi under a hazy sun',
+  'home.hero.alt4': 'The Lobé Falls between rocks and forest',
   'home.hero.pause': 'Pause the slideshow',
-  'home.hero.play': 'Play the slideshow',
   'lightbox.close': 'Close',
   'lightbox.open': 'View the photo full size',
   'experiences.toursEntry.title': 'Kibreeze tours',

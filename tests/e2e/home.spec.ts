@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { plain } from './stay.ts';
 
 const SECTION_ORDER = [
   'hero',
@@ -38,16 +39,58 @@ for (const [path, lang, title, ctas] of [
       expect(order).toEqual(SECTION_ORDER);
     });
 
-    test('garde la section TKS® sobre, après les expériences', async ({ page }) => {
+    test('aperçu Mobilité : trois véhicules avec photo et prix, après les expériences (010)', async ({
+      page,
+    }) => {
       await page.goto(path);
       const mobility = page.locator('[data-section="mobility"]');
       const featured = page.locator('[data-section="featured"]');
-      const mobilityBox = await mobility.boundingBox();
-      const featuredBox = await featured.boundingBox();
-      expect(mobilityBox!.y).toBeGreaterThan(featuredBox!.y);
-      // Seule image autorisée : le logo TKS®, plus petit que celui de Kibreeze.
-      await expect(mobility.locator('img')).toHaveCount(1);
-      expect(mobilityBox!.height).toBeLessThan(featuredBox!.height / 2);
+      expect((await mobility.boundingBox())!.y).toBeGreaterThan((await featured.boundingBox())!.y);
+      const cards = mobility.getByTestId('mobility-teaser-card');
+      await expect(cards).toHaveCount(3);
+      for (const card of await cards.all()) {
+        await expect(card.locator('img')).toHaveCount(1);
+        expect(plain(await card.textContent())).toMatch(lang === 'fr' ? /\/ jour/ : /\/ day/);
+        await expect(card.locator('a').first()).toHaveAttribute(
+          'href',
+          new RegExp(`^${lang === 'fr' ? '/mobilite' : '/en/mobility'}#vehicule-`),
+        );
+      }
+    });
+
+    test('aperçu Hébergements : quatre types, appartement compris (010)', async ({ page }) => {
+      await page.goto(path);
+      const cards = page.locator('[data-section="accommodation"] li');
+      await expect(cards).toHaveCount(4);
+      await expect(cards.nth(2)).toContainText(lang === 'fr' ? 'Appartement' : 'Apartment');
+    });
+
+    test('diaporama du hero : 4 photos, une visible, défilement et pause (010)', async ({
+      page,
+    }) => {
+      await page.clock.install();
+      await page.goto(path);
+      const slides = page.locator('[data-section="hero"] [data-slide]');
+      await expect(slides).toHaveCount(4);
+      await expect(slides.first().locator('img')).toHaveAttribute('fetchpriority', 'high');
+      const active = () =>
+        page.evaluate(() =>
+          [...document.querySelectorAll('[data-section="hero"] [data-slide]')].findIndex((slide) =>
+            slide.hasAttribute('data-active'),
+          ),
+        );
+      expect(await active()).toBe(0);
+      await page.clock.runFor(6500);
+      expect(await active()).toBe(1);
+      const pause = page.getByTestId('hero-pause');
+      await pause.click();
+      await expect(pause).toHaveAttribute('aria-pressed', 'true');
+      await page.clock.runFor(13000);
+      expect(await active()).toBe(1);
+      await pause.click();
+      await expect(pause).toHaveAttribute('aria-pressed', 'false');
+      await page.clock.runFor(6500);
+      expect(await active()).toBe(2);
     });
 
     test('suit chaque prix en FCFA de son équivalent en euros, avec une seule mention indicative', async ({
@@ -110,5 +153,31 @@ test('reste lisible sans JavaScript, carrousel compris', async ({ browser }) => 
   await page.goto('/');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   await expect(page.locator('[data-section="featured"] li')).toHaveCount(4);
+  await context.close();
+});
+
+test.describe('diaporama sous « réduire les animations » (010)', () => {
+  test.use({ reducedMotion: 'reduce' });
+  test('reste sur la première photo, sans bouton pause', async ({ page }) => {
+    await page.clock.install();
+    await page.goto('/');
+    await page.clock.runFor(13000);
+    await expect(page.locator('[data-section="hero"] [data-slide][data-active]')).toHaveCount(1);
+    expect(
+      await page
+        .locator('[data-section="hero"] [data-slide]')
+        .first()
+        .evaluate((slide) => slide.hasAttribute('data-active')),
+    ).toBe(true);
+    await expect(page.getByTestId('hero-pause')).toBeHidden();
+  });
+});
+
+test('diaporama sans JavaScript : la première photo seule, sans bouton', async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.goto('/');
+  await expect(page.locator('[data-section="hero"] [data-slide][data-active]')).toHaveCount(1);
+  await expect(page.getByTestId('hero-pause')).toBeHidden();
   await context.close();
 });
