@@ -17,6 +17,7 @@ function target(id: string): HTMLElement {
   element.dataset.guide = id;
   element.textContent = id;
   element.getClientRects = () => [new DOMRect(0, 0, 10, 10)] as unknown as DOMRectList;
+  element.getBoundingClientRect = () => new DOMRect(0, 0, 10, 10);
   document.body.append(element);
   return element;
 }

@@ -45,7 +45,17 @@ function memoryStorage(): StorageLike {
   };
 }
 
-const isVisible = (element: Element) => element.getClientRects().length > 0;
+/** Affiché et à l'écran : une cible hors champ (plus bas dans la page) ne se verrait pas. */
+function isVisible(element: Element): boolean {
+  if (element.getClientRects().length === 0) return false;
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.bottom > 0 &&
+    rect.top < window.innerHeight &&
+    rect.right > 0 &&
+    rect.left < window.innerWidth
+  );
+}
 const targetsOf = (id: GuideTargetId) => [...document.querySelectorAll(`[data-guide="${id}"]`)];
 
 export default function FirstVisitGuide({ locale, delay = GUIDE_DELAY_MS }: Props) {
@@ -102,7 +112,7 @@ export default function FirstVisitGuide({ locale, delay = GUIDE_DELAY_MS }: Prop
       aria-labelledby={TITLE_ID}
       data-testid="guide"
       data-motion="enter"
-      class="bg-bg text-fg shadow-lift rounded-card border-border fixed inset-x-4 bottom-[calc(var(--size-tabbar)+var(--size-sticky-cta)+--spacing(2))] border p-4 lg:inset-x-auto lg:top-[calc(var(--size-header-desktop)+--spacing(3))] lg:right-6 lg:bottom-auto lg:w-88"
+      class="bg-bg text-fg shadow-lift rounded-card border-border fixed inset-x-4 bottom-(--guide-bottom) border p-4 lg:inset-x-auto lg:top-[calc(var(--size-header-desktop)+--spacing(3))] lg:right-6 lg:bottom-auto lg:w-88"
       style="z-index: var(--z-guide)"
     >
       <p class="text-fg-muted text-xs">{t(locale, 'guide.progress', { n: state.step + 1 })}</p>

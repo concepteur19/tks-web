@@ -64,3 +64,18 @@ Premier affichage de la fiche, mesuré par le navigateur, depuis le clic (5 essa
 Le préchargement a bien lieu (liens visibles, `link rel="prefetch"`), mais n'apporte rien de mesurable ici : le serveur fait revérifier le HTML (réponse de 300 octets au clic, soit un aller-retour), et une fiche s'affiche dès ses premiers octets. À re-mesurer sur l'aperçu Cloudflare, dont les en-têtes de cache font foi.
 
 Note de mesure : une attente pilotée par Playwright (clic, puis titre visible) donnait 1,25 s ; l'écart vient de la mécanique d'attente de l'outil, pas du site.
+
+## Captures (2026-10-18)
+
+390 px (WebKit, 2x) et 1 440 px (Chromium) : `Elements/verification/009-*.png` (tuto sur téléphone, étapes 1 et 2, tuto sur une fiche, tuto sur ordinateur, « Comment ça marche », ajout, survol).
+
+Durées relevées pendant le parcours (`document.getAnimations()`) : 13 animations, la plus longue 320 ms, décalage de cascade 180 ms au plus (500 ms au total), aucune en boucle (SC-006).
+
+Corrigé à la relecture des captures :
+
+| Écart | Correction |
+|---|---|
+| L'étape 2 signalait un bouton d'ajout hors de l'écran (carrousel plus bas sur l'accueil) | une cible doit être à l'écran ; sinon l'étape signale Mon séjour |
+| La bulle laissait sous elle la place d'une barre d'action, même sans barre, et couvrait le texte du hero | juste au-dessus des onglets ; plus haut seulement sur une page qui a une barre d'action fixe (fiche) |
+
+Restant, accepté : sur l'accueil d'un téléphone, la bulle couvre les deux boutons du hero tant qu'elle est ouverte ; elle se ferme d'un geste et ne revient plus.
