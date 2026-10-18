@@ -54,3 +54,7 @@ Sur téléphone puis ordinateur, en français puis en anglais.
 | 010 final : photos insérées et défilement à la première interaction | 16 (FR et EN) | 93 à 96 | 3,08 s |
 
 Les photos suivantes demandées en priorité haute concurrençaient la première, et une photo apparue avant toute interaction était comptée par Chrome comme nouvel élément principal. Le diaporama démarre donc à la première interaction (toucher, défilement, clavier).
+
+## Captures (2026-10-18)
+
+390 px (WebKit, 2x) : `Elements/verification/010-*.png` (plats, fiche de parcours, aperçus Hébergements et Mobilité de l'accueil, pique-nique cadré, photo en grand, Mon séjour avec dates et plats). Conformes : « Photo à venir » sur le maban, cadrage du pique-nique sur la nappe, plaques floutées dans l'aperçu Mobilité, dates au calendrier, « 2 plats », « Personnes pour cette activité ».
