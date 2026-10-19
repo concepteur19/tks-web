@@ -182,6 +182,27 @@ describe('message récapitulatif', () => {
     expect(plain(message)).toContain('Total indicatif : 200 000 FCFA');
   });
 
+  it('écrit les sessions au-delà de 1 (US6)', () => {
+    const lines = computeEstimate(
+      {
+        items: [line('chutes-de-la-lobe', [4], { sessions: 2 }), line('chutes-de-la-lobe', [4])],
+      },
+      CATALOG,
+    ).lines;
+    expect(describeQuantities(lines[0]!, 'fr')).toBe('4 personnes × 2 sessions');
+    expect(describeQuantities(lines[0]!, 'en')).toBe('4 people × 2 sessions');
+    expect(describeQuantities(lines[1]!, 'fr')).toBe('4 personnes');
+    const message = buildSelectionMessage({
+      estimate: computeEstimate(
+        { items: [line('chutes-de-la-lobe', [4], { sessions: 2 })] },
+        CATALOG,
+      ),
+      intent: 'quote',
+      locale: 'fr',
+    });
+    expect(plain(message)).toContain('Chutes de la Lobé — 4 personnes × 2 sessions : 40 000 FCFA');
+  });
+
   it('décrit les quantités, unité sans libellé comprise', () => {
     const estimate = computeEstimate({ items: [line('quad', [2])] }, CATALOG);
     const first = estimate.lines[0]!;

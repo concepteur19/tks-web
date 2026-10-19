@@ -22,7 +22,7 @@ export type SelectionMessageInput = {
   url?: string | undefined;
 };
 
-/** Quantités en toutes lettres : « 6 personnes », « 2 véhicules × 3 jours ». */
+/** Quantités en toutes lettres : « 6 personnes », « 2 véhicules × 3 jours », « 4 personnes × 2 sessions ». */
 export function describeQuantities(line: EstimateLine, locale: Locale): string {
   const parts = line.dimensions.map((dimension, index) => {
     const count = line.quantities[index] ?? 0;
@@ -32,6 +32,7 @@ export function describeQuantities(line: EstimateLine, locale: Locale): string {
     }
     return t(locale, `quantity.${dimension.kind}`, { count });
   });
+  if (line.sessions > 1) parts.push(t(locale, 'quantity.sessions', { count: line.sessions }));
   if (line.tier)
     parts.unshift(t(locale, 'message.tier', { label: localize(line.tier.label, locale) }));
   return parts.join(' × ');

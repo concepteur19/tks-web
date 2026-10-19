@@ -128,7 +128,7 @@ export const remove = (serviceId: string) =>
 export const clear = () => commit(clearSelection($selection.get(), new Date()));
 
 export const setStay = (stay: Stay) =>
-  $selection.set(applyStay($selection.get(), stay, new Date()));
+  $selection.set(applyStay($selection.get(), stay, new Date(), getCatalog()));
 
 /** Nombre de lignes, pour le compteur. */
 export const count = (selection: Selection) => selection.items.length;

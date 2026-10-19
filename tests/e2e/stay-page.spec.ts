@@ -32,9 +32,9 @@ test('modifier une quantité et retirer une ligne mettent total et compteur à j
   await seedSelection(page, FULL);
   const lobe = page.getByTestId('stay-line').nth(1);
   await lobe.getByRole('button', { name: /^Augmenter/ }).click();
-  await expect(lobe).toContainText('15');
+  await expect(lobe).toContainText('2 personnes × 2 sessions');
   expect(plain(await page.locator('[data-testid="stay-total"]:visible').textContent())).toContain(
-    '55 000 FCFA',
+    '60 000 FCFA',
   );
   await page
     .getByRole('button', { name: 'Retirer Village Ebodjé et tortues marines de mon séjour' })

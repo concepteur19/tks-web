@@ -358,7 +358,8 @@ describe('voyageurs et libellé des personnes (010)', () => {
     ]);
   });
 
-  it('Mon séjour titre « Personnes pour cette activité » au-dessus des personnes seulement', () => {
+  it('Mon séjour : sessions à la place des personnes, qui suivent les voyageurs (US6)', () => {
+    setStay({});
     add({ serviceId: 'chutes-de-la-lobe', quantities: [2], optionIds: [] });
     add({ serviceId: 'quad', quantities: [1], optionIds: [] });
     render(
@@ -370,7 +371,17 @@ describe('voyageurs et libellé des personnes (010)', () => {
         emptyImage={{ src: '/vide.webp', width: 560, height: 560 }}
       />,
     );
-    expect(screen.getAllByText('Personnes pour cette activité')).toHaveLength(1);
+    expect(screen.getAllByText('Sessions')).toHaveLength(1);
+    expect(screen.queryByRole('group', { name: /Chutes de la Lobé — \d+ personnes/ })).toBeNull();
+    fireEvent.click(screen.getByLabelText('Augmenter : Chutes de la Lobé — 1 session'));
+    fireEvent.change(screen.getByLabelText('Voyageurs'), { target: { value: '4' } });
+    expect($selection.get().items[0]).toEqual({
+      serviceId: 'chutes-de-la-lobe',
+      quantities: [4],
+      sessions: 2,
+      optionIds: [],
+    });
+    expect(screen.getByText('4 personnes × 2 sessions')).toBeTruthy();
   });
 });
 

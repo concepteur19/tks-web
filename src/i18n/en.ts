@@ -137,7 +137,7 @@ export const en = {
   'experiences.upcoming': 'Photo coming soon',
   'stay.arrival': 'Arrival',
   'stay.departure': 'Departure',
-  'stay.personsForActivity': 'People for this activity',
+  'stay.sessions': 'Sessions',
   'message.datesRange': '{from} to {to}',
   'message.datesFrom': 'from {from}',
   'packages.tours.indicative':
@@ -246,6 +246,7 @@ export const en = {
   'quantity.days': { one: '{count} day', other: '{count} days' },
   'quantity.nights': { one: '{count} night', other: '{count} nights' },
   'quantity.hours': { one: '{count} hour', other: '{count} hours' },
+  'quantity.sessions': { one: '{count} session', other: '{count} sessions' },
 
   'stepper.decrease': 'Decrease: {label}',
   'stepper.increase': 'Increase: {label}',

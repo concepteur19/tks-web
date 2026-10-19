@@ -138,7 +138,7 @@ export const fr = {
   'experiences.upcoming': 'Photo à venir',
   'stay.arrival': 'Arrivée',
   'stay.departure': 'Départ',
-  'stay.personsForActivity': 'Personnes pour cette activité',
+  'stay.sessions': 'Sessions',
   'message.datesRange': 'du {from} au {to}',
   'message.datesFrom': 'à partir du {from}',
   'packages.tours.indicative':
@@ -252,6 +252,7 @@ export const fr = {
   'quantity.days': { one: '{count} jour', other: '{count} jours' },
   'quantity.nights': { one: '{count} nuit', other: '{count} nuits' },
   'quantity.hours': { one: '{count} heure', other: '{count} heures' },
+  'quantity.sessions': { one: '{count} session', other: '{count} sessions' },
 
   'stepper.decrease': 'Diminuer : {label}',
   'stepper.increase': 'Augmenter : {label}',

@@ -49,6 +49,28 @@ type Stay = {
 
 Exemples de `formatStayDates` (FR / EN) : 12 → 16 déc. 2026 : « du 12 au 16 décembre 2026 » / « 12 to 16 December 2026 » ; 28 déc. → 3 janv. : « du 28 décembre 2026 au 3 janvier 2027 » / « 28 December 2026 to 3 January 2027 » ; arrivée seule : « à partir du 12 décembre 2026 » / « from 12 December 2026 » ; ancien texte : tel quel.
 
+## Voyageurs et sessions (US6, 2026-10-19)
+
+```ts
+type SelectedLine = {
+  serviceId: string;
+  quantities: number[];
+  sessions?: number;   // 1 à 10 ; seulement pour une prestation qui compte des personnes
+  tierId?: string;
+  optionIds: string[];
+};
+```
+
+| Règle | Fonction pure |
+|---|---|
+| Une ligne qui compte des personnes porte `sessions` (1 par défaut, borné 1 à 10, écrit seulement au-delà de 1) ; les autres n'en portent pas | `normalize` (via `addLine`, `updateLine`, `parseSelection`) |
+| Changer les voyageurs met la dimension `persons` de chaque ligne à ce nombre, borné par la prestation (rien ne change si le nombre est le même) | `setStay(selection, stay, now, catalog)` |
+| Réajouter une ligne qui compte des personnes : sessions additionnées (plafond 10, `capped`), personnes = celles de l'ajout ; ligne sur devis ou tarif changé : sessions gardées | `addLine` |
+| Montant = prix × dimensions × sessions ; options × sessions | `computeEstimate` |
+| Message : « 4 personnes × 2 sessions » (sessions omises à 1) | `describeQuantities` |
+
+Exemple : chutes, 5 000 FCFA par personne, 4 voyageurs, 2 sessions → 40 000 FCFA.
+
 ## Parcours
 
 | Identifiant | `duration` FR / EN | Précision d'étape |

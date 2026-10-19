@@ -58,9 +58,29 @@ test('une visite ajoutée part du nombre de voyageurs', async ({ page }) => {
   await add.click();
   await expect.poll(async () => (await storedSelection(page))?.items[0]?.quantities).toEqual([3]);
   await page.goto('/sejour');
+  const line = page.getByTestId('stay-line');
+  await expect(line).toContainText('3 personnes');
+  await expect(line.getByText('Sessions')).toBeVisible();
   await expect(
-    page.getByTestId('stay-line').getByText('Personnes pour cette activité'),
-  ).toBeVisible();
+    line.getByRole('button', { name: /Augmenter : Chutes de la Lobé — \d+ personnes/ }),
+  ).toHaveCount(0);
+});
+
+test('Mon séjour : les voyageurs règlent les personnes, chaque ligne ses sessions (US6)', async ({
+  page,
+}) => {
+  await seedSelection(page, [{ serviceId: 'chutes-de-la-lobe', quantities: [2] }], {});
+  const line = page.getByTestId('stay-line');
+  await page.getByLabel('Voyageurs').fill('4');
+  await page.getByLabel('Voyageurs').press('Tab');
+  await expect(line).toContainText('4 personnes');
+  await line.getByRole('button', { name: 'Augmenter : Chutes de la Lobé — 1 session' }).click();
+  await expect(line).toContainText('4 personnes × 2 sessions');
+  await expect(line).toContainText('40 000 FCFA');
+  const href = await page.locator('[data-testid="send-stay"]:visible').first().getAttribute('href');
+  expect(plain(decodedMessage(href))).toContain(
+    'Chutes de la Lobé — 4 personnes × 2 sessions : 40 000 FCFA',
+  );
 });
 
 test('le pique-nique s’appelle « Pique-nique en bord de mer »', async ({ page }) => {

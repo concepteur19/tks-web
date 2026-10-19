@@ -32,21 +32,52 @@ describe('ajout', () => {
     expect(selection.updatedAt).toBe(NOW.toISOString());
   });
 
-  it('additionne les personnes d’une ligne existante, plafonnées au maximum', () => {
+  it('réajoutée, une activité gagne une session et garde les personnes de l’ajout (US6)', () => {
     let { selection } = add(emptySelection(NOW), line('chutes-de-la-lobe', [2]));
     const merged = add(selection, line('chutes-de-la-lobe', [3]));
-    expect(merged.selection.items[0]?.quantities).toEqual([5]);
+    expect(merged.selection.items[0]).toEqual(line('chutes-de-la-lobe', [3], { sessions: 2 }));
     expect(merged.event).toEqual({ type: 'merged', serviceId: 'chutes-de-la-lobe', capped: false });
     selection = merged.selection;
-    const capped = add(selection, line('chutes-de-la-lobe', [19]));
-    expect(capped.selection.items[0]?.quantities).toEqual([20]);
+    const capped = add(selection, line('chutes-de-la-lobe', [3], { sessions: 9 }));
+    expect(capped.selection.items[0]?.sessions).toBe(10);
     expect(capped.event).toEqual({ type: 'merged', serviceId: 'chutes-de-la-lobe', capped: true });
+  });
+
+  it('garde les sessions quand une ligne non duplicable ou d’un autre tarif est remplacée (US6)', () => {
+    const { selection } = add(
+      emptySelection(NOW),
+      line('campement-bagyeli', [3], { tierId: 'individuel', sessions: 2 }),
+    );
+    const couple = add(selection, line('campement-bagyeli', [], { tierId: 'couple' }));
+    expect(couple.selection.items[0]).toEqual(line('campement-bagyeli', [], { tierId: 'couple' }));
+    const back = add(selection, line('campement-bagyeli', [4], { tierId: 'individuel' }));
+    expect(back.selection.items[0]?.sessions).toBe(3);
+  });
+
+  it('borne les sessions de 1 à 10, seulement pour une prestation qui compte des personnes (US6)', () => {
+    const sessions = (l: SelectedLine) => add(emptySelection(NOW), l).selection.items[0]?.sessions;
+    expect(sessions(line('chutes-de-la-lobe', [2], { sessions: 4 }))).toBe(4);
+    expect(sessions(line('chutes-de-la-lobe', [2], { sessions: 25 }))).toBe(10);
+    expect(sessions(line('chutes-de-la-lobe', [2], { sessions: 0 }))).toBeUndefined();
+    expect(sessions(line('chutes-de-la-lobe', [2], { sessions: Number.NaN }))).toBeUndefined();
+    expect(sessions(line('quad', [1], { sessions: 3 }))).toBeUndefined();
+    const updated = updateLine(
+      add(emptySelection(NOW), line('chutes-de-la-lobe', [2])).selection,
+      'chutes-de-la-lobe',
+      { sessions: 3 },
+      CATALOG,
+      NOW,
+    );
+    expect(updated.selection.items[0]?.sessions).toBe(3);
   });
 
   it('additionne les unités mais remplace la durée', () => {
     const { selection } = add(emptySelection(NOW), line('location', [1, 2]));
     const merged = add(selection, line('location', [1, 5]));
     expect(merged.selection.items[0]?.quantities).toEqual([2, 5]);
+    const capped = add(merged.selection, line('location', [4, 5]));
+    expect(capped.selection.items[0]?.quantities).toEqual([5, 5]);
+    expect(capped.event).toEqual({ type: 'merged', serviceId: 'location', capped: true });
   });
 
   it('Premium ajouté deux fois : véhicules additionnés, jours remplacés (006)', () => {
@@ -60,9 +91,15 @@ describe('ajout', () => {
     let { selection } = add(emptySelection(NOW), line('quad', [1]));
     selection = add(selection, line('chutes-de-la-lobe', [2])).selection;
     const merged = add(selection, line('chutes-de-la-lobe', [1])).selection;
-    expect(merged.items).toEqual([line('quad', [1]), line('chutes-de-la-lobe', [3])]);
+    expect(merged.items).toEqual([
+      line('quad', [1]),
+      line('chutes-de-la-lobe', [1], { sessions: 2 }),
+    ]);
     const updated = updateLine(merged, 'chutes-de-la-lobe', { quantities: [4] }, CATALOG, NOW);
-    expect(updated.selection.items).toEqual([line('quad', [1]), line('chutes-de-la-lobe', [4])]);
+    expect(updated.selection.items).toEqual([
+      line('quad', [1]),
+      line('chutes-de-la-lobe', [4], { sessions: 2 }),
+    ]);
   });
 
   it('remplace les options lors d’une fusion', () => {
@@ -75,7 +112,7 @@ describe('ajout', () => {
       line('excursion-en-pirogue', [1], { optionIds: ['musee-d-art'] }),
     );
     expect(merged.selection.items[0]).toEqual(
-      line('excursion-en-pirogue', [3], { optionIds: ['musee-d-art'] }),
+      line('excursion-en-pirogue', [1], { sessions: 2, optionIds: ['musee-d-art'] }),
     );
   });
 
@@ -200,6 +237,48 @@ describe('dates et voyageurs', () => {
   });
 });
 
+describe('voyageurs et lignes (US6)', () => {
+  const filled = () => {
+    let sel = add(emptySelection(NOW), line('chutes-de-la-lobe', [2])).selection;
+    sel = add(sel, line('essentiel-de-kribi', [3])).selection;
+    return add(sel, line('location', [2, 3])).selection;
+  };
+
+  it('un nouveau nombre de voyageurs devient celui de chaque ligne, dans ses bornes', () => {
+    const sel = setStay(filled(), { travelers: 1 }, NOW, CATALOG);
+    expect(sel.items.map((item) => item.quantities)).toEqual([[1], [2], [2, 3]]);
+    const many = setStay(sel, { travelers: 30 }, NOW, CATALOG);
+    expect(many.items.map((item) => item.quantities)).toEqual([[20], [20], [2, 3]]);
+  });
+
+  it('garde les lignes quand les voyageurs ne changent pas, manquent, ou sans catalogue', () => {
+    const sel = setStay(filled(), { travelers: 4 }, NOW, CATALOG);
+    const edited = updateLine(
+      sel,
+      'chutes-de-la-lobe',
+      { quantities: [6] },
+      CATALOG,
+      NOW,
+    ).selection;
+    const dates = { travelers: 4, arrival: '2026-12-12' };
+    expect(setStay(edited, dates, NOW, CATALOG).items).toBe(edited.items);
+    expect(setStay(edited, {}, NOW, CATALOG).items).toBe(edited.items);
+    expect(setStay(edited, { travelers: 5 }, NOW).items).toBe(edited.items);
+  });
+
+  it('ignore une ligne dont la prestation a disparu et complète une quantité manquante', () => {
+    const base = emptySelection(NOW);
+    const sel = {
+      ...base,
+      items: [line('disparu', [1]), line('location', [2])],
+    };
+    expect(setStay(sel, { travelers: 3 }, NOW, CATALOG).items).toEqual([
+      line('disparu', [1]),
+      line('location', [2, 1]),
+    ]);
+  });
+});
+
 describe('ligne par défaut', () => {
   it('part du nombre de voyageurs pour les personnes, dans les bornes (010)', () => {
     expect(defaultLine(service('chutes-de-la-lobe'), 3)).toEqual(line('chutes-de-la-lobe', [3]));
@@ -293,6 +372,21 @@ describe('relecture du stockage', () => {
     const raw = stored({ items: [line('campement-bagyeli', [3], { tierId: 'individuel' })] });
     expect(parseSelection(raw, CATALOG, NOW).selection.items).toEqual([
       line('campement-bagyeli', [3], { tierId: 'individuel' }),
+    ]);
+  });
+
+  it('relit les sessions enregistrées, bornées (US6)', () => {
+    const raw = stored({
+      items: [
+        line('chutes-de-la-lobe', [4], { sessions: 3 }),
+        line('quad', [1], { sessions: 3 }),
+        line('essentiel-de-kribi', [2], { sessions: '2' as unknown as number }),
+      ],
+    });
+    expect(parseSelection(raw, CATALOG, NOW).selection.items).toEqual([
+      line('chutes-de-la-lobe', [4], { sessions: 3 }),
+      line('quad', [1]),
+      line('essentiel-de-kribi', [2]),
     ]);
   });
 

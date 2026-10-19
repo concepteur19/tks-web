@@ -11,10 +11,13 @@ export const MAX_AGE_DAYS = 30;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MAX_DATES_LENGTH = 80;
 const MAX_TRAVELERS = 50;
+export const MAX_SESSIONS = 10;
 
 export type SelectedLine = {
   serviceId: string;
   quantities: number[];
+  /** Nombre de sessions (010, US6), seulement pour une prestation qui compte des personnes ; absent = 1. */
+  sessions?: number | undefined;
   tierId?: string | undefined;
   optionIds: string[];
 };
@@ -103,11 +106,27 @@ export function defaultLine(service: IslandService, travelers?: number): Selecte
   };
 }
 
+const countsPersons = (rule: QuantityRule) =>
+  rule.dimensions.some((dimension) => dimension.kind === 'persons');
+
+/** Sessions bornées de 1 à 10 ; une valeur illisible vaut 1. */
+const clampSessions = (value: unknown) =>
+  typeof value === 'number' && Number.isFinite(value)
+    ? Math.min(MAX_SESSIONS, Math.max(1, Math.round(value)))
+    : 1;
+
+/**
+ * Ligne nettoyée. Les sessions n'existent que pour une prestation qui compte des personnes, et
+ * ne sont écrites qu'au-delà de 1 (US6).
+ */
 function normalize(line: SelectedLine, service: IslandService, catalog: Catalog): SelectedLine {
   const tierId = tierOf(service, line.tierId)?.id;
+  const rule = quantityRuleOf(service, tierId);
+  const sessions = countsPersons(rule) ? clampSessions(line.sessions) : 1;
   return {
     serviceId: service.id,
-    quantities: clampQuantities(quantityRuleOf(service, tierId), line.quantities),
+    quantities: clampQuantities(rule, line.quantities),
+    ...(sessions > 1 ? { sessions } : {}),
     ...(tierId !== undefined ? { tierId } : {}),
     optionIds: [...new Set(line.optionIds)].filter((id) => catalog.get(id)?.isOption === true),
   };
@@ -124,7 +143,11 @@ const sameLine = (a: SelectedLine, b: SelectedLine) =>
   a.quantities.join() === b.quantities.join() &&
   [...a.optionIds].sort().join() === [...b.optionIds].sort().join();
 
-/** Ajoute une ligne, ou fusionne avec la ligne existante du même service (FR-SEL-2). */
+/**
+ * Ajoute une ligne, ou fusionne avec la ligne existante du même service (FR-SEL-2). Pour une
+ * prestation qui compte des personnes, la fusion ajoute des sessions et garde les personnes de
+ * l'ajout (US6) ; les unités s'additionnent, les durées sont remplacées.
+ */
 export function addLine(
   selection: Selection,
   line: SelectedLine,
@@ -145,23 +168,25 @@ export function addLine(
   const existing = selection.items[index] as SelectedLine;
   let merged: SelectedLine;
   let event: SelectionEvent;
+  const rule = quantityRuleOf(service, incoming.tierId);
   if (!isDuplicable(service, incoming.tierId) || existing.tierId !== incoming.tierId) {
     if (sameLine(existing, incoming))
       return { selection, event: { type: 'alreadyThere', serviceId: service.id } };
-    merged = incoming;
+    merged = normalize({ ...incoming, sessions: existing.sessions }, service, catalog);
     event = { type: 'updated', serviceId: service.id };
   } else {
-    const rule = quantityRuleOf(service, incoming.tierId);
     let capped = false;
     const quantities = rule.dimensions.map((dimension, i) => {
       // Les deux lignes sont normalisées : une quantité par dimension, déjà bornée.
       const before = existing.quantities[i] as number;
       const added = incoming.quantities[i] as number;
-      if (dimension.kind !== 'persons' && dimension.kind !== 'units') return added;
+      if (dimension.kind !== 'units') return added;
       if (before + added > dimension.max) capped = true;
       return Math.min(dimension.max, before + added);
     });
-    merged = { ...incoming, quantities };
+    const sessions = (existing.sessions ?? 1) + (incoming.sessions ?? 1);
+    if (countsPersons(rule) && sessions > MAX_SESSIONS) capped = true;
+    merged = normalize({ ...incoming, quantities, sessions }, service, catalog);
     event = { type: 'merged', serviceId: service.id, capped };
   }
   const items = selection.items.map((item, i) => (i === index ? merged : item));
@@ -226,9 +251,28 @@ function cleanStay(stay: unknown): Stay {
   return result;
 }
 
-/** Dates (texte libre) et voyageurs (entier 1 à 50), facultatifs (FR-SEL-10). */
-export function setStay(selection: Selection, stay: Stay, now: Date): Selection {
-  return { ...selection, stay: cleanStay(stay), updatedAt: now.toISOString() };
+/**
+ * Dates et voyageurs (entier 1 à 50), facultatifs (FR-SEL-10). Avec le catalogue, un nouveau
+ * nombre de voyageurs devient celui de chaque ligne qui compte des personnes, dans ses bornes (US6).
+ */
+export function setStay(selection: Selection, stay: Stay, now: Date, catalog?: Catalog): Selection {
+  const cleaned = cleanStay(stay);
+  const travelers = cleaned.travelers;
+  const items =
+    catalog && travelers !== undefined && travelers !== selection.stay.travelers
+      ? selection.items.map((item) => {
+          const service = catalog.get(item.serviceId);
+          if (!service) return item;
+          const rule = quantityRuleOf(service, item.tierId);
+          const quantities = rule.dimensions.map((dimension, index) =>
+            dimension.kind === 'persons'
+              ? Math.min(dimension.max, Math.max(dimension.min, travelers))
+              : (item.quantities[index] ?? dimension.default),
+          );
+          return { ...item, quantities };
+        })
+      : selection.items;
+  return { ...selection, items, stay: cleaned, updatedAt: now.toISOString() };
 }
 
 /**
@@ -282,6 +326,7 @@ export function parseSelection(
         {
           serviceId,
           quantities: Array.isArray(line.quantities) ? (line.quantities as number[]) : [],
+          sessions: line.sessions as number | undefined,
           ...(tierId !== undefined ? { tierId } : {}),
           optionIds,
         },

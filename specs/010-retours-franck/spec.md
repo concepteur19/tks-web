@@ -102,6 +102,22 @@ Sur la fiche du pique-nique, la photo est cadrée sur le pique-nique et non sur 
 
 ---
 
+### User Story 6 - Voyageurs en haut, sessions sur chaque ligne (Priority: P1)
+
+Retour de Franck du 18 octobre (note vocale `rt1.opus`, capture de Mon séjour), décision de Zobel le 2026-10-19 : le nombre de personnes se règle une fois, dans « Voyageurs » ; chaque ligne d'une activité au prix par personne ne règle plus que son nombre de sessions.
+
+**Why this priority**: Franck l'a demandé deux fois (11 octobre, 18 octobre) ; la ligne répétait trois fois le nombre de personnes et prêtait à confusion.
+
+**Independent Test**: Indiquer 4 voyageurs, ajouter les chutes et le Village Mayi, régler 2 sessions sur les chutes ; vérifier montants et message.
+
+**Acceptance Scenarios**:
+
+1. **Given** 4 voyageurs, **When** le visiteur regarde une ligne au prix par personne, **Then** elle indique « 4 personnes » sans sélecteur de personnes, et un sélecteur « Sessions » à 1.
+2. **Given** les chutes (5 000 FCFA par personne) pour 4 voyageurs, **When** le visiteur règle 2 sessions, **Then** la ligne vaut 5 000 × 4 × 2 = 40 000 FCFA et le message écrit « Chutes de la Lobé — 4 personnes × 2 sessions : 40 000 FCFA ».
+3. **Given** des lignes dans le séjour, **When** le visiteur change le nombre de voyageurs, **Then** toutes les lignes au prix par personne suivent, dans les bornes de chaque prestation (minimum 2 d'un parcours, capacité d'une sortie en groupe).
+4. **Given** une activité déjà dans le séjour, **When** le visiteur l'ajoute de nouveau, **Then** elle gagne une session (et non des personnes).
+5. **Given** aucun voyageur indiqué, **When** le visiteur ajoute une activité, **Then** la ligne garde le nombre de personnes choisi à l'ajout, et le rappel invite à indiquer les voyageurs.
+
 ### Edge Cases
 
 - **Voyageurs non indiqués** : une nouvelle ligne garde la valeur par défaut de la prestation.
@@ -123,7 +139,7 @@ Sur la fiche du pique-nique, la photo est cadrée sur le pique-nique et non sur 
 - **FR-002**: Les 10 plats DOIVENT porter les descriptions fournies par Franck le 2026-10-18, et l'Ebanjea DOIT être ajouté (spécialité batanga, sur demande, avec sa description).
 - **FR-003**: L'image générée du maban DOIT être retirée ; le maban et l'Ebanjea montrent une image fidèle quand Franck en fournit une (photo ou description), et d'ici là une photo de la côte de Kribi sans plat, étiquetée « Photo à venir ».
 - **FR-004**: Le pique-nique DOIT s'appeler « Pique-nique en bord de mer » (« Beach picnic »), son ancienne adresse redirigée vers la nouvelle.
-- **FR-005**: Dans Mon séjour, une nouvelle ligne au prix par personne DOIT partir du nombre de voyageurs indiqué (borné par la prestation), sous le libellé « Personnes pour cette activité ».
+- **FR-005**: Dans Mon séjour, une nouvelle ligne au prix par personne DOIT partir du nombre de voyageurs indiqué (borné par la prestation). Remplacé et précisé par FR-019 (US6) : les personnes suivent les voyageurs, sans sélecteur par ligne.
 
 #### Parcours
 
@@ -144,6 +160,13 @@ Sur la fiche du pique-nique, la photo est cadrée sur le pique-nique et non sur 
 - **FR-014**: Les dates du séjour DOIVENT se choisir dans deux champs Arrivée et Départ qui ouvrent un calendrier ; le départ ne peut précéder l'arrivée ; le message les écrit en toutes lettres dans la langue du visiteur ; des dates écrites à la main dans un séjour enregistré avant le changement sont conservées.
 - **FR-015**: Chaque photo DOIT pouvoir porter son cadrage (point à garder visible quand elle est recadrée) ; le pique-nique est cadré sur le pique-nique.
 - **FR-016**: Les photos de la galerie d'une fiche DOIVENT s'ouvrir en entier au toucher, et se fermer par un bouton, Échap ou un toucher en dehors.
+
+#### Voyageurs et sessions (US6)
+
+- **FR-019**: Pour une prestation qui compte des personnes, le nombre de personnes DOIT suivre « Voyageurs » quand il est indiqué, borné par la prestation ; Mon séjour l'affiche sans sélecteur (« 4 personnes »).
+- **FR-020**: Chaque ligne d'une telle prestation DOIT porter un nombre de sessions (1 à 10, 1 par défaut), réglable dans Mon séjour ; le montant de la ligne et de ses options vaut le montant d'une session multiplié par le nombre de sessions.
+- **FR-021**: Ajouter de nouveau une prestation déjà présente DOIT lui ajouter ses sessions (plafonnées à 10), sans additionner les personnes.
+- **FR-022**: Le message WhatsApp DOIT écrire les sessions quand il y en a plus d'une (« 4 personnes × 2 sessions »).
 
 #### Qualité
 
