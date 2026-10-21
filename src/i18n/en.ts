@@ -60,7 +60,9 @@ export const en = {
   'home.how.3.text': 'Send your trip in one tap: Kibreeze confirms and books for you.',
   'home.how.cta': 'Discover tourism',
   'home.about.title': 'Who we are',
-  'home.about.alt': 'Aerial view of Kribi, between the town, the beach and the ocean',
+  'home.about.alt':
+    'Illustration of the Kibreeze team in red T-shirts, in front of a Kibreeze banner',
+  'home.about.illustration': 'Illustration',
   'home.about.more': 'Learn more about Kibreeze',
   'home.cta.title': 'A tailor-made trip?',
   'home.cta.text': 'Write to us: we help you put together your stay in Kribi.',
