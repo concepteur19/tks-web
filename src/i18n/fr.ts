@@ -61,7 +61,9 @@ export const fr = {
   'home.how.3.text': 'Envoyez votre séjour en un geste : Kibreeze confirme et réserve pour vous.',
   'home.how.cta': 'Découvrir le Tourisme',
   'home.about.title': 'Qui sommes-nous',
-  'home.about.alt': 'Vue aérienne de Kribi, entre la ville, la plage et l’océan',
+  'home.about.alt':
+    'Illustration de l’équipe Kibreeze en t-shirts rouges, devant un kakémono Kibreeze',
+  'home.about.illustration': 'Illustration',
   'home.about.more': 'En savoir plus sur Kibreeze',
   'home.cta.title': 'Un séjour sur mesure ?',
   'home.cta.text': 'Écrivez-nous : nous vous aidons à composer votre séjour à Kribi.',

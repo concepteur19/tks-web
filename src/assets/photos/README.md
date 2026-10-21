@@ -92,6 +92,8 @@ Consigne commune : *Realistic documentary food photograph taken in Kribi, Camero
 | `illustrations/chambre-15000.jpg` … `villa-150000.jpg` | une illustration par palier d'hébergement (005), de la chambre simple à la villa avec piscine, consigne d'intérieur ou d'extérieur « real-estate style », sans personne ; marquées « Exemple de logement à ce budget · photo illustrative » |
 | `illustrations/croisiere-en-haute-mer.jpg` | bateau de croisière blanc en mer au large de la côte de Kribi (consigne de voyage, sans nourriture) |
 
+Photo d'équipe (2026-10-21) : `illustrations/equipe.jpg`, bloc « Qui sommes-nous » de l'accueil, à la place de `sections/kribi-vue-aerienne.jpg`. Illustration fournie par Zobel : l'équipe en t-shirts rouges Kibreeze, redessinée d'après la photo d'équipe en t-shirts « Trip Master » (pas le temps de refaire la photo). Recadrée en 4:3 (768 × 576, lignes 395 à 971 de l'original 768 × 1 376), étiquetée « Illustration ». À remplacer par une vraie photo de l'équipe en tenue Kibreeze.
+
 ## Retours de Franck (feature 010)
 
 Contrôlées en pleine résolution le 2026-10-18, sans filigrane. Provisoires : Franck choisira lui-même (questionnaire 7, onglets Photos et Diaporama).
