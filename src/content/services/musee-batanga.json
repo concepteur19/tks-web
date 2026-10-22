@@ -1,7 +1,7 @@
 {
   "title": {
-    "fr": "Musée Batanga",
-    "en": "Batanga Museum"
+    "fr": "Musée d'art de Grand Batanga (Luma)",
+    "en": "Grand Batanga Art Museum (Luma)"
   },
   "section": "experience",
   "categoryId": "visites",
@@ -10,15 +10,36 @@
     "en": "Batanga heritage and culture, at the museum"
   },
   "description": {
-    "fr": "Visite du Musée Batanga pour découvrir des éléments du patrimoine et de la culture Batanga.",
-    "en": "Visit the Batanga Museum to discover the heritage and culture of the Batanga people."
+    "fr": "Visite du Musée d'art de Grand Batanga (Luma) pour découvrir des éléments du patrimoine et de la culture Batanga.",
+    "en": "Visit the Grand Batanga Art Museum (Luma) to discover the heritage and culture of the Batanga people."
   },
   "images": [
     {
-      "src": "../../assets/photos/sections/kribi-vue-aerienne.jpg",
+      "src": "../../assets/photos/experiences/musee-batanga.jpg",
       "alt": {
-        "fr": "Vue aérienne de la côte de Kribi",
-        "en": "Aerial view of the Kribi coast"
+        "fr": "Le musée, bâtiment blanc au toit rouge entouré de pelouse et de cocotiers",
+        "en": "The museum, a white building with a red roof among lawns and coconut palms"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/musee-batanga-2.jpg",
+      "alt": {
+        "fr": "Le panneau « Musée d'art de Grand Batanga Luma » sous un ciel bleu",
+        "en": "The “Musée d'art de Grand Batanga Luma” sign under a blue sky"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/musee-batanga-3.jpg",
+      "alt": {
+        "fr": "Un léopard naturalisé exposé devant des peintures",
+        "en": "A stuffed leopard on display in front of paintings"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/musee-batanga-4.jpg",
+      "alt": {
+        "fr": "Une tortue marine naturalisée posée sur un socle en bois",
+        "en": "A stuffed sea turtle resting on a wooden stand"
       }
     }
   ],
@@ -38,8 +59,8 @@
     ]
   },
   "location": {
-    "fr": "Musée Batanga",
-    "en": "Batanga Museum"
+    "fr": "Musée d'art de Grand Batanga (Luma)",
+    "en": "Grand Batanga Art Museum (Luma)"
   },
   "order": 80,
   "conditions": {

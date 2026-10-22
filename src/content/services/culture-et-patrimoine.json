@@ -5,8 +5,8 @@
   },
   "section": "parcours",
   "shortDescription": {
-    "fr": "Le village Mayi, le Musée Batanga et le débarcadère de Mboa-Manga",
-    "en": "Mayi village, the Batanga Museum and the Mboa-Manga landing stage"
+    "fr": "Le village Mayi, le Musée d'art de Grand Batanga (Luma) et le débarcadère de Mboa-Manga",
+    "en": "Mayi village, the Grand Batanga Art Museum (Luma) and the Mboa-Manga landing stage"
   },
   "description": {
     "fr": "Partez à la découverte de l’histoire et de l’identité culturelle de Kribi. Entre les sites historiques du village Mayi, le patrimoine Batanga et l’ambiance du débarcadère de Mboa-Manga, découvrez une ville dont les histoires méritent d’être racontées.",
@@ -46,8 +46,8 @@
     },
     {
       "label": {
-        "fr": "Musée Batanga",
-        "en": "Batanga Museum"
+        "fr": "Musée d'art de Grand Batanga (Luma)",
+        "en": "Grand Batanga Art Museum (Luma)"
       },
       "serviceId": "musee-batanga"
     },

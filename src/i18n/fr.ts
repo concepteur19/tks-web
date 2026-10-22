@@ -155,6 +155,10 @@ export const fr = {
   'home.hero.alt2': 'Un guide assis sur une pirogue tirée sur la plage, face à la mer',
   'home.hero.alt3': 'Une plage de Kribi bordée d’arbres, sous un soleil voilé',
   'home.hero.alt4': 'Les chutes de la Lobé entre les rochers et la forêt',
+  'home.hero.alt5':
+    'Un couple bagyeli en forêt, elle avec une hotte tressée, lui avec un filet de chasse',
+  'home.hero.alt6': 'Vue aérienne du port en eau profonde de Kribi, un porte-conteneurs à quai',
+  'home.hero.alt7': 'Trois tortues marines au repos sur une plage de sable',
   'home.hero.pause': 'Mettre le diaporama en pause',
   'lightbox.close': 'Fermer',
   'lightbox.open': 'Voir la photo en grand',

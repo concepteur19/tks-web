@@ -107,6 +107,83 @@ Contrôlées en pleine résolution le 2026-10-18, sans filigrane. Provisoires : 
 
 `chutes-de-la-lobe/L9-15` (Franck en gilet aux chutes) n'est pas dans le diaporama : son visage tomberait sous le titre du hero.
 
+## Port Autonome de Kribi (2026-10-22)
+
+Cinq photos envoyées par Zobel le 2026-10-22, rangées dans `Elements/tri-par-activite/port-autonome-de-kribi/`. Elles remplacent la vue aérienne de la côte, sans filigrane ni personne identifiable.
+
+| Usage | Fichier | Source |
+|---|---|---|
+| Photo principale | `experiences/port-autonome-de-kribi.jpg` | `plage-pirogues-et-port` (photo désignée par Zobel) |
+| Galerie | `experiences/port-autonome-de-kribi-2.jpg` … `-5.jpg` | `portiques`, `kribi-conteneurs-terminal`, `navire-au-large`, `panneau-deep-sea-port` |
+
+## Village Ebodjé (2026-10-22)
+
+Quatre photos envoyées par Zobel le 2026-10-22, rangées dans `Elements/tri-par-activite/village-ebodje/`. Elles remplacent la vue aérienne de la côte. Petites (600 à 1 074 px de large) : à remplacer par des photos de Franck en meilleure définition.
+
+| Usage | Fichier | Source |
+|---|---|---|
+| Photo principale | `experiences/village-ebodje.jpg` | `tortue-luth` |
+| Galerie | `experiences/village-ebodje-2.jpg` … `-4.jpg` | `plage-rochers`, `musee-des-tortues`, `plage-cocotiers` |
+
+## Musée d'art de Grand Batanga, Luma (2026-10-22)
+
+Page renommée le 2026-10-22 « Musée d'art de Grand Batanga (Luma) », comme sur le panneau (« Musée Batanga » avant) ; l'identifiant `musee-batanga` ne change pas.
+
+Quatre photos envoyées par Zobel le 2026-10-22, rangées dans `Elements/tri-par-activite/musee-batanga/`. Elles remplacent la vue aérienne de la côte. Petites (720 px de large) : à remplacer par des photos de Franck en meilleure définition.
+
+| Usage | Fichier | Source |
+|---|---|---|
+| Photo principale | `experiences/musee-batanga.jpg` | `batiment` |
+| Galerie | `experiences/musee-batanga-2.jpg` … `-4.jpg` | `panneau`, `leopard`, `tortue` |
+
+## Photos mises en avant (2026-10-22)
+
+Trois photos envoyées par Zobel le 2026-10-22 « à mettre en avant » : chacune devient la photo principale de sa page, les photos précédentes passent en galerie.
+
+| Page | Fichier | Source |
+|---|---|---|
+| Campement Bagyeli | `experiences/campement-bagyeli-4.jpg` | `_a-classer_village-bagyeli/couple-en-foret` |
+| Port Autonome de Kribi | `experiences/port-autonome-de-kribi-6.jpg` | `port-autonome-de-kribi/vue-aerienne` |
+| Village Ebodjé | `experiences/village-ebodje-5.jpg` | `village-ebodje/tortues-sur-la-plage` |
+
+Les trois sont aussi les photos 5 à 7 du diaporama de l'accueil, après `hero/kribi-4.jpg`. Ce sont des photos paysage dans un cadre portrait sur téléphone : `Hero.astro` les recadre une par une (`object-position`) pour garder le sujet visible.
+
+## Hôtel Golden K (2026-10-22)
+
+Deux photos envoyées par Zobel le 2026-10-22, rangées dans `Elements/tri-par-activite/hotel-golden-k/`. Elles remplacent la vue aérienne de la côte.
+
+| Usage | Fichier | Source |
+|---|---|---|
+| Photo principale | `experiences/hotel-golden-k.jpg` | `piscine-et-facade` |
+| Galerie | `experiences/hotel-golden-k-2.jpg` | `escalier-et-facade` |
+
+## Bateau de croisière en haute mer (2026-10-22)
+
+Trois photos envoyées par Zobel le 2026-10-22, rangées dans `Elements/tri-par-activite/croisiere-en-haute-mer/`. Elles remplacent l'illustration générée sur la page du service, qui perd son étiquette « Photo illustrative ». La Formule Premium prend aussi la photo principale (accord de Zobel le 2026-10-22) : l'illustration `illustrations/croisiere-en-haute-mer.jpg` n'est plus utilisée.
+
+| Usage | Fichier | Source |
+|---|---|---|
+| Photo principale | `experiences/croisiere-en-haute-mer.jpg` | `bateau-a-quai` |
+| Galerie | `experiences/croisiere-en-haute-mer-2.jpg`, `-3.jpg` | `marina-toits-bleus`, `marina-ponton` |
+
+## Ebanjea (2026-10-22)
+
+Deux photos envoyées par Zobel le 2026-10-22, rangées dans `Elements/tri-par-activite/ebanjea/`. Elles remplacent la photo de la côte marquée « Photo à venir ».
+
+| Usage | Fichier | Source |
+|---|---|---|
+| Photo principale | `experiences/ebanjea.jpg` | `assiette` |
+| Galerie | `experiences/ebanjea-2.jpg` | `marmite` |
+
+## Maban (2026-10-22)
+
+Deux photos envoyées par Zobel le 2026-10-22, rangées dans `Elements/tri-par-activite/maban/`. Elles remplacent la photo de la côte marquée « Photo à venir » : plus aucun plat n'attend sa photo.
+
+| Usage | Fichier | Source |
+|---|---|---|
+| Photo principale | `experiences/maban.jpg` | `poisson-en-main` |
+| Galerie | `experiences/maban-2.jpg` | `poissons-epices` |
+
 ## Véhicules TKS® (feature 006)
 
 Photos des cinq véhicules envoyées par Franck le 2026-10-06 (`voitures-tks/`). Les plaques d'immatriculation sont floutées **à l'import** : l'entrée de `sources.json` donne les zones à flouter (`blur`, fractions de l'image après rotation), si bien qu'un réimport ne republie jamais une plaque lisible. Contrôlées en pleine résolution le 2026-10-17, plaques des taxis en arrière-plan comprises.

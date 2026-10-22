@@ -14,12 +14,11 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/illustrations/croisiere-en-haute-mer.jpg",
+      "src": "../../assets/photos/experiences/croisiere-en-haute-mer.jpg",
       "alt": {
-        "fr": "Un bateau de croisière blanc en mer, au large d'une côte tropicale",
-        "en": "A white cruise boat at sea off a tropical coast"
-      },
-      "illustrative": true
+        "fr": "Un bateau de pêche au gros blanc, amarré au ponton sous les drapeaux du Cameroun",
+        "en": "A white sport-fishing boat moored at the pontoon under Cameroonian flags"
+      }
     }
   ],
   "pricing": {

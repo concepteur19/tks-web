@@ -15,6 +15,13 @@
   },
   "images": [
     {
+      "src": "../../assets/photos/experiences/campement-bagyeli-4.jpg",
+      "alt": {
+        "fr": "Un couple bagyeli en forêt, elle avec une hotte tressée, lui avec un filet de chasse",
+        "en": "A Bagyeli couple in the forest, she with a woven basket, he with a hunting net"
+      }
+    },
+    {
       "src": "../../assets/photos/experiences/campement-bagyeli.jpg",
       "alt": {
         "fr": "Des visiteurs avec des habitants du campement Bagyeli, devant une case",

@@ -4,6 +4,9 @@ import heroPhoto from '../../assets/photos/hero/plage-coucher-de-soleil.jpg';
 import heroPhoto2 from '../../assets/photos/hero/kribi-2.jpg';
 import heroPhoto3 from '../../assets/photos/hero/kribi-3.jpg';
 import heroPhoto4 from '../../assets/photos/hero/kribi-4.jpg';
+import bagyeliPhoto from '../../assets/photos/experiences/campement-bagyeli-4.jpg';
+import portPhoto from '../../assets/photos/experiences/port-autonome-de-kribi-6.jpg';
+import turtlesPhoto from '../../assets/photos/experiences/village-ebodje-5.jpg';
 import { t } from '../../i18n/t.ts';
 import type { Locale } from '../../i18n/types.ts';
 import BrandLogo from '../BrandLogo.astro';
@@ -21,6 +24,10 @@ const slides = [
   { src: heroPhoto2, alt: t(locale, 'home.hero.alt2') },
   { src: heroPhoto3, alt: t(locale, 'home.hero.alt3') },
   { src: heroPhoto4, alt: t(locale, 'home.hero.alt4') },
+  // Photos paysage : `position` garde le sujet dans le cadre portrait du téléphone.
+  { src: bagyeliPhoto, alt: t(locale, 'home.hero.alt5'), position: '38% 50%' },
+  { src: portPhoto, alt: t(locale, 'home.hero.alt6'), position: '64% 50%' },
+  { src: turtlesPhoto, alt: t(locale, 'home.hero.alt7'), position: '60% 50%' },
 ];
 ---
 
@@ -54,6 +61,7 @@ const slides = [
           quality={55}
           sizes="100vw"
           class="h-full w-full object-cover"
+          style={slide.position ? `object-position: ${slide.position}` : undefined}
         />
       </div>
     ))}

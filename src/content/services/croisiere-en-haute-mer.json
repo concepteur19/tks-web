@@ -15,12 +15,25 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/illustrations/croisiere-en-haute-mer.jpg",
+      "src": "../../assets/photos/experiences/croisiere-en-haute-mer.jpg",
       "alt": {
-        "fr": "Un bateau de croisière blanc en mer, au large d'une côte tropicale",
-        "en": "A white cruise boat at sea off a tropical coast"
-      },
-      "illustrative": true
+        "fr": "Un bateau de pêche au gros blanc, amarré au ponton sous les drapeaux du Cameroun",
+        "en": "A white sport-fishing boat moored at the pontoon under Cameroonian flags"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/croisiere-en-haute-mer-2.jpg",
+      "alt": {
+        "fr": "Trois bateaux blancs à quai dans la marina, devant des toits bleus et des cocotiers",
+        "en": "Three white boats berthed in the marina, in front of blue roofs and coconut palms"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/croisiere-en-haute-mer-3.jpg",
+      "alt": {
+        "fr": "Bateaux amarrés le long du ponton flottant, aigrettes posées sur les rambardes",
+        "en": "Boats moored along the floating pontoon, egrets perched on the rails"
+      }
     }
   ],
   "pricing": {
