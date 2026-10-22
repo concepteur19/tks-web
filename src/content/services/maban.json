@@ -15,12 +15,18 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/sections/plage-kribi.jpg",
+      "src": "../../assets/photos/experiences/maban.jpg",
       "alt": {
-        "fr": "La côte de Kribi, en attendant une photo du plat",
-        "en": "The Kribi coast, until we have a photo of the dish"
-      },
-      "upcoming": true
+        "fr": "Un maban tenu à la main : poisson fumé et pimenté, doré et croustillant",
+        "en": "A maban held in the hand: smoked, spiced fish, golden and crisp"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/maban-2.jpg",
+      "alt": {
+        "fr": "Des mabans empilés dans une bassine, poissons fumés couverts d’épices rouges",
+        "en": "Mabans piled in a basin, smoked fish coated in red spices"
+      }
     }
   ],
   "pricing": {

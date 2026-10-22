@@ -154,6 +154,10 @@ export const en = {
   'home.hero.alt2': 'A guide sitting on a canoe pulled up on the beach, facing the sea',
   'home.hero.alt3': 'A tree-lined beach in Kribi under a hazy sun',
   'home.hero.alt4': 'The Lobé Falls between rocks and forest',
+  'home.hero.alt5':
+    'A Bagyeli couple in the forest, she with a woven basket, he with a hunting net',
+  'home.hero.alt6': 'Aerial view of the Kribi deep-sea port, a container ship at the quay',
+  'home.hero.alt7': 'Three sea turtles resting on a sandy beach',
   'home.hero.pause': 'Pause the slideshow',
   'lightbox.close': 'Close',
   'lightbox.open': 'View the photo full size',

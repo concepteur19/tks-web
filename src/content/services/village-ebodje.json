@@ -15,10 +15,38 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/sections/kribi-vue-aerienne.jpg",
+      "src": "../../assets/photos/experiences/village-ebodje-5.jpg",
       "alt": {
-        "fr": "Vue aérienne de la côte de Kribi",
-        "en": "Aerial view of the Kribi coast"
+        "fr": "Trois tortues marines au repos sur une plage de sable",
+        "en": "Three sea turtles resting on a sandy beach"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/village-ebodje.jpg",
+      "alt": {
+        "fr": "Une tortue luth sur le sable, au pied de la forêt, l'océan en fond",
+        "en": "A leatherback turtle on the sand at the edge of the forest, the ocean behind"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/village-ebodje-2.jpg",
+      "alt": {
+        "fr": "Plage d'Ebodjé, rochers noirs et vagues sous un ciel nuageux",
+        "en": "Ebodjé beach, dark rocks and waves under a cloudy sky"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/village-ebodje-3.jpg",
+      "alt": {
+        "fr": "Visiteurs dans la salle des tortues, carapaces sur une table et tortue peinte au mur",
+        "en": "Visitors in the turtle room, shells on a table and a turtle painted on the wall"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/village-ebodje-4.jpg",
+      "alt": {
+        "fr": "Un enfant de dos sous les cocotiers, face à la plage",
+        "en": "A child seen from behind under the coconut palms, facing the beach"
       }
     }
   ],

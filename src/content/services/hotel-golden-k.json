@@ -15,10 +15,17 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/sections/kribi-vue-aerienne.jpg",
+      "src": "../../assets/photos/experiences/hotel-golden-k.jpg",
       "alt": {
-        "fr": "Vue aérienne de la côte de Kribi",
-        "en": "Aerial view of the Kribi coast"
+        "fr": "La piscine de l'hôtel Golden K, la façade et ses balcons en fond",
+        "en": "The Golden K hotel pool, with the façade and its balconies behind"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/hotel-golden-k-2.jpg",
+      "alt": {
+        "fr": "L'escalier carrelé de bleu qui mène de la piscine à la façade de l'hôtel Golden K",
+        "en": "The blue-tiled steps leading from the pool up to the Golden K hotel façade"
       }
     }
   ],

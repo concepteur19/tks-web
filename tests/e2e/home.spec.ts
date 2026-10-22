@@ -65,7 +65,7 @@ for (const [path, lang, title, ctas] of [
       await expect(cards.nth(2)).toContainText(lang === 'fr' ? 'Appartement' : 'Apartment');
     });
 
-    test('diaporama du hero : 4 photos, une visible, défilement et pause (010)', async ({
+    test('diaporama du hero : 7 photos, une visible, défilement et pause (010)', async ({
       page,
     }) => {
       await page.clock.install();
@@ -85,7 +85,7 @@ for (const [path, lang, title, ctas] of [
       await page.mouse.move(10, 10);
       await page.mouse.down();
       await page.mouse.up();
-      await expect(slides).toHaveCount(4);
+      await expect(slides).toHaveCount(7);
       for (const image of await slides.locator('img').all()) {
         await image.evaluate((element: HTMLImageElement) =>
           element.complete ? undefined : new Promise((resolve) => (element.onload = resolve)),

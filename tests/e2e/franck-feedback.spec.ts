@@ -10,19 +10,17 @@ import {
 
 /** Retours de Franck des 11-12 octobre (010, US1). */
 test.describe('spécialités culinaires', () => {
-  for (const [path, upcoming, franck] of [
+  for (const [path, franck] of [
     [
       '/experiences/specialites-culinaires',
-      'Photo à venir',
       ['Le goût authentique de la côte', 'Osez une spécialité de caractère'],
     ],
     [
       '/en/experiences/local-food',
-      'Photo coming soon',
       ['The authentic taste of the coast', 'Dare to try a dish with character'],
     ],
   ] as const) {
-    test(`11 plats décrits par Franck, l’Ebanjea compris, photos à venir signalées (${path})`, async ({
+    test(`11 plats décrits par Franck, Ebanjea et maban photographiés (${path})`, async ({
       page,
     }) => {
       await page.goto(path);
@@ -32,9 +30,9 @@ test.describe('spécialités culinaires', () => {
       expect(new Set(descriptions).size).toBe(11);
       const text = plain(await page.locator('main').textContent());
       for (const phrase of franck) expect(text).toContain(phrase);
+      // Photos de l'Ebanjea et du maban reçues le 2026-10-22 : plus d'étiquette « Photo à venir ».
       for (const name of ['Ebanjea', 'Maban']) {
-        const card = cards.filter({ hasText: name });
-        await expect(card.locator('[data-illustrative]')).toContainText(upcoming);
+        await expect(cards.filter({ hasText: name }).locator('[data-illustrative]')).toHaveCount(0);
       }
     });
   }

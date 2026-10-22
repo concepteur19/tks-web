@@ -15,12 +15,18 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/sections/plage-kribi.jpg",
+      "src": "../../assets/photos/experiences/ebanjea.jpg",
       "alt": {
-        "fr": "La côte de Kribi, en attendant une photo du plat",
-        "en": "The Kribi coast, until we have a photo of the dish"
-      },
-      "upcoming": true
+        "fr": "L’Ebanjea servi à l’assiette : tronçons de poisson dans un bouillon jaune relevé, citron vert",
+        "en": "Ebanjea on the plate: pieces of fish in a spicy yellow broth, with lime"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/ebanjea-2.jpg",
+      "alt": {
+        "fr": "L’Ebanjea en cuisson : tronçons de poisson épicés et citron vert dans la marmite",
+        "en": "Ebanjea cooking: spiced pieces of fish and lime in the pot"
+      }
     }
   ],
   "pricing": {

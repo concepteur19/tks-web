@@ -41,19 +41,22 @@ test('spécialités culinaires : sur devis, sans montant ni option, photo étiqu
   for (let index = 0; index < (await all.count()); index += 1) {
     const text = plain(await all.nth(index).textContent());
     expect(text).not.toMatch(/FCFA|€/);
-    // Image générée, ou photo de la côte en attendant le vrai plat (maban, Ebanjea : 010).
-    expect(text).toMatch(/Photo illustrative|Photo à venir/);
+    // Image générée, sauf l'Ebanjea et le maban, photographiés (2026-10-22).
+    if (/Ebanjea|Maban/.test(text)) expect(text).not.toMatch(/Photo illustrative|Photo à venir/);
+    else expect(text).toContain('Photo illustrative');
   }
   await page.goto('/experiences/langouste');
   await expect(page.getByTestId('options')).toHaveCount(0);
   await expect(page.getByTestId('gallery')).toContainText('Photo illustrative');
 });
 
-test('le bateau de croisière porte l’étiquette « Photo illustrative »', async ({ page }) => {
+test('le bateau de croisière montre une vraie photo, sans étiquette (2026-10-22)', async ({
+  page,
+}) => {
   await page.goto('/experiences/activites');
-  await expect(cards(page).filter({ hasText: 'Bateau de croisière' })).toContainText(
-    'Photo illustrative',
-  );
+  await expect(
+    cards(page).filter({ hasText: 'Bateau de croisière' }).locator('[data-illustrative]'),
+  ).toHaveCount(0);
 });
 
 test('la pirogue propose le guide et le maître-nageur, plus le musée', async ({ page }) => {

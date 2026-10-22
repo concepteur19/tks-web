@@ -15,10 +15,45 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/sections/kribi-vue-aerienne.jpg",
+      "src": "../../assets/photos/experiences/port-autonome-de-kribi-6.jpg",
       "alt": {
-        "fr": "Vue aérienne de la côte de Kribi",
-        "en": "Aerial view of the Kribi coast"
+        "fr": "Vue aérienne du port en eau profonde de Kribi, un porte-conteneurs à quai sous les portiques",
+        "en": "Aerial view of the Kribi deep-sea port, a container ship berthed under the gantry cranes"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/port-autonome-de-kribi.jpg",
+      "alt": {
+        "fr": "Pirogues de pêcheurs sur la plage, face aux portiques et aux conteneurs du port de Kribi",
+        "en": "Fishing canoes on the beach, facing the cranes and containers of the Port of Kribi"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/port-autonome-de-kribi-2.jpg",
+      "alt": {
+        "fr": "Les portiques bleus du terminal à conteneurs au-dessus des piles de conteneurs",
+        "en": "The blue gantry cranes of the container terminal above the stacked containers"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/port-autonome-de-kribi-3.jpg",
+      "alt": {
+        "fr": "Les bâtiments du Kribi Conteneurs Terminal, au bout d'un terrain en chantier",
+        "en": "The Kribi Container Terminal buildings beyond a site under construction"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/port-autonome-de-kribi-4.jpg",
+      "alt": {
+        "fr": "Un navire et des barges au large, vus depuis une plage de rochers",
+        "en": "A ship and barges offshore, seen from a rocky beach"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/port-autonome-de-kribi-5.jpg",
+      "alt": {
+        "fr": "Panneau routier indiquant le port en eau profonde (Deep Sea Port) et Campo",
+        "en": "Road sign pointing to the Deep Sea Port and Campo"
       }
     }
   ],
