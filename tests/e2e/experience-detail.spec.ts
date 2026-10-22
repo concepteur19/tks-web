@@ -104,7 +104,13 @@ test('le sélecteur de langue et l’adresse canonique visent la fiche, pas la l
 
 test('pas de défilement horizontal à 320 px', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 800 });
-  for (const slug of ['excursion-en-pirogue', 'campement-bagyeli', 'village-ebodje']) {
+  // Le port a six photos : ses vignettes passent à la ligne au lieu de déborder.
+  for (const slug of [
+    'excursion-en-pirogue',
+    'campement-bagyeli',
+    'village-ebodje',
+    'port-autonome-de-kribi',
+  ]) {
     await page.goto(`/experiences/${slug}`);
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
