@@ -24,9 +24,10 @@ const slides = [
   { src: heroPhoto2, alt: t(locale, 'home.hero.alt2') },
   { src: heroPhoto3, alt: t(locale, 'home.hero.alt3') },
   { src: heroPhoto4, alt: t(locale, 'home.hero.alt4') },
-  // Photos paysage : `position` garde le sujet dans le cadre portrait du téléphone.
-  { src: bagyeliPhoto, alt: t(locale, 'home.hero.alt5'), position: '38% 50%' },
-  { src: portPhoto, alt: t(locale, 'home.hero.alt6'), position: '64% 50%' },
+  // Photos paysage : `position` garde le sujet dans le cadre, portrait sur téléphone (horizontal)
+  // comme paysage sur ordinateur (vertical).
+  { src: bagyeliPhoto, alt: t(locale, 'home.hero.alt5'), position: '38% 20%' },
+  { src: portPhoto, alt: t(locale, 'home.hero.alt6'), position: '64% 75%' },
   { src: turtlesPhoto, alt: t(locale, 'home.hero.alt7'), position: '60% 50%' },
 ];
 ---
@@ -53,13 +54,16 @@ const slides = [
   <template data-hero-more>
     {slides.slice(1).map((slide) => (
       <div data-slide class="hero-slide absolute inset-0 -z-10">
+        <!-- 1 280 px en plus pour les écrans d'ordinateur : ces photos arrivent après la
+             première, sans peser sur le LCP. Sur téléphone, `sizes` annonce 70 % de
+             l'écran pour que les écrans haute densité restent à 828 px, comme avant. -->
         <Picture
           src={slide.src}
           alt={slide.alt}
           formats={['webp']}
-          widths={[480, 828]}
+          widths={[480, 828, 1280]}
           quality={55}
-          sizes="100vw"
+          sizes="(min-width: 64rem) 100vw, 70vw"
           class="h-full w-full object-cover"
           style={slide.position ? `object-position: ${slide.position}` : undefined}
         />
