@@ -153,6 +153,6 @@ Réglé le 2026-09-16 : l'excursion en pirogue est gardée, il n'y a pas de cat�
 |---|---|
 | Photos d'hébergement par budget (L1) | 🔄 une illustration générée par budget (6), marquée « Exemple de logement à ce budget · photo illustrative » ; les photos réelles de Franck restent sur l'accueil et en bandeau ; une vraie photo par budget toujours attendue |
 | Ce qui est inclus par palier (L2) | ⏳ non fourni : rien n'est affiché |
-| Prix de la formule Premium | ⏳ 300 000 FCFA du guide, à confirmer : le bateau de croisière (150 000 FCFA l'heure) y remplace le bateau de plaisance |
+| Prix des formules | ✅ revus le 2026-10-26 (relayés par Zobel), base 2 personnes : Découverte 55 000, Évasion 50 000, Aventure 80 000, Premium 245 000 FCFA. Remplacent les prix du guide (100 000, 120 000, 150 000, 300 000) |
 | Formules complètes avec hébergement et transport (R3) | ⏳ sans prix, non publiées |
 | Textes anglais des 16 nouvelles prestations | 🔄 à relire par Zobel |
