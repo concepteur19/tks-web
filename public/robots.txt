@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /dev/
 
-Sitemap: https://tks-web-1h2.pages.dev/sitemap-index.xml
+Sitemap: https://ki-breeze.com/sitemap-index.xml
