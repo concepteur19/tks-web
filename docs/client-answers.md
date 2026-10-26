@@ -239,6 +239,8 @@ La grille par type et par budget est validée, avec une correction de fond : **l
 
 Quatre packages existent **avec leurs prix**, contrairement à sa première réponse (M1) : Découverte 100 000, Évasion 120 000, Aventure 150 000, Premium 300 000, tous sur une base de 2 personnes, groupes jusqu'à 8 sur demande.
 
+**Prix revus le 2026-10-26** (relayés par Zobel) : Découverte 55 000, Évasion 50 000, Aventure 80 000, Premium 245 000 FCFA. Ils remplacent les montants ci-dessus.
+
 | Réf. | Décision |
 |---|---|
 | R3 | **Les deux versions** : packages d'activités seules *et* séjours complets incluant hébergement et transport. Les prix des versions complètes n'existent pas encore |

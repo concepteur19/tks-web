@@ -23,7 +23,7 @@
   ],
   "pricing": {
     "kind": "fixed",
-    "amount": 120000,
+    "amount": 50000,
     "unit": "per_couple"
   },
   "quantity": {
