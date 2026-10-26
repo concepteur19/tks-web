@@ -18,4 +18,5 @@ Règles :
 - Un fichier `.env.example` documente les deux variables et reste versionné. Le fichier `.env` réel n'est jamais versionné.
 - Chez l'hébergeur, ces valeurs sont des variables **de construction**, pas d'exécution. Le site étant statique, une variable d'exécution ne l'atteint jamais. Elles se configurent séparément pour l'aperçu et pour la production.
 - Adresse de production actuelle : `https://tks-web-1h2.pages.dev`, attribuée par l'hébergeur le 2026-09-17. Elle sera remplacée par le domaine de TKS quand il sera acheté, ce qui exigera une nouvelle construction.
+- Domaine acheté le 2026-10-26 : `ki-breeze.com`. En production, `PUBLIC_SITE_URL` vaut `https://ki-breeze.com` ; sans elle, Cloudflare fournirait l'adresse de la construction (`CF_PAGES_URL`), propre à chaque déploiement, et les adresses canoniques seraient fausses.
 - L'environnement d'aperçu utilise volontairement la même valeur que la production : les adresses d'aperçu changent à chaque branche, et on ne veut pas de pages d'essai indexées sous leur propre adresse canonique.

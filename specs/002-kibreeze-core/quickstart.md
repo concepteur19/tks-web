@@ -46,11 +46,13 @@ Sur un téléphone réel ou en émulation 360 × 800, puis en 1 440 × 1 024.
 | 13 | Désactiver JavaScript et recharger `/` | tout est lisible, carrousel défilable, liens WhatsApp fonctionnels | edge case |
 | 14 | Coller l'adresse de `/` et `/en/contact` dans un outil d'aperçu de partage | titre, description et image propres à la page | US4-1 |
 
-## Checklist de lancement sous kibreeze.com
+## Checklist de lancement sous ki-breeze.com
 
 Ne s'applique pas à l'adresse provisoire `*.pages.dev`.
 
-- [ ] `PUBLIC_SITE_URL` réglée sur `https://kibreeze.com` dans l'environnement de production
+- [ ] `ki-breeze.com` et `www.ki-breeze.com` ajoutés comme domaines personnalisés du projet Pages (domaine acheté le 2026-10-26)
+- [ ] `PUBLIC_SITE_URL` réglée sur `https://ki-breeze.com` dans l'environnement de production, puis nouvelle construction
+- [ ] `www.ki-breeze.com` redirigé en 301 vers `https://ki-breeze.com`
 - [ ] Relecture de l'accueil par Franck sur son téléphone (SC-008)
 
 ## Résultats relevés
