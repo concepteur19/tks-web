@@ -118,7 +118,7 @@ test.describe('formules d’activités', () => {
     const cards = page.getByTestId('package-card');
     await expect(cards).toHaveCount(4);
     const evasion = page.locator('[id="formule-evasion"]');
-    expect(plain(await evasion.textContent())).toContain('120 000 FCFA / 2 personnes');
+    expect(plain(await evasion.textContent())).toContain('50 000 FCFA / 2 personnes');
     await expect(evasion.locator('ul a')).toHaveCount(5);
     await expect(page.locator('[id="formule-premium"]')).toContainText('Le plus complet');
     await expect(page.locator('[data-section="groups"]').getByRole('link')).toHaveAttribute(
@@ -143,7 +143,7 @@ test.describe('formules d’activités', () => {
     await page.goto('/sejour');
     const line = page.getByTestId('stay-line');
     await expect(line).toHaveCount(1);
-    expect(plain(await line.textContent())).toContain('120 000 FCFA');
+    expect(plain(await line.textContent())).toContain('50 000 FCFA');
   });
 
   test('séjour logement + parcours + formule + expérience : message complet', async ({ page }) => {
@@ -167,7 +167,7 @@ test.describe('formules d’activités', () => {
   test('l’accueil affiche les prix des formules, tirés des formules', async ({ page }) => {
     await page.goto('/');
     const teaser = plain(await page.locator('[data-section="packages"]').textContent());
-    expect(teaser).toContain('100 000 FCFA');
-    expect(teaser).toContain('150 000 FCFA');
+    expect(teaser).toContain('55 000 FCFA');
+    expect(teaser).toContain('80 000 FCFA');
   });
 });
