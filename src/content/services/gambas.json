@@ -15,12 +15,11 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/illustrations/gambas.jpg",
+      "src": "../../assets/photos/experiences/gambas.jpg",
       "alt": {
-        "fr": "Des gambas grillées au piment, servies avec du citron vert",
-        "en": "Grilled king prawns with chili, served with lime"
-      },
-      "illustrative": true
+        "fr": "Un plateau de gambas grillées servi sur une table basse, sur le sable",
+        "en": "A platter of grilled prawns served on a low table on the sand"
+      }
     }
   ],
   "pricing": {

@@ -15,12 +15,11 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/illustrations/chambre-15000.jpg",
+      "src": "../../assets/photos/accommodation/chambre-2.jpg",
       "alt": {
-        "fr": "Une chambre simple et soignée, lit double, ventilateur au plafond",
-        "en": "A simple, neat room with a double bed and a ceiling fan"
-      },
-      "illustrative": true
+        "fr": "Une chambre avec lit double, climatisation et coiffeuse",
+        "en": "A bedroom with a double bed, air conditioning and a dressing table"
+      }
     }
   ],
   "pricing": {

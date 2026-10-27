@@ -34,13 +34,26 @@ const [experiences, options, islandCatalog] = await Promise.all([
   getPageCatalog(),
 ]);
 const experienceIds = new Set(experiences.map((entry) => entry.id));
-const items = (data.serviceIds ?? []).map((id) => {
+const toItem = (id: string) => {
   const entry = [...experiences, ...options].find((service) => service.id === id)!;
   return {
     title: localize(entry.data.title, locale),
     href: experienceIds.has(id) ? `${getRoutePath('experiences', locale)}/${id}` : undefined,
   };
-});
+};
+// Une ligne par entrée ; un groupe au choix tient sur une ligne (retours du 2026-10-27).
+const lines = (data.serviceIds ?? []).map((entry) =>
+  (Array.isArray(entry) ? entry : [entry]).map(toItem),
+);
+// Morceaux d'une ligne, en une seule expression pour éviter les espaces parasites : « Kayak, Jet-ski ou Quad, au choix ».
+const parts = (items: ReturnType<typeof toItem>[]) =>
+  items.flatMap((item, index) => [
+    ...(index === 0 ? [] : [index === items.length - 1 ? ` ${t(locale, 'packages.or')} ` : ', ']),
+    item,
+    ...(items.length > 1 && index === items.length - 1
+      ? [`, ${t(locale, 'packages.choice')}`]
+      : []),
+  ]);
 const islandService = islandCatalog.find((entry) => entry.id === pack.id)!;
 const pageUrl = new URL(getRoutePath('packages', locale), `${env.siteUrl}/`).toString();
 const requestHref = buildWhatsAppUrl(
@@ -80,18 +93,22 @@ const requestHref = buildWhatsAppUrl(
   <div class="flex flex-1 flex-col gap-3 p-5">
     <h3 class="font-display text-xl font-bold text-fg uppercase">{title}</h3>
     <ul class="space-y-1.5 text-sm text-fg">
-      {items.map((item) => (
+      {lines.map((items) => (
         <li class="flex items-center gap-2">
-          <span class="text-brand">
+          <span class="shrink-0 text-brand">
             <Icon name="check" size={16} />
           </span>
-          {item.href ? (
-            <a href={item.href} class="underline underline-offset-2">
-              {item.title}
-            </a>
-          ) : (
-            <span>{item.title}</span>
-          )}
+          <span>
+            {parts(items).map((part) =>
+              typeof part === 'string' ? (
+                part
+              ) : part.href ? (
+                <a href={part.href} class="underline underline-offset-2" set:text={part.title} />
+              ) : (
+                <span set:text={part.title} />
+              ),
+            )}
+          </span>
         </li>
       ))}
     </ul>

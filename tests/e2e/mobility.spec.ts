@@ -19,7 +19,7 @@ for (const [path, lang, title, tagline, brand, categories, perDay, custom] of [
     [
       ['vehicule-luxe', 'Luxe', 'Toyota Land Cruiser Prado TXL', '100 000'],
       ['vehicule-premium', 'Premium', 'Toyota RAV4', '35 000'],
-      ['vehicule-yaris', 'Yaris', 'Toyota Yaris', '25 000'],
+      ['vehicule-yaris', 'Économique', 'Toyota Yaris', '25 000'],
     ],
     '/ jour',
     "Besoin d'un transport sur mesure ?",
@@ -33,7 +33,7 @@ for (const [path, lang, title, tagline, brand, categories, perDay, custom] of [
     [
       ['vehicule-luxe', 'Luxury', 'Toyota Land Cruiser Prado TXL', '100,000'],
       ['vehicule-premium', 'Premium', 'Toyota RAV4', '35,000'],
-      ['vehicule-yaris', 'Yaris', 'Toyota Yaris', '25,000'],
+      ['vehicule-yaris', 'Economy', 'Toyota Yaris', '25,000'],
     ],
     '/ day',
     'Need tailored transport?',
@@ -137,7 +137,7 @@ test.describe('location de véhicules', () => {
     expect(message).toContain('Premium — 1 véhicule × 4 jours : 140 000 FCFA');
   });
 
-  test('Yaris, 2 véhicules et 3 jours : 150 000 FCFA', async ({ page }) => {
+  test('Économique (Yaris), 2 véhicules et 3 jours : 150 000 FCFA', async ({ page }) => {
     await seedSelection(page, [{ serviceId: 'vehicule-yaris', quantities: [2, 3] }]);
     expect(plain(await page.getByTestId('stay-line').textContent())).toContain('150 000 FCFA');
   });
@@ -257,7 +257,7 @@ test('sans JavaScript : chaque catégorie offre une demande WhatsApp qui la nomm
   for (const [id, name] of [
     ['vehicule-luxe', 'Luxe'],
     ['vehicule-premium', 'Premium'],
-    ['vehicule-yaris', 'Yaris'],
+    ['vehicule-yaris', 'Économique'],
   ]) {
     const fallback = page.locator(`[id="${id}"]`).getByRole('link', {
       name: 'Demander ce service',

@@ -38,8 +38,29 @@
     {
       "src": "../../assets/photos/experiences/campement-bagyeli-3.jpg",
       "alt": {
-        "fr": "Une rencontre sur un sentier de forêt près du campement",
-        "en": "A meeting on a forest path near the camp"
+        "fr": "Un visiteur accroupi auprès d'une habitante, sous un abri du campement",
+        "en": "A visitor crouching beside a resident under a shelter in the camp"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/campement-bagyeli-5.jpg",
+      "alt": {
+        "fr": "Une pirogue sur la rivière, entre forêt et reflets, en route vers le campement",
+        "en": "A canoe on the river between forest and reflections, on the way to the camp"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/campement-bagyeli-6.jpg",
+      "alt": {
+        "fr": "Des visiteurs en gilet de sauvetage remontent la rivière en pirogue",
+        "en": "Visitors in life jackets heading upriver by canoe"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/campement-bagyeli-7.jpg",
+      "alt": {
+        "fr": "Un grand arbre de la forêt, au bord de la rivière",
+        "en": "A tall forest tree on the riverbank"
       }
     }
   ],

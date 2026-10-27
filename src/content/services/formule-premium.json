@@ -34,8 +34,7 @@
     "excursion-en-chaloupe",
     "croisiere-en-haute-mer",
     "quad",
-    "jet-ski",
-    "kayak",
+    ["jet-ski", "kayak"],
     "balade-a-cheval",
     "jacuzzi-naturel"
   ],

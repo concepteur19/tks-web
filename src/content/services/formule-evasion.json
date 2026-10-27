@@ -5,19 +5,19 @@
   },
   "section": "formule",
   "shortDescription": {
-    "fr": "Les chutes, la pirogue, le kayak, le cheval et le jacuzzi naturel",
-    "en": "The falls, a canoe trip, kayaking, horse riding and the natural jacuzzi"
+    "fr": "Les chutes, la pirogue, le kayak, le jet-ski ou le quad au choix, le cheval et le jacuzzi naturel",
+    "en": "The falls, a canoe trip, your choice of kayak, jet ski or quad, horse riding and the natural jacuzzi"
   },
   "description": {
-    "fr": "Les chutes, la pirogue, le kayak, le cheval et le jacuzzi naturel. Une formule à prix fixe pour 2 personnes, ajustable avec nous.",
-    "en": "The falls, a canoe trip, kayaking, horse riding and the natural jacuzzi. A fixed-price package for 2 people, which we can adjust with you."
+    "fr": "Les chutes, la pirogue, le kayak, le jet-ski ou le quad au choix, le cheval et le jacuzzi naturel. Une formule à prix fixe pour 2 personnes, ajustable avec nous.",
+    "en": "The falls, a canoe trip, your choice of kayak, jet ski or quad, horse riding and the natural jacuzzi. A fixed-price package for 2 people, which we can adjust with you."
   },
   "images": [
     {
-      "src": "../../assets/photos/experiences/balade-a-cheval.jpg",
+      "src": "../../assets/photos/experiences/seance-photo.jpg",
       "alt": {
-        "fr": "Une cavalière sur un cheval, au bord de l'eau",
-        "en": "A rider on a horse at the water's edge"
+        "fr": "Deux jeunes femmes posent sur un quad, au bord de la rivière",
+        "en": "Two young women posing on a quad by the river"
       }
     }
   ],
@@ -32,7 +32,7 @@
   "serviceIds": [
     "chutes-de-la-lobe",
     "excursion-en-pirogue",
-    "kayak",
+    ["kayak", "jet-ski", "quad"],
     "balade-a-cheval",
     "jacuzzi-naturel"
   ],

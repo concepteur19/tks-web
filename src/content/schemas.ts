@@ -249,8 +249,19 @@ export function serviceSchema<Src extends z.ZodTypeAny>(src: Src) {
         )
         .min(2, 'au moins deux étapes')
         .optional(),
-      /** Formule (005) : prestations du catalogue qu'elle contient. */
-      serviceIds: z.array(z.string().min(1)).min(2, 'au moins deux prestations').optional(),
+      /**
+       * Formule (005) : prestations du catalogue qu'elle contient. Une entrée peut être un
+       * groupe de prestations au choix (« kayak, jet-ski ou quad », retours du 2026-10-27).
+       */
+      serviceIds: z
+        .array(
+          z.union([
+            z.string().min(1),
+            z.array(z.string().min(1)).min(2, 'au moins deux prestations au choix'),
+          ]),
+        )
+        .min(2, 'au moins deux prestations')
+        .optional(),
       /** Étiquette de carte (« Le plus complet »). */
       badge: localizedString.optional(),
       /** Mobilité (006) : modèles d'une catégorie de véhicule. Absent pour un service. */
@@ -360,7 +371,7 @@ export function catalogIssues(
         issues.push(`services/${service.id} → steps[${index}] : ${unknown(step.serviceId)}`);
       }
     });
-    for (const id of data.serviceIds ?? []) {
+    for (const id of (data.serviceIds ?? []).flat()) {
       if (!published.has(id)) issues.push(`services/${service.id} → serviceIds : ${unknown(id)}`);
     }
     // Le titre d'un palier cite son prix (ligne de séjour, message) : il doit rester juste (005).

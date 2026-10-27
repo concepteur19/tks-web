@@ -15,10 +15,10 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/experiences/quad.jpg",
+      "src": "../../assets/photos/experiences/quad-3.jpg",
       "alt": {
-        "fr": "Une pilote sur un quad bleu, au bord de l'eau",
-        "en": "A rider on a blue quad bike at the water's edge"
+        "fr": "Une jeune femme sur un quad, au bord de la mer",
+        "en": "A young woman on a quad bike by the sea"
       }
     },
     {
@@ -29,10 +29,17 @@
       }
     },
     {
-      "src": "../../assets/photos/experiences/quad-3.jpg",
+      "src": "../../assets/photos/experiences/quad-4.jpg",
       "alt": {
-        "fr": "Une jeune femme sur un quad, au bord de la mer",
-        "en": "A young woman on a quad bike by the sea"
+        "fr": "Une pilote sur un quad noir, sur la plage animée",
+        "en": "A rider on a black quad on the busy beach"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/quad-5.jpg",
+      "alt": {
+        "fr": "Un pilote sur un quad vert, entre les paillotes",
+        "en": "A rider on a green quad among the beach huts"
       }
     }
   ],

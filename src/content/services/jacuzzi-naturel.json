@@ -15,6 +15,13 @@
   },
   "images": [
     {
+      "src": "../../assets/photos/experiences/jacuzzi-naturel-4.jpg",
+      "alt": {
+        "fr": "Un baigneur dans l'eau du jacuzzi naturel, entre les rochers",
+        "en": "A bather in the water of the natural jacuzzi, among the rocks"
+      }
+    },
+    {
       "src": "../../assets/photos/experiences/jacuzzi-naturel.jpg",
       "alt": {
         "fr": "Un baigneur dans le bassin du jacuzzi naturel, devant la cascade",
@@ -22,17 +29,31 @@
       }
     },
     {
-      "src": "../../assets/photos/experiences/jacuzzi-naturel-2.jpg",
-      "alt": {
-        "fr": "Baignade dans le jacuzzi naturel, entre rochers et végétation",
-        "en": "Swimming in the natural jacuzzi, between rocks and greenery"
-      }
-    },
-    {
       "src": "../../assets/photos/experiences/jacuzzi-naturel-3.jpg",
       "alt": {
         "fr": "L'eau du jacuzzi naturel dévale les rochers",
         "en": "Water of the natural jacuzzi tumbling over the rocks"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/jacuzzi-naturel-5.jpg",
+      "alt": {
+        "fr": "Deux jeunes femmes sous la cascade du jacuzzi naturel",
+        "en": "Two young women under the natural jacuzzi waterfall"
+      }
+    },
+    {
+      "src": "../../assets/photos/hero/kribi-4.jpg",
+      "alt": {
+        "fr": "L'eau dévale les rochers entre la végétation",
+        "en": "Water rushing over rocks amid the greenery"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/jacuzzi-naturel-7.jpg",
+      "alt": {
+        "fr": "Des rapides écumants entre les rochers noirs",
+        "en": "Foaming rapids between dark rocks"
       }
     }
   ],

@@ -106,7 +106,14 @@ const premiumHref = buildWhatsAppUrl(env.whatsappNumber, t(locale, 'whatsapp.gen
                   class="absolute inset-0 h-full w-full object-cover"
                 />
               )}
-              <IllustrativeTag label={t(locale, 'accommodation.example')} top />
+              {/* Vraie photo d'un logement partenaire (2026-10-27) : un exemple, sans « illustrative ». */}
+              <IllustrativeTag
+                label={t(
+                  locale,
+                  image?.illustrative ? 'accommodation.example' : 'accommodation.examplePhoto',
+                )}
+                top
+              />
             </div>
             <div class="p-4">
               <div class="flex items-baseline justify-between gap-3">

@@ -15,12 +15,11 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/illustrations/appartement-35000.jpg",
+      "src": "../../assets/photos/accommodation/appartement-salon.jpg",
       "alt": {
-        "fr": "Le salon d’un appartement simple, canapé, table à manger et télévision",
-        "en": "The living room of a simple apartment with a sofa, dining table and TV"
-      },
-      "illustrative": true
+        "fr": "Le salon d'un appartement, canapés en cuir et décoration soignée",
+        "en": "An apartment living room with leather sofas and tasteful decor"
+      }
     }
   ],
   "pricing": {

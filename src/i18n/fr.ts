@@ -94,6 +94,7 @@ export const fr = {
   'accommodation.intro':
     'Choisissez le type de logement et le budget qui vous convient. Nous cherchons ensuite la meilleure option disponible chez nos partenaires à Kribi.',
   'accommodation.example': 'Exemple de logement à ce budget · photo illustrative',
+  'accommodation.examplePhoto': 'Exemple de logement à ce budget',
   'accommodation.capacity': '{min} à {max} personnes',
   'accommodation.type.chambre': 'Chambre',
   'accommodation.type.studio': 'Studio',
@@ -119,6 +120,8 @@ export const fr = {
   'packages.groups.title': "Groupes jusqu'à 8 personnes sur demande",
   'packages.groups.text': 'Chaque formule est ajustable : dites-nous ce que vous voulez changer.',
   'packages.request': 'Demander sur WhatsApp',
+  'packages.or': 'ou',
+  'packages.choice': 'au choix',
   'packages.requestMessage':
     'Bonjour Kibreeze, je suis intéressé par « {title} ». Pouvez-vous me le proposer ? {url}',
   'mobility.title': 'Mobilité & transport',
@@ -136,7 +139,7 @@ export const fr = {
   'mobility.requestMessage': 'Bonjour Kibreeze, je souhaite un prix pour « {title} ». {url}',
   'mobility.seo.title': 'Mobilité TKS® à Kribi : location, transferts, chauffeur',
   'mobility.seo.description':
-    'Louez un véhicule (Luxe, Premium, Yaris) ou demandez un transfert ou un chauffeur privé pour votre séjour à Kribi.',
+    'Louez un véhicule (Luxe, Premium, Économique) ou demandez un transfert ou un chauffeur privé pour votre séjour à Kribi.',
   'experiences.upcoming': 'Photo à venir',
   'stay.arrival': 'Arrivée',
   'stay.departure': 'Départ',
@@ -159,6 +162,7 @@ export const fr = {
     'Un couple bagyeli en forêt, elle avec une hotte tressée, lui avec un filet de chasse',
   'home.hero.alt6': 'Vue aérienne du port en eau profonde de Kribi, un porte-conteneurs à quai',
   'home.hero.alt7': 'Trois tortues marines au repos sur une plage de sable',
+  'home.hero.alt8': 'Le pont sur la Lobé au coucher du soleil, la rivière en contrebas',
   'home.hero.pause': 'Mettre le diaporama en pause',
   'lightbox.close': 'Fermer',
   'lightbox.open': 'Voir la photo en grand',

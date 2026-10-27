@@ -43,7 +43,7 @@ test.describe('fiche de l’excursion en pirogue', () => {
   test('galerie : compteur et vignettes qui mènent à chaque photo', async ({ page }) => {
     await page.goto('/experiences/excursion-en-pirogue');
     const gallery = page.getByTestId('gallery');
-    await expect(gallery.locator('[data-counter]').first()).toHaveText(/1\s*\/\s*3/);
+    await expect(gallery.locator('[data-counter]').first()).toHaveText(/1\s*\/\s*6/);
     await expect(gallery.locator('a[href="#photo-2"]')).toHaveCount(1);
   });
 

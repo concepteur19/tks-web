@@ -15,6 +15,13 @@
   },
   "images": [
     {
+      "src": "../../assets/photos/experiences/port-autonome-de-kribi-5.jpg",
+      "alt": {
+        "fr": "Panneau routier indiquant le port en eau profonde (Deep Sea Port) et Campo",
+        "en": "Road sign pointing to the Deep Sea Port and Campo"
+      }
+    },
+    {
       "src": "../../assets/photos/experiences/port-autonome-de-kribi-6.jpg",
       "alt": {
         "fr": "Vue aérienne du port en eau profonde de Kribi, un porte-conteneurs à quai sous les portiques",
@@ -47,13 +54,6 @@
       "alt": {
         "fr": "Un navire et des barges au large, vus depuis une plage de rochers",
         "en": "A ship and barges offshore, seen from a rocky beach"
-      }
-    },
-    {
-      "src": "../../assets/photos/experiences/port-autonome-de-kribi-5.jpg",
-      "alt": {
-        "fr": "Panneau routier indiquant le port en eau profonde (Deep Sea Port) et Campo",
-        "en": "Road sign pointing to the Deep Sea Port and Campo"
       }
     }
   ],
