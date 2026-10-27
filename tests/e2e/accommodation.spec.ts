@@ -16,14 +16,15 @@ for (const [path, lang, intro, example, types] of [
     '/hebergements',
     'fr',
     'Choisissez le type de logement et le budget',
-    'Exemple de logement à ce budget · photo illustrative',
+    // Vraies photos depuis le 2026-10-27 : un exemple, plus « photo illustrative ».
+    'Exemple de logement à ce budget',
     ['Chambre', 'Studio', 'Appartement', 'Villa'],
   ],
   [
     '/en/accommodation',
     'en',
     'Choose the type of accommodation and the budget',
-    'Example of accommodation at this budget · illustrative photo',
+    'Example of accommodation at this budget',
     ['Room', 'Studio', 'Apartment', 'Villa'],
   ],
 ] as const) {

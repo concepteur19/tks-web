@@ -11,10 +11,10 @@
         "en": "1 to 2 guests"
       },
       "image": {
-        "src": "accommodation/chambre.jpg",
+        "src": "accommodation/chambre-2.jpg",
         "alt": {
-          "fr": "Une chambre lumineuse, lit fait, avec rideaux roses",
-          "en": "A bright bedroom with a made bed and pink curtains"
+          "fr": "Une chambre avec lit double, climatisation et coiffeuse",
+          "en": "A bedroom with a double bed, air conditioning and a dressing table"
         }
       }
     },
@@ -47,10 +47,10 @@
         "en": "2 to 6 guests"
       },
       "image": {
-        "src": "accommodation/appartement.jpg",
+        "src": "accommodation/appartement-salon.jpg",
         "alt": {
-          "fr": "Le séjour d'un appartement : table à manger, chaises et canapé",
-          "en": "An apartment living area with a dining table, chairs and a sofa"
+          "fr": "Le salon d'un appartement, canapés en cuir et décoration soignée",
+          "en": "An apartment living room with leather sofas and tasteful decor"
         }
       }
     },

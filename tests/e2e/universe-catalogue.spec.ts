@@ -41,8 +41,9 @@ test('spécialités culinaires : sur devis, sans montant ni option, photo étiqu
   for (let index = 0; index < (await all.count()); index += 1) {
     const text = plain(await all.nth(index).textContent());
     expect(text).not.toMatch(/FCFA|€/);
-    // Image générée, sauf l'Ebanjea et le maban, photographiés (2026-10-22).
-    if (/Ebanjea|Maban/.test(text)) expect(text).not.toMatch(/Photo illustrative|Photo à venir/);
+    // Image générée, sauf l'Ebanjea, le maban (2026-10-22) et les gambas (2026-10-27), photographiés.
+    if (/Ebanjea|Maban|Gambas/.test(text))
+      expect(text).not.toMatch(/Photo illustrative|Photo à venir/);
     else expect(text).toContain('Photo illustrative');
   }
   await page.goto('/experiences/langouste');

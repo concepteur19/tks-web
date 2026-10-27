@@ -522,6 +522,13 @@ describe('hébergements, parcours et formules (005)', () => {
   it('exige deux étapes et deux prestations au moins, et un type connu', () => {
     expect(messages({ ...tour, steps: [tour.steps[0]] }).length).toBeGreaterThan(0);
     expect(messages({ ...formule, serviceIds: ['quad'] }).length).toBeGreaterThan(0);
+    // Un groupe au choix compte pour une prestation et réunit au moins deux prestations.
+    expect(messages({ ...formule, serviceIds: ['chutes-de-la-lobe', ['kayak', 'quad']] })).toEqual(
+      [],
+    );
+    expect(
+      messages({ ...formule, serviceIds: ['chutes-de-la-lobe', ['kayak']] }).length,
+    ).toBeGreaterThan(0);
     expect(messages({ ...studio, accommodationType: 'chalet' }).length).toBeGreaterThan(0);
   });
 });

@@ -15,6 +15,13 @@
   },
   "images": [
     {
+      "src": "../../assets/photos/experiences/croisiere-en-bateau.jpg",
+      "alt": {
+        "fr": "Un passager à l'avant d'un bateau, au large de Kribi",
+        "en": "A passenger at the bow of a boat off the coast of Kribi"
+      }
+    },
+    {
       "src": "../../assets/photos/experiences/croisiere-en-haute-mer.jpg",
       "alt": {
         "fr": "Un bateau de pêche au gros blanc, amarré au ponton sous les drapeaux du Cameroun",
@@ -33,6 +40,13 @@
       "alt": {
         "fr": "Bateaux amarrés le long du ponton flottant, aigrettes posées sur les rambardes",
         "en": "Boats moored along the floating pontoon, egrets perched on the rails"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/croisiere-en-haute-mer-4.jpg",
+      "alt": {
+        "fr": "Deux passagères en gilet de sauvetage font un selfie à bord, en pleine mer",
+        "en": "Two passengers in life jackets take a selfie on board, out at sea"
       }
     }
   ],

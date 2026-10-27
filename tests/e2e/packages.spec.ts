@@ -67,7 +67,10 @@ test.describe('parcours de visite', () => {
     await more.click();
     await more.click();
     // « Personnaliser ce parcours » est désormais réservé à WhatsApp, sur la fiche (010).
-    await card.getByRole('button', { name: /^Ajouter à mon séjour/ }).click();
+    const add = card.getByRole('button', { name: /^Ajouter à mon séjour/ });
+    // Centré avant le clic : en bas de l'écran, la barre d'onglets fixe le recouvre.
+    await add.evaluate((element) => element.scrollIntoView({ block: 'center' }));
+    await add.click();
     await expect(page.getByTestId('toast')).toContainText('ajouté');
     await page.goto('/sejour');
     const line = page.getByTestId('stay-line');
@@ -119,7 +122,10 @@ test.describe('formules d’activités', () => {
     await expect(cards).toHaveCount(4);
     const evasion = page.locator('[id="formule-evasion"]');
     expect(plain(await evasion.textContent())).toContain('50 000 FCFA / 2 personnes');
-    await expect(evasion.locator('ul a')).toHaveCount(5);
+    // Kayak, jet-ski ou quad au choix : une ligne, trois liens (retours du 2026-10-27).
+    await expect(evasion.locator('ul li')).toHaveCount(5);
+    await expect(evasion.locator('ul a')).toHaveCount(7);
+    expect(plain(await evasion.textContent())).toContain('Kayak, Jet-ski ou Quad, au choix');
     await expect(page.locator('[id="formule-premium"]')).toContainText('Le plus complet');
     await expect(page.locator('[data-section="groups"]').getByRole('link')).toHaveAttribute(
       'href',

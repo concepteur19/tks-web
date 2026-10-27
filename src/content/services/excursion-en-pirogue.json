@@ -15,6 +15,13 @@
   },
   "images": [
     {
+      "src": "../../assets/photos/experiences/excursion-en-pirogue-4.jpg",
+      "alt": {
+        "fr": "Des visiteuses souriantes assises dans une pirogue",
+        "en": "Smiling visitors sitting in a dugout canoe"
+      }
+    },
+    {
       "src": "../../assets/photos/experiences/excursion-en-pirogue.jpg",
       "alt": {
         "fr": "Une pirogue glisse sur la Lobé, entre forêt et reflets",
@@ -33,6 +40,20 @@
       "alt": {
         "fr": "Des visiteurs en gilet de sauvetage dans une pirogue",
         "en": "Visitors in life jackets in a dugout canoe"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/excursion-en-pirogue-5.jpg",
+      "alt": {
+        "fr": "Un visiteur en gilet de sauvetage dans la pirogue, près des chutes",
+        "en": "A visitor in a life jacket in the canoe near the falls"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/excursion-en-pirogue-6.jpg",
+      "alt": {
+        "fr": "Deux visiteurs en pirogue devant les chutes de la Lobé",
+        "en": "Two visitors in a canoe in front of the Lobé Falls"
       }
     }
   ],

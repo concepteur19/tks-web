@@ -34,6 +34,20 @@
         "fr": "Une visiteuse photographie les chutes depuis la pirogue",
         "en": "A visitor photographs the falls from the canoe"
       }
+    },
+    {
+      "src": "../../assets/photos/experiences/chutes-de-la-lobe-4.jpg",
+      "alt": {
+        "fr": "Une sirène sculptée dans le sable, près d'une paillote du site des chutes",
+        "en": "A mermaid sculpted in the sand near a beach hut at the falls site"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/chutes-de-la-lobe-5.jpg",
+      "alt": {
+        "fr": "La sirène sculptée dans le sable, au site des chutes de la Lobé",
+        "en": "The mermaid sculpted in sand at the Lobé Falls site"
+      }
     }
   ],
   "pricing": {

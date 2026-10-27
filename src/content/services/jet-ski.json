@@ -34,6 +34,20 @@
         "fr": "Une jeune femme sur un jet-ski, devant les chutes de la Lobé",
         "en": "A young woman on a jet ski in front of the Lobé Falls"
       }
+    },
+    {
+      "src": "../../assets/photos/experiences/jet-ski-4.jpg",
+      "alt": {
+        "fr": "Deux passagères filent sur un jet-ski bleu",
+        "en": "Two riders speed along on a blue jet ski"
+      }
+    },
+    {
+      "src": "../../assets/photos/experiences/jet-ski-5.jpg",
+      "alt": {
+        "fr": "Une jeune femme pose sur un jet-ski, au bord de la rivière",
+        "en": "A young woman poses on a jet ski by the river"
+      }
     }
   ],
   "pricing": {

@@ -15,12 +15,11 @@
   },
   "images": [
     {
-      "src": "../../assets/photos/illustrations/appartement-100000.jpg",
+      "src": "../../assets/photos/accommodation/appartement-salon.jpg",
       "alt": {
-        "fr": "Un appartement haut de gamme ouvert sur une terrasse face à l’océan",
-        "en": "An upmarket apartment opening onto a terrace facing the ocean"
-      },
-      "illustrative": true
+        "fr": "Le salon d'un appartement, canapés en cuir et décoration soignée",
+        "en": "An apartment living room with leather sofas and tasteful decor"
+      }
     }
   ],
   "pricing": {

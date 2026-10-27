@@ -93,6 +93,7 @@ export const en = {
   'accommodation.intro':
     'Choose the type of accommodation and the budget that suit you. We then find the best option available among our partners in Kribi.',
   'accommodation.example': 'Example of accommodation at this budget · illustrative photo',
+  'accommodation.examplePhoto': 'Example of accommodation at this budget',
   'accommodation.capacity': '{min} to {max} people',
   'accommodation.type.chambre': 'Room',
   'accommodation.type.studio': 'Studio',
@@ -117,6 +118,8 @@ export const en = {
   'packages.base': 'All our packages are priced for 2 people.',
   'packages.groups.title': 'Groups of up to 8 on request',
   'packages.groups.text': "Every package can be adjusted: tell us what you'd like to change.",
+  'packages.or': 'or',
+  'packages.choice': 'your choice',
   'packages.request': 'Ask on WhatsApp',
   'packages.requestMessage':
     'Hello Kibreeze, I am interested in “{title}”. Could you arrange it for me? {url}',
@@ -135,7 +138,7 @@ export const en = {
   'mobility.requestMessage': 'Hello Kibreeze, I would like a price for “{title}”. {url}',
   'mobility.seo.title': 'TKS® mobility in Kribi: car hire, transfers, driver',
   'mobility.seo.description':
-    'Hire a vehicle (Luxury, Premium, Yaris) or ask for a transfer or a private driver for your stay in Kribi.',
+    'Hire a vehicle (Luxury, Premium, Economy) or ask for a transfer or a private driver for your stay in Kribi.',
   'experiences.upcoming': 'Photo coming soon',
   'stay.arrival': 'Arrival',
   'stay.departure': 'Departure',
@@ -158,6 +161,7 @@ export const en = {
     'A Bagyeli couple in the forest, she with a woven basket, he with a hunting net',
   'home.hero.alt6': 'Aerial view of the Kribi deep-sea port, a container ship at the quay',
   'home.hero.alt7': 'Three sea turtles resting on a sandy beach',
+  'home.hero.alt8': 'The bridge over the Lobé at sunset, the river below',
   'home.hero.pause': 'Pause the slideshow',
   'lightbox.close': 'Close',
   'lightbox.open': 'View the photo full size',

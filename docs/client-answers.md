@@ -382,3 +382,13 @@ Notes vocales et captures sur la version du 11 octobre ; transcription dans [aud
 | Photos de clients en avant plutôt que lui | décision de Zobel : les photos de clients restent utilisées |
 
 Compléments du 2026-10-18 : descriptions des 11 plats, consignes des six parcours (une fiche par parcours, durées, mention « Prix indicatif, sous réserve de disponibilité et de confirmation par KIBREEZE », personnalisation sur WhatsApp, fleuve Lobé inclus dans Bagyeli, phare, monument et ponts inclus dans Mayi).
+
+## 1 nonies. Retours de Franck du 2026-10-27 (document « Retours kibreeze »)
+
+Document Word relayé par Zobel : `Elements/retours de franck/Retours kibreeze.docx`. Photos : détail dans `src/assets/photos/README.md`. Autres demandes :
+
+- **Mobilité** : la catégorie « Yaris » s'appelle « Économique » (« Economy »).
+- **Formules** : Évasion propose le kayak, le jet-ski ou le quad au choix ; Aventure et Premium, le jet-ski ou le kayak au choix ; Découverte garde le guide touristique.
+- **Affichage** : une photo verticale ne doit plus être agrandie pour remplir la largeur. Dans la galerie des fiches, elle s'affiche entière dans le cadre habituel, sur un fond flou tiré d'elle-même (choix validé par Zobel).
+- **En attente** : photo de balade à cheval ; phare et monument du Village Mayi.
+

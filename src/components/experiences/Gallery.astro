@@ -32,6 +32,10 @@ const styleOf = (index: number, focus: string | undefined) =>
     .filter(Boolean)
     .join('; ') || undefined;
 const several = images.length > 1;
+// Photo verticale sans cadrage choisi (retours du 2026-10-27) : entière dans le cadre 4:3, sur un
+// fond flou tiré d'elle-même, plutôt qu'agrandie et recadrée. Même jeu d'images : un seul fichier.
+const contained = (image: Props['images'][number]) =>
+  !image.focus && image.src.height > image.src.width;
 ---
 
 <div data-testid="gallery">
@@ -47,7 +51,7 @@ const several = images.length > 1;
         <!-- Photo en grand (010) : le script l'ouvre dans la fenêtre ; sans lui, le lien mène à l'image. -->
         <a
           href={image.src.src}
-          class="block"
+          class="relative isolate block overflow-hidden"
           data-lightbox-open
           aria-label={`${openLabel} : ${image.alt}`}
         >
@@ -59,9 +63,25 @@ const several = images.length > 1;
             sizes="(min-width: 64rem) 50vw, 100vw"
             loading={index === 0 ? 'eager' : 'lazy'}
             fetchpriority={index === 0 ? 'high' : 'auto'}
-            class="aspect-4/3 w-full object-cover"
+            class:list={[
+              'relative z-1 aspect-4/3 w-full',
+              contained(image) ? 'object-contain' : 'object-cover',
+            ]}
             style={styleOf(index, image.focus)}
           />
+          {contained(image) && (
+            <Image
+              src={image.src}
+              alt=""
+              aria-hidden="true"
+              widths={[480, 960]}
+              quality={65}
+              sizes="(min-width: 64rem) 50vw, 100vw"
+              loading={index === 0 ? 'eager' : 'lazy'}
+              class="absolute inset-0 z-0 h-full w-full scale-110 object-cover blur-xl brightness-75"
+              data-backdrop
+            />
+          )}
         </a>
         {image.tag && <IllustrativeTag label={image.tag} />}
         {several && (

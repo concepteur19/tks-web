@@ -15,6 +15,13 @@
   },
   "images": [
     {
+      "src": "../../assets/photos/experiences/seance-photo-4.jpg",
+      "alt": {
+        "fr": "Silhouettes d'un couple main dans la main, face au soleil voilé sur la mer",
+        "en": "Silhouettes of a couple holding hands, facing the hazy sun over the sea"
+      }
+    },
+    {
       "src": "../../assets/photos/experiences/seance-photo.jpg",
       "alt": {
         "fr": "Deux jeunes femmes posent sur un quad, au bord de la rivière",
@@ -29,10 +36,10 @@
       }
     },
     {
-      "src": "../../assets/photos/experiences/seance-photo-3.jpg",
+      "src": "../../assets/photos/experiences/seance-photo-5.jpg",
       "alt": {
-        "fr": "Une jeune femme pose sur un jet-ski, au bord de la rivière",
-        "en": "A young woman poses on a jet ski by the river"
+        "fr": "Une jeune femme pose dans les vagues, de dos, face à la mer",
+        "en": "A young woman posing in the waves, seen from behind, facing the sea"
       }
     }
   ],

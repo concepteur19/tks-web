@@ -184,6 +184,35 @@ Deux photos envoyées par Zobel le 2026-10-22, rangées dans `Elements/tri-par-a
 | Photo principale | `experiences/maban.jpg` | `poisson-en-main` |
 | Galerie | `experiences/maban-2.jpg` | `poissons-epices` |
 
+## Retours de Franck du 2026-10-27 (`Elements/retours de franck/Retours kibreeze.docx`)
+
+32 images dans le document, dont 24 déjà reçues : elles sont réimportées depuis leur original de `Elements/tri-par-activite/`, contrôlé sans filigrane. Les 8 nouvelles sont rangées dans `Elements/tri-par-activite/retours-2026-10-27/`. Choix de Zobel sur les points ambigus : la photo du village remplace `campement-bagyeli-3` (L12-08), les trois suivantes s'ajoutent ; le panneau « Deep Sea Port » devient la photo principale du port ; la photo du salon sert aux trois paliers d'appartement.
+
+| Page | Changement | Fichiers |
+|---|---|---|
+| Accueil, diaporama | + pont de la Lobé (photo 5) | `sections/pont-de-la-lobe.jpg` |
+| Accueil, aperçu Hébergements | chambre et appartement de Franck | `accommodation/chambre-2.jpg`, `appartement-salon.jpg` |
+| Campement Bagyeli | `-3` remplacée, + 3 | `-3` (L12-12), `-5` (L12-04), `-6` (L12-06), `-7` (L12-14) |
+| Chutes de la Lobé | + 2 sirènes de sable | `-4` (L10-09), `-5` (L10-08) |
+| Univers Activités et loisirs | image de garde : le paddle | `experiences/paddle.jpg` |
+| Jet-ski | + 2 | `-4` (L6-02), `-5` (ancienne `seance-photo-3`, jet-ski bleu) |
+| Quad | sans la première (`quad.jpg`, supprimée) ; la jeune femme en orange (`quad-3`) en photo principale ; + 2 | `-4` (L7-10), `-5` (L6-03, plaque du loueur floutée) |
+| Excursion en pirogue | nouvelle photo principale, + 2 | `-4` (L12-07), `-5` (L9-15), `-6` |
+| Jacuzzi naturel | nouvelle photo principale, + 3, sans le doublon (`-2`, supprimée) | `-4` (L3-02), `-5` (L9-14), `hero/kribi-4.jpg` (L10-10), `-7` (L9-05) |
+| Gambas | vraie photo à la place de l'illustration | `experiences/gambas.jpg` |
+| Bateau de croisière en haute mer | + 2, la dernière (L6-08) en photo principale | `croisiere-en-bateau.jpg`, `croisiere-en-haute-mer-4.jpg` |
+| Séance photo | nouvelle photo principale, + 1, sans le jet-ski bleu | `-4`, `-5` |
+| Port Autonome | le panneau « Deep Sea Port » en photo principale | `port-autonome-de-kribi-5.jpg` |
+| Formule Découverte | pont de la Lobé | `sections/pont-de-la-lobe.jpg` |
+| Formule Évasion | deux jeunes femmes sur un quad, à la place du cheval | `experiences/seance-photo.jpg` |
+| Formule Aventure | jeune femme sur un quad | `experiences/quad-6.jpg` |
+| Parcours Kribi Nature & Littoral | « changer l'image », sans photo désignée : la plage de `hero/kribi-3.jpg` (choix de Claude, à confirmer) | `hero/kribi-3.jpg` |
+| Hébergements | vraies photos à la place des illustrations : villa, studio, chambre, les trois appartements | `accommodation/villa.jpg`, `villa-2.jpg`, `studio.jpg`, `chambre-2.jpg`, `appartement-salon.jpg` |
+
+Supprimées car plus utilisées : `experiences/quad.jpg`, `experiences/jacuzzi-naturel-2.jpg`, `accommodation/chambre.jpg`, `accommodation/appartement.jpg` et les illustrations des hébergements, des gambas, du maban et du bateau de croisière.
+
+En attente : la photo du phare et du monument pour le Village Mayi, et une photo de balade à cheval.
+
 ## Véhicules TKS® (feature 006)
 
 Photos des cinq véhicules envoyées par Franck le 2026-10-06 (`voitures-tks/`). Les plaques d'immatriculation sont floutées **à l'import** : l'entrée de `sources.json` donne les zones à flouter (`blur`, fractions de l'image après rotation), si bien qu'un réimport ne republie jamais une plaque lisible. Contrôlées en pleine résolution le 2026-10-17, plaques des taxis en arrière-plan comprises.

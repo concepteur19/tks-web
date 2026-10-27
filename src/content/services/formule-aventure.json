@@ -5,19 +5,19 @@
   },
   "section": "formule",
   "shortDescription": {
-    "fr": "Les chutes, la pirogue, le quad, le jet-ski, le kayak et le cheval",
-    "en": "The falls, a canoe trip, quad, jet ski, kayaking and horse riding"
+    "fr": "Les chutes, la pirogue, le quad, le jet-ski ou le kayak au choix, et le cheval",
+    "en": "The falls, a canoe trip, quad, your choice of jet ski or kayak, and horse riding"
   },
   "description": {
-    "fr": "Les chutes, la pirogue, le quad, le jet-ski, le kayak et le cheval. Une formule à prix fixe pour 2 personnes, ajustable avec nous.",
-    "en": "The falls, a canoe trip, quad, jet ski, kayaking and horse riding. A fixed-price package for 2 people, which we can adjust with you."
+    "fr": "Les chutes, la pirogue, le quad, le jet-ski ou le kayak au choix, et le cheval. Une formule à prix fixe pour 2 personnes, ajustable avec nous.",
+    "en": "The falls, a canoe trip, quad, your choice of jet ski or kayak, and horse riding. A fixed-price package for 2 people, which we can adjust with you."
   },
   "images": [
     {
-      "src": "../../assets/photos/experiences/quad.jpg",
+      "src": "../../assets/photos/experiences/quad-6.jpg",
       "alt": {
-        "fr": "Une pilote sur un quad bleu, au bord de l'eau",
-        "en": "A rider on a blue quad bike at the water's edge"
+        "fr": "Une jeune femme sur un quad, sous le ciel bleu",
+        "en": "A young woman on a quad under a blue sky"
       }
     }
   ],
@@ -33,8 +33,7 @@
     "chutes-de-la-lobe",
     "excursion-en-pirogue",
     "quad",
-    "jet-ski",
-    "kayak",
+    ["jet-ski", "kayak"],
     "balade-a-cheval"
   ],
   "order": 30
