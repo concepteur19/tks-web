@@ -1,7 +1,7 @@
 {
   "title": {
-    "fr": "Appartement, à partir de 50 000 FCFA la nuit",
-    "en": "Apartment, from 50,000 FCFA a night"
+    "fr": "Appartement, à partir de 60 000 FCFA la nuit",
+    "en": "Apartment, from 60,000 FCFA a night"
   },
   "section": "hebergement",
   "accommodationType": "appartement",
@@ -24,7 +24,7 @@
   ],
   "pricing": {
     "kind": "from",
-    "amount": 50000,
+    "amount": 60000,
     "unit": "per_night"
   },
   "quantity": {

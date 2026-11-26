@@ -119,7 +119,7 @@ test.describe('réduire les animations', () => {
 
     await page.goto('/hebergements');
     await waitForIslands(page);
-    const button = page.locator('[id="studio-30000"]').getByTestId('quick-add');
+    const button = page.locator('[id="studio-40000"]').getByTestId('quick-add');
     await reveal(button);
     await button.click();
     // Animations à keyframes seulement : la règle globale ramène les transitions à 0,01 ms, ce
@@ -173,7 +173,7 @@ test('à l’ajout : vibration de 15 ms, une seule fois', async ({ page }) => {
   });
   await page.goto('/hebergements');
   await waitForIslands(page);
-  const button = page.locator('[id="studio-30000"]').getByTestId('quick-add');
+  const button = page.locator('[id="studio-40000"]').getByTestId('quick-add');
   await reveal(button);
   await button.click();
   await expect(page.getByTestId('toast')).toContainText('ajouté');

@@ -38,7 +38,7 @@ Franck envoie ses éléments au fil de l'eau. Ce fichier dit ce qui est attendu,
 | Numéro WhatsApp | global | ✅ +237 697 13 53 88 | — | 2026-09-14 | variable `PUBLIC_WHATSAPP_NUMBER` | — |
 | Nom de domaine | global | ✅ `ki-breeze.com`, acheté par Zobel chez Cloudflare le 2026-10-26 | — | 2026-10-26 | variable `PUBLIC_SITE_URL` = `https://ki-breeze.com` en production, domaine personnalisé du projet Pages. L'adresse `https://tks-web-1h2.pages.dev` reste en service | Oui |
 | Photos (fonds global) | toutes pages | 📝 **113 photos reçues et triées** par activité, voir [photo-tri.md](./photo-tri.md). 🛑 **20 d'entre elles sont inutilisables** : Franck confirme le 2026-09-25 n'avoir **aucune autorisation** du photographe. Ni le retrait du filigrane ni un crédit ne règlent la question : il faut son accord, ou refaire les photos | ✅ textes alternatifs des photos publiées | 2026-09-25 | 13 photos optimisées dans `src/assets/photos/` (feature 002), liste et limites dans son README. ⚠️ Résolution faible (680 à 1 280 px) : demander les originaux | Oui |
-| Photos d'hébergements (chambre, appartement, villa) | hébergements | ✅ photos de Franck pour chaque type (retours du 2026-10-27), à la place des illustrations ; étiquette « Exemple de logement à ce budget » | ✅ | 2026-10-27 | `src/assets/photos/accommodation/` | Oui |
+| Photos d'hébergements (chambre, appartement, villa) | hébergements | ✅ photos de Franck pour chaque type (retours du 2026-10-27), à la place des illustrations, sans mention sur les photos. Un prix par type depuis le 2026-10-27 : chambre 15 000, studio 40 000, appartement 60 000, villa 150 000 FCFA | ✅ | 2026-10-27 | `src/assets/photos/accommodation/` | Oui |
 | Photos de véhicules et de chauffeurs | TKS® mobilité | ✅ 5 véhicules reçus le 2026-10-06, publiés plaques floutées (feature 006). ⏳ Photos propres aux transferts et au chauffeur (questionnaire 6, P2) : en attendant, photos des véhicules | ✅ | 2026-10-17 | `src/assets/photos/mobility/` | Non |
 | Photo d'équipe Kibreeze | accueil, bloc À propos | 📝 **illustration provisoire** (2026-10-21) : l'équipe redessinée en t-shirts Kibreeze d'après la photo « Trip Master », étiquetée « Illustration ». Vraie photo en tenue Kibreeze à venir | ✅ | 2026-10-21 | `src/assets/photos/illustrations/equipe.jpg` | Non |
 | Vidéo d'accueil courte et légère | accueil | 📝 **17 vidéos reçues** (MOV et MP4), à visionner et à sélectionner, poids à vérifier | — | 2026-09-25 | `src/assets/home/` | Non |
@@ -151,7 +151,7 @@ Réglé le 2026-09-16 : l'excursion en pirogue est gardée, il n'y a pas de cat�
 
 | Élément | État |
 |---|---|
-| Photos d'hébergement par budget (L1) | 🔄 une illustration générée par budget (6), marquée « Exemple de logement à ce budget · photo illustrative » ; les photos réelles de Franck restent sur l'accueil et en bandeau ; une vraie photo par budget toujours attendue |
+| Photos d'hébergement par budget (L1) | ✅ photos de Franck depuis le 2026-10-27, une par type, sans mention ; un seul prix par type (chambre 15 000, studio 40 000, appartement 60 000, villa 150 000 FCFA) |
 | Ce qui est inclus par palier (L2) | ⏳ non fourni : rien n'est affiché |
 | Prix des formules | ✅ revus le 2026-10-26 (relayés par Zobel), base 2 personnes : Découverte 55 000, Évasion 50 000, Aventure 80 000, Premium 245 000 FCFA. Remplacent les prix du guide (100 000, 120 000, 150 000, 300 000) |
 | Formules complètes avec hébergement et transport (R3) | ⏳ sans prix, non publiées |

@@ -69,7 +69,7 @@ test('un ajout pendant le tuto mène à l’étape 3, sans recouvrir la notifica
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/hebergements');
   await expect(bubble(page)).toContainText('Étape 1 sur 3');
-  const add = page.locator('[id="studio-30000"]').getByTestId('quick-add');
+  const add = page.locator('[id="studio-40000"]').getByTestId('quick-add');
   // La bulle est fixée en bas : le bouton est amené au centre de l'écran, hors de sa portée.
   await add.evaluate((element) => element.scrollIntoView({ block: 'center' }));
   await reveal(add);
