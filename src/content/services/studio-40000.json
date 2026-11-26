@@ -1,7 +1,7 @@
 {
   "title": {
-    "fr": "Studio, à partir de 30 000 FCFA la nuit",
-    "en": "Studio, from 30,000 FCFA a night"
+    "fr": "Studio, à partir de 40 000 FCFA la nuit",
+    "en": "Studio, from 40,000 FCFA a night"
   },
   "section": "hebergement",
   "accommodationType": "studio",
@@ -24,7 +24,7 @@
   ],
   "pricing": {
     "kind": "from",
-    "amount": 30000,
+    "amount": 40000,
     "unit": "per_night"
   },
   "quantity": {

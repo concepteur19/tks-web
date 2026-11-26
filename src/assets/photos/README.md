@@ -186,7 +186,7 @@ Deux photos envoyées par Zobel le 2026-10-22, rangées dans `Elements/tri-par-a
 
 ## Retours de Franck du 2026-10-27 (`Elements/retours de franck/Retours kibreeze.docx`)
 
-32 images dans le document, dont 24 déjà reçues : elles sont réimportées depuis leur original de `Elements/tri-par-activite/`, contrôlé sans filigrane. Les 8 nouvelles sont rangées dans `Elements/tri-par-activite/retours-2026-10-27/`. Choix de Zobel sur les points ambigus : la photo du village remplace `campement-bagyeli-3` (L12-08), les trois suivantes s'ajoutent ; le panneau « Deep Sea Port » devient la photo principale du port ; la photo du salon sert aux trois paliers d'appartement.
+32 images dans le document, dont 24 déjà reçues : elles sont réimportées depuis leur original de `Elements/tri-par-activite/`, contrôlé sans filigrane. Les 8 nouvelles sont rangées dans `Elements/tri-par-activite/retours-2026-10-27/`. Choix de Zobel sur les points ambigus : la photo du village remplace `campement-bagyeli-3` (L12-08), les trois suivantes s'ajoutent ; le panneau « Deep Sea Port » devient la photo principale du port ; la photo du salon sert aux trois paliers d'appartement (un seul palier, à 60 000 FCFA, depuis le soir même).
 
 | Page | Changement | Fichiers |
 |---|---|---|

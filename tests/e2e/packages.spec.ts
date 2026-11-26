@@ -155,7 +155,7 @@ test.describe('formules d’activités', () => {
   test('séjour logement + parcours + formule + expérience : message complet', async ({ page }) => {
     await page.setViewportSize({ width: 360, height: 800 });
     await seedSelection(page, [
-      { serviceId: 'studio-30000', quantities: [3] },
+      { serviceId: 'studio-40000', quantities: [3] },
       { serviceId: 'essentiel-de-kribi', quantities: [4] },
       { serviceId: 'formule-evasion', quantities: [] },
       { serviceId: 'kayak', quantities: [2] },
@@ -164,7 +164,7 @@ test.describe('formules d’activités', () => {
     const message = decodedMessage(
       await page.locator('[data-testid="send-stay"]:visible').getAttribute('href'),
     );
-    expect(message).toContain('Studio, à partir de 30 000 FCFA la nuit — 3 nuits');
+    expect(message).toContain('Studio, à partir de 40 000 FCFA la nuit — 3 nuits');
     expect(message).toContain("L'Essentiel de Kribi — 4 personnes");
     expect(message).toContain('Formule Évasion');
     expect(message).toContain('Kayak — 2 personnes');

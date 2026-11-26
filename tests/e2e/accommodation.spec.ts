@@ -1,13 +1,14 @@
 import { expect, test } from '@playwright/test';
 import { decodedMessage, plain, seedSelection, waitForIslands } from './stay.ts';
 
-/** Page Hébergements (005, US1) : paliers par type, haut de gamme à la fin, ajout au séjour. */
+/**
+ * Page Hébergements (005, US1) : un prix « à partir de » par type (retours de Franck du
+ * 2026-10-27), haut de gamme à la fin, ajout au séjour.
+ */
 const TIERS = [
   ['chambre-15000', '15 000'],
-  ['studio-30000', '30 000'],
-  ['appartement-35000', '35 000'],
-  ['appartement-50000', '50 000'],
-  ['appartement-100000', '100 000'],
+  ['studio-40000', '40 000'],
+  ['appartement-60000', '60 000'],
   ['villa-150000', '150 000'],
 ] as const;
 
@@ -16,7 +17,7 @@ for (const [path, lang, intro, example, types] of [
     '/hebergements',
     'fr',
     'Choisissez le type de logement et le budget',
-    // Vraies photos depuis le 2026-10-27 : un exemple, plus « photo illustrative ».
+    // Mention retirée à la demande de Franck (2026-10-27) : le test vérifie son absence.
     'Exemple de logement à ce budget',
     ['Chambre', 'Studio', 'Appartement', 'Villa'],
   ],
@@ -29,7 +30,9 @@ for (const [path, lang, intro, example, types] of [
   ],
 ] as const) {
   test.describe(`page Hébergements ${lang}`, () => {
-    test('explication en tête, quatre types, six paliers, photos d’exemple', async ({ page }) => {
+    test('explication en tête, quatre types, un palier chacun, sans mention sur les photos', async ({
+      page,
+    }) => {
       await page.goto(path);
       const main = page.locator('main');
       const text = plain(await main.textContent());
@@ -41,8 +44,9 @@ for (const [path, lang, intro, example, types] of [
       expect(text.indexOf(intro)).toBeGreaterThan(-1);
       expect(text.indexOf(intro)).toBeLessThan(text.indexOf(types[0]!));
       for (const [id] of TIERS) await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
-      await expect(types_.locator('[data-illustrative]')).toHaveCount(4);
-      await expect(types_.locator('[data-illustrative]').first()).toHaveText(example);
+      // Les photos ne montrent pas forcément un logement à ce budget : aucune mention dessus.
+      await expect(types_.locator('[data-illustrative]')).toHaveCount(0);
+      expect(text).not.toContain(example);
     });
 
     test('aucun montant haut de gamme avant le dernier palier', async ({ page }) => {
@@ -77,34 +81,34 @@ test.describe('ajout au séjour', () => {
   test('ajouter le studio : confirmation et compteur', async ({ page }) => {
     await page.goto('/hebergements');
     await waitForIslands(page);
-    const button = page.locator('[id="studio-30000"]').getByTestId('quick-add');
+    const button = page.locator('[id="studio-40000"]').getByTestId('quick-add');
     await button.scrollIntoViewIfNeeded();
     await button.click();
     await expect(page.getByTestId('toast')).toContainText('ajouté');
     await expect(page.getByTestId('tab-bar').getByTestId('stay-badge')).toHaveText(/^1/);
   });
 
-  test('studio, 3 nuits : 90 000 FCFA, total estimatif, message et lien', async ({ page }) => {
-    await seedSelection(page, [{ serviceId: 'studio-30000', quantities: [3] }]);
+  test('studio, 3 nuits : 120 000 FCFA, total estimatif, message et lien', async ({ page }) => {
+    await seedSelection(page, [{ serviceId: 'studio-40000', quantities: [3] }]);
     const line = page.getByTestId('stay-line');
     expect(plain(await line.textContent())).toContain('3 nuits');
-    expect(plain(await line.textContent())).toContain('90 000 FCFA');
+    expect(plain(await line.textContent())).toContain('120 000 FCFA');
     const total = plain(await page.locator('[data-testid="stay-total"]:visible').textContent());
     expect(total).toContain('Total estimatif');
     await expect(line.getByRole('link').first()).toHaveAttribute(
       'href',
-      '/hebergements#studio-30000',
+      '/hebergements#studio-40000',
     );
     const message = decodedMessage(
       await page.locator('[data-testid="send-stay"]:visible').getAttribute('href'),
     );
-    expect(message).toContain('Studio, à partir de 30 000 FCFA la nuit — 3 nuits');
+    expect(message).toContain('Studio, à partir de 40 000 FCFA la nuit — 3 nuits');
   });
 
-  test('deux budgets d’appartement donnent deux lignes', async ({ page }) => {
+  test('deux logements donnent deux lignes', async ({ page }) => {
     await seedSelection(page, [
-      { serviceId: 'appartement-35000', quantities: [2] },
-      { serviceId: 'appartement-50000', quantities: [2] },
+      { serviceId: 'studio-40000', quantities: [2] },
+      { serviceId: 'appartement-60000', quantities: [2] },
     ]);
     await expect(page.getByTestId('stay-line')).toHaveCount(2);
   });
@@ -116,12 +120,12 @@ test('sans JavaScript : page lisible, demande par WhatsApp pour chaque palier', 
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto('/hebergements');
-  const fallback = page.locator('[id="studio-30000"]').getByRole('link', {
+  const fallback = page.locator('[id="studio-40000"]').getByRole('link', {
     name: 'Demander ce logement',
   });
   await expect(fallback).toHaveAttribute('href', /^https:\/\/wa\.me\//);
   expect(decodedMessage(await fallback.getAttribute('href'))).toContain(
-    'je souhaite réserver un logement : « Studio, à partir de 30 000 FCFA la nuit »',
+    'je souhaite réserver un logement : « Studio, à partir de 40 000 FCFA la nuit »',
   );
   await context.close();
 });

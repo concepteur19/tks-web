@@ -392,3 +392,8 @@ Document Word relayé par Zobel : `Elements/retours de franck/Retours kibreeze.d
 - **Affichage** : une photo verticale ne doit plus être agrandie pour remplir la largeur. Dans la galerie des fiches, elle s'affiche entière dans le cadre habituel, sur un fond flou tiré d'elle-même (choix validé par Zobel).
 - **En attente** : photo de balade à cheval ; phare et monument du Village Mayi.
 
+**Compléments du même soir** (deux notes vocales et deux captures, `Elements/WhatsApp Audio 2026-10-27 at 20.00.44.opus` et `20.01.27.opus`) :
+
+- **Un seul prix « à partir de » par type de logement** : « tout le monde met juste à partir ». L'appartement passe à **60 000 FCFA** et ses paliers de 35 000 et 100 000 sont retirés ; le studio passe à **40 000 FCFA**. Chambre (15 000) et villa (150 000) inchangées.
+- **Plus de mention « Exemple de logement à ce budget »** sur les photos : elles ne montrent pas un logement à ce prix (la villa photographiée se loue 600 000 à 650 000 FCFA la nuit), et un client pourrait croire qu'on lui promet ce logement.
+
